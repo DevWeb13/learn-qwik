@@ -496,7 +496,6 @@ html {
 body {
   padding: 0;
   margin: 0;
-  line-height: inherit;
   color: var(--ds-gray-1000);
   text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
