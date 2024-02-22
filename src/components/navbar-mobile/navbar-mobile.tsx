@@ -32,13 +32,7 @@ export default component$(() => {
             ></path>
           </svg>
         </a>
-        <svg
-          height="32"
-          role="separator"
-          viewBox="0 0 32 32"
-          width="32"
-          aria-hidden="true"
-        >
+        <svg height="32" viewBox="0 0 32 32" width="32">
           <path
             d="M22 5L9 28"
             stroke="var(--accents-2)"
@@ -46,7 +40,6 @@ export default component$(() => {
             stroke-linejoin="round"
           ></path>
         </svg>
-        {/* <hr style="height: 32px; width: 32px;" /> */}
 
         <Link
           class={`${styles.navbar_mobileLogo}`}
