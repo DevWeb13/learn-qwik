@@ -1,17 +1,17 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./navbar-mobile.module.css";
+import styles from "./navbar.module.css";
 import Popover from "../popover/popover";
-import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (
-    <div class={`${styles.navbar_mobileTop}`}>
+    <div class={`${styles.navbar_links}`}>
       <div
         class={`${styles.stack_stack} stack}`}
         data-version="v1"
         style="--stack-flex:initial;--stack-direction:row;--stack-align:center;--stack-justify:flex-start;--stack-padding:0px;--stack-gap:4px"
       >
         <a
+          class={styles.link}
           rel="noopener noreferrer"
           target="_blank"
           data-testid="navbar/vercel-logo"
@@ -40,9 +40,12 @@ export default component$(() => {
             stroke-linejoin="round"
           ></path>
         </svg>
-        <Link
-          class={`${styles.navbar_mobileLogo}`}
+        <a
+          aria-label="Go to the homepage"
+          class={`${styles.navbar_logo} ${styles.link}`}
           title="Go to the homepage"
+          data-state="closed"
+          style="-webkit-touch-callout:none"
           href="/"
         >
           <svg
@@ -51,8 +54,8 @@ export default component$(() => {
             role="img"
             viewBox="0 0 167 53"
             xmlns="http://www.w3.org/2000/svg"
-            height="26"
-            width="80"
+            height="28"
+            width="90"
             class="qwik-logo"
           >
             <path
@@ -84,62 +87,74 @@ export default component$(() => {
               fill="white"
             ></path>
           </svg>
-        </Link>
+        </a>
       </div>
-      <div class={`${styles.navbar_mobileTopRight}`}>
-        <button
-          class={`${styles.navbar_search}`}
-          data-variant="large"
-          type="button"
+      <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/4">
+        {/* <a class="" href="/showcase" >
+          Showcase
+        </a> */}
+        <p class={styles.replaceLink}>Showcase</p>
+      </Popover>
+      <a
+        class={styles.link}
+        title="Documentation"
+        href="https://qwik.dev/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Docs
+        <svg
+          aria-hidden="true"
+          class={`${styles.navbar_externalArrow}`}
+          height="7"
+          viewBox="0 0 6 6"
+          width="7"
         >
-          Search documentation...
-          <kbd class={`${styles.navbar_kbd}`}>CtrlK</kbd>
-        </button>
-        <button
-          class={`${styles.navbar_search}`}
-          data-variant="medium"
-          type="button"
+          <path
+            d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
+            fill="var(--accents-3)"
+          ></path>
+        </svg>
+      </a>
+      <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/5">
+        {/* <a class={styles.link} href="/blog">
+        Blog
+      </a> */}
+        <p class={styles.replaceLink}>Blog</p>
+      </Popover>
+
+      <a
+        class={styles.link}
+        rel="canonical noreferrer"
+        target="_blank"
+        href="https://vercel.com/analytics?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=learn"
+      >
+        Analytics
+        <svg
+          aria-hidden="true"
+          class={`${styles.navbar_externalArrow}`}
+          height="7"
+          viewBox="0 0 6 6"
+          width="7"
         >
-          Search...<kbd>⌘K</kbd>
-        </button>
-        <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/3">
-          {/* When funtionnality is added, put the button back */}
-          <div
-            aria-label="Search documentation"
-            class={`${styles.navbar_search}`}
-            data-variant="small"
-            // type="button"
-          >
-            <svg
-              class={`${styles.with_icon}`}
-              data-testid="geist-icon"
-              fill="none"
-              height="24"
-              shape-rendering="geometricPrecision"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-              width="24"
-              style="color:currentColor"
-            >
-              <path d="M11 17.25a6.25 6.25 0 110-12.5 6.25 6.25 0 010 12.5z"></path>
-              <path d="M16 16l4.5 4.5"></path>
-            </svg>
-          </div>
-        </Popover>
-        <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/1">
-          {/* When funtionnality is added, put the button back */}
-          <div
-            aria-label="open menu"
-            class={`${styles.navbar_menuButton}`}
-            // type="button"
-          >
-            <div class={`${styles.menu_toggle_wrap}`}></div>
-          </div>
-        </Popover>
-      </div>
+          <path
+            d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
+            fill="var(--accents-3)"
+          ></path>
+        </svg>
+      </a>
+      <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/6">
+        {/* <a class={styles.link} href="/templates">
+        Templates
+      </a> */}
+        <p class={styles.replaceLink}>Templates</p>
+      </Popover>
+      <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/7">
+        {/* <a class={styles.link} href="/enterprise">
+        Enterprise
+      </a> */}
+        <p class={styles.replaceLink}>Enterprise</p>
+      </Popover>
     </div>
   );
 });
