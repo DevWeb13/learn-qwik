@@ -44,5 +44,8 @@
     "vercel": "^33.5.1",
     "vite": "^5.0.12",
     "vite-tsconfig-paths": "^4.2.1"
+  },
+  "dependencies": {
+    "@qwik-ui/headless": "^0.2.2"
   }
 }
