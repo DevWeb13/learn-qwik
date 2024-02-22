@@ -119,7 +119,6 @@ export default component$(() => {
             <span class={`${styles.button_content}`}>Deploy</span>
           </a>
           <a
-            role="link"
             tabIndex={0}
             href="/"
             type="submit"
