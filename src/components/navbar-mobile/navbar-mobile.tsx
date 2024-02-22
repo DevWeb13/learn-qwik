@@ -37,7 +37,7 @@ export default component$(() => {
           role="separator"
           viewBox="0 0 32 32"
           width="32"
-          aria-hidden
+          aria-hidden="true"
         >
           <path
             d="M22 5L9 28"
