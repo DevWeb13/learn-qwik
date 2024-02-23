@@ -159,3 +159,11 @@
 .menu_toggle_wrap:after {
   transform: translateY(4px) rotate(0deg);
 }
+
+.open .menu_toggle_wrap:before {
+  transform: translateY(0px) rotate(45deg);
+}
+
+.open .menu_toggle_wrap:after {
+  transform: translateY(0px) rotate(-45deg);
+}

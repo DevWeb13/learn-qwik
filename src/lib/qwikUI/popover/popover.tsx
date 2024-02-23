@@ -34,7 +34,7 @@ export default component$<PopoverProps>(
         </PopoverTrigger>
         <Popover
           id={`hero-id ${issueLink}`}
-          class="shadow-dark-medium my-transition bg-var(--ds-gray-1000) rounded-md border-2 border-slate-300 px-3 py-1 opacity-0"
+          class="shadow-dark-medium my-transition bg-var(--ds-gray-1000) rounded-md border-2 border-slate-300 px-3 py-1 opacity-0 z-50"
         >
           {popoverText}
           {issueLink && (

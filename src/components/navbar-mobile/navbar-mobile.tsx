@@ -1,9 +1,12 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
 import styles from "./navbar-mobile.module.css";
-import Popover from "../popover/popover";
+import Popover from "../../lib/qwikUI/popover/popover";
 import { Link } from "@builder.io/qwik-city";
+import { MobileMenuVisibleContext } from "~/routes/layout";
 
 export default component$(() => {
+  const mobileMenuVisible = useContext(MobileMenuVisibleContext);
+
   return (
     <div class={`${styles.navbar_mobileTop}`}>
       <div
@@ -130,16 +133,15 @@ export default component$(() => {
             </svg>
           </div>
         </Popover>
-        <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/1">
-          {/* When funtionnality is added, put the button back */}
-          <div
-            aria-label="open menu"
-            class={`${styles.navbar_menuButton}`}
-            // type="button"
-          >
-            <div class={`${styles.menu_toggle_wrap}`}></div>
-          </div>
-        </Popover>
+
+        <button
+          aria-label="open menu"
+          class={`${styles.navbar_menuButton} ${mobileMenuVisible.value ? styles.open : ""}`}
+          type="button"
+          onClick$={() => (mobileMenuVisible.value = !mobileMenuVisible.value)}
+        >
+          <div class={`${styles.menu_toggle_wrap}`}></div>
+        </button>
       </div>
     </div>
   );

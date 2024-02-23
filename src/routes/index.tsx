@@ -1,10 +1,13 @@
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
-import Popover from "~/components/popover/popover";
+
+import MobileMenu from "~/components/mobile-menu/mobile-menu";
+import Popover from "~/lib/qwikUI/popover/popover";
 
 export default component$(() => {
   return (
     <main>
+      <MobileMenu />
       <div class="relative flex w-full flex-col items-center overflow-hidden py-12 md:py-20">
         <div class="flex flex-col items-center px-4">
           <h1 class="mb-4 max-w-[80%] text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">
@@ -1225,7 +1228,7 @@ export default component$(() => {
                 <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/9">
                   <div class="w-[100%] md:w-[213px]">
                     {/* <Link
-                      role="link"
+                     
                       tabIndex={0}
                       href="/learn/dashboard-app"
                       type="submit"
@@ -1237,7 +1240,6 @@ export default component$(() => {
                       style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
                     > */}
                     <div
-                      role="link"
                       tabIndex={0}
                       // type="submit"
                       class="button_base__BjwbK reset_reset__KRyvc button_button__81573 reset_reset__KRyvc button_large__fuY6E button_invert__YNhnn"
@@ -1616,7 +1618,7 @@ export default component$(() => {
                 </div>
                 <div class="w-full md:w-fit">
                   <a
-                    role="link"
+                    
                     tabIndex={0}
                     href="/learn/react-foundations"
                     type="submit"

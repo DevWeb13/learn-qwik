@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import styles from "./navbar.module.css";
-import Popover from "../popover/popover";
+import Popover from "../../lib/qwikUI/popover/popover";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (
@@ -40,7 +41,7 @@ export default component$(() => {
             stroke-linejoin="round"
           ></path>
         </svg>
-        <a
+        <Link
           aria-label="Go to the homepage"
           class={`${styles.navbar_logo} ${styles.link}`}
           title="Go to the homepage"
@@ -87,7 +88,7 @@ export default component$(() => {
               fill="white"
             ></path>
           </svg>
-        </a>
+        </Link>
       </div>
       <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/4">
         {/* <a class="" href="/showcase" >
