@@ -52,6 +52,7 @@ div.jsx4194965384 {
   .mobileMenu_mobileMenu__xqbOP a {
     display: flex;
     padding: 10px 8px;
+    width: fit-content;
   }
 }
 @media (max-width: 1020px) {
