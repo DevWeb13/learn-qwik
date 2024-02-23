@@ -1,4 +1,12 @@
-import { component$, Slot, useStyles$ } from "@builder.io/qwik";
+import type { Signal } from "@builder.io/qwik";
+import {
+  component$,
+  createContextId,
+  Slot,
+  useContextProvider,
+  useSignal,
+  useStyles$,
+} from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
@@ -6,6 +14,10 @@ import Header from "../components/header/header";
 import Footer from "../components/starter/footer/footer";
 
 import styles from "./styles.css?inline";
+
+export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
+  "docs.mobile-menu-visible-context",
+);
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -26,12 +38,13 @@ export const useServerTimeLoader = routeLoader$(() => {
 
 export default component$(() => {
   useStyles$(styles);
+
+  const mobileMenuVisible = useSignal(false);
+  useContextProvider(MobileMenuVisibleContext, mobileMenuVisible);
   return (
     <>
       <Header />
-      <main>
-        <Slot />
-      </main>
+      <Slot />
       <Footer />
     </>
   );

@@ -3,7 +3,7 @@ import styles from "./header.module.css";
 
 import NavbarMobile from "../navbar-mobile/navbar-mobile";
 import Navbar from "../navbar/navbar";
-import Popover from "../popover/popover";
+import Popover from "../../lib/qwikUI/popover/popover";
 
 export default component$(() => {
   return (
