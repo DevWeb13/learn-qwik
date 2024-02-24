@@ -8,19 +8,13 @@ export const NavLink = component$(({ activeClass, ...props }: NavLinkProps) => {
   const toPathname = props.href ?? "";
   const locationPathname = location.url.pathname;
 
-  const startSlashPosition =
-    toPathname !== "/" && toPathname.startsWith("/")
-      ? toPathname.length - 1
-      : toPathname.length;
-  const endSlashPosition =
-    toPathname !== "/" && toPathname.endsWith("/")
-      ? toPathname.length - 1
-      : toPathname.length;
-  const isActive =
-    locationPathname === toPathname ||
-    (locationPathname.endsWith(toPathname) &&
-      (locationPathname.charAt(endSlashPosition) === "/" ||
-        locationPathname.charAt(startSlashPosition) === "/"));
+  // Ajoute un slash à la fin de toPathname si ce n'est pas déjà le cas
+  const normalizedToPathname = toPathname.endsWith("/")
+    ? toPathname
+    : `${toPathname}/`;
+
+  // Vérifie si l'URL actuelle commence par l'URL cible
+  const isActive = locationPathname.startsWith(normalizedToPathname);
 
   return (
     <Link

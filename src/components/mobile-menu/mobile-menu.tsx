@@ -21,10 +21,7 @@ export default component$(() => {
             <NavLink
               class={styles.mute}
               activeClass="!text-black"
-              href="/"
-              onClick$={() => {
-                console.log("click");
-              }}
+              href="/learn/"
             >
               Learn
             </NavLink>
