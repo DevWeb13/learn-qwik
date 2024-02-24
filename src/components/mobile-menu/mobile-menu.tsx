@@ -22,6 +22,7 @@ export default component$(() => {
               class={styles.mute}
               activeClass="!text-black"
               href="/learn/"
+              onClick$={() => (mobileMenuVisible.value = false)}
             >
               Learn
             </NavLink>

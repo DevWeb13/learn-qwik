@@ -4,13 +4,9 @@ import {
   createContextId,
   Slot,
   useContextProvider,
-  useOnWindow,
   useSignal,
   useStyles$,
   useTask$,
-  useVisibleTask$,
-  $,
-  useOnDocument,
 } from "@builder.io/qwik";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
@@ -24,7 +20,7 @@ export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
 );
 
-export const onGet: RequestHandler = async ({ cacheControl, url, json }) => {
+export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
   // https://qwik.builder.io/docs/caching/
   cacheControl({
@@ -45,10 +41,8 @@ export default component$(() => {
   useStyles$(styles);
 
   const location = useLocation();
-
-  console.log("location", location);
-
   const mobileMenuVisible = useSignal(false);
+
   useContextProvider(MobileMenuVisibleContext, mobileMenuVisible);
 
   // Utiliser useTask$ pour réagir aux changements d'URL
