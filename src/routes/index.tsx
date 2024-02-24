@@ -1,8 +1,7 @@
 import { component$ } from "@builder.io/qwik";
-import { type DocumentHead } from "@builder.io/qwik-city";
+import { Link, type DocumentHead } from "@builder.io/qwik-city";
 
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
-import Popover from "~/lib/qwikUI/popover/popover";
 
 export default component$(() => {
   return (
@@ -1225,20 +1224,19 @@ export default component$(() => {
                   </div>
                 </div>
                 <div class="h-px w-full bg-gray-100"></div>
-                <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/9">
-                  <div class="w-[100%] md:w-[213px]">
-                    {/* <Link
-                     
-                      tabIndex={0}
-                      href="/learn/dashboard-app"
-                      type="submit"
-                      class="button_base__BjwbK reset_reset__KRyvc button_button__81573 reset_reset__KRyvc button_large__fuY6E button_invert__YNhnn"
-                      data-geist-button=""
-                      data-prefix="false"
-                      data-suffix="true"
-                      data-version="v1"
-                      style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
-                    > */}
+
+                <div class="w-[100%] md:w-[213px]">
+                  <Link
+                    tabIndex={0}
+                    href="/dashboard-app"
+                    type="submit"
+                    class="button_base__BjwbK reset_reset__KRyvc button_button__81573 reset_reset__KRyvc button_large__fuY6E button_invert__YNhnn"
+                    data-geist-button=""
+                    data-prefix="false"
+                    data-suffix="true"
+                    data-version="v1"
+                    style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
+                  >
                     <div
                       tabIndex={0}
                       // type="submit"
@@ -1272,9 +1270,8 @@ export default component$(() => {
                         </div>
                       </span>
                     </div>
-                    {/* </Link> */}
-                  </div>
-                </Popover>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
