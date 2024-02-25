@@ -1238,7 +1238,7 @@ export default component$(() => {
                     style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
                   >
                     <div
-                      tabIndex={0}
+                      // tabIndex={0}
                       // type="submit"
                       class="button_base reset_reset button_button reset_reset button_large button_invert"
                       data-geist-button=""
