@@ -1,5 +1,4 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./headerOfMain.module.css";
 
 export default component$(() => {
   return (
