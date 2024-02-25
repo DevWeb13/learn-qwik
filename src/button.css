@@ -1,0 +1,183 @@
+.reset_reset {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button_base {
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background: none;
+  transform: translateZ(0);
+}
+.button_button {
+  display: flex;
+}
+.button_button[data-geist-button] {
+  border-radius: 6px;
+  color: var(--themed-fg, var(--ds-background-100));
+  background: var(--themed-bg, var(--ds-gray-1000)) none;
+  font-weight: 500;
+  padding: 0 var(--geist-gap-half);
+  box-shadow: 0 0 0 1px var(--themed-border, transparent);
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  transition-property: border-color, background, color, transform, box-shadow;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+  font-size: var(--geist-form-font);
+  line-height: var(--geist-form-line-height);
+  height: var(--geist-form-height);
+}
+.button_small[data-geist-button] {
+  font-size: var(--geist-form-small-font);
+  height: 32px;
+  --spinner-size: 16px;
+}
+.button_secondary[data-geist-button] {
+  --themed-bg: var(--ds-background-100);
+  --themed-hover-bg: var(--ds-gray-alpha-200);
+  --themed-fg: var(--ds-gray-1000);
+  --themed-border: var(--ds-gray-alpha-400);
+}
+.button_button.button_small {
+  --x-padding: 6px;
+  --height: 32px;
+  font-size: 14px;
+}
+.navbar_headerButtons .navbar_deploy {
+  width: var(--navbar-secondary-button-width);
+}
+.button_button[data-geist-button]:not(.button_shape) {
+  padding-left: var(--x-padding);
+  padding-right: var(--x-padding);
+  height: var(--height);
+}
+
+.button_prefix {
+  margin-right: 10px;
+}
+.button_prefix,
+.button_suffix {
+  min-width: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.button_button .button_prefix,
+.button_button .button_suffix {
+  display: flex;
+  flex-shrink: 0;
+}
+.button_button .button_prefix,
+.button_button[data-prefix="true"] .button_prefix {
+  margin-right: 2px;
+}
+
+.button_content {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  padding: 0 6px;
+}
+
+.button_button[data-geist-button]:not(.button_shape) {
+  padding-left: var(--x-padding);
+  padding-right: var(--x-padding);
+  height: var(--height);
+}
+
+.button_button {
+  --x-padding: 10px;
+  --height: 40px;
+  font-size: 14px;
+}
+
+.button_large[data-geist-button] {
+  height: var(--geist-form-large-height);
+  font-size: var(--geist-form-large-font);
+  line-height: var(--geist-form-large-line-height);
+  border-radius: 8px;
+}
+.button_button.button_large {
+  --x-padding: 14px;
+  --height: 48px;
+  font-size: 16px;
+}
+.button_invert[data-active][data-geist-button],
+.button_invert[data-hover][data-geist-button],
+.dark-theme .button_invert[data-active][data-geist-button],
+.dark-theme .button_invert[data-hover][data-geist-button] {
+  background: var(--themed-hover-bg, #ccc);
+}
+.button_invert[data-active][data-geist-button],
+.button_invert[data-hover][data-geist-button] {
+  background: var(--themed-hover-bg, #383838);
+  --themed-border: var(--themed-hover-bg, var(--ds-gray-200)) !important;
+}
+.button_button[data-geist-button]:not(.button_shape) {
+  padding-left: var(--x-padding);
+  padding-right: var(--x-padding);
+  height: var(--height);
+}
+
+.button_content__1aE1_ {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  padding: 0 6px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    color: #68b5fb;
+  }
+  [type="button"],
+  [type="reset"],
+  [type="submit"],
+  button {
+    background-color: transparent;
+    background-image: none;
+  }
+}
+
+.button_shape[data-geist-button] {
+  padding: 0;
+  width: var(--geist-form-height);
+}
+.button_small[data-geist-button] {
+  font-size: var(--geist-form-small-font);
+  height: 32px;
+  --spinner-size: 16px;
+}
+.button_tertiary[data-geist-button] {
+  background: none;
+  color: var(--themed-bg, var(--ds-gray-1000));
+  --themed-border: transparent;
+  --themed-hover-bg: var(--ds-gray-alpha-200);
+  --lighten-color: hsla(0, 0%, 100%, 0.8);
+}
+.button_circle[data-geist-button] {
+  border-radius: 100% !important;
+}
+.button_button.button_small {
+  --x-padding: 6px;
+  --height: 32px;
+  font-size: 14px;
+}
+
+.button_small.button_shape[data-geist-button] {
+  width: var(--geist-form-small-height);
+}
