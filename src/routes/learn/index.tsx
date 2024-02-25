@@ -682,7 +682,7 @@ export default component$(() => {
                 <div class="relative">
                   <div class="absolute left-[34px] top-4 max-w-[100px]">
                     <p
-                      class="text_wrapper__i87JK"
+                      class="text_wrapper"
                       data-version="v1"
                       style="--text-color:var(--ds-gray-1000);--text-size:1.125rem;--text-line-height:1.25rem;--text-letter-spacing:initial;--text-weight:600;color:#000"
                     >
@@ -690,14 +690,14 @@ export default component$(() => {
                     </p>
                     <div class="animate-fadeIn">
                       <p
-                        class="text_wrapper__i87JK"
+                        class="text_wrapper"
                         data-version="v1"
                         style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 500; font-size: 11px; color: rgb(102, 102, 102); padding-top: 8px;"
                       >
                         Chapter 1:
                       </p>
                       <p
-                        class="text_wrapper__i87JK"
+                        class="text_wrapper"
                         data-version="v1"
                         style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400; font-size: 11px; color: rgb(102, 102, 102); line-height: 1;"
                       >
@@ -749,131 +749,8 @@ export default component$(() => {
                           transform="translate(18 1)"
                           width="142"
                         ></rect>
-
-                        <div class="absolute bottom-3 right-3 ">
-                          <svg
-                            height="25"
-                            preserveAspectRatio="xMidYMid"
-                            viewBox="-3.523 -.15 262.378 275.068"
-                            width="23"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                          >
-                            <linearGradient id="a">
-                              <stop offset="0" stop-color="#4340c4" />
-                              <stop offset=".12" stop-color="#4642c8" />
-                              <stop offset="1" stop-color="#594ee4" />
-                            </linearGradient>
-                            <linearGradient
-                              id="b"
-                              x1="22.347%"
-                              x2="77.517%"
-                              xlink:href="#a"
-                              y1="49.545%"
-                              y2="50.388%"
-                            />
-                            <linearGradient
-                              id="c"
-                              x1="38.874%"
-                              x2="60.879%"
-                              y1="49.845%"
-                              y2="50.385%"
-                            >
-                              <stop offset="0" stop-color="#4340c4" />
-                              <stop offset=".74" stop-color="#534adb" />
-                              <stop offset="1" stop-color="#594ee4" />
-                            </linearGradient>
-                            <linearGradient
-                              id="d"
-                              x1="-.004%"
-                              x2="100.123%"
-                              y1="49.529%"
-                              y2="50.223%"
-                            >
-                              <stop offset="0" stop-color="#4340c4" />
-                              <stop offset=".23" stop-color="#4340c4" />
-                              <stop offset=".6" stop-color="#4f48d5" />
-                              <stop offset="1" stop-color="#594ee4" />
-                            </linearGradient>
-                            <linearGradient
-                              id="e"
-                              x1="35.4%"
-                              x2="64.895%"
-                              y1="49.459%"
-                              y2="50.085%"
-                            >
-                              <stop offset="0" stop-color="#0080ff" />
-                              <stop offset="1" stop-color="#00b9ff" />
-                            </linearGradient>
-                            <linearGradient
-                              id="f"
-                              x1="-.243%"
-                              x2="100.411%"
-                              y1="49.366%"
-                              y2="50.467%"
-                            >
-                              <stop offset="0" stop-color="#0080ff" />
-                              <stop offset=".17" stop-color="#008bff" />
-                              <stop offset=".47" stop-color="#00a7ff" />
-                              <stop offset=".63" stop-color="#00b9ff" />
-                              <stop offset="1" stop-color="#00b9ff" />
-                            </linearGradient>
-                            <linearGradient
-                              id="g"
-                              x1="-.125%"
-                              x2="100.225%"
-                              y1="49.627%"
-                              y2="50.101%"
-                            >
-                              <stop offset="0" stop-color="#00b9ff" />
-                              <stop offset=".3" stop-color="#0080ff" />
-                              <stop offset=".6" stop-color="#2d67f1" />
-                              <stop offset=".86" stop-color="#4d55e8" />
-                              <stop offset="1" stop-color="#594ee4" />
-                            </linearGradient>
-                            <linearGradient
-                              id="h"
-                              x1="4.557%"
-                              x2="99.354%"
-                              xlink:href="#a"
-                              y1="50.184%"
-                              y2="51.298%"
-                            />
-                            <path
-                              d="m175.05 236.86 25.163-15.072 49.298-86.93-76.287 89.098z"
-                              fill="url(#b)"
-                            />
-                            <path
-                              d="m242.337 80.408-4.926-9.4-1.932-3.663-.2.196-25.818-47.015c-6.477-11.876-18.83-19.295-32.451-19.452l-25.074.206 36.214 113.52-23.958 23.331 8.924 86.245 73.769-84.021c10.005-11.587 11.97-28.09 4.92-41.646l-9.466-18.302z"
-                              fill="url(#c)"
-                            />
-                            <path
-                              d="m201.113 72.256-43.18-70.907-74.523-1.346c-13.245-.153-25.58 6.57-32.53 17.867l-43.87 83.877 34.443-33.334 43.248-60.057 97.894 112.153 18.3-18.626c8.397-8.142 5.54-19.558.22-29.625z"
-                              fill="url(#d)"
-                            />
-                            <path
-                              d="m97.784 95.26-13.262-86.464-73.148 88.03c-12.328 11.935-14.897 30.662-6.419 45.49l42.98 74.727c6.553 11.464 18.755 18.577 32.024 18.729l42.945.49-51.444-116.655z"
-                              fill="url(#e)"
-                            />
-                            <path
-                              d="m173.227 223.9-101.847-104.878-13.196 12.59c-10.812 10.248-11.106 27.332-.728 37.921l43.99 66.384 70.65.907 1.127-12.926z"
-                              fill="url(#f)"
-                            />
-                            <path
-                              d="m101.584 235.903 72.292-11.6 47.704 49.465z"
-                              fill="url(#g)"
-                            />
-                            <path
-                              d="m173.111 224.483 27.168-3.457 24.096 49.915c1.06 2.06-1.719 3.977-3.373 2.302z"
-                              fill="url(#h)"
-                            />
-                            <path
-                              d="m182.708 120.058-98.028-111.458 12.502 85.958-26.022 24.222 101.772 105.372-7.595-85.905 17.37-18.192z"
-                              fill="#fff"
-                            />
-                          </svg>
-                        </div>
                       </g>
+
                       <path
                         d="M6 1.5H158C158.828 1.5 159.5 2.17157 159.5 3V179C159.5 179.828 158.828 180.5 158 180.5H6C2.96244 180.5 0.5 178.038 0.5 175V7C0.5 3.96244 2.96243 1.5 6 1.5Z"
                         stroke="black"
@@ -1141,13 +1018,136 @@ export default component$(() => {
                         ></path>
                       </clipPath>
                     </defs>
+                    <div class="absolute bottom-3 right-3 ">
+                      <svg
+                        height="25"
+                        preserveAspectRatio="xMidYMid"
+                        viewBox="-3.523 -.15 262.378 275.068"
+                        width="23"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                      >
+                        <linearGradient id="a">
+                          <stop offset="0" stop-color="#4340c4" />
+                          <stop offset=".12" stop-color="#4642c8" />
+                          <stop offset="1" stop-color="#594ee4" />
+                        </linearGradient>
+                        <linearGradient
+                          id="b"
+                          x1="22.347%"
+                          x2="77.517%"
+                          xlink:href="#a"
+                          y1="49.545%"
+                          y2="50.388%"
+                        />
+                        <linearGradient
+                          id="c"
+                          x1="38.874%"
+                          x2="60.879%"
+                          y1="49.845%"
+                          y2="50.385%"
+                        >
+                          <stop offset="0" stop-color="#4340c4" />
+                          <stop offset=".74" stop-color="#534adb" />
+                          <stop offset="1" stop-color="#594ee4" />
+                        </linearGradient>
+                        <linearGradient
+                          id="d"
+                          x1="-.004%"
+                          x2="100.123%"
+                          y1="49.529%"
+                          y2="50.223%"
+                        >
+                          <stop offset="0" stop-color="#4340c4" />
+                          <stop offset=".23" stop-color="#4340c4" />
+                          <stop offset=".6" stop-color="#4f48d5" />
+                          <stop offset="1" stop-color="#594ee4" />
+                        </linearGradient>
+                        <linearGradient
+                          id="e"
+                          x1="35.4%"
+                          x2="64.895%"
+                          y1="49.459%"
+                          y2="50.085%"
+                        >
+                          <stop offset="0" stop-color="#0080ff" />
+                          <stop offset="1" stop-color="#00b9ff" />
+                        </linearGradient>
+                        <linearGradient
+                          id="f"
+                          x1="-.243%"
+                          x2="100.411%"
+                          y1="49.366%"
+                          y2="50.467%"
+                        >
+                          <stop offset="0" stop-color="#0080ff" />
+                          <stop offset=".17" stop-color="#008bff" />
+                          <stop offset=".47" stop-color="#00a7ff" />
+                          <stop offset=".63" stop-color="#00b9ff" />
+                          <stop offset="1" stop-color="#00b9ff" />
+                        </linearGradient>
+                        <linearGradient
+                          id="g"
+                          x1="-.125%"
+                          x2="100.225%"
+                          y1="49.627%"
+                          y2="50.101%"
+                        >
+                          <stop offset="0" stop-color="#00b9ff" />
+                          <stop offset=".3" stop-color="#0080ff" />
+                          <stop offset=".6" stop-color="#2d67f1" />
+                          <stop offset=".86" stop-color="#4d55e8" />
+                          <stop offset="1" stop-color="#594ee4" />
+                        </linearGradient>
+                        <linearGradient
+                          id="h"
+                          x1="4.557%"
+                          x2="99.354%"
+                          xlink:href="#a"
+                          y1="50.184%"
+                          y2="51.298%"
+                        />
+                        <path
+                          d="m175.05 236.86 25.163-15.072 49.298-86.93-76.287 89.098z"
+                          fill="url(#b)"
+                        />
+                        <path
+                          d="m242.337 80.408-4.926-9.4-1.932-3.663-.2.196-25.818-47.015c-6.477-11.876-18.83-19.295-32.451-19.452l-25.074.206 36.214 113.52-23.958 23.331 8.924 86.245 73.769-84.021c10.005-11.587 11.97-28.09 4.92-41.646l-9.466-18.302z"
+                          fill="url(#c)"
+                        />
+                        <path
+                          d="m201.113 72.256-43.18-70.907-74.523-1.346c-13.245-.153-25.58 6.57-32.53 17.867l-43.87 83.877 34.443-33.334 43.248-60.057 97.894 112.153 18.3-18.626c8.397-8.142 5.54-19.558.22-29.625z"
+                          fill="url(#d)"
+                        />
+                        <path
+                          d="m97.784 95.26-13.262-86.464-73.148 88.03c-12.328 11.935-14.897 30.662-6.419 45.49l42.98 74.727c6.553 11.464 18.755 18.577 32.024 18.729l42.945.49-51.444-116.655z"
+                          fill="url(#e)"
+                        />
+                        <path
+                          d="m173.227 223.9-101.847-104.878-13.196 12.59c-10.812 10.248-11.106 27.332-.728 37.921l43.99 66.384 70.65.907 1.127-12.926z"
+                          fill="url(#f)"
+                        />
+                        <path
+                          d="m101.584 235.903 72.292-11.6 47.704 49.465z"
+                          fill="url(#g)"
+                        />
+                        <path
+                          d="m173.111 224.483 27.168-3.457 24.096 49.915c1.06 2.06-1.719 3.977-3.373 2.302z"
+                          fill="url(#h)"
+                        />
+                        <path
+                          d="m182.708 120.058-98.028-111.458 12.502 85.958-26.022 24.222 101.772 105.372-7.595-85.905 17.37-18.192z"
+                          fill="#fff"
+                        />
+                      </svg>
+                    </div>
                   </svg>
                 </div>
               </div>
               <div class="relative mt-6 flex w-full max-w-full flex-col items-center justify-center space-y-4 pb-0 md:space-y-6 md:pb-4 lg:pt-4">
                 <div class="flex max-w-full flex-col items-center justify-center">
                   <p
-                    class="text_wrapper__i87JK pb-2"
+                    class="text_wrapper pb-2"
                     data-version="v1"
                     style="--text-color:var(--ds-gray-1000);--xs-text-size:1.25rem;--xs-text-line-height:1.5rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.020625rem;--sm-text-size:1.25rem;--sm-text-line-height:1.5rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.020625rem;--smd-text-size:1.5rem;--smd-text-line-height:2rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.029375rem;--md-text-size:1.5rem;--md-text-line-height:2rem;--md-text-weight:600;--md-text-letter-spacing:-0.029375rem;--lg-text-size:1.5rem;--lg-text-line-height:2rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.029375rem"
                   >
@@ -1155,7 +1155,7 @@ export default component$(() => {
                   </p>
                   <div class="mx-auto w-[80%] text-center md:w-auto md:text-left">
                     <p
-                      class="text_wrapper__i87JK"
+                      class="text_wrapper"
                       data-version="v1"
                       style="--text-color:var(--ds-gray-900);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:400"
                     >
@@ -1165,14 +1165,14 @@ export default component$(() => {
                   <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug dark:bg-[#171717] md:min-w-[400px]">
                     <div class="animate-fadeIn mr-2 flex min-w-0 flex-1 flex-shrink flex-col">
                       <p
-                        class="text_wrapper__i87JK text_truncate__v5uF6"
+                        class="text_wrapper text_truncate"
                         data-version="v1"
                         style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 500; height: 20px;"
                       >
                         Chapter 1: Getting Started
                       </p>
                       <p
-                        class="text_wrapper__i87JK flex"
+                        class="text_wrapper flex"
                         data-version="v1"
                         style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400; height: 20px;"
                       >
@@ -1230,7 +1230,7 @@ export default component$(() => {
                     tabIndex={0}
                     href="/learn/dashboard-app"
                     type="submit"
-                    class="button_base__BjwbK reset_reset__KRyvc button_button__81573 reset_reset__KRyvc button_large__fuY6E button_invert__YNhnn"
+                    class="button_base reset_reset button_button button_large button_invert"
                     data-geist-button=""
                     data-prefix="false"
                     data-suffix="true"
@@ -1240,17 +1240,17 @@ export default component$(() => {
                     <div
                       tabIndex={0}
                       // type="submit"
-                      class="button_base__BjwbK reset_reset__KRyvc button_button__81573 reset_reset__KRyvc button_large__fuY6E button_invert__YNhnn"
+                      class="button_base reset_reset button_button reset_reset button_large button_invert"
                       data-geist-button=""
                       data-prefix="false"
                       data-suffix="true"
                       data-version="v1"
                       style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
                     >
-                      <span class="button_content__1aE1_">
+                      <span class="button_content">
                         <span class="animate-fadeUp">Start Learning</span>
                       </span>
-                      <span class="button_suffix__ucg7R">
+                      <span class="button_suffix">
                         <div class="animate-fadeUp">
                           <svg
                             data-testid="geist-icon"
@@ -1595,7 +1595,7 @@ export default component$(() => {
                   </svg>
                   <div class="mt-2 text-center md:ml-6 md:mt-0 md:space-y-0 md:text-left">
                     <p
-                      class="text_wrapper__i87JK mb-2 font-medium md:mb-0"
+                      class="text_wrapper mb-2 font-medium md:mb-0"
                       data-version="v1"
                       style="--text-color:var(--ds-gray-1000);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:500"
                     >
@@ -1603,7 +1603,7 @@ export default component$(() => {
                     </p>
                     <div class="mx-auto mb-4 mt-2 w-[80%] md:mx-0 md:mb-0">
                       <p
-                        class="text_wrapper__i87JK"
+                        class="text_wrapper"
                         data-version="v1"
                         style="--text-color:var(--ds-gray-900);--text-size:0.875rem;--text-line-height:1.25rem;--text-letter-spacing:initial;--text-weight:400"
                       >
@@ -1619,15 +1619,15 @@ export default component$(() => {
                     tabIndex={0}
                     href="/learn/react-foundations"
                     type="submit"
-                    class="button_base__BjwbK reset_reset__KRyvc button_button__81573 reset_reset__KRyvc button_secondary__kMMNc button_invert__YNhnn"
+                    class="button_base reset_reset button_button reset_reset button_secondary__kMMNc button_invert"
                     data-geist-button=""
                     data-prefix="false"
                     data-suffix="true"
                     data-version="v1"
                     style="min-width:100%;max-width:100%;--geist-icon-size:16px"
                   >
-                    <span class="button_content__1aE1_">React Foundations</span>
-                    <span class="button_suffix__ucg7R">
+                    <span class="button_content">React Foundations</span>
+                    <span class="button_suffix">
                       <svg
                         data-testid="geist-icon"
                         height="16"
@@ -1655,11 +1655,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "Learn Qwik",
   meta: [
     {
       name: "description",
-      content: "Qwik site description",
+      content: "Qwik is a new way to build web applications.",
     },
   ],
 };

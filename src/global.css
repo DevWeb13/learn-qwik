@@ -501,3 +501,53 @@ body {
   text-rendering: optimizeLegibility;
   line-height: 1.65;
 }
+
+@media (min-width: 1024px) {
+  .style_container {
+    width: calc(100% + 96px);
+  }
+}
+
+.bg-vercel-200 {
+  background-color: var(--ds-background-200);
+}
+
+.text_wrapper {
+  --text-size: 0.875rem;
+  --text-weight: 400;
+  --text-line-height: 1.25rem;
+  font-family: var(--font-sans, var(--font-sans-fallback));
+  margin: 0;
+  color: var(--text-color);
+  font-size: var(--text-size);
+  letter-spacing: var(--text-letter-spacing, inherit);
+  font-weight: var(--text-weight);
+  line-height: var(--text-line-height);
+  text-transform: var(--text-transform, inherit);
+  text-align: var(--text-align, inherit);
+}
+.text_truncate {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  max-width: 100%;
+  min-width: 0;
+}
+@media screen and (min-width: 0px) {
+  .text_wrapper {
+    --text-size: var(--sm-text-size);
+    --text-weight: var(--sm-text-weight);
+    --text-line-height: var(--sm-text-line-height);
+    --text-letter-spacing: var(--sm-text-letter-spacing);
+  }
+}
+@media screen and (min-width: 601px) {
+  .text_wrapper {
+    --text-size: var(--md-text-size);
+    --text-weight: var(--md-text-weight);
+    --text-line-height: var(--md-text-line-height);
+    --text-letter-spacing: var(--md-text-letter-spacing);
+  }
+}
