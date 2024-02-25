@@ -1,0 +1,17 @@
+.gauge_animate .gauge_arcSecondary {
+  --offset-factor-secondary: calc(1 - var(--offset-factor));
+  stroke-dasharray: calc(var(--stroke-percent) * var(--percent-to-px))
+    var(--circumference);
+  transform: rotate(
+      calc(
+        1turn - 90deg -
+          (
+            var(--gap-percent) * var(--percent-to-deg) *
+              var(--offset-factor-secondary)
+          )
+      )
+    )
+    scaleY(-1);
+  transition: all var(--transition-length) ease var(--delay);
+  transform-origin: calc(var(--circle-size) / 2) calc(var(--circle-size) / 2);
+}

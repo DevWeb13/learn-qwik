@@ -551,3 +551,11 @@ body {
     --text-letter-spacing: var(--md-text-letter-spacing);
   }
 }
+
+svg circle,
+svg line,
+svg path,
+svg polygon,
+svg rect {
+  shape-rendering: geometricprecision;
+}

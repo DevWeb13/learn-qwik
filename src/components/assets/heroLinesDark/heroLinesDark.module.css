@@ -1,0 +1,15 @@
+.dark-theme,
+.hero_linesDark {
+  display: none;
+}
+@media (max-width: 600px) {
+  .hero_linesDark {
+    mask-image: linear-gradient(
+      90deg,
+      transparent 11%,
+      #000 41%,
+      #000 71%,
+      transparent 88%
+    );
+  }
+}
