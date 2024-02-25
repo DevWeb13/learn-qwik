@@ -90,12 +90,6 @@
   padding: 0 6px;
 }
 
-.button_button[data-geist-button]:not(.button_shape) {
-  padding-left: var(--x-padding);
-  padding-right: var(--x-padding);
-  height: var(--height);
-}
-
 .button_large[data-geist-button] {
   height: var(--geist-form-large-height);
   font-size: var(--geist-form-large-font);
@@ -124,14 +118,6 @@
   height: var(--height);
 }
 
-.button_content {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  padding: 0 6px;
-}
-
 @media (hover: hover) {
   a:hover {
     color: #68b5fb;
@@ -149,11 +135,7 @@
   padding: 0;
   width: var(--geist-form-height);
 }
-.button_small[data-geist-button] {
-  font-size: var(--geist-form-small-font);
-  height: 32px;
-  --spinner-size: 16px;
-}
+
 .button_tertiary[data-geist-button] {
   background: none;
   color: var(--themed-bg, var(--ds-gray-1000));
@@ -163,11 +145,6 @@
 }
 .button_circle[data-geist-button] {
   border-radius: 100% !important;
-}
-.button_button.button_small {
-  --x-padding: 6px;
-  --height: 32px;
-  font-size: 14px;
 }
 
 .button_small.button_shape[data-geist-button] {
