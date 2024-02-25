@@ -22,6 +22,9 @@
 }
 .button_button {
   display: flex;
+  --x-padding: 10px;
+  --height: 40px;
+  font-size: 14px;
 }
 .button_button[data-geist-button] {
   border-radius: 6px;
@@ -59,11 +62,6 @@
 .navbar_headerButtons .navbar_deploy {
   width: var(--navbar-secondary-button-width);
 }
-.button_button[data-geist-button]:not(.button_shape) {
-  padding-left: var(--x-padding);
-  padding-right: var(--x-padding);
-  height: var(--height);
-}
 
 .button_prefix {
   margin-right: 10px;
@@ -98,12 +96,6 @@
   height: var(--height);
 }
 
-.button_button {
-  --x-padding: 10px;
-  --height: 40px;
-  font-size: 14px;
-}
-
 .button_large[data-geist-button] {
   height: var(--geist-form-large-height);
   font-size: var(--geist-form-large-font);
@@ -132,7 +124,7 @@
   height: var(--height);
 }
 
-.button_content__1aE1_ {
+.button_content {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
