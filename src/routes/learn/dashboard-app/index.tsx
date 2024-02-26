@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { DocumentHead } from "@builder.io/qwik-city";
+import { type DocumentHead } from "@builder.io/qwik-city";
 import HeaderOfMain from "~/components/headerOfMain/headerOfMain";
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
 
