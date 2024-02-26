@@ -22,9 +22,7 @@
   --qwik-dirty-black: #1d2033;
   --qwik-dark-background: #151934;
   --qwik-dark-text: #ffffff;
-}
 
-:root {
   --next-selection: var(--geist-success);
   --next-selection-text-color: #fff;
   --geist-page-margin: var(--geist-space-gap);

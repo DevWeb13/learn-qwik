@@ -5,7 +5,6 @@ import {
   Slot,
   useContextProvider,
   useSignal,
-  useStyles$,
   useTask$,
 } from "@builder.io/qwik";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
