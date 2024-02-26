@@ -14,8 +14,6 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 import Header from "../components/header/header";
 import Footer from "../components/starter/footer/footer";
 
-import styles from "./styles.css?inline";
-
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
 );
@@ -38,8 +36,6 @@ export const useServerTimeLoader = routeLoader$(() => {
 });
 
 export default component$(() => {
-  useStyles$(styles);
-
   const location = useLocation();
   const mobileMenuVisible = useSignal(false);
 
