@@ -51,7 +51,6 @@ export default component$(() => {
           <svg
             aria-label="Logo Qwik"
             fill="none"
-            role="img"
             viewBox="0 0 167 53"
             xmlns="http://www.w3.org/2000/svg"
             height="28"

@@ -2,10 +2,9 @@
   width: 100%;
   display: flex;
   align-items: center;
-}
-.navbar_links {
   gap: 24px;
 }
+
 @media (max-width: 640px) {
   .navbar_links {
     display: none !important;

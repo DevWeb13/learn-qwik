@@ -106,7 +106,6 @@ export default component$(() => {
               <svg
                 aria-label="Vercel logomark"
                 height="13"
-                role="img"
                 style="width:auto;overflow:visible"
                 viewBox="0 0 74 64"
               >
