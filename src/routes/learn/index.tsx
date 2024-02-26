@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
 import ArrowRightSvg from "~/assets/svg/arrowRightSvg/arrowRightSvg";
-import BookSvg from "~/assets/svg/bookSvg/bookSvg";
+import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import CircleSvg from "~/assets/svg/circleSvg/circleSvg";
 import HeroLinesDark from "~/assets/svg/heroLinesDark/heroLinesDark";
 import HeroLinesLight from "~/assets/svg/heroLinesLight/heroLinesLight";
