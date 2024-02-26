@@ -6,23 +6,17 @@ interface BtMenuHeaderOfMainProps {
 
 export default component$<BtMenuHeaderOfMainProps>(({ classStyle }) => {
   return (
-    <button
-      type="submit"
+    <div
       aria-label="View Chapters"
       class={classStyle}
       data-geist-button
-      data-prefix="false"
-      data-suffix="false"
-      data-version="v1"
       style="--geist-icon-size: 16px;"
       onPointerEnter$={(e) => {
         const target = e.target as HTMLElement; // Assertion de type pour HTMLElement
-
         target.setAttribute("data-hover", "");
       }}
       onPointerLeave$={(e) => {
         const target = e.target as HTMLElement; // Assertion de type pour HTMLElement
-
         target.removeAttribute("data-hover");
       }}
     >
@@ -43,6 +37,6 @@ export default component$<BtMenuHeaderOfMainProps>(({ classStyle }) => {
           ></path>
         </svg>
       </span>
-    </button>
+    </div>
   );
 });

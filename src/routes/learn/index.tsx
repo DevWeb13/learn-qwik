@@ -74,7 +74,7 @@ export default component$(() => {
                     </div>
                   </div>
 
-                  <BookSvg />
+                  <BookSvg id="learn" />
                 </div>
               </div>
               <div class="relative mt-6 flex w-full max-w-full flex-col items-center justify-center space-y-4 pb-0 md:space-y-6 md:pb-4 lg:pt-4">

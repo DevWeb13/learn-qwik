@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import BtMenuHeaderOfMain from "./btMenuHeaderOfMain";
+import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
 
 export default component$(() => {
   return (
@@ -10,7 +11,9 @@ export default component$(() => {
         style="background-clip: padding-box;"
       >
         <div class="md:hidden">
-          <BtMenuHeaderOfMain classStyle="button_base button_button reset_reset geist-new-themed geist-new-tertiary geist-new-tertiary-fill button_tertiary button_shape button_circle button_small button_invert" />
+          <ModalBottomSheet>
+            <BtMenuHeaderOfMain classStyle="button_base button_button reset_reset geist-new-themed geist-new-tertiary geist-new-tertiary-fill button_tertiary button_shape button_circle button_small button_invert" />
+          </ModalBottomSheet>
         </div>
         <div class="hidden md:block">
           <nav aria-label="Main" data-orientation="horizontal" dir="ltr">
@@ -23,7 +26,9 @@ export default component$(() => {
                     data-version="v1"
                     tabIndex={-1}
                   >
-                    <BtMenuHeaderOfMain classStyle="button_base reset_reset button_button reset_reset style_button__ft10U geist-new-themed geist-new-tertiary geist-new-tertiary-fill button_tertiary button_shape button_circle button_small button_invert" />
+                    <ModalBottomSheet>
+                      <BtMenuHeaderOfMain classStyle="button_base reset_reset button_button reset_reset style_button__ft10U geist-new-themed geist-new-tertiary geist-new-tertiary-fill button_tertiary button_shape button_circle button_small button_invert" />
+                    </ModalBottomSheet>
                   </span>
                 </li>
               </ul>
@@ -32,11 +37,11 @@ export default component$(() => {
         </div>
         <div
           aria-hidden="true"
-          class="bg-gray-alpha-400 ml-3 mr-4 hidden h-8 w-[1px] lg:block"
+          class="ml-3 mr-4 hidden h-8 w-[1px] bg-gray-alpha-400 lg:block"
         ></div>
         <div class="ml-3 flex items-center gap-3 lg:ml-0">
           <div class="relative hidden lg:block">
-            <BookSvg small />
+            <BookSvg small id="headerOfMain" />
           </div>
           <div class="animation-fadeIn flex flex-col">
             <p
@@ -155,7 +160,7 @@ export default component$(() => {
         </div>
         <div
           aria-hidden="true"
-          class="bg-gray-alpha-400 ml-4 mr-3 hidden h-8 w-[1px] lg:block"
+          class="ml-4 mr-3 hidden h-8 w-[1px] bg-gray-alpha-400 lg:block"
         ></div>
         <span
           class="tooltip_container"

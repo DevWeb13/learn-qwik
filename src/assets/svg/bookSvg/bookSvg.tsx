@@ -60,7 +60,12 @@ const FeFloodDuplicate = ({ result }: FeFloodDuplicateProps) => (
   </>
 );
 
-export const BookSvg = ({ small }: { small?: boolean }) =>
+interface BookSvgProps {
+  small?: boolean;
+  id: string;
+}
+
+export const BookSvg = ({ small, id }: BookSvgProps) =>
   small ? (
     <svg
       fill="none"
@@ -69,24 +74,24 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
       width="32"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g filter="url(#filter0_iii_126_16757)">
-        <g clip-path="url(#clip0_126_16757)">
+      <g filter={`url(#filter0_iii_${id})`}>
+        <g clip-path={`url(#clip0_${id})`}>
           <path
             d="M0 4C0 1.79086 1.79086 0 4 0H30C31.1046 0 32 0.895431 32 2V38C32 39.1046 31.1046 40 30 40H4C1.79086 40 0 38.2091 0 36V4Z"
             fill="#303030"
           ></path>
           <path
             d="M0 4C0 1.79086 1.79086 0 4 0H30C31.1046 0 32 0.895431 32 2V38C32 39.1046 31.1046 40 30 40H4C1.79086 40 0 38.2091 0 36V4Z"
-            fill="url(#paint0_linear_126_16757)"
+            fill={`url(#paint0_linear_${id})`}
           ></path>
           <rect
-            fill="url(#paint1_linear_126_16757)"
+            fill={`url(#paint1_linear_${id})`}
             height="40"
             opacity="0.2"
             width="8"
           ></rect>
           <rect
-            fill="url(#paint2_linear_126_16757)"
+            fill={`url(#paint2_linear_${id})`}
             height="40"
             opacity="0.05"
             width="8"
@@ -98,13 +103,13 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
             width="26"
           ></rect>
           <rect
-            fill="url(#paint3_linear_126_16757)"
+            fill={`url(#paint3_linear_${id})`}
             fill-opacity="0.7"
             height="40"
             transform="translate(6)"
             width="26"
           ></rect>
-          <g filter="url(#filter1_d_126_16757)">
+          <g filter={`url(#filter1_d_${id})`}>
             <path
               d="M20 -8C20 -8.55228 20.4477 -9 21 -9H27C27.5523 -9 28 -8.55228 28 -8V6.79623C28 7.65539 26.9881 8.11457 26.3405 7.54881L24.6585 6.07619C24.2815 5.74629 23.7185 5.74629 23.3415 6.07619L21.6585 7.54881C21.0119 8.11457 20 7.65539 20 6.79623V-8Z"
               fill="#3291FF"
@@ -122,12 +127,12 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
           color-interpolation-filters="s-rGB"
           filterUnits="userSpaceOnUse"
           height="41"
-          id="filter0_iii_126_16757"
+          id={`filter0_iii_${id}`}
           width="36"
           x="0"
           y="0"
         >
-          <FeFloodDuplicate result="effect1_innerShadow_126_16757" />
+          <FeFloodDuplicate result={`effect1_innerShadow_${id}`} />
 
           <feColorMatrix
             in="SourceAlpha"
@@ -148,9 +153,9 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
             values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.1 0"
           ></feColorMatrix>
           <feBlend
-            in2="effect1_innerShadow_126_16757"
+            in2={`effect1_innerShadow_${id}`}
             mode="normal"
-            result="effect2_innerShadow_126_16757"
+            result={`effect2_innerShadow_${id}`}
           ></feBlend>
           <feColorMatrix
             in="SourceAlpha"
@@ -170,14 +175,14 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"
           ></feColorMatrix>
           <feBlend
-            in2="effect2_innerShadow_126_16757"
+            in2={`effect2_innerShadow_${id}`}
             mode="normal"
-            result="effect3_innerShadow_126_16757"
+            result={`effect3_innerShadow_${id}`}
           ></feBlend>
         </filter>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint0_linear_126_16757"
+          id={`paint0_linear_${id}`}
           x1="16"
           x2="16"
           y1="0"
@@ -189,7 +194,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint1_linear_126_16757"
+          id={`paint1_linear_${id}`}
           x1="0"
           x2="8"
           y1="17.75"
@@ -199,7 +204,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint2_linear_126_16757"
+          id={`paint2_linear_${id}`}
           x1="0"
           x2="8"
           y1="17.75"
@@ -209,7 +214,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint3_linear_126_16757"
+          id={`paint3_linear_${id}`}
           x1="2.71429"
           x2="32.067"
           y1="4.24102e-07"
@@ -220,7 +225,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint4_linear_126_16757"
+          id={`paint4_linear_${id}`}
           x1="22.13"
           x2="22.13"
           y1="17"
@@ -233,7 +238,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint5_linear_126_16757"
+          id={`paint5_linear_${id}`}
           x1="20.9375"
           x2="24.5574"
           y1="21.0625"
@@ -242,13 +247,13 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
           <stop stop-color="white"></stop>
           <stop offset="1" stop-color="white" stop-opacity="0"></stop>
         </linearGradient>
-        <clipPath id="clip0_126_16757">
+        <clipPath id={`clip0_${id}`}>
           <path
             d="M0 4C0 1.79086 1.79086 0 4 0H30C31.1046 0 32 0.895431 32 2V38C32 39.1046 31.1046 40 30 40H4C1.79086 40 0 38.2091 0 36V4Z"
             fill="white"
           ></path>
         </clipPath>
-        <clipPath id="clip1_126_16757">
+        <clipPath id={`clip1_${id}`}>
           <rect
             fill="white"
             height="16"
@@ -258,7 +263,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </clipPath>
       </defs>
       <div class="absolute left-2.5 top-3.5">
-        <QwikLogo width={16} height={16} />
+        <QwikLogo width={16} height={16} id={id} />
       </div>
     </svg>
   ) : (
@@ -269,25 +274,25 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
       width="160"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g filter="url(#filter0_iii_439_2947)">
-        <g clip-path="url(#clip0_439_2947)">
+      <g filter={`url(#filter0_iii_${id})`}>
+        <g clip-path={`url(#clip0_${id})`}>
           <path
             d="M0 7.00001C0 3.6863 2.68629 1 6 1H158C159.105 1 160 1.89543 160 3V179C160 180.105 159.105 181 158 181H6C2.6863 181 0 178.314 0 175V7.00001Z"
             fill="#303030"
           ></path>
           <path
             d="M0 7.00001C0 3.6863 2.68629 1 6 1H158C159.105 1 160 1.89543 160 3V179C160 180.105 159.105 181 158 181H6C2.6863 181 0 178.314 0 175V7.00001Z"
-            fill="url(#paint0_linear_439_2947)"
+            fill={`url(#paint0_linear_${id})`}
           ></path>
           <rect
-            fill="url(#paint1_linear_439_2947)"
+            fill={`url(#paint1_linear_${id})`}
             height="320"
             opacity="0.2"
             width="24"
             y="1"
           ></rect>
           <rect
-            fill="url(#paint2_linear_439_2947)"
+            fill={`url(#paint2_linear_${id})`}
             height="320"
             opacity="0.05"
             width="24"
@@ -300,7 +305,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
             width="142"
           ></rect>
           <rect
-            fill="url(#paint3_linear_439_2947)"
+            fill={`url(#paint3_linear_${id})`}
             fill-opacity="0.7"
             height="180"
             transform="translate(18 1)"
@@ -313,7 +318,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
           stroke-opacity="0.02"
         ></path>
       </g>
-      <g filter="url(#filter1_d_439_2947)">
+      <g filter={`url(#filter1_d_${id})`}>
         <path
           d="M122 1C122 0.447716 122.448 0 123 0H137C137.552 0 138 0.447715 138 1V22.259C138 23.0308 137.163 23.5116 136.496 23.1227L130.504 19.6273C130.193 19.4456 129.807 19.4456 129.496 19.6273L123.504 23.1227C122.837 23.5116 122 23.0308 122 22.259V1Z"
           fill="#3291FF"
@@ -324,12 +329,12 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
           color-interpolation-filters="s-rGB"
           filterUnits="userSpaceOnUse"
           height="181"
-          id="filter0_iii_439_2947"
+          id={`filter0_iii_${id}`}
           width="164"
           x="0"
           y="1"
         >
-          <FeFloodDuplicate result="effect1_innerShadow_439_2947" />
+          <FeFloodDuplicate result={`effect1_innerShadow_${id}`} />
 
           <feColorMatrix
             in="SourceAlpha"
@@ -350,9 +355,9 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
             values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.1 0"
           ></feColorMatrix>
           <feBlend
-            in2="effect1_innerShadow_439_2947"
+            in2={`effect1_innerShadow_${id}`}
             mode="normal"
-            result="effect2_innerShadow_439_2947"
+            result={`effect2_innerShadow_${id}`}
           ></feBlend>
           <feColorMatrix
             in="SourceAlpha"
@@ -372,16 +377,16 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"
           ></feColorMatrix>
           <feBlend
-            in2="effect2_innerShadow_439_2947"
+            in2={`effect2_innerShadow_${id}`}
             mode="normal"
-            result="effect3_innerShadow_439_2947"
+            result={`effect3_innerShadow_${id}`}
           ></feBlend>
         </filter>
         <filter
           color-interpolation-filters="s-rGB"
           filterUnits="userSpaceOnUse"
           height="25.2605"
-          id="filter1_d_439_2947"
+          id={`filter1_d_${id}`}
           width="18"
           x="121"
           y="0"
@@ -403,18 +408,18 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
           <feBlend
             in2="BackgroundImageFix"
             mode="normal"
-            result="effect1_dropShadow_439_2947"
+            result={`effect1_dropShadow_${id}`}
           ></feBlend>
           <feBlend
             in="SourceGraphic"
-            in2="effect1_dropShadow_439_2947"
+            in2={`effect1_dropShadow_${id}`}
             mode="normal"
             result="shape"
           ></feBlend>
         </filter>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint0_linear_439_2947"
+          id={`paint0_linear_${id}`}
           x1="80"
           x2="80"
           y1="1"
@@ -426,7 +431,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint1_linear_439_2947"
+          id={`paint1_linear_${id}`}
           x1="0"
           x2="24"
           y1="143"
@@ -436,7 +441,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint2_linear_439_2947"
+          id={`paint2_linear_${id}`}
           x1="0"
           x2="24"
           y1="143"
@@ -446,7 +451,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint3_linear_439_2947"
+          id={`paint3_linear_${id}`}
           x1="14.8242"
           x2="146.106"
           y1="1.90846e-06"
@@ -457,7 +462,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint4_linear_439_2947"
+          id={`paint4_linear_${id}`}
           x1="132.956"
           x2="138.478"
           y1="155.122"
@@ -468,7 +473,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </linearGradient>
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint5_linear_439_2947"
+          id={`paint5_linear_${id}`}
           x1="134.822"
           x2="134.791"
           y1="145.4"
@@ -477,7 +482,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
           <stop stop-color="white"></stop>
           <stop offset="1" stop-color="white" stop-opacity="0"></stop>
         </linearGradient>
-        <clipPath id="clip0_439_2947">
+        <clipPath id={`clip0_${id}`}>
           <path
             d="M0 7.00001C0 3.6863 2.68629 1 6 1H158C159.105 1 160 1.89543 160 3V179C160 180.105 159.105 181 158 181H6C2.6863 181 0 178.314 0 175V7.00001Z"
             fill="white"
@@ -485,7 +490,7 @@ export const BookSvg = ({ small }: { small?: boolean }) =>
         </clipPath>
       </defs>
       <div class="absolute bottom-3 right-3">
-        <QwikLogo />
+        <QwikLogo id={id} />
       </div>
     </svg>
   );
