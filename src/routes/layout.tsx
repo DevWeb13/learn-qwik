@@ -1,5 +1,3 @@
-import { inject } from "@vercel/analytics";
-
 import type { Signal } from "@builder.io/qwik";
 import {
   component$,
@@ -54,7 +52,6 @@ export default component$(() => {
       <Header />
       <Slot />
       <Footer />
-      {inject()}
     </>
   );
 });

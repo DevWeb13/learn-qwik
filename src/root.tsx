@@ -1,10 +1,11 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useTask$ } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
+import { inject } from "@vercel/analytics";
 
 import "./global.css";
 import "./button.css";
@@ -16,6 +17,10 @@ export default component$(() => {
    *
    * Don't remove the `<head>` and `<body>` elements.
    */
+
+  useTask$(() => {
+    inject();
+  });
 
   return (
     <QwikCityProvider>
