@@ -194,7 +194,7 @@ export default component$(() => {
         <ul>
           <li>
             <strong>Styling</strong>: The different ways to style your
-            application in Next.js.
+            application in Qwik.
           </li>
           <li>
             <strong>Optimizations</strong>: How to optimize images, links, and
@@ -213,8 +213,9 @@ export default component$(() => {
             pagination using URL Search Params.
           </li>
           <li>
-            <strong>Mutating Data:</strong> How to mutate data using React
-            Server Actions, and revalidate the Next.js cache.
+            <strong>Mutating Data:</strong>: How to mutate data using Qwik
+            endpoints and client-side fetchers for dynamic and efficient UI
+            updating.
           </li>
           <li>
             <strong>Error Handling:</strong> How to handle general and{" "}
@@ -226,13 +227,13 @@ export default component$(() => {
           </li>
           <li>
             <strong>Authentication</strong>: How to add authentication to your
-            application using{" "}
+            app using{" "}
             <a
-              href="https://next-auth.js.org/"
+              href="https://authjs.dev/"
               rel="noopener noreferrer nofollow"
               target="_blank"
             >
-              <code>NextAuth.js</code>
+              <code>Auth0</code>
               <span class="inline-flex">
                 <svg
                   class="with-icon_icon__MHUeb"
@@ -253,7 +254,8 @@ export default component$(() => {
                 </svg>
               </span>
             </a>{" "}
-            and Middleware.
+            with Qwik integrations to secure and manage user sessions
+            efficiently.
           </li>
           <li>
             <strong>Metadata</strong>: How to add metadata and prepare your
@@ -286,11 +288,20 @@ export default component$(() => {
           </a>
         </h2>
         <p>
-          This course assumes you have a basic understanding of React and
-          JavaScript. If you're new to React, we recommend going through our{" "}
-          <a href="/learn/react-foundations">React Foundations</a> course first
-          to learn the fundamentals of React, such as components, props, state,
-          and hooks, and newer features like Server Components and Suspense.
+          This course assumes you have a basic understanding of web development
+          and JavaScript. If you're new to modern web frameworks, we recommend
+          familiarizing yourself with the fundamentals of web components,
+          reactive state management, and asynchronous programming. While Qwik
+          does not require{" "}
+          <Link
+            href="https://nextjs.org/learn/react-foundations"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            React
+          </Link>{" "}
+          knowledge, understanding these concepts will help you grasp Qwik's
+          unique features more effectively.
         </p>
         <h2 id="system-requirements" data-docs-heading="">
           <a href="#system-requirements">
