@@ -1,4 +1,5 @@
-import { Analytics } from "@vercel/analytics/react";
+import { inject } from "@vercel/analytics";
+
 import type { Signal } from "@builder.io/qwik";
 import {
   component$,
@@ -48,12 +49,13 @@ export default component$(() => {
     mobileMenuVisible.value = false;
   });
 
+  inject();
+
   return (
     <>
       <Header />
       <Slot />
       <Footer />
-      <Analytics />
     </>
   );
 });
