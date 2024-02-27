@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Signal } from "@builder.io/qwik";
 import {
   component$,
@@ -52,6 +53,7 @@ export default component$(() => {
       <Header />
       <Slot />
       <Footer />
+      <Analytics />
     </>
   );
 });
