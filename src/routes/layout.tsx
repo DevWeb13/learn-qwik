@@ -28,6 +28,8 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
     // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
     maxAge: 5,
   });
+  // Inject analytics
+  inject();
 };
 
 export const useServerTimeLoader = routeLoader$(() => {
@@ -48,8 +50,6 @@ export default component$(() => {
     // Réinitialiser le menu mobile à chaque changement de page
     mobileMenuVisible.value = false;
   });
-
-  inject();
 
   return (
     <>
