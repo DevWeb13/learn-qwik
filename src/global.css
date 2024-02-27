@@ -462,6 +462,7 @@
   --tw-backdrop-opacity: ;
   --tw-backdrop-saturate: ;
   --tw-backdrop-sepia: ;
+  --tw-prose-links: var(--ds-blue-700);
   box-sizing: border-box;
   border-width: 0;
   border-style: solid;
@@ -489,6 +490,7 @@ html {
     "Segoe UI Emoji",
     "Segoe UI Symbol",
     "Noto Color Emoji";
+  scroll-behavior: smooth;
 }
 
 body {
