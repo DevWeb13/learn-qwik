@@ -1,4 +1,4 @@
-import { inject } from "@vercel/analytics";
+import { Analytics } from "@vercel/analytics/react";
 
 import type { Signal } from "@builder.io/qwik";
 import {
@@ -28,8 +28,6 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
     // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
     maxAge: 5,
   });
-  // Inject analytics
-  inject();
 };
 
 export const useServerTimeLoader = routeLoader$(() => {
@@ -56,6 +54,7 @@ export default component$(() => {
       <Header />
       <Slot />
       <Footer />
+      <Analytics />
     </>
   );
 });
