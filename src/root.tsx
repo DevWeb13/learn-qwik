@@ -6,7 +6,7 @@ import {
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
 import { inject } from "@vercel/analytics";
-import { QwikPartytown } from "./components/partytown/partytown";
+// import { QwikPartytown } from "./components/partytown/partytown";
 
 import "./global.css";
 import "./button.css";
