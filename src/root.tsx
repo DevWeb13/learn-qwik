@@ -28,26 +28,35 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
-        <QwikPartytown forward={["dataLayer.push"]} />
+        {/* <QwikPartytown forward={["dataLayer.push"]} /> */}
+
         <script
-          async
-          type="text/partytown"
-          src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
-        />
-        <script
-          type="text/partytown"
           dangerouslySetInnerHTML={`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-D5GX3GMZR7');
+          <!-- Google Tag Manager -->
+          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-M2HL6LDG');</script>
+          <!-- End Google Tag Manager -->
             `}
         />
+
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
         <ServiceWorkerRegister />
       </head>
       <body lang="en">
+        {/* <!-- Google Tag Manager (noscript) --> */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-M2HL6LDG"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden"
+          ></iframe>
+        </noscript>
+        {/* <!-- End Google Tag Manager (noscript) --> */}
         <RouterOutlet />
       </body>
     </QwikCityProvider>
