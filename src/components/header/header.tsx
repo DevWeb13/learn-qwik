@@ -8,7 +8,7 @@ import Popover from "../../lib/qwikUI/popover/popover";
 
 export default component$(() => {
   const loc = useLocation();
-  console.log("loc", loc);
+
   return (
     <header
       class={
