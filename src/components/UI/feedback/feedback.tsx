@@ -113,7 +113,7 @@ export default component$(() => {
                 aria-checked="false"
                 aria-label="Select Love it! emoji"
                 class="feedback_emoji"
-                role="radio"
+                // role="radio"
                 // type="button"
               >
                 <svg
@@ -142,7 +142,7 @@ export default component$(() => {
                 aria-checked="false"
                 aria-label="Select It’s okay emoji"
                 class="feedback_emoji"
-                role="radio"
+                // role="radio"
                 // type="button"
               >
                 <svg
@@ -165,7 +165,7 @@ export default component$(() => {
                 aria-checked="false"
                 aria-label="Select Not great emoji"
                 class="feedback_emoji"
-                role="radio"
+                // role="radio"
                 // type="button"
               >
                 <svg
@@ -188,7 +188,7 @@ export default component$(() => {
                 aria-checked="false"
                 aria-label="Select Hate it emoji"
                 class="feedback_emoji"
-                role="radio"
+                // role="radio"
                 // type="button"
               >
                 <svg
