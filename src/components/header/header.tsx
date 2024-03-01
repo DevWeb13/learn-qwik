@@ -1,13 +1,22 @@
 import { component$ } from "@builder.io/qwik";
 import styles from "./header.module.css";
+import { useLocation } from "@builder.io/qwik-city";
 
 import NavbarMobile from "../navbar-mobile/navbar-mobile";
 import Navbar from "../navbar/navbar";
 import Popover from "../../lib/qwikUI/popover/popover";
 
 export default component$(() => {
+  const loc = useLocation();
+  console.log("loc", loc);
   return (
-    <header class={`${styles.header_header} ${styles.header_sticky}`}>
+    <header
+      class={
+        styles.header_header +
+        " " +
+        (loc.url.pathname === "/learn/" ? styles.header_sticky : "")
+      }
+    >
       <a
         class={`${styles.skip_nav_link_skipLink}`}
         href="#geist-skip-nav"
