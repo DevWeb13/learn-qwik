@@ -1,13 +1,19 @@
 import { component$ } from "@builder.io/qwik";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
-import BtMenuHeaderOfMain from "./btMenuHeaderOfMain";
+import BtMenuHeaderOfMain from "./btMenuHeaderOfMain/btMenuHeaderOfMain";
 import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
+import { useScrollYPosition } from "~/hooks/useScrollYPosition";
 
 export default component$(() => {
+  const scrollY = useScrollYPosition();
   return (
     <div class="style_container relative z-10 mb-4 h-[67px] w-full max-w-[1072px] lg:-mx-12 lg:mb-8">
       <aside
-        class="bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-[52px] w-full max-w-[1072px] items-center rounded-full px-3 py-3 lg:h-[auto] lg:w-full"
+        class={
+          scrollY.value > 80
+            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-3.5 top-4 z-10 flex h-[52px] max-w-[1072px] items-center rounded-full px-3 py-3 shadow-sm lg:left-1/2 lg:right-[unset] lg:h-[auto] lg:w-full lg:-translate-x-1/2"
+            : "bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-[52px] w-full max-w-[1072px] items-center rounded-full px-3 py-3 lg:h-[auto] lg:w-full"
+        }
         style="background-clip: padding-box;"
       >
         <div class="md:hidden">
@@ -37,7 +43,7 @@ export default component$(() => {
         </div>
         <div
           aria-hidden="true"
-          class="ml-3 mr-4 hidden h-8 w-[1px] bg-gray-alpha-400 lg:block"
+          class="bg-gray-alpha-400 ml-3 mr-4 hidden h-8 w-[1px] lg:block"
         ></div>
         <div class="ml-3 flex items-center gap-3 lg:ml-0">
           <div class="relative hidden lg:block">
@@ -160,7 +166,7 @@ export default component$(() => {
         </div>
         <div
           aria-hidden="true"
-          class="ml-4 mr-3 hidden h-8 w-[1px] bg-gray-alpha-400 lg:block"
+          class="bg-gray-alpha-400 ml-4 mr-3 hidden h-8 w-[1px] lg:block"
         ></div>
         <span
           class="tooltip_container"

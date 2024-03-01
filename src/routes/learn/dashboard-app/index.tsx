@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import DashboardAppContent from "~/components/dashboardApp/dashboardAppContent";
-import HeaderOfMain from "~/components/headerOfMain/headerOfMain";
+import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
 
 export default component$(() => {
