@@ -5,7 +5,7 @@ import { CodeBlockHeader } from "./codeBlockHeader";
 
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
 
-import { codeToHtml } from "shiki";
+import { codeToHtml } from "shiki/bundle/web";
 
 interface CodeBlockProps {
   icon: JSX.Element;
