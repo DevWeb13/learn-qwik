@@ -6,7 +6,7 @@ import {
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
 import { inject } from "@vercel/analytics";
-import { QwikPartytown } from "./components/partytown/partytown";
+// import { QwikPartytown } from "./components/partytown/partytown";
 
 import "./global.css";
 import "./button.css";
@@ -28,7 +28,7 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
-        <QwikPartytown forward={["dataLayer.push"]} />
+        {/* <QwikPartytown forward={["dataLayer.push"]} />
 
         <script
           type="text/partytown"
@@ -59,7 +59,7 @@ export default component$(() => {
 
             gtag('config', 'G-D5GX3GMZR7');
           `}
-        />
+        /> */}
 
         {/* Google AdSense */}
         <script
@@ -74,14 +74,14 @@ export default component$(() => {
       </head>
       <body lang="en">
         {/* <!-- Google Tag Manager (noscript) --> */}
-        <noscript>
+        {/* <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-M2HL6LDG"
             height="0"
             width="0"
             style="display:none;visibility:hidden"
           ></iframe>
-        </noscript>
+        </noscript> */}
         {/* <!-- End Google Tag Manager (noscript) --> */}
         <RouterOutlet />
       </body>
