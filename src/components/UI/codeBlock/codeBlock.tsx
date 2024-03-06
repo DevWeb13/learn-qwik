@@ -125,21 +125,6 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
 
   `);
 
-  // // eslint-disable-next-line qwik/no-use-visible-task
-  // useVisibleTask$(
-  //   async function createHighlightedCode() {
-  //     const html = await codeToHtml(code, {
-  //       lang: "shell",
-  //       themes: {
-  //         light: "min-light",
-  //         dark: "nord",
-  //       },
-  //     });
-  //     codeDisplay.value = html.toString();
-  //   },
-  //   { strategy: "document-idle" },
-  // );
-
   return (
     <div
       class={
