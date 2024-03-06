@@ -31,7 +31,7 @@ export function useCodeToHtml(code: string) {
 }
 
 export default component$<CodeBlockProps>(({ icon, text, code }) => {
-  const codeDisplay = useCodeToHtml(code.toString());
+  // const codeDisplay = useCodeToHtml(code.toString());
 
   useStyles$(`
 
@@ -135,7 +135,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
       <CodeBlockHeader icon={icon} text={text} code={code} />
       <div
         class="code_block_pre code_block_code"
-        dangerouslySetInnerHTML={codeDisplay}
+        dangerouslySetInnerHTML={code}
       ></div>
     </div>
   );
