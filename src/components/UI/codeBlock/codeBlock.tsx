@@ -13,8 +13,25 @@ interface CodeBlockProps {
   code: string;
 }
 
-export default component$<CodeBlockProps>(({ icon, text, code }) => {
+export function useCodeToHtml(code: string) {
   const codeDisplay = useSignal("Loading" as string);
+
+  useTask$(async function createHighlightedCode() {
+    const html = await codeToHtml(code, {
+      lang: "shell",
+      themes: {
+        light: "min-light",
+        dark: "nord",
+      },
+    });
+    codeDisplay.value = html.toString();
+  });
+
+  return codeDisplay.value;
+}
+
+export default component$<CodeBlockProps>(({ icon, text, code }) => {
+  const codeDisplay = useCodeToHtml(code.toString());
 
   useStyles$(`
 
@@ -108,16 +125,20 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
 
   `);
 
-  useTask$(async () => {
-    const html = await codeToHtml(code, {
-      lang: "shell",
-      themes: {
-        light: "min-light",
-        dark: "nord",
-      },
-    });
-    codeDisplay.value = html.toString();
-  });
+  // // eslint-disable-next-line qwik/no-use-visible-task
+  // useVisibleTask$(
+  //   async function createHighlightedCode() {
+  //     const html = await codeToHtml(code, {
+  //       lang: "shell",
+  //       themes: {
+  //         light: "min-light",
+  //         dark: "nord",
+  //       },
+  //     });
+  //     codeDisplay.value = html.toString();
+  //   },
+  //   { strategy: "document-idle" },
+  // );
 
   return (
     <div
@@ -129,7 +150,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
       <CodeBlockHeader icon={icon} text={text} code={code} />
       <div
         class="code_block_pre code_block_code"
-        dangerouslySetInnerHTML={codeDisplay.value}
+        dangerouslySetInnerHTML={codeDisplay}
       ></div>
     </div>
   );
