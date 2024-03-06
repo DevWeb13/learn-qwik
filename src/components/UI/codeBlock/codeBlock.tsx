@@ -116,7 +116,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
         dark: "nord",
       },
     });
-    codeDisplay.value = html;
+    codeDisplay.value = html.toString();
   });
 
   return (
