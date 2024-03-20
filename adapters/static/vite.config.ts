@@ -12,7 +12,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: "https://learn-qwik-git-27-create-getting-started-page-devweb13.vercel.app/learn/",
+        origin: "https://www.learn-qwik.com/",
       }),
     ],
   };
