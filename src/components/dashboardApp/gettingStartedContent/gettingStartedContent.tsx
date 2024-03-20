@@ -4,8 +4,8 @@ import { component$, useStyles$ } from "@builder.io/qwik";
 
 import InstyledPage from "~/assets/img/unstyled-page.png?jsx";
 import Feedback from "../../UI/feedback/feedback";
-// import CodeBlock from "../../UI/codeBlock/codeBlock";
-// import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
+import CodeBlock from "../../UI/codeBlock/codeBlock";
+import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
 // import { JavascriptSvg } from "~/assets/svg/javascriptSvg/javascriptSvg";
 import FolderStructure from "./folderStructure/folderStructure";
 
@@ -219,11 +219,11 @@ export default component$(() => {
           into the folder you'd like to keep your project, and run the following
           command:
         </p>
-        {/* <CodeBlock
+        <CodeBlock
           icon={<TerminalSvg classList="with_icon_icon" />}
           text="Terminal"
           code={`npm create qwik@latest`}
-        /> */}
+        />
         {/* <code class="code_block_code">
             <span class="line">
               <span style="color: var(--shiki-color-text);">npm </span>
