@@ -1,7 +1,7 @@
 // src/components/UI/codeBlock/codeBlock.tsx
 
 import { component$, useSignal, useStyles$, useTask$ } from "@builder.io/qwik";
-// import { CodeBlockHeader } from "./codeBlockHeader";
+import { CodeBlockHeader } from "./codeBlockHeader";
 
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
 
@@ -28,7 +28,7 @@ const convertCodeToHtml = server$(async function (code: string) {
   return codeDisplay;
 });
 
-export default component$<CodeBlockProps>(({ text, code }) => {
+export default component$<CodeBlockProps>(({ icon, text, code }) => {
   const codeDisplay = useSignal("Loading");
 
   useTask$(async () => {
@@ -134,11 +134,11 @@ export default component$<CodeBlockProps>(({ text, code }) => {
         (text === "Terminal" ? " code_block_hideLineNumbers" : "")
       }
     >
-      {/* <CodeBlockHeader icon={icon} text={text} code={code} /> */}
-      <div
+      <CodeBlockHeader icon={icon} text={text} code={code} />
+      {/* <div
         class="code_block_pre code_block_code"
         dangerouslySetInnerHTML={codeDisplay.value}
-      ></div>
+      ></div> */}
     </div>
   );
 });
