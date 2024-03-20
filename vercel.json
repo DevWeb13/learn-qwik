@@ -9,5 +9,12 @@
         }
       ]
     }
+  ],
+  "redirect": [
+    {
+      "source": "/",
+      "destination": "/learn",
+      "permanent": true
+    }
   ]
 }

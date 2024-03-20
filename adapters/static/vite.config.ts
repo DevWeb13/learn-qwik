@@ -12,7 +12,8 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: "https://www.learn-qwik.com/learn",
+        origin: "https://www.learn-qwik.com",
+        
       }),
     ],
   };
