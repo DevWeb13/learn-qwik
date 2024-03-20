@@ -1,12 +1,12 @@
 // src/components/UI/codeBlock/codeBlock.tsx
 
-import { component$, useSignal, useStyles$, useTask$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
 
-import { codeToHtml } from "shiki/bundle/web";
-import { server$ } from "@builder.io/qwik-city";
+// import { codeToHtml } from "shiki/bundle/web";
+// import { server$ } from "@builder.io/qwik-city";
 
 interface CodeBlockProps {
   icon: JSX.Element;
@@ -14,26 +14,26 @@ interface CodeBlockProps {
   code: string;
 }
 
-const convertCodeToHtml = server$(async function (code: string) {
-  let codeDisplay = "Loading";
+// const convertCodeToHtml = server$(async function (code: string) {
+//   let codeDisplay = "Loading";
 
-  const html = await codeToHtml(code, {
-    lang: "shell",
-    themes: {
-      light: "min-light",
-      dark: "nord",
-    },
-  });
-  codeDisplay = html.toString();
-  return codeDisplay;
-});
+//   const html = await codeToHtml(code, {
+//     lang: "shell",
+//     themes: {
+//       light: "min-light",
+//       dark: "nord",
+//     },
+//   });
+//   codeDisplay = html.toString();
+//   return codeDisplay;
+// });
 
 export default component$<CodeBlockProps>(({ icon, text, code }) => {
-  const codeDisplay = useSignal("Loading");
+  // const codeDisplay = useSignal("Loading");
 
-  useTask$(async () => {
-    codeDisplay.value = await convertCodeToHtml(code.toString());
-  });
+  // useTask$(async () => {
+  //   codeDisplay.value = await convertCodeToHtml(code.toString());
+  // });
 
   useStyles$(`
 
