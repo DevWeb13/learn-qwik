@@ -137,7 +137,7 @@ export default component$(() => {
         <figure>
           <ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions
             alt="Screenshots of the dashboard project showing desktop and mobile versions."
-            class="block rounded-md border border-gray-200 bg-gray-100 dark:hidden"
+            class="block rounded-md border border-gray-200 bg-gray-100 "
           />
         </figure>
         <p>
@@ -573,17 +573,23 @@ export default component$(() => {
             development server.
           </p>
           <div class="w-full md:w-fit">
-            <a
-              role="link"
+            <Link
               tabIndex={0}
               href="/learn/dashboard-app/getting-started"
-              type="submit"
               class="button_base reset_reset button_button reset_reset button_large button_invert"
               data-geist-button=""
               data-prefix="false"
               data-suffix="true"
               data-version="v1"
               style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
+              onPointerEnter$={(e) => {
+                const target = e.target as HTMLElement; // Assertion de type pour HTMLElement
+                target.setAttribute("data-hover", "");
+              }}
+              onPointerLeave$={(e) => {
+                const target = e.target as HTMLElement; // Assertion de type pour HTMLElement
+                target.removeAttribute("data-hover");
+              }}
             >
               <span class="button_content">Start Chapter 1</span>
               <span class="button_suffix">
@@ -603,7 +609,7 @@ export default component$(() => {
                   ></path>
                 </svg>
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

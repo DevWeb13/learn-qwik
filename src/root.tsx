@@ -1,12 +1,12 @@
-import { component$, useVisibleTask$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
-import { inject } from "@vercel/analytics";
-import { QwikPartytown } from "./components/partytown/partytown";
+// import { inject } from "@vercel/analytics";
+// import { QwikPartytown } from "./components/partytown/partytown";
 
 import "./global.css";
 import "./button.css";
@@ -20,15 +20,15 @@ export default component$(() => {
    */
 
   // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(() => {
-    inject();
-  });
+  // useVisibleTask$(() => {
+  //   inject();
+  // });
 
   return (
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
-        <QwikPartytown forward={["dataLayer.push"]} />
+        {/* <QwikPartytown forward={["dataLayer.push"]} />
 
         <script
           type="text/partytown"
@@ -59,14 +59,14 @@ export default component$(() => {
 
             gtag('config', 'G-D5GX3GMZR7');
           `}
-        />
+        /> */}
 
         {/* Google AdSense */}
-        <script
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
           crossOrigin="anonymous"
-        ></script>
+        ></script> */}
 
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
@@ -74,14 +74,14 @@ export default component$(() => {
       </head>
       <body lang="en">
         {/* <!-- Google Tag Manager (noscript) --> */}
-        <noscript>
+        {/* <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-M2HL6LDG"
             height="0"
             width="0"
             style="display:none;visibility:hidden"
           ></iframe>
-        </noscript>
+        </noscript> */}
         {/* <!-- End Google Tag Manager (noscript) --> */}
         <RouterOutlet />
       </body>

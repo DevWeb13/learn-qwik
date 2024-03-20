@@ -1,3 +1,5 @@
+// src/routes/learn/index.tsx
+
 import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
 import ArrowRightSvg from "~/assets/svg/arrowRightSvg/arrowRightSvg";
