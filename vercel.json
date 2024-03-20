@@ -10,7 +10,7 @@
       ]
     }
   ],
-  "redirect": [
+  "redirects": [
     {
       "source": "/",
       "destination": "/learn",
