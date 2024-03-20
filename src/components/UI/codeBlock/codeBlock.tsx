@@ -6,6 +6,7 @@ import { CodeBlockHeader } from "./codeBlockHeader";
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
 
 import { codeToHtml } from "shiki/bundle/web";
+import { server$ } from "@builder.io/qwik-city";
 
 interface CodeBlockProps {
   icon: JSX.Element;
@@ -13,25 +14,26 @@ interface CodeBlockProps {
   code: string;
 }
 
-export function useCodeToHtml(code: string) {
-  const codeDisplay = useSignal("Loading" as string);
+const convertCodeToHtml = server$(async function (code: string) {
+  let codeDisplay = "Loading";
 
-  useTask$(async function createHighlightedCode() {
-    const html = await codeToHtml(code, {
-      lang: "shell",
-      themes: {
-        light: "min-light",
-        dark: "nord",
-      },
-    });
-    codeDisplay.value = html.toString();
+  const html = await codeToHtml(code, {
+    lang: "shell",
+    themes: {
+      light: "min-light",
+      dark: "nord",
+    },
   });
-
-  return codeDisplay.value;
-}
+  codeDisplay = html.toString();
+  return codeDisplay;
+});
 
 export default component$<CodeBlockProps>(({ icon, text, code }) => {
-  const codeDisplay = useCodeToHtml(code.toString());
+  const codeDisplay = useSignal("Loading");
+
+  useTask$(async () => {
+    codeDisplay.value = await convertCodeToHtml(code.toString());
+  });
 
   useStyles$(`
 
@@ -135,7 +137,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
       <CodeBlockHeader icon={icon} text={text} code={code} />
       <div
         class="code_block_pre code_block_code"
-        dangerouslySetInnerHTML={codeDisplay}
+        dangerouslySetInnerHTML={codeDisplay.value}
       ></div>
     </div>
   );
