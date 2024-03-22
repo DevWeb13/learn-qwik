@@ -30,25 +30,25 @@ export const useSetProgressCircleCookie = routeAction$(
     const nextUri = data.nextUri;
     console.log({ completedChapter, nextUri });
 
-    // let progressCircle = requestEvent.cookie
-    //   .get("progressCircle")
-    //   ?.json<ProgressCircle>();
+    let progressCircle = requestEvent.cookie
+      .get("progressCircle")
+      ?.json<ProgressCircle>();
 
-    // console.log({ progressCircle });
+    console.log({ progressCircle });
 
-    // if (!progressCircle) {
-    //   progressCircle = {
-    //     completed: [],
-    //   };
-    // }
+    if (!progressCircle) {
+      progressCircle = {
+        completed: [],
+      };
+    }
 
-    // if (
-    //   !progressCircle.completed.includes(completedChapter) &&
-    //   completedChapter !== 0
-    // ) {
-    //   progressCircle.completed.push(completedChapter);
-    //   requestEvent.cookie.set("progressCircle", progressCircle, { path: "/" });
-    // }
+    if (
+      !progressCircle.completed.includes(completedChapter) &&
+      completedChapter !== 0
+    ) {
+      progressCircle.completed.push(completedChapter);
+      requestEvent.cookie.set("progressCircle", progressCircle, { path: "/" });
+    }
 
     // redirect to the next chapter
     requestEvent.redirect(302, `/learn/dashboard-app/${nextUri}`);
