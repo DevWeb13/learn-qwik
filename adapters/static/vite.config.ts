@@ -14,8 +14,9 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: "https://www.learn-qwik.com",
-        base: '/learn/'
+        origin: "https://learn-qwik.com",
+        base: '/learn/dashboard-app/'
+
         
         
       }),
