@@ -8,6 +8,9 @@ import CodeBlock from "../../UI/codeBlock/codeBlock";
 import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
 // import { JavascriptSvg } from "~/assets/svg/javascriptSvg/javascriptSvg";
 import FolderStructure from "./folderStructure/folderStructure";
+import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 
 export default component$(() => {
   useStyles$(`
@@ -128,35 +131,7 @@ export default component$(() => {
       style="min-height: calc(100vh - 103px);"
     >
       <div class="prose prose-vercel max-w-none">
-        <div class="not-prose mb-4 flex flex-col items-start gap-2 md:mb-10 md:flex-row md:items-center md:gap-6">
-          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 md:h-[72px] md:w-[72px]">
-            <p
-              class="text_wrapper"
-              data-version="v1"
-              style="--text-color: var(--ds-gray-900); --xs-text-size: 1.5rem; --xs-text-line-height: 2rem; --xs-text-weight: 600; --xs-text-letter-spacing: -0.029375rem; --sm-text-size: 1.5rem; --sm-text-line-height: 2rem; --sm-text-weight: 600; --sm-text-letter-spacing: -0.029375rem; --smd-text-size: 2.5rem; --smd-text-line-height: 3.5rem; --smd-text-weight: 600; --smd-text-letter-spacing: -0.058125rem; --md-text-size: 2.5rem; --md-text-line-height: 3.5rem; --md-text-weight: 600; --md-text-letter-spacing: -0.058125rem; --lg-text-size: 2.5rem; --lg-text-line-height: 3.5rem; --lg-text-weight: 600; --lg-text-letter-spacing: -0.058125rem;"
-            >
-              1
-            </p>
-          </div>
-          <hgroup>
-            <div class="hidden md:block">
-              <p
-                class="text_wrapper"
-                data-version="v1"
-                style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
-              >
-                Chapter 1
-              </p>
-            </div>
-            <h1
-              class="text_wrapper"
-              data-version="v1"
-              style="--text-color: var(--ds-gray-1000); --xs-text-size: 1.5rem; --xs-text-line-height: 2rem; --xs-text-weight: 600; --xs-text-letter-spacing: -0.029375rem; --sm-text-size: 1.5rem; --sm-text-line-height: 2rem; --sm-text-weight: 600; --sm-text-letter-spacing: -0.029375rem; --smd-text-size: 2.5rem; --smd-text-line-height: 3.5rem; --smd-text-weight: 600; --smd-text-letter-spacing: -0.058125rem; --md-text-size: 2.5rem; --md-text-line-height: 3.5rem; --md-text-weight: 600; --md-text-letter-spacing: -0.058125rem; --lg-text-size: 2.5rem; --lg-text-line-height: 3.5rem; --lg-text-weight: 600; --lg-text-letter-spacing: -0.058125rem;"
-            >
-              Getting Started
-            </h1>
-          </hgroup>
-        </div>
+        <PageTitle chapterNumber={1} chapterTitle="Getting Started" />
         <h2 id="creating-a-new-project" data-docs-heading="">
           <a href="#creating-a-new-project">
             Create an app using the CLI
@@ -997,107 +972,17 @@ export default component$(() => {
         </figure>
       </div>
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
-        <div
-          aria-hidden="true"
-          class="mx-auto h-32 w-[1px] bg-gradient-to-t from-blue-300 md:h-48"
-        ></div>
-        <div
-          aria-hidden="true"
-          class="relative flex h-24 w-24 items-center justify-center rounded-full bg-blue-300 text-[48px] font-semibold text-blue-900  md:h-32 md:w-32 md:text-[72px]"
-        >
-          1
-          <div class="text-vercel-100 border-vercel-100 absolute bottom-0 right-0 flex h-8 w-8 translate-x-[6px] translate-y-[6px] items-center justify-center rounded-full border-[3px] bg-blue-700 md:h-10 md:w-10">
-            <svg
-              data-testid="geist-icon"
-              height="16"
-              stroke-linejoin="round"
-              viewBox="0 0 16 16"
-              width="16"
-              style="color: currentcolor;"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M15.5607 3.99999L15.0303 4.53032L6.23744 13.3232C5.55403 14.0066 4.44599 14.0066 3.76257 13.3232L4.2929 12.7929L3.76257 13.3232L0.969676 10.5303L0.439346 9.99999L1.50001 8.93933L2.03034 9.46966L4.82323 12.2626C4.92086 12.3602 5.07915 12.3602 5.17678 12.2626L13.9697 3.46966L14.5 2.93933L15.5607 3.99999Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </div>
-        </div>
-        <h2
-          class="text_wrapper block pb-2 pt-8"
-          data-version="v1"
-          style="--text-color: var(--ds-gray-1000); --xs-text-size: 1.5rem; --xs-text-line-height: 2rem; --xs-text-weight: 600; --xs-text-letter-spacing: -0.029375rem; --sm-text-size: 1.5rem; --sm-text-line-height: 2rem; --sm-text-weight: 600; --sm-text-letter-spacing: -0.029375rem; --smd-text-size: 2.5rem; --smd-text-line-height: 3.5rem; --smd-text-weight: 600; --smd-text-letter-spacing: -0.058125rem; --md-text-size: 2.5rem; --md-text-line-height: 3.5rem; --md-text-weight: 600; --md-text-letter-spacing: -0.058125rem; --lg-text-size: 2.5rem; --lg-text-line-height: 3.5rem; --lg-text-weight: 600; --lg-text-letter-spacing: -0.058125rem;"
-        >
-          You've Completed Chapter 1
-        </h2>
-        <div class="text-center">
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial;"
-          >
-            Congratulations! You've created a Next.js application using the
-            starter example and ran the development server.
-          </p>
-        </div>
-        <div class="border-gray-alpha-400 mt-8 flex w-full flex-col items-center justify-center gap-1 rounded-lg px-4 py-8 shadow-md md:mt-12">
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
-          >
-            Next Up
-          </p>
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-1000); --text-size: 1.25rem; --text-line-height: 1.5rem; --text-letter-spacing: -0.020625rem; --text-weight: 600;"
-          >
-            2: CSS Styling
-          </p>
-          <p
-            class="text_wrapper max-w-[540px] pb-4 pt-3 md:pb-6"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial; --text-align: center;"
-          >
-            Let's work on your home page and discuss the different ways you can
-            style your application.
-          </p>
-          <div class="w-full md:w-fit">
-            <a
-              role="link"
-              tabIndex={0}
-              href="/learn/dashboard-app/css-styling"
-              type="submit"
-              class="button_base reset_reset button_button  button_large button_invert"
-              data-geist-button=""
-              data-prefix="false"
-              data-suffix="true"
-              data-version="v1"
-              style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
-            >
-              <span class="button_content">Start Chapter 2</span>
-              <span class="button_suffix">
-                <svg
-                  data-testid="geist-icon"
-                  height="16"
-                  stroke-linejoin="round"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  style="color: currentcolor;"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </span>
-            </a>
-          </div>
-        </div>
+        <CompletedChapter
+          chapterNumber={1}
+          text="Congratulations! You've created a Qwik application using the starter
+          example and ran the development server."
+        />
+        <GoToNextChapterBlock
+          goToChapter={2}
+          title="CSS Styling"
+          text="Let's work on your home page and discuss the different ways you can
+        style your application."
+        />
       </div>
       <Feedback />
       <div class="mb-[40px] md:mb-[120px]"></div>

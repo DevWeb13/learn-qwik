@@ -4,6 +4,7 @@ import { Link } from "@builder.io/qwik-city";
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.avif?jsx";
 import Feedback from "../UI/feedback/feedback";
 import Popover from "~/lib/qwikUI/popover/popover";
+import GoToNextChapterBlock from "../UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export default component$(() => {
   useStyles$(`
@@ -549,7 +550,13 @@ export default component$(() => {
             Now that you've been introduced to the course, let's dive in.
           </p>
         </div>
-        <div class="border-gray-alpha-400 mt-8 flex w-full flex-col items-center justify-center gap-1 rounded-lg border px-4 py-8 shadow-md md:mt-12">
+        <GoToNextChapterBlock
+          goToChapter={1}
+          title="Getting Started"
+          text="Learn how to create a Qwik application and run your local
+          development server."
+        />
+        {/* <div class="border-gray-alpha-400 mt-8 flex w-full flex-col items-center justify-center gap-1 rounded-lg border px-4 py-8 shadow-md md:mt-12">
           <p
             class="text_wrapper"
             data-version="v1"
@@ -611,7 +618,7 @@ export default component$(() => {
               </span>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <Feedback />

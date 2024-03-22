@@ -1,3 +1,5 @@
+// src/routes/layout.tsx
+
 import type { Signal } from "@builder.io/qwik";
 import {
   component$,
