@@ -1,3 +1,5 @@
+// adapters/static/vite.config.ts
+
 import { staticAdapter } from "@builder.io/qwik-city/adapters/static/vite";
 import { extendConfig } from "@builder.io/qwik-city/vite";
 import baseConfig from "../../vite.config";
@@ -13,6 +15,8 @@ export default extendConfig(baseConfig, () => {
     plugins: [
       staticAdapter({
         origin: "https://www.learn-qwik.com",
+        base: '/learn/'
+        
         
       }),
     ],
