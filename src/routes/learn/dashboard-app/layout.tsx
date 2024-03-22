@@ -51,7 +51,7 @@ export const useSetProgressCircleCookie = routeAction$(
     }
 
     // redirect to the next chapter
-    requestEvent.redirect(302, `/learn/dashboard-app/${nextUri}`);
+    // requestEvent.redirect(302, `/learn/dashboard-app/${nextUri}`);
   },
 );
 
