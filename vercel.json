@@ -9,18 +9,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/learn",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/q-data.json",
-      "destination": "/learn/dashboard-app/q-data.json"
-    }
   ]
 }

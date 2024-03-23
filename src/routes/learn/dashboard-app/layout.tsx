@@ -15,12 +15,7 @@ export const onGet: RequestHandler = async ({ cookie }) => {
     progressCircleCookie = {
       completed: [],
     };
-    cookie.set("progressCircle", progressCircleCookie, {
-      path: "/",
-      secure: true,
-      httpOnly: true,
-      sameSite: "Strict", // ou 'Lax' selon votre besoin
-    });
+    cookie.set("progressCircle", progressCircleCookie, { path: "/" });
   }
 };
 
@@ -30,7 +25,7 @@ export const useGetProgressCircleCookie = routeLoader$(({ cookie }) => {
 
 export const useSetProgressCircleCookie = routeAction$(
   async (data, requestEvent) => {
-    // console.log(requestEvent);
+    console.log(requestEvent);
     const completedChapter = Number(data.goToChapter) - 1;
     const nextUri = data.nextUri;
     console.log({ completedChapter, nextUri });
@@ -52,12 +47,7 @@ export const useSetProgressCircleCookie = routeAction$(
       completedChapter !== 0
     ) {
       progressCircle.completed.push(completedChapter);
-      requestEvent.cookie.set("progressCircle", progressCircle, {
-        path: "/",
-        secure: true,
-        httpOnly: true,
-        sameSite: "Strict", // ou 'Lax' selon votre besoin
-      });
+      requestEvent.cookie.set("progressCircle", progressCircle, { path: "/" });
     }
 
     // redirect to the next chapter
