@@ -1,7 +1,7 @@
 // src/components/UI/headerOfMain/progressCircle/progressCircle.tsx
 
 import { component$ } from "@builder.io/qwik";
-import { useGetProgressCircleCookie } from "~/routes/learn/dashboard-app/layout";
+import { useGetProgressCircleCookie } from "~/routes/layout";
 
 import type { ProgressCircle } from "~/types/types";
 
