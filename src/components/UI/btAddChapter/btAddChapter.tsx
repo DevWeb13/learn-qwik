@@ -2,7 +2,7 @@
 
 import { component$ } from "@builder.io/qwik";
 import { Form } from "@builder.io/qwik-city";
-import { useSetProgressCircleCookie } from "~/routes/layout";
+import { useSetProgressCircleCookie } from "~/routes/learn/dashboard-app/layout";
 
 interface BtAddChapterProps {
   goToChapter: number;
