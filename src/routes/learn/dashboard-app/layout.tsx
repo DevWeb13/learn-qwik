@@ -25,16 +25,16 @@ export const useGetProgressCircleCookie = routeLoader$(({ cookie }) => {
 
 export const useSetProgressCircleCookie = routeAction$(
   async (data, requestEvent) => {
-    console.log(requestEvent);
+    // console.log(requestEvent);
     const completedChapter = Number(data.goToChapter) - 1;
     const nextUri = data.nextUri;
-    console.log({ completedChapter, nextUri });
+    // console.log({ completedChapter, nextUri });
 
     let progressCircle = await requestEvent.cookie
       .get("progressCircle")
       ?.json<ProgressCircle>();
 
-    console.log({ progressCircle });
+    // console.log({ progressCircle });
 
     if (!progressCircle) {
       progressCircle = {

@@ -114,7 +114,14 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
       }
     >
       <CodeBlockHeader icon={icon} text={text} code={code} />
-      <QwikShikiji code={code} lang="bash" />
+      <QwikShikiji
+        code={code}
+        lang="bash"
+        options={{
+          showLineNumbers: true,
+          theme: "github-light",
+        }}
+      />
     </div>
   );
 });

@@ -14,7 +14,7 @@ export default component$<BtAddChapterProps>(({ goToChapter, title }) => {
 
   const nextUri = title.toLowerCase().replace(/\s+/g, "-");
 
-  console.log({ nextUri });
+  // console.log({ nextUri });
 
   return (
     <div class="w-full md:w-fit">
