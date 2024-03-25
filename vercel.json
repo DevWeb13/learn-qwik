@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "./src/entry.express.tsx",
+      "src": "./adapters/express/vite.config.ts",
       "use": "@vercel/node"
     }
   ],
