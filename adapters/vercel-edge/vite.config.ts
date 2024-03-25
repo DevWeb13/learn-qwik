@@ -1,4 +1,5 @@
 import { vercelEdgeAdapter } from "@builder.io/qwik-city/adapters/vercel-edge/vite";
+
 import { extendConfig } from "@builder.io/qwik-city/vite";
 import baseConfig from "../../vite.config";
 
@@ -10,9 +11,14 @@ export default extendConfig(baseConfig, () => {
         input: ["src/entry.vercel-edge.tsx", "@qwik-city-plan"],
       },
       outDir: ".vercel/output/functions/_qwik-city.func",
-      target: "nodejs20.10",
+      
     },
-    plugins: [vercelEdgeAdapter()],
+    plugins: [vercelEdgeAdapter(), 
+       
+      vercelEdgeAdapter({
+        target: "node",
+      }),
+    ],
     
   };
 });
