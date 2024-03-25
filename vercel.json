@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "./server/build/entry.express.js",
+      "src": "./server/entry.express.js",
       "use": "@vercel/node"
     }
   ],
