@@ -2,13 +2,13 @@
   "version": 2,
   "builds": [
     {
-      "src": "/dist/build/*.js",
+      "src": "src/entry.express.tsx",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "src/entry.express.tsx",
       "dest": "/"
     }
   ]
