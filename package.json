@@ -14,7 +14,6 @@
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.server": "vite build -c adapters/express/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
-    "deploy": "vercel deploy",
     "dev": "vite --mode ssr",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
@@ -46,7 +45,6 @@
     "tailwindcss": "3.3.3",
     "typescript": "5.3.3",
     "undici": "*",
-    "vercel": "^29.1.1",
     "vite": "^5.0.12",
     "vite-tsconfig-paths": "^4.2.1"
   },
