@@ -7,6 +7,8 @@ import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
 import type { ProgressCircle } from "~/types/types";
 
+export const runtime = "nodejs";
+
 export const onGet: RequestHandler = async ({ cookie }) => {
   let progressCircleCookie = cookie
     .get("progressCircle")
