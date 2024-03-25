@@ -1,12 +1,11 @@
 // src/components/UI/codeBlock/codeBlock.tsx
 
-import { component$, useSignal, useStyles$, useTask$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
-import { server$ } from "@builder.io/qwik-city";
 
-import { codeToHtml } from "shiki/bundle/web";
+import { QwikShikiji } from "@iamaeron/qwik-shikiji";
 
 interface CodeBlockProps {
   icon: JSX.Element;
@@ -14,24 +13,7 @@ interface CodeBlockProps {
   code: string;
 }
 
-const convertCodeToHtml = server$(async function (code: string) {
-  const html = await codeToHtml(code, {
-    lang: "shell",
-    themes: {
-      light: "min-light",
-      dark: "nord",
-    },
-  });
-  return html.toString();
-});
-
 export default component$<CodeBlockProps>(({ icon, text, code }) => {
-  const codeDisplay = useSignal("Loading");
-
-  useTask$(async () => {
-    codeDisplay.value = await convertCodeToHtml(code.toString());
-  });
-
   useStyles$(`
 
   .code_block_wrapper {
@@ -132,10 +114,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
       }
     >
       <CodeBlockHeader icon={icon} text={text} code={code} />
-      <div
-        class="code_block_pre code_block_code"
-        dangerouslySetInnerHTML={codeDisplay.value}
-      />
+      <QwikShikiji code={code} lang="bash" />
     </div>
   );
 });

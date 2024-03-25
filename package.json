@@ -47,8 +47,9 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
+    "@iamaeron/qwik-shikiji": "^0.0.3",
     "@qwik-ui/headless": "^0.2.2",
     "@vercel/analytics": "^1.2.2",
-    "rehype-pretty-code": "^0.13.0"
+    "shikiji": "^0.10.2"
   }
 }
