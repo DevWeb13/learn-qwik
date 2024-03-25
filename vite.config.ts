@@ -22,11 +22,6 @@ export default defineConfig(async () => {
         "Cache-Control": "public, max-age=600",
       },
     },
-    build: {
-      outDir: ".vercel/output/static",
-      manifest: true,
-      target: "node20.10",
-      ssr: true,
-    },
+    
   };
 });
