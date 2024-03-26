@@ -11,8 +11,11 @@ export default extendConfig(baseConfig, () => {
       },
       outDir: ".vercel/output/functions/_qwik-city.func",
     },
-    plugins: [vercelEdgeAdapter(<VercelEdgeAdapterOptions>{
-      target: "node",
-    })],
+    plugins: [vercelEdgeAdapter(
+      {
+        target: "node",
+        ssg: undefined,
+      } as VercelEdgeAdapterOptions,
+    )],
   };
 });
