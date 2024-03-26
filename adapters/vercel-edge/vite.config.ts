@@ -10,11 +10,17 @@ export default extendConfig(baseConfig, () => {
         input: ["src/entry.vercel-edge.tsx", "@qwik-city-plan"],
       },
       outDir: ".vercel/output/functions/_qwik-city.func",
+      lib: {
+        entry: "src/entry.vercel-edge.tsx",
+        formats: ["cjs"],
+      },
     },
     plugins: [vercelEdgeAdapter(
       {
         target: "node",
-        ssg: undefined,
+        staticPaths: [
+           "src/routes/learn/dashboard-app",
+        ]
       } as VercelEdgeAdapterOptions,
     )],
   };
