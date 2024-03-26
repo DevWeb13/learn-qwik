@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "server/entry.express.js",
+      "src": "entry.express.js",
       "use": "@vercel/node"
     }
   ],
