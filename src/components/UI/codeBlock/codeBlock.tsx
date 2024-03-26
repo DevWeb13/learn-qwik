@@ -5,13 +5,26 @@ import { CodeBlockHeader } from "./codeBlockHeader";
 
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
 
-import { QwikShikiji } from "@iamaeron/qwik-shikiji";
+import { getHighlighterCore } from "shiki/core";
+import getWasm from "shiki/wasm";
 
 interface CodeBlockProps {
   icon: JSX.Element;
   text: string;
   code: string;
 }
+
+const highlighter = await getHighlighterCore({
+  themes: [
+    // or a dynamic import if you want to do chunk splitting
+    import("shiki/themes/github-light.mjs"),
+  ],
+  langs: [
+    import("shiki/langs/bash.mjs"),
+    // shiki will try to interop the module with the default export
+  ],
+  loadWasm: getWasm,
+});
 
 export default component$<CodeBlockProps>(({ icon, text, code }) => {
   useStyles$(`
@@ -106,6 +119,11 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
 
   `);
 
+  const codeHighLight = highlighter.codeToHtml(code, {
+    lang: "bash",
+    theme: "github-light",
+  });
+
   return (
     <div
       class={
@@ -114,14 +132,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
       }
     >
       <CodeBlockHeader icon={icon} text={text} code={code} />
-      <QwikShikiji
-        code={code}
-        lang="bash"
-        options={{
-          showLineNumbers: true,
-          theme: "github-light",
-        }}
-      />
+      <div dangerouslySetInnerHTML={codeHighLight} class="code_block_pre"></div>
     </div>
   );
 });
