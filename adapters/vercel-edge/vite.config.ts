@@ -6,18 +6,15 @@ export default extendConfig(baseConfig, () => {
   return {
     build: {
       ssr: true,
+      target: "node18.17.0",
       rollupOptions: {
         input: ["src/entry.vercel-edge.tsx", "@qwik-city-plan"],
       },
-      outDir: ".vercel/output/static",
-      
+      outDir: ".vercel/output/functions/_qwik-city.func",
     },
     plugins: [vercelEdgeAdapter(
       {
         target: "node",
-        staticPaths: [
-           "src/routes/learn/dashboard-app/**/*",
-        ]
       } as VercelEdgeAdapterOptions,
     )],
   };
