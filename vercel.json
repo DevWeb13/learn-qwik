@@ -1,23 +1,14 @@
 {
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api"
-    },
-    {
-      "source": "/",
-      "destination": "/learn"
+      "src": "server/entry.express.js",
+      "use": "@vercel/node"
     }
   ],
-  "headers": [
+  "routes": [
     {
-      "source": "/build/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, s-maxage=31536000, immutable"
-        }
-      ]
+      "src": "/(.*)",
+      "dest": "/server/entry.express.js"
     }
   ]
 }
