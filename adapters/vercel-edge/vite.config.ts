@@ -10,16 +10,13 @@ export default extendConfig(baseConfig, () => {
         input: ["src/entry.vercel-edge.tsx", "@qwik-city-plan"],
       },
       outDir: ".vercel/output/functions/_qwik-city.func",
-      lib: {
-        entry: "src/entry.vercel-edge.tsx",
-        formats: ["cjs"],
-      },
+      chunkSizeWarningLimit: 1000,
     },
     plugins: [vercelEdgeAdapter(
       {
         target: "node",
         staticPaths: [
-           "src/routes/learn/dashboard-app",
+           "src/routes/learn/dashboard-app/**/*",
         ]
       } as VercelEdgeAdapterOptions,
     )],
