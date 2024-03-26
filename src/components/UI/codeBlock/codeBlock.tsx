@@ -1,30 +1,15 @@
 // src/components/UI/codeBlock/codeBlock.tsx
 
-import { component$, useStyles$ } from "@builder.io/qwik";
+import { component$, useStore, useStyles$, useTask$ } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
-
-import { getHighlighterCore } from "shiki/core";
-import getWasm from "shiki/wasm";
 
 interface CodeBlockProps {
   icon: JSX.Element;
   text: string;
   code: string;
 }
-
-const highlighter = await getHighlighterCore({
-  themes: [
-    // or a dynamic import if you want to do chunk splitting
-    import("shiki/themes/github-light.mjs"),
-  ],
-  langs: [
-    import("shiki/langs/bash.mjs"),
-    // shiki will try to interop the module with the default export
-  ],
-  loadWasm: getWasm,
-});
 
 export default component$<CodeBlockProps>(({ icon, text, code }) => {
   useStyles$(`
@@ -119,9 +104,22 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
 
   `);
 
-  const codeHighLight = highlighter.codeToHtml(code, {
-    lang: "bash",
-    theme: "github-light",
+  const store = useStore({
+    codeHighLight: null as string | null,
+  });
+
+  useTask$(async () => {
+    const { getHighlighterCore } = await import("shiki/core");
+    const highlighter = await getHighlighterCore({
+      themes: [await import("shiki/themes/github-light.mjs")],
+      langs: [await import("shiki/langs/bash.mjs")],
+      loadWasm: await import("shiki/wasm"),
+    });
+    const codeHighLight = highlighter.codeToHtml(code, {
+      lang: "bash",
+      theme: "github-light",
+    });
+    store.codeHighLight = codeHighLight;
   });
 
   return (
@@ -132,7 +130,10 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
       }
     >
       <CodeBlockHeader icon={icon} text={text} code={code} />
-      <div dangerouslySetInnerHTML={codeHighLight} class="code_block_pre"></div>
+      <div
+        dangerouslySetInnerHTML={store.codeHighLight || ""}
+        class="code_block_pre"
+      ></div>
     </div>
   );
 });
