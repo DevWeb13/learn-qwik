@@ -19,22 +19,6 @@ export const onGet: RequestHandler = async ({ cookie }) => {
   }
 };
 
-// export const useGetHighlightCore = routeLoader$(async () => {
-//   const { getHighlighterCore } = await import("shiki/core");
-//   const highlighter = await getHighlighterCore({
-//     themes: [
-//       // or a dynamic import if you want to do chunk splitting
-//       import("shiki/themes/github-light.mjs"),
-//     ],
-//     langs: [
-//       import("shiki/langs/bash.mjs"),
-//       // shiki will try to interop the module with the default export
-//     ],
-//     loadWasm: import("shiki/wasm"),
-//   });
-//   return highlighter;
-// });
-
 export const useGetProgressCircleCookie = routeLoader$(({ cookie }) => {
   return cookie.get("progressCircle")?.json<ProgressCircle>();
 });

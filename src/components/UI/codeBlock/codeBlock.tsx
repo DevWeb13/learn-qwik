@@ -1,6 +1,11 @@
 // src/components/UI/codeBlock/codeBlock.tsx
 
-import { component$, useStore, useStyles$, useTask$ } from "@builder.io/qwik";
+import {
+  component$,
+  useStore,
+  useStyles$,
+  useVisibleTask$,
+} from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
@@ -108,7 +113,8 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
     codeHighLight: null as string | null,
   });
 
-  useTask$(async () => {
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(async () => {
     const { getHighlighterCore } = await import("shiki/core");
     const highlighter = await getHighlighterCore({
       themes: [await import("shiki/themes/github-light.mjs")],
