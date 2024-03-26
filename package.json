@@ -10,6 +10,7 @@
   ],
   "type": "module",
   "scripts": {
+    "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
     "build.server": "vite build -c adapters/vercel-edge/vite.config.ts",
@@ -20,7 +21,6 @@
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
-    "serve": "node server/entry.express",
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },
