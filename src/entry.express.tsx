@@ -25,6 +25,7 @@ declare global {
 
 // Directories where the static assets are located
 const distDir = join(fileURLToPath(import.meta.url), "..", "..", "dist");
+console.log("distDir", distDir);
 const buildDir = join(distDir, "build");
 
 // Allow for dynamic port
@@ -35,6 +36,7 @@ const { router, notFound } = createQwikCity({
   render,
   qwikCityPlan,
   manifest,
+
   // getOrigin(req) {
   //   // If deploying under a proxy, you may need to build the origin from the request headers
   //   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Proto
