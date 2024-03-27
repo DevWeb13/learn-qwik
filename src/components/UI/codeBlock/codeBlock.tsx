@@ -2,6 +2,7 @@
 
 import { component$, useStore, useStyles$, useTask$ } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
+const { getHighlighterCore } = await import("shiki/core");
 
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
 
@@ -105,11 +106,11 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
   `);
 
   const store = useStore({
-    codeHighLight: null as string | null,
+    codeHighLight: "" as string,
   });
 
   useTask$(async () => {
-    const { getHighlighterCore } = await import("shiki/core");
+    // const { getHighlighterCore } = await import("shiki/core");
     const highlighter = await getHighlighterCore({
       themes: [await import("shiki/themes/github-light.mjs")],
       langs: [await import("shiki/langs/bash.mjs")],
@@ -131,7 +132,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
     >
       <CodeBlockHeader icon={icon} text={text} code={code} />
       <div
-        dangerouslySetInnerHTML={store.codeHighLight || ""}
+        dangerouslySetInnerHTML={store.codeHighLight}
         class="code_block_pre"
       ></div>
     </div>
