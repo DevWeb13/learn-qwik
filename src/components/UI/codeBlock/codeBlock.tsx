@@ -1,17 +1,25 @@
 // src/components/UI/codeBlock/codeBlock.tsx
 
-import { component$, useStore, useStyles$, useTask$ } from "@builder.io/qwik";
+import {
+  component$,
+  useSignal,
+  useStyles$,
+  // useTask$,
+  useVisibleTask$,
+} from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 
-import type { JSX } from "@builder.io/qwik/jsx-runtime";
+// import type { JSX } from "@builder.io/qwik/jsx-runtime";
 
 interface CodeBlockProps {
-  icon: JSX.Element;
   text: string;
   code: string;
+  language?: string;
+  splitCommentStart?: string;
+  splitCommentEnd?: string;
 }
 
-export default component$<CodeBlockProps>(({ icon, text, code }) => {
+export default component$<CodeBlockProps>(({ text, code }) => {
   useStyles$(`
 
   .code_block_wrapper {
@@ -29,17 +37,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
     overflow-x: auto;
     background: var(--ds-background-100);
     counter-reset: line;
-    --shiki-color-text: var(--ds-gray-1000);
-    --shiki-color-background: transparent;
-    --shiki-token-constant: var(--ds-blue-900);
-    --shiki-token-string: var(--ds-green-900);
-    --shiki-token-comment: var(--ds-gray-900);
-    --shiki-token-keyword: var(--ds-pink-900);
-    --shiki-token-parameter: var(--ds-amber-900);
-    --shiki-token-function: var(--ds-purple-900);
-    --shiki-token-string-expression: var(--ds-green-900);
-    --shiki-token-punctuation: var(--ds-gray-1000);
-    --shiki-token-link: var(--ds-green-900);
+
   }
 
   .code_block_wrapper.code_block_hasFileName .code_block_pre {
@@ -104,11 +102,37 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
 
   `);
 
-  const store = useStore({
-    codeHighLight: "" as string,
-  });
+  const codeSig = useSignal("");
 
-  useTask$(async () => {
+  // eslint-disable-next-line qwik/no-use-visible-task
+  // useVisibleTask$(
+  //   async function createHighlightedCode() {
+  //     let modifiedCode: string = code;
+
+  //     let partsOfCode = modifiedCode.split(splitCommentStart);
+  //     if (partsOfCode.length > 1) {
+  //       modifiedCode = partsOfCode[1];
+  //     }
+
+  //     partsOfCode = modifiedCode.split(splitCommentEnd);
+  //     if (partsOfCode.length > 1) {
+  //       modifiedCode = partsOfCode[0];
+  //     }
+
+  //     const str = await codeToHtml(modifiedCode, {
+  //       lang: language,
+  //       themes: {
+  //         light: "poimandres",
+  //         dark: "poimandres",
+  //       },
+  //     });
+  //     codeSig.value = str.toString();
+  //   },
+  //   { strategy: "document-idle" },
+  // );
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(async () => {
     const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
     const highlighter = await getHighlighterCore({
       themes: [await import("shiki/themes/github-light.mjs")],
@@ -119,7 +143,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
       lang: "bash",
       theme: "github-light",
     });
-    store.codeHighLight = codeHighLight;
+    codeSig.value = codeHighLight;
   });
 
   return (
@@ -129,11 +153,8 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
         (text === "Terminal" ? " code_block_hideLineNumbers" : "")
       }
     >
-      <CodeBlockHeader icon={icon} text={text} code={code} />
-      <div
-        dangerouslySetInnerHTML={store.codeHighLight}
-        class="code_block_pre"
-      ></div>
+      <CodeBlockHeader text={text} code={code} />
+      <div dangerouslySetInnerHTML={codeSig.value} class="code_block_pre"></div>
     </div>
   );
 });

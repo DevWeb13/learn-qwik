@@ -1,16 +1,16 @@
 import { component$, useStyles$, $, useSignal } from "@builder.io/qwik";
-import type { JSX } from "@builder.io/qwik/jsx-runtime";
+
 import CopySvg from "~/assets/svg/copySvg/copySvg";
 import ValidSvg from "~/assets/svg/validSvg/validSvg";
+import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
 
 interface CodeBlockHeaderProps {
-  icon: JSX.Element;
   text: string;
   code: string;
 }
 
 export const CodeBlockHeader = component$<CodeBlockHeaderProps>(
-  ({ icon, text, code }) => {
+  ({ text, code }) => {
     const copySuccess = useSignal(false); // État pour le feedback visuel
 
     const copyCode = useSignal(code);
@@ -95,7 +95,7 @@ export const CodeBlockHeader = component$<CodeBlockHeaderProps>(
       <div class="code_block_header">
         <div class="code_block_fileName">
           <div aria-hidden="true" class="code_block_iconWrapper">
-            {icon}
+            <TerminalSvg />
           </div>
           <span class="code_block_filenameP">{text}</span>
         </div>
