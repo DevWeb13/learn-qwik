@@ -2,7 +2,6 @@
 
 import { component$, useStore, useStyles$, useTask$ } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
-const { getHighlighterCore } = await import("shiki/core");
 
 import type { JSX } from "@builder.io/qwik/jsx-runtime";
 
@@ -110,7 +109,7 @@ export default component$<CodeBlockProps>(({ icon, text, code }) => {
   });
 
   useTask$(async () => {
-    // const { getHighlighterCore } = await import("shiki/core");
+    const { getHighlighterCore } = await import("shiki/core");
     const highlighter = await getHighlighterCore({
       themes: [await import("shiki/themes/github-light.mjs")],
       langs: [await import("shiki/langs/bash.mjs")],
