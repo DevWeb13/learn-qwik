@@ -1,10 +1,5 @@
 .anchor {
-  color: white !important;
-  display: block;
-  font-size: 0.8rem;
-  text-align: center;
-  text-decoration: none;
-  line-height: 1.5;
+  position: relative;
 }
 
 .anchor span:not(.spacer) {
@@ -12,7 +7,6 @@
 }
 
 .spacer {
-  display: none;
   padding: 0 15px;
 }
 

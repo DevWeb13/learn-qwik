@@ -1,17 +1,32 @@
 // src/routes/learn/index.tsx
 
-import { component$ } from "@builder.io/qwik";
-import { Link, type DocumentHead } from "@builder.io/qwik-city";
-import ArrowRightSvg from "~/assets/svg/arrowRightSvg/arrowRightSvg";
+import type { Signal } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
+import { type DocumentHead } from "@builder.io/qwik-city";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
-import CircleSvg from "~/assets/svg/circleSvg/circleSvg";
+// import CircleSvg from "~/assets/svg/circleSvg/circleSvg";
 import HeroLinesDark from "~/assets/svg/heroLinesDark/heroLinesDark";
 import HeroLinesLight from "~/assets/svg/heroLinesLight/heroLinesLight";
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
+import BtAddChapter from "~/components/UI/btAddChapter/btAddChapter";
+import ProgressCircle from "~/components/UI/headerOfMain/progressCircle/progressCircle";
+import DisplayNextChapter from "~/components/learn/DisplayNextChapter/displayNextChapter";
 
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
+import { ChaptersContext } from "~/routes/layout";
+import type { ChapterType } from "~/types/chapterType";
+
+import type { CompletedChaptersType } from "~/types/completedChapters";
+import { findCompletedChapters } from "~/utils/findCompletedChapters";
 
 export default component$(() => {
+  const chapters: Signal<ChapterType[]> = useContext(ChaptersContext);
+
+  const completedChapter: CompletedChaptersType = findCompletedChapters(
+    chapters.value,
+  );
+
+  console.log({ completedChapter });
   return (
     <main>
       <MobileMenu />
@@ -98,22 +113,8 @@ export default component$(() => {
                     </p>
                   </div>
                   <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug dark:bg-[#171717] md:min-w-[400px]">
-                    <div class="animate-fadeIn mr-2 flex min-w-0 flex-1 flex-shrink flex-col">
-                      <p
-                        class="text_wrapper text_truncate"
-                        data-version="v1"
-                        style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 500; height: 20px;"
-                      >
-                        Chapter 1: Getting Started
-                      </p>
-                      <p
-                        class="text_wrapper flex"
-                        data-version="v1"
-                        style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400; height: 20px;"
-                      >
-                        Dive into the course materials
-                      </p>
-                    </div>
+                    <DisplayNextChapter completed={completedChapter} />
+
                     <div class="ml-2">
                       <div
                         class="gauge_circle__N47Fa gauge_animate__yiaIw"
@@ -121,7 +122,11 @@ export default component$(() => {
                         data-version="v1"
                         style="--circle-size: 100px; --circumference: 282.7433388230814; --percent-to-px: 2.827433388230814px; --gap-percent: 0; --offset-factor: 0;"
                       >
-                        <CircleSvg />
+                        <ProgressCircle
+                          completed={completedChapter}
+                          onlyCircle
+                          responsive="largeOnly"
+                        />
                       </div>
                     </div>
                   </div>
@@ -129,25 +134,20 @@ export default component$(() => {
                 <div class="h-px w-full bg-gray-100"></div>
 
                 <div class="w-[100%] md:w-[213px]">
-                  <Link
-                    tabIndex={0}
-                    href="/learn/dashboard-app"
-                    class="button_base reset_reset button_button button_large button_invert"
-                    data-geist-button=""
-                    data-prefix="false"
-                    data-suffix="true"
-                    data-version="v1"
-                    style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
+                  <BtAddChapter
+                    goToChapter={0}
+                    title=""
+                    text="Start Learning"
+                    completed={completedChapter}
                   >
-                    <span class="button_content">
-                      <span class="animate-fadeUp">Start Learning</span>
-                    </span>
-                    <span class="button_suffix">
-                      <div class="animate-fadeUp">
-                        <ArrowRightSvg />
-                      </div>
-                    </span>
-                  </Link>
+                    <ProgressCircle
+                      completed={completedChapter}
+                      onlyCircle
+                      colorCircle="var(--ds-gray-900)"
+                      colorProgressCircle="var(--ds-gray-100)"
+                      responsive="smallOnly"
+                    />
+                  </BtAddChapter>
                 </div>
               </div>
             </div>

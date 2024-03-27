@@ -1,29 +1,51 @@
 // src/components/UI/btAddChapter/btAddChapter.tsx
 
-import { component$ } from "@builder.io/qwik";
-import { Form } from "@builder.io/qwik-city";
-import { useSetProgressCircleCookie } from "~/routes/learn/dashboard-app/layout";
+import type { Signal } from "@builder.io/qwik";
+import { Slot, component$, useContext } from "@builder.io/qwik";
+import { useNavigate } from "@builder.io/qwik-city";
+
+import {
+  ChaptersContext,
+  useSetCompletedChaptersCookie,
+} from "~/routes/layout";
+import type { ChapterType } from "~/types/chapterType";
 
 interface BtAddChapterProps {
   goToChapter: number;
   title: string;
+  text?: string;
+  completed?: number[];
 }
 
-export default component$<BtAddChapterProps>(({ goToChapter, title }) => {
-  const action = useSetProgressCircleCookie();
+export default component$<BtAddChapterProps>(
+  ({ goToChapter, title, text = "Start Chapter", completed = [] }) => {
+    const nav = useNavigate();
+    const action = useSetCompletedChaptersCookie();
 
-  const nextUri = title.toLowerCase().replace(/\s+/g, "-");
+    const chapters: Signal<ChapterType[]> = useContext(ChaptersContext);
 
-  // console.log({ nextUri });
+    let nextUri = title.toLowerCase().replace(/\s+/g, "-");
 
-  return (
-    <div class="w-full md:w-fit">
-      <Form action={action}>
-        <input type="hidden" name="goToChapter" value={goToChapter} />
-        <input type="hidden" name="nextUri" value={nextUri} />
+    // Go to the next chapter into landing page and there are completed chapters
+    if (title === "" && completed.length > 0) {
+      nextUri = chapters.value[Math.max(...completed)].uri;
+    }
+
+    return (
+      <div class={`w-full ${goToChapter && "md:w-fit"}`}>
         <button
-          type="submit"
-          aria-label={"Start Chapter" + " " + goToChapter}
+          onClick$={async () => {
+            if (goToChapter > 1) {
+              await action.submit({ goToChapter });
+              chapters.value[goToChapter - 2].isCompleted = true;
+            }
+            return nav(`/learn/dashboard-app/${nextUri}`);
+          }}
+          aria-label={
+            goToChapter
+              ? "Start Chapter" + " " + goToChapter.toString()
+              : "Start Learning"
+          }
           class="button_base reset_reset button_button  button_large button_invert"
           data-geist-button=""
           data-prefix="false"
@@ -31,7 +53,12 @@ export default component$<BtAddChapterProps>(({ goToChapter, title }) => {
           data-version="v1"
           style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
         >
-          <span class="button_content">Start Chapter {goToChapter}</span>
+          {completed.length ? <Slot /> : null}
+
+          <span class="button_content">
+            {completed.length > 0 ? "Resume Learning" : text}{" "}
+            {goToChapter ? goToChapter : ""}
+          </span>
           <span class="button_suffix">
             <svg
               data-testid="geist-icon"
@@ -50,7 +77,7 @@ export default component$<BtAddChapterProps>(({ goToChapter, title }) => {
             </svg>
           </span>
         </button>
-      </Form>
-    </div>
-  );
-});
+      </div>
+    );
+  },
+);

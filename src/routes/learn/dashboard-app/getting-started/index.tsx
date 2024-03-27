@@ -2,7 +2,7 @@
 
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
-import GettingStartedContent from "~/components/dashboardApp/gettingStartedContent/gettingStartedContent";
+import GettingStartedContent from "~/components/learn/dashboardApp/gettingStartedContent/gettingStartedContent";
 
 export default component$(() => {
   return <GettingStartedContent />;

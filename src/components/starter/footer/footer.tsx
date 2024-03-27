@@ -1,19 +1,26 @@
 import { component$ } from "@builder.io/qwik";
 import { useServerTimeLoader } from "../../../routes/layout";
 import styles from "./footer.module.css";
+import { ExternalArrowIcon } from "../icons/externalArrowIcon";
 
 export default component$(() => {
   const serverTime = useServerTimeLoader();
 
   return (
-    <footer>
-      <div class="container">
-        <a href="https://www.builder.io/" target="_blank" class={styles.anchor}>
-          <span>Made with ♡ by Builder.io</span>
-          <span class={styles.spacer}>|</span>
-          <span>{serverTime.value.date}</span>
+    <footer class="flex justify-center p-4 text-sm text-[#666]">
+      <p>
+        Made with ❤️ by{" "}
+        <a
+          href="https://www.lareponsedev.com/"
+          target="_blank"
+          class={`${styles.anchor} hover:text-[#000]`}
+        >
+          LaReponseDev
+          <ExternalArrowIcon />
         </a>
-      </div>
+      </p>
+      <span class={styles.spacer}>|</span>
+      <p>{serverTime.value.date}</p>
     </footer>
   );
 });

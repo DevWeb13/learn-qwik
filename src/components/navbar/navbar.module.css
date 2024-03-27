@@ -45,9 +45,3 @@
 .navbar_logo {
   display: flex;
 }
-
-.navbar_externalArrow {
-  position: absolute;
-  top: 2px;
-  right: -10px;
-}

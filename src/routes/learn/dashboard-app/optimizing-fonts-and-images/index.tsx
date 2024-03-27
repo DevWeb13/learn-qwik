@@ -2,7 +2,7 @@
 
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
-import OptimizingFontsAndImagesContent from "~/components/dashboardApp/optimizing-fonts-and-images-content/optimizing-fonts-and-images-content";
+import OptimizingFontsAndImagesContent from "~/components/learn/dashboardApp/optimizing-fonts-and-images-content/optimizing-fonts-and-images-content";
 
 export default component$(() => {
   return <OptimizingFontsAndImagesContent />;

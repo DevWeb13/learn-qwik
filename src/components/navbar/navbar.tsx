@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import styles from "./navbar.module.css";
 import Popover from "../../lib/qwikUI/popover/popover";
 import { Link } from "@builder.io/qwik-city";
+import { ExternalArrowIcon } from "../starter/icons/externalArrowIcon";
 
 export default component$(() => {
   return (
@@ -102,18 +103,7 @@ export default component$(() => {
         rel="noopener noreferrer"
       >
         Docs
-        <svg
-          aria-hidden="true"
-          class={`${styles.navbar_externalArrow}`}
-          height="7"
-          viewBox="0 0 6 6"
-          width="7"
-        >
-          <path
-            d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
-            fill="var(--accents-3)"
-          ></path>
-        </svg>
+        <ExternalArrowIcon />
       </a>
       <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/5">
         {/* <a class={styles.link} href="/blog">
@@ -129,18 +119,7 @@ export default component$(() => {
         href="https://vercel.com/analytics?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=learn"
       >
         Analytics
-        <svg
-          aria-hidden="true"
-          class={`${styles.navbar_externalArrow}`}
-          height="7"
-          viewBox="0 0 6 6"
-          width="7"
-        >
-          <path
-            d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
-            fill="var(--accents-3)"
-          ></path>
-        </svg>
+        <ExternalArrowIcon />
       </a>
       <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/6">
         {/* <a class={styles.link} href="/templates">

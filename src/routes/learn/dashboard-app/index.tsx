@@ -2,7 +2,7 @@
 
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
-import DashboardAppContent from "~/components/dashboardApp/dashboardAppContent";
+import DashboardAppContent from "~/components/learn/dashboardApp/dashboardAppContent";
 
 export default component$(() => {
   return <DashboardAppContent />;

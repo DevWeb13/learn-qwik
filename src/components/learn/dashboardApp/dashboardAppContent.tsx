@@ -2,9 +2,9 @@ import { component$, useStyles$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.avif?jsx";
-import Feedback from "../UI/feedback/feedback";
+import Feedback from "~/components/UI/feedback/feedback";
 import Popover from "~/lib/qwikUI/popover/popover";
-import GoToNextChapterBlock from "../UI/goToNextChapterBlock/goToNextChapterBlock";
+import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export default component$(() => {
   useStyles$(`

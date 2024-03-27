@@ -105,7 +105,7 @@ export default component$(() => {
         <div class="new-dialog_inner">
           <div class=" flex gap-3 p-3">
             <button
-              class=" bg-gray-100 flex w-[50%] cursor-pointer items-center gap-3 rounded-md px-3 py-2.5 md:w-auto md:min-w-[225px]"
+              class=" flex w-[50%] cursor-pointer items-center gap-3 rounded-md bg-gray-100 px-3 py-2.5 md:w-auto md:min-w-[225px]"
               type="button"
             >
               <div class="relative">
@@ -146,7 +146,7 @@ export default component$(() => {
               </svg>
             </button>
           </div>
-          <div class="border-t border-gray-alpha-400 p-2 pt-0">
+          <div class="border-gray-alpha-400 border-t p-2 pt-0">
             <div class="grid grid-cols-2 py-2">
               <a
                 class="hover:bg-vercel-200 group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5"
@@ -154,7 +154,7 @@ export default component$(() => {
               >
                 <div
                   aria-hidden="true"
-                  class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                  class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                 >
                   <svg
                     data-testid="geist-icon"
@@ -181,7 +181,7 @@ export default component$(() => {
                 </p>
               </a>
             </div>
-            <div class="flex flex-col border-t border-gray-alpha-400 py-2">
+            <div class="border-gray-alpha-400 flex flex-col border-t py-2">
               <div class="flex flex-col">
                 <a
                   class="hover:bg-vercel-200 group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5"
@@ -189,7 +189,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     1
                   </div>
@@ -216,7 +216,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     2
                   </div>
@@ -239,11 +239,11 @@ export default component$(() => {
                 </a>
                 <a
                   class="hover:bg-vercel-200 group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5"
-                  href="/learn/dashboard-app/optimizing-fonts-images"
+                  href="/learn/dashboard-app/optimizing-fonts-and-images"
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     3
                   </div>
@@ -270,7 +270,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     4
                   </div>
@@ -297,7 +297,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     5
                   </div>
@@ -324,7 +324,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     6
                   </div>
@@ -351,7 +351,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     7
                   </div>
@@ -378,7 +378,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     8
                   </div>
@@ -405,7 +405,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     9
                   </div>
@@ -432,7 +432,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     10
                   </div>
@@ -459,7 +459,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     11
                   </div>
@@ -486,7 +486,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     12
                   </div>
@@ -513,7 +513,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     13
                   </div>
@@ -540,7 +540,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     14
                   </div>
@@ -567,7 +567,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     15
                   </div>
@@ -594,7 +594,7 @@ export default component$(() => {
                 >
                   <div
                     aria-hidden="true"
-                    class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     16
                   </div>
@@ -617,14 +617,14 @@ export default component$(() => {
                 </a>
               </div>
             </div>
-            <div class="grid grid-cols-2 border-t border-gray-alpha-400 pt-2">
+            <div class="border-gray-alpha-400 grid grid-cols-2 border-t pt-2">
               <a
                 class="hover:bg-vercel-200 group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5"
                 href="/learn/dashboard-app/next-steps"
               >
                 <div
                   aria-hidden="true"
-                  class="bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-medium"
+                  class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                 >
                   <svg
                     data-testid="geist-icon"

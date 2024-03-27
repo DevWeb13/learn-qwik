@@ -9,17 +9,25 @@ import {
   useSignal,
   useTask$,
 } from "@builder.io/qwik";
-import { routeLoader$, useLocation } from "@builder.io/qwik-city";
+import { routeAction$, routeLoader$, useLocation } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
 import Header from "../components/header/header";
 import Footer from "../components/starter/footer/footer";
+import type { CompletedChaptersType } from "~/types/completedChapters";
+
+import { CHAPTERS } from "~/constants/chapters";
+import type { ChapterType } from "~/types/chapterType";
 
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
 );
 
-export const onGet: RequestHandler = async ({ cacheControl }) => {
+export const ChaptersContext = createContextId<Signal<ChapterType[]>>(
+  "docs.chapters-context",
+);
+
+export const onGet: RequestHandler = async ({ cacheControl, cookie }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
   // https://qwik.builder.io/docs/caching/
   cacheControl({
@@ -28,7 +36,42 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
     // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
     maxAge: 5,
   });
+
+  let completedChaptersCookie = cookie
+    .get("completedChapters")
+    ?.json<CompletedChaptersType>();
+  if (!completedChaptersCookie) {
+    completedChaptersCookie = [];
+    cookie.set("completedChapters", completedChaptersCookie, { path: "/" });
+    console.log("Completed chapters cookie set");
+  }
 };
+
+export const useSetCompletedChaptersCookie = routeAction$(
+  async (data, requestEvent) => {
+    // console.log(requestEvent);
+    const completedChapter = Number(data.goToChapter) - 1;
+
+    let completedChapters = await requestEvent.cookie
+      .get("completedChapters")
+      ?.json<CompletedChaptersType>();
+
+    if (!completedChapters) {
+      completedChapters = [];
+    }
+
+    if (!completedChapters.includes(completedChapter)) {
+      completedChapters.push(completedChapter);
+      requestEvent.cookie.set("completedChapters", completedChapters, {
+        path: "/",
+      });
+    }
+  },
+);
+
+export const useGetCompletedChaptersCookie = routeLoader$(({ cookie }) => {
+  return cookie.get("completedChapters")?.json<CompletedChaptersType>();
+});
 
 export const useServerTimeLoader = routeLoader$(() => {
   return {
@@ -38,10 +81,9 @@ export const useServerTimeLoader = routeLoader$(() => {
 
 export default component$(() => {
   const location = useLocation();
+
   const mobileMenuVisible = useSignal(false);
-
   useContextProvider(MobileMenuVisibleContext, mobileMenuVisible);
-
   // Utiliser useTask$ pour réagir aux changements d'URL
   useTask$(({ track }) => {
     track(() => location.url.pathname);
@@ -49,6 +91,24 @@ export default component$(() => {
     mobileMenuVisible.value = false;
   });
 
+  const chapters = useSignal<ChapterType[]>(CHAPTERS);
+  useContextProvider(ChaptersContext, chapters);
+  chapters.value.forEach((chapter) => console.log(chapter.isCompleted));
+
+  const completedChaptersCookie = useGetCompletedChaptersCookie();
+  const completedChapters = useSignal<CompletedChaptersType>(
+    completedChaptersCookie.value ?? [],
+  );
+
+  useTask$(({ track }) => {
+    track(() => chapters);
+    if (completedChapters.value.length > 0) {
+      completedChapters.value.forEach((chapter) => {
+        chapters.value[chapter - 1].isCompleted = true;
+      });
+    }
+    console.log("task");
+  });
   return (
     <>
       <Header />

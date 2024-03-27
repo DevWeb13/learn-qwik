@@ -1,12 +1,24 @@
-import { component$ } from "@builder.io/qwik";
+import type { Signal } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import BtMenuHeaderOfMain from "./btMenuHeaderOfMain/btMenuHeaderOfMain";
 import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
 import { useScrollYPosition } from "~/hooks/useScrollYPosition";
 import ProgressCircle from "./progressCircle/progressCircle";
+import { ChaptersContext } from "~/routes/layout";
+import type { CompletedChaptersType } from "~/types/completedChapters";
+import type { ChapterType } from "~/types/chapterType";
+import { findCompletedChapters } from "~/utils/findCompletedChapters";
 
 export default component$(() => {
   const scrollY = useScrollYPosition();
+
+  const chapters: Signal<ChapterType[]> = useContext(ChaptersContext);
+  // console.log(chapters.value);
+
+  const completedChapter: CompletedChaptersType = findCompletedChapters(
+    chapters.value,
+  );
   return (
     <div class="style_container relative z-10 mb-4 h-[67px] w-full max-w-[1072px] lg:-mx-12 lg:mb-8">
       <aside
@@ -65,7 +77,7 @@ export default component$(() => {
             </p>
           </div>
         </div>
-        <ProgressCircle />
+        <ProgressCircle completed={completedChapter} />
         <div
           aria-hidden="true"
           class="bg-gray-alpha-400 ml-4 mr-3 hidden h-8 w-[1px] lg:block"

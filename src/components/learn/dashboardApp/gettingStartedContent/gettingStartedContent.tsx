@@ -3,8 +3,8 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
 
 import InstyledPage from "~/assets/img/unstyled-page.png?jsx";
-import Feedback from "../../UI/feedback/feedback";
-import CodeBlock from "../../UI/codeBlock/codeBlock";
+import Feedback from "~/components/UI/feedback/feedback";
+import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
 // import { JavascriptSvg } from "~/assets/svg/javascriptSvg/javascriptSvg";
 import FolderStructure from "./folderStructure/folderStructure";
