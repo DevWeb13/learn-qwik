@@ -130,8 +130,8 @@ export default component$<CodeBlockProps>(({ text, code }) => {
   useVisibleTask$(async () => {
     const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
     const highlighter = await getHighlighterCore({
-      themes: [await import("shiki/themes/github-light.mjs")],
-      langs: [await import("shiki/langs/bash.mjs")],
+      themes: [import("shiki/themes/github-light.mjs")],
+      langs: [import("shiki/langs/bash.mjs")],
       // loadWasm: await import("shiki/wasm"),
     });
     const codeHighLight = highlighter.codeToHtml(code, {
