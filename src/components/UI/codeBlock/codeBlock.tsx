@@ -9,14 +9,9 @@ import {
 } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 
-// import type { JSX } from "@builder.io/qwik/jsx-runtime";
-
 interface CodeBlockProps {
   text: string;
   code: string;
-  language?: string;
-  splitCommentStart?: string;
-  splitCommentEnd?: string;
 }
 
 export default component$<CodeBlockProps>(({ text, code }) => {
