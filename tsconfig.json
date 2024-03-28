@@ -37,6 +37,7 @@
   "include": [
     "src",
     "./*.d.ts",
-    "./*.config.ts"
+    "./*.config.ts",
+    "public/downloads"
   ],
 }
