@@ -499,7 +499,7 @@ export default component$(() => {
           For this project, we provide you with placeholder data that you can
           download here:{" "}
           <a
-            href="/src/downloads/placeholder-data.js"
+            href="/downloads/placeholder-data.js"
             download="placeholder-data.js"
           >
             <code>placeholder-data.js</code>
