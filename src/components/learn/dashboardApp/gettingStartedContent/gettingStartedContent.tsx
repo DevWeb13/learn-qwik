@@ -498,7 +498,10 @@ export default component$(() => {
         <p>
           For this project, we provide you with placeholder data that you can
           download here:{" "}
-          <a href="/downloads/placeholder-data" download="placeholder-data.js">
+          <a
+            href="/src/downloads/placeholder-data.js"
+            download="placeholder-data.js"
+          >
             <code>placeholder-data.js</code>
           </a>
         </p>
@@ -509,7 +512,7 @@ export default component$(() => {
         </p>
 
         <CodeBlock
-          text="/app/lib/placeholder-data.js"
+          text="/src/lib/placeholder-data.js"
           code={`const invoices = [
   {
     customer_id: customers[0].id,
