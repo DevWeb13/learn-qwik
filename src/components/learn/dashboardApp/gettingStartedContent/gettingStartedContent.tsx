@@ -507,6 +507,11 @@ export default component$(() => {
         </p>
 
         <p>
+          In the <code>src</code> folder, create a <code>lib</code> directory
+          and add your file: <code>src/lib/placeholder-data.js</code>.
+        </p>
+
+        <p>
           Each JavaScript object in the file represents a table in your
           database. For example, for the invoices table:
         </p>
@@ -530,106 +535,6 @@ export default component$(() => {
 ];`}
         />
 
-        {/* <CodeBlock icon={<JavascriptSvg />} text="/app/lib/placeholder-data.js">
-          <code class="code_block_code">
-            <span class="line">
-              <span style="color: var(--shiki-token-keyword);">const</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-constant);">invoices</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-keyword);">=</span>
-              <span style="color: var(--shiki-color-text);"> [</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">{` {`}</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> customer_id</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> customers[</span>
-              <span style="color: var(--shiki-token-constant);">0</span>
-              <span style="color: var(--shiki-color-text);">].id</span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> amount</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-constant);">15795</span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> status</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-string-expression);">
-                'pending'
-              </span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> date</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-string-expression);">
-                '2022-12-06'
-              </span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">{`  }`}</span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">{`  {`}</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> customer_id</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> customers[</span>
-              <span style="color: var(--shiki-token-constant);">1</span>
-              <span style="color: var(--shiki-color-text);">].id</span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> amount</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-constant);">20348</span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> status</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-string-expression);">
-                'pending'
-              </span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> date</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-string-expression);">
-                '2022-11-14'
-              </span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">{`  }`}</span>
-              <span style="color: var(--shiki-token-punctuation);">,</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-comment);">// ...</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">];</span>
-            </span>
-          </code>
-        </CodeBlock> */}
-
         <p>
           In the chapter on{" "}
           <a href="/learn/dashboard-app/setting-up-your-database">
@@ -638,6 +543,7 @@ export default component$(() => {
           , you'll use this data to <em>seed</em> your database (populate it
           with some initial data).
         </p>
+
         <h3 id="typescript" data-docs-heading="">
           <a href="#typescript">
             TypeScript
@@ -674,83 +580,28 @@ export default component$(() => {
           code snippets when required.
         </p>
         <p>
-          For now, take a look at the <code>/app/lib/definitions.ts</code> file.
-          Here, we manually define the types that will be returned from the
-          database. For example, the invoices table has the following types:
+          For now, download the{" "}
+          <a href="/downloads/definitions.ts" download="definitions.ts">
+            <code>definitions.ts</code>
+          </a>{" "}
+          file and push it into <code>src/lib/definitions.ts</code>. Here, we
+          manually define the types that will be returned from the database. For
+          example, the invoices table has the following types:
         </p>
-        {/* <CodeBlock icon={<TerminalSvg />} text="/app/lib/definitions.ts">
-          <code class="code_block_code">
-            <span class="line">
-              <span style="color: var(--shiki-token-keyword);">export</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-keyword);">type</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-function);">Invoice</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-keyword);">=</span>
-              <span style="color: var(--shiki-color-text);">{` {`}</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> id</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-constant);">string</span>
-              <span style="color: var(--shiki-color-text);">;</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> customer_id</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-constant);">string</span>
-              <span style="color: var(--shiki-color-text);">;</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> amount</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-constant);">number</span>
-              <span style="color: var(--shiki-color-text);">;</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> date</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-constant);">string</span>
-              <span style="color: var(--shiki-color-text);">;</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-comment);">
-                // In TypeScript, this is called a string union type.
-              </span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-comment);">
-                // It means that the "status" property can only be one of the
-                two strings: 'pending' or 'paid'.
-              </span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);"> status</span>
-              <span style="color: var(--shiki-token-keyword);">:</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-string-expression);">
-                'pending'
-              </span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-keyword);">│</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-string-expression);">
-                'paid'
-              </span>
-              <span style="color: var(--shiki-color-text);">;</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">{`};`}</span>
-            </span>
-          </code>
-        </CodeBlock> */}
+
+        <CodeBlock
+          text="/src/lib/definitions.ts"
+          code={`export type Invoice = {
+  id: string;
+  customer_id: string;
+  amount: number;
+  date: string;
+  // In TypeScript, this is called a string union type.
+  // It means that the "status" property can only be one of the two strings: 'pending' or 'paid'.
+  status: 'pending' | 'paid';
+};`}
+        />
+
         <p>
           By using TypeScript, you can ensure you don't accidentally pass the
           wrong data format to your components or database, like passing a{" "}
@@ -763,8 +614,14 @@ export default component$(() => {
           </p>
           <ul>
             <li>
-              We're manually declaring the data types, but for better
-              type-safety, we recommend{" "}
+              If you are using Qwik for your development, be aware that
+              TypeScript is natively integrated into the framework. From the
+              initialization of your Qwik project, TypeScript is configured and
+              ready to use, which optimizes development and enhances type safety
+              in your application.
+            </li>
+            <li>
+              For even more robust type safety, using{" "}
               <a
                 href="https://www.prisma.io/"
                 rel="noopener noreferrer nofollow"
@@ -790,42 +647,10 @@ export default component$(() => {
                     <path d="M7 7h10v10"></path>
                   </svg>
                 </span>
-              </a>
-              , which automatically generates types based on your database
-              schema.
-            </li>
-            <li>
-              Next.js detects if your project uses TypeScript and automatically
-              installs the necessary packages and configuration. Next.js also
-              comes with a{" "}
-              <a
-                href="https://nextjs.org/docs/app/building-your-application/configuring/typescript#typescript-plugin"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                TypeScript plugin
-                <span class="inline-flex">
-                  <svg
-                    class="with-icon_icon"
-                    data-testid="geist-icon"
-                    fill="none"
-                    height="24"
-                    shape-rendering="geometricPrecision"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    style="color: currentcolor; width: 14px; height: 14px;"
-                  >
-                    <path d="M7 17L17 7"></path>
-                    <path d="M7 7h10v10"></path>
-                  </svg>
-                </span>
               </a>{" "}
-              for your code editor, to help with auto-completion and
-              type-safety.
+              with Qwik can automatically generate types based on your database
+              schema, thus improving the integrity and maintainability of your
+              code.
             </li>
           </ul>
         </blockquote>
@@ -857,19 +682,14 @@ export default component$(() => {
         <p>
           Run <code>npm run start</code> to start the development server.
         </p>
-        {/* <CodeBlock icon={<TerminalSvg />} text="Terminal">
-          <code class="code_block_code">
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">npm </span>
-              <span style="color: var(--shiki-token-string);">run start</span>
-            </span>
-          </code>
-        </CodeBlock> */}
 
+        <CodeBlock text="Terminal" code={`npm run start`} />
         <p>
-          <code>npm run start</code> starts your Qwik development server on port{" "}
-          <code>5173</code>. Your browser is automatically open. Your home page
-          should look like this:
+          Your browser is automatically open at this url{" "}
+          <a href="http://localhost:5173/" target="_blank">
+            http://localhost:5173/
+          </a>
+          . Your home page should look like this:
         </p>
         <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
           <InstyledPage
@@ -881,8 +701,8 @@ export default component$(() => {
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
           chapterNumber={1}
-          text="Congratulations! You've created a Qwik application using the starter
-          example and ran the development server."
+          text="Congratulations! You've created a Qwik application from scratch
+           and ran the development server."
         />
         <GoToNextChapterBlock
           goToChapter={2}
