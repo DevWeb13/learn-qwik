@@ -195,15 +195,6 @@ export default component$(() => {
           command:
         </p>
         <CodeBlock text="Terminal" code={`npm create qwik@latest`} />
-        {/* <code class="code_block_code">
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">npm </span>
-              <span style="color: var(--shiki-token-string);">create</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-string);">qwik@latest</span>
-            </span>
-          </code> */}
-        {/* </CodeBlock> */}
 
         <p>
           The CLI guides you through an interactive menu to set the
@@ -216,58 +207,10 @@ export default component$(() => {
           use <code>./qwik-dashboard</code>.
         </p>
 
-        {/* <CodeBlock
-          icon={<TerminalSvg classList="with_icon_icon" />}
-          text="Terminal"
-        >
-          <code class="code_block_code">
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">
-                Let's create a Qwik App ✨ (v1.4.5)
-              </span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">│</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">
-                ◇ Where would you like to create your new project? (Use '.' or
-                './' for current directory)
-              </span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">
-                │ ./qwik-dashboard
-              </span>
-            </span>
-          </code>
-        </CodeBlock> */}
-
         <p>
           Select the starter, for this course, we'll use
           <code> Empty App (Qwik City + Qwik)</code>
         </p>
-
-        {/* <CodeBlock
-          icon={<TerminalSvg classList="with_icon_icon" />}
-          text="Terminal"
-        >
-          <code class="code_block_code">
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">│</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">
-                ◇ Select a starter
-              </span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">
-                │ Empty App (Qwik City + Qwik)
-              </span>
-            </span>
-          </code>
-        </CodeBlock> */}
 
         <p>
           For the next step, the CLI will ask if you want to install the npm
@@ -276,50 +219,9 @@ export default component$(() => {
           even offers you a little joke if you want 🤪.
         </p>
 
-        {/* <CodeBlock
-          icon={<TerminalSvg classList="with_icon_icon" />}
-          text="Terminal"
-        >
-          <code class="code_block_code">
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">│</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">
-                ◇ Would you like to install npm dependencies?
-              </span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">│ Yes</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">│</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">
-                ◇ Initialize a new git repository?
-              </span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">│ Yes</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">│</span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">
-                ◇ Finishing the install. Wanna hear a joke?
-              </span>
-            </span>
-            <span class="line">
-              <span style="color: var(--shiki-color-text);">│ Yes</span>
-            </span>
-          </code>
-        </CodeBlock> */}
-
         <p>
           The CLI will then create the project and install the dependencies. It
-          will also initialize a git repository. Happy coding! 🎉
+          will also initialize a git repository.
         </p>
 
         <h2 id="exploring-the-project" data-docs-heading="">
@@ -358,34 +260,13 @@ export default component$(() => {
           without having to write <em>all</em> the application code.
         </p>
         <p>
-          After installation, navigate to <code>qwik-dashboard</code> and open
-          the project in your code editor.
+          After installation, navigate to <code>qwik-dashboard</code>
         </p>
-        {/* <CodeBlock
-          icon={<TerminalSvg classList="with_icon_icon" />}
-          text="Terminal"
-        >
-          <code class="code_block_code">
-            <span class="line">
-              <span style="color: var(--shiki-token-function);">cd</span>
-              <span style="color: var(--shiki-color-text);"> </span>
-              <span style="color: var(--shiki-token-string);">
-                qwik-dashboard
-              </span>
-            </span>
-          </code>
-        </CodeBlock>
+        <CodeBlock text="Terminal" code={`cd qwik-dashboard`} />
+        <p> and open the project in your code editor.</p>
+        <CodeBlock text="Terminal" code={`code .`} />
 
-        <CodeBlock
-          icon={<TerminalSvg classList="with_icon_icon" />}
-          text="Terminal"
-        >
-          <code class="code_block_code">
-            <span class="line">
-              <span style="color: var(--shiki-token-function);">code .</span>
-            </span>
-          </code>
-        </CodeBlock> */}
+        <p>Happy coding! 🎉</p>
 
         <p>Let's spend some time exploring the project.</p>
         <h3 id="folder-structure" data-docs-heading="">
@@ -613,12 +494,39 @@ export default component$(() => {
             .
           </li>
         </ul>
+
         <p>
-          For this project, we've provided some placeholder data in{" "}
-          <code>app/lib/placeholder-data.js</code>. Each JavaScript object in
-          the file represents a table in your database. For example, for the
-          invoices table:
+          For this project, we provide you with placeholder data that you can
+          download here:{" "}
+          <a href="/downloads/placeholder-data" download="placeholder-data.js">
+            <code>placeholder-data.js</code>
+          </a>
         </p>
+
+        <p>
+          Each JavaScript object in the file represents a table in your
+          database. For example, for the invoices table:
+        </p>
+
+        <CodeBlock
+          text="/app/lib/placeholder-data.js"
+          code={`const invoices = [
+  {
+    customer_id: customers[0].id,
+    amount: 15795,
+    status: 'pending',
+    date: '2022-12-06',
+  },
+  {
+    customer_id: customers[1].id,
+    amount: 20348,
+    status: 'pending',
+    date: '2022-11-14',
+  },
+  // ...
+];`}
+        />
+
         {/* <CodeBlock icon={<JavascriptSvg />} text="/app/lib/placeholder-data.js">
           <code class="code_block_code">
             <span class="line">
