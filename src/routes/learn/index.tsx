@@ -26,7 +26,6 @@ export default component$(() => {
     chapters.value,
   );
 
-  console.log({ completedChapter });
   return (
     <main>
       <MobileMenu />
