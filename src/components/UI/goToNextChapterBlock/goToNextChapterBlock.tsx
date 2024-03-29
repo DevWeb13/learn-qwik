@@ -5,10 +5,11 @@ interface GoToNextChapterProps {
   goToChapter: number;
   title: string;
   text: string;
+  disabledButton?: boolean;
 }
 
 export default component$<GoToNextChapterProps>(
-  ({ goToChapter, title, text }) => {
+  ({ goToChapter, title, text, disabledButton = false }) => {
     return (
       <div class="border-gray-alpha-400 mt-8 flex w-full flex-col items-center justify-center gap-1 rounded-lg px-4 py-8 shadow-md md:mt-12">
         <p
@@ -32,7 +33,11 @@ export default component$<GoToNextChapterProps>(
         >
           {text}
         </p>
-        <BtAddChapter goToChapter={goToChapter} title={title} />
+        <BtAddChapter
+          goToChapter={goToChapter}
+          title={title}
+          disabled={disabledButton}
+        />
       </div>
     );
   },

@@ -15,10 +15,17 @@ interface BtAddChapterProps {
   title: string;
   text?: string;
   completed?: number[];
+  disabled?: boolean;
 }
 
 export default component$<BtAddChapterProps>(
-  ({ goToChapter, title, text = "Start Chapter", completed = [] }) => {
+  ({
+    goToChapter,
+    title,
+    text = "Start Chapter",
+    completed = [],
+    disabled = false,
+  }) => {
     const nav = useNavigate();
     const action = useSetCompletedChaptersCookie();
 
@@ -52,6 +59,7 @@ export default component$<BtAddChapterProps>(
           data-suffix="true"
           data-version="v1"
           style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
+          disabled={disabled}
         >
           {completed.length ? <Slot /> : null}
 
