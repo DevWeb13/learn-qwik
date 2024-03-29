@@ -19,6 +19,7 @@ export default component$(() => {
   const completedChapter: CompletedChaptersType = findCompletedChapters(
     chapters.value,
   );
+
   return (
     <div class="style_container relative z-10 mb-4 h-[67px] w-full max-w-[1072px] lg:-mx-12 lg:mb-8">
       <aside
@@ -30,7 +31,7 @@ export default component$(() => {
         style="background-clip: padding-box;"
       >
         <div class="md:hidden">
-          <ModalBottomSheet>
+          <ModalBottomSheet chapters={chapters.value}>
             <BtMenuHeaderOfMain classStyle="button_base button_button reset_reset geist-new-themed geist-new-tertiary geist-new-tertiary-fill button_tertiary button_shape button_circle button_small button_invert" />
           </ModalBottomSheet>
         </div>
@@ -45,7 +46,7 @@ export default component$(() => {
                     data-version="v1"
                     tabIndex={-1}
                   >
-                    <ModalBottomSheet>
+                    <ModalBottomSheet chapters={chapters.value}>
                       <BtMenuHeaderOfMain classStyle="button_base reset_reset button_button reset_reset style_button__ft10U geist-new-themed geist-new-tertiary geist-new-tertiary-fill button_tertiary button_shape button_circle button_small button_invert" />
                     </ModalBottomSheet>
                   </span>
