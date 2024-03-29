@@ -38,6 +38,19 @@ export default component$<BtAddChapterProps>(
       nextUri = chapters.value[Math.max(...completed)].uri;
     }
 
+    function generateText(
+      text: string,
+      completed: number[],
+      goToChapter: number,
+      disabled: boolean,
+    ) {
+      // Ajoutez ici la condition supplémentaire si nécessaire
+      if (disabled) {
+        return "Coming soon ";
+      }
+      return `${completed.length > 0 ? "Resume Learning" : text} ${goToChapter ? goToChapter : ""}`;
+    }
+
     return (
       <div class={`w-full ${goToChapter && "md:w-fit"}`}>
         <button
@@ -64,26 +77,30 @@ export default component$<BtAddChapterProps>(
           {completed.length ? <Slot /> : null}
 
           <span class="button_content">
-            {completed.length > 0 ? "Resume Learning" : text}{" "}
-            {goToChapter ? goToChapter : ""}
+            {generateText(text, completed, goToChapter, disabled)}
           </span>
-          <span class="button_suffix">
-            <svg
-              data-testid="geist-icon"
-              height="16"
-              stroke-linejoin="round"
-              viewBox="0 0 16 16"
-              width="16"
-              style="color: currentcolor;"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </span>
+
+          {disabled ? (
+            <span>🚧</span>
+          ) : (
+            <span class="button_suffix">
+              <svg
+                data-testid="geist-icon"
+                height="16"
+                stroke-linejoin="round"
+                viewBox="0 0 16 16"
+                width="16"
+                style="color: currentcolor;"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </span>
+          )}
         </button>
       </div>
     );

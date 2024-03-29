@@ -154,7 +154,10 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
               <div class="border-gray-alpha-400 grid grid-cols-2 border-t pt-2">
                 <Link
                   class="group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100"
-                  href="/learn/dashboard-app/next-steps"
+                  href={location.url.pathname}
+                  onClick$={() => {
+                    showSig.value = false;
+                  }}
                 >
                   <div
                     aria-hidden="true"
@@ -187,7 +190,7 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
                     data-version="v1"
                     style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
                   >
-                    Next Steps
+                    Coming soon 🚧
                   </p>
                 </Link>
               </div>

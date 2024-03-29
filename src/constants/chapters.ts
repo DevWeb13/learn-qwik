@@ -14,19 +14,4 @@ export const CHAPTERS = [
     isCompleted: false,
     uri: "css-styling",
   },
-  {
-    id: 3,
-    title: "Chapter 3: Optimizing Fonts and Images",
-    description:
-      "Continue working on your home page by adding a hero image and a custom font.",
-    isCompleted: false,
-    uri: "optimizing-fonts-and-images",
-  },
-  {
-    id: 4,
-    title: "Chapter 4: Building a Footer",
-    description: "Learn how to create a footer for your website.",
-    isCompleted: false,
-    uri: "building-a-footer",
-  },
 ];
