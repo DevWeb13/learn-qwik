@@ -57,7 +57,7 @@ export default component$(() => {
               <HomeBackground />
             </div>
           </div>
-          <div class="bg-vercel-100 absolute left-0 right-0 top-[57%] h-[350px] dark:bg-black md:top-[62.7%] md:h-[200px]"></div>
+          <div class="bg-vercel-100 absolute left-0 right-0 top-[57%] h-[350px]  md:top-[62.7%] md:h-[200px]"></div>
           <div class="relative flex w-full flex-col items-center pt-20 md:pt-8">
             <div class="dark:bg-vercel-100 relative flex w-full flex-col items-center rounded-[12px] bg-white p-4 shadow-md lg:w-[713px]">
               <HeroLinesLight />
@@ -112,7 +112,7 @@ export default component$(() => {
                       app.
                     </p>
                   </div>
-                  <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug dark:bg-[#171717] md:min-w-[400px]">
+                  <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug md:min-w-[400px]">
                     <DisplayNextChapter completed={completedChapter} />
 
                     <div class="ml-2">
