@@ -108,7 +108,8 @@ export default component$(() => {
                       data-version="v1"
                       style="--text-color:var(--ds-gray-900);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:400"
                     >
-                      16 chapters that take you from Next.js to Qwik.
+                      16 chapters that take you build a fully functional Qwik
+                      app.
                     </p>
                   </div>
                   <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug dark:bg-[#171717] md:min-w-[400px]">
