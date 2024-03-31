@@ -11,6 +11,7 @@ import FolderStructure from "./folderStructure/folderStructure";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
+import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 
 export default component$(() => {
   useStyles$(`
@@ -132,31 +133,11 @@ export default component$(() => {
     >
       <div class="prose prose-vercel max-w-none">
         <PageTitle chapterNumber={1} chapterTitle="Getting Started" />
-        <h2 id="creating-a-new-project" data-docs-heading="">
-          <a href="#creating-a-new-project">
-            Create an app using the CLI
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h2>
+        <SubtitleWithAnchor
+          title="Create an app using the CLI"
+          id="creating-a-new-project"
+        />
+
         <p>
           First, create a Qwik application with the Qwik CLI, which generates a
           blank starter so that you can quickly familiarize yourself with it.
@@ -224,31 +205,11 @@ export default component$(() => {
           will also initialize a git repository.
         </p>
 
-        <h2 id="exploring-the-project" data-docs-heading="">
-          <a href="#exploring-the-project">
-            Exploring the project
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h2>
+        <SubtitleWithAnchor
+          title="Exploring the project"
+          id="exploring-the-project"
+        />
+
         <p>
           Unlike tutorials that have you write code from scratch, much of the
           code for this course is already written for you. This better reflects
@@ -425,31 +386,12 @@ export default component$(() => {
           Feel free to explore these folders, and don't worry if you don't
           understand everything the code is doing yet.
         </p>
-        <h3 id="placeholder-data" data-docs-heading="">
-          <a href="#placeholder-data">
-            Placeholder data
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h3>
+        <SubtitleWithAnchor
+          title="Placeholder data"
+          id="placeholder-data"
+          level="h3"
+        />
+
         <p>
           When you're building user interfaces, it helps to have some
           placeholder data. If a database or API is not yet available, you can:
@@ -537,31 +479,8 @@ export default component$(() => {
           with some initial data).
         </p>
 
-        <h3 id="typescript" data-docs-heading="">
-          <a href="#typescript">
-            TypeScript
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h3>
+        <SubtitleWithAnchor title="TypeScript" id="typescript" level="h3" />
+
         <p>
           You may also notice most files have a <code>.ts</code> or{" "}
           <code>.tsx</code> suffix. This is because the project is written in
@@ -647,31 +566,11 @@ export default component$(() => {
             </li>
           </ul>
         </blockquote>
-        <h2 id="running-the-development-server" data-docs-heading="">
-          <a href="#running-the-development-server">
-            Running the development server
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h2>
+        <SubtitleWithAnchor
+          title="Running the development server"
+          id="running-the-development-server"
+        />
+
         <p>
           Run <code>npm run start</code> to start the development server.
         </p>
