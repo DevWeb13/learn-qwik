@@ -350,13 +350,6 @@ export default component$(() => {
             : Contains static assets such as images, fonts, and icons. When you
             build your app, these files will be copied to the <code>dist/</code>{" "}
             directory and served at the root.
-          </li>
-          <li>
-            <strong>
-              <code>/public</code>
-            </strong>
-            : Contains all the static assets for your application, such as
-            images.
             <p>
               Refer to{" "}
               <a
