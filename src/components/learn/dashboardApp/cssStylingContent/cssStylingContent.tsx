@@ -20,16 +20,16 @@ export default component$(() => {
         ce chapitre, vous allez apprendre à personnaliser le style de votre
         application Qwik de différentes manières.
       </p>
-      <div class="md:bg-vercel-200 not-prose in-this-chapter_wrapper__yrXTP mb-4 rounded-[12px] md:mx-[-64px] md:my-12 md:p-4 md:px-[64px] md:py-12">
+      <div class="not-prose in-this-chapter_wrapper__yrXTP mb-4 rounded-[12px] md:mx-[-64px] md:my-12 md:bg-[#fafafa] md:p-4 md:px-[64px] md:py-12">
         <p
-          class="text_wrapper__i87JK pb-1"
+          class="text_wrapper pb-1"
           data-version="v1"
           style="--text-color: var(--ds-gray-1000); --xs-text-size: 1.25rem; --xs-text-line-height: 1.5rem; --xs-text-weight: 600; --xs-text-letter-spacing: -0.020625rem; --sm-text-size: 1.25rem; --sm-text-line-height: 1.5rem; --sm-text-weight: 600; --sm-text-letter-spacing: -0.020625rem; --smd-text-size: 1.5rem; --smd-text-line-height: 2rem; --smd-text-weight: 600; --smd-text-letter-spacing: -0.029375rem; --md-text-size: 1.5rem; --md-text-line-height: 2rem; --md-text-weight: 600; --md-text-letter-spacing: -0.029375rem; --lg-text-size: 1.5rem; --lg-text-line-height: 2rem; --lg-text-weight: 600; --lg-text-letter-spacing: -0.029375rem;"
         >
           Dans ce chapitre...
         </p>
         <p
-          class="text_wrapper__i87JK"
+          class="text_wrapper"
           data-version="v1"
           style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial; margin: 0px;"
         >
@@ -55,11 +55,11 @@ export default component$(() => {
               </svg>
             </div>
             <p
-              class="text_wrapper__i87JK in-this-chapter_content__QPwZX"
+              class="text_wrapper in-this-chapter_content__QPwZX"
               data-version="v1"
               style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.875rem; --xs-text-line-height: 1.5rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.5rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial;"
             >
-              Comment ajouter un fichier CSS global à votre application.
+              Comment ajouter Tailwind CSS à votre application Qwik.
             </p>
           </div>
           <div class="border-gray-alpha-400 flex gap-4 border-b px-4 py-3 last-of-type:border-0">
@@ -81,12 +81,11 @@ export default component$(() => {
               </svg>
             </div>
             <p
-              class="text_wrapper__i87JK in-this-chapter_content__QPwZX"
+              class="text_wrapper in-this-chapter_content__QPwZX"
               data-version="v1"
               style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.875rem; --xs-text-line-height: 1.5rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.5rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial;"
             >
-              Deux manières différentes de styliser : les modules Tailwind et
-              CSS.
+              Différentes maniéres de styliser votre application Qwik.
             </p>
           </div>
           <div class="border-gray-alpha-400 flex gap-4 border-b px-4 py-3 last-of-type:border-0">
@@ -108,13 +107,11 @@ export default component$(() => {
               </svg>
             </div>
             <p
-              class="text_wrapper__i87JK in-this-chapter_content__QPwZX"
+              class="text_wrapper in-this-chapter_content__QPwZX"
               data-version="v1"
               style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.875rem; --xs-text-line-height: 1.5rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.5rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial;"
             >
-              Comment ajouter conditionnellement des noms de classe avec le{" "}
-              <code>clsx</code>
-              package utilitaire.
+              Comment ajouter des icones à votre application Qwik.
             </p>
           </div>
         </div>
