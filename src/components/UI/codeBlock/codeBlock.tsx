@@ -1,9 +1,17 @@
 // src/components/UI/codeBlock/codeBlock.tsx
 
 import type { ClassList } from "@builder.io/qwik";
-import { component$, useSignal, useStyles$, useTask$ } from "@builder.io/qwik";
+import {
+  component$,
+  useSignal,
+  useStyles$,
+  // useTask$,
+  useVisibleTask$,
+} from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
-import { getHighlighterCore } from "shiki/core-unwasm.mjs";
+// import { getHighlighterCore } from "shiki/core-unwasm.mjs";
+// import { isDev } from "@builder.io/qwik/build";
+// import { useVisible } from "@qwik-ui/headless";
 
 interface CodeBlockProps {
   text: string;
@@ -113,9 +121,47 @@ export default component$<CodeBlockProps>(
 
     const codeSig = useSignal("");
 
-    useTask$(async function createHighlightedCode() {
-      const modifiedCode: string = code;
+    // useTask$(async function createHighlightedCode() {
+    //   const modifiedCode: string = code;
+    //   let highlighter: any;
 
+    //   if (isDev) {
+    //     highlighter = await getHighlighterCore({
+    //       themes: [
+    //         // or a dynamic import if you want to do chunk splitting
+    //         import("shiki/themes/github-light.mjs"),
+    //         import("shiki/themes/github-dark.mjs"),
+    //       ],
+    //       langs: [import("shiki/langs/bash.mjs")],
+    //       // loadWasm: import("shiki/wasm"),
+    //     });
+    //   }
+    //   if (!isDev) {
+    //     highlighter = await getHighlighterCore({
+    //       themes: [
+    //         // or a dynamic import if you want to do chunk splitting
+    //         import("shiki/themes/github-light.mjs"),
+    //         import("shiki/themes/github-dark.mjs"),
+    //       ],
+    //       langs: [import("shiki/langs/bash.mjs")],
+    //       loadWasm: import("shiki/wasm"),
+    //     });
+    //   }
+
+    //   const str = highlighter.codeToHtml(modifiedCode, {
+    //     lang: language,
+    //     themes: {
+    //       light: "github-light",
+    //       dark: "github-dark",
+    //     },
+    //     decorations: decorations,
+    //   });
+    //   codeSig.value = str.toString();
+    // });
+
+    // eslint-disable-next-line qwik/no-use-visible-task
+    useVisibleTask$(async () => {
+      const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
       const highlighter = await getHighlighterCore({
         themes: [
           // or a dynamic import if you want to do chunk splitting
@@ -125,8 +171,7 @@ export default component$<CodeBlockProps>(
         langs: [import("shiki/langs/bash.mjs")],
         // loadWasm: import("shiki/wasm"),
       });
-
-      const str = highlighter.codeToHtml(modifiedCode, {
+      const codeHighLight = highlighter.codeToHtml(code, {
         lang: language,
         themes: {
           light: "github-light",
@@ -134,7 +179,7 @@ export default component$<CodeBlockProps>(
         },
         decorations: decorations,
       });
-      codeSig.value = str.toString();
+      codeSig.value = codeHighLight;
     });
 
     return (
