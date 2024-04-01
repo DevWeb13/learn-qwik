@@ -1,5 +1,4 @@
 import { component$ } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
 
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.avif?jsx";
 import Feedback from "~/components/UI/feedback/feedback";
@@ -7,6 +6,7 @@ import Popover from "~/lib/qwikUI/popover/popover";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { AnchorIcon } from "~/components/icons/anchorIcon";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
+import BlankLink from "~/components/UI/blankLink/blankLink";
 
 export default component$(() => {
   return (
@@ -105,11 +105,7 @@ export default component$(() => {
           <li>
             <strong>Authentication</strong>: How to add authentication to your
             app using{" "}
-            <a
-              href="https://authjs.dev/"
-              rel="noopener noreferrer nofollow"
-              target="_blank"
-            >
+            <a href="https://authjs.dev/" rel="noopener " target="_blank">
               <code>Auth0</code>
               <span class="inline-flex">
                 <svg
@@ -150,13 +146,10 @@ export default component$(() => {
           familiarizing yourself with the fundamentals of web components,
           reactive state management, and asynchronous programming. While Qwik
           does not require{" "}
-          <Link
+          <BlankLink
             href="https://nextjs.org/learn/react-foundations"
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-          >
-            React
-          </Link>{" "}
+            text="React"
+          />{" "}
           knowledge, understanding these concepts will help you grasp Qwik's
           unique features more effectively.
         </p>
@@ -172,93 +165,21 @@ export default component$(() => {
         <ul>
           <li>
             Node.js 18.17.0 or later installed.{" "}
-            <a
-              href="https://nodejs.org/en"
-              rel="noopener noreferrer nofollow"
-              target="_blank"
-            >
-              Download here
-              <span class="inline-flex">
-                <svg
-                  class="with-icon_icon__MHUeb"
-                  data-testid="geist-icon"
-                  fill="none"
-                  height="24"
-                  shape-rendering="geometricPrecision"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  style="color: currentcolor; width: 14px; height: 14px;"
-                >
-                  <path d="M7 17L17 7"></path>
-                  <path d="M7 7h10v10"></path>
-                </svg>
-              </span>
-            </a>
-            .
+            <BlankLink href="https://nodejs.org/en" text="Download here" />.
           </li>
           <li>Operating systems: macOS, Windows (including WSL), or Linux.</li>
         </ul>
         <p>
           In addition, you'll also need a{" "}
-          <a
-            href="https://github.com/join/"
-            rel="noopener noreferrer nofollow"
-            target="_blank"
-          >
-            GitHub Account
-            <span class="inline-flex">
-              <svg
-                class="with-icon_icon__MHUeb"
-                data-testid="geist-icon"
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"
-                style="color: currentcolor; width: 14px; height: 14px;"
-              >
-                <path d="M7 17L17 7"></path>
-                <path d="M7 7h10v10"></path>
-              </svg>
-            </span>
-          </a>{" "}
+          <BlankLink href="https://github.com/join/" text="GitHub Account" />{" "}
           and a{" "}
-          <a
-            href="https://vercel.com/signup"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Vercel Account
-            <span class="inline-flex">
-              <svg
-                class="with-icon_icon__MHUeb"
-                data-testid="geist-icon"
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"
-                style="color: currentcolor; width: 14px; height: 14px;"
-              >
-                <path d="M7 17L17 7"></path>
-                <path d="M7 7h10v10"></path>
-              </svg>
-            </span>
-          </a>
+          <BlankLink href="https://vercel.com/signup" text="Vercel Account" />.
           .
         </p>
+        <SubtitleWithAnchor
+          id="join-the-conversation"
+          title="Join the conversation"
+        />
         <h2 id="join-the-conversation" data-docs-heading="">
           <a href="#join-the-conversation">
             Join the conversation
@@ -270,59 +191,11 @@ export default component$(() => {
         <p>
           If you have questions about this course or would like to provide
           feedback, you can ask our community on{" "}
-          <Link
-            href="https://discord.gg/XzMucY7756"
-            rel="noopener noreferrer nofollow"
-            target="_blank"
-          >
-            Discord
-            <span class="inline-flex">
-              <svg
-                class="with-icon_icon__MHUeb"
-                data-testid="geist-icon"
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"
-                style="color: currentcolor; width: 14px; height: 14px;"
-              >
-                <path d="M7 17L17 7"></path>
-                <path d="M7 7h10v10"></path>
-              </svg>
-            </span>
-          </Link>{" "}
-          or{" "}
-          <Link
+          <BlankLink href="https://discord.gg/XzMucY7756" text="Discord" /> or{" "}
+          <BlankLink
             href="https://github.com/DevWeb13/learn-qwik"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            GitHub
-            <span class="inline-flex">
-              <svg
-                class="with-icon_icon__MHUeb"
-                data-testid="geist-icon"
-                fill="none"
-                height="24"
-                shape-rendering="geometricPrecision"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-                width="24"
-                style="color: currentcolor; width: 14px; height: 14px;"
-              >
-                <path d="M7 17L17 7"></path>
-                <path d="M7 7h10v10"></path>
-              </svg>
-            </span>
-          </Link>
+            text="GitHub"
+          />
           .
         </p>
       </div>

@@ -16,7 +16,6 @@ interface ModalLinkProps {
 
 export default component$<ModalLinkProps>(
   ({ id, title, uri, completedChapters, active, showSig }) => {
-    console.log(active);
     return (
       <Link
         class="group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100"

@@ -27,7 +27,7 @@ export const ChaptersContext = createContextId<Signal<ChapterType[]>>(
   "docs.chapters-context",
 );
 
-export const onGet: RequestHandler = async ({ cacheControl, cookie }) => {
+export const onGet: RequestHandler = async ({ cacheControl, cookie, next }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
   // https://qwik.builder.io/docs/caching/
   cacheControl({
@@ -36,6 +36,8 @@ export const onGet: RequestHandler = async ({ cacheControl, cookie }) => {
     // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
     maxAge: 5,
   });
+
+  await next();
 
   let completedChaptersCookie = cookie
     .get("completedChapters")

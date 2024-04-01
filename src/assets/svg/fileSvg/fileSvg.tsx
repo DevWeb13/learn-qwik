@@ -1,15 +1,15 @@
 import { component$ } from "@builder.io/qwik";
 
-interface TerminalSvgProps {
+interface FileSvgProps {
   width?: number;
   height?: number;
   classList?: string;
 }
 
-export const TerminalSvg = component$<TerminalSvgProps>(
-  ({ width = 24, height = 24, classList = "" }) => (
+export const FileSvg = component$<FileSvgProps>(
+  ({ width = 24, height = 24 }) => (
     <svg
-      class={classList}
+      class="with-icon_icon__MHUeb"
       data-testid="geist-icon"
       fill="none"
       height={height}
@@ -22,8 +22,8 @@ export const TerminalSvg = component$<TerminalSvgProps>(
       width={width}
       style="color: currentcolor; width: 16px; height: 16px;"
     >
-      <path d="M4 17l6-6-6-6"></path>
-      <path d="M12 19h8"></path>
+      <path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"></path>
+      <path d="M13 2v7h7"></path>
     </svg>
   ),
 );
