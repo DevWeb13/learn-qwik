@@ -56,8 +56,8 @@ export default component$<BtAddChapterProps>(
         <button
           onClick$={async () => {
             if (goToChapter > 1) {
-              chapters.value[goToChapter - 2].isCompleted = true;
               await action.submit({ goToChapter });
+              chapters.value[goToChapter - 2].isCompleted = true;
             }
             return nav(`/learn/dashboard-app/${nextUri}`);
           }}

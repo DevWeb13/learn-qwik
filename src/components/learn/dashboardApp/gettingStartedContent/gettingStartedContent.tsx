@@ -36,7 +36,7 @@ export default component$(() => {
           To create a Qwik app, open your terminal,{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line#basic_built-in_terminal_commands"
-            rel="noopener noreferrer nofollow"
+            rel="noopener "
             target="_blank"
           >
             <code>cd</code>
@@ -63,7 +63,11 @@ export default component$(() => {
           into the folder you'd like to keep your project, and run the following
           command:
         </p>
-        <CodeBlock text="Terminal" code={`npm create qwik@latest`} />
+        <CodeBlock
+          text="Terminal"
+          code={`npm create qwik@latest`}
+          hideLineNumbers
+        />
 
         <p>
           The CLI guides you through an interactive menu to set the
@@ -111,9 +115,9 @@ export default component$(() => {
         <p>
           After installation, navigate to <code>qwik-dashboard</code>
         </p>
-        <CodeBlock text="Terminal" code={`cd qwik-dashboard`} />
+        <CodeBlock text="Terminal" code={`cd qwik-dashboard`} hideLineNumbers />
         <p> and open the project in your code editor.</p>
-        <CodeBlock text="Terminal" code={`code .`} />
+        <CodeBlock text="Terminal" code={`code .`} hideLineNumbers />
 
         <p>Happy coding! 🎉</p>
 
@@ -204,7 +208,7 @@ export default component$(() => {
               <a
                 href="https://vitejs.dev/guide/build.html#public-base-path"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener "
               >
                 Vite configuration for more information
               </a>
@@ -263,7 +267,7 @@ export default component$(() => {
             <a
               href="https://vitejs.dev/config/"
               target="_blank"
-              rel="noopener noreferrer nofollow"
+              rel="noopener "
             >
               Vite documentation
             </a>{" "}
@@ -288,11 +292,7 @@ export default component$(() => {
           <li>Use placeholder data in JSON format or as JavaScript objects.</li>
           <li>
             Use a 3rd party service like{" "}
-            <a
-              href="https://mockapi.io/"
-              rel="noopener noreferrer nofollow"
-              target="_blank"
-            >
+            <a href="https://mockapi.io/" rel="noopener " target="_blank">
               mockAPI
               <span class="inline-flex">
                 <svg
@@ -341,6 +341,8 @@ export default component$(() => {
 
         <CodeBlock
           text="/src/lib/placeholder-data.js"
+          icon="javascript"
+          language="javascript"
           code={`const invoices = [
   {
     customer_id: customers[0].id,
@@ -391,6 +393,8 @@ export default component$(() => {
 
         <CodeBlock
           text="/src/lib/definitions.ts"
+          icon="typescript"
+          language="typescript"
           code={`export type Invoice = {
   id: string;
   customer_id: string;
@@ -422,11 +426,7 @@ export default component$(() => {
             </li>
             <li>
               For even more robust type safety, using{" "}
-              <a
-                href="https://www.prisma.io/"
-                rel="noopener noreferrer nofollow"
-                target="_blank"
-              >
+              <a href="https://www.prisma.io/" rel="noopener " target="_blank">
                 Prisma
                 <span class="inline-flex">
                   <svg
@@ -463,7 +463,7 @@ export default component$(() => {
           Run <code>npm run start</code> to start the development server.
         </p>
 
-        <CodeBlock text="Terminal" code={`npm run start`} />
+        <CodeBlock text="Terminal" code={`npm run start`} hideLineNumbers />
         <p>
           Your browser is automatically open at this url{" "}
           <a href="http://localhost:5173/" target="_blank">
