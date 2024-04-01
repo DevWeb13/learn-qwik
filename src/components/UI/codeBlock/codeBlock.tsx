@@ -10,19 +10,16 @@ interface CodeBlockProps {
   code: string;
   copyCodeClass?: ClassList;
   language?: "tsx" | "html" | "css";
-  splitCommentStart?: string;
-  splitCommentEnd?: string;
+  decorations?: any[];
+  copyButton?: boolean;
 }
 
 export default component$<CodeBlockProps>(
-  ({
-    text,
-    code,
-    language = "bash",
-    splitCommentStart = "{/* start */}",
-    splitCommentEnd = "{/* end */}",
-  }) => {
+  ({ text, code, language = "bash", decorations = [], copyButton = true }) => {
     useStyles$(`
+
+ 
+  
 
   .code_block_wrapper {
     position: relative;
@@ -100,6 +97,16 @@ export default component$<CodeBlockProps>(
     }
   }
 
+  .code_block_pre .newLine {
+  
+    background: #00800040;
+    padding: 5.7px var(--padding);
+  }
+
+  code {
+    font-size: 13px;
+  }
+
  
 
   `);
@@ -107,17 +114,7 @@ export default component$<CodeBlockProps>(
     const codeSig = useSignal("");
 
     useTask$(async function createHighlightedCode() {
-      let modifiedCode: string = code;
-
-      let partsOfCode = modifiedCode.split(splitCommentStart);
-      if (partsOfCode.length > 1) {
-        modifiedCode = partsOfCode[1];
-      }
-
-      partsOfCode = modifiedCode.split(splitCommentEnd);
-      if (partsOfCode.length > 1) {
-        modifiedCode = partsOfCode[0];
-      }
+      const modifiedCode: string = code;
 
       const highlighter = await getHighlighterCore({
         themes: [
@@ -135,6 +132,7 @@ export default component$<CodeBlockProps>(
           light: "github-light",
           dark: "github-dark",
         },
+        decorations: decorations,
       });
       codeSig.value = str.toString();
     });
@@ -146,7 +144,7 @@ export default component$<CodeBlockProps>(
           (text === "Terminal" ? " code_block_hideLineNumbers" : "")
         }
       >
-        <CodeBlockHeader text={text} code={code} />
+        <CodeBlockHeader text={text} code={code} copyButton={copyButton} />
         <div
           dangerouslySetInnerHTML={codeSig.value}
           class="code_block_pre"
