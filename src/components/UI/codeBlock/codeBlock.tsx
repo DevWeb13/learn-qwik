@@ -123,7 +123,7 @@ export default component$<CodeBlockProps>(
           import("shiki/themes/github-dark.mjs"),
         ],
         langs: [import("shiki/langs/bash.mjs")],
-        loadWasm: import("shiki/wasm"),
+        // loadWasm: import("shiki/wasm"),
       });
 
       const str = highlighter.codeToHtml(modifiedCode, {
