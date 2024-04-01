@@ -55,8 +55,8 @@ export default component$(() => {
         </p>
 
         <p>
-          Tout d'abord, nous allons modifier le contenu de notre fichier
-          <code>src/routes/index.tsx</code>.
+          First, we're going to modify the content of our
+          <code>src/routes/index.tsx</code> file.
         </p>
 
         <CodeBlock
@@ -139,13 +139,12 @@ export const head: DocumentHead = {
         />
 
         <p>
-          Dans ce fichier le style Tailwind a déja été ajouté pour vous, ne vous
-          inquiétez pas si c'est la première fois que vous utilisez Tailwind.
-          Pour gagner du temps, nous avons déjà stylisé tous les composants que
-          vous utiliserez.
+          In this file, the Tailwind style has already been added for you, so
+          don't worry if this is your first time using Tailwind. To save time,
+          we have already styled all the components you will use.
         </p>
 
-        <p>Pour l'instant, si vous exécutez votre application, vous verrez :</p>
+        <p>For now, if you run your application, you will see:</p>
         <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
           <InstyledPage
             alt="Unstyled page with the title 'Acme', a description, and login link."
@@ -153,13 +152,13 @@ export const head: DocumentHead = {
           />
         </figure>
         <p>
-          Vous remarquerez que les styles ne sont pas appliqués. Cela est normal
-          car Tailwind CSS n'est pas encore installé.
+          You will notice that the styles are not applied. This is normal
+          because Tailwind CSS is not yet installed.🃏
         </p>
 
         <p>
-          Pour ajouter Tailwind CSS à votre application, rien de plus simple,
-          dans le terminal exécutez la commande suivante :
+          To add Tailwind CSS to your application, it's very simple, in the
+          terminal execute the following command:
         </p>
 
         <CodeBlock
@@ -203,14 +202,14 @@ export const head: DocumentHead = {
         />
         <p>
           Now, if you run your application, you should see the Tailwind CSS
-          styles applied to your home page.
+          styles applied to your home page.🏆
         </p>
         <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
           <StyledPage />
         </figure>
         <p>
-          Félicitations ! Vous avez appris à ajouter Tailwind CSS à votre
-          application Qwik.
+          Congratulations! You have learned how to add Tailwind CSS to your Qwik
+          application.🎉
         </p>
 
         <SubtitleWithAnchor title="Tailwind" id="tailwind" />
