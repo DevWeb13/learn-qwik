@@ -16,6 +16,11 @@ export default extendConfig(baseConfig, () => {
     plugins: [vercelEdgeAdapter(
       {
         target: "node",
+        ssg: {
+          include: ['/*'],
+          origin: 'https://learn-qwik.com',
+          sitemapOutFile: 'sitemap.xml',
+        },
       } as VercelEdgeAdapterOptions,
     )],
   };
