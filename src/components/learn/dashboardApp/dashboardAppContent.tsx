@@ -1,95 +1,14 @@
-import { component$, useStyles$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.avif?jsx";
 import Feedback from "~/components/UI/feedback/feedback";
 import Popover from "~/lib/qwikUI/popover/popover";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { AnchorIcon } from "~/components/icons/anchorIcon";
+import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 
 export default component$(() => {
-  useStyles$(`
-  .prose :where(h2):not(:where([class~=not-prose] *)) {
-      color: var(--tw-prose-headings);
-      font-weight: 700;
-      font-size: 1.5em;
-      margin-top: 2em;
-      margin-bottom: 1em;
-      line-height: 1.3333333;
-  }
-  .prose-vercel :where(h2):not(:where([class~=not-prose] *)) {
-      font-weight: 600;
-      scroll-margin-top: 51px;
-  }
-  .prose-vercel :where(h2:not(:is(h1+h2))):not(:where([class~=not-prose] *)) {
-    border-top-style: solid;
-    border-top-width: 1px;
-    border-color: var(--ds-gray-200);
-    padding-top: 2.5rem;
-    scroll-margin-top: 50px;
-}
-.prose-vercel :where([data-docs-heading]):not(:where([class~=not-prose] *)) a span {
-  display: inline-flex;
-  margin-left: 0.375rem;
-  visibility: hidden;
-  opacity: 0;
-}
-.prose-vercel :where([data-docs-heading]):not(:where([class~=not-prose] *)) a:hover span {
-  visibility: visible;
-  opacity: 1;
-}
-
-.prose :where(figure):not(:where([class~=not-prose] *)) {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.prose :where(h2+*):not(:where([class~=not-prose] *)) {
-  margin-top: 0;
-}
-
-
-
-.prose :where(p):not(:where([class~=not-prose] *)) {
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
-}
-
-.prose :where(ul):not(:where([class~=not-prose] *)) {
-  list-style-type: disc;
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
-  padding-left: 1.625em;
-}
-
-.prose :where(li):not(:where([class~=not-prose] *)) {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-.prose :where(ul>li):not(:where([class~=not-prose] *)) {
-  padding-left: 0.375em;
-}
-
-.prose :where(a):not(:where([class~=not-prose] *)) {
-  color: var(--tw-prose-links);
-  text-decoration: underline;
-  font-weight: 500;
-}
-.prose-vercel :where(a):not(:where([class~=not-prose] *)) {
-  text-decoration: none;
-  font-weight: inherit;
-}
-.prose-vercel :where([data-docs-heading]):not(:where([class~=not-prose] *)) a {
-  color: inherit;
-}
-@media (hover: hover){
-
-  a:hover {
-      color: #68b5fb;
-  }
-}
-
-
-  `);
   return (
     <article
       class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
@@ -110,31 +29,11 @@ export default component$(() => {
           learn the main features of Qwik by building a full-stack web
           application.
         </p>
-        <h2 id="what-well-be-building" data-docs-heading="">
-          <Link href="#what-well-be-building">
-            What we'll be building
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </Link>
-        </h2>
+        <SubtitleWithAnchor
+          id="what-well-be-building"
+          title="What we'll be building"
+        />
+
         <figure>
           <ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions
             alt="Screenshots of the dashboard project showing desktop and mobile versions."
@@ -166,31 +65,8 @@ export default component$(() => {
           By the end of the course, you'll have the essential skills needed to
           start building full-stack Qwik applications.
         </p>
-        <h2 id="overview" data-docs-heading="">
-          <a href="#overview">
-            Overview
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h2>
+        <SubtitleWithAnchor id="overview" title="Overview" />
+
         <p>Here's an overview of features you'll learn about in this course:</p>
         <ul>
           <li>
@@ -263,31 +139,11 @@ export default component$(() => {
             application for social sharing.
           </li>
         </ul>
-        <h2 id="prerequisite-knowledge" data-docs-heading="">
-          <a href="#prerequisite-knowledge">
-            Prerequisite knowledge
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h2>
+        <SubtitleWithAnchor
+          id="prerequisite-knowledge"
+          title="Prerequisite knowledge"
+        />
+
         <p>
           This course assumes you have a basic understanding of web development
           and JavaScript. If you're new to modern web frameworks, we recommend
@@ -304,31 +160,11 @@ export default component$(() => {
           knowledge, understanding these concepts will help you grasp Qwik's
           unique features more effectively.
         </p>
-        <h2 id="system-requirements" data-docs-heading="">
-          <a href="#system-requirements">
-            System requirements
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h2>
+        <SubtitleWithAnchor
+          id="system-requirements"
+          title="System requirements"
+        />
+
         <p>
           Before you start this course, make sure your system meets the
           following requirements:
@@ -427,24 +263,7 @@ export default component$(() => {
           <a href="#join-the-conversation">
             Join the conversation
             <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
+              <AnchorIcon />
             </span>
           </a>
         </h2>
