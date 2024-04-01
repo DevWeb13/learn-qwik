@@ -2,7 +2,7 @@
 
 import { component$ } from "@builder.io/qwik";
 
-import InstyledPage from "~/assets/img/unstyled-page.png?jsx";
+import StartPage from "~/assets/img/start-page.png?jsx";
 import Feedback from "~/components/UI/feedback/feedback";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 // import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
@@ -472,7 +472,7 @@ export default component$(() => {
           . Your home page should look like this:
         </p>
         <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
-          <InstyledPage
+          <StartPage
             alt="Unstyled page with the title 'Acme', a description, and login link."
             class="block w-full rounded-md border border-gray-200 bg-gray-100 dark:hidden"
           />

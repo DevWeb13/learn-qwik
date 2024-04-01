@@ -7,10 +7,11 @@ import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
 interface CodeBlockHeaderProps {
   text: string;
   code: string;
+  copyButton: boolean;
 }
 
 export const CodeBlockHeader = component$<CodeBlockHeaderProps>(
-  ({ text, code }) => {
+  ({ text, code, copyButton }) => {
     const copySuccess = useSignal(false); // État pour le feedback visuel
 
     const copyCode = useSignal(code);
@@ -99,25 +100,27 @@ export const CodeBlockHeader = component$<CodeBlockHeaderProps>(
           </div>
           <span class="code_block_filenameP">{text}</span>
         </div>
-        <div class="code_block_actions">
-          <button
-            aria-label="Copy code"
-            class="code_block_copyButton"
-            type="button"
-            onClick$={copyToClipboard}
-            style={`display: ${copySuccess.value ? "none" : "flex"};`}
-          >
-            <CopySvg />
-          </button>
-          <div
-            aria-label="Copy code"
-            class="code_block_copyButton"
-            style={`display: ${copySuccess.value ? "flex" : "none"};`}
-            onClick$={copyToClipboard}
-          >
-            <ValidSvg />
+        {copyButton && (
+          <div class="code_block_actions">
+            <button
+              aria-label="Copy code"
+              class="code_block_copyButton"
+              type="button"
+              onClick$={copyToClipboard}
+              style={`display: ${copySuccess.value ? "none" : "flex"};`}
+            >
+              <CopySvg />
+            </button>
+            <div
+              aria-label="Copy code"
+              class="code_block_copyButton"
+              style={`display: ${copySuccess.value ? "flex" : "none"};`}
+              onClick$={copyToClipboard}
+            >
+              <ValidSvg />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   },

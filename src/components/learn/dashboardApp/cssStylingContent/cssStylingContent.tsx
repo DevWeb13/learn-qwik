@@ -8,6 +8,8 @@ import CompletedChapter from "~/components/UI/completedChapter/completedChapter"
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
+import InstyledPage from "~/assets/img/instyled-page.png?jsx";
+import StyledPage from "~/assets/img/styled-page.png?jsx";
 
 export default component$(() => {
   useStyles$(``);
@@ -60,7 +62,7 @@ export default component$(() => {
           text="src/routes/index.tsx"
           code={`import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
-import { HiArrowRightOutline } from "@qwikest/icons/heroicons";
+// import { HiArrowRightOutline } from "@qwikest/icons/heroicons";
 
 export default component$(() => {
   return (
@@ -70,7 +72,7 @@ export default component$(() => {
       </div>
       <div class="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div class="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-          <p class='text-xl text-gray-800 md:text-3xl md:leading-normal'>
+          <p class="text-xl text-gray-800 md:text-3xl md:leading-normal">
             <strong>Welcome to LRDAcme.</strong> This is the example for the{" "}
             <Link
               href="https://www.learn-qwik.com/learn/"
@@ -89,7 +91,8 @@ export default component$(() => {
             href="/login"
             class="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
-            <span>Log in</span> <HiArrowRightOutline />
+            <span>Log in</span>
+            {/* <HiArrowRightOutline /> */}
           </Link>
         </div>
         <div class="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
@@ -110,23 +113,108 @@ export const head: DocumentHead = {
   ],
 };
   `}
+          decorations={[
+            {
+              // line and character are 0-indexed
+              start: { line: 1, character: 0 },
+              // end at the end of the line
+              end: { line: 3, character: 0 },
+              properties: { class: "newLine" },
+            },
+            {
+              // line and character are 0-indexed
+              start: { line: 6, character: 0 },
+              // end at the end of the line
+              end: { line: 40, character: 0 },
+              properties: { class: "newLine" },
+            },
+          ]}
         />
 
-        <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
-          <CompletedChapter
-            chapterNumber={2}
-            text="Well done! You've learned about the different ways of styling a Qwik application."
+        <p>
+          Dans ce fichier le style Tailwind a déja été ajouté pour vous, le but
+          n'est pas de vous apprendre Tailwind CSS mais de vous montrer comment
+          l'ajouter à votre application Qwik.
+        </p>
+
+        <p>Pour l'instant, si vous exécutez votre application, vous verrez :</p>
+        <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
+          <InstyledPage
+            alt="Unstyled page with the title 'Acme', a description, and login link."
+            class="block w-full rounded-md border border-gray-200 bg-gray-100 dark:hidden"
           />
-          <GoToNextChapterBlock
-            goToChapter={3}
-            title="Optimizing Fonts and Images"
-            text="Continue working on your home page by adding a hero image and a custom font."
-            disabledButton={true}
-          />
-        </div>
-        <Feedback />
-        <div class="mb-[40px] md:mb-[120px]"></div>
+        </figure>
+        <p>
+          Vous remarquerez que les styles ne sont pas appliqués. Cela est normal
+          car Tailwind CSS n'est pas encore installé.
+        </p>
+
+        <p>
+          Pour ajouter Tailwind CSS à votre application, rien de plus simple,
+          dans le terminal exécutez la commande suivante :
+        </p>
+
+        <CodeBlock text="Terminal" code={`npm run qwik add tailwind`} />
+
+        <p>
+          The previous command updates your app with the necessary dependencies.
+        </p>
+
+        <p>It also adds new files to your project folder:</p>
+        <ul>
+          <li>
+            <code>postcss.config.js</code>
+          </li>
+          <li>
+            <code>tailwind.config.js</code>
+          </li>
+          <li>
+            <code>.vscode/settings.json</code>
+          </li>
+        </ul>
+        <p>
+          and modifies your <code>src/global.css</code> to include
+        </p>
+
+        <CodeBlock
+          text="src/global.css"
+          code={`/**
+* Tailwind CSS imports
+* View the full documentation at https://tailwindcss.com
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;`}
+          copyButton={false}
+        />
+        <p>
+          Now, if you run your application, you should see the Tailwind CSS
+          styles applied to your home page. You can also customize the styles by
+          editing the <code>tailwind.config.js</code> file.
+        </p>
+        <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
+          <StyledPage />
+        </figure>
+        <p>
+          Félicitations ! Vous avez appris à ajouter Tailwind CSS à votre
+          application Qwik.
+        </p>
       </div>
+
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
+        <CompletedChapter
+          chapterNumber={2}
+          text="Well done! You've learned about the different ways of styling a Qwik application."
+        />
+        <GoToNextChapterBlock
+          goToChapter={3}
+          title="Optimizing Fonts and Images"
+          text="Continue working on your home page by adding a hero image and a custom font."
+          disabledButton={true}
+        />
+      </div>
+      <Feedback />
+      <div class="mb-[40px] md:mb-[120px]"></div>
     </article>
   );
 });
