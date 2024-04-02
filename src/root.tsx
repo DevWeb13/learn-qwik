@@ -21,11 +21,6 @@ export default component$(() => {
    * Don't remove the `<head>` and `<body>` elements.
    */
 
-  // eslint-disable-next-line qwik/no-use-visible-task
-  // useVisibleTask$(() => {
-  //   inject();
-  // });
-
   return (
     <QwikCityProvider>
       <head>
@@ -77,6 +72,15 @@ export default component$(() => {
             gtag('config', 'G-D5GX3GMZR7');
           `}
         /> */}
+
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={`
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+`}
+        />
+
+        <script defer src="/_vercel/insights/script.js" />
 
         {/* Google AdSense */}
         <script

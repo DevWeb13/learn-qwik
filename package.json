@@ -51,7 +51,6 @@
     "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
-    "@qwik-ui/headless": "^0.2.2",
-    "@vercel/analytics": "^1.2.2"
+    "@qwik-ui/headless": "^0.2.2"
   }
 }
