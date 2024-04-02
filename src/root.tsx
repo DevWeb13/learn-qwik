@@ -30,6 +30,21 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
+        {/* Google tag (gtag.js)  */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
+        />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D5GX3GMZR7');
+  `}
+        />
+
         {/* <QwikPartytown forward={["dataLayer.push"]} />
 
         <script
