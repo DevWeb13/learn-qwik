@@ -20,6 +20,7 @@
   background: none;
   transform: translateZ(0);
 }
+
 .button_button {
   display: flex;
   --x-padding: 10px;
@@ -42,6 +43,10 @@
   font-size: var(--geist-form-font);
   line-height: var(--geist-form-line-height);
   height: var(--geist-form-height);
+}
+
+.button_button[data-geist-button]:hover {
+  background: var(--themed-hover-bg, #383838);
 }
 .button_small[data-geist-button] {
   font-size: var(--geist-form-small-font);

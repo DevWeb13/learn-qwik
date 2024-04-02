@@ -1,40 +1,20 @@
-import { component$, useStyles$, $, useSignal } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 
-import CopySvg from "~/assets/svg/copySvg/copySvg";
-import ValidSvg from "~/assets/svg/validSvg/validSvg";
 import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
+import { CopyButton } from "./copyButton";
+import { JavascriptSvg } from "~/assets/svg/javascriptSvg/javascriptSvg";
+import { TypescriptSvg } from "~/assets/svg/typescriptSvg/typescriptSvg";
+import { FileSvg } from "~/assets/svg/fileSvg/fileSvg";
 
 interface CodeBlockHeaderProps {
   text: string;
   code: string;
+  copyButton: boolean;
+  icon: "terminal" | "javascript" | "typescript" | "html" | "css" | "bash";
 }
 
 export const CodeBlockHeader = component$<CodeBlockHeaderProps>(
-  ({ text, code }) => {
-    const copySuccess = useSignal(false); // État pour le feedback visuel
-
-    const copyCode = useSignal(code);
-
-    const copyToClipboard = $(() => {
-      navigator.clipboard
-        .writeText(copyCode.value)
-        .then(() => {
-          console.log("Texte copié avec succès !");
-
-          copySuccess.value = true; // Affiche l'icône de validation
-          console.log("copySuccess.value", copySuccess.value);
-
-          // Retour à l'icône de copie après 2 secondes
-          setTimeout(() => {
-            copySuccess.value = false;
-            console.log("copySuccess.value", copySuccess.value);
-          }, 2000);
-        })
-        .catch((err) => {
-          console.error("Erreur lors de la copie : ", err);
-        });
-    });
-
+  ({ text, code, copyButton, icon }) => {
     useStyles$(`
   
   .code_block_header {
@@ -70,54 +50,33 @@ export const CodeBlockHeader = component$<CodeBlockHeaderProps>(
     flex-shrink: 0;
   }
 
-  .code_block_actions {
-    display: flex;
-    gap: 4px;
-  }
 
-  .code_block_copyButton {
-    height: 32px;
-    width: 32px;
-    border-radius: var(--geist-radius);
-    border: none;
-    color: var(--ds-gray-900);
-    cursor: pointer;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: inherit;
-    position: relative;
-    transition: background .2s ease;
-  }
     `);
+
+    const displayIcon = () => {
+      switch (icon) {
+        case "terminal":
+          return <TerminalSvg />;
+        case "javascript":
+          return <JavascriptSvg />;
+        case "typescript":
+          return <TypescriptSvg />;
+        case "css":
+          return <FileSvg />;
+        default:
+          return null;
+      }
+    };
+
     return (
       <div class="code_block_header">
         <div class="code_block_fileName">
           <div aria-hidden="true" class="code_block_iconWrapper">
-            <TerminalSvg />
+            {displayIcon()}
           </div>
-          <span class="code_block_filenameP">{text}</span>
+          <span class="code_block_filename">{text}</span>
         </div>
-        <div class="code_block_actions">
-          <button
-            aria-label="Copy code"
-            class="code_block_copyButton"
-            type="button"
-            onClick$={copyToClipboard}
-            style={`display: ${copySuccess.value ? "none" : "flex"};`}
-          >
-            <CopySvg />
-          </button>
-          <div
-            aria-label="Copy code"
-            class="code_block_copyButton"
-            style={`display: ${copySuccess.value ? "flex" : "none"};`}
-            onClick$={copyToClipboard}
-          >
-            <ValidSvg />
-          </div>
-        </div>
+        {copyButton && <CopyButton code={code} />}
       </div>
     );
   },

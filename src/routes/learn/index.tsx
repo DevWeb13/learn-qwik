@@ -4,7 +4,6 @@ import type { Signal } from "@builder.io/qwik";
 import { component$, useContext } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
-// import CircleSvg from "~/assets/svg/circleSvg/circleSvg";
 import HeroLinesDark from "~/assets/svg/heroLinesDark/heroLinesDark";
 import HeroLinesLight from "~/assets/svg/heroLinesLight/heroLinesLight";
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";

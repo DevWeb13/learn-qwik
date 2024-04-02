@@ -1,8 +1,8 @@
 // src/components/dashboardApp/gettingStartedContent/gettingStartedContent.tsx
 
-import { component$, useStyles$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 
-import InstyledPage from "~/assets/img/unstyled-page.png?jsx";
+import StartPage from "~/assets/img/start-page.png?jsx";
 import Feedback from "~/components/UI/feedback/feedback";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 // import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
@@ -11,120 +11,9 @@ import FolderStructure from "./folderStructure/folderStructure";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
+import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 
 export default component$(() => {
-  useStyles$(`
-  .prose :where(h2):not(:where([class~=not-prose] *)) {
-      color: var(--tw-prose-headings);
-      font-weight: 700;
-      font-size: 1.5em;
-      margin-top: 2em;
-      margin-bottom: 1em;
-      line-height: 1.3333333;
-  }
-  .prose-vercel :where(h2):not(:where([class~=not-prose] *)) {
-      font-weight: 600;
-      scroll-margin-top: 51px;
-  }
-  .prose-vercel :where(h2:not(:is(h1+h2))):not(:where([class~=not-prose] *)) {
-    border-top-style: solid;
-    border-top-width: 1px;
-    border-color: var(--ds-gray-200);
-    padding-top: 2.5rem;
-    scroll-margin-top: 50px;
-}
-.prose-vercel :where([data-docs-heading]):not(:where([class~=not-prose] *)) a span {
-  display: inline-flex;
-  margin-left: 0.375rem;
-  visibility: hidden;
-  opacity: 0;
-}
-.prose-vercel :where([data-docs-heading]):not(:where([class~=not-prose] *)) a:hover span {
-  visibility: visible;
-  opacity: 1;
-}
-
-.prose :where(figure):not(:where([class~=not-prose] *)) {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.prose :where(h2+*):not(:where([class~=not-prose] *)) {
-  margin-top: 0;
-}
-
-
-
-.prose :where(p):not(:where([class~=not-prose] *)) {
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
-}
-
-.prose :where(ul):not(:where([class~=not-prose] *)) {
-  list-style-type: disc;
-  margin-top: 1.25em;
-  margin-bottom: 1.25em;
-  padding-left: 1.625em;
-}
-
-.prose :where(li):not(:where([class~=not-prose] *)) {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-.prose :where(ul>li):not(:where([class~=not-prose] *)) {
-  padding-left: 0.375em;
-}
-
-.prose :where(a):not(:where([class~=not-prose] *)) {
-  color: var(--tw-prose-links);
-  text-decoration: underline;
-  font-weight: 500;
-}
-.prose-vercel :where(a):not(:where([class~=not-prose] *)) {
-  text-decoration: none;
-  font-weight: inherit;
-}
-.prose-vercel :where([data-docs-heading]):not(:where([class~=not-prose] *)) a {
-  color: inherit;
-}
-@media (hover: hover){
-
-  a:hover {
-      color: #68b5fb;
-  }
-}
-
-.prose :where(code):not(:where([class~=not-prose] *)) {
-  color: var(--tw-prose-code);
-  font-weight: 600;
-  font-size: .875em;
-}
-.prose-vercel :where(code):not(:where([class~=not-prose] *)) {
-  font-weight: inherit;
-  background-color: var(--ds-gray-100);
-  border-radius: 0.375rem;
-  border-width: 1px;
-  border-color: var(--ds-gray-200);
-  padding: 0.125rem 0.25rem;
-}
-
-.prose :where(h3):not(:where([class~=not-prose] *)) {
-  color: var(--tw-prose-headings);
-  font-weight: 600;
-  font-size: 1.25em;
-  margin-top: 1.6em;
-  margin-bottom: 0.6em;
-  line-height: 1.6;
-}
-.prose-vercel :where(h3):not(:where([class~=not-prose] *)) {
-  font-weight: 600;
-  scroll-margin-top: 51px;
-}
-
-
-
-
-  `);
   return (
     <article
       class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
@@ -132,31 +21,11 @@ export default component$(() => {
     >
       <div class="prose prose-vercel max-w-none">
         <PageTitle chapterNumber={1} chapterTitle="Getting Started" />
-        <h2 id="creating-a-new-project" data-docs-heading="">
-          <a href="#creating-a-new-project">
-            Create an app using the CLI
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h2>
+        <SubtitleWithAnchor
+          title="Create an app using the CLI"
+          id="creating-a-new-project"
+        />
+
         <p>
           First, create a Qwik application with the Qwik CLI, which generates a
           blank starter so that you can quickly familiarize yourself with it.
@@ -167,7 +36,7 @@ export default component$(() => {
           To create a Qwik app, open your terminal,{" "}
           <a
             href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line#basic_built-in_terminal_commands"
-            rel="noopener noreferrer nofollow"
+            rel="noopener "
             target="_blank"
           >
             <code>cd</code>
@@ -194,7 +63,11 @@ export default component$(() => {
           into the folder you'd like to keep your project, and run the following
           command:
         </p>
-        <CodeBlock text="Terminal" code={`npm create qwik@latest`} />
+        <CodeBlock
+          text="Terminal"
+          code={`npm create qwik@latest`}
+          hideLineNumbers
+        />
 
         <p>
           The CLI guides you through an interactive menu to set the
@@ -224,31 +97,11 @@ export default component$(() => {
           will also initialize a git repository.
         </p>
 
-        <h2 id="exploring-the-project" data-docs-heading="">
-          <a href="#exploring-the-project">
-            Exploring the project
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h2>
+        <SubtitleWithAnchor
+          title="Exploring the project"
+          id="exploring-the-project"
+        />
+
         <p>
           Unlike tutorials that have you write code from scratch, much of the
           code for this course is already written for you. This better reflects
@@ -262,9 +115,9 @@ export default component$(() => {
         <p>
           After installation, navigate to <code>qwik-dashboard</code>
         </p>
-        <CodeBlock text="Terminal" code={`cd qwik-dashboard`} />
+        <CodeBlock text="Terminal" code={`cd qwik-dashboard`} hideLineNumbers />
         <p> and open the project in your code editor.</p>
-        <CodeBlock text="Terminal" code={`code .`} />
+        <CodeBlock text="Terminal" code={`code .`} hideLineNumbers />
 
         <p>Happy coding! 🎉</p>
 
@@ -355,7 +208,7 @@ export default component$(() => {
               <a
                 href="https://vitejs.dev/guide/build.html#public-base-path"
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener "
               >
                 Vite configuration for more information
               </a>
@@ -414,7 +267,7 @@ export default component$(() => {
             <a
               href="https://vitejs.dev/config/"
               target="_blank"
-              rel="noopener noreferrer nofollow"
+              rel="noopener "
             >
               Vite documentation
             </a>{" "}
@@ -425,31 +278,12 @@ export default component$(() => {
           Feel free to explore these folders, and don't worry if you don't
           understand everything the code is doing yet.
         </p>
-        <h3 id="placeholder-data" data-docs-heading="">
-          <a href="#placeholder-data">
-            Placeholder data
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h3>
+        <SubtitleWithAnchor
+          title="Placeholder data"
+          id="placeholder-data"
+          level="h3"
+        />
+
         <p>
           When you're building user interfaces, it helps to have some
           placeholder data. If a database or API is not yet available, you can:
@@ -458,11 +292,7 @@ export default component$(() => {
           <li>Use placeholder data in JSON format or as JavaScript objects.</li>
           <li>
             Use a 3rd party service like{" "}
-            <a
-              href="https://mockapi.io/"
-              rel="noopener noreferrer nofollow"
-              target="_blank"
-            >
+            <a href="https://mockapi.io/" rel="noopener " target="_blank">
               mockAPI
               <span class="inline-flex">
                 <svg
@@ -511,6 +341,8 @@ export default component$(() => {
 
         <CodeBlock
           text="/src/lib/placeholder-data.js"
+          icon="javascript"
+          language="javascript"
           code={`const invoices = [
   {
     customer_id: customers[0].id,
@@ -537,31 +369,8 @@ export default component$(() => {
           with some initial data).
         </p>
 
-        <h3 id="typescript" data-docs-heading="">
-          <a href="#typescript">
-            TypeScript
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h3>
+        <SubtitleWithAnchor title="TypeScript" id="typescript" level="h3" />
+
         <p>
           You may also notice most files have a <code>.ts</code> or{" "}
           <code>.tsx</code> suffix. This is because the project is written in
@@ -584,6 +393,8 @@ export default component$(() => {
 
         <CodeBlock
           text="/src/lib/definitions.ts"
+          icon="typescript"
+          language="typescript"
           code={`export type Invoice = {
   id: string;
   customer_id: string;
@@ -615,11 +426,7 @@ export default component$(() => {
             </li>
             <li>
               For even more robust type safety, using{" "}
-              <a
-                href="https://www.prisma.io/"
-                rel="noopener noreferrer nofollow"
-                target="_blank"
-              >
+              <a href="https://www.prisma.io/" rel="noopener " target="_blank">
                 Prisma
                 <span class="inline-flex">
                   <svg
@@ -647,36 +454,16 @@ export default component$(() => {
             </li>
           </ul>
         </blockquote>
-        <h2 id="running-the-development-server" data-docs-heading="">
-          <a href="#running-the-development-server">
-            Running the development server
-            <span>
-              <svg viewBox="0 0 16 16" height="0.7em" width="0.7em">
-                <g stroke-width="1.2" fill="none" stroke="currentColor">
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M8.995,7.005 L8.995,7.005c1.374,1.374,1.374,3.601,0,4.975l-1.99,1.99c-1.374,1.374-3.601,1.374-4.975,0l0,0c-1.374-1.374-1.374-3.601,0-4.975 l1.748-1.698"
-                  ></path>
-                  <path
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-miterlimit="10"
-                    d="M7.005,8.995 L7.005,8.995c-1.374-1.374-1.374-3.601,0-4.975l1.99-1.99c1.374-1.374,3.601-1.374,4.975,0l0,0c1.374,1.374,1.374,3.601,0,4.975 l-1.748,1.698"
-                  ></path>
-                </g>
-              </svg>
-            </span>
-          </a>
-        </h2>
+        <SubtitleWithAnchor
+          title="Running the development server"
+          id="running-the-development-server"
+        />
+
         <p>
           Run <code>npm run start</code> to start the development server.
         </p>
 
-        <CodeBlock text="Terminal" code={`npm run start`} />
+        <CodeBlock text="Terminal" code={`npm run start`} hideLineNumbers />
         <p>
           Your browser is automatically open at this url{" "}
           <a href="http://localhost:5173/" target="_blank">
@@ -685,7 +472,7 @@ export default component$(() => {
           . Your home page should look like this:
         </p>
         <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
-          <InstyledPage
+          <StartPage
             alt="Unstyled page with the title 'Acme', a description, and login link."
             class="block w-full rounded-md border border-gray-200 bg-gray-100 dark:hidden"
           />

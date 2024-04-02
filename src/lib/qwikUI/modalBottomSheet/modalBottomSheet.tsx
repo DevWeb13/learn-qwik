@@ -31,8 +31,6 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
   const showSig = useSignal(false);
 
   const location = useLocation();
-  console.log(location);
-  console.log(chapters);
 
   const store = useStore({
     completedChapters: findCompletedChapters(chapters) as CompletedChaptersType,
@@ -41,9 +39,6 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
   useStyles$(`
     
     `);
-
-  // console.log(chapter.uri);
-  console.log("/learn/dashboard-app" + location.url.pathname);
 
   return (
     <>

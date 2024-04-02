@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import styles from "./navbar.module.css";
 import Popover from "../../lib/qwikUI/popover/popover";
 import { Link } from "@builder.io/qwik-city";
-import { ExternalArrowIcon } from "../starter/icons/externalArrowIcon";
+import { ExternalArrowIcon } from "../icons/externalArrowIcon";
 
 export default component$(() => {
   return (
