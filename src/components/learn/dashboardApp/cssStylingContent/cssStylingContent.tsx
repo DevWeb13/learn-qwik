@@ -11,6 +11,7 @@ import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import InstyledPage from "~/assets/img/instyled-page.png?jsx";
 import StyledPage from "~/assets/img/styled-page.png?jsx";
 import BlankLink from "~/components/UI/blankLink/blankLink";
+import { Quiz } from "~/components/UI/quiz/quiz";
 
 export default component$(() => {
   useStyles$(``);
@@ -263,6 +264,18 @@ export const head: DocumentHead = {
           language="tsx"
           code={`<div class="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-blue-500 border-l-transparent border-r-transparent" />`}
           hideLineNumbers
+        />
+
+        <Quiz
+          question="What shape do you see when using the code snippet above?"
+          options={[
+            { text: "A yellow star", isCorrect: false, letter: "A" },
+            { text: "A blue triangle", isCorrect: false, letter: "B" },
+            { text: "A black triangle", isCorrect: true, letter: "C" },
+            { text: "A red circle", isCorrect: false, letter: "D" },
+          ]}
+          hint="Make sure you've added the triangle to the right place in the code!"
+          responseText="The border class names are used to create a triangle shape."
         />
       </div>
 
