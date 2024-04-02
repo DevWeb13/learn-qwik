@@ -185,7 +185,7 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
                     data-version="v1"
                     style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
                   >
-                    Coming soon 🚧
+                    Next steps 🚧
                   </p>
                 </Link>
               </div>

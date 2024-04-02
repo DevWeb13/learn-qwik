@@ -42,12 +42,7 @@ export default component$<BtAddChapterProps>(
       text: string,
       completed: number[],
       goToChapter: number,
-      disabled: boolean,
     ) {
-      // Ajoutez ici la condition supplémentaire si nécessaire
-      if (disabled) {
-        return "Coming soon ";
-      }
       return `${completed.length > 0 ? "Resume Learning" : text} ${goToChapter ? goToChapter : ""}`;
     }
 
@@ -77,7 +72,7 @@ export default component$<BtAddChapterProps>(
           {completed.length ? <Slot /> : null}
 
           <span class="button_content">
-            {generateText(text, completed, goToChapter, disabled)}
+            {generateText(text, completed, goToChapter)}
           </span>
 
           {disabled ? (
