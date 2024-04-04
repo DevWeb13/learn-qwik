@@ -3,6 +3,7 @@ import { QuizHeader } from "./quizHeader/quizHeader";
 import { ButtonQuizOption } from "./buttonQuizOption/buttonQuizOption";
 import { IsCorrectResponse } from "./isCorrectResponse/isCorrectResponse";
 import Popover from "~/lib/qwikUI/popover/popover";
+import { Link } from "@builder.io/qwik-city";
 
 export type Option = {
   text: string;
@@ -152,6 +153,9 @@ export const Quiz = component$<QuizProps>(
             />
           );
         case false:
+          const textResponse = options.find(
+            (option) => option.letter === store.userResponse,
+          )?.text;
           return (
             <>
               <div class="border-gray-alpha-400 mt-6 flex w-full flex-1 flex-col items-center justify-center rounded-lg border p-8">
@@ -163,11 +167,7 @@ export const Quiz = component$<QuizProps>(
                   data-version="v1"
                   style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 500; margin: 0px;"
                 >
-                  {
-                    options.find(
-                      (option) => option.letter === store.userResponse,
-                    )?.text
-                  }
+                  {textResponse}
                 </p>
                 <span
                   class="badge_badge__WnfZm badge_amber-subtle__OVCCT badge_lg__AebMU my-6"
@@ -195,13 +195,38 @@ export const Quiz = component$<QuizProps>(
                     Not quite
                   </span>
                 </span>
-                <p
-                  class="text_wrapper__i87JK mx-auto w-full max-w-[380px]"
-                  data-version="v1"
-                  style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400; --text-align: center;"
-                >
-                  Hint: {hint}
-                </p>
+                {textResponse === "LaReponseDev 🤓" ? (
+                  <p
+                    class="text_wrapper__i87JK mx-auto w-full max-w-[380px]"
+                    data-version="v1"
+                    style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400; --text-align: center;"
+                  >
+                    Hint: I am independent French web developer.
+                    <br />I develop this site. <br />
+                    If you have any questions or need help with your project,
+                    please don't hesitate to contact me. <br />
+                    You can find me on Twitter, LinkedIn, Github and Discord.
+                    <br />
+                    All the links are into this site:{" "}
+                    <Link
+                      class="text-blue-500"
+                      href="https://www.lareponsedev.com/"
+                      rel="noopener "
+                      target="_blank"
+                    >
+                      lareponsedev.com
+                    </Link>{" "}
+                    <br />I will be happy to help you. 😊
+                  </p>
+                ) : (
+                  <p
+                    class="text_wrapper__i87JK mx-auto w-full max-w-[380px]"
+                    data-version="v1"
+                    style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400; --text-align: center;"
+                  >
+                    Hint: {hint}
+                  </p>
+                )}
               </div>
               <div class="mt-6 flex justify-center">
                 <button

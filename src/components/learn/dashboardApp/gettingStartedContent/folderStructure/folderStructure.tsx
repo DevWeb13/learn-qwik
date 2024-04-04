@@ -1,18 +1,6 @@
-import { component$, useStyles$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 
 export default component$(() => {
-  useStyles$(`
-    .dark-plus {
-      padding: 18px 15px;
-      border-radius: 0.375rem;
-      --tw-bg-opacity: 1;
-      background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-    }
-
-    
-  
-   
-  `);
   return (
     <pre
       tabIndex={0}
