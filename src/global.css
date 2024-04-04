@@ -706,3 +706,19 @@ pre {
   --shiki-token-link: var(--ds-green-900);
   border-radius: 0 0 6px 6px;
 }
+
+.dark-plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 18px 15px;
+  border-radius: 0.375rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.dark-plus :nth-child(2) {
+  display: flex;
+  width: 100%;
+}
