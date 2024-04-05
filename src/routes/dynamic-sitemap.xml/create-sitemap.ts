@@ -1,3 +1,5 @@
+// src/routes/dynamic-sitemap.xml/create-sitemap.ts
+
 export interface SitemapEntry {
   loc: string;
   priority: number;
@@ -11,7 +13,7 @@ export function createSitemap(entries: SitemapEntry[]) {
 ${entries.map(
   (entry) => `
     <url>
-        <loc>${baseUrl}${entry.loc}</loc>
+        <loc>${baseUrl}${entry.loc.startsWith("/") ? "" : "/"}${entry.loc}</loc>
         <priority>${entry.priority}</priority>
     </url>`,
 )}
