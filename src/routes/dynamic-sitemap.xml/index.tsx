@@ -5,14 +5,16 @@ import { routes } from "@qwik-city-plan";
 import { createSitemap } from "./create-sitemap";
 
 export const onGet: RequestHandler = (ev) => {
-  const learnRoutes = routes
-    .map(([route]) => route as string)
-    .filter((route) => route.startsWith("/learn"));
+  // const learnRoutes = routes
+  //   .map(([route]) => route as string)
+  //   .filter((route) => route.startsWith("/learn"));
+
+  console.log({ routes });
 
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },
     { loc: "/learn", priority: 0.8 },
-    ...learnRoutes.map((route) => ({
+    ...routes.map((route) => ({
       loc: route,
       priority: 0.7,
     })),
