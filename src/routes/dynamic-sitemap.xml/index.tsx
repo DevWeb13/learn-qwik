@@ -11,10 +11,13 @@ export const onGet: RequestHandler = (ev) => {
     .filter((route) => !route.includes("dynamic-sitemap.xml")) // Exclure la route du sitemap
     .filter((route, index, self) => self.indexOf(route) === index); // Supprimer les doublons
 
+  // Supprimez /learn de validRoutes s'il y est déjà pour éviter de le dupliquer
+  const filteredRoutes = validRoutes.filter((route) => route !== "/learn");
+
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },
-    { loc: "/learn", priority: 0.8 },
-    ...validRoutes.map((route) => ({
+    { loc: "/learn", priority: 0.8 }, // Ajouté manuellement
+    ...filteredRoutes.map((route) => ({
       loc: route,
       priority: 0.7,
     })),
