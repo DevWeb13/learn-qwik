@@ -5,19 +5,21 @@ import { routes } from "@qwik-city-plan";
 import { createSitemap } from "./create-sitemap";
 
 export const onGet: RequestHandler = (ev) => {
-  const validRoutes = routes
-    .map(([route]) => route as string)
-    .filter((route) => typeof route === "string")
-    .filter((route) => !route.includes("dynamic-sitemap.xml")) // Exclure la route du sitemap
-    .filter((route, index, self) => self.indexOf(route) === index); // Supprimer les doublons
+  // const validRoutes = routes
+  //   .map(([route]) => route as string)
+  //   .filter((route) => typeof route === "string")
+  //   .filter((route) => !route.includes("dynamic-sitemap.xml")); // Exclure la route du sitemap
 
-  // Supprimez /learn de validRoutes s'il y est déjà pour éviter de le dupliquer
-  const filteredRoutes = validRoutes.filter((route) => route !== "/learn");
+  // console.log({ validRoutes });
+
+  const learnRoutes = routes
+    .map(([route]) => route as string)
+    .filter((route) => route.startsWith("/learn"));
 
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },
-    { loc: "/learn", priority: 0.8 }, // Ajouté manuellement
-    ...filteredRoutes.map((route) => ({
+    { loc: "/learn", priority: 0.8 },
+    ...learnRoutes.map((route) => ({
       loc: route,
       priority: 0.7,
     })),
