@@ -7,9 +7,9 @@ import { createSitemap } from "./create-sitemap";
 export const onGet: RequestHandler = (ev) => {
   const validRoutes = routes
     .map(([route]) => route as string)
-    .filter((route) => typeof route === "string" && !route.includes("()=>")); // Filtrez pour exclure les parties de fonction
-
-  console.log({ validRoutes });
+    .filter((route) => typeof route === "string")
+    .filter((route) => !route.includes("dynamic-sitemap.xml")) // Exclure la route du sitemap
+    .filter((route, index, self) => self.indexOf(route) === index); // Supprimer les doublons
 
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },
