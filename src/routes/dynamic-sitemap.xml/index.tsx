@@ -10,7 +10,7 @@ export const onGet: RequestHandler = (ev) => {
   //   .filter((route) => typeof route === "string")
   //   .filter((route) => !route.includes("dynamic-sitemap.xml")); // Exclure la route du sitemap
 
-  // console.log({ validRoutes });
+  console.log({ routes });
 
   const learnRoutes = routes
     .map(([route]) => route as string)
