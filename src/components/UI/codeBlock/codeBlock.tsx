@@ -3,6 +3,7 @@
 import { component$, useSignal, useStyles$, useTask$ } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 import { CopyButton } from "./copyButton";
+import { getHighlighterCore } from "shiki/core";
 import getWasm from "shiki/wasm";
 
 interface CodeBlockProps {
@@ -135,7 +136,7 @@ export default component$<CodeBlockProps>(
     const codeSig = useSignal("");
 
     useTask$(async function createHighlightedCode() {
-      const { getHighlighterCore } = await import("shiki/core");
+      // const { getHighlighterCore } = await import("shiki/core");
       const highlighter = await getHighlighterCore({
         themes: [
           // or a dynamic import if you want to do chunk splitting
