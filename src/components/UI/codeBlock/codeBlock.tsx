@@ -134,7 +134,7 @@ export default component$<CodeBlockProps>(
     const codeSig = useSignal("");
 
     useTask$(async function createHighlightedCode() {
-      const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
+      const { getHighlighterCore } = await import("shiki/core");
       const highlighter = await getHighlighterCore({
         themes: [
           // or a dynamic import if you want to do chunk splitting
