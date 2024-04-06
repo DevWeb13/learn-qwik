@@ -2,7 +2,7 @@
 
 import type { Signal } from "@builder.io/qwik";
 import { Slot, component$, useContext } from "@builder.io/qwik";
-import { useNavigate } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
 
 import {
   ChaptersContext,
@@ -26,7 +26,7 @@ export default component$<BtAddChapterProps>(
     completed = [],
     disabled = false,
   }) => {
-    const nav = useNavigate();
+    // const nav = useNavigate();
     const action = useSetCompletedChaptersCookie();
 
     const chapters: Signal<ChapterType[]> = useContext(ChaptersContext);
@@ -48,14 +48,14 @@ export default component$<BtAddChapterProps>(
 
     return (
       <div class={`w-full ${goToChapter && "md:w-fit"}`}>
-        <button
+        <Link
           onClick$={async () => {
             if (goToChapter > 1) {
               await action.submit({ goToChapter });
               chapters.value[goToChapter - 2].isCompleted = true;
             }
-            return nav(`/learn/dashboard-app/${nextUri}`);
           }}
+          href={`/learn/dashboard-app/${nextUri}`}
           aria-label={
             goToChapter
               ? "Start Chapter" + " " + goToChapter.toString()
@@ -67,7 +67,7 @@ export default component$<BtAddChapterProps>(
           data-suffix="true"
           data-version="v1"
           style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
-          disabled={disabled}
+          // disabled={disabled}
         >
           {completed.length ? <Slot /> : null}
 
@@ -96,7 +96,7 @@ export default component$<BtAddChapterProps>(
               </svg>
             </span>
           )}
-        </button>
+        </Link>
       </div>
     );
   },

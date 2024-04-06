@@ -101,8 +101,21 @@ export default component$(() => {
     completedChaptersCookie.value ?? [],
   );
 
+  // if (completedChapters.value.length === 0) {
+  //   chapters.value.forEach((chapter) => {
+  //     chapter.isCompleted = false;
+  //   });
+  // }
+
+  // if (completedChapters.value.length > 0) {
+  //   completedChapters.value.forEach((chapter) => {
+  //     chapters.value[chapter - 1].isCompleted = true;
+  //   });
+  // }
+
   useTask$(({ track }) => {
     track(() => chapters);
+
     if (completedChapters.value.length === 0) {
       chapters.value.forEach((chapter) => {
         chapter.isCompleted = false;
