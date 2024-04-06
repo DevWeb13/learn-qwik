@@ -4,7 +4,8 @@ import {
   component$,
   useSignal,
   useStyles$,
-  useVisibleTask$,
+  useTask$,
+  // useVisibleTask$,
 } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 import { CopyButton } from "./copyButton";
@@ -139,7 +140,7 @@ export default component$<CodeBlockProps>(
     const codeSig = useSignal("");
 
     // eslint-disable-next-line qwik/no-use-visible-task
-    useVisibleTask$(async function createHighlightedCode() {
+    useTask$(async function createHighlightedCode() {
       const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
       const highlighter = await getHighlighterCore({
         themes: [
