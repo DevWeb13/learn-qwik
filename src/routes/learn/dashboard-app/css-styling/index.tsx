@@ -5,13 +5,7 @@ import { type DocumentHead } from "@builder.io/qwik-city";
 import CSSStylingContent from "~/components/learn/dashboardApp/cssStylingContent/cssStylingContent";
 
 export default component$(() => {
-  return (
-    <main>
-      <div class="relative mx-auto max-w-screen-lg px-4 py-4 md:py-10">
-        <CSSStylingContent />
-      </div>
-    </main>
-  );
+  return <CSSStylingContent />;
 });
 
 export const head: DocumentHead = {
