@@ -160,7 +160,7 @@ export default component$<CodeBlockProps>(
         },
         decorations: decorations,
       });
-      codeSig.value = codeHighLight;
+      codeSig.value = codeHighLight.toString();
     });
 
     // // eslint-disable-next-line qwik/no-use-visible-task
