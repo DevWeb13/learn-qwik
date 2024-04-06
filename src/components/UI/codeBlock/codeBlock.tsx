@@ -9,7 +9,15 @@ import {
 } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 import { CopyButton } from "./copyButton";
-import { getHighlighterCore } from "shiki/core-unwasm.mjs";
+import { getHighlighterCore } from "shiki";
+// import "shiki/themes/github-light.mjs";
+// import "shiki/themes/github-dark.mjs";
+// import "shiki/langs/bash.mjs";
+// import "shiki/langs/javascript.mjs";
+// import "shiki/langs/typescript.mjs";
+// import "shiki/langs/tsx.mjs";
+// import "shiki/langs/css.mjs";
+import getWasm from "shiki/wasm";
 
 interface CodeBlockProps {
   code: string;
@@ -156,7 +164,7 @@ export default component$<CodeBlockProps>(
           import("shiki/langs/tsx.mjs"),
           import("shiki/langs/css.mjs"),
         ],
-        loadWasm: import("shiki/wasm"),
+        loadWasm: getWasm,
       });
       const codeHighLight = highlighter.codeToHtml(code, {
         lang: language,
