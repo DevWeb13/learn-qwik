@@ -31,6 +31,7 @@ export default component$(() => {
           src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
         />
         <script
+          defer
           type="text/javascript"
           dangerouslySetInnerHTML={`
     window.dataLayer = window.dataLayer || [];
