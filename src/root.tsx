@@ -83,11 +83,11 @@ export default component$(() => {
         <script defer src="/_vercel/insights/script.js" />
 
         {/* Google AdSense */}
-        <script
+        {/* <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
           crossOrigin="anonymous"
-        ></script>
+        ></script> */}
 
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
