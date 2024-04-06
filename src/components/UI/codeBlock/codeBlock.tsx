@@ -9,15 +9,6 @@ import {
 } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 import { CopyButton } from "./copyButton";
-import { getHighlighterCore } from "shiki";
-// import "shiki/themes/github-light.mjs";
-// import "shiki/themes/github-dark.mjs";
-// import "shiki/langs/bash.mjs";
-// import "shiki/langs/javascript.mjs";
-// import "shiki/langs/typescript.mjs";
-// import "shiki/langs/tsx.mjs";
-// import "shiki/langs/css.mjs";
-import getWasm from "shiki/wasm";
 
 interface CodeBlockProps {
   code: string;
@@ -150,7 +141,7 @@ export default component$<CodeBlockProps>(
 
     // eslint-disable-next-line qwik/no-use-visible-task
     useTask$(async function createHighlightedCode() {
-      // const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
+      const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
       const highlighter = await getHighlighterCore({
         themes: [
           // or a dynamic import if you want to do chunk splitting
@@ -164,7 +155,7 @@ export default component$<CodeBlockProps>(
           import("shiki/langs/tsx.mjs"),
           import("shiki/langs/css.mjs"),
         ],
-        loadWasm: getWasm,
+        // loadWasm: import("shiki/wasm"),
       });
       const codeHighLight = highlighter.codeToHtml(code, {
         lang: language,
