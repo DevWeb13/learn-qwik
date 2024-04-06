@@ -101,25 +101,6 @@ export default component$(() => {
     completedChaptersCookie.value ?? [],
   );
 
-  const test = useSetCompletedChaptersCookie();
-
-  useTask$(({ track }) => {
-    track(() => chapters);
-    test.submit({ goToChapter: 1 });
-  });
-
-  // if (completedChapters.value.length === 0) {
-  //   chapters.value.forEach((chapter) => {
-  //     chapter.isCompleted = false;
-  //   });
-  // }
-
-  // if (completedChapters.value.length > 0) {
-  //   completedChapters.value.forEach((chapter) => {
-  //     chapters.value[chapter - 1].isCompleted = true;
-  //   });
-  // }
-
   useTask$(({ track }) => {
     track(() => chapters);
 

@@ -8,14 +8,10 @@ export default extendConfig(baseConfig, () => {
       ssr: true,
       rollupOptions: {
         input: ["src/entry.vercel-edge.tsx", "@qwik-city-plan"],
-        
+        context: "this",
       },
       outDir: ".vercel/output/functions/_qwik-city.func",
     },
-    plugins: [vercelEdgeAdapter({
-      ssg: {
-        include: ['/*'],
-      },
-    })],
+    plugins: [vercelEdgeAdapter()],
   };
 });
