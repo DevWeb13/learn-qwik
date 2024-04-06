@@ -155,7 +155,7 @@ export default component$<CodeBlockProps>(
           import("shiki/langs/tsx.mjs"),
           import("shiki/langs/css.mjs"),
         ],
-        loadWasm: import("shiki/wasm"),
+        // loadWasm: import("shiki/wasm"),
       });
       const codeHighLight = highlighter.codeToHtml(code, {
         lang: language,
