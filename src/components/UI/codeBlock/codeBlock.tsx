@@ -3,6 +3,7 @@
 import { component$, useSignal, useStyles$, useTask$ } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
 import { CopyButton } from "./copyButton";
+import getWasm from "shiki/wasm";
 
 interface CodeBlockProps {
   code: string;
@@ -148,7 +149,7 @@ export default component$<CodeBlockProps>(
           import("shiki/langs/tsx.mjs"),
           import("shiki/langs/css.mjs"),
         ],
-        loadWasm: import("shiki/wasm"),
+        loadWasm: getWasm,
       });
       const codeHighLight = highlighter.codeToHtml(code, {
         lang: language,
