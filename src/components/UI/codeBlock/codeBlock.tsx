@@ -168,7 +168,7 @@ export default component$<CodeBlockProps>(
         codeSig.value = codeHighLight;
       },
       {
-        strategy: "document-idle",
+        strategy: "document-ready",
       },
     );
 
