@@ -17,13 +17,6 @@ import StyledPage from "~/assets/img/styled-page.png?jsx";
 import AddArrow from "~/assets/img/addArrowIcon.png?jsx";
 
 export default component$(() => {
-  const isClient = typeof window !== "undefined";
-
-  if (isClient) {
-    console.log("Exécution côté client");
-  } else {
-    console.log("Exécution côté serveur");
-  }
   useStyles$(``);
   return (
     <article

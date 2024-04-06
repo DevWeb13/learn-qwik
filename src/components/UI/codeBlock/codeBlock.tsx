@@ -5,6 +5,7 @@ import {
   useSignal,
   useStyles$,
   useTask$,
+  useVisibleTask$,
   // useVisibleTask$,
 } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
@@ -139,8 +140,18 @@ export default component$<CodeBlockProps>(
 
     const codeSig = useSignal("");
 
-    // eslint-disable-next-line qwik/no-use-visible-task
+    const isClient = typeof window !== "undefined";
+
+    if (isClient) {
+      console.log("Exécution côté client");
+    } else {
+      console.log("Exécution côté serveur");
+    }
+
     useTask$(async function createHighlightedCode() {
+      if (!isClient) {
+        return;
+      }
       const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
       const highlighter = await getHighlighterCore({
         themes: [
@@ -168,34 +179,37 @@ export default component$<CodeBlockProps>(
       codeSig.value = codeHighLight;
     });
 
-    // // eslint-disable-next-line qwik/no-use-visible-task
-    // useVisibleTask$(async () => {
-    //   const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
-    //   const highlighter = await getHighlighterCore({
-    //     themes: [
-    //       // or a dynamic import if you want to do chunk splitting
-    //       import("shiki/themes/github-light.mjs"),
-    //       import("shiki/themes/github-dark.mjs"),
-    //     ],
-    //     langs: [
-    //       import("shiki/langs/bash.mjs"),
-    //       import("shiki/langs/javascript.mjs"),
-    //       import("shiki/langs/typescript.mjs"),
-    //       import("shiki/langs/tsx.mjs"),
-    //       import("shiki/langs/css.mjs"),
-    //     ],
-    //     // loadWasm: import("shiki/wasm"),
-    //   });
-    //   const codeHighLight = highlighter.codeToHtml(code, {
-    //     lang: language,
-    //     themes: {
-    //       light: "github-light",
-    //       dark: "github-dark",
-    //     },
-    //     decorations: decorations,
-    //   });
-    //   codeSig.value = codeHighLight;
-    // });
+    // eslint-disable-next-line qwik/no-use-visible-task
+    useVisibleTask$(async () => {
+      if (isClient) {
+        return;
+      }
+      const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
+      const highlighter = await getHighlighterCore({
+        themes: [
+          // or a dynamic import if you want to do chunk splitting
+          import("shiki/themes/github-light.mjs"),
+          import("shiki/themes/github-dark.mjs"),
+        ],
+        langs: [
+          import("shiki/langs/bash.mjs"),
+          import("shiki/langs/javascript.mjs"),
+          import("shiki/langs/typescript.mjs"),
+          import("shiki/langs/tsx.mjs"),
+          import("shiki/langs/css.mjs"),
+        ],
+        // loadWasm: import("shiki/wasm"),
+      });
+      const codeHighLight = highlighter.codeToHtml(code, {
+        lang: language,
+        themes: {
+          light: "github-light",
+          dark: "github-dark",
+        },
+        decorations: decorations,
+      });
+      codeSig.value = codeHighLight;
+    });
 
     return (
       <div
