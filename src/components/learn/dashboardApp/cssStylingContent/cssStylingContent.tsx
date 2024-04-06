@@ -1,6 +1,6 @@
 // src/components/dashboardApp/cssStylingContent/cssStylingContent.tsx
 
-import { component$, useStyles$ } from "@builder.io/qwik";
+import { component$, useStyles$, isServer } from "@builder.io/qwik";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
@@ -17,6 +17,13 @@ import StyledPage from "~/assets/img/styled-page.png?jsx";
 import AddArrow from "~/assets/img/addArrowIcon.png?jsx";
 
 export default component$(() => {
+  const isClient = typeof window !== "undefined";
+
+  if (isClient) {
+    console.log("Exécution côté client");
+  } else {
+    console.log("Exécution côté serveur");
+  }
   useStyles$(``);
   return (
     <article
