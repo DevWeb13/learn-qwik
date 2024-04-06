@@ -6,7 +6,7 @@ import { Link } from "@builder.io/qwik-city";
 
 import {
   ChaptersContext,
-  useSetCompletedChaptersCookie,
+  // useSetCompletedChaptersCookie,
 } from "~/routes/layout";
 import type { ChapterType } from "~/types/chapterType";
 
@@ -27,7 +27,7 @@ export default component$<BtAddChapterProps>(
     disabled = false,
   }) => {
     // const nav = useNavigate();
-    const action = useSetCompletedChaptersCookie();
+    // const action = useSetCompletedChaptersCookie();
 
     const chapters: Signal<ChapterType[]> = useContext(ChaptersContext);
 
@@ -51,7 +51,7 @@ export default component$<BtAddChapterProps>(
         <Link
           onClick$={async () => {
             if (goToChapter > 1) {
-              await action.submit({ goToChapter });
+              // await action.submit({ goToChapter });
               chapters.value[goToChapter - 2].isCompleted = true;
             }
           }}
