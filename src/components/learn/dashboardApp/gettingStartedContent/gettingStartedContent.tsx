@@ -12,6 +12,7 @@ import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextC
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
+import BlankLink from "~/components/UI/blankLink/blankLink";
 
 export default component$(() => {
   return (
@@ -477,6 +478,17 @@ export default component$(() => {
             class="block w-full rounded-md border border-gray-200 bg-gray-100 dark:hidden"
           />
         </figure>
+
+        <SubtitleWithAnchor title="Source code" id="source-code" />
+
+        <p>
+          You can find the source code for chapter 1 on{" "}
+          <BlankLink
+            href="https://github.com/DevWeb13/qwik-dashboard/tree/getting-started"
+            text="GitHub"
+          />
+          .
+        </p>
       </div>
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
