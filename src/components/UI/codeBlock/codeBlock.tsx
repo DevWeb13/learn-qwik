@@ -180,36 +180,41 @@ export default component$<CodeBlockProps>(
     });
 
     // eslint-disable-next-line qwik/no-use-visible-task
-    useVisibleTask$(async () => {
-      if (isClient) {
-        return;
-      }
-      const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
-      const highlighter = await getHighlighterCore({
-        themes: [
-          // or a dynamic import if you want to do chunk splitting
-          import("shiki/themes/github-light.mjs"),
-          import("shiki/themes/github-dark.mjs"),
-        ],
-        langs: [
-          import("shiki/langs/bash.mjs"),
-          import("shiki/langs/javascript.mjs"),
-          import("shiki/langs/typescript.mjs"),
-          import("shiki/langs/tsx.mjs"),
-          import("shiki/langs/css.mjs"),
-        ],
-        // loadWasm: import("shiki/wasm"),
-      });
-      const codeHighLight = highlighter.codeToHtml(code, {
-        lang: language,
-        themes: {
-          light: "github-light",
-          dark: "github-dark",
-        },
-        decorations: decorations,
-      });
-      codeSig.value = codeHighLight;
-    });
+    useVisibleTask$(
+      async () => {
+        if (isClient) {
+          return;
+        }
+        const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
+        const highlighter = await getHighlighterCore({
+          themes: [
+            // or a dynamic import if you want to do chunk splitting
+            import("shiki/themes/github-light.mjs"),
+            import("shiki/themes/github-dark.mjs"),
+          ],
+          langs: [
+            import("shiki/langs/bash.mjs"),
+            import("shiki/langs/javascript.mjs"),
+            import("shiki/langs/typescript.mjs"),
+            import("shiki/langs/tsx.mjs"),
+            import("shiki/langs/css.mjs"),
+          ],
+          // loadWasm: import("shiki/wasm"),
+        });
+        const codeHighLight = highlighter.codeToHtml(code, {
+          lang: language,
+          themes: {
+            light: "github-light",
+            dark: "github-dark",
+          },
+          decorations: decorations,
+        });
+        codeSig.value = codeHighLight;
+      },
+      {
+        strategy: "document-idle",
+      },
+    );
 
     return (
       <div
