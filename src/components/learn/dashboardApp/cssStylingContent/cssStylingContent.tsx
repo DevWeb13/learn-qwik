@@ -788,12 +788,24 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           Congratulations, you have learned how to add icons to your Qwik
           application.🎉
         </p>
+
+        <SubtitleWithAnchor title="Source code" id="source-code" />
+
+        <p>
+          You can find the source code for chapter 2 on{" "}
+          <BlankLink
+            href="https://github.com/DevWeb13/qwik-dashboard/tree/css-styling"
+            text="GitHub"
+          />
+          .
+        </p>
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
           chapterNumber={2}
-          text="Well done! You've learned about the different ways of styling a Qwik application."
+          text="Well done! You've learned about the different ways of styling and adding icons to
+          a Qwik application."
         />
         <GoToNextChapterBlock
           goToChapter={3}

@@ -20,58 +20,6 @@ export default component$<TableOfTopicsCoveredProps>(() => {
             <path
               fill-rule="evenodd"
               clip-rule="evenodd"
-              d="M14.5 6.5V13.5C14.5 14.8807 13.3807 16 12 16H4C2.61929 16 1.5 14.8807 1.5 13.5V1.5V0H3H8H9.08579C9.351 0 9.60536 0.105357 9.79289 0.292893L14.2071 4.70711C14.3946 4.89464 14.5 5.149 14.5 5.41421V6.5ZM13 6.5V13.5C13 14.0523 12.5523 14.5 12 14.5H4C3.44772 14.5 3 14.0523 3 13.5V1.5H8V5V6.5H9.5H13ZM9.5 2.12132V5H12.3787L9.5 2.12132Z"
-              fill="currentColor"
-            ></path>
-          </svg>
-        </div>
-        <p
-          class="text_wrapper in-this-chapter_content__QPwZX"
-          data-version="v1"
-          style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.875rem; --xs-text-line-height: 1.5rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.5rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial;"
-        >
-          Global styles
-        </p>
-      </div>
-      <div class="border-gray-alpha-400 flex gap-4 border-b px-4 py-3 last-of-type:border-0">
-        <div class="mt-1 flex-shrink-0 text-gray-900">
-          <svg
-            data-testid="geist-icon"
-            height="16"
-            stroke-linejoin="round"
-            viewBox="0 0 16 16"
-            width="16"
-            style="color: currentcolor;"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M14.5 6.5V13.5C14.5 14.8807 13.3807 16 12 16H4C2.61929 16 1.5 14.8807 1.5 13.5V1.5V0H3H8H9.08579C9.351 0 9.60536 0.105357 9.79289 0.292893L14.2071 4.70711C14.3946 4.89464 14.5 5.149 14.5 5.41421V6.5ZM13 6.5V13.5C13 14.0523 12.5523 14.5 12 14.5H4C3.44772 14.5 3 14.0523 3 13.5V1.5H8V5V6.5H9.5H13ZM9.5 2.12132V5H12.3787L9.5 2.12132Z"
-              fill="currentColor"
-            ></path>
-          </svg>
-        </div>
-        <p
-          class="text_wrapper in-this-chapter_content__QPwZX"
-          data-version="v1"
-          style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.875rem; --xs-text-line-height: 1.5rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.5rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial;"
-        >
-          Addind Tailwind CSS
-        </p>
-      </div>
-      <div class="border-gray-alpha-400 flex gap-4 border-b px-4 py-3 last-of-type:border-0">
-        <div class="mt-1 flex-shrink-0 text-gray-900">
-          <svg
-            data-testid="geist-icon"
-            height="16"
-            stroke-linejoin="round"
-            viewBox="0 0 16 16"
-            width="16"
-            style="color: currentcolor;"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
               d="M12.2803 0.719661L11.75 0.189331L11.2197 0.719661L1.09835 10.841C0.395088 11.5442 0 12.4981 0 13.4926V15.25V16H0.75H2.50736C3.50192 16 4.45575 15.6049 5.15901 14.9016L15.2803 4.78032L15.8107 4.24999L15.2803 3.71966L12.2803 0.719661ZM9.81066 4.24999L11.75 2.31065L13.6893 4.24999L11.75 6.18933L9.81066 4.24999ZM8.75 5.31065L2.15901 11.9016C1.73705 12.3236 1.5 12.8959 1.5 13.4926V14.5H2.50736C3.1041 14.5 3.67639 14.2629 4.09835 13.841L10.6893 7.24999L8.75 5.31065Z"
               fill="currentColor"
             ></path>
@@ -82,7 +30,7 @@ export default component$<TableOfTopicsCoveredProps>(() => {
           data-version="v1"
           style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.875rem; --xs-text-line-height: 1.5rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.5rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial;"
         >
-          CSS Modules
+          Different ways to style your application.
         </p>
       </div>
       <div class="border-gray-alpha-400 flex gap-4 border-b px-4 py-3 last-of-type:border-0">

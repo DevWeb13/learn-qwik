@@ -709,16 +709,12 @@ pre {
 
 .dark-plus {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  /* justify-content: center; */
   align-items: center;
   gap: 1rem;
-  padding: 18px 15px;
+  padding: 1.1rem 1rem;
   border-radius: 0.375rem;
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-}
-
-.dark-plus :nth-child(2) {
-  display: flex;
-  width: 100%;
 }
