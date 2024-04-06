@@ -1,6 +1,6 @@
 // src/components/dashboardApp/cssStylingContent/cssStylingContent.tsx
 
-import { component$, useStyles$, isServer } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
