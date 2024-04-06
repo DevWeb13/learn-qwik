@@ -4,7 +4,6 @@ import {
   component$,
   useSignal,
   useStyles$,
-  useTask$,
   useVisibleTask$,
 } from "@builder.io/qwik";
 import { CodeBlockHeader } from "./codeBlockHeader";
