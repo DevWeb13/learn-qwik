@@ -50,11 +50,11 @@ export const onGet: RequestHandler = async ({ cacheControl, cookie, next }) => {
 };
 
 export const useSetCompletedChaptersCookie = routeAction$(
-  async (data, requestEvent) => {
+  (data, requestEvent) => {
     // console.log(requestEvent);
     const completedChapter = Number(data.goToChapter) - 1;
 
-    let completedChapters = await requestEvent.cookie
+    let completedChapters = requestEvent.cookie
       .get("completedChapters")
       ?.json<CompletedChaptersType>();
 
