@@ -89,7 +89,6 @@ export default component$(() => {
           crossOrigin="anonymous"
         ></script> */}
 
-        <link rel="manifest" href="/manifest.json" />
         <RouterHead />
         <ServiceWorkerRegister />
       </head>

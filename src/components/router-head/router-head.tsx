@@ -15,7 +15,32 @@ export const RouterHead = component$(() => {
 
       <link rel="canonical" href={loc.url.href} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      <link rel="manifest" href="/manifest.json" />
+
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" />
+      <meta name="apple-mobile-web-app-title" content="Learn Qwik" />
+      <meta name="application-name" content="Learn Qwik" />
+      <meta name="msapplication-TileColor" content="#2d89ef" />
+      <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+      <meta name="theme-color" content="#ffffff" />
 
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />
