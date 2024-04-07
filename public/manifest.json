@@ -1,14 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "name": "Learn Qwik",
-
   "short_name": "Learn Qwik",
-
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
   "description": "A Qwik project app.",
-
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
