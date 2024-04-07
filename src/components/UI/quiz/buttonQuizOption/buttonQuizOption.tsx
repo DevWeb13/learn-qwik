@@ -21,7 +21,7 @@ export const ButtonQuizOption = component$<ButtonQuizOptionProps>(
       >
         <div
           aria-hidden="true"
-          class={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-center  font-medium  transition-colors ${active ? "bg-blue-900 text-blue-100" : "bg-blue-300 text-blue-900"}`}
+          class={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-md text-center  font-medium  transition-colors ${active ? "bg-blue-900 text-blue-100" : "bg-blue-300 text-blue-900"}`}
         >
           {letter}
         </div>
