@@ -89,7 +89,7 @@ export default component$(() => {
           crossOrigin="anonymous"
         ></script> */}
         <link rel="manifest" href="/manifest.json" />
-        {/* <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
 
         <link
           rel="apple-touch-icon"
@@ -114,7 +114,7 @@ export default component$(() => {
         <meta name="application-name" content="Learn Qwik" />
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
-        <meta name="theme-color" content="#ffffff" /> */}
+        <meta name="theme-color" content="#ffffff" />
 
         <RouterHead />
         <ServiceWorkerRegister />

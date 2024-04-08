@@ -515,43 +515,43 @@ export const head: DocumentHead = {
       content:
         "Qwik is a new way to build web applications. Start building with Qwik by learning the foundations through interactive courses and building a fully functional demo website.",
     },
-    // {
-    //   property: "og:title",
-    //   content: "Learn Qwik",
-    // },
-    // {
-    //   property: "og:description",
-    //   content:
-    //     "Accelerate your learning with Qwik's interactive courses and build a fully functional demo website.",
-    // },
-    // {
-    //   property: "og:image",
-    //   content: "https://www.learn-qwik.com/metaLanding.png", // Remplacez ceci par l'URL de votre image réelle
-    // },
-    // {
-    //   property: "og:type",
-    //   content: "website",
-    // },
-    // {
-    //   property: "og:url",
-    //   content: "https://www.learn-qwik.com/",
-    // },
-    // {
-    //   name: "twitter:card",
-    //   content: "summary_large_image",
-    // },
-    // {
-    //   name: "twitter:title",
-    //   content: "Learn Qwik",
-    // },
-    // {
-    //   name: "twitter:description",
-    //   content:
-    //     "Accelerate your learning with Qwik's interactive courses and build a fully functional demo website.",
-    // },
-    // {
-    //   name: "twitter:image",
-    //   content: "https://www.learn-qwik.com/metaLanding.png", // Remplacez ceci par l'URL de votre image réelle
-    // },
+    {
+      property: "og:title",
+      content: "Learn Qwik",
+    },
+    {
+      property: "og:description",
+      content:
+        "Accelerate your learning with Qwik's interactive courses and build a fully functional demo website.",
+    },
+    {
+      property: "og:image",
+      content: "https://www.learn-qwik.com/metaLanding.png", // Remplacez ceci par l'URL de votre image réelle
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:url",
+      content: "https://www.learn-qwik.com/",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:title",
+      content: "Learn Qwik",
+    },
+    {
+      name: "twitter:description",
+      content:
+        "Accelerate your learning with Qwik's interactive courses and build a fully functional demo website.",
+    },
+    {
+      name: "twitter:image",
+      content: "https://www.learn-qwik.com/metaLanding.png", // Remplacez ceci par l'URL de votre image réelle
+    },
   ],
 };
