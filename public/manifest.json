@@ -4,7 +4,7 @@
   "short_name": "Learn Qwik",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#fff",
+  "background_color": "#FFFFFF",
   "description": "A Qwik project app.",
   "icons": [
     {

@@ -10,7 +10,10 @@ export default defineConfig(async () => {
       qwikCity(),
       qwikVite(),
       tsconfigPaths(),
-      
+      qwikPwa({
+        /* options */
+        
+      }),
     ],
     server: {
       headers: {
@@ -24,3 +27,7 @@ export default defineConfig(async () => {
     },
   };
 });
+function qwikPwa(arg0: {}): import("vite").PluginOption {
+  throw new Error("Function not implemented.");
+}
+
