@@ -12,7 +12,7 @@ import { setupPwa } from "@qwikdev/pwa/sw";
 
 setupServiceWorker();
 
-setupPwa("prompt");
+setupPwa();
 
 // addEventListener("install", () => self.skipWaiting());
 
