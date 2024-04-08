@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import { qwikVite } from "@builder.io/qwik/optimizer";
 import { qwikCity } from "@builder.io/qwik-city/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { qwikPwa } from "@qwikdev/pwa";
+// import { qwikPwa } from "@qwikdev/pwa";
 
 
 export default defineConfig(async () => {
@@ -12,7 +12,7 @@ export default defineConfig(async () => {
       qwikCity(),
       qwikVite(),
       tsconfigPaths(),
-      qwikPwa(),
+      // qwikPwa(),
     ],
     server: {
       headers: {
