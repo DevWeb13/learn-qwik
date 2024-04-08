@@ -2,6 +2,8 @@ import { defineConfig, type UserConfig } from "vite";
 import { qwikVite } from "@builder.io/qwik/optimizer";
 import { qwikCity } from "@builder.io/qwik-city/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { qwikPwa } from "@qwikdev/pwa";
+
 
 export default defineConfig(async () => {
 
@@ -12,7 +14,7 @@ export default defineConfig(async () => {
       tsconfigPaths(),
       qwikPwa({
         /* options */
-        
+
       }),
     ],
     server: {
@@ -27,7 +29,5 @@ export default defineConfig(async () => {
     },
   };
 });
-function qwikPwa(arg0: {}): import("vite").PluginOption {
-  throw new Error("Function not implemented.");
-}
+
 
