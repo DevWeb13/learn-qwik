@@ -25,8 +25,5 @@
     }
   ],
   "theme_color": "#ffffff",
-  "content_security_policy": {
-    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; default-src 'self';"
-  },
   "orientation": "portrait"
 }

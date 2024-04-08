@@ -26,7 +26,7 @@ export default component$(() => {
         <meta charSet="utf-8" />
         {/* Google tag (gtag.js)  */}
         <script
-          async
+          defer
           src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
         />
         <script
