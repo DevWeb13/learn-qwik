@@ -1,29 +1,23 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Learn Qwik",
-  "short_name": "Learn Qwik",
-  "start_url": "/",
+  "name": "qwik-project-name",
+  "short_name": "Welcome to Qwik",
+  "start_url": ".",
   "display": "standalone",
-  "background_color": "#FFFFFF",
+  "background_color": "#fff",
+  "theme_color": "#fff",
   "description": "A Qwik project app.",
-  "icons": [
+  "screenshots": [
     {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "/screenshot.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "862x568"
     },
     {
-      "src": "/android-chrome-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/screenshot.png",
+      "type": "image/png",
+      "sizes": "862x568",
+      "form_factor": "wide"
     }
-  ],
-  "theme_color": "#FFFFFF",
-  "orientation": "portrait"
+  ]
 }
