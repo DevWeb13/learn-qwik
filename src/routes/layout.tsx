@@ -37,6 +37,14 @@ export const onGet: RequestHandler = async ({ cacheControl, cookie, next }) => {
     maxAge: 5,
   });
 
+  cacheControl(
+    {
+      maxAge: 5,
+      staleWhileRevalidate: 60 * 60 * 24 * 365,
+    },
+    "CDN-Cache-Control",
+  );
+
   await next();
 
   let completedChaptersCookie = cookie
