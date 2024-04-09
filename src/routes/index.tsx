@@ -526,7 +526,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: "https://www.learn-qwik.com/metaLanding.png", // Remplacez ceci par l'URL de votre image réelle
+      content: "https://www.learn-qwik.com/metaLanding.png",
     },
     {
       property: "og:type",
@@ -551,7 +551,7 @@ export const head: DocumentHead = {
     },
     {
       name: "twitter:image",
-      content: "https://www.learn-qwik.com/metaLanding.png", // Remplacez ceci par l'URL de votre image réelle
+      content: "https://www.learn-qwik.com/metaLanding.png",
     },
   ],
 };

@@ -2,7 +2,7 @@
   "name": "my-qwik-basic-starter",
   "description": "Demo App with Routing built-in (recommended)",
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "private": true,
   "trustedDependencies": [
@@ -28,14 +28,12 @@
     "@builder.io/partytown": "^0.8.1",
     "@builder.io/qwik": "^1.4.5",
     "@builder.io/qwik-city": "^1.4.5",
-    "@qwikdev/pwa": "^0.0.4",
     "@types/compression": "^1.7.2",
     "@types/eslint": "^8.56.2",
     "@types/express": "^4.17.19",
     "@types/node": "^20.11.6",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
-    "@vite-pwa/assets-generator": "^0.2.4",
     "autoprefixer": "^10.4.14",
     "compression": "^1.7.4",
     "dotenv": "^16.3.2",
