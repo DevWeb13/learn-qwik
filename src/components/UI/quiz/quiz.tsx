@@ -81,7 +81,6 @@ export const Quiz = component$<QuizProps>(
       responseIsCorrect: null,
       displayChooseOption: true,
     });
-    console.log(store.responseIsCorrect);
 
     const checkUserResponse = $((store: StoreProps) => {
       // Find the correct response into the options array

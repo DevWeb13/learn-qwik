@@ -26,11 +26,10 @@ export default component$(() => {
         <meta charSet="utf-8" />
         {/* Google tag (gtag.js)  */}
         <script
-          defer
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
         />
         <script
-          defer
           type="text/javascript"
           dangerouslySetInnerHTML={`
     window.dataLayer = window.dataLayer || [];
@@ -39,6 +38,8 @@ export default component$(() => {
     gtag('config', 'G-D5GX3GMZR7');
   `}
         />
+
+        <script defer src="/_vercel/insights/script.js" />
 
         {/* <QwikPartytown forward={["dataLayer.push"]} />
 
@@ -79,8 +80,6 @@ export default component$(() => {
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 `}
         />
-
-        <script defer src="/_vercel/insights/script.js" />
 
         {/* Google AdSense */}
         {/* <script

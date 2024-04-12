@@ -348,7 +348,7 @@ export const head: DocumentHead = {
           <code>home.module.css</code> and add the following CSS rules:
         </p>
         <CodeBlock
-          text="/src/components/ui/home.module.css"
+          text="src/routes/home.module.css"
           icon="css"
           language="css"
           code={`.shape {

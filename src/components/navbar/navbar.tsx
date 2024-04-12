@@ -45,8 +45,6 @@ export default component$(() => {
           aria-label="Go to the homepage"
           class={`${styles.navbar_logo} ${styles.link}`}
           title="Go to the homepage"
-          data-state="closed"
-          style="-webkit-touch-callout:none"
           href="/"
         >
           <svg
