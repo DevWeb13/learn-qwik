@@ -1,6 +1,6 @@
 // src/routes/index.tsx
 
-import type { Signal } from "@builder.io/qwik";
+// import type { Signal } from "@builder.io/qwik";
 import { component$, useContext } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
@@ -13,18 +13,36 @@ import DisplayNextChapter from "~/components/learn/DisplayNextChapter/displayNex
 import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
 
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
-import { ChaptersContext } from "~/routes/layout";
-import type { ChapterType } from "~/types/chapterType";
+// import { ChaptersContext } from "~/routes/layout";
+// import type { ChapterType } from "~/types/chapterType";
 
-import type { CompletedChaptersType } from "~/types/completedChapters";
+// import type { CompletedChaptersType } from "~/types/completedChapters";
+import { ChaptersContext } from "./layout";
 import { findCompletedChapters } from "~/utils/findCompletedChapters";
+// import type { ChapterType } from "~/types/chapterType";
+// import { findCompletedChapters } from "~/utils/findCompletedChapters";
 
 export default component$(() => {
-  const chapters: Signal<ChapterType[]> = useContext(ChaptersContext);
+  const chapters = useContext(ChaptersContext);
+  console.log("Chapters: " + chapters.value[0].isCompleted);
 
-  const completedChapter: CompletedChaptersType = findCompletedChapters(
-    chapters.value,
-  );
+  const completedChapters = findCompletedChapters(chapters.value);
+  console.log("Completed Chapters: " + completedChapters.length);
+
+  // // eslint-disable-next-line qwik/no-use-visible-task
+  // useVisibleTask$(() => {
+  //   const cookieValue = document.cookie
+  //     .split("; ")
+  //     .find((row) => row.startsWith("completedChapters="))
+  //     ?.split("=")[1];
+
+  //   if (cookieValue) {
+  //     const parsedValue: CompletedChaptersType = JSON.parse(
+  //       decodeURIComponent(cookieValue),
+  //     );
+  //     completedChapters.value = parsedValue;
+  //   }
+  // });
 
   return (
     <main>
@@ -57,14 +75,14 @@ export default component$(() => {
               <HomeBackground />
             </div>
           </div>
-          <div class="bg-vercel-100 absolute left-0 right-0 top-[57%] h-[350px]  md:top-[62.7%] md:h-[200px]"></div>
+          <div class="bg-vercel-100 absolute left-0 right-0 top-[57%] h-[350px]  md:top-[62.7%] md:h-[200px]" />
           <div class="relative flex w-full flex-col items-center pt-20 md:pt-8">
             <div class="dark:bg-vercel-100 relative flex w-full flex-col items-center rounded-[12px] bg-white p-4 shadow-md lg:w-[713px]">
               <HeroLinesLight />
               <HeroLinesDark />
               <div class="relative -mt-[56px] flex w-full justify-center md:-mt-14">
                 <div class="relative">
-                  <BookSvgText completed={completedChapter} />
+                  <BookSvgText completed={completedChapters} />
 
                   <BookSvg id="learn" />
                 </div>
@@ -89,7 +107,7 @@ export default component$(() => {
                     </p>
                   </div>
                   <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug md:min-w-[400px]">
-                    <DisplayNextChapter completed={completedChapter} />
+                    <DisplayNextChapter completed={completedChapters} />
 
                     <div class="ml-2">
                       <div
@@ -99,7 +117,7 @@ export default component$(() => {
                         style="--circle-size: 100px; --circumference: 282.7433388230814; --percent-to-px: 2.827433388230814px; --gap-percent: 0; --offset-factor: 0;"
                       >
                         <ProgressCircle
-                          completed={completedChapter}
+                          completed={completedChapters}
                           onlyCircle
                           responsive="largeOnly"
                         />
@@ -114,10 +132,10 @@ export default component$(() => {
                     goToChapter={0}
                     title=""
                     text="Start Learning"
-                    completed={completedChapter}
+                    completedChapters={completedChapters}
                   >
                     <ProgressCircle
-                      completed={completedChapter}
+                      completed={completedChapters}
                       onlyCircle
                       colorCircle="var(--ds-gray-900)"
                       colorProgressCircle="var(--ds-gray-100)"

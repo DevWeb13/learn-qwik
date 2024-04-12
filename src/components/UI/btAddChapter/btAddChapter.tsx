@@ -1,20 +1,22 @@
 // src/components/UI/btAddChapter/btAddChapter.tsx
 
-import type { Signal } from "@builder.io/qwik";
+// import type { Signal } from "@builder.io/qwik";
 import { Slot, component$, useContext } from "@builder.io/qwik";
 import { useNavigate } from "@builder.io/qwik-city";
 
 import {
   ChaptersContext,
-  useSetCompletedChaptersCookie,
+  // CompletedChaptersContext,
+  // useSetCompletedChaptersCookie,
 } from "~/routes/layout";
-import type { ChapterType } from "~/types/chapterType";
+// import type { ChapterType } from "~/types/chapterType";
+import type { CompletedChaptersType } from "~/types/completedChapters";
 
 interface BtAddChapterProps {
   goToChapter: number;
   title: string;
   text?: string;
-  completed?: number[];
+  completedChapters?: CompletedChaptersType;
   disabled?: boolean;
 }
 
@@ -23,36 +25,64 @@ export default component$<BtAddChapterProps>(
     goToChapter,
     title,
     text = "Start Chapter",
-    completed = [],
+    completedChapters = [],
     disabled = false,
   }) => {
     const nav = useNavigate();
-    const action = useSetCompletedChaptersCookie();
+    // const action = useSetCompletedChaptersCookie();
 
-    const chapters: Signal<ChapterType[]> = useContext(ChaptersContext);
+    const chapters = useContext(ChaptersContext);
 
     let nextUri = title.toLowerCase().replace(/\s+/g, "-");
 
     // Go to the next chapter into landing page and there are completed chapters
-    if (title === "" && completed.length > 0) {
-      nextUri = chapters.value[Math.max(...completed)].uri;
+    if (title === "" && completedChapters.length > 0) {
+      nextUri = chapters.value[Math.max(...completedChapters)].uri;
     }
 
     function generateText(
       text: string,
-      completed: number[],
+      completedChapters: number[],
       goToChapter: number,
     ) {
-      return `${completed.length > 0 ? "Resume Learning" : text} ${goToChapter ? goToChapter : ""}`;
+      return `${completedChapters.length > 0 ? "Resume Learning" : text} ${goToChapter ? goToChapter : ""}`;
     }
+
+    // console.log("completedChaptersTest", completedChapters.value);
 
     return (
       <div class={`w-full ${goToChapter && "md:w-fit"}`}>
         <button
-          onClick$={async () => {
+          onClick$={() => {
+            console.log("goToChapter", goToChapter);
+            // if (goToChapter > 1) {
+            //   const cookieValue = document.cookie
+            //     .split("; ")
+            //     .find((row) => row.startsWith("completedChapters="));
+            //   console.log("cookieValue", cookieValue);
+
+            //   let completedChapters = [];
+            //   if (cookieValue) {
+            //     const [, cookieData] = cookieValue.split("=");
+            //     console.log("cookieData", cookieData);
+            //     completedChapters = JSON.parse(decodeURIComponent(cookieData));
+            //   }
+            //   console.log("completedChapters", completedChapters);
+
+            //   const completedChapter = goToChapter - 1;
+            //   if (!completedChapters.includes(completedChapter)) {
+            //     console.log("completedChapter", completedChapter);
+            //     completedChapters.push(completedChapter);
+            //     console.log("completedChapters", completedChapters);
+            //     document.cookie = `completedChapters=${encodeURIComponent(
+            //       JSON.stringify(completedChapters),
+            //     )}; path=/; max-age=31536000`;
+            //   }
+
             if (goToChapter > 1) {
-              await action.submit({ goToChapter });
-              chapters.value[goToChapter - 2].isCompleted = true;
+              const newChapters = [...chapters.value];
+              newChapters[goToChapter - 2].isCompleted = true;
+              chapters.value = newChapters;
             }
             return nav(`/learn/dashboard-app/${nextUri}`);
           }}
@@ -69,10 +99,10 @@ export default component$<BtAddChapterProps>(
           style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
           disabled={disabled}
         >
-          {completed.length ? <Slot /> : null}
+          {completedChapters.length ? <Slot /> : null}
 
           <span class="button_content">
-            {generateText(text, completed, goToChapter)}
+            {generateText(text, completedChapters, goToChapter)}
           </span>
 
           {disabled ? (

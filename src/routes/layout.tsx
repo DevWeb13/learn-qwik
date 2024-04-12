@@ -6,8 +6,10 @@ import {
   createContextId,
   Slot,
   useContextProvider,
+  useOnDocument,
   useSignal,
   useTask$,
+  $,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
@@ -20,6 +22,8 @@ import type { CompletedChaptersType } from "~/types/completedChapters";
 import { CHAPTERS } from "~/constants/chapters";
 import type { ChapterType } from "~/types/chapterType";
 
+import { getCookie, initCookie, setCookie } from "~/utils/cookieManagement";
+
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
 );
@@ -28,7 +32,11 @@ export const ChaptersContext = createContextId<Signal<ChapterType[]>>(
   "docs.chapters-context",
 );
 
-export const onGet: RequestHandler = async ({ cacheControl, cookie, next }) => {
+export const CompletedChaptersContext = createContextId<
+  Signal<CompletedChaptersType>
+>("docs.completed-chapters-context");
+
+export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
   // https://qwik.builder.io/docs/caching/
   cacheControl({
@@ -46,16 +54,16 @@ export const onGet: RequestHandler = async ({ cacheControl, cookie, next }) => {
     "Vercel-CDN-Cache-Control",
   );
 
-  await next();
+  // await next();
 
-  let completedChaptersCookie = cookie
-    .get("completedChapters")
-    ?.json<CompletedChaptersType>();
-  if (!completedChaptersCookie) {
-    completedChaptersCookie = [];
-    cookie.set("completedChapters", completedChaptersCookie, { path: "/" });
-    console.log("Completed chapters cookie set");
-  }
+  // let completedChaptersCookie = cookie
+  //   .get("completedChapters")
+  //   ?.json<CompletedChaptersType>();
+  // if (!completedChaptersCookie) {
+  //   completedChaptersCookie = [];
+  //   cookie.set("completedChapters", completedChaptersCookie, { path: "/" });
+  //   console.log("Completed chapters cookie set");
+  // }
 };
 
 // export const useSetCompletedChaptersCookie = routeAction$(
@@ -111,25 +119,99 @@ export default component$(() => {
   const chapters = useSignal<ChapterType[]>(CHAPTERS);
   useContextProvider(ChaptersContext, chapters);
 
-  // const completedChaptersCookie = useGetCompletedChaptersCookie();
-  const completedChapters = useSignal<CompletedChaptersType>(
-    completedChaptersCookie.value ?? [],
+  useOnDocument(
+    "load",
+    $(() => {
+      const completedChaptersCookie: number[] | undefined =
+        getCookie("completedChapters");
+      console.log("completedChaptersCookie", completedChaptersCookie);
+
+      if (!completedChaptersCookie) {
+        return initCookie("completedChapters", 365);
+      }
+
+      if (completedChaptersCookie.length === 0) {
+        return chapters.value.forEach((chapter) => {
+          chapter.isCompleted = false;
+        });
+      }
+
+      if (completedChaptersCookie.length > 0) {
+        console.log("completedChaptersCookieTTT", completedChaptersCookie);
+        const newChapters = [...chapters.value];
+
+        completedChaptersCookie.forEach((chapter) => {
+          newChapters[chapter - 1].isCompleted = true;
+        });
+        chapters.value = newChapters;
+      }
+    }),
   );
 
   useTask$(({ track }) => {
-    track(() => chapters);
+    track(() => chapters.value);
 
-    if (completedChapters.value.length === 0) {
-      chapters.value.forEach((chapter) => {
-        chapter.isCompleted = false;
-      });
-    }
-    if (completedChapters.value.length > 0) {
-      completedChapters.value.forEach((chapter) => {
-        chapters.value[chapter - 1].isCompleted = true;
-      });
-    }
+    chapters.value.forEach((chapter) => {
+      console.log("Chapitre", chapter.id, chapter.isCompleted);
+      if (chapter.isCompleted) {
+        setCookie("completedChapters", chapter.id, 365);
+      }
+    });
   });
+
+  // const completedChaptersCookie = getCookie("completedChapters");
+  // console.log("completedChaptersCookie", completedChaptersCookie);
+
+  // useOnDocument(
+  //   "load",
+  //   $(() => {
+  //     if (!completedChaptersCookie) {
+  //       setCookie("completedChapters", JSON.stringify([]), 365);
+  //     }
+  //   }),
+  // );
+
+  // const completedChapters = useSignal<CompletedChaptersType>([]);
+  // useContextProvider(CompletedChaptersContext, completedChapters);
+
+  // const completedChapters = useGetCompletedChapters();
+
+  // useTask$(({ track }) => {
+  //   track(() => completedChapters.value);
+
+  //   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  //   if (!completedChapters.value) return;
+
+  //   console.log("completedChapters", completedChapters.value);
+
+  //   if (completedChapters.value.length === 0) {
+  //     chapters.value.forEach((chapter) => {
+  //       chapter.isCompleted = false;
+  //     });
+  //   }
+
+  //   if (completedChapters.value.length > 0) {
+  //     completedChapters.value.forEach((chapter) => {
+  //       chapters.value[chapter - 1].isCompleted = true;
+  //     });
+  //   }
+  // });
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  // useVisibleTask$(() => {
+  //   const cookieValue = document.cookie
+  //     .split("; ")
+  //     .find((row) => row.startsWith("completedChapters="))
+  //     ?.split("=")[1];
+
+  //   if (cookieValue) {
+  //     const parsedValue: CompletedChaptersType = JSON.parse(
+  //       decodeURIComponent(cookieValue),
+  //     );
+  //     completedChapters.value = parsedValue;
+  //   }
+  // });
+
   return (
     <>
       <Header />
