@@ -7,6 +7,7 @@ import {
   useTask$,
   useVisibleTask$,
 } from "@builder.io/qwik";
+import { isBrowser } from "@builder.io/qwik/build";
 import { CodeBlockHeader } from "./codeBlockHeader";
 import { CopyButton } from "./copyButton";
 
@@ -139,16 +140,14 @@ export default component$<CodeBlockProps>(
 
     const codeSig = useSignal("");
 
-    const isClient = typeof window !== "undefined";
-
-    if (isClient) {
+    if (isBrowser) {
       console.log("Exécution côté client");
     } else {
       console.log("Exécution côté serveur");
     }
 
     useTask$(async function createHighlightedCode() {
-      if (!isClient) {
+      if (!isBrowser) {
         return;
       }
       const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
@@ -180,7 +179,7 @@ export default component$<CodeBlockProps>(
 
     // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(async () => {
-      if (isClient) {
+      if (isBrowser) {
         return;
       }
       const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
