@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
  
-Sitemap: https://learn-qwik.com/dynamic-sitemap.xml
+Sitemap: https://www.learn-qwik.com/dynamic-sitemap.xml
