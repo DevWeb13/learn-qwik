@@ -811,7 +811,6 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           goToChapter={3}
           title="Optimizing Fonts and Images"
           text="Continue working on your home page by adding a hero image and a custom font."
-          disabledButton={true}
         />
       </div>
       <Feedback />
