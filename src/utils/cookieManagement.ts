@@ -1,3 +1,5 @@
+// src/utils/cookieManagement.ts
+
 export const initCookie = (name: string, days: number) => {
   const existingCookie = getCookie(name); // Utilisez la fonction getCookie pour vérifier si le cookie existe déjà
   if (!existingCookie) {

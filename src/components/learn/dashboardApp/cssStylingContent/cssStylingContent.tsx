@@ -45,7 +45,18 @@ export default component$(() => {
           >
             Here are the topics we will cover:
           </p>
-          <TableOfTopicsCovered />
+          <TableOfTopicsCovered
+            topics={[
+              {
+                title: "Different ways to style your application.",
+                icon: "file",
+              },
+              {
+                title: "Different ways to add icons to your application.",
+                icon: "pen",
+              },
+            ]}
+          />
         </div>
         <SubtitleWithAnchor title="Global styles" id="global-styles" />
         <p>
