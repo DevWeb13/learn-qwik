@@ -321,14 +321,19 @@ export default component$(() => {
 
         <p>
           For this project, we provide you with placeholder data that you can
-          download here:{" "}
-          <a
-            href="/downloads/placeholder-data.js"
-            download="placeholder-data.js"
-          >
-            <code>placeholder-data.js</code>
-          </a>
+          <span class="font-bold"> download</span> it here:{" "}
         </p>
+        <ul>
+          <li>
+            {" "}
+            <a
+              href="/downloads/placeholder-data.js"
+              download="placeholder-data.js"
+            >
+              <code>placeholder-data.js 💾</code>
+            </a>
+          </li>
+        </ul>
 
         <p>
           In the <code>src</code> folder, create a <code>lib</code> directory
