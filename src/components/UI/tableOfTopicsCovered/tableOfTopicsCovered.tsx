@@ -6,6 +6,7 @@ import { FileSvg } from "~/assets/svg/fileSvg/fileSvg";
 import { PenSvg } from "~/assets/svg/penSvg/penSvg";
 import { TSvg } from "~/assets/svg/tSvg/tSvg";
 import { ImageIconSvg } from "~/assets/svg/imageIconSvg/imageIconSvg";
+import { ValidIconWithCircleSvg } from "~/assets/svg/validIconWithCircleSvg/validIconWithCircleSvg";
 
 type TopicType = {
   title: string;
@@ -19,6 +20,8 @@ interface TableOfTopicsCoveredProps {
 export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   const displayIcon = (icon: string) => {
     switch (icon) {
+      case "validIconWithCircle":
+        return <ValidIconWithCircleSvg />;
       case "imageIcon":
         return <ImageIconSvg />;
       case "t":

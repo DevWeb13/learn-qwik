@@ -15,6 +15,7 @@ import { FontSoluce } from "./fontSoluce/fontSoluce";
 
 import AddLusitanaAndLRDQwikLogoImg from "~/assets/img/addLusitanaAndLRDQwikLogo.png?jsx";
 import AddInterImg from "~/assets/img/addInterImg.png?jsx";
+import { Quiz } from "~/components/UI/quiz/quiz";
 
 export default component$(() => {
   const fontSoluceDisplay = useSignal(false);
@@ -30,7 +31,7 @@ export default component$(() => {
           chapterTitle="Optimizing Fonts and Images"
         />
         <p style="vertical-align: inherit;">
-          In the previous chapter, you learned how to style your Qwil
+          In the previous chapter, you learned how to style your Qwik
           application. Let's continue working on your home page by adding a
           custom font and a hero image.
         </p>
@@ -58,6 +59,11 @@ export default component$(() => {
               {
                 title: "Different ways to add images",
                 icon: "imageIcon",
+              },
+              {
+                title:
+                  "How Qwik optimizes the loading of fonts and images to improve performance and user experience",
+                icon: "validIconWithCircle",
               },
             ]}
           />
@@ -101,6 +107,89 @@ export default component$(() => {
           This ensures that the custom font is used efficiently, minimizing
           impacts on CLS and enhancing the overall user experience.
         </p>
+        <Quiz
+          question="Why is it recommended to self-host fonts in a Qwik application?"
+          options={[
+            {
+              text: "To increase the number of network requests and improve performance.",
+              isCorrect: false,
+              letter: "A",
+            },
+            {
+              text: "To reduce external dependencies and improve privacy and performance.",
+              isCorrect: true,
+              letter: "B",
+            },
+            {
+              text: "To disable all custom fonts.",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "To load all fonts only at runtime.",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="Think about the impact of network requests on performance and privacy. Which approach could reduce interactions with external servers while maintaining full control over the content served?"
+          responseText="Self-hosting fonts in your Qwik application means storing font files directly on your own servers instead of relying on external sources like Google Fonts. This method eliminates additional network requests that occur each time a page loads, which can significantly improve load times and reduce latency. Additionally, self-hosting fonts enhances user privacy by minimizing data exposure to third-party servers and provides better control over font availability and loading behaviors, ensuring a more consistent user experience."
+        />
+        <Quiz
+          displayHeader={false}
+          question="What is Cumulative Layout Shift (CLS) and how can self-hosting fonts help to minimize it?"
+          options={[
+            {
+              text: "CLS is a metric that measures the visual stability of your page; self-hosting fonts reduces CLS by speeding up font loading.",
+              isCorrect: true,
+              letter: "A",
+            },
+            {
+              text: "CLS measures page loading speed; self-hosting increases CLS by slowing down loading.",
+              isCorrect: false,
+              letter: "B",
+            },
+            {
+              text: "CLS is a performance measure that is not affected by font loading.",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "CLS is a data consumption measure, minimized by self-hosting fonts.",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="Reflect on how the speed of font loading can affect unexpected changes in layout, particularly when a fallback font is replaced by a custom font."
+          responseText="Cumulative Layout Shift (CLS) is an important metric for assessing how often users experience unexpected shifts in page content. These shifts typically occur when resources, like fonts, load asynchronously. By self-hosting fonts, you ensure they are available more quickly because they are loaded from the same server as your website, reducing the time it takes for fonts to become available. This immediate availability prevents layout shifts that occur when the browser swaps placeholder fonts with the actual font, thus enhancing the stability and smoothness of the user experience."
+        />
+        <Quiz
+          displayHeader={false}
+          question="What is the effect of using the font-display property in Qwik?"
+          options={[
+            {
+              text: "It forces the browser to not display text until fonts are loaded.",
+              isCorrect: false,
+              letter: "A",
+            },
+            {
+              text: "It allows control over font loading, offering options like swap for quick loading.",
+              isCorrect: true,
+              letter: "B",
+            },
+            {
+              text: "It disables the rendering of all custom fonts.",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "It preloads all fonts at application startup.",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="Consider the different ways to manage when and how fonts are displayed when they are not immediately available. Which property would allow text to be displayed more quickly, even if the custom font has not yet loaded?"
+          responseText="The font-display CSS property provides several options to control how fonts are displayed as they load. For instance, the swap value allows the text to be shown immediately with a fallback font while the custom font is loading. This prevents the text from being invisible during the loading process, thereby improving the perceptual load speed of the page. By using this property, developers can significantly enhance the user experience by ensuring text remains visible and usable, reducing the likelihood of layout shifts and maintaining a better overall aesthetic consistency throughout the loading phase."
+        />
         <SubtitleWithAnchor title="Google Fonts" id="google-fonts" />
         <p>
           Google Fonts is a popular open source library, offering over 1500 font
@@ -418,7 +507,7 @@ export default component$(() => {
           <span class="font-bold">Congratulations!</span> You have successfully
           added custom fonts to your Qwik application.🎉
         </p>
-        <SubtitleWithAnchor title="Optimizing Images" id="optimizing-images" />
+        {/* <SubtitleWithAnchor title="Optimizing Images" id="optimizing-images" />
         <p>
           Images are essential for web design, but they can also impact
           performance. To optimize images, you can use the <code>`srcset`</code>{" "}
@@ -452,7 +541,7 @@ export default component$(() => {
         <p>
           In your <code>src/routes/index.tsx</code> file, add the following code
           to display the image:
-        </p>
+        </p> */}
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
