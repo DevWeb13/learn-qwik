@@ -114,7 +114,6 @@ export default component$(() => {
     </QwikCityProvider>
   );
 });`}
-          copyButton={false}
           decorations={[
             {
               // line and character are 0-indexed

@@ -16,6 +16,7 @@ interface QuizProps {
   options: Option[];
   hint: string;
   responseText: string;
+  displayHeader?: boolean;
 }
 
 interface StoreProps {
@@ -25,7 +26,7 @@ interface StoreProps {
 }
 
 export const Quiz = component$<QuizProps>(
-  ({ question, options, hint, responseText }) => {
+  ({ question, options, hint, responseText, displayHeader = true }) => {
     useStyles$(`
   .badge_badge__WnfZm {
       --badge-font-size: 12px;
@@ -269,8 +270,14 @@ export const Quiz = component$<QuizProps>(
     };
 
     return (
-      <div class="tailwind bg-vercel-200 not-prose mt-12 flex flex-col justify-center rounded-[16px] px-4 py-4 md:-mx-[62px] md:px-0 md:py-14">
-        <QuizHeader />
+      <div
+        class={
+          "tailwind bg-vercel-200 not-prose  flex flex-col justify-center rounded-[16px] px-4 py-4 md:-mx-[62px] md:px-0 md:py-14" +
+          " " +
+          (displayHeader && "mt-12")
+        }
+      >
+        {displayHeader && <QuizHeader />}
 
         <div class="bg-vercel-100 mx-auto mt-8 flex w-full max-w-[640px] flex-col items-center rounded-lg p-4 shadow-md md:p-8">
           <div class="text-center">
