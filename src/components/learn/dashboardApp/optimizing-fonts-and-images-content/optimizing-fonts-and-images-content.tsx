@@ -88,7 +88,30 @@ export default component$(() => {
           once loaded. This change can affect the size, spacing, or layout of
           the text, influencing other elements on the page.
         </p>
-        // Add Image
+        <figure class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3 pt-8">
+          <video
+            autoplay
+            controls
+            height="510"
+            loop
+            muted
+            poster="https://web.dev/articles/cls/video/web-dev-assets/layout-instability-api/layout-instability-poster.png?hl=fr"
+            width="658"
+          >
+            <source
+              src="https://web.dev/static/articles/cls/video/web-dev-assets/layout-instability-api/layout-instability2.webm?hl=fr"
+              type="video/webm; codecs=vp8"
+            />
+            <source
+              src="https://web.dev/static/articles/cls/video/web-dev-assets/layout-instability-api/layout-instability2.mp4?hl=fr"
+              type="video/mp4; codecs=h264"
+            />
+          </video>
+          <p class=" text-sm">
+            A sudden shift in layout makes the user confirm a large order they
+            intended to cancel.
+          </p>
+        </figure>
         <p>
           In Qwik, you can optimize font loading by using the{" "}
           <code>`font-display`</code> property to control how fonts are loaded.
