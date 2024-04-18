@@ -45,7 +45,18 @@ export default component$(() => {
           >
             Here are the topics we will cover:
           </p>
-          <TableOfTopicsCovered />
+          <TableOfTopicsCovered
+            topics={[
+              {
+                title: "Different ways to style your application.",
+                icon: "file",
+              },
+              {
+                title: "Different ways to add icons to your application.",
+                icon: "pen",
+              },
+            ]}
+          />
         </div>
         <SubtitleWithAnchor title="Global styles" id="global-styles" />
         <p>
@@ -103,7 +114,6 @@ export default component$(() => {
     </QwikCityProvider>
   );
 });`}
-          copyButton={false}
           decorations={[
             {
               // line and character are 0-indexed
@@ -811,7 +821,6 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           goToChapter={3}
           title="Optimizing Fonts and Images"
           text="Continue working on your home page by adding a hero image and a custom font."
-          disabledButton={true}
         />
       </div>
       <Feedback />

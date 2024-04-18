@@ -3,11 +3,11 @@ import { component$ } from "@builder.io/qwik";
 interface FileSvgProps {
   width?: number;
   height?: number;
-  classList?: string;
+  strokeWidth?: number;
 }
 
 export const FileSvg = component$<FileSvgProps>(
-  ({ width = 24, height = 24 }) => (
+  ({ width = 24, height = 24, strokeWidth = 1.5 }) => (
     <svg
       class="with-icon_icon__MHUeb"
       data-testid="geist-icon"
@@ -17,7 +17,7 @@ export const FileSvg = component$<FileSvgProps>(
       stroke="currentColor"
       stroke-linecap="round"
       stroke-linejoin="round"
-      stroke-width="1.5"
+      stroke-width={strokeWidth}
       viewBox="0 0 24 24"
       width={width}
       style="color: currentcolor; width: 16px; height: 16px;"

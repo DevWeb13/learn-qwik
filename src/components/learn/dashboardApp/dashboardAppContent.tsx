@@ -1,12 +1,13 @@
 import { component$ } from "@builder.io/qwik";
 
-import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.avif?jsx";
 import Feedback from "~/components/UI/feedback/feedback";
 import Popover from "~/lib/qwikUI/popover/popover";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { AnchorIcon } from "~/components/icons/anchorIcon";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import BlankLink from "~/components/UI/blankLink/blankLink";
+
+import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.png?jsx";
 
 export default component$(() => {
   return (
@@ -34,7 +35,7 @@ export default component$(() => {
           title="What we'll be building"
         />
 
-        <figure>
+        <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
           <ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions
             alt="Screenshots of the dashboard project showing desktop and mobile versions."
             class="block rounded-md border border-gray-200 bg-gray-100 "
