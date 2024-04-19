@@ -124,7 +124,7 @@ export default component$(() => {
     $(() => {
       const completedChaptersCookie: number[] | undefined =
         getCookie("completedChapters");
-      console.log("completedChaptersCookie", completedChaptersCookie);
+      // console.log("completedChaptersCookie", completedChaptersCookie);
 
       if (!completedChaptersCookie) {
         return initCookie("completedChapters", 365);
@@ -137,7 +137,6 @@ export default component$(() => {
       }
 
       if (completedChaptersCookie.length > 0) {
-        console.log("completedChaptersCookieTTT", completedChaptersCookie);
         const newChapters = [...chapters.value];
 
         completedChaptersCookie.forEach((chapter) => {
@@ -152,7 +151,6 @@ export default component$(() => {
     track(() => chapters.value);
 
     chapters.value.forEach((chapter) => {
-      console.log("Chapitre", chapter.id, chapter.isCompleted);
       if (chapter.isCompleted) {
         setCookie("completedChapters", chapter.id, 365);
       }

@@ -24,10 +24,10 @@ import { findCompletedChapters } from "~/utils/findCompletedChapters";
 
 export default component$(() => {
   const chapters = useContext(ChaptersContext);
-  console.log("Chapters: " + chapters.value[0].isCompleted);
+  // console.log("Chapters: " + chapters.value[0].isCompleted);
 
   const completedChapters = findCompletedChapters(chapters.value);
-  console.log("Completed Chapters: " + completedChapters.length);
+  // console.log("Completed Chapters: " + completedChapters.length);
 
   // // eslint-disable-next-line qwik/no-use-visible-task
   // useVisibleTask$(() => {

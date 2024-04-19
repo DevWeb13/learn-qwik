@@ -54,7 +54,7 @@ export default component$<BtAddChapterProps>(
       <div class={`w-full ${goToChapter && "md:w-fit"}`}>
         <button
           onClick$={() => {
-            console.log("goToChapter", goToChapter);
+            // console.log("goToChapter", goToChapter);
             // if (goToChapter > 1) {
             //   const cookieValue = document.cookie
             //     .split("; ")

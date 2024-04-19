@@ -5,18 +5,13 @@ import { routes } from "@qwik-city-plan";
 import { createSitemap } from "./create-sitemap";
 
 export const onGet: RequestHandler = (ev) => {
-  // const validRoutes = routes
-  //   .map(([route]) => route as string)
-  //   .filter((route) => typeof route === "string")
-  //   .filter((route) => !route.includes("dynamic-sitemap.xml")); // Exclure la route du sitemap
-
-  console.log({ routes });
+  // console.log({ routes });
 
   const learnRoutes = routes
     .map(([route]) => route as string)
     .filter((route) => route.startsWith("learn/dashboard-app"));
 
-  console.log({ learnRoutes });
+  // console.log({ learnRoutes });
 
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },

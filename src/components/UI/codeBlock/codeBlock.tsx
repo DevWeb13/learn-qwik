@@ -147,7 +147,7 @@ export default component$<CodeBlockProps>(
     }
 
     useTask$(async function createHighlightedCode() {
-      if (isBrowser) {
+      if (!isBrowser) {
         return;
       }
       const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
@@ -179,9 +179,6 @@ export default component$<CodeBlockProps>(
 
     // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(async () => {
-      if (!isBrowser) {
-        return;
-      }
       const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
       const highlighter = await getHighlighterCore({
         themes: [
