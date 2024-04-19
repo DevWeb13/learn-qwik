@@ -81,13 +81,6 @@ export default component$(() => {
 `}
         />
 
-        {/* Google AdSense */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
-          crossOrigin="anonymous"
-        ></script>
-
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
 
@@ -115,6 +108,9 @@ export default component$(() => {
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
         <meta name="theme-color" content="#ffffff" />
+
+        {/* Google AdSense */}
+        <meta name="google-adsense-account" content="ca-pub-2091224773462896" />
 
         <RouterHead />
         <ServiceWorkerRegister />
