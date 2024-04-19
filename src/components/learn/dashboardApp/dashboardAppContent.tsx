@@ -3,7 +3,6 @@ import { component$ } from "@builder.io/qwik";
 import Feedback from "~/components/UI/feedback/feedback";
 import Popover from "~/lib/qwikUI/popover/popover";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
-import { AnchorIcon } from "~/components/icons/anchorIcon";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 
@@ -181,14 +180,7 @@ export default component$(() => {
           id="join-the-conversation"
           title="Join the conversation"
         />
-        <h2 id="join-the-conversation" data-docs-heading="">
-          <a href="#join-the-conversation">
-            Join the conversation
-            <span>
-              <AnchorIcon />
-            </span>
-          </a>
-        </h2>
+
         <p>
           If you have questions about this course or would like to provide
           feedback, you can ask our community on{" "}
