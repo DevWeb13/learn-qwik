@@ -23,6 +23,7 @@ import { CHAPTERS } from "~/constants/chapters";
 import type { ChapterType } from "~/types/chapterType";
 
 import { getCookie, initCookie, setCookie } from "~/utils/cookieManagement";
+import { Loader } from "~/components/UI/loader/loader";
 
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
@@ -157,64 +158,18 @@ export default component$(() => {
     });
   });
 
-  // const completedChaptersCookie = getCookie("completedChapters");
-  // console.log("completedChaptersCookie", completedChaptersCookie);
-
-  // useOnDocument(
-  //   "load",
-  //   $(() => {
-  //     if (!completedChaptersCookie) {
-  //       setCookie("completedChapters", JSON.stringify([]), 365);
-  //     }
-  //   }),
-  // );
-
-  // const completedChapters = useSignal<CompletedChaptersType>([]);
-  // useContextProvider(CompletedChaptersContext, completedChapters);
-
-  // const completedChapters = useGetCompletedChapters();
-
-  // useTask$(({ track }) => {
-  //   track(() => completedChapters.value);
-
-  //   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  //   if (!completedChapters.value) return;
-
-  //   console.log("completedChapters", completedChapters.value);
-
-  //   if (completedChapters.value.length === 0) {
-  //     chapters.value.forEach((chapter) => {
-  //       chapter.isCompleted = false;
-  //     });
-  //   }
-
-  //   if (completedChapters.value.length > 0) {
-  //     completedChapters.value.forEach((chapter) => {
-  //       chapters.value[chapter - 1].isCompleted = true;
-  //     });
-  //   }
-  // });
-
-  // eslint-disable-next-line qwik/no-use-visible-task
-  // useVisibleTask$(() => {
-  //   const cookieValue = document.cookie
-  //     .split("; ")
-  //     .find((row) => row.startsWith("completedChapters="))
-  //     ?.split("=")[1];
-
-  //   if (cookieValue) {
-  //     const parsedValue: CompletedChaptersType = JSON.parse(
-  //       decodeURIComponent(cookieValue),
-  //     );
-  //     completedChapters.value = parsedValue;
-  //   }
-  // });
-
   return (
     <>
       <Header />
-      <Slot />
-      <Footer />
+      {location.isNavigating ? <Loader /> : <Slot />}
+
+      {location.isNavigating ? (
+        <div class="absolute bottom-0 flex w-full items-center justify-center">
+          <Footer />
+        </div>
+      ) : (
+        <Footer />
+      )}
     </>
   );
 });

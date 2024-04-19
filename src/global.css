@@ -40,6 +40,8 @@
   );
   --geist-selection: var(--next-selection);
   --geist-selection-text-color: var(--next-selection-text-color);
+
+  --header-height: 64px;
 }
 
 .dark-theme,
