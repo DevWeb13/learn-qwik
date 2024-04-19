@@ -811,6 +811,7 @@ export default component$(() => {
           goToChapter={4}
           title="Creating Layouts and Pages"
           text="Let's create your dashboard routes using nested layouts and pages!"
+          disabledButton
         />
       </div>
       <Feedback />
