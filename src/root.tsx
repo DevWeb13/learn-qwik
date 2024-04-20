@@ -110,22 +110,12 @@ export default component$(() => {
         <meta name="theme-color" content="#ffffff" />
 
         {/* Google AdSense */}
-        <meta name="google-adsense-account" content="ca-pub-2091224773462896" />
+        {/* <meta name="google-adsense-account" content="ca-pub-2091224773462896" /> */}
 
         <RouterHead />
         <ServiceWorkerRegister />
       </head>
       <body lang="en">
-        {/* <!-- Google Tag Manager (noscript) --> */}
-        {/* <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-M2HL6LDG"
-            height="0"
-            width="0"
-            style="display:none;visibility:hidden"
-          ></iframe>
-        </noscript> */}
-        {/* <!-- End Google Tag Manager (noscript) --> */}
         <RouterOutlet />
       </body>
     </QwikCityProvider>
