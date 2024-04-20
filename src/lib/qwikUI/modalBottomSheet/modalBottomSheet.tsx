@@ -57,12 +57,13 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
         <div class="new-dialog_inner">
           <ModalHeader>
             <div class="flex gap-3 p-3">
-              <button
+              <Link
                 class=" flex w-[50%] cursor-pointer items-center gap-3 rounded-md bg-gray-100 px-3 py-2.5 hover:bg-gray-100 md:w-auto md:min-w-[225px]"
                 type="button"
                 onClick$={() => {
                   showSig.value = false;
                 }}
+                href="/"
               >
                 <div class="relative">
                   <BookSvg small id="modalBottomSheet" />
@@ -84,7 +85,7 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
                     {store.completedChapters.length}/16 Chapters
                   </p>
                 </div>
-              </button>
+              </Link>
             </div>
           </ModalHeader>
           <div class="border-gray-alpha-400 border-t p-2 pt-0">
