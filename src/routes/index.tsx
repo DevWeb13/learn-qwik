@@ -127,7 +127,7 @@ export default component$(() => {
                 </div>
                 <div class="h-px w-full bg-gray-100"></div>
 
-                <div class="w-[100%] md:w-[213px]">
+                <div>
                   <BtAddChapter
                     goToChapter={0}
                     title=""
