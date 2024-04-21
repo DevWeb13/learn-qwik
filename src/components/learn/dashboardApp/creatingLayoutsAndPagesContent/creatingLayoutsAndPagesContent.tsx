@@ -1,6 +1,6 @@
 // src/components/learn/dashboardApp/CreatingLayoutsAndPagesContent/creatingLayoutsAndPagesContent.tsx
 
-import { component$, useStyles$ } from "@builder.io/qwik";
+import { component$, useSignal, useStyles$ } from "@builder.io/qwik";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
@@ -16,9 +16,14 @@ import NestedRouting from "~/assets/img/nested-routing.png?jsx";
 import DiagramRoutes from "~/assets/img/diagram-routes.png?jsx";
 import StyledPage from "~/assets/img/styled-page.png?jsx";
 import AddArrow from "~/assets/img/addArrowIcon.png?jsx";
+import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
+import { DashboardPagesSoluce } from "./dashboardPagesSoluce/dashboardPagesSoluce";
+import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 // import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
+  const dashboardPagesSoluce = useSignal(false);
+
   useStyles$(``);
   return (
     <article
@@ -165,20 +170,80 @@ export default component$(() => {
           other code related directly beside your routes in specific folders.
           Only the content inside the <code>`index.tsx`</code> file will be
           publicly accessible. For example, the <code>`/components `</code> and{" "}
-          <code>`/utils`</code> folders can be colocated inside the{" "}
+          <code>`/lib`</code> folders can be colocated inside the{" "}
           <code>`/src`</code> folder alongside your routes.
         </p>
-        <ul>
+
+        <SubtitleWithAnchor
+          title="Practice: Creating the dashboard pages"
+          id="practice-creating-the-dashboard-pages"
+        />
+
+        <p>
+          Let's practice creating more routes. In your dashboard, create two
+          more pages:
+        </p>
+
+        <ol class="ml-1">
           <li>
-            <code>postcss.config.js</code>
+            <span class="mr-2 font-bold text-[--qwik-dark-blue]">1.</span>
+            <span class="font-bold">Customers Page:</span> The page should be
+            accessible on{" "}
+            <BlankLink
+              href="http://localhost:5173/dashboard/customers"
+              text="http://localhost:5173/dashboard/customers"
+            />
+            . For now, it should return a{" "}
+            <code>&lt;p&gt;Customers Page&lt;/p&gt;</code> element.
           </li>
           <li>
-            <code>tailwind.config.js</code>
+            <span class="mr-2 font-bold text-[--qwik-dark-blue]">2. </span>
+            <span class="font-bold">Invoices Page:</span> The page should be
+            accessible on{" "}
+            <BlankLink
+              href="http://localhost:5173/dashboard/invoices"
+              text="http://localhost:5173/dashboard/invoices"
+            />
           </li>
-          <li>
-            <code>.vscode/settings.json</code>
-          </li>
-        </ul>
+        </ol>
+
+        <p>
+          Spend some time tackling this exercise, and when you're ready, expand
+          the toggle below for the solution:
+        </p>
+
+        <div class="bg-vercel-200 -mx-5 mb-8 p-[21px] md:-mx-[62px] md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
+          <button
+            class="button_base reset_reset button_button  geist-new-themed geist-new-button geist-new-button-fill button_invert"
+            data-geist-button=""
+            data-prefix="true"
+            data-suffix="false"
+            data-version="v1"
+            style="--geist-icon-size: 16px;"
+            onClick$={() =>
+              (dashboardPagesSoluce.value = !dashboardPagesSoluce.value)
+            }
+          >
+            <span class="button_prefix">
+              {dashboardPagesSoluce.value ? <EyeBarredSvg /> : <EyeSvg />}
+            </span>
+            <span class="button_content">
+              {dashboardPagesSoluce.value
+                ? "Hide the solution"
+                : "Reveal the solution"}
+            </span>
+          </button>
+          {dashboardPagesSoluce.value && <DashboardPagesSoluce />}
+        </div>
+
+        <SubtitleWithAnchor
+          title="Creating the dashboard layout"
+          id="creating-the-dashboard-layout"
+        />
+
+        <p>
+          //////////////////////////////////////////////////////////////////////////////////////////////////////////
+        </p>
         <p>
           and modifies your <code>src/global.css</code> to include
         </p>
