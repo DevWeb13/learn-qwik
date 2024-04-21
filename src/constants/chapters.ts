@@ -22,4 +22,12 @@ export const CHAPTERS = [
     isCompleted: false,
     uri: "optimizing-fonts-and-images",
   },
+  {
+    id: 4,
+    title: "Chapter 4: Creating Layouts and Pages",
+    description:
+      "Create a new page for your application and learn how to manage layouts.",
+    isCompleted: false,
+    uri: "creating-layouts-and-pages",
+  },
 ];

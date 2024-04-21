@@ -11,6 +11,7 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
     if (pathname.includes("getting-started")) return "0";
     if (pathname.includes("css-styling")) return "1";
     if (pathname.includes("optimizing-fonts-and-images")) return "2";
+    if (pathname.includes("creating-layouts-and-pages")) return "3";
     return "Introduction";
   },
 );
