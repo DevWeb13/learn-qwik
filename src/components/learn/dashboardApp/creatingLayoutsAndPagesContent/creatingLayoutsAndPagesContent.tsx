@@ -12,14 +12,18 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 import { Quiz } from "~/components/UI/quiz/quiz";
 // import { Link } from "@builder.io/qwik-city";
 
-import NestedRouting from "~/assets/img/nested-routing.png?jsx";
-import DiagramRoutes from "~/assets/img/diagram-routes.png?jsx";
-import StyledPage from "~/assets/img/styled-page.png?jsx";
-import AddArrow from "~/assets/img/addArrowIcon.png?jsx";
 import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
 import { DashboardPagesSoluce } from "./dashboardPagesSoluce/dashboardPagesSoluce";
 import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 // import { Link } from "@builder.io/qwik-city";
+
+import NestedRouting from "~/assets/img/nested-routing.png?jsx";
+import DiagramRoutes from "~/assets/img/diagram-routes.png?jsx";
+import StyledPage from "~/assets/img/styled-page.png?jsx";
+import AddArrow from "~/assets/img/addArrowIcon.png?jsx";
+import LayoutNesting from "~/assets/img/layout-nesting.png?jsx";
+import DashboardWithSidebar from "~/assets/img/dashboard-with-sidebar.png?jsx";
+import PartialRendering from "~/assets/img/partial-rendering.png?jsx";
 
 export default component$(() => {
   const dashboardPagesSoluce = useSignal(false);
@@ -240,6 +244,237 @@ export default component$(() => {
           title="Creating the dashboard layout"
           id="creating-the-dashboard-layout"
         />
+
+        <p>
+          Dashboards typically have navigation shared across multiple pages. In
+          Qwik, you can use a special <code>`layout.tsx`</code> file to create a
+          UI shared between multiple pages. Let's create a layout for the
+          dashboard pages!
+        </p>
+
+        <p>
+          Inside the <code>`src/components/ui/dashboard`</code> folder, add a
+          new file called <code>`nav-links.tsx`</code> and paste the following
+          code:
+        </p>
+
+        <CodeBlock
+          code={`// src/components/ui/dashboard/nav-links.tsx
+
+import { component$ } from "@builder.io/qwik";
+
+import {
+  HiUserGroupOutline,
+  HiHomeOutline,
+  HiDocumentDuplicateOutline,
+} from "@qwikest/icons/heroicons";
+
+// Map of links to display in the side navigation.
+// Depending on the size of the application, this would be stored in a database.
+const links = [
+  { name: "Home", href: "/dashboard", icon: HiHomeOutline },
+  {
+    name: "Invoices",
+    href: "/dashboard/invoices",
+    icon: HiDocumentDuplicateOutline,
+  },
+  { name: "Customers", href: "/dashboard/customers", icon: HiUserGroupOutline },
+];
+
+export const NavLinks = component$(() => {
+  return (
+    <>
+      {links.map((link) => {
+        const LinkIcon = link.icon;
+        return (
+          <a
+            key={link.name}
+            href={link.href}
+            class="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+          >
+            <LinkIcon class="w-6" />
+            <p class="hidden md:block">{link.name}</p>
+          </a>
+        );
+      })}
+    </>
+  );
+});
+`}
+          language="tsx"
+          icon="typescript"
+          text="/src/components/ui/dashboard/nav-links.tsx"
+        />
+
+        <p>Here are some key points about this code:</p>
+
+        <ul>
+          <li>
+            <strong>Importing the icons:</strong> The{" "}
+            <code>`@qwikest/icons/heroicons`</code> package provides a set of
+            icons you can use in your application.
+          </li>
+          <li>
+            <strong>Creating a map of links:</strong> The <code>`links`</code>{" "}
+            array contains the navigation links to display in the side
+            navigation.
+          </li>
+          <li>
+            <strong>Rendering the links:</strong> The <code>`NavLinks`</code>{" "}
+            component maps over the <code>`links`</code> array and renders the
+            navigation links.
+          </li>
+        </ul>
+
+        <p>
+          Next, let's create a <code>`SideNav`</code> component that will use
+          the <code>`NavLinks`</code> component to display the navigation links.
+        </p>
+
+        <p>
+          Inside the <code>`src/components/ui/dashboard`</code> folder, add a
+          new file called <code>`sidenav.tsx`</code> and paste the following
+          code:
+        </p>
+
+        <CodeBlock
+          code={`// src/components/ui/dashboard/sidenav.tsx
+
+import { component$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
+import { LRDQwikLogo } from "~/assets/svg/LRDQwikLogo";
+import { HiPowerOutline } from "@qwikest/icons/heroicons";
+import { NavLinks } from "./nav-links";
+
+export const SideNav = component$(() => {
+  return (
+    <div class="flex h-full flex-col px-3 py-4 md:px-2">
+      <Link
+        class="mb-2 flex h-20 items-end justify-start rounded-md bg-blue-600 p-4 md:h-40"
+        href="/"
+      >
+        <div class="w-32 text-white md:w-40">
+          <LRDQwikLogo />
+        </div>
+      </Link>
+      <div class="flex grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+        <NavLinks />
+        <div class="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
+        <form>
+          <button class="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
+            <HiPowerOutline class="w-6" />
+            <div class="hidden md:block">Sign Out</div>
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+});`}
+          language="tsx"
+          icon="typescript"
+          text="/src/components/ui/dashboard/sidenav.tsx"
+        />
+
+        <p>Here are some key points about this code:</p>
+
+        <ul>
+          <li>
+            <strong>Importing the components:</strong> The{" "}
+            <code>`NavLinks`</code> component is imported to display the
+            navigation links.
+          </li>
+          <li>
+            <strong>Rendering the side navigation:</strong> The{" "}
+            <code>`SideNav`</code> component renders the side navigation with
+            the logo, navigation links, and sign-out button.
+          </li>
+        </ul>
+
+        <p>
+          Now that you've created the layout components, let's add them to the
+          dashboard layout.
+        </p>
+
+        <p>
+          Inside the <code>`/dashboard`</code> folder, add a new file called{" "}
+          <code>`layout.tsx`</code> and paste the following code:
+        </p>
+
+        <CodeBlock
+          code={`// /src/routes/dashboard/layout.tsx
+
+import { component$, Slot } from "@builder.io/qwik";
+import { SideNav } from "~/components/ui/sidenav";
+
+export default component$(() => {
+  return (
+    <div class="flex h-screen flex-col md:flex-row md:overflow-hidden">
+      <div class="w-full flex-none md:w-64">
+        <SideNav />
+      </div>
+      <div class="flex-grow p-6 md:overflow-y-auto md:p-12">
+        <Slot />
+      </div>
+    </div>
+  );
+});`}
+          language="tsx"
+          icon="typescript"
+          text="/src/routes/dashboard/layout.tsx"
+        />
+
+        <p>Here are some key points about this code:</p>
+
+        <ul>
+          <li>
+            <strong>
+              Importing the <code>{`<SideNav />`}</code> component:
+            </strong>
+            : Any component you import into this file will be part of the
+            layout.
+          </li>
+          <li>
+            <strong>
+              The <code>{`<Layout />`}</code> component receives a{" "}
+              <code>`Slot`</code>
+            </strong>
+            , which acts as a placeholder for child components. In your case,
+            the pages inside <code>`/dashboard`</code> will automatically be
+            nested within a <code>{`<Layout />`}</code> like so:
+          </li>
+        </ul>
+
+        <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
+          <LayoutNesting
+            alt="Folder structure with the dashboard layout nesting the dashboard pages as children"
+            class="block w-full rounded-md border border-gray-200 bg-gray-100"
+          />
+        </figure>
+
+        <p>
+          Ensure everything is working correctly by saving your changes and
+          checking your localhost. You should see the following:
+        </p>
+
+        <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
+          <DashboardWithSidebar
+            alt="Dashboard page with a sidebar navigation and a main content area"
+            class="block w-full rounded-md border border-gray-200 bg-gray-100"
+          />
+        </figure>
+
+        <p>
+          <span class="font-bold">Benefit of using layouts in Qwik:</span>{" "}
+          During navigation, only the page components update while the layout
+          doesn't re-render. This is known as partial rendering:
+        </p>
+
+        <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
+          <PartialRendering
+            alt="Folder structure showing the dashboard layout nesting the dashboard pages, but only the page UIs swap on navigation"
+            class="block w-full rounded-md border border-gray-200 bg-gray-100"
+          />
+        </figure>
 
         <p>
           //////////////////////////////////////////////////////////////////////////////////////////////////////////
