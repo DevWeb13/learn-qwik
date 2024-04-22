@@ -7,6 +7,10 @@ import { PenSvg } from "~/assets/svg/penSvg/penSvg";
 import { TSvg } from "~/assets/svg/tSvg/tSvg";
 import { ImageIconSvg } from "~/assets/svg/imageIconSvg/imageIconSvg";
 import { ValidIconWithCircleSvg } from "~/assets/svg/validIconWithCircleSvg/validIconWithCircleSvg";
+import { RelationPointSvg } from "~/assets/svg/relationPointSvg/relationPointSvg";
+import { FolderSvg } from "~/assets/svg/folderSvg/folderSvg";
+import { NestedFolderSvg } from "~/assets/svg/nestedFolderSvg/nestedFolderSvg";
+import { LinesAndArrowBackSvg } from "~/assets/svg/linesAndArrowBackSvg/linesAndArrowBackSvg";
 
 type TopicType = {
   title: string;
@@ -20,6 +24,14 @@ interface TableOfTopicsCoveredProps {
 export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   const displayIcon = (icon: string) => {
     switch (icon) {
+      case "linesAndArrowBack":
+        return <LinesAndArrowBackSvg />;
+      case "nestedFolder":
+        return <NestedFolderSvg />;
+      case "folder":
+        return <FolderSvg />;
+      case "relationPoint":
+        return <RelationPointSvg />;
       case "validIconWithCircle":
         return <ValidIconWithCircleSvg />;
       case "imageIcon":
