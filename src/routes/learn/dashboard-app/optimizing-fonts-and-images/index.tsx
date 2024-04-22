@@ -9,7 +9,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Chapter 3: Optimizing Fonts and Images - Learn Qwik",
+  title: "Learn Qwik | Chapter 3: Optimizing Fonts and Images",
   meta: [
     {
       name: "description",
@@ -18,7 +18,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:title",
-      content: "Chapter 3: Optimizing Fonts and Images - Learn Qwik",
+      content: "Learn Qwik | Chapter 3: Optimizing Fonts and Images",
     },
     {
       property: "og:description",
@@ -43,7 +43,7 @@ export const head: DocumentHead = {
     },
     {
       name: "twitter:title",
-      content: "Chapter 3: Optimizing Fonts and Images - Learn Qwik",
+      content: "Learn Qwik | Chapter 3: Optimizing Fonts and Images",
     },
     {
       name: "twitter:description",

@@ -9,7 +9,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Chapter 2: CSS Styling - Learn Qwik",
+  title: "Learn Qwik | Chapter 2: CSS Styling",
   meta: [
     {
       name: "description",
@@ -18,7 +18,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:title",
-      content: "Chapter 2: CSS Styling - Learn Qwik",
+      content: "Learn Qwik | Chapter 2: CSS Styling",
     },
     {
       property: "og:description",
@@ -43,7 +43,7 @@ export const head: DocumentHead = {
     },
     {
       name: "twitter:title",
-      content: "Chapter 2: CSS Styling - Learn Qwik",
+      content: "Learn Qwik | Chapter 2: CSS Styling",
     },
     {
       name: "twitter:description",

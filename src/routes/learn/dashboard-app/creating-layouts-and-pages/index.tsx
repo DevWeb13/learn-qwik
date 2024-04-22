@@ -9,21 +9,21 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Chapter 2: CSS Styling - Learn Qwik",
+  title: "Learn Qwik | Chapter 4: Creating Layouts and Pages",
   meta: [
     {
       name: "description",
       content:
-        "Dive into customizing the style of your Qwik application. This chapter covers various methods to enhance your app’s design with CSS and Tailwind CSS.",
+        "Learn how to create layouts and pages in your Qwik application. This chapter covers the basics of layout design, page creation, and routing in Qwik.",
     },
     {
       property: "og:title",
-      content: "Chapter 2: CSS Styling - Learn Qwik",
+      content: "Learn Qwik | Chapter 4: Creating Layouts and Pages",
     },
     {
       property: "og:description",
       content:
-        "Learn how to style your Qwik application effectively. Explore different styling techniques including global styles, Tailwind CSS integration, and the use of icons.",
+        "Discover the essentials of creating layouts and pages in Qwik. Learn how to design layouts, create pages, and implement routing in your web application.",
     },
     {
       property: "og:image",
@@ -43,16 +43,16 @@ export const head: DocumentHead = {
     },
     {
       name: "twitter:title",
-      content: "Chapter 2: CSS Styling - Learn Qwik",
+      content: "Learn Qwik | Chapter 4: Creating Layouts and Pages",
     },
     {
       name: "twitter:description",
       content:
-        "Master CSS styling in your Qwik projects. This chapter introduces you to CSS customization, from global styles to Tailwind CSS and icon integration.",
+        "Master the art of creating layouts and pages in Qwik. Understand the basics of layout design, page creation, and routing in your web application.",
     },
     {
       name: "twitter:image",
-      content: "https://www.learn-qwik.com/metaChapter2.png",
+      content: "https://www.learn-qwik.com/metaChapter4.png",
     },
   ],
 };

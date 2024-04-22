@@ -1,4 +1,4 @@
-import { QwikLogo } from "../qwikLogo/qwikLogo";
+import LearnQwikLogo from "~/assets/img/android-chrome-512x512.png?jsx";
 
 interface FeFloodDuplicateProps {
   result: string;
@@ -268,8 +268,8 @@ export const BookSvg = ({ small, id }: BookSvgProps) =>
           </clipPath>
         </defs>
       </svg>
-      <div class="absolute left-2.5 top-3.5">
-        <QwikLogo width={16} height={16} id={id} />
+      <div class="absolute left-1.5 top-2.5 w-[24px]">
+        <LearnQwikLogo />
       </div>
     </>
   ) : (
@@ -497,8 +497,8 @@ export const BookSvg = ({ small, id }: BookSvgProps) =>
           </clipPath>
         </defs>
       </svg>
-      <div class="absolute bottom-3 right-3">
-        <QwikLogo id={id} />
+      <div class="absolute bottom-3 right-3 w-[40px]">
+        <LearnQwikLogo />
       </div>
     </>
   );
