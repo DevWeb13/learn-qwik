@@ -30,4 +30,12 @@ export const CHAPTERS = [
     isCompleted: false,
     uri: "creating-layouts-and-pages",
   },
+  {
+    id: 5,
+    title: "Chapter 5: Navigating Between Pages",
+    description:
+      "Add navigation to your application and learn how to navigate between pages.",
+    isCompleted: false,
+    uri: "navigating-between-pages",
+  },
 ];
