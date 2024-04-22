@@ -573,6 +573,25 @@ export default component$(() => {
           Qwik! 🎉
         </p>
 
+        <SubtitleWithAnchor
+          title="Recommended reading"
+          id="recommended reading"
+        />
+
+        <p>
+          There's a lot more to learn about these topics. If you'd like to dive
+          a little deeper, check out the following resources:{" "}
+        </p>
+
+        <ul>
+          <li>
+            <BlankLink
+              href="https://qwik.dev/docs/advanced/routing/"
+              text="Qwik Docs Advanced Routing"
+            />
+          </li>
+        </ul>
+
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
         <p>
