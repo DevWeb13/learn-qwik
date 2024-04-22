@@ -27,7 +27,7 @@ export const head: DocumentHead = {
     },
     {
       property: "og:image",
-      content: "https://www.learn-qwik.com/metaChapter2.png",
+      content: "https://www.learn-qwik.com/metaChapter4.png",
     },
     {
       property: "og:type",
@@ -35,7 +35,8 @@ export const head: DocumentHead = {
     },
     {
       property: "og:url",
-      content: "https://www.learn-qwik.com/learn/dashboard-app/chapter2",
+      content:
+        "https://www.learn-qwik.com/learn/dashboard-app/creating-layouts-and-pages/",
     },
     {
       name: "twitter:card",

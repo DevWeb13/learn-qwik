@@ -35,7 +35,8 @@ export const head: DocumentHead = {
     },
     {
       property: "og:url",
-      content: "https://www.learn-qwik.com/learn/dashboard-app/chapter1",
+      content:
+        "https://www.learn-qwik.com/learn/dashboard-app/getting-started/",
     },
     {
       name: "twitter:card",
