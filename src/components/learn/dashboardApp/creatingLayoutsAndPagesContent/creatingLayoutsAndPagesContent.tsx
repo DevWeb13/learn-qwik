@@ -586,6 +586,12 @@ export default component$(() => {
         <ul>
           <li>
             <BlankLink
+              href="https://qwik.dev/docs/routing/"
+              text="Qwik Docs Routing"
+            />
+          </li>
+          <li>
+            <BlankLink
               href="https://qwik.dev/docs/advanced/routing/"
               text="Qwik Docs Advanced Routing"
             />
