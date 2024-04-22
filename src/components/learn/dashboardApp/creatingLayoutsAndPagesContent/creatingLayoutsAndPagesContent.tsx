@@ -594,6 +594,7 @@ export default component$(() => {
           goToChapter={5}
           title="Navigating Between Pages"
           text="Learn how to navigate between dashboard pages in Qwik."
+          disabledButton
         />
       </div>
       <Feedback />
