@@ -11,6 +11,9 @@ import { RelationPointSvg } from "~/assets/svg/relationPointSvg/relationPointSvg
 import { FolderSvg } from "~/assets/svg/folderSvg/folderSvg";
 import { NestedFolderSvg } from "~/assets/svg/nestedFolderSvg/nestedFolderSvg";
 import { LinesAndArrowBackSvg } from "~/assets/svg/linesAndArrowBackSvg/linesAndArrowBackSvg";
+import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
+import { LinkSvg } from "~/assets/svg/linkSvg/linkSvg";
+import { PlanePaperSvg } from "~/assets/svg/planePaperSvg/planePaperSvg";
 
 type TopicType = {
   title: string;
@@ -24,6 +27,12 @@ interface TableOfTopicsCoveredProps {
 export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   const displayIcon = (icon: string) => {
     switch (icon) {
+      case "planePaper":
+        return <PlanePaperSvg />;
+      case "link":
+        return <LinkSvg />;
+      case "qwikLogo":
+        return <QwikLogo id="1" width={16} height={16} />;
       case "linesAndArrowBack":
         return <LinesAndArrowBackSvg />;
       case "nestedFolder":
