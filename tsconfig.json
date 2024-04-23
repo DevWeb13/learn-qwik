@@ -38,6 +38,7 @@
     "src",
     "./*.d.ts",
     "./*.config.ts",
-    "public/downloads"
+    "public/downloads",
+    "public/sw.js"
   ],
 }
