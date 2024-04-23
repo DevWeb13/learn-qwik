@@ -122,12 +122,12 @@ export default component$(() => {
         /> */}
 
         {/* PushPushGo Up-Right*/}
-        {/* <script
+        <script
           type="text/javascript"
           dangerouslySetInnerHTML={`
           (function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('punoocke.com',7385723,document.createElement('script'))
 `}
-        /> */}
+        />
 
         {/* Full screen */}
         {/* <script
@@ -136,11 +136,11 @@ export default component$(() => {
           src="//thubanoa.com/1?z=7385739"
         ></script> */}
 
-        <script
+        {/* <script
           dangerouslySetInnerHTML={`
  (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('oaphoace.net',7385740,document.createElement('script'))
 `}
-        />
+        /> */}
 
         <RouterHead />
         <ServiceWorkerRegister />
