@@ -1,7 +1,8 @@
 import { component$ } from "@builder.io/qwik";
-import { useServerTimeLoader } from "../../../routes/layout";
+import { useServerTimeLoader } from "~/routes/layout";
 import styles from "./footer.module.css";
-import { ExternalArrowIcon } from "../../icons/externalArrowIcon";
+import { ExternalArrowIcon } from "~/components/icons/externalArrowIcon";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const serverTime = useServerTimeLoader();
@@ -20,7 +21,11 @@ export default component$(() => {
         </a>
       </p>
       <span class={styles.spacer}>|</span>
-      <p>{serverTime.value.date}</p>
+      <Link href="/privacy" class={`${styles.anchor} hover:text-[#000]`}>
+        Privacy Policy
+      </Link>
+      <span class={styles.spacer}>|</span>
+      <p>{new Date(serverTime.value.date).toLocaleDateString()}</p>
     </footer>
   );
 });

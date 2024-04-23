@@ -16,7 +16,7 @@ import { routeLoader$, useLocation } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
 import Header from "../components/header/header";
-import Footer from "../components/starter/footer/footer";
+import Footer from "../components/footer/footer";
 import type { CompletedChaptersType } from "~/types/completedChapters";
 
 import { CHAPTERS } from "~/constants/chapters";
