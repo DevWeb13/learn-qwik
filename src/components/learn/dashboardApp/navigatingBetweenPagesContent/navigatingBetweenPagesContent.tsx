@@ -70,34 +70,30 @@ export default component$(() => {
             ]}
           />
         </div>
-        <SubtitleWithAnchor title="Nested routing" id="nested-routing" />
-        <p>
-          Qwik also uses a file-system-based routing system where{" "}
-          <span class="font-bold">folders</span> are used to create nested
-          routes. Each directory represents a{" "}
-          <span class="font-bold">route segment</span> that corresponds to a{" "}
-          <span class="font-bold">URL segment</span>.
-        </p>
-
-        <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
-          <NestedRouting
-            alt="Diagram showing how folders map to URL segments"
-            class="block w-full rounded-md border border-gray-200 bg-gray-100"
-          />
-        </figure>
+        <SubtitleWithAnchor
+          title="Why Optimize Navigation?"
+          id="why-optimize-navigation"
+        />
 
         <p>
-          You can create distinct user interfaces for each route using{" "}
-          <code>layout.tsx</code> files for layouts and <code>index.tsx</code>{" "}
-          files for pages.
+          Traditionally, to create links between pages, you would use the HTML{" "}
+          <code>{`<a>`}</code> element. Currently, the links in the sidebar use{" "}
+          <code>{`<a>`}</code> elements, but notice what happens when you
+          navigate between the homepage, invoices, and customers in your
+          browser.
         </p>
+
+        <p>Did you see it?👀</p>
+
         <p>
-          <code>index.tsx</code> is a special file in Qwik that exports a Qwik
-          component, necessary for the route to be accessible. In your Qwik
-          application, the main file for the homepage would typically be located
-          at
-          <code>`/src/routes/index.tsx`</code> - this file is associated with
-          the <code>`/`</code> route.
+          There's a full page refresh on each navigation! This is not ideal as
+          it can slow down the user experience and increase page loading
+          times.🚤
+        </p>
+
+        <p>
+          {" "}
+          ////////////////////////////////////////////////////////////////////////////////
         </p>
 
         <p>
