@@ -112,6 +112,8 @@ export default component$(() => {
         {/* Google AdSense */}
         {/* <meta name="google-adsense-account" content="ca-pub-2091224773462896" /> */}
 
+        <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2"></meta>
+
         <RouterHead />
         <ServiceWorkerRegister />
       </head>
