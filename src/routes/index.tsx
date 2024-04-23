@@ -142,9 +142,9 @@ export default component$(() => {
                       responsive="smallOnly"
                     />
                   </BtAddChapter>
-                  <a href="https://rndnoibattor.com/4/7385634" target="_blank">
+                  {/* <a href="https://rndnoibattor.com/4/7385634" target="_blank">
                     smartLink
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>

@@ -114,11 +114,32 @@ export default component$(() => {
 
         {/* Monetag */}
         <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
-
-        <script
+        {/* NotificationPush */}
+        {/* <script
           src="https://vaugroar.com/pfe/current/tag.min.js?z=7385671"
           data-cfasync="false"
           async
+        /> */}
+
+        {/* PushPushGo Up-Right*/}
+        {/* <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={`
+          (function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('punoocke.com',7385723,document.createElement('script'))
+`}
+        /> */}
+
+        {/* Full screen */}
+        {/* <script
+          async
+          data-cfasync="false"
+          src="//thubanoa.com/1?z=7385739"
+        ></script> */}
+
+        <script
+          dangerouslySetInnerHTML={`
+ (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('oaphoace.net',7385740,document.createElement('script'))
+`}
         />
 
         <RouterHead />
