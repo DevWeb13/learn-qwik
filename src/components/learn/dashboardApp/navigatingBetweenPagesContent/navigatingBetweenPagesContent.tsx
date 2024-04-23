@@ -15,7 +15,6 @@ import { Quiz } from "~/components/UI/quiz/quiz";
 import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
 import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 
-import NestedRouting from "~/assets/img/nested-routing.png?jsx";
 import DiagramRoutes from "~/assets/img/diagram-routes.png?jsx";
 import LayoutNesting from "~/assets/img/layout-nesting.png?jsx";
 import DashboardWithSidebar from "~/assets/img/dashboard-with-sidebar.png?jsx";
