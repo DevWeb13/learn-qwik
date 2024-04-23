@@ -115,6 +115,12 @@ export default component$(() => {
         {/* Monetag */}
         <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
 
+        <script
+          src="https://vaugroar.com/pfe/current/tag.min.js?z=7385671"
+          data-cfasync="false"
+          async
+        />
+
         <RouterHead />
         <ServiceWorkerRegister />
       </head>
