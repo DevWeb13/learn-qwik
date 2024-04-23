@@ -11,7 +11,8 @@ export const onGet: RequestHandler = (ev) => {
     .map(([route]) => route as string)
     .filter((route) => route.startsWith("learn/dashboard-app"));
 
-  // console.log({ learnRoutes });
+  const privacyPolicy = "/privacy";
+  learnRoutes.push(privacyPolicy);
 
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },
