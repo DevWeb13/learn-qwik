@@ -90,6 +90,147 @@ export default component$(() => {
           times.🚤
         </p>
 
+        <SubtitleWithAnchor
+          title="The <Link> component 🖇️"
+          id="the-link-component"
+        />
+
+        <p>
+          In Qwik City, you can use the <code>&lt;Link&gt;</code> component to
+          create links between the pages of your application, thus enabling
+          client-side navigation with JavaScript without a full page reload.
+          This component is essential for a smooth and modern user experience.
+        </p>
+
+        <p>
+          To use the <code>&lt;Link&gt;</code> component, open the file{" "}
+          <code>src/components/ui/dashboard/nav-links.tsx</code> and import the{" "}
+          <code>Link</code> component from <code>@builder.io/qwik-city</code>.
+          Then, replace each <code>&lt;a&gt;</code> tag with{" "}
+          <code>&lt;Link&gt;</code>:
+        </p>
+
+        <CodeBlock
+          code={`// src/components/ui/dashboard/nav-links.tsx
+
+import { component$ } from "@builder.io/qwik";
+
+import {
+  HiUserGroupOutline,
+  HiHomeOutline,
+  HiDocumentDuplicateOutline,
+} from "@qwikest/icons/heroicons";
+
+import { Link } from "@builder.io/qwik-city";
+
+// Map of links to display in the side navigation.
+// Depending on the size of the application, this would be stored in a database.
+const links = [
+  { name: "Home", href: "/dashboard", icon: HiHomeOutline },
+  {
+    name: "Invoices",
+    href: "/dashboard/invoices",
+    icon: HiDocumentDuplicateOutline,
+  },
+  { name: "Customers", href: "/dashboard/customers", icon: HiUserGroupOutline },
+];
+
+export const NavLinks = component$(() => {
+  return (
+    <>
+      {links.map((link) => {
+        const LinkIcon = link.icon;
+        return (
+          <Link
+            key={link.name}
+            href={link.href}
+            class="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+          >
+            <LinkIcon class="w-6" />
+            <p class="hidden md:block">{link.name}</p>
+          </Link>
+        );
+      })}
+    </>
+  );
+});`}
+          language="tsx"
+          icon="typescript"
+          text="/src/components/ui/dashboard/nav-links.tsx"
+          decorations={[
+            {
+              // line and character are 0-indexed
+              start: { line: 10, character: 0 },
+              // end at the end of the line
+              end: { line: 10, character: 45 },
+              properties: { class: "newLine" },
+            },
+            {
+              // line and character are 0-indexed
+              start: { line: 30, character: 0 },
+              // end at the end of the line
+              end: { line: 30, character: 15 },
+              properties: { class: "newLine" },
+            },
+            {
+              // line and character are 0-indexed
+              start: { line: 37, character: 0 },
+              // end at the end of the line
+              end: { line: 37, character: 17 },
+              properties: { class: "newLine" },
+            },
+          ]}
+        />
+
+        <SubtitleWithAnchor
+          title="When to use &lt;a&gt; instead of &lt;Link&gt; 🔄"
+          id="the-link-component"
+        />
+
+        <p>
+          It is important to note that in Qwik, full page reloads are extremely
+          optimized and often faster than traditional SPA navigation due to
+          Qwik's selective hydration. Therefore, in some cases, it might be
+          beneficial to use <code>&lt;a&gt;</code> tags for quicker and more
+          direct interactions. This differs from most SPA frameworks where
+          avoiding a full page reload is crucial to maintain performance. 🔍
+        </p>
+
+        <p>
+          Save your changes and check their functionality in your local
+          environment. You should find that transitions between pages are
+          smooth, without any full reloads, giving the impression of a more
+          responsive web application. 🚀
+        </p>
+
+        <Quiz
+          question="How does Qwik handle component loading when a user interacts with a <Link> component in a production environment?"
+          options={[
+            {
+              text: "Qwik re-renders the entire application.",
+              isCorrect: false,
+              letter: "A",
+            },
+            {
+              text: "Qwik selectively hydrates only the components that need to be updated.",
+              isCorrect: true,
+              letter: "B",
+            },
+            {
+              text: "Qwik re-renders the entire page.",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "Qwik re-renders the entire component tree.",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="Remember that Qwik selectively hydrates components, which means it only updates the components that need to be updated when a user interacts with a <Link> component."
+          responseText="Qwik selectively hydrates only the components that need to be updated when a user interacts with a <Link> component. This selective hydration approach helps to optimize performance and improve the user experience by reducing the amount of work required to update the UI."
+        />
+
         <p>
           {" "}
           ////////////////////////////////////////////////////////////////////////////////
