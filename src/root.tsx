@@ -115,13 +115,6 @@ export default component$(() => {
         {/* Monetag */}
         <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
 
-        <script
-          src="https://alwingulla.com/88/tag.min.js"
-          data-zone="60601"
-          async
-          data-cfasync="false"
-        />
-
         <RouterHead />
         <ServiceWorkerRegister />
       </head>
