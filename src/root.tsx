@@ -12,7 +12,9 @@ import "./button.css";
 
 export const runtime = "node";
 
-const isDev = process.env.NODE_ENV === "development" || "preview";
+// Check if the environment is production
+const isProd = process.env.NODE_ENV === "production";
+console.log("isProd", isProd);
 
 export default component$(() => {
   /**
@@ -91,7 +93,7 @@ export default component$(() => {
         {/* Google AdSense */}
         {/* <meta name="google-adsense-account" content="ca-pub-2091224773462896" /> */}
 
-        {!isDev && (
+        {isProd && (
           <>
             {/* Monetag */}
             <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
