@@ -219,10 +219,7 @@ export const NavLinks = component$(() => {
           responseText="Qwik selectively hydrates only the components that need to be updated when a user interacts with a <Link> component. This selective hydration approach helps to optimize performance and improve the user experience by reducing the amount of work required to update the UI."
         />
 
-        <p>
-          {" "}
-          ////////////////////////////////////////////////////////////////////////////////
-        </p>
+        <p>🚧🚧🚧🚧🚧🚧🚧</p>
 
         <p>
           Congratulations🎉, you have learned how to create links between pages
