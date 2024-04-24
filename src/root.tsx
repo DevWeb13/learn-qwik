@@ -12,7 +12,7 @@ import "./button.css";
 
 export const runtime = "node";
 
-const isDev = process.env.NODE_ENV === "development";
+const isDev = process.env.NODE_ENV === "development" || "preview";
 
 export default component$(() => {
   /**
