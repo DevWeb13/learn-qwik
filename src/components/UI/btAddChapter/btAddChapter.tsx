@@ -2,7 +2,6 @@
 
 // import type { Signal } from "@builder.io/qwik";
 import { Slot, component$, useContext } from "@builder.io/qwik";
-import { useNavigate } from "@builder.io/qwik-city";
 
 import {
   ChaptersContext,
@@ -28,7 +27,6 @@ export default component$<BtAddChapterProps>(
     completedChapters = [],
     disabled = false,
   }) => {
-    const nav = useNavigate();
     // const action = useSetCompletedChaptersCookie();
 
     const chapters = useContext(ChaptersContext);
@@ -52,62 +50,57 @@ export default component$<BtAddChapterProps>(
 
     return (
       <div class={`w-full ${goToChapter && "md:w-fit"}`}>
-        <button
-          onClick$={() => {
-            // console.log("goToChapter", goToChapter);
-            // if (goToChapter > 1) {
-            //   const cookieValue = document.cookie
-            //     .split("; ")
-            //     .find((row) => row.startsWith("completedChapters="));
-            //   console.log("cookieValue", cookieValue);
-
-            //   let completedChapters = [];
-            //   if (cookieValue) {
-            //     const [, cookieData] = cookieValue.split("=");
-            //     console.log("cookieData", cookieData);
-            //     completedChapters = JSON.parse(decodeURIComponent(cookieData));
-            //   }
-            //   console.log("completedChapters", completedChapters);
-
-            //   const completedChapter = goToChapter - 1;
-            //   if (!completedChapters.includes(completedChapter)) {
-            //     console.log("completedChapter", completedChapter);
-            //     completedChapters.push(completedChapter);
-            //     console.log("completedChapters", completedChapters);
-            //     document.cookie = `completedChapters=${encodeURIComponent(
-            //       JSON.stringify(completedChapters),
-            //     )}; path=/; max-age=31536000`;
-            //   }
-
-            if (goToChapter > 1) {
-              const newChapters = [...chapters.value];
-              newChapters[goToChapter - 2].isCompleted = true;
-              chapters.value = newChapters;
+        {disabled ? (
+          <button
+            aria-label={
+              goToChapter
+                ? "Start Chapter" + " " + goToChapter.toString()
+                : "Start Learning"
             }
-            return nav(`/learn/dashboard-app/${nextUri}`);
-          }}
-          aria-label={
-            goToChapter
-              ? "Start Chapter" + " " + goToChapter.toString()
-              : "Start Learning"
-          }
-          class="button_base reset_reset button_button  button_large button_invert"
-          data-geist-button=""
-          data-prefix="false"
-          data-suffix="true"
-          data-version="v1"
-          style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
-          disabled={disabled}
-        >
-          {completedChapters.length ? <Slot /> : null}
+            class="button_base reset_reset button_button  button_large button_invert"
+            data-geist-button=""
+            data-prefix="false"
+            data-suffix="true"
+            data-version="v1"
+            style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
+            disabled={disabled}
+          >
+            {completedChapters.length ? <Slot /> : null}
 
-          <span class="button_content">
-            {generateText(text, completedChapters, goToChapter)}
-          </span>
+            <span class="button_content">
+              {generateText(text, completedChapters, goToChapter)}
+            </span>
 
-          {disabled ? (
             <span>🚧</span>
-          ) : (
+          </button>
+        ) : (
+          <a
+            href={`/learn/dashboard-app/${nextUri}`}
+            onClick$={() => {
+              if (goToChapter > 1) {
+                const newChapters = [...chapters.value];
+                newChapters[goToChapter - 2].isCompleted = true;
+                chapters.value = newChapters;
+              }
+            }}
+            aria-label={
+              goToChapter
+                ? "Start Chapter" + " " + goToChapter.toString()
+                : "Start Learning"
+            }
+            class="button_base reset_reset button_button  button_large button_invert"
+            data-geist-button=""
+            data-prefix="false"
+            data-suffix="true"
+            data-version="v1"
+            style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
+          >
+            {completedChapters.length ? <Slot /> : null}
+
+            <span class="button_content">
+              {generateText(text, completedChapters, goToChapter)}
+            </span>
+
             <span class="button_suffix">
               <svg
                 data-testid="geist-icon"
@@ -125,8 +118,8 @@ export default component$<BtAddChapterProps>(
                 ></path>
               </svg>
             </span>
-          )}
-        </button>
+          </a>
+        )}
       </div>
     );
   },
