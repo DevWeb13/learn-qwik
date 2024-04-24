@@ -12,6 +12,8 @@ import "./button.css";
 
 export const runtime = "node";
 
+const isDev = process.env.NODE_ENV === "development";
+
 export default component$(() => {
   /**
    * The root of a QwikCity site always start with the <QwikCityProvider> component,
@@ -24,22 +26,6 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
-        {/* Google tag (gtag.js)  */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
-        />
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-D5GX3GMZR7');
-  `}
-        />
-
-        <script defer src="/_vercel/insights/script.js" />
 
         {/* <QwikPartytown forward={["dataLayer.push"]} />
 
@@ -74,13 +60,6 @@ export default component$(() => {
           `}
         /> */}
 
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={`
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-`}
-        />
-
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
 
@@ -112,35 +91,63 @@ export default component$(() => {
         {/* Google AdSense */}
         {/* <meta name="google-adsense-account" content="ca-pub-2091224773462896" /> */}
 
-        {/* Monetag */}
-        <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
-        {/* NotificationPush */}
-        {/* <script
-          src="https://vaugroar.com/pfe/current/tag.min.js?z=7385671"
-          data-cfasync="false"
-          async
-        /> */}
+        {!isDev && (
+          <>
+            {/* Monetag */}
+            <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
+            {/* NotificationPush */}
+            {/* <script
+              src="https://vaugroar.com/pfe/current/tag.min.js?z=7385671"
+              data-cfasync="false"
+              async
+            /> */}
+            {/* PushPushGo Up-Right*/}
+            {/* Full screen */}
+            {/* <script
+              async
+              data-cfasync="false"
+              src="//thubanoa.com/1?z=7385739"
+            ></script> */}
 
-        {/* PushPushGo Up-Right*/}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={`
-          (function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('punoocke.com',7385723,document.createElement('script'))
+            {/* <script
+              dangerouslySetInnerHTML={`
+              (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('oaphoace.net',7385740,document.createElement('script'))
+              `}
+            /> */}
+            <script
+              type="text/javascript"
+              dangerouslySetInnerHTML={`
+              (function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('punoocke.com',7385723,document.createElement('script'))
+    `}
+            />
+
+            {/* Google tag (gtag.js)  */}
+            <script
+              async
+              src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
+            />
+            <script
+              type="text/javascript"
+              dangerouslySetInnerHTML={`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D5GX3GMZR7');
+  `}
+            />
+
+            {/* Vercel Analytics ???
+            <script defer src="/_vercel/insights/script.js" /> */}
+
+            {/* Vercel Analytics */}
+            <script
+              type="text/javascript"
+              dangerouslySetInnerHTML={`
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 `}
-        />
-
-        {/* Full screen */}
-        {/* <script
-          async
-          data-cfasync="false"
-          src="//thubanoa.com/1?z=7385739"
-        ></script> */}
-
-        {/* <script
-          dangerouslySetInnerHTML={`
- (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('oaphoace.net',7385740,document.createElement('script'))
-`}
-        /> */}
+            />
+          </>
+        )}
 
         <RouterHead />
         <ServiceWorkerRegister />
