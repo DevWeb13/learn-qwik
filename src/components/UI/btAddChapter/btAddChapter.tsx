@@ -2,6 +2,7 @@
 
 // import type { Signal } from "@builder.io/qwik";
 import { Slot, component$, useContext } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 
 import {
   ChaptersContext,
@@ -74,7 +75,7 @@ export default component$<BtAddChapterProps>(
             <span>🚧</span>
           </button>
         ) : (
-          <a
+          <Link
             href={`/learn/dashboard-app/${nextUri}`}
             onClick$={() => {
               if (goToChapter > 1) {
@@ -118,7 +119,7 @@ export default component$<BtAddChapterProps>(
                 ></path>
               </svg>
             </span>
-          </a>
+          </Link>
         )}
       </div>
     );
