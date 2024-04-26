@@ -140,11 +140,11 @@ export default component$<CodeBlockProps>(
 
     const codeSig = useSignal("");
 
-    if (isBrowser) {
-      console.log("Exécution côté client");
-    } else {
-      console.log("Exécution côté serveur");
-    }
+    // if (isBrowser) {
+    //   console.log("Exécution côté client");
+    // } else {
+    //   console.log("Exécution côté serveur");
+    // }
 
     useTask$(async function createHighlightedCode() {
       if (!isBrowser) {

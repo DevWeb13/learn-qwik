@@ -151,6 +151,13 @@ export default component$(() => {
           </>
         )}
 
+        {/* Cool Qwik trick to know what code is being executed and when 👇 */}
+        {!isProd && (
+          <script
+            dangerouslySetInnerHTML={`document.addEventListener('qsymbol', (e) => console.log(e.detail));`}
+          />
+        )}
+
         <RouterHead />
         <ServiceWorkerRegister />
       </head>

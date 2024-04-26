@@ -16,7 +16,7 @@ export const BookSvgText = component$<BookSvgTextProps>(({ completed }) => {
 
   useTask$(async ({ track }) => {
     track(() => completed.length);
-    // console.log("completed length into DisplayNextChapter: ", completed.length);
+
     if (completed.length !== 0) {
       const nextChapterIndex = await findNextChapter();
       store.nextChapterTitle =

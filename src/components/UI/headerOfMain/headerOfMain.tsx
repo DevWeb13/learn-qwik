@@ -22,9 +22,9 @@ export default component$(() => {
 
   const currentChapterIndexInString = useGetCurrentChapterIndexInString().value;
 
-  console.log(currentChapterIndexInString);
-
   const title = useSignal("");
+
+  console.log("currentChapterIndexInString", currentChapterIndexInString);
 
   useTask$(({ track }) => {
     track(() => currentChapterIndexInString);
