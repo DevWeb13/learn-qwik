@@ -480,7 +480,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
           goToChapter={6}
           title="Setting up your database"
           text="Let's create a database to start fetching real data!"
-          disabledButton
         />
       </div>
       <Feedback />
