@@ -41,7 +41,7 @@ export const CHAPTERS = [
   {
     id: 6,
     title: "Chapter 6: Setting Up Your Database",
-    description: "Set up a PostgreSQL database using `@vercel/postgres`.",
+    description: "Pick up where you left off.",
     isCompleted: false,
     uri: "setting-up-your-database",
   },
