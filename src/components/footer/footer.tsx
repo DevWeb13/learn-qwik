@@ -25,7 +25,7 @@ export default component$(() => {
         Privacy Policy
       </Link>
       <span class={styles.spacer}>|</span>
-      <p>{new Date(serverTime.value.date).toLocaleDateString()}</p>
+      <p>{serverTime.value.date}</p>
     </footer>
   );
 });
