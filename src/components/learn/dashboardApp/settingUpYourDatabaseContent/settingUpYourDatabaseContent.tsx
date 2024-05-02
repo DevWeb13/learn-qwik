@@ -580,8 +580,8 @@ export const SettingUpYourDatabaseContent = component$(() => {
         </p>
 
         <p>
-          Pour eviter les erreurs Typescript, vous pouvez également ajouter ces
-          lignes dans le fichier <code>`tsconfig.json`</code>:
+          To avoid TypeScript errors, you can also add these lines to your{" "}
+          <code>`tsconfig.json`</code> file:
         </p>
 
         <CodeBlock
