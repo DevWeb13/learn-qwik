@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 // src/components/learn/dashboardApp/navigatingBetweenPagesContent/navigatingBetweenPagesContent.tsx
 
 import { component$, useStyles$ } from "@builder.io/qwik";
@@ -480,7 +479,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
           goToChapter={6}
           title="Setting up your database"
           text="Let's create a database to start fetching real data!"
-          disabledButton
         />
       </div>
       <Feedback />

@@ -3,6 +3,7 @@ import styles from "./navbar-mobile.module.css";
 import Popover from "../../lib/qwikUI/popover/popover";
 import { Link } from "@builder.io/qwik-city";
 import { MobileMenuVisibleContext } from "~/routes/layout";
+import { VercelSvg } from "~/assets/svg/vercelSvg";
 
 export default component$(() => {
   const mobileMenuVisible = useContext(MobileMenuVisibleContext);
@@ -22,17 +23,7 @@ export default component$(() => {
           aria-label="Go to Vercel homepage"
           title="Go to Vercel homepage"
         >
-          <svg
-            aria-label="Vercel logomark"
-            height="22"
-            style="width:auto;overflow:visible"
-            viewBox="0 0 74 64"
-          >
-            <path
-              d="M37.5896 0.25L74.5396 64.25H0.639648L37.5896 0.25Z"
-              fill="var(--geist-foreground)"
-            ></path>
-          </svg>
+          <VercelSvg />
         </a>
         <svg height="32" viewBox="0 0 32 32" width="32">
           <path
