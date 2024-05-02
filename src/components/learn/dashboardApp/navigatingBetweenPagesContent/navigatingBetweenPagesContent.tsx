@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 // src/components/learn/dashboardApp/navigatingBetweenPagesContent/navigatingBetweenPagesContent.tsx
 
 import { component$, useStyles$ } from "@builder.io/qwik";

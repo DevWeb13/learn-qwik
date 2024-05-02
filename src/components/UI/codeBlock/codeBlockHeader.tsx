@@ -5,12 +5,20 @@ import { CopyButton } from "./copyButton";
 import { JavascriptSvg } from "~/assets/svg/javascriptSvg/javascriptSvg";
 import { TypescriptSvg } from "~/assets/svg/typescriptSvg/typescriptSvg";
 import { FileSvg } from "~/assets/svg/fileSvg/fileSvg";
+import { JsonSvg } from "~/assets/svg/jsonSvg";
 
 interface CodeBlockHeaderProps {
   text: string;
   code: string;
   copyButton: boolean;
-  icon: "terminal" | "javascript" | "typescript" | "html" | "css" | "bash";
+  icon:
+    | "terminal"
+    | "javascript"
+    | "typescript"
+    | "html"
+    | "css"
+    | "bash"
+    | "json";
 }
 
 export const CodeBlockHeader = component$<CodeBlockHeaderProps>(
@@ -55,6 +63,8 @@ export const CodeBlockHeader = component$<CodeBlockHeaderProps>(
 
     const displayIcon = () => {
       switch (icon) {
+        case "json":
+          return <JsonSvg />;
         case "terminal":
           return <TerminalSvg />;
         case "javascript":

@@ -14,6 +14,10 @@ import { LinesAndArrowBackSvg } from "~/assets/svg/linesAndArrowBackSvg/linesAnd
 import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
 import { LinkSvg } from "~/assets/svg/linkSvg/linkSvg";
 import { PlanePaperSvg } from "~/assets/svg/planePaperSvg/planePaperSvg";
+import { GithubSvg } from "~/assets/svg/githubSvg/githubSvg";
+import { VercelSvg } from "~/assets/svg/vercelSvg";
+import { PostgresSvg } from "~/assets/svg/postgresSvg";
+import { DatabaseSvg } from "~/assets/svg/databaseSvg";
 
 type TopicType = {
   title: string;
@@ -27,6 +31,14 @@ interface TableOfTopicsCoveredProps {
 export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   const displayIcon = (icon: string) => {
     switch (icon) {
+      case "database":
+        return <DatabaseSvg />;
+      case "postgres":
+        return <PostgresSvg />;
+      case "vercel":
+        return <VercelSvg height={16} />;
+      case "github":
+        return <GithubSvg />;
       case "planePaper":
         return <PlanePaperSvg />;
       case "link":

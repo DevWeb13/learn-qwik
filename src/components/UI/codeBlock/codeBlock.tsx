@@ -14,8 +14,15 @@ import { CopyButton } from "./copyButton";
 interface CodeBlockProps {
   code: string;
   text?: string;
-  icon?: "terminal" | "javascript" | "typescript" | "html" | "css" | "bash";
-  language?: "javascript" | "typescript" | "css" | "bash" | "tsx";
+  icon?:
+    | "terminal"
+    | "javascript"
+    | "typescript"
+    | "html"
+    | "css"
+    | "bash"
+    | "json";
+  language?: "javascript" | "typescript" | "css" | "bash" | "tsx" | "json";
   decorations?: any[];
   copyButton?: boolean;
   hideLineNumbers?: boolean;
@@ -114,12 +121,17 @@ export default component$<CodeBlockProps>(
   }
 
   .code_block_pre .newLine {
-  
-    background: #e0f0ff;
+    background: #a6ffb3;
     padding: 5.7px 18px;
-    border-left: 2px solid #0070f3;
+    border-left: 2px solid #00f30e;
     position: relative;
-    
+  }
+
+  .code_block_pre .deleteLine {
+    background: #ff9c9c;
+    padding: 5.7px 18px;
+    border-left: 2px solid #ff0000;
+    position: relative;
   }
 
   code {
@@ -163,6 +175,7 @@ export default component$<CodeBlockProps>(
           import("shiki/langs/typescript.mjs"),
           import("shiki/langs/tsx.mjs"),
           import("shiki/langs/css.mjs"),
+          import("shiki/langs/json.mjs"),
         ],
         // loadWasm: import("shiki/wasm"),
       });
@@ -192,6 +205,7 @@ export default component$<CodeBlockProps>(
           import("shiki/langs/typescript.mjs"),
           import("shiki/langs/tsx.mjs"),
           import("shiki/langs/css.mjs"),
+          import("shiki/langs/json.mjs"),
         ],
         // loadWasm: import("shiki/wasm"),
       });
