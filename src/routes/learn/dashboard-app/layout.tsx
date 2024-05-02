@@ -13,6 +13,7 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
     if (pathname.includes("optimizing-fonts-and-images")) return "2";
     if (pathname.includes("creating-layouts-and-pages")) return "3";
     if (pathname.includes("navigating-between-pages")) return "4";
+    if (pathname.includes("setting-up-your-database")) return "5";
     return "Introduction";
   },
 );
