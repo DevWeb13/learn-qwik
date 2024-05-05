@@ -138,18 +138,18 @@ export default component$(() => {
   `}
             />
             {/* Google tag (gtag.js) End */}
-
-            {/* Vercel Analytics Start */}
-            <script
-              type="text/javascript"
-              dangerouslySetInnerHTML={`
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-`}
-            />
-            <script defer src="/_vercel/insights/script.js" />
-            {/* Vercel Analytics End */}
           </>
         )}
+
+        {/* Vercel Analytics Start */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={`
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+`}
+        />
+        <script defer src="/_vercel/insights/script.js" />
+        {/* Vercel Analytics End */}
 
         {/* Cool Qwik trick to know what code is being executed and when 👇 */}
         {!isProd && (
