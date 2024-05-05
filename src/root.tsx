@@ -93,53 +93,59 @@ export default component$(() => {
         {/* Google AdSense */}
         {/* <meta name="google-adsense-account" content="ca-pub-2091224773462896" /> */}
 
-        {isProd && (
-          <>
-            {/* Monetag Start */}
-            <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
-            {/* NotificationPush */}
-            {/* <script
+        {/* {isProd && (
+          <> */}
+        {/* Monetag Start */}
+        <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
+
+        {/* Monetag End */}
+
+        {/* NotificationPush */}
+        {/* <script
               src="https://vaugroar.com/pfe/current/tag.min.js?z=7385671"
               data-cfasync="false"
               async
             /> */}
-            {/* PushPushGo Up-Right*/}
-            {/* Full screen */}
-            {/* <script
+        {/* PushPushGo Up-Right*/}
+        {/* Full screen */}
+        {/* <script
               async
               data-cfasync="false"
               src="//thubanoa.com/1?z=7385739"
             ></script> */}
-            {/* <script
+        {/* <script
               dangerouslySetInnerHTML={`
               (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('oaphoace.net',7385740,document.createElement('script'))
               `}
             /> */}
-            <script
-              type="text/javascript"
-              dangerouslySetInnerHTML={`
+
+        {/* Glad Tag */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={`
               (function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('punoocke.com',7385723,document.createElement('script'))
     `}
-            />
-            {/* Monetag End */}
+        />
 
-            {/* Google tag (gtag.js) Start */}
-            <script
-              async
-              src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
-            />
-            <script
-              type="text/javascript"
-              dangerouslySetInnerHTML={`
+        {/* Monetag End */}
+
+        {/* Google tag (gtag.js) Start */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
+        />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={`
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-D5GX3GMZR7');
   `}
-            />
-            {/* Google tag (gtag.js) End */}
-          </>
-        )}
+        />
+        {/* Google tag (gtag.js) End */}
+        {/* </>
+        )} */}
 
         {/* Vercel Analytics Start */}
         <script
