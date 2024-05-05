@@ -95,7 +95,7 @@ export default component$(() => {
 
         {isProd && (
           <>
-            {/* Monetag */}
+            {/* Monetag Start */}
             <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
             {/* NotificationPush */}
             {/* <script
@@ -110,7 +110,6 @@ export default component$(() => {
               data-cfasync="false"
               src="//thubanoa.com/1?z=7385739"
             ></script> */}
-
             {/* <script
               dangerouslySetInnerHTML={`
               (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('oaphoace.net',7385740,document.createElement('script'))
@@ -122,8 +121,9 @@ export default component$(() => {
               (function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('punoocke.com',7385723,document.createElement('script'))
     `}
             />
+            {/* Monetag End */}
 
-            {/* Google tag (gtag.js)  */}
+            {/* Google tag (gtag.js) Start */}
             <script
               async
               src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
@@ -137,19 +137,19 @@ export default component$(() => {
     gtag('config', 'G-D5GX3GMZR7');
   `}
             />
+            {/* Google tag (gtag.js) End */}
 
-            {/* Vercel Analytics ???
-            <script defer src="/_vercel/insights/script.js" /> */}
-          </>
-        )}
-
-        {/* Vercel Analytics */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={`
+            {/* Vercel Analytics Start */}
+            <script
+              type="text/javascript"
+              dangerouslySetInnerHTML={`
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 `}
-        />
+            />
+            <script defer src="/_vercel/insights/script.js" />
+            {/* Vercel Analytics End */}
+          </>
+        )}
 
         {/* Cool Qwik trick to know what code is being executed and when 👇 */}
         {!isProd && (
