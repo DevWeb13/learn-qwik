@@ -140,16 +140,16 @@ export default component$(() => {
 
             {/* Vercel Analytics ???
             <script defer src="/_vercel/insights/script.js" /> */}
-
-            {/* Vercel Analytics */}
-            <script
-              type="text/javascript"
-              dangerouslySetInnerHTML={`
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-`}
-            />
           </>
         )}
+
+        {/* Vercel Analytics */}
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={`
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+`}
+        />
 
         {/* Cool Qwik trick to know what code is being executed and when 👇 */}
         {!isProd && (
