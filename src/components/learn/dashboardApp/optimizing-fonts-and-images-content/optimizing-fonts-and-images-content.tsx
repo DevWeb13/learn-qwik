@@ -25,10 +25,7 @@ export default component$(() => {
   const imageSoluceDisplay = useSignal(false);
   useStyles$(``);
   return (
-    <article
-      class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
-      style="min-height: calc(100vh - 103px);"
-    >
+    <>
       <div class="prose prose-vercel max-w-none">
         <PageTitle
           chapterNumber={3}
@@ -39,39 +36,25 @@ export default component$(() => {
           application. Let's continue working on your home page by adding a
           custom font and a hero image.
         </p>
-        <div class="not-prose in-this-chapter_wrapper__yrXTP mb-4 rounded-[12px] md:mx-[-64px] md:my-12 md:bg-[#fafafa] md:p-4 md:px-[64px] md:py-12">
-          <p
-            class="text_wrapper pb-1"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-1000); --xs-text-size: 1.25rem; --xs-text-line-height: 1.5rem; --xs-text-weight: 600; --xs-text-letter-spacing: -0.020625rem; --sm-text-size: 1.25rem; --sm-text-line-height: 1.5rem; --sm-text-weight: 600; --sm-text-letter-spacing: -0.020625rem; --smd-text-size: 1.5rem; --smd-text-line-height: 2rem; --smd-text-weight: 600; --smd-text-letter-spacing: -0.029375rem; --md-text-size: 1.5rem; --md-text-line-height: 2rem; --md-text-weight: 600; --md-text-letter-spacing: -0.029375rem; --lg-text-size: 1.5rem; --lg-text-line-height: 2rem; --lg-text-weight: 600; --lg-text-letter-spacing: -0.029375rem;"
-          >
-            In this chapter...
-          </p>
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial; margin: 0px;"
-          >
-            Here are the topics we will cover:
-          </p>
-          <TableOfTopicsCovered
-            topics={[
-              {
-                title: "Different ways to add custom fonts",
-                icon: "t",
-              },
-              {
-                title: "Different ways to add images",
-                icon: "imageIcon",
-              },
-              {
-                title:
-                  "How Qwik optimizes the loading of fonts and images to improve performance and user experience",
-                icon: "validIconWithCircle",
-              },
-            ]}
-          />
-        </div>
+
+        <TableOfTopicsCovered
+          topics={[
+            {
+              title: "Different ways to add custom fonts",
+              icon: "t",
+            },
+            {
+              title: "Different ways to add images",
+              icon: "imageIcon",
+            },
+            {
+              title:
+                "How Qwik optimizes the loading of fonts and images to improve performance and user experience",
+              icon: "validIconWithCircle",
+            },
+          ]}
+        />
+
         <SubtitleWithAnchor
           title="Why Optimize Fonts?"
           id="why-optimize-fonts"
@@ -817,6 +800,6 @@ export default component$(() => {
       </div>
       <Feedback />
       <div class="mb-[40px] md:mb-[120px]"></div>
-    </article>
+    </>
   );
 });

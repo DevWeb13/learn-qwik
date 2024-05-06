@@ -16,10 +16,7 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 
 export default component$(() => {
   return (
-    <article
-      class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
-      style="min-height: calc(100vh - 103px);"
-    >
+    <>
       <div class="prose prose-vercel max-w-none">
         <PageTitle chapterNumber={1} chapterTitle="Getting Started" />
         <SubtitleWithAnchor
@@ -510,6 +507,6 @@ export default component$(() => {
       </div>
       <Feedback />
       <div class="mb-[40px] md:mb-[120px]"></div>
-    </article>
+    </>
   );
 });
