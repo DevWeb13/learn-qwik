@@ -2,6 +2,7 @@
 
 import { component$, useStyles$ } from "@builder.io/qwik";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
 
 export const FetchingDataContent = component$(() => {
   useStyles$(``);
@@ -14,6 +15,29 @@ export const FetchingDataContent = component$(() => {
           different ways you can fetch data for your application, and build out
           your dashboard overview page.
         </p>
+
+        <TableOfTopicsCovered
+          topics={[
+            {
+              title:
+                "Learn about some approaches to fetching data: APIs, ORMs, SQL, etc.",
+              icon: "database",
+            },
+            {
+              title:
+                "How server$() functions can be used to fetch data from a database.",
+              icon: "server",
+            },
+            {
+              title: "??????????",
+              icon: "waterfall",
+            },
+            {
+              title: "??????????",
+              icon: "twoConnectedPoints",
+            },
+          ]}
+        />
       </div>
     </>
   );

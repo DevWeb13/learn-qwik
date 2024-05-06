@@ -19,6 +19,9 @@ import { VercelSvg } from "~/assets/svg/vercelSvg";
 import { PostgresSvg } from "~/assets/svg/postgresSvg";
 import { DatabaseSvg } from "~/assets/svg/databaseSvg";
 import { TableOfTopicsCoveredHeader } from "./tableOfTopicsCoveredHeader";
+import { ServerSvg } from "~/assets/svg/serverSvg";
+import { WaterfallSvg } from "~/assets/svg/waterfallSvg";
+import { TwoConnectedPointsSvg } from "~/assets/svg/twoConnectedPointsSvg";
 
 type TopicType = {
   title: string;
@@ -32,6 +35,12 @@ interface TableOfTopicsCoveredProps {
 export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   const displayIcon = (icon: string) => {
     switch (icon) {
+      case "twoConnectedPoints":
+        return <TwoConnectedPointsSvg />;
+      case "waterfall":
+        return <WaterfallSvg />;
+      case "server":
+        return <ServerSvg />;
       case "database":
         return <DatabaseSvg />;
       case "postgres":
