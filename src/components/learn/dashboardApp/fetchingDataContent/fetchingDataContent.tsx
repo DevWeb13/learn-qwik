@@ -67,6 +67,39 @@ export const FetchingDataContent = component$(() => {
           <BlankLink href="https://qwik.dev/docs/endpoints/" text="Endpoints" />
           .
         </p>
+
+        <SubtitleWithAnchor title="Database queries" id="database-queries" />
+
+        <p>
+          When you're developing a full-stack application with Qwik, you'll also
+          need to write logic to interact with your database. For{" "}
+          <BlankLink
+            href="https://aws.amazon.com/relational-database/"
+            text="relational databases"
+          />{" "}
+          like Postgres, this can be done with SQL or an{" "}
+          <BlankLink
+            text="ORM"
+            href="https://vercel.com/docs/storage/vercel-postgres/using-an-orm"
+          />{" "}
+          like
+          <BlankLink href="https://www.prisma.io/" text="Prisma" />.
+        </p>
+
+        <p>Here are a few cases where you'll need to write database queries:</p>
+
+        <ul>
+          <li>
+            When creating your API endpoints, you need to write logic to
+            interact with your database.
+          </li>
+          <li>
+            With Qwik, using server functions like <code>`server$()`</code>, you
+            can directly interact with your database without going through an
+            external API layer, avoiding exposing your database secrets to the
+            client.
+          </li>
+        </ul>
       </div>
     </>
   );
