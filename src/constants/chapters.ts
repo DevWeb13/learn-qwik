@@ -45,4 +45,11 @@ export const CHAPTERS = [
     isCompleted: false,
     uri: "setting-up-your-database",
   },
+  {
+    id: 7,
+    title: "Chapter 7: Fetching Data",
+    description: "Learn how to fetch data in Qwik.",
+    isCompleted: false,
+    uri: "fetching-data",
+  },
 ];

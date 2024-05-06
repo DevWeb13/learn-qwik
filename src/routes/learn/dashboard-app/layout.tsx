@@ -14,6 +14,7 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
     if (pathname.includes("creating-layouts-and-pages")) return "3";
     if (pathname.includes("navigating-between-pages")) return "4";
     if (pathname.includes("setting-up-your-database")) return "5";
+    if (pathname.includes("fetching-data")) return "6";
     return "Introduction";
   },
 );
@@ -25,7 +26,12 @@ export default component$(() => {
         <div class="relative mx-auto max-w-screen-lg px-4 py-4 md:py-10">
           <MobileMenu />
           <HeaderOfMain />
-          <Slot />
+          <article
+            class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
+            style="min-height: calc(100vh - 103px);"
+          >
+            <Slot />
+          </article>
         </div>
       </main>
     </>

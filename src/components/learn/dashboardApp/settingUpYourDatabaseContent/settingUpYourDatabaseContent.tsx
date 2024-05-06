@@ -29,10 +29,7 @@ import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextC
 export const SettingUpYourDatabaseContent = component$(() => {
   useStyles$(``);
   return (
-    <article
-      class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
-      style="min-height: calc(100vh - 103px);"
-    >
+    <>
       <div class="prose prose-vercel max-w-none">
         <PageTitle chapterNumber={6} chapterTitle="Setting Up Your Database" />
         <p>
@@ -42,44 +39,29 @@ export const SettingUpYourDatabaseContent = component$(() => {
           PostgreSQL and would prefer to use your own provider, you can skip
           this chapter and set it up on your own. Otherwise, let's continue!
         </p>
-        <div class="not-prose in-this-chapter_wrapper__yrXTP mb-4 rounded-[12px] md:mx-[-64px] md:my-12 md:bg-[#fafafa] md:p-4 md:px-[64px] md:py-12">
-          <p
-            class="text_wrapper pb-1"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-1000); --xs-text-size: 1.25rem; --xs-text-line-height: 1.5rem; --xs-text-weight: 600; --xs-text-letter-spacing: -0.020625rem; --sm-text-size: 1.25rem; --sm-text-line-height: 1.5rem; --sm-text-weight: 600; --sm-text-letter-spacing: -0.020625rem; --smd-text-size: 1.5rem; --smd-text-line-height: 2rem; --smd-text-weight: 600; --smd-text-letter-spacing: -0.029375rem; --md-text-size: 1.5rem; --md-text-line-height: 2rem; --md-text-weight: 600; --md-text-letter-spacing: -0.029375rem; --lg-text-size: 1.5rem; --lg-text-line-height: 2rem; --lg-text-weight: 600; --lg-text-letter-spacing: -0.029375rem;"
-          >
-            In this chapter...
-          </p>
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial; margin: 0px;"
-          >
-            Here are the topics we will cover:
-          </p>
 
-          <TableOfTopicsCovered
-            topics={[
-              {
-                title: "Push your project to GitHub.",
-                icon: "github",
-              },
-              {
-                title:
-                  "Set up a Vercel account and link your GitHub repo for instant previews and deployments.",
-                icon: "vercel",
-              },
-              {
-                title: "Create and link your project to a Postgres database.",
-                icon: "postgres",
-              },
-              {
-                title: "Seed the database with initial data.",
-                icon: "database",
-              },
-            ]}
-          />
-        </div>
+        <TableOfTopicsCovered
+          topics={[
+            {
+              title: "Push your project to GitHub.",
+              icon: "github",
+            },
+            {
+              title:
+                "Set up a Vercel account and link your GitHub repo for instant previews and deployments.",
+              icon: "vercel",
+            },
+            {
+              title: "Create and link your project to a Postgres database.",
+              icon: "postgres",
+            },
+            {
+              title: "Seed the database with initial data.",
+              icon: "database",
+            },
+          ]}
+        />
+
         <SubtitleWithAnchor
           title="Create a GitHub repository"
           id="create-a-github-repository"
@@ -812,11 +794,10 @@ WHERE invoices.amount = 666;`}
           goToChapter={7}
           title="Fetching Data"
           text="Learn how to fetch data from your database in Qwik."
-          disabledButton
         />
       </div>
       <Feedback />
       <div class="mb-[40px] md:mb-[120px]"></div>
-    </article>
+    </>
   );
 });
