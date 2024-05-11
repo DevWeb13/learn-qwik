@@ -483,11 +483,20 @@ export const SettingUpYourDatabaseContent = component$(() => {
         </p>
 
         <CodeBlock
-          code={`npm install @vercel/postgres`}
+          code={`npm install --save-dev @vercel/postgres`}
           language="bash"
           hideLineNumbers
           text="Terminal"
         />
+
+        <p class="dark-plus">
+          <span>⚠️</span>{" "}
+          <span>
+            <strong>Important:</strong> You must install the{" "}
+            <code>`@vercel/postgres`</code> package as a{" "}
+            <code>`devDependency`</code> to avoid deployment issues on Vercel.
+          </span>
+        </p>
 
         <p>
           Great! 🎉, you've successfully connected your project to a Postgres
