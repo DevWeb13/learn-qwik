@@ -11,6 +11,12 @@ export default extendConfig(baseConfig, () => {
       },
       outDir: ".vercel/output/functions/_qwik-city.func",
     },
-    plugins: [vercelEdgeAdapter()],
+    plugins: [vercelEdgeAdapter({
+      ssg: {
+        include: ['/*'],
+        origin: 'https://learn-qwik.com' || 'http://localhost:5173' || 'http://localhost:4173',
+        sitemapOutFile: 'dynamic-sitemap.xml',
+     },
+    })],
   };
 });
