@@ -14,6 +14,10 @@ import { FetchDataCardsSoluce } from "./fetchDataCardsSoluce";
 import RevenueChart from "~/assets/img/revenueChart.png?jsx";
 import LatestInvoices from "~/assets/img/latestInvoices.png?jsx";
 import DashboardPageWithAllTheDataFetched from "~/assets/img/dashboard-page-with-all-the-data-fetched.png?jsx";
+import SequentialParallelDataFetching from "~/assets/img/sequential-parallel-data-fetching.avif?jsx";
+import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
+import Feedback from "~/components/UI/feedback/feedback";
+import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export const FetchingDataContent = component$(() => {
   const fetchDataCardsSoluceDisplay = useSignal(false);
@@ -37,15 +41,21 @@ export const FetchingDataContent = component$(() => {
             },
             {
               title:
-                "How server$() functions can be used to fetch data from a database.",
+                "How server$() functions can be used to interact with your database",
               icon: "server",
             },
             {
-              title: "??????????",
+              title:
+                "How routeLoader$() functions can be used to fetch data for a route",
+              icon: "relationPoint",
+            },
+            {
+              title: "What network waterfalls are.",
               icon: "waterfall",
             },
             {
-              title: "??????????",
+              title:
+                "How to implement parallel data fetching using a JavaScript Pattern.",
               icon: "twoConnectedPoints",
             },
           ]}
@@ -495,8 +505,8 @@ export default component$(() => {
         /> */}
       </div>
       <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        {/* <RevenueChart revenue={revenue} />
-        <LatestInvoices latestInvoices={latestInvoices} /> */}
+        {/* <RevenueChart revenue={revenue} /> */}
+        {/* <LatestInvoices latestInvoices={latestInvoices} /> */}
       </div>
     </main>
   );
@@ -579,22 +589,23 @@ import { SideNav } from "~/components/ui/dashboard/sidenav";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { fetchRevenue } from "~/lib/data";
 
-export const useFetchRevenue = routeLoader$(async () => {
-const revenue = await fetchRevenue();
-return revenue;
+export const useFetchData = routeLoader$(async () => {
+  return {
+    revenue: await fetchRevenue(),
+  };
 });
 
 export default component$(() => {
-return (
-  <div class="flex h-screen flex-col md:flex-row md:overflow-hidden">
-    <div class="w-full flex-none md:w-64">
-      <SideNav />
+  return (
+    <div class="flex h-screen flex-col md:flex-row md:overflow-hidden">
+      <div class="w-full flex-none md:w-64">
+        <SideNav />
+      </div>
+      <div class="flex-grow p-6 md:overflow-y-auto md:p-12">
+        <Slot />
+      </div>
     </div>
-    <div class="flex-grow p-6 md:overflow-y-auto md:p-12">
-      <Slot />
-    </div>
-  </div>
-);
+  );
 });`}
           language="tsx"
           icon="typescript"
@@ -611,16 +622,16 @@ return (
               // line and character are 0-indexed
               start: { line: 7, character: 0 },
               // end at the end of the line
-              end: { line: 10, character: 3 },
+              end: { line: 11, character: 3 },
               properties: { class: "newLine" },
             },
           ]}
         />
 
         <p>
-          In this code snippet, the <code>`useFetchRevenue()`</code> function
-          uses the <code>`routeLoader$`</code> function to fetch revenue data
-          from the database.
+          In this code snippet, the <code>`useFetchData()`</code> function uses
+          the <code>`routeLoader$`</code> function to fetch revenue data from
+          the database.
         </p>
 
         <p>
@@ -661,13 +672,13 @@ return (
           code={`// src/routes/dashboard/index.tsx
 
 import { component$ } from "@builder.io/qwik";
-import { useFetchRevenue } from "./layout";
+import { useFetchData } from "./layout";
 import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
-import { Card } from "~/components/ui/dashboard/cards";
 import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
+import { Card } from "~/components/ui/dashboard/cards";
 
 export default component$(() => {
-  const revenue = useFetchRevenue().value;
+  const { revenue } = useFetchData().value;
   // ...
 });`}
           language="tsx"
@@ -676,12 +687,12 @@ export default component$(() => {
           decorations={[
             {
               start: { line: 3, character: 0 },
-              end: { line: 3, character: 43 },
+              end: { line: 3, character: 40 },
               properties: { class: "newLine" },
             },
             {
               start: { line: 9, character: 0 },
-              end: { line: 9, character: 42 },
+              end: { line: 9, character: 43 },
               properties: { class: "newLine" },
             },
           ]}
@@ -759,14 +770,11 @@ import { SideNav } from "~/components/ui/dashboard/sidenav";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import { fetchRevenue, fetchLatestInvoices } from "~/lib/data";
 
-export const useFetchRevenue = routeLoader$(async () => {
-  const revenue = await fetchRevenue();
-  return revenue;
-});
-
-export const useFetchLatestInvoices = routeLoader$(async () => {
-  const latestInvoices = await fetchLatestInvoices();
-  return latestInvoices;
+export const useFetchData = routeLoader$(async () => {
+  return {
+    revenue: await fetchRevenue(),
+    latestInvoices: await fetchLatestInvoices(),
+  };
 });
 
 export default component$(() => {
@@ -782,8 +790,8 @@ export default component$(() => {
               properties: { class: "newLine" },
             },
             {
-              start: { line: 12, character: 0 },
-              end: { line: 15, character: 3 },
+              start: { line: 10, character: 0 },
+              end: { line: 10, character: 48 },
               properties: { class: "newLine" },
             },
           ]}
@@ -805,14 +813,13 @@ export default component$(() => {
           code={`// src/routes/dashboard/index.tsx
 
 import { component$ } from "@builder.io/qwik";
-import { useFetchRevenue, useFetchLatestInvoices } from "./layout";
+import { useFetchData } from "./layout";
 import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
-import { Card } from "~/components/ui/dashboard/cards";
 import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
+import { Card } from "~/components/ui/dashboard/cards";
 
 export default component$(() => {
-  const revenue = useFetchRevenue().value;
-  const latestInvoices = useFetchLatestInvoices().value;
+  const { revenue, latestInvoices } = useFetchData().value;
   // ...
 });`}
           language="tsx"
@@ -820,13 +827,8 @@ export default component$(() => {
           text="src/routes/dashboard/index.tsx"
           decorations={[
             {
-              start: { line: 3, character: 0 },
-              end: { line: 3, character: 67 },
-              properties: { class: "newLine" },
-            },
-            {
-              start: { line: 10, character: 0 },
-              end: { line: 10, character: 56 },
+              start: { line: 9, character: 0 },
+              end: { line: 9, character: 59 },
               properties: { class: "newLine" },
             },
           ]}
@@ -922,12 +924,13 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
               returns.
             </li>
             <li>
-              Create and export the <code>routeLoader$()</code> function to load
-              data for the route.
+              Import the <code>fetchCardData()</code> function into your{" "}
+              <code>layout.tsx</code> file and use it in the{" "}
+              <code>routeLoader$()</code>
             </li>
             <li>
-              Import and use this <code>routeLoader$()</code> to display the
-              data.
+              Use this <code>routeLoader$()</code> to display the data in your{" "}
+              <code>index.tsx</code> file.
             </li>
           </ul>
         </blockquote>
@@ -974,7 +977,183 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             class="block rounded-md border border-gray-200 bg-gray-100"
           />
         </figure>
+
+        <SubtitleWithAnchor
+          title="What are request waterfalls?"
+          id="what-are-request-waterfalls"
+        />
+
+        <p>
+          A "waterfall" refers to a sequence of network requests that depend on
+          the completion of previous requests. In the case of data fetching,
+          each request can only begin once the previous request has returned
+          data.
+        </p>
+
+        <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
+          <SequentialParallelDataFetching
+            alt="Diagram showing time with sequential data fetching and parallel data fetching"
+            class="block rounded-md border border-gray-200 bg-gray-100"
+          />
+        </figure>
+
+        <p>
+          For example, we need to wait for <code>fetchRevenue()</code> to
+          execute before <code>fetchLatestInvoices()</code> can start running,
+          and so on.
+        </p>
+
+        <CodeBlock
+          code={`export const useFetchData = routeLoader$(async () => {
+  return {
+    revenue: await fetchRevenue(),
+    latestInvoices: await fetchLatestInvoices(), // wait for fetchRevenue() to finish
+    cardData: await fetchCardData(), // wait for fetchLatestInvoices() to finish
+  };
+});`}
+          language="tsx"
+          icon="typescript"
+          text="src/routes/dashboard/layout.tsx"
+          hideLineNumbers
+        />
+
+        <p>
+          This pattern is not necessarily bad. There may be cases where you want
+          waterfalls because you want a condition to be satisfied before you
+          make the next request. For example, you might want to fetch a user's
+          ID and profile information first. Once you have the ID, you might then
+          proceed to fetch their list of friends. In this case, each request is
+          contingent on the data returned from the previous request.
+        </p>
+
+        <p>
+          However, this behavior can also be unintentional and impact
+          performance.
+        </p>
+
+        <Quiz
+          question="When might you want to use a waterfall pattern?"
+          options={[
+            {
+              text: "To satisfy a condition before making the next request",
+              isCorrect: true,
+              letter: "A",
+            },
+            {
+              text: "To make all requests simultaneously",
+              isCorrect: true,
+              letter: "B",
+            },
+            {
+              text: "To reduce the server load by doing one fetch at a time",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "To make the user wait longer for the data",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="Think about the advantages of using a waterfall pattern"
+          responseText="For example, you might want to fetch a user's ID and profile information first. Once you have the ID, you might then proceed to fetch their list of friends."
+        />
+
+        <SubtitleWithAnchor
+          title="Parallel data fetching"
+          id="parallel-data-fetching"
+        />
+
+        <p>
+          A common way to avoid waterfalls is to initiate all data requests at
+          the same time - in parallel.
+        </p>
+
+        <p>
+          In JavaScript, you can use the{" "}
+          <BlankLink
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all"
+            text="Promise.all()"
+          />{" "}
+          or{" "}
+          <BlankLink
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled"
+            text="Promise.allSettled()"
+          />{" "}
+          functions to initiate all promises at the same time. For example, in{" "}
+          <code>data.ts</code>, we're using <code>Promise.all()</code> in the{" "}
+          <code>fetchCardData()</code> function:
+        </p>
+
+        <CodeBlock
+          code={`export const fetchCardData = server$(async function () {  
+const pool = await  getPool();
+try {
+  const invoiceCountPromise = pool.query(\`SELECT COUNT(*) FROM invoices\`);
+  const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);
+  const invoiceStatusPromise = pool.query(\`SELECT
+        SUM(CASE WHEN status = 'paid' THEN amount ELSE 0 END) AS "paid",
+        SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
+        FROM invoices\`);
+
+  const data = await Promise.all([
+    invoiceCountPromise,
+    customerCountPromise,
+    invoiceStatusPromise,
+  ]);
+  // ...
+}
+});`}
+          language="typescript"
+          icon="typescript"
+          text="src/lib/data.ts"
+        />
+
+        <p>By using this pattern, you can:</p>
+
+        <ul>
+          <li>
+            Start executing all data fetches at the same time, which can lead to
+            performance gains.
+          </li>
+          <li>
+            Use a native JavaScript pattern that can be applied to any library
+            or framework.
+          </li>
+        </ul>
+
+        <p>
+          However, there is one <strong>disadvantage</strong> of relying only on
+          this JavaScript pattern: what happens if one data request is slower
+          than all the others?
+        </p>
+
+        <SubtitleWithAnchor title="Source code" id="source-code" />
+
+        <p>
+          You can find the source code for chapter 7 on{" "}
+          <BlankLink
+            href="https://github.com/DevWeb13/qwik-dashboard/tree/10-chapter-7-fetching-data"
+            text="GitHub"
+          />
+          .
+        </p>
       </div>
+
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
+        <CompletedChapter
+          chapterNumber={7}
+          text="You've learned how to fetch data from your database in Qwik."
+        />
+        <GoToNextChapterBlock
+          goToChapter={8}
+          title="Optimizing data fetching"
+          text="Learn how to optimize data fetching by parallelizing queries and relocating routeLoader$() functions."
+          disabledButton
+        />
+      </div>
+      <Feedback />
+      <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );
 });
