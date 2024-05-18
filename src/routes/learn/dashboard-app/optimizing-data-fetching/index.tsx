@@ -2,11 +2,11 @@
 
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
-import { OptimizingDataFetchContent } from "~/components/learn/dashboardApp/optimizingDataFetchContent/optimizingDataFetchContent";
+import { OptimizingDataFetchingContent } from "~/components/learn/dashboardApp/optimizingDataFetchingContent/optimizingDataFetchingContent";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 
 export default component$(() => {
-  return <OptimizingDataFetchContent />;
+  return <OptimizingDataFetchingContent />;
 });
 
 export const head: DocumentHead = createDocumentHead(
