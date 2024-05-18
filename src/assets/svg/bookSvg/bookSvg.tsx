@@ -498,7 +498,7 @@ export const BookSvg = ({ small, id }: BookSvgProps) =>
         </defs>
       </svg>
       <div class="absolute bottom-3 right-3 w-[40px]">
-        <LearnQwikLogo />
+        <LearnQwikLogo alt="Learn Qwik Logo" />
       </div>
     </>
   );
