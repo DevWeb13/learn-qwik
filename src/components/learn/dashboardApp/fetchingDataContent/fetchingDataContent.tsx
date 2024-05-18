@@ -11,13 +11,14 @@ import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
 import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 import { FetchDataCardsSoluce } from "./fetchDataCardsSoluce";
 
-import RevenueChart from "~/assets/img/revenueChart.png?jsx";
-import LatestInvoices from "~/assets/img/latestInvoices.png?jsx";
 import DashboardPageWithAllTheDataFetched from "~/assets/img/dashboard-page-with-all-the-data-fetched.png?jsx";
 import SequentialParallelDataFetching from "~/assets/img/sequential-parallel-data-fetching.avif?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+
+import RevenueChart from "~/assets/img/revenueChart.png?jsx";
+import LatestInvoices from "~/assets/img/latestInvoices.png?jsx";
 
 export const FetchingDataContent = component$(() => {
   const fetchDataCardsSoluceDisplay = useSignal(false);
@@ -1149,7 +1150,6 @@ try {
           goToChapter={8}
           title="Optimizing data fetching"
           text="Learn how to optimize data fetching by parallelizing queries and relocating routeLoader$() functions."
-          disabledButton
         />
       </div>
       <Feedback />
