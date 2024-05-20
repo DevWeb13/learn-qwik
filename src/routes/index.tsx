@@ -19,6 +19,7 @@ import MobileMenu from "~/components/mobile-menu/mobile-menu";
 // import type { CompletedChaptersType } from "~/types/completedChapters";
 import { ChaptersContext } from "./layout";
 import { findCompletedChapters } from "~/utils/findCompletedChapters";
+import { createDocumentHead } from "~/utils/createDocumentHead";
 // import type { ChapterType } from "~/types/chapterType";
 // import { findCompletedChapters } from "~/utils/findCompletedChapters";
 
@@ -528,51 +529,9 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: "Learn Qwik",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Qwik is a new way to build web applications. Start building with Qwik by learning the foundations through interactive courses and building a fully functional demo website.",
-    },
-    {
-      property: "og:title",
-      content: "Learn Qwik",
-    },
-    {
-      property: "og:description",
-      content:
-        "Accelerate your learning with Qwik's interactive courses and build a fully functional demo website.",
-    },
-    {
-      property: "og:image",
-      content: "https://www.learn-qwik.com/metaLanding.png",
-    },
-    {
-      property: "og:type",
-      content: "website",
-    },
-    {
-      property: "og:url",
-      content: "https://www.learn-qwik.com/",
-    },
-    {
-      name: "twitter:card",
-      content: "summary_large_image",
-    },
-    {
-      name: "twitter:title",
-      content: "Learn Qwik",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "Accelerate your learning with Qwik's interactive courses and build a fully functional demo website.",
-    },
-    {
-      name: "twitter:image",
-      content: "https://www.learn-qwik.com/metaLanding.png",
-    },
-  ],
-};
+export const head: DocumentHead = createDocumentHead(
+  "Learn Qwik",
+  "Qwik offers a new way to build web applications. Learn the foundations with interactive courses and create a functional demo site.",
+  "https://www.learn-qwik.com/metaLanding.png",
+  "https://www.learn-qwik.com/",
+);
