@@ -24,6 +24,7 @@ import type { ChapterType } from "~/types/chapterType";
 
 import { getCookie, initCookie, setCookie } from "~/utils/cookieManagement";
 import { Loader } from "~/components/UI/loader/loader";
+import PreFooter from "~/components/UI/PreFooter/PreFooter";
 
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
@@ -168,7 +169,10 @@ export default component$(() => {
           <Footer />
         </div>
       ) : (
-        <Footer />
+        <>
+          <PreFooter />
+          <Footer />
+        </>
       )}
     </>
   );
