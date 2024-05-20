@@ -1,6 +1,10 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
 
 export default component$(() => {
+  const loc = useLocation();
+  const href = loc.url.href;
+  console.log(loc);
   useStyles$(`
   .social-share-container {
     display: flex;
@@ -46,7 +50,7 @@ export default component$(() => {
       <p class="share-text">Share this page:</p>
       <div class="social-share-buttons">
         <a
-          href="https://www.facebook.com/sharer/sharer.php?u=https://www.learn-qwik.com"
+          href={"https://www.facebook.com/sharer/sharer.php?u=" + href}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Facebook"
@@ -71,7 +75,11 @@ export default component$(() => {
           </svg>
         </a>
         <a
-          href="https://twitter.com/intent/tweet?url=https://www.learn-qwik.com&text=Discover%20Qwik,%20a%20new%20way%20to%20build%20web%20applications!"
+          href={
+            "https://twitter.com/intent/tweet?url=" +
+            href +
+            "&text=Discover%20Qwik,%20a%20new%20way%20to%20build%20web%20applications!"
+          }
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Twitter"
@@ -90,7 +98,11 @@ export default component$(() => {
           </svg>
         </a>
         <a
-          href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.learn-qwik.com&title=Discover%20Qwik,%20a%20new%20way%20to%20build%20web%20applications!"
+          href={
+            "https://www.linkedin.com/shareArticle?mini=true&url=" +
+            href +
+            "&title=Discover%20Qwik,%20a%20new%20way%20to%20build%20web%20applications!"
+          }
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on LinkedIn"
@@ -106,7 +118,11 @@ export default component$(() => {
           </svg>
         </a>
         <a
-          href="https://pinterest.com/pin/create/button/?url=https://www.learn-qwik.com&description=Discover%20Qwik,%20a%20new%20way%20to%20build%20web%20applications!"
+          href={
+            "https://pinterest.com/pin/create/button/?url=" +
+            href +
+            "&description=Discover%20Qwik,%20a%20new%20way%20to%20build%20web%20applications!"
+          }
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Pinterest"
