@@ -52,4 +52,11 @@ export const CHAPTERS = [
     isCompleted: false,
     uri: "fetching-data",
   },
+  {
+    id: 8,
+    title: "Chapter 8: Optimizing Data Fetching",
+    description: "Learn how to optimize data fetching in Qwik.",
+    isCompleted: false,
+    uri: "optimizing-data-fetching",
+  },
 ];
