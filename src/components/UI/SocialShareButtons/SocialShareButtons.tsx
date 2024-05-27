@@ -4,7 +4,7 @@ import { useLocation } from "@builder.io/qwik-city";
 export default component$(() => {
   const loc = useLocation();
   const href = loc.url.href;
-  console.log(loc);
+
   useStyles$(`
   .social-share-container {
     display: flex;
