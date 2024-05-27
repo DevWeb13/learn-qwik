@@ -14,6 +14,7 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { Quiz } from "~/components/UI/quiz/quiz";
 
 export const OptimizingDataFetchingContent = component$(() => {
   return (
@@ -47,7 +48,7 @@ export const OptimizingDataFetchingContent = component$(() => {
           id="parallel-data-fetching"
         />
         <p>
-          With <code>routeLoaders$</code> the page is render blocking until all
+          With <code>routeLoader$</code> the page is render blocking until all
           the data is fetched. It is important to reduce the data fetching time.
           To do this, we can fetch data in parallel.
         </p>
@@ -84,6 +85,7 @@ export const OptimizingDataFetchingContent = component$(() => {
             Using multiple <code>routeLoader$</code> - One for each request.🤔
           </li>
         </ul>
+
         <SubtitleWithAnchor
           title="Multiple routeLoader$"
           id="multiple-routeloader"
@@ -272,6 +274,35 @@ export default component$(() => {
           will use <code>Promise.all()</code> to combine the three requests into
           one.
         </p>
+
+        <Quiz
+          question="What is the advantage of using multiple routeLoader$?"
+          options={[
+            {
+              text: "Improve the performance of the application",
+              isCorrect: false,
+              letter: "A",
+            },
+            {
+              text: "Separate the data based on their usage",
+              isCorrect: true,
+              letter: "B",
+            },
+            {
+              text: "Improve the user experience",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "Reduce the number of requests",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="Think about the data you need for your application."
+          responseText="The advantage of using multiple routeLoader$ is to separate the data based on their usage."
+        />
+
         <SubtitleWithAnchor title="Promise.all()" id="promise-all" level="h3" />
         <CodeBlock
           code={`// /src/routes/dashboard/layout.tsx
@@ -424,6 +455,35 @@ export default component$(() => {
             class="block rounded-md border border-gray-200 bg-gray-100 "
           />
         </figure>
+
+        <Quiz
+          question="What is the purpose of using Promise.all() in data fetching?"
+          options={[
+            {
+              text: "To execute multiple promises sequentially",
+              isCorrect: false,
+              letter: "A",
+            },
+            {
+              text: "To execute multiple promises in parallel",
+              isCorrect: true,
+              letter: "B",
+            },
+            {
+              text: "To execute only the first promise",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "To cancel all promises",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="Think about how to optimize the time taken to fetch data."
+          responseText="The purpose of using Promise.all() is to execute multiple promises in parallel."
+        />
+
         <SubtitleWithAnchor
           title="Triggering Data Requests"
           id="triggering-data-requests"
@@ -616,6 +676,34 @@ export default component$(() => {
           </p>
         </figure>
 
+        <Quiz
+          question="What happens when routeLoader$ is placed in the layout?"
+          options={[
+            {
+              text: "Data is fetched only once",
+              isCorrect: false,
+              letter: "A",
+            },
+            {
+              text: "Data is fetched every time the route is loaded",
+              isCorrect: true,
+              letter: "B",
+            },
+            {
+              text: "Data is never fetched",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "Data is fetched on client-side only",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="Consider how often the layout is loaded in a typical navigation flow."
+          responseText="When routeLoader$ is placed in the layout, data is fetched every time the route is loaded."
+        />
+
         <p>
           Congratulations 🙌, you have now optimized the data loading by passing
           them in parallel and triggering the requests only when necessary.🏆
@@ -708,6 +796,35 @@ Data fetch completed after 3 seconds.`}
           In the next chapter, you'll learn how to use streaming to optimize
           user's experience.
         </p>
+
+        <Quiz
+          question="What is the effect of simulating a slow data fetch?"
+          options={[
+            {
+              text: "The entire page load is delayed",
+              isCorrect: true,
+              letter: "A",
+            },
+            {
+              text: "Only the slow data is delayed",
+              isCorrect: false,
+              letter: "B",
+            },
+            {
+              text: "The data fetch is canceled",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "The page loads instantly",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="Think about the impact of a slow network request on page rendering."
+          responseText="Simulating a slow data fetch delays the entire page load."
+        />
+
         <SubtitleWithAnchor title="Source code" id="source-code" />
         <p>
           You can find the source code for chapter 8 on{" "}
@@ -736,9 +853,3 @@ Data fetch completed after 3 seconds.`}
     </>
   );
 });
-{
-  /* <RevenueChart
-            alt="Revenue chart showing the total revenue for the last 12 months"
-            class="block rounded-md border border-gray-200 bg-gray-100 "
-          /> */
-}
