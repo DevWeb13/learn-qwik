@@ -490,10 +490,10 @@ export default component$(() => {
         />
 
         <p>
-          // In english We placed our <code>routeLoader$</code> in the{" "}
-          <code>layout</code>, this means the request is sent every time the
-          route is loaded (and even before...). The problem here is that the
-          request will be triggered when navigating to all dashboard tabs.
+          We placed our <code>routeLoader$</code> in the <code>layout</code>,
+          this means the request is sent every time the route is loaded (and
+          even before...). The problem here is that the request will be
+          triggered when navigating to all dashboard tabs.
         </p>
 
         <p>
