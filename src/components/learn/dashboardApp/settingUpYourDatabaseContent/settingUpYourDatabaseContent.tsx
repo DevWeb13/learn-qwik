@@ -474,7 +474,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
         <p class="dark-plus">
           <span>⚠️</span>{" "}
           <span>
-            <strong>Important:</strong> You must install the{" "}
+            <strong>Attention:</strong> You must install the{" "}
             <code>`@vercel/postgres`</code> package as a{" "}
             <code>`devDependency`</code> to avoid deployment issues on Vercel.
           </span>
