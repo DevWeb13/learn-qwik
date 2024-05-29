@@ -11,7 +11,7 @@ export default component$(() => {
 
 export const head: DocumentHead = createDocumentHead(
   "Chapter 3: Optimizing Fonts and Images",
-  "Learn how to optimize fonts and images in your Qwik application to enhance performance and user experience. This chapter covers custom fonts, image optimization strategies, and best practices for reducing layout shifts.",
+  "Optimize fonts and images in your Qwik app to enhance performance. Learn about custom fonts, image strategies, and reducing layout shifts.",
   "https://www.learn-qwik.com/metaChapter3.png",
   "https://www.learn-qwik.com/learn/dashboard-app/optimizing-fonts-and-images/",
 );

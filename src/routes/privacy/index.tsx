@@ -1,5 +1,7 @@
 import { component$ } from "@builder.io/qwik";
+import { DocumentHead } from "@builder.io/qwik-city";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { createDocumentHead } from "~/utils/createDocumentHead";
 
 export default component$(() => {
   return (
@@ -749,3 +751,10 @@ export default component$(() => {
     </main>
   );
 });
+
+export const head: DocumentHead = createDocumentHead(
+  "Privacy Policy",
+  "Learn how we protect your privacy and personal data on Learn Qwik. Read our complete privacy policy for more details.",
+  "https://www.learn-qwik.com/metaDashboard.png",
+  "https://www.learn-qwik.com/learn/dashboard-app/",
+);
