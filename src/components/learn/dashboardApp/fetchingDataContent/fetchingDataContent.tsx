@@ -458,8 +458,8 @@ export const fetchCardData = server$(async function () {
         </ul>
 
         <p>
-          ⚠️ <strong>Download</strong> <code>{`utils.ts`}</code> file and place
-          it in the <code>`src/lib/`</code> folder:
+          ⚠️ <div class="font-bold">Download</div> <code>{`utils.ts`}</code>{" "}
+          file and place it in the <code>`src/lib/`</code> folder:
         </p>
 
         <ul>
@@ -636,21 +636,21 @@ export default component$(() => {
         </p>
 
         <p>
-          <strong>Route Loaders</strong> load data in the server so it becomes
+          <code>`routeLoader$`</code> load data in the server so it becomes
           available to use inside Qwik Components. They trigger when SPA/MPA
           navigation happens so they can be invoked by Qwik Components during
           rendering.
         </p>
 
         <p>
-          <strong>Route Loaders</strong> can only be declared inside the{" "}
+          <code>`routeLoader$`</code> can only be declared inside the{" "}
           <code>src/routes</code> folder, in a <code>layout.tsx</code> or{" "}
           <code>index.tsx</code>file, and they <strong>MUST</strong> be
           exported.
         </p>
 
         <p>
-          For more information on <strong>Route Loaders</strong>, check out the{" "}
+          For more information on <code>`routeLoader$`</code>, check out the{" "}
           <BlankLink
             href="https://qwik.dev/docs/route-loader/"
             text="Qwik documentation"
@@ -837,8 +837,8 @@ export default component$(() => {
 
         <p>
           ⚠️ For display user's images from latest invoices, you must{" "}
-          <strong>download</strong> <code>`customers.zip`</code> folder, unzip
-          and place them in the <code>`public`</code> folder: 👇
+          <div class="font-bold">download</div> <code>`customers.zip`</code>{" "}
+          folder, unzip and place them in the <code>`public`</code> folder: 👇
         </p>
 
         <ul>
