@@ -247,7 +247,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           As you can see the error is related to an unsupported module by
           Vercel. To resolve this issue, I found the following solution on the{" "}
           <BlankLink
-            href="https://discord.gg/ujYcpYgFW3"
+            href="https://discord.com/invite/ujYcpYgFW3"
             text="Official Qwik Discord"
           />
         </p>
@@ -338,7 +338,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
               therefore cannot explain it to you, if you yourself encounter
               deployment problems on Vercel, I advise you to join the{" "}
               <BlankLink
-                href="https://discord.gg/ujYcpYgFW3"
+                href="https://discord.com/invite/ujYcpYgFW3"
                 text="Official Qwik Discord"
               />{" "}
               and ask for help. Community members are very responsive and will
@@ -347,7 +347,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             <li>
               You can also join{" "}
               <BlankLink
-                href="https://discord.gg/cZBNKyeeNq"
+                href="https://discord.com/invite/cZBNKyeeNq"
                 text="Learn Qwik Discord"
               />
               , I would be happy to help you if I can. 😁
@@ -691,7 +691,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
               If you continue to experience issues while seeding your Vercel
               Postgres database, go to{" "}
               <BlankLink
-                href="https://discord.gg/cZBNKyeeNq"
+                href="https://discord.com/invite/cZBNKyeeNq"
                 text="Learn Qwik Discord"
               />
               .

@@ -184,9 +184,13 @@ export default component$(() => {
         <p>
           If you have questions about this course or would like to provide
           feedback, you can ask our community on{" "}
-          <BlankLink href="https://discord.gg/XzMucY7756" text="Discord" /> or{" "}
           <BlankLink
-            href="https://github.com/DevWeb13/learn-qwik"
+            href="https://discord.com/invite/XzMucY7756"
+            text="Discord"
+          />{" "}
+          or{" "}
+          <BlankLink
+            href="https://github.com/DevWeb13/learn-qwik/"
             text="GitHub"
           />
           .

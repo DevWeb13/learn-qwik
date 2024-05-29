@@ -355,7 +355,7 @@ export const NavLinks = component$(() => {
           <code>console.log("pathname", pathname);</code> you will see that the
           pathname is not the same as the link href. This is because the
           pathname finish with a "/" and the link href doesn't. To fix this, you
-          can for exemple delete the "/" from the end of the pathname:
+          can for example delete the "/" from the end of the pathname:
         </p>
         <CodeBlock
           code={`// src/components/ui/dashboard/nav-links.tsx
