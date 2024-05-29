@@ -2,15 +2,15 @@ export const CHAPTERS = [
   {
     id: 1,
     title: "Chapter 1: Getting Started",
-    description: "Dive into the course materials",
+    description:
+      "Create a new Qwik application using the dashboard starter example and explore the project.",
     isCompleted: false,
     uri: "getting-started",
   },
   {
     id: 2,
     title: "Chapter 2: CSS Styling",
-    description:
-      "Let's work on your home page and discuss the different ways you can style your application.",
+    description: "Style your Qwik application with Tailwind and CSS modules.",
     isCompleted: false,
     uri: "css-styling",
   },
@@ -41,7 +41,8 @@ export const CHAPTERS = [
   {
     id: 6,
     title: "Chapter 6: Setting Up Your Database",
-    description: "Pick up where you left off.",
+    description:
+      "Setup a database for your application and seed it with initial data.",
     isCompleted: false,
     uri: "setting-up-your-database",
   },

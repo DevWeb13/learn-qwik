@@ -585,6 +585,11 @@ svg rect {
   --tw-shadow-colored: var(--ds-shadow-border-medium);
 }
 
+.shadow-sm {
+  --tw-shadow: var(--ds-shadow-border-small);
+  --tw-shadow-colored: var(--ds-shadow-border-small);
+}
+
 .prose :where(h2):not(:where([class~="not-prose"] *)) {
   color: var(--tw-prose-headings);
   font-weight: 700;
