@@ -45,7 +45,7 @@ export default component$<ProgressCircleProps>(
           </div>
         )}
         <div
-          class={`ml-auto mr-2 ${responsive === "smallOnly" ? "" : "lg:hidden"} ${responsive === "largeOnly" ? "hidden" : ""}`}
+          class={`mr-2 ${responsive === "smallOnly" ? "" : "lg:hidden"} ${responsive === "largeOnly" ? "hidden" : ""}`}
         >
           <div
             class="gauge_circle gauge_animate"

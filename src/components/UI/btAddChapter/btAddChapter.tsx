@@ -89,7 +89,7 @@ export default component$<BtAddChapterProps>(
                 ? "Start Chapter" + " " + goToChapter.toString()
                 : "Start Learning"
             }
-            class="button_base reset_reset button_button  button_large button_invert"
+            class="button_base reset_reset button_button  button_large button_invert "
             data-geist-button=""
             data-prefix="false"
             data-suffix="true"
