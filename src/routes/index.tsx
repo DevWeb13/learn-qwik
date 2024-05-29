@@ -585,7 +585,7 @@ export default component$(() => {
         </div>
         <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <ChapterThumbnail
-            href="/learn/dashboard-app"
+            href="/learn/dashboard-app/"
             numberOrIcon="circleWithISvg"
             title="Getting Started"
             description="Learn how to build a full-stack web application with the free, Qwik App Course."
@@ -593,7 +593,7 @@ export default component$(() => {
           {chapters.value.map((chapter) => (
             <ChapterThumbnail
               key={chapter.id}
-              href={`/learn/dashboard-app/${chapter.uri}`}
+              href={`/learn/dashboard-app/${chapter.uri}/`}
               numberOrIcon={chapter.id.toString()}
               title={chapter.title}
               description={chapter.description}
