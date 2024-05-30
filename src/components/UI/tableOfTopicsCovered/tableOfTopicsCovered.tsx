@@ -23,6 +23,7 @@ import { ServerSvg } from "~/assets/svg/serverSvg";
 import { WaterfallSvg } from "~/assets/svg/waterfallSvg";
 import { TwoConnectedPointsSvg } from "~/assets/svg/twoConnectedPointsSvg";
 import { ClockSvg } from "~/assets/svg/clockSvg";
+import { SkeletonSvg } from "~/assets/svg/skeletonSvg";
 
 type TopicType = {
   title: string;
@@ -36,6 +37,8 @@ interface TableOfTopicsCoveredProps {
 export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   const displayIcon = (icon: string) => {
     switch (icon) {
+      case "skeleton":
+        return <SkeletonSvg />;
       case "clock":
         return <ClockSvg />;
       case "twoConnectedPoints":
