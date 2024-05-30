@@ -60,4 +60,11 @@ export const CHAPTERS = [
     isCompleted: false,
     uri: "optimizing-data-fetching",
   },
+  {
+    id: 9,
+    title: "Chapter 9: Streaming",
+    description: "Learn how to stream data in Qwik.",
+    isCompleted: false,
+    uri: "streaming",
+  },
 ];
