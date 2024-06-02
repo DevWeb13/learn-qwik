@@ -394,6 +394,34 @@ export default component$(() => {
           page layout before the data is ready.
         </p>
 
+        <Quiz
+          question="What is the purpose of the onPending callback?"
+          options={[
+            {
+              text: "To display a loading message while the data is being fetched.",
+              isCorrect: true,
+              letter: "A",
+            },
+            {
+              text: "To display an error message if there is an error fetching the data.",
+              isCorrect: false,
+              letter: "B",
+            },
+            {
+              text: "To render the components when the data is successfully fetched.",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "To render the components before the data is ready.",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="It is called while the data is being fetched."
+          responseText="The onPending callback is called while the data is being fetched."
+        />
+
         <p>
           The most observant will have noticed that the <code>onPending</code>,
           which should display a loading message, does not work. This is because
@@ -428,6 +456,212 @@ export default component$(() => {
           title="How to implement streaming with useResource$() and <Resource />"
           id="how-to-implement-streaming-with-useResource-and-resource"
         />
+
+        <p>
+          In this section, we will see how to implement streaming with{" "}
+          <BlankLink
+            href="https://qwik.dev/docs/components/state/#useresource"
+            text="useResource$()"
+          />{" "}
+          and <code>&lt;Resource /&gt;</code>.
+        </p>
+
+        <p>
+          We will use the same example as before, but this time we will use{" "}
+          <code>useResource$()</code> instead of <code>routeLoader$()</code>.
+        </p>
+
+        <p>
+          In our <code>src/routes/dashboard/index.tsx</code> file, we will
+          replace the current <code>routeLoader$</code> with a{" "}
+          <code>useResource$</code> that works with{" "}
+          <code>&lt;Resource /&gt;</code>.
+        </p>
+
+        <CodeBlock
+          code={`// src/routes/dashboard/index.tsx
+
+import { Resource, component$, useResource$ } from "@builder.io/qwik";
+import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
+import { Card } from "~/components/ui/dashboard/cards";
+import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
+import { routeLoader$ } from "@builder.io/qwik-city";
+import { fetchCardData, fetchLatestInvoices, fetchRevenue } from "~/lib/data";
+
+export const useFetchData = routeLoader$(() => {
+  return async () => {
+    const [revenue, latestInvoices, cardData] = await Promise.all([
+      fetchRevenue(),
+      fetchLatestInvoices(),
+      fetchCardData(),
+    ]);
+    return { revenue, latestInvoices, cardData };
+  };
+});
+
+export default component$(() => {
+  const data = useFetchData();
+
+  const dataResource = useResource$(async ({ cleanup }) => {
+    // A good practice is to use \`AbortController\` to abort the fetching of data if
+    // new request comes in. We create a new \`AbortController\` and register a \`cleanup\`
+    // function which is called when this function re-runs.
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    const [revenue, latestInvoices, cardData] = await Promise.all([
+      fetchRevenue(),
+      fetchLatestInvoices(),
+      fetchCardData(),
+    ]);
+    return { revenue, latestInvoices, cardData };
+  });
+
+  return (
+    <main>
+      <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
+      <Resource
+        value={dataResource}
+        onResolved={({ revenue, latestInvoices, cardData }) => {
+          const {
+            totalPaidInvoices,
+            totalPendingInvoices,
+            numberOfInvoices,
+            numberOfCustomers,
+          } = cardData;
+          return (
+            <>
+              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <Card
+                  title="Collected"
+                  value={totalPaidInvoices}
+                  type="collected"
+                />
+                <Card
+                  title="Pending"
+                  value={totalPendingInvoices}
+                  type="pending"
+                />
+                <Card
+                  title="Total Invoices"
+                  value={numberOfInvoices}
+                  type="invoices"
+                />
+                <Card
+                  title="Total Customers"
+                  value={numberOfCustomers}
+                  type="customers"
+                />
+              </div>
+              <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+                <RevenueChart revenue={revenue} />
+                <LatestInvoices latestInvoices={latestInvoices} />
+              </div>
+            </>
+          );
+        }}
+        onRejected={(error) => {
+          return <div>Error: {error.message}</div>;
+        }}
+        onPending={() => {
+          return <div>Loading...</div>;
+        }}
+      />
+    </main>
+  );
+});`}
+          icon="typescript"
+          language="tsx"
+          decorations={[
+            {
+              start: { line: 2, character: 0 },
+              end: { line: 2, character: 70 },
+              properties: { class: "newLine" },
+            },
+            {
+              start: { line: 6, character: 0 },
+              end: { line: 6, character: 53 },
+              properties: { class: "deleteLine" },
+            },
+            {
+              start: { line: 9, character: 0 },
+              end: { line: 18, character: 3 },
+              properties: { class: "deleteLine" },
+            },
+            {
+              start: { line: 21, character: 0 },
+              end: { line: 21, character: 30 },
+              properties: { class: "deleteLine" },
+            },
+            {
+              start: { line: 23, character: 0 },
+              end: { line: 36, character: 5 },
+              properties: { class: "newLine" },
+            },
+            {
+              start: { line: 42, character: 0 },
+              end: { line: 42, character: 28 },
+              properties: { class: "newLine" },
+            },
+          ]}
+        />
+
+        <p>
+          Unlike <code>routeLoader$()</code>, <code>onPending</code> and{" "}
+          <code>onRejected</code> are supported with <code>useResource$()</code>{" "}
+          and <code>&lt;Resource /&gt;</code>.<br />
+          <strong>Note: </strong>Works only in SPA navigation (with the{" "}
+          <code>{`<Link />`}</code> component).👇
+        </p>
+
+        <figure class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3 pt-8">
+          <video
+            autoplay
+            controls
+            height="510"
+            loop
+            muted
+            poster="/img/displayOnPendingWithUseResourcePoster.png"
+            width="658"
+          >
+            <source
+              src="/videos/displayOnPendingWithUseResource.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <p class=" text-sm">
+            Display the onPending callback (Loading...) in SPA navigation mode
+            when the data is being fetched.
+          </p>
+        </figure>
+
+        <blockquote class="p-3 pt-5 text-sm">
+          <p>
+            <strong>Note:</strong> As specified in the{" "}
+            <BlankLink
+              href="https://qwik.dev/docs/components/state/#useresource/"
+              text="documentation officielle de Qwik"
+            />{" "}
+            : "Fetching data as part of Server-Side Rendering (SSR) is a common
+            and preferred method of data loading, typically handled by the{" "}
+            <BlankLink
+              href="https://qwik.dev/docs/route-loader/"
+              text="routeLoader$()"
+            />
+            API. <code>useResource$</code> is more of a low-level API that is
+            useful when you want to fetch data in the browser."
+          </p>
+        </blockquote>
+
+        <p>
+          Again, all this will depend on your needs and your context of use.🤔
+        </p>
+
+        <p>
+          Congratulations! You've just implemented streaming. But we can do more
+          to improve the user experience. Let's show a loading skeleton instead
+          of the <code>Loading…</code> text.
+        </p>
       </div>
     </>
   );
