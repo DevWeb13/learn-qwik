@@ -16,11 +16,13 @@ export const StreamingContent = component$(() => {
     <>
       <div class="prose prose-vercel max-w-none">
         <PageTitle chapterNumber={9} chapterTitle="Streaming" />
+
         <p>
           In the previous chapter, we discussed how the slow data fetches can
           impact the performance of your application. Let's look at how you can
           improve the user experience when there are slow data requests.
         </p>
+
         <TableOfTopicsCovered
           topics={[
             {
@@ -287,6 +289,7 @@ export default component$(() => {
 });`}
           icon="typescript"
           language="tsx"
+          text="src/routes/dashboard/index.tsx"
           decorations={[
             {
               start: { line: 2, character: 0 },
@@ -327,6 +330,7 @@ export default component$(() => {
         />
 
         <p>Here are some key points about this code:</p>
+
         <ul>
           <li>
             <p>
@@ -395,31 +399,31 @@ export default component$(() => {
         </p>
 
         <Quiz
-          question="What is the purpose of the onPending callback?"
+          question="Which Qwik component is used to handle streaming and manage loading states?"
           options={[
             {
-              text: "To display a loading message while the data is being fetched.",
+              text: "<Resource />",
               isCorrect: true,
               letter: "A",
             },
             {
-              text: "To display an error message if there is an error fetching the data.",
+              text: "<Suspense />",
               isCorrect: false,
               letter: "B",
             },
             {
-              text: "To render the components when the data is successfully fetched.",
+              text: "<Loader />",
               isCorrect: false,
               letter: "C",
             },
             {
-              text: "To render the components before the data is ready.",
+              text: "<Streaming />",
               isCorrect: false,
               letter: "D",
             },
           ]}
-          hint="It is called while the data is being fetched."
-          responseText="The onPending callback is called while the data is being fetched."
+          hint="It's a special Qwik component designed to manage data loading."
+          responseText="The correct answer is '<Resource />'. This component is used to handle streaming and manage loading states in Qwik."
         />
 
         <p>
@@ -572,6 +576,7 @@ export default component$(() => {
 });`}
           icon="typescript"
           language="tsx"
+          text="src/routes/dashboard/index.tsx"
           decorations={[
             {
               start: { line: 2, character: 0 },
@@ -662,6 +667,218 @@ export default component$(() => {
           to improve the user experience. Let's show a loading skeleton instead
           of the <code>Loading…</code> text.
         </p>
+
+        <Quiz
+          question="What is the purpose of the onPending callback?"
+          options={[
+            {
+              text: "To display a loading message while the data is being fetched.",
+              isCorrect: true,
+              letter: "A",
+            },
+            {
+              text: "To display an error message if there is an error fetching the data.",
+              isCorrect: false,
+              letter: "B",
+            },
+            {
+              text: "To render the components when the data is successfully fetched.",
+              isCorrect: false,
+              letter: "C",
+            },
+            {
+              text: "To render the components before the data is ready.",
+              isCorrect: false,
+              letter: "D",
+            },
+          ]}
+          hint="It is called while the data is being fetched."
+          responseText="The onPending callback is called while the data is being fetched."
+        />
+
+        <SubtitleWithAnchor
+          title="Adding loading skeletons 💀"
+          id="adding-loading-skeletons"
+        />
+
+        <p>
+          A loading skeleton is a simplified version of the UI. Many websites
+          use them as a placeholder (or fallback) to indicate to users that the
+          content is loading.
+        </p>
+
+        <p>
+          ⚠️ <strong>Download</strong> <code>{`skeletons.tsx`}</code> file and
+          place it in the <code>`src/components/ui/`</code> folder:
+        </p>
+
+        <ul>
+          <li>
+            <a href="/downloads/skeletons.tsx" download="skeletons.tsx">
+              <code>skeletons.tsx 💾</code>
+            </a>
+          </li>
+        </ul>
+
+        <p>
+          In our <code>src/global.css</code> file, add the animation for the
+          loading skeleton:
+        </p>
+
+        <CodeBlock
+          code={`/* src/global.css */
+// ...
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.before\\:animate-\\[shimmer_2s_infinite\\]::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}`}
+          hideLineNumbers
+          icon="css"
+          language="css"
+          text="src/global.css"
+        />
+
+        <p>
+          In our <code>src/routes/dashboard/index.tsx</code> file, we will
+          replace the <code>Loading…</code> text with a loading skeleton.
+        </p>
+
+        <CodeBlock
+          code={`// src/routes/dashboard/index.tsx
+
+import { Resource, component$, useResource$ } from "@builder.io/qwik";
+import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
+import { Card } from "~/components/ui/dashboard/cards";
+import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
+import { fetchCardData, fetchLatestInvoices, fetchRevenue } from "~/lib/data";
+import { DashboardSkeleton } from "~/components/ui/skeletons";
+
+export default component$(() => {
+  const dataResource = useResource$(async ({ cleanup }) => {
+    // A good practice is to use \`AbortController\` to abort the fetching of data if
+    // new request comes in. We create a new \`AbortController\` and register a \`cleanup\`
+    // function which is called when this function re-runs.
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    const [revenue, latestInvoices, cardData] = await Promise.all([
+      fetchRevenue(),
+      fetchLatestInvoices(),
+      fetchCardData(),
+    ]);
+    return { revenue, latestInvoices, cardData };
+  });
+
+  return (
+    <main>
+      <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
+      <Resource
+        value={dataResource}
+        onResolved={({ revenue, latestInvoices, cardData }) => {
+          const {
+            totalPaidInvoices,
+            totalPendingInvoices,
+            numberOfInvoices,
+            numberOfCustomers,
+          } = cardData;
+          return (
+            <>
+              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <Card
+                  title="Collected"
+                  value={totalPaidInvoices}
+                  type="collected"
+                />
+                <Card
+                  title="Pending"
+                  value={totalPendingInvoices}
+                  type="pending"
+                />
+                <Card
+                  title="Total Invoices"
+                  value={numberOfInvoices}
+                  type="invoices"
+                />
+                <Card
+                  title="Total Customers"
+                  value={numberOfCustomers}
+                  type="customers"
+                />
+              </div>
+              <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+                <RevenueChart revenue={revenue} />
+                <LatestInvoices latestInvoices={latestInvoices} />
+              </div>
+            </>
+          );
+        }}
+        onRejected={(error) => {
+          return <div>Error: {error.message}</div>;
+        }}
+        onPending={() => {
+          return <DashboardSkeleton />;
+        }}
+      />
+    </main>
+  );
+});`}
+          icon="typescript"
+          language="tsx"
+          text="src/routes/dashboard/index.tsx"
+          decorations={[
+            {
+              start: { line: 7, character: 0 },
+              end: { line: 7, character: 62 },
+              properties: { class: "newLine" },
+            },
+            {
+              start: { line: 72, character: 0 },
+              end: { line: 72, character: 39 },
+              properties: { class: "newLine" },
+            },
+          ]}
+        />
+
+        <p>
+          Now, when the data is being fetched, the loading skeleton ☠️ will be
+          displayed instead of the <code>Loading…</code> text.👇
+        </p>
+
+        <figure class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3 pt-8">
+          <video
+            autoplay
+            controls
+            height="510"
+            loop
+            muted
+            poster="/img/displayDashboardSkeletonLoadingPoster.png"
+            width="658"
+          >
+            <source
+              src="/videos/displayDashboardSkeletonLoading.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <p class=" text-sm">
+            Display the loading skeleton when the data is being fetched.
+          </p>
+        </figure>
       </div>
     </>
   );
