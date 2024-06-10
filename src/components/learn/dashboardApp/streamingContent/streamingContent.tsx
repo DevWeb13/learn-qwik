@@ -1,17 +1,23 @@
 // src/components/learn/dashboardApp/streamingContent/streaming.tsx
 
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-
-import WhatIsStreamingImg from "~/assets/img/whatIsStreaming.png?jsx";
-import { Link } from "@builder.io/qwik-city";
 import { Quiz } from "~/components/UI/quiz/quiz";
+import { LatestInvoicesSoluce } from "./latestInvoicesSoluce";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 
+import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
+import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
+
+import WhatIsStreamingImg from "~/assets/img/whatIsStreaming.png?jsx";
+
 export const StreamingContent = component$(() => {
+  const latestInvoicesSoluce = useSignal(false);
+
   return (
     <>
       <div class="prose prose-vercel max-w-none">
@@ -1160,6 +1166,54 @@ export const fetchRevenue = server$(async function () {
               properties: { class: "deleteLine" },
             },
           ]}
+        />
+
+        <SubtitleWithAnchor
+          title="Practice: Streaming <LatestInvoices>"
+          id="practice-streaming-latest-invoices"
+          level="h3"
+        />
+
+        <p>
+          Now it's your turn! Practice what you've just learned by streaming the{" "}
+          <code>&lt;LatestInvoices&gt;</code> component.
+        </p>
+
+        <p>
+          Move the data fetching and display logic from the{" "}
+          <code>src/routes/dashboard/index.tsx</code> file to the{" "}
+          <code>src/components/ui/dashboard/latest-invoices.tsx</code> file.
+        </p>
+
+        <p>Once you're ready, expand the toggle to see the solution code:</p>
+
+        <div class="bg-vercel-200 -mx-5 mb-8 p-[21px] md:-mx-[62px] md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
+          <button
+            class="button_base reset_reset button_button  geist-new-themed geist-new-button geist-new-button-fill button_invert"
+            data-geist-button=""
+            data-prefix="true"
+            data-suffix="false"
+            data-version="v1"
+            style="--geist-icon-size: 16px;"
+            onClick$={() =>
+              (latestInvoicesSoluce.value = !latestInvoicesSoluce.value)
+            }
+          >
+            <span class="button_prefix">
+              {latestInvoicesSoluce.value ? <EyeBarredSvg /> : <EyeSvg />}
+            </span>
+            <span class="button_content">
+              {latestInvoicesSoluce.value
+                ? "Hide the solution"
+                : "Reveal the solution"}
+            </span>
+          </button>
+          {latestInvoicesSoluce.value && <LatestInvoicesSoluce />}
+        </div>
+
+        <SubtitleWithAnchor
+          title="Grouping components"
+          id="grouping-components"
         />
       </div>
     </>
