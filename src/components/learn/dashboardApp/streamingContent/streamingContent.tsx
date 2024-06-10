@@ -879,6 +879,288 @@ export default component$(() => {
             Display the loading skeleton when the data is being fetched.
           </p>
         </figure>
+
+        <SubtitleWithAnchor
+          title="Streaming a component"
+          id="streaming-a-component"
+          level="h3"
+        />
+
+        <p>
+          So far, you're streaming a whole page. But you can also be more
+          granular and stream specific components using{" "}
+          <code>{"<Resources />"}</code>.
+        </p>
+
+        <p>
+          If you remember the slow data request, <code>fetchRevenue()</code>,
+          this is the request that is slowing down the whole page. Instead of
+          blocking your whole page, you can use <code>{"<Resources />"}</code>{" "}
+          to stream only this component and immediately show the rest of the
+          page's UI.
+        </p>
+
+        <p>
+          To do so, you'll need to move the data fetch to the component, let's
+          update the code to see what that'll look like:
+        </p>
+
+        <p>
+          Delete all instances of <code>fetchRevenue()</code> and its data from{" "}
+          <code>src/routes/dashboard/index.tsx</code>: 👇
+        </p>
+
+        <CodeBlock
+          code={`// src/routes/dashboard/index.tsx
+
+import { Resource, component$, useResource$ } from "@builder.io/qwik";
+import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
+import { Card } from "~/components/ui/dashboard/cards";
+import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
+import { fetchCardData, fetchLatestInvoices } from "~/lib/data";
+import { DashboardSkeleton } from "~/components/ui/skeletons";
+
+export default component$(() => {
+  const dataResource = useResource$(async ({ cleanup }) => {
+    const [latestInvoices, cardData] = await Promise.all([
+      fetchLatestInvoices(),
+      fetchCardData(),
+    ]);
+    return { latestInvoices, cardData };
+  });
+
+  return (
+    <main>
+      <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
+      <Resource
+        value={dataResource}
+        onResolved={({ latestInvoices, cardData }) => {
+          const {
+            totalPaidInvoices,
+            totalPendingInvoices,
+            numberOfInvoices,
+            numberOfCustomers,
+          } = cardData;
+          return (
+            <>
+              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <Card
+                  title="Collected"
+                  value={totalPaidInvoices}
+                  type="collected"
+                />
+                <Card
+                  title="Pending"
+                  value={totalPendingInvoices}
+                  type="pending"
+                />
+                <Card
+                  title="Total Invoices"
+                  value={numberOfInvoices}
+                  type="invoices"
+                />
+                <Card
+                  title="Total Customers"
+                  value={numberOfCustomers}
+                  type="customers"
+                />
+              </div>
+              <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+                <RevenueChart />
+                <LatestInvoices latestInvoices={latestInvoices} />
+              </div>
+            </>
+          );
+        }}
+        onRejected={(error) => {
+          return <div>Error: {error.message}</div>;
+        }}
+        onPending={() => {
+          return <DashboardSkeleton />;
+        }}
+      />
+    </main>
+  );
+});`}
+          icon="typescript"
+          language="tsx"
+          text="src/routes/dashboard/index.tsx"
+        />
+
+        <p>
+          Now, we will reuse <code>{"useResource$()"}</code> and{" "}
+          <code>{"<Resource />"}</code> inside our{" "}
+          <code>{"<RevenueChart />"}</code> component.
+        </p>
+
+        <p>
+          We use <code>{"<RevenueChartSkeleton />"}</code> to display a loading
+          revenue chart skeleton while the data is being fetched.
+        </p>
+
+        <CodeBlock
+          code={`// src/components/ui/dashboard/revenue-chart.tsx
+
+import { generateYAxis } from "~/lib/utils";
+import { HiCalendarOutline } from "@qwikest/icons/heroicons";
+import { Resource, component$, useResource$ } from "@builder.io/qwik";
+import { fetchRevenue } from "~/lib/data";
+import { RevenueChartSkeleton } from "~/components/ui/skeletons";
+
+export const RevenueChart = component$(() => {
+  const revenueResource = useResource$(async ({ cleanup }) => {
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    const revenue = await fetchRevenue();
+    return { revenue };
+  });
+
+  return (
+    <Resource
+      value={revenueResource}
+      onResolved={({ revenue }) => {
+        const chartHeight = 350;
+        const { yAxisLabels, topLabel } = generateYAxis(revenue);
+
+        if (revenue.length === 0) {
+          return <p class="mt-4 text-gray-400">No data available.</p>;
+        }
+        return (
+          <div class="w-full md:col-span-4">
+            <h2 class="lusitana mb-4 text-xl md:text-2xl">Recent Revenue</h2>
+
+            <div class="rounded-xl bg-gray-50 p-4">
+              <div class=" mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 sm:grid-cols-13 md:gap-4">
+                <div
+                  class="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
+                  style={{ height: \`\${chartHeight}px\` }}
+                >
+                  {yAxisLabels.map((label) => (
+                    <p key={label}>{label}</p>
+                  ))}
+                </div>
+
+                {revenue.map((month) => (
+                  <div
+                    key={month.month}
+                    class="flex flex-col items-center gap-2"
+                  >
+                    <div
+                      class="w-full rounded-md bg-blue-300"
+                      style={{
+                        height: \`\${(chartHeight / topLabel) * month.revenue}px\`,
+                      }}
+                    ></div>
+                    <p class="-rotate-90 text-sm text-gray-400 sm:rotate-0">
+                      {month.month}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <div class="flex items-center pb-2 pt-6">
+                <HiCalendarOutline class="h-5 w-5 text-gray-500" />
+                <h3 class="ml-2 text-sm text-gray-500 ">Last 12 months</h3>
+              </div>
+            </div>
+          </div>
+        );
+      }}
+      onRejected={(error) => {
+        return <div>Error: {error.message}</div>;
+      }}
+      onPending={() => {
+        return <RevenueChartSkeleton />;
+      }}
+    />
+  );
+});`}
+          icon="typescript"
+          language="tsx"
+          text="src/components/ui/dashboard/revenue-chart.tsx"
+        />
+
+        <p>
+          Now, the <code>{"<RevenueChart />"}</code> component fetches its own
+          data and display it dynamically according to the loading state
+          independently. 🚀
+        </p>
+
+        <p>Show result in the browser and see the difference: 👇</p>
+
+        <figure class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3 pt-8">
+          <video
+            autoplay
+            controls
+            height="510"
+            loop
+            muted
+            poster="/img/displayRevenueChartIndependently.png"
+            width="658"
+          >
+            <source
+              src="/videos/displayRevenueChartIndependently.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <p class=" text-sm">
+            The <code>{"<RevenueChart />"}</code> component fetches its own data
+            and displays it dynamically according to the loading state
+            independently.
+          </p>
+        </figure>
+
+        <p>
+          Now, you can remove the intentionnal delay in the{" "}
+          <code>fetchRevenue()</code> function in the{" "}
+          <code>src/lib/data.ts</code> file.👇
+        </p>
+
+        <CodeBlock
+          code={`// src/lib/data.ts
+
+// ...
+
+export const fetchRevenue = server$(async function () {
+  // Open a new connection
+  const pool = await getPool();
+  try {
+    // We artificially delay a response for demo purposes.
+    // Don't do this in production :)
+    console.log('Fetching revenue data...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    
+    const { rows } = await pool.query<Revenue>('SELECT * FROM revenue');
+
+    console.log('Data fetch completed after 3 seconds.');
+
+    // Close the connection
+    await pool.end();
+    return rows;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch revenue data: ' + (error as Error).message);
+  }
+});
+
+// ...`}
+          icon="typescript"
+          language="tsx"
+          text="src/lib/data.ts"
+          hideLineNumbers
+          decorations={[
+            {
+              start: { line: 8, character: 0 },
+              end: { line: 11, character: 62 },
+              properties: { class: "deleteLine" },
+            },
+            {
+              start: { line: 15, character: 0 },
+              end: { line: 15, character: 57 },
+              properties: { class: "deleteLine" },
+            },
+          ]}
+        />
       </div>
     </>
   );
