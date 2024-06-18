@@ -16,6 +16,7 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
     if (pathname.includes("setting-up-your-database")) return "5";
     if (pathname.includes("fetching-data")) return "6";
     if (pathname.includes("optimizing-data-fetching")) return "7";
+    if (pathname.includes("streaming")) return "8";
     return "Introduction";
   },
 );

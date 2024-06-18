@@ -458,8 +458,8 @@ export const fetchCardData = server$(async function () {
         </ul>
 
         <p>
-          ⚠️ <div class="font-bold">Download</div> <code>{`utils.ts`}</code>{" "}
-          file and place it in the <code>`src/lib/`</code> folder:
+          ⚠️ <strong>Download</strong> <code>{`utils.ts`}</code> file and place
+          it in the <code>`src/lib/`</code> folder:
         </p>
 
         <ul>

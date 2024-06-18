@@ -845,7 +845,6 @@ Data fetch completed after 3 seconds.`}
           goToChapter={9}
           title="Streaming"
           text="Learn how to improve your user's experience by adding streaming."
-          disabledButton
         />
       </div>
       <Feedback />
