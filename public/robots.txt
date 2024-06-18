@@ -1,4 +1,6 @@
 User-agent: *
+Disallow: /downloads/
+
 Allow: /
- 
+
 Sitemap: https://www.learn-qwik.com/dynamic-sitemap.xml

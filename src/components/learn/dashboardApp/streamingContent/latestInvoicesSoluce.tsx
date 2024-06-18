@@ -78,6 +78,9 @@ export default component$(() => {
     </main>
   );
 });`}
+        icon="typescript"
+        language="tsx"
+        text="src/routes/dashboard/index.tsx"
       />
 
       <p>
@@ -91,7 +94,7 @@ export default component$(() => {
 import { Resource, component$, useResource$ } from "@builder.io/qwik";
 import { HiArrowPathOutline } from "@qwikest/icons/heroicons";
 import { fetchLatestInvoices } from "~/lib/data";
-import { InvoiceSkeleton } from "~/components/ui/skeletons";
+import { LatestInvoicesSkeleton } from "~/components/ui/skeletons";
 
 export const LatestInvoices = component$(() => {
   const latestInvoicesResource = useResource$(async ({ cleanup }) => {
@@ -157,11 +160,14 @@ export const LatestInvoices = component$(() => {
         return <div>Error: {error.message}</div>;
       }}
       onPending={() => {
-        return <InvoiceSkeleton />;
+        return <LatestInvoicesSkeleton />;
       }}
     />
   );
 });`}
+        icon="typescript"
+        language="tsx"
+        text="src/components/ui/dashboard/latest-invoices.tsx"
       />
     </>
   );
