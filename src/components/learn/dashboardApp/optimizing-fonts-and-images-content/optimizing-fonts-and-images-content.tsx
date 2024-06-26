@@ -754,8 +754,8 @@ export default component$(() => {
         />
 
         <p>
-          There's a lot more to learn about these topics. If you'd like to dive
-          deeper into fonts and images, see:{" "}
+          Continue your exploration of these important topics with the following
+          selected resources for additional depth:
         </p>
 
         <ul>

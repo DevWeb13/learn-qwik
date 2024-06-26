@@ -425,9 +425,10 @@ const pathname = url.pathname.replace(/\\/$/, "");
           id="recommended reading"
         />
         <p>
-          There's a lot more to learn about these topics. If you'd like to dive
-          a little deeper, check out the following resources:{" "}
+          Interested in learning more about these areas? Below are some helpful
+          resources to enhance your understanding:
         </p>
+
         <ul>
           <li>
             <BlankLink

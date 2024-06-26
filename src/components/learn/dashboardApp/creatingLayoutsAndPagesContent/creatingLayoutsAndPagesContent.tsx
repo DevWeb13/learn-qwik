@@ -562,8 +562,9 @@ export default component$(() => {
         />
 
         <p>
-          There's a lot more to learn about these topics. If you'd like to dive
-          a little deeper, check out the following resources:{" "}
+          Explore further insights on these themes. If you're keen to deepen
+          your knowledge, the resources listed below provide valuable
+          information:
         </p>
 
         <ul>
