@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { DocumentHead } from "@builder.io/qwik-city";
+import type { DocumentHead } from "@builder.io/qwik-city";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 
@@ -12,7 +12,14 @@ export default component$(() => {
           style="min-height: calc(100vh - 103px);"
         >
           <div class="prose prose-vercel max-w-none">
-            <PageTitle chapterNumber={0} chapterTitle="Legal notice RGPD" />
+            <PageTitle chapterNumber={0} chapterTitle="Privacy Policy" />
+            <p>
+              Welcome to our Privacy Policy page! At Learn Qwik, we are
+              committed to protecting your privacy and ensuring that your
+              personal data is handled safely and responsibly. This policy
+              outlines our practices regarding the collection, use, and
+              protection of your information.
+            </p>
             <h2>Definitions</h2>
             <p>
               <b>Client:</b> any professional or capable individual according to
@@ -53,6 +60,13 @@ export default component$(() => {
               The terms "personal data", "data subject", "processor", and
               "sensitive data" have the meanings defined by the General Data
               Protection Regulation (GDPR: No. 2016-679)
+            </p>
+            <h2>How We Use Your Information</h2>
+            <p>
+              This section of our Privacy Policy explains how we use the
+              information we collect from you when you use our services. We take
+              your privacy seriously and only process your personal data in
+              accordance with this policy.
             </p>
             <h2>1. Presentation of the website.</h2>
             <p>
@@ -744,6 +758,13 @@ export default component$(() => {
               is subject to French law. Except in cases where the law does not
               permit it, exclusive jurisdiction is granted to the competent
               courts of Marseille
+            </p>
+            <h2>Summary of Our Privacy Policy</h2>
+            <p>
+              To summarize, our Privacy Policy ensures that your data is
+              protected. We do not share your information with third parties
+              without your consent, and we use your data only to improve our
+              services and provide you with a better user experience.
             </p>
           </div>
         </article>
