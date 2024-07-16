@@ -160,7 +160,7 @@ export default component$(() => {
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
         crossOrigin="anonymous"
       ></script>
-      <div class="pb-8 md:pb-20">
+      <div class="px-4 pb-8 md:px-8 md:pb-20">
         <ins
           class="adsbygoogle"
           style="display:block; text-align:center;"
