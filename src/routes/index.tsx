@@ -155,6 +155,17 @@ export default component$(() => {
         </div>
       </div>
 
+      <ins
+        class="adsbygoogle flex items-center justify-center"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-2091224773462896"
+        data-ad-slot="8894881530"
+      ></ins>
+      <script type="text/javascript">
+        ;(adsbygoogle = window.adsbygoogle || []).push({})
+      </script>
+
       <div class="pb-8 md:pb-20">
         <div class="flex flex-col justify-center text-center md:flex-row md:items-baseline md:text-left">
           <h2

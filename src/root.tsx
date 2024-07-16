@@ -93,44 +93,6 @@ export default component$(() => {
         {/* Google AdSense */}
         {/* <meta name="google-adsense-account" content="ca-pub-2091224773462896" /> */}
 
-        {isProd && (
-          <>
-            {/* Monetag Start */}
-            <meta name="monetag" content="be058b8fbdb0e4d7a510628a7fcd45b2" />
-
-            {/* Monetag End */}
-
-            {/* NotificationPush */}
-            {/* <script
-              src="https://vaugroar.com/pfe/current/tag.min.js?z=7385671"
-              data-cfasync="false"
-              async
-            /> */}
-            {/* PushPushGo Up-Right*/}
-            {/* Full screen */}
-            {/* <script
-              async
-              data-cfasync="false"
-              src="//thubanoa.com/1?z=7385739"
-            ></script> */}
-            {/* <script
-              dangerouslySetInnerHTML={`
-              (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('oaphoace.net',7385740,document.createElement('script'))
-              `}
-            /> */}
-
-            {/* Glad Tag */}
-            <script
-              type="text/javascript"
-              dangerouslySetInnerHTML={`
-              (function(d,z,s){s.src='https://'+d+'/400/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('punoocke.com',7385723,document.createElement('script'))
-    `}
-            />
-
-            {/* Monetag End */}
-          </>
-        )}
-
         {/* Google tag (gtag.js) Start */}
         <script
           async
