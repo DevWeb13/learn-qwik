@@ -656,6 +656,23 @@ export default component$(() => {
           </div>
         </div>
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <div class="bg-background-200 border-t pt-12 dark:bg-black md:pt-16">
           <div class="flex w-full flex-col items-center justify-between space-y-4 px-4  text-center md:flex-row md:space-y-0  md:text-left lg:px-0">
             <div>
@@ -764,6 +781,22 @@ export default component$(() => {
               </Link>
             </div>
           </div>
+        </div>
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
         </div>
       </div>
     </main>
