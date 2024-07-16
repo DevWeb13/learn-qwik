@@ -91,7 +91,11 @@ export default component$(() => {
         <meta name="theme-color" content="#ffffff" />
 
         {/* Google AdSense */}
-        {/* <meta name="google-adsense-account" content="ca-pub-2091224773462896" /> */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
+          crossOrigin="anonymous"
+        ></script>
 
         {/* Google tag (gtag.js) Start */}
         <script
