@@ -23,6 +23,7 @@ import { ChaptersContext } from "./layout";
 import { findCompletedChapters } from "~/utils/findCompletedChapters";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 import { ChapterThumbnail } from "~/components/UI/chapterThumbnail/chapterThumbnail";
+import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesScrollWrapper";
 
 // import type { ChapterType } from "~/types/chapterType";
 // import { findCompletedChapters } from "~/utils/findCompletedChapters";
@@ -355,7 +356,7 @@ export default component$(() => {
                       style="--text-color:var(--ds-gray-1000);--xs-text-size:0.875rem;--xs-text-line-height:1.25rem;--xs-text-weight:400;--xs-text-letter-spacing:initial;--sm-text-size:0.875rem;--sm-text-line-height:1.25rem;--sm-text-weight:400;--sm-text-letter-spacing:initial;--smd-text-size:1rem;--smd-text-line-height:1.5rem;--smd-text-weight:400;--smd-text-letter-spacing:initial;--md-text-size:1rem;--md-text-line-height:1.5rem;--md-text-weight:400;--md-text-letter-spacing:initial;--lg-text-size:1rem;--lg-text-line-height:1.5rem;--lg-text-weight:400;--lg-text-letter-spacing:initial"
                     >
                       Use pre-styled components as part of each chapter that
-                      leverage Next.js conventions and patterns.
+                      leverage Qwik conventions and patterns.
                     </p>
                   </div>
                 </div>
@@ -600,7 +601,7 @@ export default component$(() => {
             />
           ))}
         </div>
-        <div class="mt-4 flex w-full items-center justify-center md:mt-8 md:w-auto">
+        <div class="mt-4 flex w-full items-center justify-center pb-10 md:mt-8 md:w-auto md:pb-20">
           <div class="w-[100%] md:w-[233px]">
             <div>
               <BtAddChapter
@@ -621,90 +622,113 @@ export default component$(() => {
           </div>
         </div>
 
-        <div class="flex w-full flex-col items-center justify-between space-y-6 px-4 pt-10 text-center md:flex-row md:space-y-0 md:px-0 md:text-left">
-          <div class="relative flex flex-col items-center  space-x-4 space-y-2 md:flex-row md:space-y-0">
-            <div class="relative flex">
-              <div class="absolute left-2 top-2">
-                <QwikLogo id="4" height={16} width={16} />
-              </div>
-
-              <svg
-                fill="none"
-                height="66"
-                viewBox="0 0 54 66"
-                width="54"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g filter="url(#filter0_d_24_6161)">
-                  <path
-                    class="text-[#EAEAEA] dark:text-gray-400"
-                    d="M11 46C11 44.8954 11.8954 44 13 44H33C34.1046 44 35 44.8954 35 46C35 47.1046 34.1046 48 33 48H13C11.8954 48 11 47.1046 11 46Z"
-                    fill="currentColor"
-                  ></path>
-                  <path
-                    class="text-[#EAEAEA] dark:text-gray-400"
-                    d="M11 52C11 50.8954 11.8954 50 13 50H25C26.1046 50 27 50.8954 27 52C27 53.1046 26.1046 54 25 54H13C11.8954 54 11 53.1046 11 52Z"
-                    fill="currentColor"
-                  ></path>
-
-                  <path
-                    class="text-black/10 dark:text-gray-400"
-                    d="M7 1.5C4.51472 1.5 2.5 3.51472 2.5 6V58C2.5 60.4853 4.51472 62.5 7 62.5H47C49.4853 62.5 51.5 60.4853 51.5 58V6C51.5 3.51472 49.4853 1.5 47 1.5H7Z"
-                    stroke="currentColor"
-                  ></path>
-                </g>
-              </svg>
-            </div>
+        <div class="bg-background-200 border-t pt-12 dark:bg-black md:pt-16">
+          <div class="flex w-full flex-col items-center justify-between space-y-4 px-4  text-center md:flex-row md:space-y-0  md:text-left lg:px-0">
             <div>
               <p
-                class="text_wrapper"
+                class="text_wrapper pb-1"
                 data-version="v1"
                 style="--text-color:var(--ds-gray-1000);--text-size:1.5rem;--text-line-height:2rem;--text-letter-spacing:-0.029375rem;--text-weight:600"
               >
-                Qwik Documentation
+                Looking to go deeper?
               </p>
               <p
-                class="text_wrapper pt-1"
+                class="text_wrapper"
                 data-version="v1"
                 style="--text-color:var(--ds-gray-900);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:400"
               >
-                The complete resource for installing, running, building with,
-                and deploying Qwik
+                Continue learning by using guides.
               </p>
             </div>
           </div>
-          <div class="w-[100%] md:w-auto">
-            <Link
-              role="link"
-              tabIndex={0}
-              href="https://qwik.dev/"
-              class="button_base button_button reset_reset button_secondary button_invert"
-              data-geist-button=""
-              data-prefix="true"
-              data-suffix="false"
-              data-version="v1"
-              style="min-width:100%;max-width:100%;--geist-icon-size:16px"
-              target="_blank"
-            >
-              <span class="button_prefix">
+
+          <GuidesScrollWrapper />
+
+          <div class="flex w-full flex-col items-center justify-between space-y-6 px-4 pt-10 text-center md:flex-row md:space-y-0 md:px-0 md:text-left">
+            <div class="relative flex flex-col items-center  space-x-4 space-y-2 md:flex-row md:space-y-0">
+              <div class="relative flex">
+                <div class="absolute left-2 top-2">
+                  <QwikLogo id="4" height={16} width={16} />
+                </div>
+
                 <svg
-                  data-testid="geist-icon"
-                  height="16"
-                  stroke-linejoin="round"
-                  style="color:currentColor"
-                  viewBox="0 0 16 16"
-                  width="16"
+                  fill="none"
+                  height="66"
+                  viewBox="0 0 54 66"
+                  width="54"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M0 1H0.75H5C6.2267 1 7.31583 1.58901 8 2.49963C8.68417 1.58901 9.7733 1 11 1H15.25H16V1.75V13V13.75H15.25H10.7426C10.1459 13.75 9.57361 13.9871 9.15165 14.409L8.53033 15.0303H7.46967L6.84835 14.409C6.42639 13.9871 5.8541 13.75 5.25736 13.75H0.75H0V13V1.75V1ZM7.25 4.75C7.25 3.50736 6.24264 2.5 5 2.5H1.5V12.25H5.25736C5.96786 12.25 6.65758 12.4516 7.25 12.8232V4.75ZM8.75 12.8232V4.75C8.75 3.50736 9.75736 2.5 11 2.5H14.5V12.25H10.7426C10.0321 12.25 9.34242 12.4516 8.75 12.8232Z"
-                    fill="currentColor"
-                  ></path>
+                  <g filter="url(#filter0_d_24_6161)">
+                    <path
+                      class="text-[#EAEAEA] dark:text-gray-400"
+                      d="M11 46C11 44.8954 11.8954 44 13 44H33C34.1046 44 35 44.8954 35 46C35 47.1046 34.1046 48 33 48H13C11.8954 48 11 47.1046 11 46Z"
+                      fill="currentColor"
+                    ></path>
+                    <path
+                      class="text-[#EAEAEA] dark:text-gray-400"
+                      d="M11 52C11 50.8954 11.8954 50 13 50H25C26.1046 50 27 50.8954 27 52C27 53.1046 26.1046 54 25 54H13C11.8954 54 11 53.1046 11 52Z"
+                      fill="currentColor"
+                    ></path>
+
+                    <path
+                      class="text-black/10 dark:text-gray-400"
+                      d="M7 1.5C4.51472 1.5 2.5 3.51472 2.5 6V58C2.5 60.4853 4.51472 62.5 7 62.5H47C49.4853 62.5 51.5 60.4853 51.5 58V6C51.5 3.51472 49.4853 1.5 47 1.5H7Z"
+                      stroke="currentColor"
+                    ></path>
+                  </g>
                 </svg>
-              </span>
-              <span class="button_content">View the Documentation</span>
-            </Link>
+              </div>
+              <div>
+                <p
+                  class="text_wrapper"
+                  data-version="v1"
+                  style="--text-color:var(--ds-gray-1000);--text-size:1.5rem;--text-line-height:2rem;--text-letter-spacing:-0.029375rem;--text-weight:600"
+                >
+                  Qwik Documentation
+                </p>
+                <p
+                  class="text_wrapper pt-1"
+                  data-version="v1"
+                  style="--text-color:var(--ds-gray-900);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:400"
+                >
+                  The complete resource for installing, running, building with,
+                  and deploying Qwik
+                </p>
+              </div>
+            </div>
+            <div class="w-[100%] md:w-auto">
+              <Link
+                role="link"
+                tabIndex={0}
+                href="https://qwik.dev/"
+                class="button_base button_button reset_reset button_secondary button_invert"
+                data-geist-button=""
+                data-prefix="true"
+                data-suffix="false"
+                data-version="v1"
+                style="min-width:100%;max-width:100%;--geist-icon-size:16px"
+                target="_blank"
+              >
+                <span class="button_prefix">
+                  <svg
+                    data-testid="geist-icon"
+                    height="16"
+                    stroke-linejoin="round"
+                    style="color:currentColor"
+                    viewBox="0 0 16 16"
+                    width="16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M0 1H0.75H5C6.2267 1 7.31583 1.58901 8 2.49963C8.68417 1.58901 9.7733 1 11 1H15.25H16V1.75V13V13.75H15.25H10.7426C10.1459 13.75 9.57361 13.9871 9.15165 14.409L8.53033 15.0303H7.46967L6.84835 14.409C6.42639 13.9871 5.8541 13.75 5.25736 13.75H0.75H0V13V1.75V1ZM7.25 4.75C7.25 3.50736 6.24264 2.5 5 2.5H1.5V12.25H5.25736C5.96786 12.25 6.65758 12.4516 7.25 12.8232V4.75ZM8.75 12.8232V4.75C8.75 3.50736 9.75736 2.5 11 2.5H14.5V12.25H10.7426C10.0321 12.25 9.34242 12.4516 8.75 12.8232Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </span>
+                <span class="button_content">View the Documentation</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
