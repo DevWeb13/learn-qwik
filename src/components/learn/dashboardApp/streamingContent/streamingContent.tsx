@@ -1367,7 +1367,6 @@ export const CardsWrapper = component$(() => {
           goToChapter={10}
           title="Adding Search and Pagination"
           text="Learn how to implement search and pagination in your application."
-          disabledButton
         />
       </div>
       <Feedback />
