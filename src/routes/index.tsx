@@ -160,20 +160,22 @@ export default component$(() => {
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
         crossOrigin="anonymous"
       ></script>
-      <ins
-        class="adsbygoogle"
-        style="display:block; text-align:center;"
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
-        data-ad-client="ca-pub-2091224773462896"
-        data-ad-slot="8894881530"
-      ></ins>
-      <script
-        type="text/javascript"
-        dangerouslySetInnerHTML={`
+      <div class="pb-8 md:pb-20">
+        <ins
+          class="adsbygoogle"
+          style="display:block; text-align:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-2091224773462896"
+          data-ad-slot="8894881530"
+        ></ins>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={`
     (adsbygoogle = window.adsbygoogle || []).push({});
   `}
-      />
+        />
+      </div>
 
       <div class="pb-8 md:pb-20">
         <div class="flex flex-col justify-center text-center md:flex-row md:items-baseline md:text-left">
