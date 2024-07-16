@@ -168,9 +168,12 @@ export default component$(() => {
         data-ad-client="ca-pub-2091224773462896"
         data-ad-slot="8894881530"
       ></ins>
-      <script type="text/javascript">
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      <script
+        type="text/javascript"
+        dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+      />
 
       <div class="pb-8 md:pb-20">
         <div class="flex flex-col justify-center text-center md:flex-row md:items-baseline md:text-left">
