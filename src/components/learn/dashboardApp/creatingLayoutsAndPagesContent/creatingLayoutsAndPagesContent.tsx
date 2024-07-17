@@ -62,6 +62,23 @@ export default component$(() => {
           ]}
         />
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor title="Nested routing" id="nested-routing" />
         <p>
           Qwik also uses a file-system-based routing system where{" "}
@@ -112,6 +129,23 @@ export default component$(() => {
           works!"
         </p>
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Creating the Dashboard Page"
           id="creating-the-dashboard-page"
@@ -156,6 +190,23 @@ export default component$(() => {
           <code>`/lib`</code> folders can be colocated inside the{" "}
           <code>`/src`</code> folder alongside your routes.
         </p>
+
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor
           title="Practice: Creating the dashboard pages"
@@ -217,6 +268,23 @@ export default component$(() => {
             </span>
           </button>
           {dashboardPagesSoluce.value && <DashboardPagesSoluce />}
+        </div>
+
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
         </div>
 
         <SubtitleWithAnchor
@@ -455,6 +523,23 @@ export default component$(() => {
           />
         </figure>
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Root layout with Qwik"
           id="root-layout-with-qwik"
@@ -556,6 +641,23 @@ export default component$(() => {
           Qwik! 🎉
         </p>
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Recommended reading"
           id="recommended reading"
@@ -582,6 +684,23 @@ export default component$(() => {
           </li>
         </ul>
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
         <p>
@@ -592,6 +711,23 @@ export default component$(() => {
           />
           .
         </p>
+      </div>
+
+      <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <ins
+          class="adsbygoogle"
+          style="display:flex; justify-content:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-2091224773462896"
+          data-ad-slot="8894881530"
+        ></ins>
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+        />
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">

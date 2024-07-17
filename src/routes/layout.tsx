@@ -185,6 +185,22 @@ export default component$(() => {
         </div>
       ) : (
         <>
+          <div class="px-4 pb-8 md:px-8 md:pb-20">
+            <ins
+              class="adsbygoogle"
+              style="display:flex; justify-content:center;"
+              data-ad-layout="in-article"
+              data-ad-format="fluid"
+              data-ad-client="ca-pub-2091224773462896"
+              data-ad-slot="8894881530"
+            ></ins>
+            <script
+              type="text/javascript"
+              dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+            />
+          </div>
           <PreFooter />
           <div class="px-4 pb-8 md:px-8 md:pb-20">
             <ins
