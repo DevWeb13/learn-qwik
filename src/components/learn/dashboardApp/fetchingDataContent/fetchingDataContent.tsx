@@ -62,6 +62,23 @@ export const FetchingDataContent = component$(() => {
           ]}
         />
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Choosing how to fetch data"
           id="choosing-how-to-fetch-data"
@@ -88,6 +105,23 @@ export const FetchingDataContent = component$(() => {
           <BlankLink href="https://qwik.dev/docs/endpoints/" text="Endpoints" />
           .
         </p>
+
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor title="Database queries" id="database-queries" />
 
@@ -156,6 +190,23 @@ export const FetchingDataContent = component$(() => {
           functions.
         </p>
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Fetching data with server$() functions"
           id="fetching-data-with-server$()-functions"
@@ -221,6 +272,23 @@ export const FetchingDataContent = component$(() => {
           hint="Consider which feature is most critical for data fetching specifically."
           responseText="Exactly! The primary benefit of using server$() functions to fetch data is efficient and secure data retrieval."
         />
+
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor title="Using SQL" id="summary" level="h3" />
 
@@ -289,6 +357,23 @@ export const FetchingDataContent = component$(() => {
           hint="Think about the flexibility of SQL."
           responseText="Correct! SQL allows you to fetch and manipulate specific data."
         />
+
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor
           title="Fetching specific data from @vercel/postres database"
@@ -470,6 +555,23 @@ export const fetchCardData = server$(async function () {
           </li>
         </ul>
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Fetching data for the dashboard overview page"
           id="fetching-data-for-the-dashboard-overview-page"
@@ -558,6 +660,23 @@ export default component$(() => {
           You can delete <code>`// @ts-nocheck`</code> line from the top of the
           file.
         </p>
+
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor
           title="Fetching data for <RevenueChart/>"
@@ -657,6 +776,23 @@ export default component$(() => {
           />
         </p>
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Diplaying data for <RevenueChart/>"
           id="displaying-data-for-<revenuechart/>"
@@ -713,6 +849,23 @@ export default component$(() => {
         </figure>
 
         <p>Let's continue importing some more data queries!</p>
+
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor
           title="Fetching data for <LatestInvoices/>"
@@ -798,6 +951,23 @@ export default component$(() => {
           ]}
         />
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Diplaying data for <LatestInvoices/>"
           id="displaying-data-for-<LatestInvoices/>"
@@ -861,6 +1031,23 @@ export default component$(() => {
             class="block rounded-md border border-gray-200 bg-gray-100"
           />
         </figure>
+
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor
           title="Practice: Fetch data for the <Card> components"
@@ -979,6 +1166,23 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
           />
         </figure>
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="What are request waterfalls?"
           id="what-are-request-waterfalls"
@@ -1060,6 +1264,23 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
           responseText="For example, you might want to fetch a user's ID and profile information first. Once you have the ID, you might then proceed to fetch their list of friends."
         />
 
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Parallel data fetching"
           id="parallel-data-fetching"
@@ -1128,6 +1349,23 @@ try {
           this JavaScript pattern: what happens if one data request is slower
           than all the others?
         </p>
+
+        <div class="px-4 pb-8 md:px-8 md:pb-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
