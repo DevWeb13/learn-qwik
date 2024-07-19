@@ -129,7 +129,7 @@ export default component$(() => {
           works!"
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -191,7 +191,7 @@ export default component$(() => {
           <code>`/src`</code> folder alongside your routes.
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -270,7 +270,7 @@ export default component$(() => {
           {dashboardPagesSoluce.value && <DashboardPagesSoluce />}
         </div>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4  md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -523,7 +523,7 @@ export default component$(() => {
           />
         </figure>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4  md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -608,6 +608,23 @@ export default component$(() => {
           mentioned above.
         </p>
 
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <Quiz
           question="What is the role of the layout.tsx file in Qwik?"
           options={[
@@ -641,7 +658,7 @@ export default component$(() => {
           Qwik! 🎉
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -684,7 +701,7 @@ export default component$(() => {
           </li>
         </ul>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -713,7 +730,7 @@ export default component$(() => {
         </p>
       </div>
 
-      <div class="px-4 pb-8 md:px-8 md:pb-20">
+      <div class="px-4  md:px-8 ">
         <ins
           class="adsbygoogle"
           style="display:flex; justify-content:center;"
