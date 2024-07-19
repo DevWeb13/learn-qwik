@@ -65,6 +65,24 @@ export default component$(() => {
           By the end of the course, you'll have the essential skills needed to
           start building full-stack Qwik applications.
         </p>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor id="overview" title="Overview" />
 
         <p>Here's an overview of features you'll learn about in this course:</p>
@@ -135,6 +153,24 @@ export default component$(() => {
             application for social sharing.
           </li>
         </ul>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           id="prerequisite-knowledge"
           title="Prerequisite knowledge"
@@ -153,6 +189,24 @@ export default component$(() => {
           knowledge, understanding these concepts will help you grasp Qwik's
           unique features more effectively.
         </p>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           id="system-requirements"
           title="System requirements"
@@ -176,6 +230,24 @@ export default component$(() => {
           <BlankLink href="https://vercel.com/signup" text="Vercel Account" />.
           .
         </p>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           id="join-the-conversation"
           title="Join the conversation"
