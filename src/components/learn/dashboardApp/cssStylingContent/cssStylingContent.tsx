@@ -41,7 +41,7 @@ export default component$(() => {
           ]}
         />
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4  md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -125,7 +125,7 @@ export default component$(() => {
           ]}
         />
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -301,7 +301,7 @@ export const head: DocumentHead = {
           application.🎉
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -379,7 +379,7 @@ export const head: DocumentHead = {
           separate from your JSX - CSS Modules are a great alternative.
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -472,7 +472,7 @@ export const head: DocumentHead = {
           responseText="CSS Modules create unique class names for each component, so you don't have to worry about style collisions."
         />
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -536,7 +536,7 @@ export const head: DocumentHead = {
           </li>
         </ul>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -559,7 +559,7 @@ export const head: DocumentHead = {
           than 180.000 icons you can add to your Qwik app.
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -624,7 +624,7 @@ export const head: DocumentHead = {
           <code>Heroicons</code> set.
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -762,7 +762,7 @@ export default component$(() => {
           />
         </figure>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -940,7 +940,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           application.🎉
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -969,7 +969,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
         </p>
       </div>
 
-      <div class="px-4 pb-8 md:px-8 md:pb-20">
+      <div class="px-4 pt-8 md:px-8 md:pt-20">
         <ins
           class="adsbygoogle"
           style="display:flex; justify-content:center;"
