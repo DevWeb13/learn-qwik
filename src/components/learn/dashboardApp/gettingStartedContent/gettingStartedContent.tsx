@@ -1,12 +1,9 @@
 // src/components/dashboardApp/gettingStartedContent/gettingStartedContent.tsx
 
 import { component$ } from "@builder.io/qwik";
-
 import StartPage from "~/assets/img/start-page.png?jsx";
 import Feedback from "~/components/UI/feedback/feedback";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
-// import { TerminalSvg } from "~/assets/svg/terminalSvg/terminalSvg";
-// import { JavascriptSvg } from "~/assets/svg/javascriptSvg/javascriptSvg";
 import FolderStructure from "./folderStructure/folderStructure";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
@@ -19,6 +16,7 @@ export default component$(() => {
     <>
       <div class="prose prose-vercel max-w-none">
         <PageTitle chapterNumber={1} chapterTitle="Getting Started" />
+
         <SubtitleWithAnchor
           title="Create an app using the CLI"
           id="creating-a-new-project"
@@ -95,6 +93,23 @@ export default component$(() => {
           will also initialize a git repository.
         </p>
 
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Exploring the project"
           id="exploring-the-project"
@@ -120,6 +135,24 @@ export default component$(() => {
         <p>Happy coding! 🎉</p>
 
         <p>Let's spend some time exploring the project.</p>
+
+        <div class="px-4 py-8 md:px-8 md:py-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <h3 id="folder-structure" data-docs-heading="">
           <a href="#folder-structure">
             Folder structure
@@ -148,6 +181,7 @@ export default component$(() => {
         <p>
           You'll notice that the project has the following folder structure:
         </p>
+
         <FolderStructure />
 
         <ul>
@@ -276,6 +310,24 @@ export default component$(() => {
           Feel free to explore these folders, and don't worry if you don't
           understand everything the code is doing yet.
         </p>
+
+        <div class="px-4 py-8 md:px-8 md:py-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Placeholder data"
           id="placeholder-data"
@@ -372,6 +424,23 @@ export default component$(() => {
           with some initial data).
         </p>
 
+        <div class="px-4 py-8 md:px-8 md:py-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor title="TypeScript" id="typescript" level="h3" />
 
         <p>
@@ -457,6 +526,24 @@ export default component$(() => {
             </li>
           </ul>
         </blockquote>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Running the development server"
           id="running-the-development-server"
@@ -480,6 +567,23 @@ export default component$(() => {
             class="block w-full rounded-md border border-gray-200 bg-gray-100"
           />
         </figure>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
