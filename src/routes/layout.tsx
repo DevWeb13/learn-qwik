@@ -166,21 +166,6 @@ export default component$(() => {
 
       {location.isNavigating ? (
         <div class="absolute bottom-0 flex w-full items-center justify-center">
-          <div class="px-4 pb-8 md:px-8 md:pb-20">
-            <ins
-              class="adsbygoogle"
-              style="display:flex; text-align:center; justify-content:center;"
-              data-ad-format="autorelaxed"
-              data-ad-client="ca-pub-2091224773462896"
-              data-ad-slot="2125459059"
-            ></ins>
-            <script
-              type="text/javascript"
-              dangerouslySetInnerHTML={`
-  (adsbygoogle = window.adsbygoogle || []).push({});
-`}
-            />
-          </div>
           <Footer />
         </div>
       ) : (
