@@ -160,16 +160,6 @@ export default component$(() => {
     });
   });
 
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(() => {
-    // Reinit les pubs adsense
-
-    if (isBrowser) {
-      (window as any).adsbygoogle = (window as any).adsbygoogle || [];
-      (window as any).adsbygoogle.push({});
-    }
-  });
-
   return (
     <div class="overflow-hidden">
       <Header />
