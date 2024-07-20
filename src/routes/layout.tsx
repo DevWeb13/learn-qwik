@@ -10,6 +10,7 @@ import {
   useSignal,
   useTask$,
   $,
+  useVisibleTask$,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
@@ -160,14 +161,13 @@ export default component$(() => {
   });
 
   // eslint-disable-next-line qwik/no-use-visible-task
-  useTask$(({ track }) => {
+  useVisibleTask$(() => {
     // Reinit les pubs adsense
-    track(() => {
-      if (isBrowser) {
-        (window as any).adsbygoogle = (window as any).adsbygoogle || [];
-        (window as any).adsbygoogle.push({});
-      }
-    });
+
+    if (isBrowser) {
+      (window as any).adsbygoogle = (window as any).adsbygoogle || [];
+      (window as any).adsbygoogle.push({});
+    }
   });
 
   return (
