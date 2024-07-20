@@ -95,6 +95,7 @@ export default component$<BtAddChapterProps>(
             data-suffix="true"
             data-version="v1"
             style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
+            reload
           >
             {completedChapters.length ? <Slot /> : null}
 
