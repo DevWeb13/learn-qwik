@@ -160,7 +160,7 @@ export default component$(() => {
   });
 
   return (
-    <>
+    <div class="overflow-hidden">
       <Header />
       {location.isNavigating ? <Loader /> : <Slot />}
 
@@ -204,6 +204,6 @@ export default component$(() => {
           <Footer />
         </>
       )}
-    </>
+    </div>
   );
 });
