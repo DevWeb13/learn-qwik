@@ -10,6 +10,7 @@ import {
   useSignal,
   useTask$,
   $,
+  useVisibleTask$,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
@@ -155,6 +156,17 @@ export default component$(() => {
     chapters.value.forEach((chapter) => {
       if (chapter.isCompleted) {
         setCookie("completedChapters", chapter.id, 365);
+      }
+    });
+  });
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useTask$(({ track }) => {
+    // Reinit les pubs adsense
+    track(() => {
+      if (isBrowser) {
+        (window as any).adsbygoogle = (window as any).adsbygoogle || [];
+        (window as any).adsbygoogle.push({});
       }
     });
   });
