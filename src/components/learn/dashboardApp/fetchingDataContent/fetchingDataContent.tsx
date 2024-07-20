@@ -62,7 +62,7 @@ export const FetchingDataContent = component$(() => {
           ]}
         />
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -106,7 +106,7 @@ export const FetchingDataContent = component$(() => {
           .
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -156,6 +156,23 @@ export const FetchingDataContent = component$(() => {
           </li>
         </ul>
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <Quiz
           question="In which of these scenarios should you not query your database directly?"
           options={[
@@ -184,13 +201,30 @@ export const FetchingDataContent = component$(() => {
           responseText="That's right, you should not query your database directly when fetching data on the client as this would expose your database secrets."
         />
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <p>
           Let's learn more about{" "}
           <BlankLink href="https://qwik.dev/docs/server$/" text="server$()" />{" "}
           functions.
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -245,6 +279,23 @@ export const FetchingDataContent = component$(() => {
           application performance. ⚡
         </p>
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <Quiz
           question="What is the primary benefit of using server$() functions to fetch data?"
           options={[
@@ -273,7 +324,7 @@ export const FetchingDataContent = component$(() => {
           responseText="Exactly! The primary benefit of using server$() functions to fetch data is efficient and secure data retrieval."
         />
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -330,6 +381,23 @@ export const FetchingDataContent = component$(() => {
           queries for you.
         </p>
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <Quiz
           question="What does SQL allow you to do in terms of fetching data?"
           options={[
@@ -358,7 +426,7 @@ export const FetchingDataContent = component$(() => {
           responseText="Correct! SQL allows you to fetch and manipulate specific data."
         />
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -555,7 +623,7 @@ export const fetchCardData = server$(async function () {
           </li>
         </ul>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -661,7 +729,7 @@ export default component$(() => {
           file.
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -776,7 +844,7 @@ export default component$(() => {
           />
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -850,7 +918,7 @@ export default component$(() => {
 
         <p>Let's continue importing some more data queries!</p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -951,7 +1019,7 @@ export default component$(() => {
           ]}
         />
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1007,8 +1075,8 @@ export default component$(() => {
 
         <p>
           ⚠️ For display user's images from latest invoices, you must{" "}
-          <div class="font-bold">download</div> <code>`customers.zip`</code>{" "}
-          folder, unzip and place them in the <code>`public`</code> folder: 👇
+          <strong>download</strong> <code>`customers.zip`</code> folder, unzip
+          and place them in the <code>`public`</code> folder: 👇
         </p>
 
         <ul>
@@ -1032,7 +1100,7 @@ export default component$(() => {
           />
         </figure>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1166,7 +1234,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
           />
         </figure>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1236,6 +1304,23 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
           performance.
         </p>
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <Quiz
           question="When might you want to use a waterfall pattern?"
           options={[
@@ -1264,7 +1349,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
           responseText="For example, you might want to fetch a user's ID and profile information first. Once you have the ID, you might then proceed to fetch their list of friends."
         />
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1350,7 +1435,7 @@ try {
           than all the others?
         </p>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1377,6 +1462,23 @@ try {
           />
           .
         </p>
+
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
