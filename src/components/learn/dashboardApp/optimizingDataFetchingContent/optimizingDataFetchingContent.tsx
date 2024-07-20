@@ -43,6 +43,23 @@ export const OptimizingDataFetchingContent = component$(() => {
           ]}
         />
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Parallel Data Fetching"
           id="parallel-data-fetching"
@@ -85,6 +102,23 @@ export const OptimizingDataFetchingContent = component$(() => {
             Using multiple <code>routeLoader$</code> - One for each request.🤔
           </li>
         </ul>
+
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor
           title="Multiple routeLoader$"
@@ -275,6 +309,23 @@ export default component$(() => {
           one.
         </p>
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <Quiz
           question="What is the advantage of using multiple routeLoader$?"
           options={[
@@ -302,6 +353,23 @@ export default component$(() => {
           hint="Think about the data you need for your application."
           responseText="The advantage of using multiple routeLoader$ is to separate the data based on their usage."
         />
+
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor title="Promise.all()" id="promise-all" level="h3" />
         <CodeBlock
@@ -456,6 +524,23 @@ export default component$(() => {
           />
         </figure>
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <Quiz
           question="What is the purpose of using Promise.all() in data fetching?"
           options={[
@@ -483,6 +568,23 @@ export default component$(() => {
           hint="Think about how to optimize the time taken to fetch data."
           responseText="The purpose of using Promise.all() is to execute multiple promises in parallel."
         />
+
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
 
         <SubtitleWithAnchor
           title="Triggering Data Requests"
@@ -676,6 +778,23 @@ export default component$(() => {
           </p>
         </figure>
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <Quiz
           question="What happens when routeLoader$ is placed in the layout?"
           options={[
@@ -704,10 +823,45 @@ export default component$(() => {
           responseText="When routeLoader$ is placed in the layout, data is fetched every time the route is loaded."
         />
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <p>
           Congratulations 🙌, you have now optimized the data loading by passing
           them in parallel and triggering the requests only when necessary.🏆
         </p>
+
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor
           title="Simulating Slow Data Fetch"
           id="simulating-slow-data-fetch"
@@ -797,6 +951,23 @@ Data fetch completed after 3 seconds.`}
           user's experience.
         </p>
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <Quiz
           question="What is the effect of simulating a slow data fetch?"
           options={[
@@ -825,6 +996,23 @@ Data fetch completed after 3 seconds.`}
           responseText="Simulating a slow data fetch delays the entire page load."
         />
 
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
+
         <SubtitleWithAnchor title="Source code" id="source-code" />
         <p>
           You can find the source code for chapter 8 on{" "}
@@ -834,6 +1022,23 @@ Data fetch completed after 3 seconds.`}
           />
           .
         </p>
+
+        <div class="px-4 md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8894881530"
+          ></ins>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={`
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  `}
+          />
+        </div>
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
