@@ -10,7 +10,6 @@ import {
   useSignal,
   useTask$,
   $,
-  useVisibleTask$,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
@@ -115,6 +114,7 @@ export default component$(() => {
   // Utiliser useTask$ pour réagir aux changements d'URL
   useTask$(({ track }) => {
     track(() => location.url.pathname);
+    console.log("location.url.pathname", location.url.pathname);
     // Réinitialiser le menu mobile à chaque changement de page
     mobileMenuVisible.value = false;
   });
