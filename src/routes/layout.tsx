@@ -101,14 +101,6 @@ export const useServerTimeLoader = routeLoader$(() => {
   };
 });
 
-// Fonction pour réinitialiser les annonces
-const resetAds = () => {
-  const ads = document.querySelectorAll(".adsbygoogle");
-  ads.forEach((ad) => {
-    ad.parentNode?.removeChild(ad); // Supprime l'élément du DOM
-  });
-};
-
 export default component$(() => {
   if (isBrowser) {
     console.log("Exécution côté client");
@@ -167,16 +159,6 @@ export default component$(() => {
         setCookie("completedChapters", chapter.id, 365);
       }
     });
-  });
-
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(({ track }) => {
-    track(() => location.url.pathname);
-    resetAds();
-    setTimeout(() => {
-      // @ts-ignore
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    }, 1000); // Ajoute un délai pour s'assurer que le DOM est prêt
   });
 
   return (
