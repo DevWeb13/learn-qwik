@@ -62,7 +62,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9534913230"
           ></ins>
           <script
             type="text/javascript"
@@ -149,7 +149,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="1448539654"
           ></ins>
           <script
             type="text/javascript"
@@ -250,7 +250,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="7630804623"
           ></ins>
           <script
             type="text/javascript"
@@ -297,7 +297,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9506993070"
           ></ins>
           <script
             type="text/javascript"
@@ -339,7 +339,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6086622813"
           ></ins>
           <script
             type="text/javascript"
@@ -369,7 +369,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="4773541143"
           ></ins>
           <script
             type="text/javascript"
@@ -475,7 +475,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9810245408"
           ></ins>
           <script
             type="text/javascript"
@@ -657,7 +657,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9834296133"
           ></ins>
           <script
             type="text/javascript"
@@ -679,23 +679,6 @@ export default component$(() => {
           allowing automated management without the need for additional
           packages.
         </p>
-
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
-          ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
-        </div>
 
         <SubtitleWithAnchor
           title="How does it work with Qwik?"
@@ -745,7 +728,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="7427624647"
           ></ins>
           <script
             type="text/javascript"
@@ -858,7 +841,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5441455678"
           ></ins>
           <script
             type="text/javascript"
@@ -931,7 +914,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5249883984"
           ></ins>
           <script
             type="text/javascript"
@@ -966,7 +949,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="7492903947"
           ></ins>
           <script
             type="text/javascript"
@@ -1009,7 +992,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="8614413921"
           ></ins>
           <script
             type="text/javascript"
@@ -1038,7 +1021,7 @@ export default component$(() => {
           data-ad-layout="in-article"
           data-ad-format="fluid"
           data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="8894881530"
+          data-ad-slot="6853759637"
         ></ins>
         <script
           type="text/javascript"
