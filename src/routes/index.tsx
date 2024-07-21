@@ -162,7 +162,7 @@ export default component$(() => {
           data-ad-layout="in-article"
           data-ad-format="fluid"
           data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="8894881530"
+          data-ad-slot="3655900596"
         ></ins>
         <script
           type="text/javascript"
@@ -595,7 +595,7 @@ export default component$(() => {
           data-ad-layout="in-article"
           data-ad-format="fluid"
           data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="8894881530"
+          data-ad-slot="1506080090"
         ></ins>
         <script
           type="text/javascript"
@@ -663,7 +663,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="3940671747"
           ></ins>
           <script
             type="text/javascript"
