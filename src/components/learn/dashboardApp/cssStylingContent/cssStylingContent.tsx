@@ -48,7 +48,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="8205519691"
           ></ins>
           <script
             type="text/javascript"
@@ -132,7 +132,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9918056612"
           ></ins>
           <script
             type="text/javascript"
@@ -308,7 +308,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="7291893273"
           ></ins>
           <script
             type="text/javascript"
@@ -386,7 +386,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5854688524"
           ></ins>
           <script
             type="text/javascript"
@@ -479,7 +479,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="1640111347"
           ></ins>
           <script
             type="text/javascript"
@@ -543,7 +543,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="4541606850"
           ></ins>
           <script
             type="text/javascript"
@@ -558,23 +558,6 @@ export const head: DocumentHead = {
           Icons are an important part of any application. There are already more
           than 180.000 icons you can add to your Qwik app.
         </p>
-
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
-          ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
-        </div>
 
         <SubtitleWithAnchor title="qwikest/icons" id="qwikest-icons" />
         <p>
@@ -631,7 +614,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9327029678"
           ></ins>
           <script
             type="text/javascript"
@@ -769,7 +752,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="2913664561"
           ></ins>
           <script
             type="text/javascript"
@@ -947,7 +930,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="1600582891"
           ></ins>
           <script
             type="text/javascript"
@@ -976,7 +959,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           data-ad-layout="in-article"
           data-ad-format="fluid"
           data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="8894881530"
+          data-ad-slot="9287501222"
         ></ins>
         <script
           type="text/javascript"
