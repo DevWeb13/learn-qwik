@@ -166,15 +166,17 @@ export default component$(() => {
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
     track(() => location.url.pathname);
-    // console.log("visible", location.url.pathname);
+    console.log("visible", location.url.pathname);
     // reinit adsense for spa navigation
 
-    const adsbyGoogles = container.value?.querySelectorAll(".adsbygoogle");
-    adsbyGoogles?.forEach((adsbyGoogle) => {
-      adsbyGoogle.setAttribute("data-adsbygoogle-status", ""); // Réinitialiser l'attribut de statut
-      adsbyGoogle.innerHTML = ""; // Supprimer le contenu de l'élément
+    const adsbygoogles = container.value?.querySelectorAll(".adsbygoogle");
+    console.log("adsbygoogles", adsbygoogles);
+    adsbygoogles?.forEach((adsbygoogle) => {
+      adsbygoogle.setAttribute("data-adsbygoogle-status", ""); // Réinitialiser l'attribut de statut
+      adsbygoogle.innerHTML = ""; // Supprimer le contenu de l'élément
+      console.log("adsbyGooglesAfter", adsbygoogles);
       // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({}); // Réinitialiser les annonces
+      (adsbygoogle = window.adsbygoogle || []).push({}); // Réinitialiser les annonces
     });
   });
 

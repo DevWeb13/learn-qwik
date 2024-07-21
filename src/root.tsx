@@ -126,11 +126,11 @@ export default component$(() => {
         {/* Vercel Analytics End */}
 
         {/* Cool Qwik trick to know what code is being executed and when 👇 */}
-        {!isProd && (
+        {/* {!isProd && (
           <script
             dangerouslySetInnerHTML={`document.addEventListener('qsymbol', (e) => console.log(e.detail));`}
           />
-        )}
+        )} */}
 
         <RouterHead />
         <ServiceWorkerRegister />
