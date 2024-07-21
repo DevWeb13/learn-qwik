@@ -10,6 +10,7 @@ import {
   useSignal,
   useTask$,
   $,
+  useVisibleTask$,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
@@ -100,6 +101,15 @@ export const useServerTimeLoader = routeLoader$(() => {
   };
 });
 
+const resetAds = () => {
+  const ads = document.querySelectorAll(".adsbygoogle");
+  ads.forEach((ad) => {
+    ad.innerHTML = ""; // Supprime le contenu de l'élément pour le réinitialiser
+    //@ts-ignore
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  });
+};
+
 export default component$(() => {
   if (isBrowser) {
     console.log("Exécution côté client");
@@ -158,6 +168,11 @@ export default component$(() => {
         setCookie("completedChapters", chapter.id, 365);
       }
     });
+  });
+
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(() => {
+    resetAds();
   });
 
   return (
