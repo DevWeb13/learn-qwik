@@ -176,7 +176,7 @@ export default component$(() => {
       adsbygoogle.innerHTML = ""; // Supprimer le contenu de l'élément
       console.log("adsbyGooglesAfter", adsbygoogles);
       // @ts-ignore
-      (adsbygoogle = window.adsbygoogle || []).push({}); // Réinitialiser les annonces
+      (window.adsbygoogle = window.adsbygoogle || []).push({}); // Réinitialiser les annonces
     });
   });
 
