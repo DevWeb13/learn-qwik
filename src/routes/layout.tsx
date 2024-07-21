@@ -10,7 +10,6 @@ import {
   useSignal,
   useTask$,
   $,
-  useVisibleTask$,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
