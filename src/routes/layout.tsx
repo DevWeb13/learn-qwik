@@ -103,6 +103,7 @@ export const useServerTimeLoader = routeLoader$(() => {
 
 const resetAds = () => {
   const ads = document.querySelectorAll(".adsbygoogle");
+  console.log("ads", ads);
   ads.forEach((ad) => {
     ad.innerHTML = ""; // Supprime le contenu de l'élément pour le réinitialiser
     //@ts-ignore
@@ -171,7 +172,8 @@ export default component$(() => {
   });
 
   // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(() => {
+  useVisibleTask$(({ track }) => {
+    track(() => location.url.pathname);
     resetAds();
   });
 
