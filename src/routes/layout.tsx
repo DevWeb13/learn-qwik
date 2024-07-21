@@ -10,6 +10,7 @@ import {
   useSignal,
   useTask$,
   $,
+  useVisibleTask$,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
@@ -109,12 +110,14 @@ export default component$(() => {
 
   const location = useLocation();
 
+  const container = useSignal<HTMLElement>();
+
   const mobileMenuVisible = useSignal(false);
   useContextProvider(MobileMenuVisibleContext, mobileMenuVisible);
   // Utiliser useTask$ pour réagir aux changements d'URL
   useTask$(({ track }) => {
     track(() => location.url.pathname);
-    console.log("location.url.pathname", location.url.pathname);
+
     // Réinitialiser le menu mobile à chaque changement de page
     mobileMenuVisible.value = false;
   });
@@ -160,8 +163,23 @@ export default component$(() => {
     });
   });
 
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ track }) => {
+    track(() => location.url.pathname);
+    // console.log("visible", location.url.pathname);
+    // reinit adsense for spa navigation
+
+    const adsbyGoogles = container.value?.querySelectorAll(".adsbygoogle");
+    adsbyGoogles?.forEach((adsbyGoogle) => {
+      adsbyGoogle.setAttribute("data-adsbygoogle-status", ""); // Réinitialiser l'attribut de statut
+      adsbyGoogle.innerHTML = ""; // Supprimer le contenu de l'élément
+      // @ts-ignore
+      (window.adsbygoogle = window.adsbygoogle || []).push({}); // Réinitialiser les annonces
+    });
+  });
+
   return (
-    <div class="overflow-hidden">
+    <div class="overflow-hidden" ref={container}>
       <Header />
       {location.isNavigating ? <Loader /> : <Slot />}
 
@@ -180,12 +198,6 @@ export default component$(() => {
               data-ad-client="ca-pub-2091224773462896"
               data-ad-slot="2125459059"
             ></ins>
-            <script
-              type="text/javascript"
-              dangerouslySetInnerHTML={`
-  (adsbygoogle = window.adsbygoogle || []).push({});
-`}
-            />
           </div>
           <Footer />
         </>

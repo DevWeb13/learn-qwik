@@ -50,12 +50,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -85,12 +79,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -204,12 +192,6 @@ export const NavLinks = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -235,12 +217,6 @@ export const NavLinks = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <Quiz
@@ -280,12 +256,6 @@ export const NavLinks = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -489,12 +459,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -535,12 +499,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -576,12 +534,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
@@ -603,12 +555,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
       </div>
 

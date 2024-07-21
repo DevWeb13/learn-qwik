@@ -71,12 +71,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Nested routing" id="nested-routing" />
@@ -138,12 +132,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -200,12 +188,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -279,12 +261,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -532,12 +508,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -617,12 +587,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <Quiz
@@ -667,12 +631,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -710,12 +668,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
@@ -739,12 +691,6 @@ export default component$(() => {
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="8894881530"
         ></ins>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-        />
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">

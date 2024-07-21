@@ -50,12 +50,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8205519691"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Global styles" id="global-styles" />
@@ -134,12 +128,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="9918056612"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -310,12 +298,6 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="7291893273"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Tailwind" id="tailwind" />
@@ -388,12 +370,6 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="5854688524"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="CSS Modules" id="css-modules" />
@@ -481,12 +457,6 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="1640111347"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -545,12 +515,6 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="4541606850"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Icons" id="Icons" />
@@ -616,12 +580,6 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="9327029678"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Heroicons" id="heroicons" />
@@ -754,12 +712,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2913664561"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -932,12 +884,6 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="1600582891"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />

@@ -102,12 +102,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="9590753558"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -145,12 +139,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="5651508543"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <h3 id="folder-structure" data-docs-heading="">
@@ -320,12 +308,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="6773018523"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -433,12 +415,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="4649418066"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="TypeScript" id="typescript" level="h3" />
@@ -536,12 +512,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="1520691849"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -577,12 +547,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="9931365026"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />

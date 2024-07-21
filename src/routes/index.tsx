@@ -164,12 +164,6 @@ export default component$(() => {
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="3655900596"
         ></ins>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-        />
       </div>
 
       <div class="pb-8 md:pb-20">
@@ -597,12 +591,6 @@ export default component$(() => {
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="1506080090"
         ></ins>
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-        />
       </div>
 
       <div class="mx-auto max-w-6xl px-4 pb-10 md:pb-20">

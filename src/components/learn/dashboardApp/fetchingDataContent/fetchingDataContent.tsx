@@ -71,12 +71,6 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -115,12 +109,6 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Database queries" id="database-queries" />
@@ -165,12 +153,6 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <Quiz
@@ -210,12 +192,6 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <p>
@@ -233,12 +209,6 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -288,12 +258,6 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <Quiz
@@ -333,12 +297,6 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Using SQL" id="summary" level="h3" />
@@ -390,12 +348,6 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <Quiz
@@ -435,12 +387,6 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -632,12 +578,6 @@ export const fetchCardData = server$(async function () {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -738,12 +678,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -853,12 +787,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -927,12 +855,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -1028,12 +950,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -1109,12 +1025,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -1243,12 +1153,6 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -1313,12 +1217,6 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <Quiz
@@ -1358,12 +1256,6 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -1444,12 +1336,6 @@ try {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
@@ -1472,12 +1358,6 @@ try {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
       </div>
 

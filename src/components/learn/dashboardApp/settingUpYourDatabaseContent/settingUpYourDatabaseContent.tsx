@@ -71,12 +71,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -123,12 +117,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -154,12 +142,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -241,12 +223,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -297,12 +273,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -452,12 +422,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -599,12 +563,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -760,12 +718,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <Quiz
@@ -805,12 +757,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <blockquote class="p-3 text-sm">
@@ -864,12 +810,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor
@@ -909,12 +849,6 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Executing queries" id="executing-queries" />
@@ -949,12 +883,6 @@ WHERE invoices.amount = 666;`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <Quiz
@@ -994,12 +922,6 @@ WHERE invoices.amount = 666;`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <p>
@@ -1015,12 +937,6 @@ WHERE invoices.amount = 666;`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
@@ -1042,12 +958,6 @@ WHERE invoices.amount = 666;`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="8894881530"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
       </div>
 
