@@ -101,13 +101,11 @@ export const useServerTimeLoader = routeLoader$(() => {
   };
 });
 
+// Fonction pour réinitialiser les annonces
 const resetAds = () => {
   const ads = document.querySelectorAll(".adsbygoogle");
-  console.log("ads", ads);
   ads.forEach((ad) => {
-    ad.innerHTML = ""; // Supprime le contenu de l'élément pour le réinitialiser
-    //@ts-ignore
-    (adsbygoogle = window.adsbygoogle || []).push({});
+    ad.parentNode?.removeChild(ad); // Supprime l'élément du DOM
   });
 };
 
@@ -175,6 +173,10 @@ export default component$(() => {
   useVisibleTask$(({ track }) => {
     track(() => location.url.pathname);
     resetAds();
+    setTimeout(() => {
+      // @ts-ignore
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }, 1000); // Ajoute un délai pour s'assurer que le DOM est prêt
   });
 
   return (
