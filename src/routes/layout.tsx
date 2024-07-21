@@ -165,7 +165,7 @@ export default component$(() => {
 
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
-    track(() => location.url.pathname);
+    track(() => location.isNavigating);
     console.log("visible", location.url.pathname);
     // reinit adsense for spa navigation
 
@@ -176,7 +176,7 @@ export default component$(() => {
       adsbygoogle.innerHTML = ""; // Supprimer le contenu de l'élément
       console.log("adsbyGooglesAfter", adsbygoogles);
       // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({}); // Réinitialiser les annonces
+      (adsbygoogle = window.adsbygoogle || []).push({}); // Réinitialiser les annonces
     });
   });
 
