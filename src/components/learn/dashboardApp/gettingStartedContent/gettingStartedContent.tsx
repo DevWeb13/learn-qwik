@@ -93,6 +93,17 @@ export default component$(() => {
           will also initialize a git repository.
         </p>
 
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="9590753558"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor
           title="Exploring the project"
           id="exploring-the-project"
@@ -118,6 +129,17 @@ export default component$(() => {
         <p>Happy coding! 🎉</p>
 
         <p>Let's spend some time exploring the project.</p>
+
+        <div class="px-4 py-8 md:px-8 md:py-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="5651508543"
+          ></ins>
+        </div>
 
         <h3 id="folder-structure" data-docs-heading="">
           <a href="#folder-structure">
@@ -277,6 +299,17 @@ export default component$(() => {
           understand everything the code is doing yet.
         </p>
 
+        <div class="px-4 py-8 md:px-8 md:py-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="6773018523"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor
           title="Placeholder data"
           id="placeholder-data"
@@ -373,6 +406,17 @@ export default component$(() => {
           with some initial data).
         </p>
 
+        <div class="px-4 py-8 md:px-8 md:py-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="4649418066"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor title="TypeScript" id="typescript" level="h3" />
 
         <p>
@@ -459,6 +503,17 @@ export default component$(() => {
           </ul>
         </blockquote>
 
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="1520691849"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor
           title="Running the development server"
           id="running-the-development-server"
@@ -482,6 +537,17 @@ export default component$(() => {
             class="block w-full rounded-md border border-gray-200 bg-gray-100"
           />
         </figure>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="9931365026"
+          ></ins>
+        </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
 

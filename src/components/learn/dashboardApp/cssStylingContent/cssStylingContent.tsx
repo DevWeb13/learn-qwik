@@ -41,6 +41,17 @@ export default component$(() => {
           ]}
         />
 
+        <div class="px-4  md:px-8">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8205519691"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor title="Global styles" id="global-styles" />
         <p>
           If you look inside the <code>/src</code> folder, you'll see a file
@@ -107,6 +118,17 @@ export default component$(() => {
             },
           ]}
         />
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="9918056612"
+          ></ins>
+        </div>
 
         <SubtitleWithAnchor
           title="Adding Tailwind CSS"
@@ -267,6 +289,17 @@ export const head: DocumentHead = {
           application.🎉
         </p>
 
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="7291893273"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor title="Tailwind" id="tailwind" />
         <p>
           <BlankLink href="https://tailwindcss.com/" text="Tailwind" /> is a CSS
@@ -327,6 +360,17 @@ export const head: DocumentHead = {
           If you prefer writing traditional CSS rules or keeping your styles
           separate from your JSX - CSS Modules are a great alternative.
         </p>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="5854688524"
+          ></ins>
+        </div>
 
         <SubtitleWithAnchor title="CSS Modules" id="css-modules" />
         <p>
@@ -404,6 +448,17 @@ export const head: DocumentHead = {
           responseText="CSS Modules create unique class names for each component, so you don't have to worry about style collisions."
         />
 
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="1640111347"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor
           title="Other styling solutions"
           id="other-styling-solutions"
@@ -450,6 +505,17 @@ export const head: DocumentHead = {
             />
           </li>
         </ul>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="4541606850"
+          ></ins>
+        </div>
 
         <SubtitleWithAnchor title="Icons" id="Icons" />
         <p>
@@ -504,6 +570,17 @@ export const head: DocumentHead = {
           For your project, you can use the icons from the{" "}
           <code>Heroicons</code> set.
         </p>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="9327029678"
+          ></ins>
+        </div>
 
         <SubtitleWithAnchor title="Heroicons" id="heroicons" />
 
@@ -625,6 +702,17 @@ export default component$(() => {
             class="block w-full rounded-md border border-gray-200 bg-gray-100 dark:hidden"
           />
         </figure>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="2913664561"
+          ></ins>
+        </div>
 
         <SubtitleWithAnchor
           title="Other ways to add icons"
@@ -787,6 +875,17 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           application.🎉
         </p>
 
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="1600582891"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
         <p>
@@ -797,6 +896,17 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           />
           .
         </p>
+      </div>
+
+      <div class="px-4 pt-8 md:px-8 md:pt-20">
+        <ins
+          class="adsbygoogle"
+          style="display:flex; justify-content:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-2091224773462896"
+          data-ad-slot="9287501222"
+        ></ins>
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">

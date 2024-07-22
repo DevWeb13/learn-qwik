@@ -66,6 +66,17 @@ export default component$(() => {
           start building full-stack Qwik applications.
         </p>
 
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="2151247237"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor id="overview" title="Overview" />
 
         <p>Here's an overview of features you'll learn about in this course:</p>
@@ -137,6 +148,17 @@ export default component$(() => {
           </li>
         </ul>
 
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8780234763"
+          ></ins>
+        </div>
+
         <SubtitleWithAnchor
           id="prerequisite-knowledge"
           title="Prerequisite knowledge"
@@ -155,6 +177,17 @@ export default component$(() => {
           knowledge, understanding these concepts will help you grasp Qwik's
           unique features more effectively.
         </p>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="7467153097"
+          ></ins>
+        </div>
 
         <SubtitleWithAnchor
           id="system-requirements"
@@ -179,6 +212,17 @@ export default component$(() => {
           <BlankLink href="https://vercel.com/signup" text="Vercel Account" />.
           .
         </p>
+
+        <div class="px-4 pt-8 md:px-8 md:pt-20">
+          <ins
+            class="adsbygoogle"
+            style="display:flex; text-align:center; justify-content:center;"
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client="ca-pub-2091224773462896"
+            data-ad-slot="8141940514"
+          ></ins>
+        </div>
 
         <SubtitleWithAnchor
           id="join-the-conversation"
