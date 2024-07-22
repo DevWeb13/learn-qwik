@@ -653,12 +653,6 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="3940671747"
           ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <div class="bg-background-200 border-t pt-12 dark:bg-black md:pt-16">
