@@ -10,7 +10,6 @@ import {
   useSignal,
   useTask$,
   $,
-  useVisibleTask$,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
@@ -164,24 +163,6 @@ export default component$(() => {
   });
 
   // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(({ track }) => {
-    track(() => location.isNavigating);
-    console.log("visible", location.url.pathname);
-    // reinit adsense for spa navigation
-
-    const adsbygoogles = container.value?.querySelectorAll(".adsbygoogle");
-    console.log("adsbygoogles", adsbygoogles);
-    adsbygoogles?.forEach((adsbygoogle) => {
-      adsbygoogle.setAttribute("data-adsbygoogle-status", ""); // Réinitialiser l'attribut de statut
-      adsbygoogle.setAttribute("data-ad-status", ""); // Réinitialiser l'attribut de statut
-      adsbygoogle.innerHTML = ""; // Supprimer le contenu de l'élément
-      console.log("adsbyGooglesAfter", adsbygoogles);
-      // @ts-ignore
-      window.adsbygoogle = window.adsbygoogle || [];
-      // @ts-ignore
-      window.adsbygoogle.push({});
-    });
-  });
 
   return (
     <div class="overflow-hidden" ref={container}>
@@ -195,15 +176,7 @@ export default component$(() => {
       ) : (
         <>
           <PreFooter />
-          <div class="px-4 pb-8 md:px-8 md:pb-20">
-            <ins
-              class="adsbygoogle"
-              style="display:flex; text-align:center; justify-content:center;"
-              data-ad-format="autorelaxed"
-              data-ad-client="ca-pub-2091224773462896"
-              data-ad-slot="2125459059"
-            ></ins>
-          </div>
+
           <Footer />
         </>
       )}

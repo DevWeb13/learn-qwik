@@ -155,17 +155,6 @@ export default component$(() => {
         </div>
       </div>
 
-      <div class="px-4 pb-8 md:px-8 md:pb-20">
-        <ins
-          class="adsbygoogle"
-          style="display:flex; justify-content:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="3655900596"
-        ></ins>
-      </div>
-
       <div class="pb-8 md:pb-20">
         <div class="flex flex-col justify-center text-center md:flex-row md:items-baseline md:text-left">
           <h2
@@ -582,17 +571,6 @@ export default component$(() => {
         </div>
       </div>
 
-      <div class="px-4 pb-8 md:px-8 md:pb-20">
-        <ins
-          class="adsbygoogle"
-          style="display:flex; text-align:center; justify-content:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="1506080090"
-        ></ins>
-      </div>
-
       <div class="mx-auto max-w-6xl px-4 pb-10 md:pb-20">
         <div class="mb-4 flex flex-col justify-center text-center md:mb-8 md:flex-row md:items-baseline md:justify-center md:text-left">
           <h2
@@ -642,23 +620,6 @@ export default component$(() => {
               </BtAddChapter>
             </div>
           </div>
-        </div>
-
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; text-align:center; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3940671747"
-          ></ins>
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={`
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  `}
-          />
         </div>
 
         <div class="bg-background-200 border-t pt-12 dark:bg-black md:pt-16">
