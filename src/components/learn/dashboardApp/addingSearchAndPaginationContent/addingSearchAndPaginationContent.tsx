@@ -1,9 +1,11 @@
 // src/components/learn/dashboardApp/addingSearchAndPaginationContent/addingSearchAndPaginationContent.tsx
 
 import { component$ } from "@builder.io/qwik";
-import { version } from "os";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
+import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
+import Feedback from "~/components/UI/feedback/feedback";
+import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
@@ -19,8 +21,9 @@ export const AddingSearchAndPaginationContent = component$(() => {
         />
         <p>
           In the previous chapter, you improved your dashboard's initial loading
-          performance with streaming. Now let's move on to the /invoices page,
-          and learn how to add search and pagination!
+          performance with streaming. Now let's move on to the{" "}
+          <code>/invoices</code> page, and learn how to add search and
+          pagination!
         </p>
         <TableOfTopicsCovered
           topics={[
@@ -493,6 +496,18 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             </a>
             ).
           </li>
+          <li>
+            The <code>`replaceState: true`</code> option in the `nav` function
+            is used to replace the current state in the browser's history
+            instead of adding a new entry. This means that when the URL is
+            updated with the search term, the current navigation does not add a
+            new history entry. This is particularly useful for dynamic URL
+            updates, such as search filters or pagination parameters, where you
+            do not want to clutter the browser's history with each change. Thus,
+            if the user presses the back button, they won't go through each
+            previous search step but directly return to the page they were on
+            before performing the search.
+          </li>
         </ul>
         <SubtitleWithAnchor
           title="3. Keeping the URL and input in sync"
@@ -534,15 +549,17 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             </strong>
           </p>
           <p>
-            If you're using state to manage the value of an input, you'd use the{" "}
-            <code>value</code> attribute to make it a controlled component. This
-            means React would manage the input's state.
+            In Qwik, if you want to ensure that the input field reflects the
+            current URL parameters and updates accordingly, you should use the{" "}
+            <code>value</code> attribute. This makes the input a controlled
+            component, ensuring that Qwik manages the input's state based on the
+            URL parameters.
           </p>
           <p>
-            However, since you're not using state, you can use{" "}
-            <code>defaultValue</code>. This means the native input will manage
-            its own state. This is okay since you're saving the search query to
-            the URL instead of state.
+            Using <code>defaultValue</code> only sets the initial value of the
+            input when the component is first rendered. It does not update the
+            input value when the URL parameters change. Therefore, using value
+            is necessary to keep the input in sync with the URL parameters.
           </p>
         </blockquote>
         <SubtitleWithAnchor
@@ -1109,7 +1126,9 @@ export const fetchInvoicesPages = server$(async function (query: string) {
 
         <p>
           This function will return the total number of pages based on the
-          search query.
+          search query. For example, if there are 12 invoices that match the
+          search query, and each page displays 6 invoices, then the total number
+          of pages would be 2.
         </p>
 
         <p>
@@ -1136,11 +1155,6 @@ export const fetchInvoicesPages = server$(async function (query: string) {
         </ul>
 
         <p>
-          Nous alons utiliser <code>useResource$</code> pour récupérer le nombre
-          total de pages et <code>Resource</code> pour afficher la pagination.
-        </p>
-
-        <p>
           We use <code>useResource$</code> to fetch the total number of pages
           and <code>Resource</code> to render the pagination.
         </p>
@@ -1163,8 +1177,7 @@ import { fetchInvoicesPages } from "~/lib/data";
 
 export const Pagination = component$(() => {
   const loc = useLocation();
-  const searchParams = loc.url.searchParams;
-  const currentPage = Number(searchParams.get("page")) || 1;
+  const currentPage = Number(loc.url.searchParams.get("page")) || 1;
 
   const totalPagesResource = useResource$(async () => {
     const searchParams = loc.url.searchParams;
@@ -1241,7 +1254,233 @@ const PaginationArrow = component$(
           language="tsx"
           text="src/components/ui/invoices/pagination.tsx"
         />
+
+        <p>
+          The changes made to the pagination aim to make the component more
+          dynamic and synchronize it with the URL parameters. Here is a summary
+          of the main modifications:
+        </p>
+
+        <ul>
+          <li>
+            <code>useLocation</code>: Allows access to URL parameters to
+            determine the current page and search query. This synchronizes the
+            URL state with the component.
+          </li>
+          <li>
+            <code>currentPage</code> constant determined the current page from
+            the <code>page</code> parameter.
+          </li>
+          <li>
+            <code>useResource$</code>: Facilitates asynchronous data fetching
+            (such as the total number of pages) based on the current search
+            parameters. This makes the component more dynamic and responsive to
+            URL changes.
+          </li>
+          <li>
+            <code>Resource</code>: Manages conditional rendering based on the
+            resource state (loading, success, error). This allows displaying the
+            pagination only when the necessary data is available.
+          </li>
+          <li>
+            <code>generatePagination</code>: Generates a list of pages to
+            display in the pagination. This function is called after
+            successfully fetching the total number of pages.
+          </li>
+          <li>
+            <code>PaginationArrow</code> and <code>PaginationNumber</code>:
+            Individual components to display navigation arrows and page numbers,
+            respectively. Their state is determined based on the current page
+            and total number of pages.
+          </li>
+          <li>
+            <code>createPageURL</code>: Dynamically constructs the pagination
+            links based on the current page and URL parameters, ensuring smooth
+            navigation between pages.
+          </li>
+        </ul>
+
+        <p>
+          The last function, <code>createPageURL</code>, do not exist yet. We
+          will create it in the next steps. 👇
+        </p>
+
+        <CodeBlock
+          code={`// src/components/ui/invoices/pagination.tsx
+
+// ...
+
+export const Pagination = component$(() => {
+  const loc = useLocation();
+  const currentPage = Number(loc.url.searchParams.get("page")) || 1;
+
+  const totalPagesResource = useResource$(async ({ track }) => {
+    // ...
+  });
+
+  const createPageURL = (pageNumber: number | string) => {
+    const params = new URLSearchParams(loc.url.searchParams);
+    params.set("page", pageNumber.toString());
+    return \`\${loc.url.pathname}?\${params.toString()}\`;
+  };
+
+  return (
+    <>
+      <Resource
+        // ...
+      />
+    </>
+  );
+});
+// ...`}
+          icon="typescript"
+          language="tsx"
+          text="src/components/ui/invoices/pagination.tsx"
+          hideLineNumbers
+          decorations={[
+            {
+              start: { line: 12, character: 0 },
+              end: { line: 16, character: 4 },
+              properties: { class: "newLine" },
+            },
+          ]}
+        />
+
+        <p>Here's a breakdown of what's happening:</p>
+        <ul>
+          <li>
+            <code>createPageURL</code> creates an instance of the current search
+            parameters.
+          </li>
+          <li>
+            Then, it updates the "page" parameter to the provided page number.
+          </li>
+          <li>
+            Finally, it constructs the full URL using the pathname and updated
+            search parameters.
+          </li>
+        </ul>
+
+        <p>
+          The rest of the <code>&lt;Pagination&gt;</code> component deals with
+          styling and different states (first, last, active, disabled, etc). We
+          won't go into detail for this course, but feel free to look through
+          the code to see where <code>createPageURL</code> is being called.
+        </p>
+
+        <p>
+          Finally, when the user types a new search query, you want to reset the
+          page number to 1. You can do this by updating the{" "}
+          <code>handleSearch</code> function in your <code>&lt;Search&gt;</code>{" "}
+          component:
+        </p>
+
+        <CodeBlock
+          code={`// src/components/ui/search.tsx
+
+import { component$, $ } from "@builder.io/qwik";
+import { useLocation, useNavigate } from "@builder.io/qwik-city";
+import { HiMagnifyingGlassOutline } from "@qwikest/icons/heroicons";
+import { useDebouncer } from "~/hooks/useDebouncer";
+
+export const Search = component$(({ placeholder }: { placeholder: string }) => {
+  const loc = useLocation();
+  const searchParams = loc.url.searchParams;
+  const pathname = loc.url.pathname;
+  const nav = useNavigate();
+
+  const handleSearch = $(function handleSearch(term: string) {
+
+    const params = new URLSearchParams(searchParams);
+    params.set("page", "1");
+    if (term) {
+      params.set("query", term);
+    } else {
+      params.delete("query");
+    }
+    nav(\`\${pathname}?\${params.toString()}\`, { replaceState: true });
+  });
+
+  // ...`}
+          icon="typescript"
+          language="tsx"
+          text="src/components/ui/search.tsx"
+          decorations={[
+            {
+              start: { line: 16, character: 0 },
+              end: { line: 16, character: 28 },
+              properties: { class: "newLine" },
+            },
+          ]}
+        />
+
+        <SubtitleWithAnchor title="Summary" id="" />
+
+        <p>
+          Congratulations! You've just implemented search and pagination using
+          URL Params and Next.js APIs.
+        </p>
+
+        <p>To summarize, in this chapter:</p>
+
+        <ul>
+          <li>
+            You've handled search and pagination with URL search parameters
+            instead of client state.
+          </li>
+          <li>
+            You've fetched data asynchronously using Qwik's{" "}
+            <code>useResource$</code>.
+          </li>
+          <li>
+            You're using the <code>useLocation</code> hook for smoother,
+            client-side transitions.
+          </li>
+          <li>You've implemented debouncing to optimize the search feature.</li>
+          <li>
+            You've dynamically constructed pagination links using the
+            <code>createPageURL</code> function.
+          </li>
+          <li>
+            You've managed conditional rendering based on the resource state
+            with Qwik's <code>Resource</code> component.
+          </li>
+        </ul>
+
+        <p>
+          These patterns differ from what you may be used to when working with
+          client-side React, but hopefully, you now better understand the
+          benefits of using URL search params and lifting this state to the
+          server.
+        </p>
+
+        <p>Well done !</p>
+
+        <SubtitleWithAnchor title="Source code" id="source-code" />
+        <p>
+          You can find the source code for chapter 10 on{" "}
+          <BlankLink
+            href="https://github.com/DevWeb13/qwik-dashboard/tree/24-chapter-11-adding-search-and-pagination"
+            text="GitHub"
+          />
+          .
+        </p>
       </div>
+
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
+        <CompletedChapter
+          chapterNumber={10}
+          text="You've learned how to stream components with <Resource /> and loading skeletons."
+        />
+        <GoToNextChapterBlock
+          goToChapter={11}
+          title="Mutating data"
+          text="Learn how to update data in your database."
+          disabledButton
+        />
+      </div>
+      <Feedback />
+      <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );
 });
