@@ -67,4 +67,12 @@ export const CHAPTERS = [
     isCompleted: false,
     uri: "streaming",
   },
+  {
+    id: 10,
+    title: "Chapter 10: Adding Search and Pagination",
+    description:
+      "Learn how to add search and pagination to your Qwik application.",
+    isCompleted: false,
+    uri: "adding-search-and-pagination",
+  },
 ];
