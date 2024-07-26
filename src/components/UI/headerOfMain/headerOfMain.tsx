@@ -73,7 +73,7 @@ export default component$(() => {
           aria-hidden="true"
           class="bg-gray-alpha-400 ml-3 mr-4 hidden h-8 w-[1px] lg:block"
         ></div>
-        <div class="ml-3 flex items-center gap-3 lg:ml-0">
+        <div class="ml-3 flex flex-grow items-center gap-3 lg:ml-0">
           <div class="relative hidden lg:block">
             <BookSvg small id="headerOfMain" />
           </div>
