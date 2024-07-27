@@ -1,7 +1,6 @@
 .mobileMenu_mobileMenu__xqbOP,
 .tailwind .mobileMenu_mobileMenu__xqbOP {
   display: none;
-  padding-top: calc(1rem + 64px);
 }
 
 @media (max-width: 1020px) {
@@ -12,10 +11,10 @@
     background: var(--geist-background);
     height: 100vh;
     top: 0;
-    /* // scroll display */
-    /* overflow-x: auto; */
+
     z-index: 500;
     position: fixed;
+    top: calc(1rem + 64px);
   }
 }
 

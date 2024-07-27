@@ -103,12 +103,9 @@ export default component$(() => {
         Docs
         <ExternalArrowIcon />
       </a>
-      <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/5">
-        {/* <a class={styles.link} href="/blog">
+      <Link class={styles.link} href="/blog">
         Blog
-      </a> */}
-        <p class={styles.replaceLink}>Blog</p>
-      </Popover>
+      </Link>
 
       <a
         class={styles.link}
