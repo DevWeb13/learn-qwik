@@ -1,5 +1,17 @@
+// src/routes/blog/index.tsx
+
 import { component$ } from "@builder.io/qwik";
+import { type DocumentHead } from "@builder.io/qwik-city";
+import { BlogContent } from "~/components/blog/blogContent";
+import { createDocumentHead } from "~/utils/createDocumentHead";
 
 export default component$(() => {
-  return <div>Blog</div>;
+  return <BlogContent />;
 });
+
+export const head: DocumentHead = createDocumentHead(
+  "Blog",
+  "The last news releases from the Qwik team.",
+  "https://www.learn-qwik.com/metaBlog.png",
+  "https://www.learn-qwik.com/blog/",
+);

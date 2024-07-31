@@ -103,7 +103,7 @@ export default component$(() => {
         Docs
         <ExternalArrowIcon />
       </a>
-      <Link class={styles.link} href="/blog">
+      <Link class={styles.link} href="/blog/">
         Blog
       </Link>
 
