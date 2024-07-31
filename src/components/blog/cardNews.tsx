@@ -119,27 +119,39 @@ export const CardNews = component$<CardNewsProps>(({ release }) => {
           </li>
         </ul>
       </div>
-      <div class="my-2 flex flex-col gap-2 border-t">
-        <h2 class="mt-4 font-bold text-gray-700">Contributors:</h2>
-        <ul class="flex flex-wrap gap-2">
-          {release.contributors.map((contributor) => (
-            <li key={contributor.login} title={contributor.login}>
-              <a
-                href={`https://github.com/${contributor.login}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={contributor.avatar_url}
-                  alt={contributor.login}
-                  class="h-10 w-10 rounded-full"
-                  width={30}
-                  height={30}
-                />
-              </a>
-            </li>
-          ))}
-        </ul>
+      {release.contributors.length > 0 && (
+        <div class="my-2 flex flex-col gap-2 border-t">
+          <h2 class="mt-4 font-bold text-gray-700">Contributors:</h2>
+          <ul class="flex flex-wrap gap-2">
+            {release.contributors.map((contributor) => (
+              <li key={contributor.login} title={contributor.login}>
+                <a
+                  href={`https://github.com/${contributor.login}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={contributor.avatar_url}
+                    alt={contributor.login}
+                    class="h-10 w-10 rounded-full"
+                    width={30}
+                    height={30}
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      <div class="px-4 md:px-8">
+        <ins
+          class="adsbygoogle"
+          style="display:flex; justify-content:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-2091224773462896"
+          data-ad-slot="9037123747"
+        ></ins>
       </div>
     </article>
   );

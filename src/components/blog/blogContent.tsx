@@ -150,7 +150,7 @@ export const BlogContent = component$(() => {
       margin-top: 48px;
       gap: 16px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     }
     .load-more-trigger {
       height: 1px;
@@ -200,12 +200,32 @@ export const BlogContent = component$(() => {
     cleanup(() => observer.disconnect());
   });
 
+  const container = useSignal<HTMLElement>();
+
+  // Réinitialisation des publicités AdSense
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ track }) => {
+    track(() => releasesStore.loading);
+
+    if (container.value) {
+      const adsbygoogle = container.value.querySelectorAll(".adsbygoogle");
+      adsbygoogle.forEach(() => {
+        try {
+          // @ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          console.error("Adsense error:", e);
+        }
+      });
+    }
+  });
+
   return (
-    <main>
-      <div class="relative mx-auto max-w-screen-lg px-4 py-4 md:py-10">
+    <main ref={container}>
+      <div class="relative mx-auto max-w-screen-xl px-4 py-4 md:py-10">
         <div class=" max-w-none">
           <h1 class="text_wrapper__i87JK text-3xl font-semibold leading-10 tracking-tighter">
-            The latest Qwik news
+            The latest news releases from the Qwik team
           </h1>
 
           <div class="blog_posts__nCN7i">
