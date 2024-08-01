@@ -48,7 +48,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5681677565"
           ></ins>
         </div>
 
@@ -77,7 +77,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="1854113197"
           ></ins>
         </div>
 
@@ -190,7 +190,7 @@ export const NavLinks = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6914868189"
           ></ins>
         </div>
 
@@ -215,7 +215,7 @@ export const NavLinks = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5601786513"
           ></ins>
         </div>
 
@@ -254,7 +254,7 @@ export const NavLinks = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="8116269210"
           ></ins>
         </div>
 
@@ -457,7 +457,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="4177024208"
           ></ins>
         </div>
 
@@ -497,7 +497,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="3153788390"
           ></ins>
         </div>
 
@@ -532,7 +532,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="1840706724"
           ></ins>
         </div>
 
@@ -553,7 +553,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9237779191"
           ></ins>
         </div>
       </div>
