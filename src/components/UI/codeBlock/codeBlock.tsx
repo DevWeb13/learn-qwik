@@ -30,6 +30,32 @@ interface CodeBlockProps {
   displayCopyButtonAbsolute?: boolean;
 }
 
+// Singleton for Shiki Highlighter
+let shikiHighlighter: any = null;
+
+async function getShikiInstance() {
+  if (!shikiHighlighter) {
+    const { getSingletonHighlighterCore } = await import(
+      "shiki/core-unwasm.mjs"
+    );
+    shikiHighlighter = await getSingletonHighlighterCore({
+      themes: [
+        import("shiki/themes/github-light.mjs"),
+        import("shiki/themes/github-dark.mjs"),
+      ],
+      langs: [
+        import("shiki/langs/bash.mjs"),
+        import("shiki/langs/javascript.mjs"),
+        import("shiki/langs/typescript.mjs"),
+        import("shiki/langs/tsx.mjs"),
+        import("shiki/langs/css.mjs"),
+        import("shiki/langs/json.mjs"),
+      ],
+    });
+  }
+  return shikiHighlighter;
+}
+
 export default component$<CodeBlockProps>(
   ({
     code,
@@ -146,39 +172,15 @@ export default component$<CodeBlockProps>(
     opacity: 1;
   }
 
- 
-
   `);
 
     const codeSig = useSignal("");
-
-    // if (isBrowser) {
-    //   console.log("Exécution côté client");
-    // } else {
-    //   console.log("Exécution côté serveur");
-    // }
 
     useTask$(async function createHighlightedCode() {
       if (!isBrowser) {
         return;
       }
-      const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
-      const highlighter = await getHighlighterCore({
-        themes: [
-          // or a dynamic import if you want to do chunk splitting
-          import("shiki/themes/github-light.mjs"),
-          import("shiki/themes/github-dark.mjs"),
-        ],
-        langs: [
-          import("shiki/langs/bash.mjs"),
-          import("shiki/langs/javascript.mjs"),
-          import("shiki/langs/typescript.mjs"),
-          import("shiki/langs/tsx.mjs"),
-          import("shiki/langs/css.mjs"),
-          import("shiki/langs/json.mjs"),
-        ],
-        // loadWasm: import("shiki/wasm"),
-      });
+      const highlighter = await getShikiInstance();
       const codeHighLight = highlighter.codeToHtml(code, {
         lang: language,
         themes: {
@@ -192,23 +194,7 @@ export default component$<CodeBlockProps>(
 
     // eslint-disable-next-line qwik/no-use-visible-task
     useVisibleTask$(async () => {
-      const { getHighlighterCore } = await import("shiki/core-unwasm.mjs");
-      const highlighter = await getHighlighterCore({
-        themes: [
-          // or a dynamic import if you want to do chunk splitting
-          import("shiki/themes/github-light.mjs"),
-          import("shiki/themes/github-dark.mjs"),
-        ],
-        langs: [
-          import("shiki/langs/bash.mjs"),
-          import("shiki/langs/javascript.mjs"),
-          import("shiki/langs/typescript.mjs"),
-          import("shiki/langs/tsx.mjs"),
-          import("shiki/langs/css.mjs"),
-          import("shiki/langs/json.mjs"),
-        ],
-        // loadWasm: import("shiki/wasm"),
-      });
+      const highlighter = await getShikiInstance();
       const codeHighLight = highlighter.codeToHtml(code, {
         lang: language,
         themes: {
