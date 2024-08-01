@@ -146,7 +146,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="6712354480"
           ></ins>
         </div>
 
@@ -190,7 +190,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="4981875384"
           ></ins>
         </div>
 
@@ -238,7 +238,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="4530449243"
           ></ins>
         </div>
 
@@ -322,7 +322,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="4516769701"
           ></ins>
         </div>
 
@@ -577,7 +577,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -642,7 +642,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="9475784049"
           ></ins>
         </div>
 
@@ -906,7 +906,7 @@ export const fetchFilteredInvoices = server$(async function (
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="8491673735"
           ></ins>
         </div>
 
@@ -1145,7 +1145,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="9198250747"
           ></ins>
         </div>
 
@@ -1184,7 +1184,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="5865510395"
           ></ins>
         </div>
 
@@ -1538,7 +1538,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="3239347057"
           ></ins>
         </div>
 
@@ -1591,7 +1591,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="1926265389"
           ></ins>
         </div>
 
@@ -1612,7 +1612,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="8300102042"
           ></ins>
         </div>
       </div>
