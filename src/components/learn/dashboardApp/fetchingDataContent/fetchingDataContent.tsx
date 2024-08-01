@@ -69,7 +69,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="2172009093"
           ></ins>
         </div>
 
@@ -107,7 +107,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="4497254685"
           ></ins>
         </div>
 
@@ -151,7 +151,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="2121706502"
           ></ins>
         </div>
 
@@ -183,17 +183,6 @@ export const FetchingDataContent = component$(() => {
           responseText="That's right, you should not query your database directly when fetching data on the client as this would expose your database secrets."
         />
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
-          ></ins>
-        </div>
-
         <p>
           Let's learn more about{" "}
           <BlankLink href="https://qwik.dev/docs/server$/" text="server$()" />{" "}
@@ -207,7 +196,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="8495543162"
           ></ins>
         </div>
 
@@ -256,7 +245,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="3184173011"
           ></ins>
         </div>
 
@@ -295,7 +284,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6931846335"
           ></ins>
         </div>
 
@@ -346,7 +335,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="3944125884"
           ></ins>
         </div>
 
@@ -385,7 +374,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6226674290"
           ></ins>
         </div>
 
@@ -576,7 +565,7 @@ export const fetchCardData = server$(async function () {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="3226904619"
           ></ins>
         </div>
 
@@ -676,7 +665,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9366437981"
           ></ins>
         </div>
 
@@ -785,7 +774,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5185055365"
           ></ins>
         </div>
 
@@ -853,7 +842,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6165559572"
           ></ins>
         </div>
 
@@ -948,7 +937,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="1645265607"
           ></ins>
         </div>
 
@@ -1023,7 +1012,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9913232891"
           ></ins>
         </div>
 
@@ -1151,7 +1140,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="2748392466"
           ></ins>
         </div>
 
@@ -1215,7 +1204,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9122229123"
           ></ins>
         </div>
 
@@ -1254,7 +1243,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5973987882"
           ></ins>
         </div>
 
@@ -1334,7 +1323,7 @@ try {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6974577931"
           ></ins>
         </div>
 
@@ -1356,7 +1345,7 @@ try {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5661496262"
           ></ins>
         </div>
       </div>

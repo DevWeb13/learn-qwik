@@ -69,7 +69,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="8385933771"
           ></ins>
         </div>
 
@@ -130,7 +130,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5133084474"
           ></ins>
         </div>
 
@@ -186,7 +186,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5759770431"
           ></ins>
         </div>
 
@@ -259,7 +259,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="7394880768"
           ></ins>
         </div>
 
@@ -506,7 +506,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="4577145735"
           ></ins>
         </div>
 
@@ -585,7 +585,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6633868404"
           ></ins>
         </div>
 
@@ -629,7 +629,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="4007705060"
           ></ins>
         </div>
 
@@ -666,7 +666,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="7011737386"
           ></ins>
         </div>
 
@@ -689,7 +689,7 @@ export default component$(() => {
           data-ad-layout="in-article"
           data-ad-format="fluid"
           data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="8894881530"
+          data-ad-slot="3628431117"
         ></ins>
       </div>
 

@@ -69,7 +69,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5588380045"
           ></ins>
         </div>
 
@@ -115,7 +115,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6420044162"
           ></ins>
         </div>
 
@@ -140,7 +140,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="1470969811"
           ></ins>
         </div>
 
@@ -221,7 +221,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="1167717486"
           ></ins>
         </div>
 
@@ -271,7 +271,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6228472470"
           ></ins>
         </div>
 
@@ -420,7 +420,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="2289227460"
           ></ins>
         </div>
 
@@ -561,7 +561,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6036900789"
           ></ins>
         </div>
 
@@ -716,7 +716,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="2097655770"
           ></ins>
         </div>
 
@@ -755,7 +755,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="8471492431"
           ></ins>
         </div>
 
@@ -808,7 +808,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="4532247422"
           ></ins>
         </div>
 
@@ -847,7 +847,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5218643134"
           ></ins>
         </div>
 
@@ -881,7 +881,7 @@ WHERE invoices.amount = 666;`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6966839070"
           ></ins>
         </div>
 
@@ -920,24 +920,13 @@ WHERE invoices.amount = 666;`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="8966316455"
           ></ins>
         </div>
 
         <p>
           Congratulations, you've successfully set up your database in Qwik! 🎉
         </p>
-
-        <div class="px-4 md:px-8 ">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
-          ></ins>
-        </div>
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
@@ -956,7 +945,7 @@ WHERE invoices.amount = 666;`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="4446688762"
           ></ins>
         </div>
       </div>

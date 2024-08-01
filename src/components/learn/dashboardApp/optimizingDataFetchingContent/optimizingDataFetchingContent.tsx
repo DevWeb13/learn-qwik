@@ -50,7 +50,7 @@ export const OptimizingDataFetchingContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6112922403"
           ></ins>
         </div>
 
@@ -104,7 +104,7 @@ export const OptimizingDataFetchingContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="9940486770"
           ></ins>
         </div>
 
@@ -304,7 +304,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="5923421967"
           ></ins>
         </div>
 
@@ -343,7 +343,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6001241760"
           ></ins>
         </div>
 
@@ -507,7 +507,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="2061996757"
           ></ins>
         </div>
 
@@ -546,7 +546,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="4156842903"
           ></ins>
         </div>
 
@@ -749,7 +749,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="8435833411"
           ></ins>
         </div>
 
@@ -781,17 +781,6 @@ export default component$(() => {
           responseText="When routeLoader$ is placed in the layout, data is fetched every time the route is loaded."
         />
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
-          ></ins>
-        </div>
-
         <p>
           Congratulations 🙌, you have now optimized the data loading by passing
           them in parallel and triggering the requests only when necessary.🏆
@@ -804,7 +793,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="1982105707"
           ></ins>
         </div>
 
@@ -904,7 +893,7 @@ Data fetch completed after 3 seconds.`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="3103615687"
           ></ins>
         </div>
 
@@ -943,7 +932,7 @@ Data fetch completed after 3 seconds.`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="8244261722"
           ></ins>
         </div>
 
@@ -964,7 +953,7 @@ Data fetch completed after 3 seconds.`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8894881530"
+            data-ad-slot="6931180058"
           ></ins>
         </div>
       </div>
