@@ -9,10 +9,11 @@ import {
   useStore,
   useVisibleTask$,
   $,
+  useTask$,
 } from "@builder.io/qwik";
 import { CardNews } from "./cardNews";
 import { CardNewsSkeleton } from "./cardNewsSkeleton"; // Importer le composant skeleton
-import { server$ } from "@builder.io/qwik-city";
+import { server$, useLocation } from "@builder.io/qwik-city";
 import { getEnvVariable } from "~/utils/getEnvVariable";
 import { marked } from "marked";
 
@@ -164,8 +165,10 @@ export const BlogContent = component$(() => {
     loading: false,
   });
 
+  const location = useLocation();
   const releasesResource = useResource$<Release[]>(async ({ track }) => {
     track(() => page.value);
+    track(() => location.url.pathname);
     releasesStore.loading = true;
     const newReleases = await fetchReleases(page.value, 6);
     releasesStore.releases = [...releasesStore.releases, ...newReleases];
@@ -199,6 +202,17 @@ export const BlogContent = component$(() => {
 
     cleanup(() => observer.disconnect());
   });
+
+  // const location = useLocation();
+  // useTask$(({ track }) => {
+  //   track(() => location.url.pathname);
+
+  //   if (location.url.pathname === "/blog") {
+  //     page.value = 1;
+  //     releasesStore.releases = [];
+  //     releasesStore.loading = false;
+  //   }
+  // });
 
   const container = useSignal<HTMLElement>();
 
