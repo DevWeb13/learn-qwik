@@ -9,7 +9,6 @@ import {
   useStore,
   useVisibleTask$,
   $,
-  useTask$,
 } from "@builder.io/qwik";
 import { CardNews } from "./cardNews";
 import { CardNewsSkeleton } from "./cardNewsSkeleton"; // Importer le composant skeleton
