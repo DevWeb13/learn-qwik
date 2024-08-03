@@ -1,6 +1,6 @@
 // src/components/blog/cardNews.tsx
 
-import { component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useStore, useStylesScoped$ } from "@builder.io/qwik";
 import sanitizeHtml from "sanitize-html";
 import { formatDate } from "~/utils/formatDate";
 import type { Release } from "./blogContent";
@@ -9,10 +9,23 @@ import { FileSvg } from "~/assets/svg/fileSvg/fileSvg";
 
 type CardNewsProps = {
   release: Release;
+  index: number;
 };
 
-export const CardNews = component$<CardNewsProps>(({ release }) => {
-  // console.log("release", release);
+type DataAdSlot = {
+  [key: number]: string;
+};
+
+export const CardNews = component$<CardNewsProps>(({ release, index }) => {
+  const dataAdSlot: DataAdSlot = useStore({
+    1: "7279099184",
+    2: "5921119204",
+    3: "9330547454",
+    4: "5391302443",
+    5: "4078220776",
+    6: "7042629183",
+  });
+
   useStylesScoped$(`
     .container-body > :global(table th) {
      text-align: left;
@@ -72,13 +85,8 @@ export const CardNews = component$<CardNewsProps>(({ release }) => {
 
     `);
 
-  const articleRef = useSignal<Element>();
-
   return (
-    <article
-      class="mb-4 overflow-hidden rounded-lg border border-gray-300 p-4 shadow-md"
-      ref={articleRef}
-    >
+    <article class="mb-4 flex flex-col overflow-hidden rounded-lg border border-gray-300 p-4 shadow-md">
       <div class="flex items-center justify-between">
         <p class="text-sm text-gray-600">{formatDate(release.published_at)}</p>
       </div>
@@ -119,30 +127,32 @@ export const CardNews = component$<CardNewsProps>(({ release }) => {
           </li>
         </ul>
       </div>
-      {release.contributors.length > 0 && (
-        <div class="my-2 flex flex-col gap-2 border-t">
-          <h2 class="mt-4 font-bold text-gray-700">Contributors:</h2>
-          <ul class="flex flex-wrap gap-2">
-            {release.contributors.map((contributor) => (
-              <li key={contributor.login} title={contributor.login}>
-                <a
-                  href={`https://github.com/${contributor.login}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={contributor.avatar_url}
-                    alt={contributor.login}
-                    class="h-10 w-10 rounded-full"
-                    width={30}
-                    height={30}
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div class="my-2 flex flex-grow flex-col gap-2 border-t">
+        {release.contributors.length > 0 && (
+          <>
+            <h2 class="mt-4 font-bold text-gray-700">Contributors:</h2>
+            <ul class="flex flex-wrap gap-2">
+              {release.contributors.map((contributor) => (
+                <li key={contributor.login} title={contributor.login}>
+                  <a
+                    href={`https://github.com/${contributor.login}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src={contributor.avatar_url}
+                      alt={contributor.login}
+                      class="h-10 w-10 rounded-full"
+                      width={30}
+                      height={30}
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
       <div class="px-4 md:px-8">
         <ins
           class="adsbygoogle"
@@ -150,7 +160,7 @@ export const CardNews = component$<CardNewsProps>(({ release }) => {
           data-ad-layout="in-article"
           data-ad-format="fluid"
           data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="9037123747"
+          data-ad-slot={dataAdSlot[index]}
         ></ins>
       </div>
     </article>
