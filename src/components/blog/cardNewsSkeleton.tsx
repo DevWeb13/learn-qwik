@@ -40,11 +40,13 @@ export const CardNewsSkeleton = component$(() => {
   `);
 
   return (
-    <article class="skeleton mb-4 min-h-[300px] overflow-hidden rounded-lg border border-gray-300 p-4 shadow-md">
+    <article class="skeleton mb-4 min-h-[400px] overflow-hidden rounded-lg border border-gray-300 p-4 shadow-md">
       <div class="flex items-center justify-between">
         <p class="skeleton-text skeleton-header"></p>
       </div>
       <div class="skeleton-text skeleton-header mt-2 block"></div>
+      <div class="skeleton-text skeleton-body mt-2"></div>
+      <div class="skeleton-text skeleton-body mt-2"></div>
       <div class="skeleton-text skeleton-body mt-2"></div>
       <div class="skeleton-text skeleton-body mt-2"></div>
       <div class="skeleton-text skeleton-body mt-2"></div>

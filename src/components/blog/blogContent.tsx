@@ -4,17 +4,16 @@ import {
   component$,
   Resource,
   useResource$,
-  useStyles$,
   useSignal,
-  useStore,
+  useStyles$,
   useVisibleTask$,
-  $,
 } from "@builder.io/qwik";
 import { CardNews } from "./cardNews";
 import { CardNewsSkeleton } from "./cardNewsSkeleton"; // Importer le composant skeleton
 import { server$, useLocation } from "@builder.io/qwik-city";
 import { getEnvVariable } from "~/utils/getEnvVariable";
 import { marked } from "marked";
+import { Pagination } from "../UI/pagination/pagination";
 
 /* Types */
 export type Author = {
@@ -157,80 +156,37 @@ export const BlogContent = component$(() => {
     }
   `);
 
-  const page = useSignal(1);
-  const triggerRef = useSignal<Element>();
-  const releasesStore = useStore<{ releases: Release[]; loading: boolean }>({
-    releases: [],
-    loading: false,
-  });
+  const loc = useLocation();
 
-  const location = useLocation();
+  const pageParam = loc.url.searchParams.get("page") || "1";
+
   const releasesResource = useResource$<Release[]>(async ({ track }) => {
-    track(() => page.value);
-    track(() => location.url.pathname);
-    releasesStore.loading = true;
-    const newReleases = await fetchReleases(page.value, 6);
-    releasesStore.releases = [...releasesStore.releases, ...newReleases];
-    releasesStore.loading = false;
-    return releasesStore.releases;
+    track(() => loc.url.pathname);
+
+    const newReleases = await fetchReleases(Number(pageParam), 6);
+    return newReleases;
   });
-
-  const loadMoreReleases = $(() => {
-    if (!releasesStore.loading) {
-      page.value++;
-    }
-  });
-
-  // eslint-disable-next-line qwik/no-use-visible-task
-  useVisibleTask$(({ cleanup }) => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          loadMoreReleases();
-        }
-      },
-      {
-        rootMargin: "0px",
-        threshold: 1.0,
-      },
-    );
-
-    if (triggerRef.value) {
-      observer.observe(triggerRef.value);
-    }
-
-    cleanup(() => observer.disconnect());
-  });
-
-  // const location = useLocation();
-  // useTask$(({ track }) => {
-  //   track(() => location.url.pathname);
-
-  //   if (location.url.pathname === "/blog") {
-  //     page.value = 1;
-  //     releasesStore.releases = [];
-  //     releasesStore.loading = false;
-  //   }
-  // });
 
   const container = useSignal<HTMLElement>();
 
-  // Réinitialisation des publicités AdSense
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
-    track(() => releasesStore.loading);
-
-    if (container.value) {
-      const adsbygoogle = container.value.querySelectorAll(".adsbygoogle");
-      adsbygoogle.forEach(() => {
-        try {
-          // @ts-ignore
-          (window.adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {
-          console.error("Adsense error:", e);
-        }
-      });
-    }
+    track(() => releasesResource.loading === false);
+    // reinit adsense for spa navigation
+    console.log("reinit adsense");
+    const adsbygoogles = container.value?.querySelectorAll(".adsbygoogle");
+    adsbygoogles?.forEach((adsbygoogle) => {
+      adsbygoogle.setAttribute("data-adsbygoogle-status", ""); // Réinitialiser l'attribut de statut
+      adsbygoogle.setAttribute("data-ad-status", ""); // Réinitialiser l'attribut de statut
+      adsbygoogle.innerHTML = ""; // Supprimer le contenu de l'élément
+      // @ts-ignore
+      if (typeof window !== "undefined" && window.adsbygoogle) {
+        // @ts-ignore
+        window.adsbygoogle = window.adsbygoogle || [];
+        // @ts-ignore
+        window.adsbygoogle.push({});
+      }
+    });
   });
 
   return (
@@ -247,17 +203,18 @@ export const BlogContent = component$(() => {
               onResolved={(releases) => {
                 return (
                   <>
-                    {releases.map((release) => (
-                      <CardNews key={release.id} release={release} />
+                    {releases.map((release, index) => (
+                      <CardNews
+                        key={release.id}
+                        release={release}
+                        index={index}
+                      />
                     ))}
                   </>
                 );
               }}
               onPending={() => (
                 <>
-                  {releasesStore.releases.map((release) => (
-                    <CardNews key={release.id} release={release} />
-                  ))}
                   {Array.from({ length: 6 }).map((_, index) => (
                     <CardNewsSkeleton key={index} />
                   ))}
@@ -266,7 +223,9 @@ export const BlogContent = component$(() => {
               onRejected={(error) => <p>Error: {error.message}</p>}
             />
           </div>
-          <div ref={triggerRef} class="load-more-trigger"></div>
+          <div class="mt-5 flex w-full justify-center">
+            <Pagination />
+          </div>
         </div>
       </div>
     </main>
