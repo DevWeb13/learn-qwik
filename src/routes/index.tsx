@@ -655,7 +655,7 @@ export default component$(() => {
           ></ins>
         </div>
 
-        <div class="bg-background-200 border-t pt-12 dark:bg-black md:pt-16">
+        <div class="bg-background-200 border-t pt-12 md:pt-16">
           <div class="flex w-full flex-col items-center justify-between space-y-4 px-4  text-center md:flex-row md:space-y-0  md:text-left lg:px-0">
             <div>
               <p
