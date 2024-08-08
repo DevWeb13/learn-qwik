@@ -26,7 +26,7 @@ export default component$(() => {
 
         <QwikPartytown forward={["gtag", "dataLayer.push"]} />
 
-        {/* Google Tag Manager */}
+        {/* Google Analytics ? */}
         <script
           async
           type="text/partytown"
@@ -44,8 +44,9 @@ export default component$(() => {
           `}
         />
 
-        {/* Google Analytics ? */}
+        {/* Google Tag Manager */}
         <script
+          type="text/partytown"
           async
           dangerouslySetInnerHTML={`
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
