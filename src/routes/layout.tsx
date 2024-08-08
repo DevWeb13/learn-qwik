@@ -168,19 +168,14 @@ export default component$(() => {
     track(() => location.isNavigating);
     // reinit adsense for spa navigation
     console.log("reinit adsense");
-    const adsbygoogles = container.value?.querySelectorAll(".adsbygoogle");
-    adsbygoogles?.forEach((adsbygoogle) => {
-      adsbygoogle.setAttribute("data-adsbygoogle-status", ""); // Réinitialiser l'attribut de statut
-      adsbygoogle.setAttribute("data-ad-status", ""); // Réinitialiser l'attribut de statut
-      adsbygoogle.innerHTML = ""; // Supprimer le contenu de l'élément
+
+    // @ts-ignore
+    if (typeof window !== "undefined" && window.adsbygoogle) {
       // @ts-ignore
-      if (typeof window !== "undefined" && window.adsbygoogle) {
-        // @ts-ignore
-        window.adsbygoogle = window.adsbygoogle || [];
-        // @ts-ignore
-        window.adsbygoogle.push({});
-      }
-    });
+      window.adsbygoogle = window.adsbygoogle || [];
+      // @ts-ignore
+      window.adsbygoogle.push({});
+    }
   });
 
   return (
