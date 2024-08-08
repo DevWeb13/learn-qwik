@@ -2,11 +2,8 @@
 import { createProxyMiddleware } from "http-proxy-middleware";
 
 const proxy = createProxyMiddleware({
-  target: "https://fundingchoicesmessages.google.com", // cible de l'API externe
+  target: "", // cible de l'API externe sera définie dynamiquement
   changeOrigin: true,
-  pathRewrite: {
-    "^/api/proxy": "", // réécriture du chemin pour correspondre à la cible
-  },
   onProxyReq: (proxyReq, req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
@@ -21,5 +18,16 @@ const proxy = createProxyMiddleware({
 });
 
 export default function handler(req, res) {
-  proxy(req, res);
+  const { url } = req.query;
+  if (!url) {
+    res.status(400).json({ error: "URL is required" });
+    return;
+  }
+
+  proxy.options.target = url;
+  proxy(req, res, (err) => {
+    if (err) {
+      res.status(500).json({ error: "Proxy error", details: err.message });
+    }
+  });
 }
