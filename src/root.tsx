@@ -41,15 +41,17 @@ export default component$(() => {
 
         {/* Google Analytics */}
         <script
-          type="text/partytown"
           async
+          type="text/partytown"
           src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
         ></script>
         <script
           type="text/partytown"
           dangerouslySetInnerHTML={`
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
+            window.gtag = function() {
+              dataLayer.push(arguments);
+            }
             gtag('js', new Date());
             gtag('config', 'G-D5GX3GMZR7');
           `}
