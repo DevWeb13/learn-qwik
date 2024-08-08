@@ -58,9 +58,17 @@ export default component$(() => {
         {/* Google AdSense */}
         <script
           type="text/partytown"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
-          crossOrigin="anonymous"
+          dangerouslySetInnerHTML={`
+            fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896', { mode: 'no-cors' })
+              .then(response => response.text())
+              .then(scriptContent => {
+                const script = document.createElement('script');
+                script.textContent = scriptContent;
+                script.crossOrigin = "anonymous";
+                document.head.appendChild(script);
+              })
+              .catch(error => console.error('Error fetching the script:', error));
+          `}
         />
 
         {/* Google Funding Choices */}
