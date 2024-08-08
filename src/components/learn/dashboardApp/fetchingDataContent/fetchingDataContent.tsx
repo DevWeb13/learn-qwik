@@ -379,8 +379,8 @@ export const FetchingDataContent = component$(() => {
         </div>
 
         <SubtitleWithAnchor
-          title="Fetching specific data from @vercel/postres database"
-          id="fetching-specific-data-from-@vercel/postres-database"
+          title="Fetching specific data from @vercel/postgres database"
+          id="fetching-specific-data-from-@vercel/postgres-database"
         />
 
         <p>
