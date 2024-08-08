@@ -67,6 +67,7 @@ export default component$(() => {
 
         {/* Google Funding Choices */}
         <script
+          type="text/partytown"
           async
           defer
           src="https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
