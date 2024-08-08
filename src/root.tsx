@@ -11,6 +11,7 @@ import { RouterHead } from "./components/router-head/router-head";
 
 import "./global.css";
 import "./button.css";
+import { QwikPartytown } from "./components/partytown/partytown";
 
 export const runtime = "node";
 
@@ -31,8 +32,9 @@ export default component$(() => {
       <head>
         <meta charset="utf-8" />
 
-        {/* <QwikPartytown forward={["dataLayer.push"]} />
+        <QwikPartytown forward={["dataLayer.push"]} />
 
+        {/* Google tag (gtag.js) Start */}
         <script
           type="text/partytown"
           async
@@ -62,7 +64,7 @@ export default component$(() => {
 
             gtag('config', 'G-D5GX3GMZR7');
           `}
-        /> */}
+        />
 
         <link rel="manifest" href="/manifest.json" />
         <link rel="icon" href="/favicon.ico" />
@@ -108,32 +110,6 @@ export default component$(() => {
           nonce="t22S2X3kbCjPhU4tQwlBJA"
           dangerouslySetInnerHTML={`(function() {function signalGooglefcPresent() {if (!window.frames['googlefcPresent']) {if (document.body) {const iframe = document.createElement('iframe'); iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;'; iframe.style.display = 'none'; iframe.name = 'googlefcPresent'; document.body.appendChild(iframe);} else {setTimeout(signalGooglefcPresent, 0);}}}signalGooglefcPresent();})();`}
         />
-
-        {/* Google tag (gtag.js) Start */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
-        />
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-D5GX3GMZR7');
-  `}
-        />
-        {/* Google tag (gtag.js) End */}
-
-        {/* Vercel Analytics Start */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={`
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-`}
-        />
-        <script defer src="/_vercel/insights/script.js" />
-        {/* Vercel Analytics End */}
 
         {/* Cool Qwik trick to know what code is being executed and when 👇 */}
         {/* {!isProd && (
