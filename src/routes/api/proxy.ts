@@ -1,10 +1,16 @@
 import type { RequestHandler } from "@builder.io/qwik-city";
 
-export const onGet: RequestHandler = async ({ send, url, headers }) => {
+export const onGet: RequestHandler = async ({ request, headers, send }) => {
+  const url = new URL(request.url);
   const targetUrl = url.searchParams.get("url");
+
   if (!targetUrl) {
     headers.set("Content-Type", "application/json");
-    send(400, JSON.stringify({ error: "URL is required" }));
+    send(
+      new Response(JSON.stringify({ error: "URL is required" }), {
+        status: 400,
+      }),
+    );
     return;
   }
 
@@ -13,8 +19,10 @@ export const onGet: RequestHandler = async ({ send, url, headers }) => {
     if (!res.ok) {
       headers.set("Content-Type", "application/json");
       send(
-        res.status,
-        JSON.stringify({ error: "Failed to fetch the resource" }),
+        new Response(
+          JSON.stringify({ error: "Failed to fetch the resource" }),
+          { status: res.status },
+        ),
       );
       return;
     }
@@ -31,9 +39,14 @@ export const onGet: RequestHandler = async ({ send, url, headers }) => {
     );
     headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-    send(res.status, data);
+    send(new Response(data, { status: res.status }));
   } catch (err: any) {
     headers.set("Content-Type", "application/json");
-    send(500, JSON.stringify({ error: "Proxy error", details: err.message }));
+    send(
+      new Response(
+        JSON.stringify({ error: "Proxy error", details: err.message }),
+        { status: 500 },
+      ),
+    );
   }
 };
