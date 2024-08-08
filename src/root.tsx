@@ -28,7 +28,6 @@ export default component$(() => {
 
         {/* Google Tag Manager */}
         <script
-          type="text/partytown"
           async
           dangerouslySetInnerHTML={`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -42,11 +41,9 @@ export default component$(() => {
         {/* Google Analytics */}
         <script
           async
-          type="text/partytown"
           src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
         />
         <script
-          type="text/partytown"
           dangerouslySetInnerHTML={`
             window.dataLayer = window.dataLayer || [];
             window.gtag = function() {
@@ -71,7 +68,6 @@ export default component$(() => {
         />
 
         <script
-          type="text/partytown"
           async
           dangerouslySetInnerHTML={`
             (function() {
