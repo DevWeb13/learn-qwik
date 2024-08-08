@@ -24,7 +24,7 @@ export default component$(() => {
       <head>
         <meta charset="utf-8" />
 
-        <QwikPartytown forward={["gtag", "dataLayer.push"]} debug />
+        <QwikPartytown forward={["gtag", "dataLayer.push"]} />
 
         {/* Google Tag Manager */}
         <script
@@ -44,7 +44,7 @@ export default component$(() => {
           async
           type="text/partytown"
           src="https://www.googletagmanager.com/gtag/js?id=G-D5GX3GMZR7"
-        ></script>
+        />
         <script
           type="text/partytown"
           dangerouslySetInnerHTML={`
