@@ -68,6 +68,7 @@ export default component$(() => {
           src="https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
         />
         <script
+          async
           dangerouslySetInnerHTML={`
             (function() {
               function signalGooglefcPresent() {
