@@ -54,6 +54,7 @@
   "dependencies": {
     "@qwik-ui/headless": "^0.2.2",
     "@qwikest/icons": "^0.0.13",
+    "http-proxy-middleware": "^3.0.0",
     "marked": "^13.0.3",
     "sanitize-html": "^2.13.0"
   }
