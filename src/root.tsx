@@ -57,9 +57,8 @@ export default component$(() => {
 
         {/* Google AdSense */}
         <script
-          type="text/partytown"
           async
-          src="/api/proxy?url=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
           crossOrigin="anonymous"
         />
 
@@ -67,7 +66,7 @@ export default component$(() => {
         <script
           type="text/partytown"
           async
-          src="/api/proxy?url=https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
+          src="https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
         />
         <script
           type="text/partytown"
