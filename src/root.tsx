@@ -24,7 +24,7 @@ export default component$(() => {
       <head>
         <meta charset="utf-8" />
 
-        <QwikPartytown forward={["dataLayer.push"]} />
+        <QwikPartytown forward={["gtag", "dataLayer.push"]} />
 
         {/* Google Tag Manager */}
         <script
@@ -57,6 +57,7 @@ export default component$(() => {
 
         {/* Google AdSense */}
         <script
+          type="text/partytown"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
           crossOrigin="anonymous"
