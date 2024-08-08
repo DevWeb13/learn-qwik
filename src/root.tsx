@@ -31,11 +31,11 @@ export default component$(() => {
           type="text/partytown"
           async
           dangerouslySetInnerHTML={`
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-M2HL6LDG');
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-M2HL6LDG');
           `}
         />
 
@@ -59,35 +59,41 @@ export default component$(() => {
         <script
           type="text/partytown"
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
-          crossOrigin="anonymous"
+          dangerouslySetInnerHTML={`
+            fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896', { mode: 'no-cors' })
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.text();
+              })
+              .then(scriptText => {
+                const script = document.createElement('script');
+                script.innerHTML = scriptText;
+                document.head.appendChild(script);
+              })
+              .catch(error => console.error('Fetching AdSense script failed:', error));
+          `}
         />
 
         {/* Google Funding Choices */}
         <script
           type="text/partytown"
           async
-          src="https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
-        />
-        <script
-          type="text/partytown"
           dangerouslySetInnerHTML={`
-            (function() {
-              function signalGooglefcPresent() {
-                if (!window.frames['googlefcPresent']) {
-                  if (document.body) {
-                    const iframe = document.createElement('iframe');
-                    iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
-                    iframe.style.display = 'none';
-                    iframe.name = 'googlefcPresent';
-                    document.body.appendChild(iframe);
-                  } else {
-                    setTimeout(signalGooglefcPresent, 0);
-                  }
+            fetch('https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1', { mode: 'no-cors' })
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
                 }
-              }
-              signalGooglefcPresent();
-            })();
+                return response.text();
+              })
+              .then(scriptText => {
+                const script = document.createElement('script');
+                script.innerHTML = scriptText;
+                document.head.appendChild(script);
+              })
+              .catch(error => console.error('Fetching Funding Choices script failed:', error));
           `}
         />
 
