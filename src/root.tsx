@@ -58,31 +58,36 @@ export default component$(() => {
         {/* Google AdSense */}
         <script
           type="text/partytown"
-          dangerouslySetInnerHTML={`
-            fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896', { mode: 'no-cors' })
-              .then(response => response.text())
-              .then(scriptContent => {
-                const script = document.createElement('script');
-                script.textContent = scriptContent;
-                script.crossOrigin = "anonymous";
-                document.head.appendChild(script);
-              })
-              .catch(error => console.error('Error fetching the script:', error));
-          `}
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
+          crossOrigin="anonymous"
         />
 
         {/* Google Funding Choices */}
         <script
           type="text/partytown"
+          async
+          src="https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
+        />
+        <script
+          type="text/partytown"
           dangerouslySetInnerHTML={`
-            fetch('https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1', { mode: 'no-cors' })
-              .then(response => response.text())
-              .then(scriptContent => {
-                const script = document.createElement('script');
-                script.textContent = scriptContent;
-                document.head.appendChild(script);
-              })
-              .catch(error => console.error('Error fetching the script:', error));
+            (function() {
+              function signalGooglefcPresent() {
+                if (!window.frames['googlefcPresent']) {
+                  if (document.body) {
+                    const iframe = document.createElement('iframe');
+                    iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
+                    iframe.style.display = 'none';
+                    iframe.name = 'googlefcPresent';
+                    document.body.appendChild(iframe);
+                  } else {
+                    setTimeout(signalGooglefcPresent, 0);
+                  }
+                }
+              }
+              signalGooglefcPresent();
+            })();
           `}
         />
 
