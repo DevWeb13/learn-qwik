@@ -57,14 +57,6 @@ export default component$(() => {
                 `}
         />
 
-        {/* Google AdSense */}
-        <script
-          async
-          defer
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
-          crossOrigin="anonymous"
-        />
-
         {/* Google Funding Choices */}
         <script
           async
