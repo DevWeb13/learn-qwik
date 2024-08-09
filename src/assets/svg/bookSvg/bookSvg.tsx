@@ -1,4 +1,4 @@
-import LearnQwikLogo from "~/assets/img/android-chrome-512x512.png?jsx";
+import LearnQwikLogo from "~/assets/img/android-chrome-192x192.png?jsx";
 
 interface FeFloodDuplicateProps {
   result: string;

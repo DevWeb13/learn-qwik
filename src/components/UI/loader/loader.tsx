@@ -1,5 +1,5 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
-import Logo from "~/assets/img/android-chrome-512x512.png?jsx";
+import Logo from "~/assets/img/android-chrome-192x192.png?jsx";
 
 export const Loader = component$(() => {
   useStyles$(`
