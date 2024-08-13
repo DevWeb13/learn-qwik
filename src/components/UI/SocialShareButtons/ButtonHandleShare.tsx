@@ -11,7 +11,12 @@ interface ButtonHandleShareProps {
 export const ButtonHandleShare = component$<ButtonHandleShareProps>(
   ({ buttonHandleShareStore }) => {
     return (
-      <div class="hidden justify-center rounded-br-md  bg-[#CCCCCC]  group-hover/1:right-0 md:relative md:right-12 md:flex">
+      <button
+        class="hidden justify-center  rounded-br-md bg-[#CCCCCC] transition-all duration-300 ease-in-out group-hover/1:right-0 md:relative md:right-12 md:flex md:w-12"
+        onClick$={() => {
+          buttonHandleShareStore.isOpen = !buttonHandleShareStore.isOpen;
+        }}
+      >
         {buttonHandleShareStore.isOpen ? (
           <div class="st-left">
             <img
@@ -31,7 +36,7 @@ export const ButtonHandleShare = component$<ButtonHandleShareProps>(
             />
           </div>
         )}
-      </div>
+      </button>
     );
   },
 );
