@@ -63,8 +63,8 @@ export default component$(() => {
 
   useStyles$(``);
   return (
-    <aside class="group fixed  bottom-0 flex h-12 w-full md:left-0 md:top-48 md:h-auto md:w-auto md:flex-col ">
-      <div class="flex w-full max-w-[80px] flex-col justify-center bg-[#ffffff] md:max-w-[48px]">
+    <aside class="group/1 fixed  bottom-0 flex h-12 w-full md:left-0 md:top-48 md:h-auto md:w-auto md:flex-col ">
+      <div class="flex w-full max-w-[80px] flex-shrink flex-col justify-center bg-[#ffffff] md:max-w-[48px]">
         <Resource
           value={totalShareResource}
           onResolved={() => (
@@ -75,13 +75,13 @@ export default component$(() => {
         />
         <p class="text-xs">Shares</p>
       </div>
-      <div class="flex w-full transition-all duration-300 ease-in-out  md:w-12 md:flex-col md:overflow-hidden md:rounded-br-md md:rounded-tr-md md:group-hover:rounded-br-none">
+      <div class=" flex w-full transition-all duration-300 ease-in-out  md:w-12 md:flex-col md:overflow-hidden md:rounded-br-md md:rounded-tr-md md:group-hover/1:rounded-br-none">
         {
           // Share buttons
           shareLinks.map((shareLink) => (
             <>
               <Link
-                class={`flex w-full justify-center  md:h-12`}
+                class={`group/2 flex  w-full justify-center md:h-12`}
                 style={`background-color: ${shareLink.bgColor};`}
                 href={shareLink.url + href}
                 target="_blank"
@@ -97,6 +97,7 @@ export default component$(() => {
                   src={shareLink.img}
                   width={24}
                   height={24}
+                  class="transition-all duration-300 ease-in-out group-hover/2:translate-x-0.5 md:group-hover/2:translate-x-0"
                 />
               </Link>
             </>

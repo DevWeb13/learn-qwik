@@ -11,7 +11,7 @@ interface ButtonHandleShareProps {
 export const ButtonHandleShare = component$<ButtonHandleShareProps>(
   ({ buttonHandleShareStore }) => {
     return (
-      <div class="hidden justify-center rounded-br-md  bg-[#CCCCCC] transition-all duration-300 ease-in-out group-hover:right-0 md:relative md:right-12 md:flex">
+      <div class="hidden justify-center rounded-br-md  bg-[#CCCCCC]  group-hover/1:right-0 md:relative md:right-12 md:flex">
         {buttonHandleShareStore.isOpen ? (
           <div class="st-left">
             <img
