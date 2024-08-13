@@ -11,41 +11,47 @@ import { Link, useLocation } from "@builder.io/qwik-city";
 import { getTotalShare, incrementTotalShare } from "~/utils/totalShareData";
 import { ButtonHandleShare } from "./ButtonHandleShare";
 
+import { FacebookSvg } from "~/assets/svg/facebookSvg";
+import { TwitterSvg } from "~/assets/svg/twitterSvg";
+import { LinkedInSvg } from "~/assets/svg/linkedinSvg";
+import { PinterestSvg } from "~/assets/svg/pinterestSvg";
+import { EmailSvg } from "~/assets/svg/emailSvg";
+
 const shareLinks = [
   {
     name: "facebook",
     url: "https://www.facebook.com/sharer/sharer.php?u=",
-    img: "https://platform-cdn.sharethis.com/img/facebook.svg",
     bgColor: "#4267B2",
     text: "Share",
+    icon: "facebook",
   },
   {
     name: "twitter",
     url: "https://twitter.com/intent/tweet?url=",
-    img: "https://platform-cdn.sharethis.com/img/twitter.svg",
     bgColor: "#000000",
     text: "Tweet",
+    icon: "twitter",
   },
   {
     name: "linkedin",
     url: "https://www.linkedin.com/shareArticle?mini=true&url=",
-    img: "https://platform-cdn.sharethis.com/img/linkedin.svg",
     bgColor: "#007AB6",
     text: "Share",
+    icon: "linkedin",
   },
   {
     name: "pinterest",
     url: "https://pinterest.com/pin/create/button/?url=",
-    img: "https://platform-cdn.sharethis.com/img/pinterest.svg",
     bgColor: "#cb2027",
     text: "Pin",
+    icon: "pinterest",
   },
   {
     name: "email",
     url: "mailto:?subject=Discover learn-qwik.com&body=Check out this link: ",
-    img: "https://platform-cdn.sharethis.com/img/email.svg",
     bgColor: "#7d7d7d",
     text: "Email",
+    icon: "email",
   },
 ];
 
@@ -65,6 +71,23 @@ export default component$(() => {
     totalShareSignal.value = totalShare;
     return totalShare;
   });
+
+  const displayIcon = (icon: string) => {
+    switch (icon) {
+      case "facebook":
+        return <FacebookSvg width={24} height={24} />;
+      case "twitter":
+        return <TwitterSvg width={24} height={24} />;
+      case "linkedin":
+        return <LinkedInSvg width={24} height={24} />;
+      case "pinterest":
+        return <PinterestSvg width={24} height={24} />;
+      case "email":
+        return <EmailSvg width={24} height={24} />;
+      default:
+        return null;
+    }
+  };
 
   useStyles$(``);
   return (
@@ -102,14 +125,8 @@ export default component$(() => {
                     await incrementTotalShare();
                   }}
                 >
-                  <div class="min-w-12 md:max-w-12 flex w-full justify-center md:w-12">
-                    <img
-                      alt={`${shareLink.name} sharing button`}
-                      src={shareLink.img}
-                      width={24}
-                      height={24}
-                      class="transition-all duration-300 ease-in-out group-hover/2:translate-x-0.5 "
-                    />
+                  <div class="min-w-12 md:max-w-12 flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover/2:translate-x-0.5 md:w-12">
+                    {displayIcon(shareLink.icon)}
                   </div>
                   <p class=" hidden w-0 pl-1 text-lg text-white  transition-all duration-300 ease-in-out md:items-center group-hover/2:md:flex">
                     {shareLink.text}
