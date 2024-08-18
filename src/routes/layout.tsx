@@ -86,6 +86,8 @@ export default component$(() => {
 
   const container = useSignal<HTMLElement>();
 
+  const firstScroll = useSignal(true);
+
   const mobileMenuVisible = useSignal(false);
   useContextProvider(MobileMenuVisibleContext, mobileMenuVisible);
   // Utiliser useTask$ pour réagir aux changements d'URL
@@ -103,22 +105,6 @@ export default component$(() => {
     "DOMContentLoaded",
     $(() => {
       console.log("DOMContentLoaded");
-
-      // Add Adsense script
-      const script = document.createElement("script");
-      script.src =
-        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896";
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-
-      // Add Funding Choices script
-      const script2 = document.createElement("script");
-      script2.src =
-        "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
-      script2.async = true;
-      script2.defer = true;
-      document.head.appendChild(script2);
 
       const completedChaptersCookie: number[] | undefined =
         getCookie("completedChapters");
@@ -145,6 +131,33 @@ export default component$(() => {
     }),
   );
 
+  useOnDocument(
+    "scroll",
+    $(() => {
+      if (!firstScroll.value) {
+        return;
+      }
+      console.log("scroll");
+      // Add Adsense script
+      const script = document.createElement("script");
+      script.src =
+        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896";
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+
+      // Add Funding Choices script
+      const script2 = document.createElement("script");
+      script2.src =
+        "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
+      script2.async = true;
+      script2.defer = true;
+      document.head.appendChild(script2);
+
+      firstScroll.value = false;
+    }),
+  );
+
   useTask$(({ track }) => {
     track(() => chapters.value);
 
@@ -158,6 +171,7 @@ export default component$(() => {
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
     track(() => location.isNavigating);
+    track(() => firstScroll.value);
     console.log("location.isNavigating", location.isNavigating);
 
     // Wait for the navigation to finish before reinitializing adsense
