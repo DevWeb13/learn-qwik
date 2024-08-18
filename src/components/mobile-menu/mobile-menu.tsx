@@ -4,6 +4,7 @@ import { NavLink } from "../navLink/navLink";
 import Popover from "../../lib/qwikUI/popover/popover";
 
 import { MobileMenuVisibleContext } from "~/routes/layout";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const mobileMenuVisible = useContext(MobileMenuVisibleContext);
@@ -28,7 +29,7 @@ export default component$(() => {
             </NavLink>
           </li>
           <li>
-            <a
+            <Link
               tabIndex={0}
               href="https://vercel.com/new/clone?demo-description=A%20basic%20Qwik%20app%20with%20Tailwind%2C%20Vercel%20edge%20adapter%2C%20and%20pnpm%20using%20the%20default%20template.&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F3qUUqmfxL9Pj1RSY64p1Qz%2Ffb2d18358bd4518837d4efb178a26a42%2FCleanShot_2023-01-17_at_10.01.53.png&demo-title=Qwik%20Starter%20Kit&demo-url=https%3A%2F%2Fqwik-tw-vercel-starter-kit.vercel.app%2F&from=templates&project-name=Qwik%20Starter%20Kit&repository-name=qwik-starter-kit&repository-url=https%3A%2F%2Fgithub.com%2FBuilderIO%2Fqwik-tw-vercel-starter-kit&skippable-integrations=1"
               type="submit"
@@ -54,7 +55,7 @@ export default component$(() => {
                   fill="var(--accents-3)"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </li>
           <li>
             <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/4?">
@@ -69,7 +70,7 @@ export default component$(() => {
             </Popover>
           </li>
           <li>
-            <a
+            <Link
               class={styles.mute}
               title="Documentation"
               href="https://qwik.dev/"
@@ -89,19 +90,15 @@ export default component$(() => {
                   fill="var(--accents-3)"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </li>
           <li>
-            <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/5?">
-              {/* <a class="mute" href="/blog">
+            <Link class="mute" href="/blog">
               Blog
-            </a> */}
-
-              <p class={styles.mute}>Blog</p>
-            </Popover>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               class={styles.mute}
               rel="canonical noreferrer"
               target="_blank"
@@ -120,43 +117,43 @@ export default component$(() => {
                   fill="var(--accents-3)"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </li>
           <li>
             <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/6?">
-              {/* <a
+              {/* <Link
               class="mute"
               rel="noopener noreferrer"
               target="_blank"
               href="https://vercel.com/templates/next.js?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=nextjs-templates"
             >
               Templates
-            </a> */}
+            </Link> */}
               <p class={styles.mute}>Templates</p>
             </Popover>
           </li>
           <li>
             <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/7">
-              {/* <a
+              {/* <Link
               class="mute"
               href="https://vercel.com/contact/sales?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=learn"
               rel="noopener noreferrer"
               target="_blank"
             >
               Enterprise
-            </a> */}
+            </Link> */}
               <p class={styles.mute}>Enterprise</p>
             </Popover>
           </li>
           <li>
-            <a
+            <Link
               class={styles.mute}
               href="https://github.com/DevWeb13/learn-qwik"
               rel="noopener noreferrer"
               target="_blank"
             >
               GitHub
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
