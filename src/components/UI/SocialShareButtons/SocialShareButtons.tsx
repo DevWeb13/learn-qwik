@@ -114,6 +114,7 @@ export default component$(() => {
             shareLinks.map((shareLink) => (
               <>
                 <Link
+                  key={shareLink.name}
                   class={`group/2 flex  w-full  md:h-12 md:w-12 md:transition-all md:duration-300 md:ease-in-out md:hover:w-32 md:hover:justify-start md:hover:rounded-bl-none md:hover:rounded-br-md md:hover:rounded-tl-none md:hover:rounded-tr-md`}
                   style={`background-color: ${shareLink.bgColor};`}
                   href={shareLink.url + href}

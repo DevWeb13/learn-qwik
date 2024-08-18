@@ -100,9 +100,8 @@ export default component$(() => {
   useContextProvider(ChaptersContext, chapters);
 
   useOnDocument(
-    "load",
+    "DOMContentLoaded",
     $(() => {
-      console.log("load");
       const completedChaptersCookie: number[] | undefined =
         getCookie("completedChapters");
       // console.log("completedChaptersCookie", completedChaptersCookie);
