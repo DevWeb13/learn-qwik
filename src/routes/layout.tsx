@@ -166,7 +166,7 @@ export default component$(() => {
   });
 
   useOnDocument(
-    "load",
+    "scroll",
     $(() => {
       if (typeof window !== "undefined") {
         // Add Adsense script
