@@ -167,7 +167,7 @@ export default component$(() => {
   });
 
   useOnWindow(
-    "loadstart",
+    "DOMContentLoaded",
     $((event) => {
       console.log("navigation happened", event);
       // report to analytics
