@@ -69,32 +69,6 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   // }
 };
 
-// export const useSetCompletedChaptersCookie = routeAction$(
-//   (data, requestEvent) => {
-//     // console.log(requestEvent);
-//     const completedChapter = Number(data.goToChapter) - 1;
-
-//     let completedChapters = requestEvent.cookie
-//       .get("completedChapters")
-//       ?.json<CompletedChaptersType>();
-
-//     if (!completedChapters) {
-//       completedChapters = [];
-//     }
-
-//     if (!completedChapters.includes(completedChapter)) {
-//       completedChapters.push(completedChapter);
-//       requestEvent.cookie.set("completedChapters", completedChapters, {
-//         path: "/",
-//       });
-//     }
-//   },
-// );
-
-// export const useGetCompletedChaptersCookie = routeLoader$(({ cookie }) => {
-//   return cookie.get("completedChapters")?.json<CompletedChaptersType>();
-// });
-
 export const useServerTimeLoader = routeLoader$(() => {
   return {
     date: new Date().toLocaleDateString(),
@@ -109,7 +83,6 @@ export default component$(() => {
   }
 
   const location = useLocation();
-  const isLoaded = useSignal(false);
 
   const container = useSignal<HTMLElement>();
 
@@ -155,30 +128,6 @@ export default component$(() => {
     }),
   );
 
-  useOnDocument(
-    "DOMContentLoaded",
-    $(() => {
-      console.log("DOMContentLoaded");
-      // Add Adsense script
-      const script = document.createElement("script");
-      script.src =
-        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896";
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-
-      // Add Google Funding Choices script
-      const script2 = document.createElement("script");
-      script2.src =
-        "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
-      script2.async = true;
-      script2.defer = true;
-      document.head.appendChild(script2);
-
-      isLoaded.value = true;
-    }),
-  );
-
   useTask$(({ track }) => {
     track(() => chapters.value);
 
@@ -192,7 +141,7 @@ export default component$(() => {
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
     track(() => location.isNavigating);
-    track(() => isLoaded.value);
+
     // reinit adsense for spa navigation
     console.log("reinit adsense");
     const adsbygoogles = container.value?.querySelectorAll(".adsbygoogle");
