@@ -11,6 +11,7 @@ import {
   useTask$,
   $,
   useVisibleTask$,
+  useOnWindow,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
@@ -130,24 +131,6 @@ export default component$(() => {
   useOnDocument(
     "load",
     $(() => {
-      if (typeof window !== "undefined") {
-        // Add Adsense script
-        const script = document.createElement("script");
-        script.src =
-          "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896";
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
-
-        // Add Google Funding Choices
-        const script2 = document.createElement("script");
-        script2.src =
-          "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
-        script2.async = true;
-        script2.defer = true;
-        document.head.appendChild(script2);
-      }
-
       const completedChaptersCookie: number[] | undefined =
         getCookie("completedChapters");
       // console.log("completedChaptersCookie", completedChaptersCookie);
@@ -183,28 +166,59 @@ export default component$(() => {
     });
   });
 
+  useOnWindow(
+    "loadstart",
+    $((event) => {
+      console.log("navigation happened", event);
+      // report to analytics
+
+      // Add Adsense script
+      // <script
+      //     async
+      //     defer
+      //     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
+      //   />
+      const script = document.createElement("script");
+      script.src =
+        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896";
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+
+      // Add Google Funding Choices
+      // <script
+      //     async
+      //     defer
+      //     src="https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
+      //   />
+
+      const script2 = document.createElement("script");
+      script2.src =
+        "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
+      script2.async = true;
+      script2.defer = true;
+      document.head.appendChild(script2);
+    }),
+  );
+
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
     track(() => location.isNavigating);
-
-    console.log("Reinitialising AdSense ads");
-
-    if (typeof window !== "undefined") {
-      const adsbygoogleElements =
-        container.value?.querySelectorAll(".adsbygoogle");
-      adsbygoogleElements?.forEach((adsbygoogle) => {
-        adsbygoogle.setAttribute("data-adsbygoogle-status", "");
-        adsbygoogle.setAttribute("data-ad-status", "");
-        adsbygoogle.innerHTML = "";
+    // reinit adsense for spa navigation
+    console.log("reinit adsense");
+    const adsbygoogles = container.value?.querySelectorAll(".adsbygoogle");
+    adsbygoogles?.forEach((adsbygoogle) => {
+      adsbygoogle.setAttribute("data-adsbygoogle-status", ""); // Réinitialiser l'attribut de statut
+      adsbygoogle.setAttribute("data-ad-status", ""); // Réinitialiser l'attribut de statut
+      adsbygoogle.innerHTML = ""; // Supprimer le contenu de l'élément
+      // @ts-ignore
+      if (typeof window !== "undefined" && window.adsbygoogle) {
         // @ts-ignore
-        if (window.adsbygoogle) {
-          // @ts-ignore
-          window.adsbygoogle = window.adsbygoogle || [];
-          // @ts-ignore
-          window.adsbygoogle.push({});
-        }
-      });
-    }
+        window.adsbygoogle = window.adsbygoogle || [];
+        // @ts-ignore
+        window.adsbygoogle.push({});
+      }
+    });
   });
 
   return (
