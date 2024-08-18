@@ -12,8 +12,6 @@ import { QwikPartytown } from "./components/partytown/partytown";
 import "./global.css";
 import "./button.css";
 
-export const runtime = "node";
-
 // Check if the environment is production
 const isProd = process.env.NODE_ENV === "production";
 console.log("isProd", isProd);
@@ -55,20 +53,6 @@ export default component$(() => {
                 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
                 })(window,document,'script','dataLayer','GTM-M2HL6LDG');
                 `}
-        />
-
-        {/* Google AdSense */}
-        <script
-          async
-          defer
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
-        />
-
-        {/* Google Funding Choices */}
-        <script
-          async
-          defer
-          src="https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
         />
 
         <script

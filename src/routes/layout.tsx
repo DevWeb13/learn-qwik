@@ -112,6 +112,8 @@ export default component$(() => {
 
   const container = useSignal<HTMLElement>();
 
+  // const isLoaded = useSignal(false);
+
   const mobileMenuVisible = useSignal(false);
   useContextProvider(MobileMenuVisibleContext, mobileMenuVisible);
   // Utiliser useTask$ pour réagir aux changements d'URL
@@ -150,6 +152,33 @@ export default component$(() => {
         });
         chapters.value = newChapters;
       }
+
+      // Add Adsense script
+      // <script
+      //     async
+      //     defer
+      //     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
+      //   />
+      const script = document.createElement("script");
+      script.src =
+        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896";
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+
+      // Add Google Funding Choices
+      // <script
+      //     async
+      //     defer
+      //     src="https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
+      //   />
+
+      const script2 = document.createElement("script");
+      script2.src =
+        "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
+      script2.async = true;
+      script2.defer = true;
+      document.head.appendChild(script2);
     }),
   );
 

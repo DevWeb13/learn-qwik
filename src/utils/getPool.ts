@@ -14,7 +14,5 @@ export const getPool = server$(function () {
     connectionString: connectionString,
   });
 
-  if (!pool) throw new Error("Failed to create a new pool");
-
   return pool;
 });
