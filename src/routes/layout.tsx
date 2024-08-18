@@ -146,7 +146,17 @@ export default component$(() => {
       script.defer = true;
       document.head.appendChild(script);
 
-      firstScroll.value = false;
+      // Add FundingChoices script
+      const script2 = document.createElement("script");
+      script2.src =
+        "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
+      script2.async = true;
+      script2.defer = true;
+      document.head.appendChild(script2);
+
+      setTimeout(() => {
+        firstScroll.value = false;
+      }, 500);
     }),
   );
 
@@ -168,6 +178,7 @@ export default component$(() => {
 
     // Wait for the navigation to finish before reinitializing adsense
     if (location.isNavigating) return;
+
     if (firstScroll.value) return;
 
     // reinit adsense for spa navigation
