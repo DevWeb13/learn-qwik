@@ -102,6 +102,24 @@ export default component$(() => {
   useOnDocument(
     "DOMContentLoaded",
     $(() => {
+      console.log("DOMContentLoaded");
+
+      // Add Adsense script
+      const script = document.createElement("script");
+      script.src =
+        "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896";
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+
+      // Add Funding Choices script
+      const script2 = document.createElement("script");
+      script2.src =
+        "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
+      script2.async = true;
+      script2.defer = true;
+      document.head.appendChild(script2);
+
       const completedChaptersCookie: number[] | undefined =
         getCookie("completedChapters");
       // console.log("completedChaptersCookie", completedChaptersCookie);
@@ -140,6 +158,10 @@ export default component$(() => {
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
     track(() => location.isNavigating);
+    console.log("location.isNavigating", location.isNavigating);
+
+    // Wait for the navigation to finish before reinitializing adsense
+    if (location.isNavigating) return;
 
     // reinit adsense for spa navigation
     console.log("reinit adsense");

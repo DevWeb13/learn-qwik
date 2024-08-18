@@ -55,18 +55,6 @@ export default component$(() => {
                 `}
         />
 
-        {/* Google AdSense */}
-        <script
-          defer
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2091224773462896"
-        />
-
-        {/* Google Funding Choices */}
-        <script
-          defer
-          src="https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1"
-        />
-
         <script
           type="text/partytown"
           async

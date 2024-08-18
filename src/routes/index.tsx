@@ -15,40 +15,16 @@ import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground from "~/assets/img/ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground.png?jsx";
 
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
-// import { ChaptersContext } from "~/routes/layout";
-// import type { ChapterType } from "~/types/chapterType";
-
-// import type { CompletedChaptersType } from "~/types/completedChapters";
 import { ChaptersContext } from "./layout";
 import { findCompletedChapters } from "~/utils/findCompletedChapters";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 import { ChapterThumbnail } from "~/components/UI/chapterThumbnail/chapterThumbnail";
 import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesScrollWrapper";
 
-// import type { ChapterType } from "~/types/chapterType";
-// import { findCompletedChapters } from "~/utils/findCompletedChapters";
-
 export default component$(() => {
   const chapters = useContext(ChaptersContext);
-  // console.log("Chapters: " + chapters.value[0].isCompleted);
 
   const completedChapters = findCompletedChapters(chapters.value);
-  // console.log("Completed Chapters: " + completedChapters.length);
-
-  // // eslint-disable-next-line qwik/no-use-visible-task
-  // useVisibleTask$(() => {
-  //   const cookieValue = document.cookie
-  //     .split("; ")
-  //     .find((row) => row.startsWith("completedChapters="))
-  //     ?.split("=")[1];
-
-  //   if (cookieValue) {
-  //     const parsedValue: CompletedChaptersType = JSON.parse(
-  //       decodeURIComponent(cookieValue),
-  //     );
-  //     completedChapters.value = parsedValue;
-  //   }
-  // });
 
   return (
     <main>
