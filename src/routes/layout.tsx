@@ -146,14 +146,6 @@ export default component$(() => {
       script.defer = true;
       document.head.appendChild(script);
 
-      // Add Funding Choices script
-      const script2 = document.createElement("script");
-      script2.src =
-        "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
-      script2.async = true;
-      script2.defer = true;
-      document.head.appendChild(script2);
-
       firstScroll.value = false;
     }),
   );
