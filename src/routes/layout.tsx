@@ -112,8 +112,6 @@ export default component$(() => {
 
   const container = useSignal<HTMLElement>();
 
-  const isLoaded = useSignal(false);
-
   const mobileMenuVisible = useSignal(false);
   useContextProvider(MobileMenuVisibleContext, mobileMenuVisible);
   // Utiliser useTask$ pour réagir aux changements d'URL
