@@ -171,7 +171,7 @@ export default component$(() => {
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {
     track(() => location.isNavigating);
-    track(() => firstScroll.value);
+
     console.log("location.isNavigating", location.isNavigating);
 
     // Wait for the navigation to finish before reinitializing adsense
