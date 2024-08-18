@@ -100,7 +100,7 @@ export default component$(() => {
   useContextProvider(ChaptersContext, chapters);
 
   useOnDocument(
-    "requestIdleCallback",
+    "DOMContentLoaded",
     $(() => {
       console.log("DOMContentLoaded");
 
