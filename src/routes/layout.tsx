@@ -176,6 +176,7 @@ export default component$(() => {
 
     // Wait for the navigation to finish before reinitializing adsense
     if (location.isNavigating) return;
+    if (firstScroll.value) return;
 
     // reinit adsense for spa navigation
     console.log("reinit adsense");
