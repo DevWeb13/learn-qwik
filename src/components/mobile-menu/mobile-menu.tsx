@@ -93,7 +93,7 @@ export default component$(() => {
             </Link>
           </li>
           <li>
-            <Link class="mute" href="/blog">
+            <Link class="mute" href="/blog/">
               Blog
             </Link>
           </li>
