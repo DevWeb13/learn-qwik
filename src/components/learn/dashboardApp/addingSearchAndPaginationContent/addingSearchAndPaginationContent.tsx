@@ -1626,7 +1626,6 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           goToChapter={11}
           title="Mutating data"
           text="Learn how to update data in your database."
-          disabledButton
         />
       </div>
       <Feedback />

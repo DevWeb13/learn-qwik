@@ -759,3 +759,17 @@ pre {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
+
+.prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  color: var(--tw-prose-headings);
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+.prose-vercel
+  :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-weight: 600;
+  scroll-margin-top: 51px;
+}
