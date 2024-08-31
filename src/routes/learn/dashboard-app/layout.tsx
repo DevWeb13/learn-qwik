@@ -18,6 +18,7 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
     if (pathname.includes("optimizing-data-fetching")) return "7";
     if (pathname.includes("streaming")) return "8";
     if (pathname.includes("adding-search-and-pagination")) return "9";
+    if (pathname.includes("mutating-data")) return "10";
     return "Introduction";
   },
 );

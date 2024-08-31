@@ -75,4 +75,12 @@ export const CHAPTERS = [
     isCompleted: false,
     uri: "adding-search-and-pagination",
   },
+  {
+    id: 11,
+    title: "Chapter 11: Mutating Data",
+    description:
+      "Learn how to create, update, and delete data in your Qwik application.",
+    isCompleted: false,
+    uri: "mutating-data",
+  },
 ];

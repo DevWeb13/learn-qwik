@@ -25,6 +25,9 @@ import { TwoConnectedPointsSvg } from "~/assets/svg/twoConnectedPointsSvg";
 import { ClockSvg } from "~/assets/svg/clockSvg";
 import { SkeletonSvg } from "~/assets/svg/skeletonSvg";
 import { MagnifyingGlassSvg } from "~/assets/svg/magnifyingGlassSvg";
+import { NotebookWithLineSvg } from "~/assets/svg/notebookWithLineSvg";
+import { ThreePointsSvg } from "~/assets/svg/threePointsSvg";
+import { RecyclingSvg } from "~/assets/svg/recyclingSvg";
 
 type TopicType = {
   title: string;
@@ -38,6 +41,12 @@ interface TableOfTopicsCoveredProps {
 export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   const displayIcon = (icon: string) => {
     switch (icon) {
+      case "recycling":
+        return <RecyclingSvg />;
+      case "threePoints":
+        return <ThreePointsSvg />;
+      case "notebookWithLine":
+        return <NotebookWithLineSvg />;
       case "magnifyingGlass":
         return <MagnifyingGlassSvg />;
       case "skeleton":
