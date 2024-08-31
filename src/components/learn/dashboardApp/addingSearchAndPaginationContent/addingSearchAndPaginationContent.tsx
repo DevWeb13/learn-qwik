@@ -1620,7 +1620,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
           chapterNumber={10}
-          text="You've learned how to stream components with <Resource /> and loading skeletons."
+          text="You've learned how to add search and pagination to your app."
         />
         <GoToNextChapterBlock
           goToChapter={11}
