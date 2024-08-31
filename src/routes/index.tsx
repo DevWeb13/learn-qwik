@@ -131,18 +131,16 @@ export default component$(() => {
         </div>
       </div>
 
-      <aside class="flex w-full  justify-center">
-        <div class="min-w-[300px] max-w-[300px] px-4 pb-8 md:px-8 md:pb-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
-          ></ins>
-        </div>
-      </aside>
+      <div class="px-4 pb-8 md:px-8 md:pb-20">
+        <ins
+          class="adsbygoogle"
+          style="display:flex; justify-content:center;"
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client="ca-pub-2091224773462896"
+          data-ad-slot="3655900596"
+        ></ins>
+      </div>
 
       <div class="pb-8 md:pb-20">
         <div class="flex flex-col justify-center text-center md:flex-row md:items-baseline md:text-left">
