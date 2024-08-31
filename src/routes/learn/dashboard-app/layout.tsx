@@ -8,7 +8,6 @@ import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
 export const useGetCurrentChapterIndexInString = routeLoader$(
   (requestEvent) => {
     const pathname = requestEvent.url.pathname;
-    console.log("pathname", pathname);
     if (pathname.includes("getting-started")) return "0";
     if (pathname.includes("css-styling")) return "1";
     if (pathname.includes("optimizing-fonts-and-images")) return "2";
