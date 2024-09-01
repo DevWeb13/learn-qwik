@@ -3,6 +3,7 @@ import styles from "./navbar.module.css";
 import Popover from "../../lib/qwikUI/popover/popover";
 import { Link } from "@builder.io/qwik-city";
 import { ExternalArrowIcon } from "../icons/externalArrowIcon";
+import { NavLink } from "../navLink/navLink";
 
 export default component$(() => {
   return (
@@ -87,13 +88,19 @@ export default component$(() => {
           </svg>
         </Link>
       </div>
-      <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/4">
-        {/* <a class="" href="/showcase" >
-          Showcase
-        </a> */}
-        <p class={styles.replaceLink}>Showcase</p>
-      </Popover>
-      <a
+
+      <Link
+        class={styles.link}
+        title="Showcase"
+        href="https://qwik.dev/showcase/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Showcase
+        <ExternalArrowIcon />
+      </Link>
+
+      <Link
         class={styles.link}
         title="Documentation"
         href="https://qwik.dev/"
@@ -102,10 +109,14 @@ export default component$(() => {
       >
         Docs
         <ExternalArrowIcon />
-      </a>
-      <Link class={styles.link} href="/blog/">
-        Blog
       </Link>
+      <NavLink
+        class={styles.link}
+        activeClass={styles.link + " " + "!text-black"}
+        href="/blog/"
+      >
+        Blog
+      </NavLink>
 
       <a
         class={styles.link}

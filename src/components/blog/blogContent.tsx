@@ -14,6 +14,7 @@ import { server$, useLocation } from "@builder.io/qwik-city";
 import { getEnvVariable } from "~/utils/getEnvVariable";
 import { marked } from "marked";
 import { Pagination } from "../UI/pagination/pagination";
+import MobileMenu from "../mobile-menu/mobile-menu";
 
 /* Types */
 export type Author = {
@@ -191,6 +192,7 @@ export const BlogContent = component$(() => {
 
   return (
     <main ref={container}>
+      <MobileMenu />
       <div class="relative mx-auto max-w-screen-xl px-4 py-4 md:py-10">
         <div class=" max-w-none">
           <h1 class="text_wrapper__i87JK text-3xl font-semibold leading-10 tracking-tighter">

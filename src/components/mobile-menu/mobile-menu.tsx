@@ -21,8 +21,8 @@ export default component$(() => {
           <li>
             <NavLink
               class={styles.mute}
-              activeClass="!text-black"
-              href="/learn/"
+              activeClass="text-black"
+              href="/"
               onClick$={() => (mobileMenuVisible.value = false)}
             >
               Learn
@@ -58,16 +58,27 @@ export default component$(() => {
             </Link>
           </li>
           <li>
-            <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/4?">
-              {/* <NavLink
+            <Link
               class={styles.mute}
-              activeClass="!text-black"
-              href="/showcase"
+              title="Showcase"
+              href="https://qwik.dev/showcase/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Showcase
-            </NavLink> */}
-              <p class={styles.mute}>Showcase</p>
-            </Popover>
+              <svg
+                aria-hidden="true"
+                class={`${styles.navbar_externalArrow}`}
+                height="7"
+                viewBox="0 0 6 6"
+                width="7"
+              >
+                <path
+                  d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
+                  fill="var(--accents-3)"
+                ></path>
+              </svg>
+            </Link>
           </li>
           <li>
             <Link
@@ -93,9 +104,14 @@ export default component$(() => {
             </Link>
           </li>
           <li>
-            <Link class="mute" href="/blog/">
+            <NavLink
+              class={styles.mute}
+              activeClass="text-black"
+              href="/blog/"
+              onClick$={() => (mobileMenuVisible.value = false)}
+            >
               Blog
-            </Link>
+            </NavLink>
           </li>
           <li>
             <Link
