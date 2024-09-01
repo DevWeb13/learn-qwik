@@ -112,28 +112,26 @@ export default component$(() => {
           {
             // Share buttons
             shareLinks.map((shareLink) => (
-              <>
-                <Link
-                  key={shareLink.name}
-                  class={`group/2 flex  w-full  md:h-12 md:w-12 md:transition-all md:duration-300 md:ease-in-out md:hover:w-32 md:hover:justify-start md:hover:rounded-bl-none md:hover:rounded-br-md md:hover:rounded-tl-none md:hover:rounded-tr-md`}
-                  style={`background-color: ${shareLink.bgColor};`}
-                  href={shareLink.url + href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Share on ${shareLink.name}`}
-                  onClick$={async () => {
-                    totalShareSignal.value++;
-                    await incrementTotalShare();
-                  }}
-                >
-                  <div class="min-w-12 md:max-w-12 flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover/2:translate-x-0.5 md:w-12">
-                    {displayIcon(shareLink.icon)}
-                  </div>
-                  <p class=" hidden w-0 pl-1 text-lg text-white  transition-all duration-300 ease-in-out md:items-center group-hover/2:md:flex">
-                    {shareLink.text}
-                  </p>
-                </Link>
-              </>
+              <Link
+                key={shareLink.name}
+                class={`group/2 flex  w-full  md:h-12 md:w-12 md:transition-all md:duration-300 md:ease-in-out md:hover:w-32 md:hover:justify-start md:hover:rounded-bl-none md:hover:rounded-br-md md:hover:rounded-tl-none md:hover:rounded-tr-md`}
+                style={`background-color: ${shareLink.bgColor};`}
+                href={shareLink.url + href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Share on ${shareLink.name}`}
+                onClick$={async () => {
+                  totalShareSignal.value++;
+                  await incrementTotalShare();
+                }}
+              >
+                <div class="min-w-12 md:max-w-12 flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover/2:translate-x-0.5 md:w-12">
+                  {displayIcon(shareLink.icon)}
+                </div>
+                <p class=" hidden w-0 pl-1 text-lg text-white  transition-all duration-300 ease-in-out md:items-center group-hover/2:md:flex">
+                  {shareLink.text}
+                </p>
+              </Link>
             ))
           }
         </div>
