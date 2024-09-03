@@ -850,8 +850,6 @@ export const fetchFilteredInvoices = server$(async function (
   query: string,
   currentPage: number,
 ) {
-  console.log('query', query);
-  console.log('currentPage', currentPage);
   const pool = await getPool();
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
@@ -876,14 +874,12 @@ export const fetchFilteredInvoices = server$(async function (
       ORDER BY invoices.date DESC
       LIMIT $2 OFFSET $3
     \`, [\`%\${query}%\`, ITEMS_PER_PAGE, offset]);
-
-    // console.log('invoices', invoices);
-    await pool.end();
-
     return invoices.rows;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch invoices.');
+  } finally {
+    await pool.end();
   }
 });`}
           icon="typescript"
@@ -1213,7 +1209,9 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
 
         <CodeBlock
           code={`// src/lib/data.ts
-// ...
+
+// ... other code
+
 export const fetchInvoicesPages = server$(async function (query: string) {
   const pool = await getPool();
   try {
@@ -1221,19 +1219,20 @@ export const fetchInvoicesPages = server$(async function (query: string) {
       FROM invoices
       JOIN customers ON invoices.customer_id = customers.id
       WHERE
-      customers.name ILIKE $1 OR
-      customers.email ILIKE $1 OR
-      invoices.amount::text ILIKE $1 OR
-      invoices.date::text ILIKE $1 OR
-      invoices.status ILIKE $1
-      \`, [\`%\${query}%\`]);
+        customers.name ILIKE $1 OR
+        customers.email ILIKE $1 OR
+        invoices.amount::text ILIKE $1 OR
+        invoices.date::text ILIKE $1 OR
+        invoices.status ILIKE $1
+    \`, [\`%\${query}%\`]);
 
-  const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
-    await pool.end();
+    const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
     return totalPages;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch total number of invoices.');
+  } finally {
+    await pool.end();
   }
 });`}
           icon="typescript"

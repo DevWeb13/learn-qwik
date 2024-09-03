@@ -43,7 +43,7 @@ export const MutatingDataContent = component$(() => {
             },
             {
               title:
-                "How to redirect the client side using onSubmitCompleted$ form attributes.",
+                "How to redirect in server-side actions using requestEvent.",
               icon: "recycling",
             },
             {
@@ -264,11 +264,12 @@ export const fetchCustomers = server$(async function () {
   try {
     const data = await pool.query<CustomerField>('SELECT id, name FROM customers ORDER BY name ASC');
     const customers = data.rows;
-    await pool.end();
     return customers;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch all customers.');
+  } finally {
+    await pool.end();
   }
 });`}
           icon="typescript"
@@ -283,7 +284,7 @@ export const fetchCustomers = server$(async function () {
             },
             {
               start: { line: 9, character: 0 },
-              end: { line: 20, character: 3 },
+              end: { line: 21, character: 3 },
               properties: { class: "newLine" },
             },
           ]}
@@ -614,15 +615,12 @@ action$() zod validated failed
         </p>
         <p>
           We use this file for all our actions. In this file, you will create a
-          new action with the <code>server$()</code> function called{" "}
-          <code>createInvoice</code>:
+          new action function called <code>createInvoice</code>:
         </p>
         <CodeBlock
           code={`// src/lib/actions.ts
 
-import { server$ } from "@builder.io/qwik-city";
-
-export const createInvoice = server$(async function (data: { customerId: string, amount: number, status: string }) {});`}
+export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {});`}
           icon="typescript"
           language="typescript"
           text="src/lib/actions.ts"
@@ -650,9 +648,7 @@ export const createInvoice = server$(async function (data: { customerId: string,
         <CodeBlock
           code={`// src/lib/actions.ts
 
-import { server$ } from "@builder.io/qwik-city";
-
-export const createInvoice = server$(async function (data: { customerId: string, amount: number, status: string }) {
+export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {
   const amountInCents = Math.round(data.amount * 100);
 });`}
           icon="typescript"
@@ -660,8 +656,8 @@ export const createInvoice = server$(async function (data: { customerId: string,
           text="src/lib/actions.ts"
           decorations={[
             {
-              start: { line: 5, character: 0 },
-              end: { line: 5, character: 54 },
+              start: { line: 3, character: 0 },
+              end: { line: 3, character: 54 },
               properties: { class: "newLine" },
             },
           ]}
@@ -678,9 +674,7 @@ export const createInvoice = server$(async function (data: { customerId: string,
         <CodeBlock
           code={`// src/lib/actions.ts
 
-import { server$ } from "@builder.io/qwik-city";
-
-export const createInvoice = server$(async function (data: { customerId: string, amount: number, status: string }) {
+export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {
   const amountInCents = Math.round(data.amount * 100);
   const date = new Date().toISOString().split('T')[0];
 });`}
@@ -689,8 +683,8 @@ export const createInvoice = server$(async function (data: { customerId: string,
           text="src/lib/actions.ts"
           decorations={[
             {
-              start: { line: 6, character: 0 },
-              end: { line: 6, character: 54 },
+              start: { line: 4, character: 0 },
+              end: { line: 4, character: 54 },
               properties: { class: "newLine" },
             },
           ]}
@@ -703,10 +697,9 @@ export const createInvoice = server$(async function (data: { customerId: string,
         <CodeBlock
           code={`// src/lib/actions.ts
 
-import { server$ } from "@builder.io/qwik-city";
 import { getPool } from './data';
 
-export const createInvoice = server$(async function (data: { customerId: string, amount: number, status: string }) {
+export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {
   const amountInCents = Math.round(data.amount * 100);
   const date = new Date().toISOString().split('T')[0];
   
@@ -734,13 +727,13 @@ export const createInvoice = server$(async function (data: { customerId: string,
           text="src/lib/actions.ts"
           decorations={[
             {
-              start: { line: 3, character: 0 },
-              end: { line: 3, character: 33 },
+              start: { line: 2, character: 0 },
+              end: { line: 2, character: 33 },
               properties: { class: "newLine" },
             },
             {
-              start: { line: 9, character: 0 },
-              end: { line: 26, character: 4 },
+              start: { line: 8, character: 0 },
+              end: { line: 25, character: 4 },
               properties: { class: "newLine" },
             },
           ]}
@@ -784,12 +777,8 @@ export const getPool = server$(function () {
 
 import { createInvoice } from "~/lib/actions";
 
-export const useCreateInvoice = routeAction$(async (data, { fail }) => {
-  const newInvoice = await createInvoice(data);
-  return {
-    success: true,
-    newInvoice,
-  };
+export const useCreateInvoice = routeAction$(async (data) => {
+  await createInvoice(data);
 }, zod$(CreateInvoice));
 
 // ... Other code`}
@@ -804,7 +793,7 @@ export const useCreateInvoice = routeAction$(async (data, { fail }) => {
             },
             {
               start: { line: 7, character: 0 },
-              end: { line: 11, character: 4 },
+              end: { line: 7, character: 28 },
               properties: { class: "newLine" },
             },
           ]}
@@ -1204,12 +1193,12 @@ export const fetchInvoiceById = server$(async function (id: string) {
       ...invoice,
       amount: invoice.amount / 100,
     }));
-
-    await pool.end();
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch invoice.');
+  } finally {
+    await pool.end();
   }
 });`}
           icon="typescript"
