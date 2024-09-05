@@ -114,28 +114,6 @@ export default component$(() => {
             </NavLink>
           </li>
           <li>
-            <Link
-              class={styles.mute}
-              rel="canonical noreferrer"
-              target="_blank"
-              href="https://vercel.com/analytics?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=learn"
-            >
-              Analytics
-              <svg
-                aria-hidden="true"
-                class={`${styles.navbar_externalArrow}`}
-                height="7"
-                viewBox="0 0 6 6"
-                width="7"
-              >
-                <path
-                  d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
-                  fill="var(--accents-3)"
-                ></path>
-              </svg>
-            </Link>
-          </li>
-          <li>
             <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/6?">
               {/* <Link
               class="mute"

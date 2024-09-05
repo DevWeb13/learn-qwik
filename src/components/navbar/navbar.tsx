@@ -117,16 +117,6 @@ export default component$(() => {
       >
         Blog
       </NavLink>
-
-      <a
-        class={styles.link}
-        rel="canonical noreferrer"
-        target="_blank"
-        href="https://vercel.com/analytics?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=learn"
-      >
-        Analytics
-        <ExternalArrowIcon />
-      </a>
       <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/6">
         {/* <a class={styles.link} href="/templates">
         Templates
