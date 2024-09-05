@@ -810,11 +810,13 @@ export default component$(() => {
           In the <code>/src/lib/data.ts</code> file, add a delay of 3 seconds to
           the <code>fetchRevenue()</code> function.
         </p>
+
         <CodeBlock
           code={`// /src/lib/data.ts
-// ...
+
+// ... other code
+
 export const fetchRevenue = server$(async function () {
-  // Open a new connection
   const pool = await getPool();
   try {
     // We artificially delay a response for demo purposes.
@@ -826,27 +828,28 @@ export const fetchRevenue = server$(async function () {
 
     console.log('Data fetch completed after 3 seconds.');
 
-    // Close the connection
-    await pool.end();
     return rows;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch revenue data: ' + (error as Error).message);
+  } finally {
+    await pool.end(); // Ensure the connection is always closed
   }
 });
-// ...`}
+
+// ... other code`}
           language="tsx"
           icon="typescript"
           text="/src/lib/data.ts"
           decorations={[
             {
-              start: { line: 6, character: 0 },
-              end: { line: 9, character: 62 },
+              start: { line: 7, character: 0 },
+              end: { line: 10, character: 62 },
               properties: { class: "newLine" },
             },
             {
-              start: { line: 13, character: 0 },
-              end: { line: 13, character: 57 },
+              start: { line: 14, character: 0 },
+              end: { line: 14, character: 57 },
               properties: { class: "newLine" },
             },
           ]}

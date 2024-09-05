@@ -43,7 +43,7 @@ export const MutatingDataContent = component$(() => {
             },
             {
               title:
-                "How to redirect the client side using onSubmitCompleted$ form attributes.",
+                "How to redirect in server-side actions using requestEvent.",
               icon: "recycling",
             },
             {
@@ -264,11 +264,12 @@ export const fetchCustomers = server$(async function () {
   try {
     const data = await pool.query<CustomerField>('SELECT id, name FROM customers ORDER BY name ASC');
     const customers = data.rows;
-    await pool.end();
     return customers;
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch all customers.');
+  } finally {
+    await pool.end();
   }
 });`}
           icon="typescript"
@@ -283,7 +284,7 @@ export const fetchCustomers = server$(async function () {
             },
             {
               start: { line: 9, character: 0 },
-              end: { line: 20, character: 3 },
+              end: { line: 21, character: 3 },
               properties: { class: "newLine" },
             },
           ]}
@@ -614,15 +615,12 @@ action$() zod validated failed
         </p>
         <p>
           We use this file for all our actions. In this file, you will create a
-          new action with the <code>server$()</code> function called{" "}
-          <code>createInvoice</code>:
+          new action function called <code>createInvoice</code>:
         </p>
         <CodeBlock
           code={`// src/lib/actions.ts
 
-import { server$ } from "@builder.io/qwik-city";
-
-export const createInvoice = server$(async function (data: { customerId: string, amount: number, status: string }) {});`}
+export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {});`}
           icon="typescript"
           language="typescript"
           text="src/lib/actions.ts"
@@ -650,9 +648,7 @@ export const createInvoice = server$(async function (data: { customerId: string,
         <CodeBlock
           code={`// src/lib/actions.ts
 
-import { server$ } from "@builder.io/qwik-city";
-
-export const createInvoice = server$(async function (data: { customerId: string, amount: number, status: string }) {
+export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {
   const amountInCents = Math.round(data.amount * 100);
 });`}
           icon="typescript"
@@ -660,8 +656,8 @@ export const createInvoice = server$(async function (data: { customerId: string,
           text="src/lib/actions.ts"
           decorations={[
             {
-              start: { line: 5, character: 0 },
-              end: { line: 5, character: 54 },
+              start: { line: 3, character: 0 },
+              end: { line: 3, character: 54 },
               properties: { class: "newLine" },
             },
           ]}
@@ -678,9 +674,7 @@ export const createInvoice = server$(async function (data: { customerId: string,
         <CodeBlock
           code={`// src/lib/actions.ts
 
-import { server$ } from "@builder.io/qwik-city";
-
-export const createInvoice = server$(async function (data: { customerId: string, amount: number, status: string }) {
+export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {
   const amountInCents = Math.round(data.amount * 100);
   const date = new Date().toISOString().split('T')[0];
 });`}
@@ -689,8 +683,8 @@ export const createInvoice = server$(async function (data: { customerId: string,
           text="src/lib/actions.ts"
           decorations={[
             {
-              start: { line: 6, character: 0 },
-              end: { line: 6, character: 54 },
+              start: { line: 4, character: 0 },
+              end: { line: 4, character: 54 },
               properties: { class: "newLine" },
             },
           ]}
@@ -703,10 +697,9 @@ export const createInvoice = server$(async function (data: { customerId: string,
         <CodeBlock
           code={`// src/lib/actions.ts
 
-import { server$ } from "@builder.io/qwik-city";
 import { getPool } from './data';
 
-export const createInvoice = server$(async function (data: { customerId: string, amount: number, status: string }) {
+export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {
   const amountInCents = Math.round(data.amount * 100);
   const date = new Date().toISOString().split('T')[0];
   
@@ -734,13 +727,13 @@ export const createInvoice = server$(async function (data: { customerId: string,
           text="src/lib/actions.ts"
           decorations={[
             {
-              start: { line: 3, character: 0 },
-              end: { line: 3, character: 33 },
+              start: { line: 2, character: 0 },
+              end: { line: 2, character: 33 },
               properties: { class: "newLine" },
             },
             {
-              start: { line: 9, character: 0 },
-              end: { line: 26, character: 4 },
+              start: { line: 8, character: 0 },
+              end: { line: 25, character: 4 },
               properties: { class: "newLine" },
             },
           ]}
@@ -784,12 +777,8 @@ export const getPool = server$(function () {
 
 import { createInvoice } from "~/lib/actions";
 
-export const useCreateInvoice = routeAction$(async (data, { fail }) => {
-  const newInvoice = await createInvoice(data);
-  return {
-    success: true,
-    newInvoice,
-  };
+export const useCreateInvoice = routeAction$(async (data) => {
+  await createInvoice(data);
 }, zod$(CreateInvoice));
 
 // ... Other code`}
@@ -804,7 +793,7 @@ export const useCreateInvoice = routeAction$(async (data, { fail }) => {
             },
             {
               start: { line: 7, character: 0 },
-              end: { line: 11, character: 4 },
+              end: { line: 7, character: 28 },
               properties: { class: "newLine" },
             },
           ]}
@@ -816,56 +805,49 @@ export const useCreateInvoice = routeAction$(async (data, { fail }) => {
         <SubtitleWithAnchor title="6. Redirect" id="6.-redirect" level="h3" />
         <p>
           After successfully inserting the data into the database, you want to
-          redirect the user back to the invoices page. For this purpose, you can
-          use the <code>onSubmitCompleted$</code> attribute in the{" "}
-          <code>{`<Form>`}</code> component.
+          redirect the user back to the invoices page. To do this, you can use
+          the{" "}
+          <code>
+            <BlankLink
+              href="https://qwik.dev/docs/middleware/#redirect"
+              text="redirect"
+            />{" "}
+          </code>{" "}
+          method from the{" "}
+          <code>
+            {" "}
+            <BlankLink
+              href="https://qwik.dev/docs/action/#http-request-and-response"
+              text="requestEvent"
+            />
+          </code>{" "}
+          object.
         </p>
         <CodeBlock
-          code={`// src/components/ui/invoices/create-form.tsx
-
-import { Link, Form, useNavigate } from "@builder.io/qwik-city";
+          code={`// src/routes/dashboard/invoices/create/index.tsx
 
 // ... Other code
 
-export const CreateForm = component$(() => {
-  const customersResource = useResource$(async () => {
-    const customers = await fetchCustomers();
-    return customers;
-  });
+import { createInvoice } from "~/lib/actions";
 
-  const createInvoice = useCreateInvoice();
+export const useCreateInvoice = routeAction$(async (data, { redirect }) => {
+  await createInvoice(data);
+  throw redirect(302, "/dashboard/invoices");
+}, zod$(CreateInvoice));
 
-  const nav = useNavigate();
-
-  return (
-    <Form
-      action={createInvoice}
-      onSubmitCompleted$={async () => {
-        await nav("/dashboard/invoices/");
-      }}
-    >
-
-// ... Other code
-
-  );
-});`}
+// ... Other code`}
           icon="typescript"
           language="typescript"
-          text="src/components/ui/invoices/create-form.tsx"
+          text="src/routes/dashboard/invoices/create/index.tsx"
           decorations={[
             {
-              start: { line: 2, character: 0 },
-              end: { line: 2, character: 64 },
+              start: { line: 6, character: 0 },
+              end: { line: 6, character: 76 },
               properties: { class: "newLine" },
             },
             {
-              start: { line: 14, character: 0 },
-              end: { line: 14, character: 28 },
-              properties: { class: "newLine" },
-            },
-            {
-              start: { line: 19, character: 0 },
-              end: { line: 21, character: 8 },
+              start: { line: 8, character: 0 },
+              end: { line: 8, character: 45 },
               properties: { class: "newLine" },
             },
           ]}
@@ -1204,12 +1186,12 @@ export const fetchInvoiceById = server$(async function (id: string) {
       ...invoice,
       amount: invoice.amount / 100,
     }));
-
-    await pool.end();
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch invoice.');
+  } finally {
+    await pool.end();
   }
 });`}
           icon="typescript"
@@ -1408,18 +1390,13 @@ import { updateInvoice } from "~/lib/actions";
 
 const FormSchema = z.object({
   customerId: z.string(),
-  amount: z.coerce.number().max(21474836.47),
+  amount: z.coerce.number().positive(),
   status: z.enum(["pending", "paid"]),
 });
 
 export const useUpdateInvoice = routeAction$(async (data, { params }) => {
   const dataWithId = { ...data, id: params.id };
-
-  const updatedInvoice = await updateInvoice(dataWithId);
-  return {
-    success: true,
-    updatedInvoice,
-  };
+  await updateInvoice(dataWithId);
 }, zod$(FormSchema));
 
 export default component$(() => {
@@ -1448,7 +1425,7 @@ export default component$(() => {
             },
             {
               start: { line: 16, character: 0 },
-              end: { line: 23, character: 21 },
+              end: { line: 18, character: 21 },
               properties: { class: "newLine" },
             },
           ]}
@@ -1493,53 +1470,36 @@ export const updateInvoice = server$(async function (data: { id: string, custome
           invoice:
         </p>
         <CodeBlock
-          code={`// src/components/ui/invoices/edit-form.tsx
+          code={`// src/routes/dashboard/invoices/[id]/edit/index.tsx
 
 // ... Other code
 
-import { Form, Link, useNavigate } from "@builder.io/qwik-city";
-
-export const EditInvoiceForm = component$(
-  ({
-    invoice,
-    customers,
-  }: {
-    invoice: InvoiceForm;
-    customers: CustomerField[];
-  }) => {
-    const nav = useNavigate();
-    const updateInvoiceAction = useUpdateInvoice();
-
-    return (
-      <Form 
-        action={updateInvoiceAction}
-        onSubmitCompleted$={async () => {
-          await nav("/dashboard/invoices");
-        }}
-      >
-
-// ... Other code
-
-    );
+export const useUpdateInvoice = routeAction$(
+  async (data, { params, redirect }) => {
+    const dataWithId = { ...data, id: params.id };
+    await updateInvoice(dataWithId);
+    throw redirect(302, "/dashboard/invoices");
   },
-);`}
+  zod$(FormSchema),
+);
+
+export default component$(() => {
+
+  // ... Other code
+  
+});`}
           icon="typescript"
           language="tsx"
-          text="src/components/ui/invoices/edit-form.tsx"
+          text="src/routes/dashboard/invoices/[id]/edit/index.tsx"
           decorations={[
             {
-              start: { line: 4, character: 0 },
-              end: { line: 4, character: 64 },
+              start: { line: 5, character: 0 },
+              end: { line: 5, character: 41 },
               properties: { class: "newLine" },
             },
             {
-              start: { line: 14, character: 0 },
-              end: { line: 14, character: 30 },
-              properties: { class: "newLine" },
-            },
-            {
-              start: { line: 20, character: 0 },
-              end: { line: 22, character: 10 },
+              start: { line: 8, character: 0 },
+              end: { line: 8, character: 47 },
               properties: { class: "newLine" },
             },
           ]}
@@ -1649,7 +1609,7 @@ export const Table = component$(() => {
           code={`// src/components/ui/invoices/buttons.tsx
 
 import { component$ } from "@builder.io/qwik";
-import { Link, useNavigate } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
 import {
   HiPencilOutline,
   HiTrashOutline,
@@ -1660,14 +1620,12 @@ import { useDeleteInvoice } from "~/routes/dashboard/invoices";
 // ... Other functions
 
 export const DeleteInvoice = component$(({ id }: { id: string }) => {
-  const nav = useNavigate();
   const deleteInvoiceAction = useDeleteInvoice();
   return (
     <button
       class="rounded-md border p-2 hover:bg-gray-100"
       onClick$={async () => {
         await deleteInvoiceAction.submit({ id });
-        await nav("/dashboard/invoices");
       }}
     >
       <span class="sr-only">Delete</span>
@@ -1680,23 +1638,18 @@ export const DeleteInvoice = component$(({ id }: { id: string }) => {
           text="src/components/ui/invoices/buttons.tsx"
           decorations={[
             {
-              start: { line: 3, character: 0 },
-              end: { line: 3, character: 58 },
-              properties: { class: "newLine" },
-            },
-            {
               start: { line: 9, character: 0 },
               end: { line: 9, character: 63 },
               properties: { class: "newLine" },
             },
             {
-              start: { line: 13, character: 0 },
-              end: { line: 15, character: 49 },
+              start: { line: 14, character: 0 },
+              end: { line: 14, character: 49 },
               properties: { class: "newLine" },
             },
             {
-              start: { line: 19, character: 0 },
-              end: { line: 22, character: 8 },
+              start: { line: 18, character: 0 },
+              end: { line: 20, character: 8 },
               properties: { class: "newLine" },
             },
           ]}
@@ -1707,11 +1660,6 @@ export const DeleteInvoice = component$(({ id }: { id: string }) => {
           when the user clicks the button. The <code>action.submit()</code>{" "}
           method returns a <code>Promise</code> that resolves when the action is
           done.
-        </p>
-
-        <p>
-          The <code>nav()</code> function is used to navigate to the invoices
-          page after the action is completed.
         </p>
 
         <p>
@@ -1730,12 +1678,9 @@ import { CreateInvoice } from "~/components/ui/invoices/buttons";
 import { routeAction$ } from "@builder.io/qwik-city";
 import { deleteInvoice } from "~/lib/actions";
 
-export const useDeleteInvoice = routeAction$(async (data) => {
-  const deletedInvoiceId = await deleteInvoice(data.id.toString());
-  return {
-    success: true,
-    deletedInvoiceId,
-  };
+export const useDeleteInvoice = routeAction$(async (data, { redirect }) => {
+  await deleteInvoice(data.id.toString());
+  throw redirect(302, "/dashboard/invoices");
 });
 
 export default component$(() => {
@@ -1754,7 +1699,7 @@ export default component$(() => {
             },
             {
               start: { line: 10, character: 0 },
-              end: { line: 16, character: 3 },
+              end: { line: 13, character: 3 },
               properties: { class: "newLine" },
             },
           ]}

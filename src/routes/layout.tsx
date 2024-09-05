@@ -203,13 +203,13 @@ export default component$(() => {
       <Header />
       {location.isNavigating ? <Loader /> : <Slot />}
 
+      <PreFooter />
       {location.isNavigating ? (
         <div class="absolute bottom-0 flex w-full items-center justify-center">
           <Footer />
         </div>
       ) : (
         <>
-          <PreFooter />
           <div class="px-4 pb-8 md:px-8 md:pb-20">
             <ins
               class="adsbygoogle"

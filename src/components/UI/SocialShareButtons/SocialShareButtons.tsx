@@ -1,3 +1,5 @@
+// src/components/UI/SocialShareButtons/SocialShareButtons.tsx
+
 import {
   component$,
   Resource,
@@ -66,10 +68,12 @@ export default component$(() => {
   });
 
   const totalShareResource = useResource$(async () => {
-    console.log("fetching total share");
-    const totalShare = await getTotalShare();
-    totalShareSignal.value = totalShare;
-    return totalShare;
+    console.log("fetching total share " + totalShareSignal.value);
+    if (!totalShareSignal.value) {
+      console.log("fetching total share into signal");
+      totalShareSignal.value = await getTotalShare();
+    }
+    return totalShareSignal.value;
   });
 
   const displayIcon = (icon: string) => {
