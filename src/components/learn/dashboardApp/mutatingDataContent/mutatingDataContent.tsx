@@ -620,7 +620,7 @@ action$() zod validated failed
         <CodeBlock
           code={`// src/lib/actions.ts
 
-export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {});`}
+export const createInvoice = async function (data: { customerId: string, amount: number, status: string }) {};`}
           icon="typescript"
           language="typescript"
           text="src/lib/actions.ts"
@@ -648,9 +648,9 @@ export const createInvoice = (async function (data: { customerId: string, amount
         <CodeBlock
           code={`// src/lib/actions.ts
 
-export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {
+export const createInvoice = async function (data: { customerId: string, amount: number, status: string }) {
   const amountInCents = Math.round(data.amount * 100);
-});`}
+};`}
           icon="typescript"
           language="typescript"
           text="src/lib/actions.ts"
@@ -674,10 +674,10 @@ export const createInvoice = (async function (data: { customerId: string, amount
         <CodeBlock
           code={`// src/lib/actions.ts
 
-export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {
+export const createInvoice = async function (data: { customerId: string, amount: number, status: string }) {
   const amountInCents = Math.round(data.amount * 100);
   const date = new Date().toISOString().split('T')[0];
-});`}
+};`}
           icon="typescript"
           language="typescript"
           text="src/lib/actions.ts"
@@ -699,7 +699,7 @@ export const createInvoice = (async function (data: { customerId: string, amount
 
 import { getPool } from './data';
 
-export const createInvoice = (async function (data: { customerId: string, amount: number, status: string }) {
+export const createInvoice = async function (data: { customerId: string, amount: number, status: string }) {
   const amountInCents = Math.round(data.amount * 100);
   const date = new Date().toISOString().split('T')[0];
   
@@ -721,7 +721,7 @@ export const createInvoice = (async function (data: { customerId: string, amount
     status: data.status,
     date: date
   };
-});`}
+};`}
           icon="typescript"
           language="typescript"
           text="src/lib/actions.ts"
@@ -856,6 +856,7 @@ export const useCreateInvoice = routeAction$(async (data, { redirect }) => {
           Now, when you submit the form, you should be redirected back to the
           invoices page.
         </p>
+
         <p>
           In the next chapter, you'll learn how to handle errors and display
           them to the user.
