@@ -1,13 +1,20 @@
 import { component$ } from "@builder.io/qwik";
 import styles from "./header.module.css";
-import { useLocation } from "@builder.io/qwik-city";
+import { Link, useLocation } from "@builder.io/qwik-city";
 
 import NavbarMobile from "../navbar-mobile/navbar-mobile";
 import Navbar from "../navbar/navbar";
 import Popover from "../../lib/qwikUI/popover/popover";
 
-export default component$(() => {
+import type { Session } from "@auth/core/types";
+
+interface HeaderProps {
+  session: Session | null;
+}
+
+export default component$<HeaderProps>(({ session }) => {
   const loc = useLocation();
+
   return (
     <header
       class={
@@ -125,9 +132,13 @@ export default component$(() => {
             </span>
             <span class={`button_content`}>Deploy</span>
           </a>
-          <a
+          <Link
             tabIndex={0}
-            href="/"
+            href={
+              session
+                ? "/auth/logout"
+                : "/auth/login?redirectTo=" + loc.url.pathname
+            }
             type="submit"
             class={`button_base reset_reset button_button button_small button_invert`}
             data-geist-button=""
@@ -136,8 +147,8 @@ export default component$(() => {
             data-version="v1"
             style="--geist-icon-size:16px"
           >
-            <span class={`button_content`}>Home</span>
-          </a>
+            <span class={`button_content`}>{session ? "Logout" : "Login"}</span>
+          </Link>
         </div>
       </nav>
     </header>
