@@ -1,9 +1,13 @@
 // src/routes/learn/dashboard-app/layout.tsx
 
 import { component$, Slot } from "@builder.io/qwik";
+
+import type { RequestHandler } from "@builder.io/qwik-city";
 import { routeLoader$ } from "@builder.io/qwik-city";
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
+
+import type { Session } from "@auth/core/types";
 
 export const useGetCurrentChapterIndexInString = routeLoader$(
   (requestEvent) => {
@@ -22,6 +26,16 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
     return "Introduction";
   },
 );
+
+export const onRequest: RequestHandler = (event) => {
+  const session: Session | null = event.sharedMap.get("session");
+  console.log(session);
+
+  if (!session || new Date(session.expires) < new Date()) {
+    console.log("Redirecting to login");
+    throw event.redirect(302, `/auth/login?redirectTo=${event.url.pathname}`);
+  }
+};
 
 export default component$(() => {
   return (

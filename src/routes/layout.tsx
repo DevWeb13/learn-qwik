@@ -26,6 +26,7 @@ import type { ChapterType } from "~/types/chapterType";
 import { getCookie, initCookie, setCookie } from "~/utils/cookieManagement";
 import { Loader } from "~/components/UI/loader/loader";
 import PreFooter from "~/components/UI/PreFooter/PreFooter";
+import { useSession } from "./plugin@auth";
 
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
@@ -198,9 +199,12 @@ export default component$(() => {
     });
   });
 
+  const session = useSession();
+  console.log("session", session.value);
+
   return (
     <div class="overflow-hidden" ref={container}>
-      <Header />
+      <Header session={session.value} />
       {location.isNavigating ? <Loader /> : <Slot />}
 
       <PreFooter />

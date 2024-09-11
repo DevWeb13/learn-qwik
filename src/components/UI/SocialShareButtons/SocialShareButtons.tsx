@@ -68,9 +68,7 @@ export default component$(() => {
   });
 
   const totalShareResource = useResource$(async () => {
-    console.log("fetching total share " + totalShareSignal.value);
     if (!totalShareSignal.value) {
-      console.log("fetching total share into signal");
       totalShareSignal.value = await getTotalShare();
     }
     return totalShareSignal.value;
