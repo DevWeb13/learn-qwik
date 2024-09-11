@@ -41,33 +41,12 @@ export const CompletedChaptersContext = createContextId<
 >("docs.completed-chapters-context");
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
-  // Control caching for this request for best performance and to reduce hosting costs:
-  // https://qwik.builder.io/docs/caching/
+  // Désactiver complètement le cache pour cette route
   cacheControl({
-    // Always serve a cached response by default, up to a week stale
-    staleWhileRevalidate: 60 * 60 * 24 * 7,
-    // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
-    maxAge: 5,
+    maxAge: 0, // Ne garde pas la page en cache
+    staleWhileRevalidate: 0, // Ne sert pas de version "stale" pendant que la page est revalidée
+    noStore: true, // N'enregistre pas la page dans le cache du navigateur ou du CDN
   });
-
-  cacheControl(
-    {
-      maxAge: 5,
-      staleWhileRevalidate: 60 * 60 * 24 * 365,
-    },
-    "Vercel-CDN-Cache-Control",
-  );
-
-  // await next();
-
-  // let completedChaptersCookie = cookie
-  //   .get("completedChapters")
-  //   ?.json<CompletedChaptersType>();
-  // if (!completedChaptersCookie) {
-  //   completedChaptersCookie = [];
-  //   cookie.set("completedChapters", completedChaptersCookie, { path: "/" });
-  //   console.log("Completed chapters cookie set");
-  // }
 };
 
 export const useServerTimeLoader = routeLoader$(() => {
