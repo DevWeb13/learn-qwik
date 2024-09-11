@@ -12,6 +12,7 @@ export const onRequest: RequestHandler = (event) => {
   console.log(session);
 
   if (session && new Date(session.expires) > new Date()) {
+    console.log("Redirecting to home already signed in");
     throw event.redirect(302, `/`);
   }
 };
