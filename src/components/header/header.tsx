@@ -14,6 +14,7 @@ interface HeaderProps {
 
 export default component$<HeaderProps>(({ session }) => {
   const loc = useLocation();
+  console.log("sessionHeader", session);
 
   return (
     <header
