@@ -1779,6 +1779,7 @@ export const deleteInvoice = server$(async function (id: string) {
           goToChapter={12}
           title="Handling Errors"
           text="Let's explore best practices for mutating data with forms, including error handling and accessibility."
+          disabledButton
         />
       </div>
       <Feedback />
