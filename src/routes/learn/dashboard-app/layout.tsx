@@ -7,8 +7,6 @@ import { routeLoader$ } from "@builder.io/qwik-city";
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
 
-import type { Session } from "@auth/core/types";
-
 export const useGetCurrentChapterIndexInString = routeLoader$(
   (requestEvent) => {
     const pathname = requestEvent.url.pathname;
