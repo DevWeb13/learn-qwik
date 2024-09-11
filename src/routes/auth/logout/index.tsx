@@ -8,7 +8,6 @@ import { useSignOut } from "~/routes/plugin@auth";
 // Redirecting if not signed in
 export const onRequest: RequestHandler = (event) => {
   const session: Session | null = event.sharedMap.get("session");
-  console.log(session);
 
   if (!session || new Date(session.expires) < new Date()) {
     throw event.redirect(302, `/`);
