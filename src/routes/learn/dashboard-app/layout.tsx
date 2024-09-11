@@ -31,7 +31,7 @@ export const onRequest: RequestHandler = (event) => {
   const session: Session | null = event.sharedMap.get("session");
   console.log(session);
 
-  if (!session || new Date(session.expires) < new Date()) {
+  if (!session) {
     console.log("Redirecting to login");
     throw event.redirect(302, `/auth/login?redirectTo=${event.url.pathname}`);
   }
