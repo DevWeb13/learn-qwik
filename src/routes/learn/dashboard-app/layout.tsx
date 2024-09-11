@@ -25,13 +25,6 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
   },
 );
 export const onRequest: RequestHandler = (event) => {
-  // Désactiver le cache pour les pages d'authentification
-  event.cacheControl({
-    maxAge: 0,
-    staleWhileRevalidate: 0,
-    noStore: true, // Empêche la mise en cache
-  });
-
   const session = event.sharedMap.get("session");
   if (!session || new Date(session.expires) < new Date()) {
     console.log("Redirection vers la page de connexion");
