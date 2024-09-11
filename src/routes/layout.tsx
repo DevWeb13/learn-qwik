@@ -200,6 +200,7 @@ export default component$(() => {
   });
 
   const session = useSession();
+  console.log("session", session.value);
 
   return (
     <div class="overflow-hidden" ref={container}>
