@@ -13,12 +13,8 @@ export const NavLink = component$(({ activeClass, ...props }: NavLinkProps) => {
     ? toPathname
     : `${toPathname}/`;
 
-  console.log("normalizedToPathname", normalizedToPathname);
-
   // Vérifie si l'URL actuelle commence par l'URL cible
   const isActive = locationPathname.startsWith(normalizedToPathname);
-
-  console.log("isActive", isActive);
 
   return (
     <Link {...props} class={`${isActive ? activeClass : props.class}`}>

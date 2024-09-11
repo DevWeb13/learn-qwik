@@ -6,15 +6,8 @@ import NavbarMobile from "../navbar-mobile/navbar-mobile";
 import Navbar from "../navbar/navbar";
 import Popover from "../../lib/qwikUI/popover/popover";
 
-import type { Session } from "@auth/core/types";
-
-interface HeaderProps {
-  session: Session | null;
-}
-
-export default component$<HeaderProps>(({ session }) => {
+export default component$(() => {
   const loc = useLocation();
-  console.log("sessionHeader", session);
 
   return (
     <header
@@ -135,12 +128,7 @@ export default component$<HeaderProps>(({ session }) => {
           </a>
           <Link
             tabIndex={0}
-            href={
-              session
-                ? "/auth/logout"
-                : "/auth/login?redirectTo=" + loc.url.pathname
-            }
-            type="submit"
+            href="/"
             class={`button_base reset_reset button_button button_small button_invert`}
             data-geist-button=""
             data-prefix="false"
@@ -148,7 +136,7 @@ export default component$<HeaderProps>(({ session }) => {
             data-version="v1"
             style="--geist-icon-size:16px"
           >
-            <span class={`button_content`}>{session ? "Logout" : "Login"}</span>
+            <span class={`button_content`}>home</span>
           </Link>
         </div>
       </nav>

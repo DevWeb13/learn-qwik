@@ -7,9 +7,6 @@ import { join } from "path";
 
 export default defineConfig(async () => {
   return {
-    optimizeDeps: {
-      include: ['@auth/core'],
-    },
     plugins: [
       qwikCity(),
       qwikVite(),
