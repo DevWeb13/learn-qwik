@@ -1,30 +1,49 @@
 // src/utils/totalShareData.ts
 
 import { server$ } from "@builder.io/qwik-city";
-import { getPool } from "./getPool";
-import type { totalShareType } from "~/types/totalShareType";
+import { getSupabaseClient } from "./supabaseClient";
 
+// Function to retrieve the total number of shares
 export const getTotalShare = server$(async function () {
-  const pool = await getPool();
+  const supabaseClient = await getSupabaseClient();
+
   try {
-    const result = await pool.query<totalShareType>(
-      "SELECT count FROM total_share",
-    );
-    return result.rows[0].count;
+    // Query the "shares" table to get total_share
+    const { data, error } = await supabaseClient
+      .from("shares")
+      .select("*")
+      .limit(1)
+      .single();
+
+    if (error || !data) {
+      throw new Error(
+        "Failed to fetch total share: " +
+          (error?.message || "No data returned"),
+      );
+    }
+
+    // Return the total_share from the first row
+    const totalShare: number = data.total_share;
+    return totalShare;
   } catch (e) {
-    throw new Error("Failed to fetch total share: " + e);
-  } finally {
-    await pool.end();
+    // Log the detailed error message and rethrow
+    throw new Error("Error in getTotalShare: " + (e as Error).message);
   }
 });
 
+// Function to increment the total number of shares
 export const incrementTotalShare = server$(async function () {
-  const pool = await getPool();
+  const supabaseClient = await getSupabaseClient();
+
   try {
-    await pool.query("UPDATE total_share SET count = count + 1");
+    // Use Supabase's RPC to increment the total share
+    const { error } = await supabaseClient.rpc("increment_total_share");
+
+    if (error) {
+      throw new Error("Failed to increment total share: " + error.message);
+    }
   } catch (e) {
-    throw new Error("Failed to increment total share: " + e);
-  } finally {
-    await pool.end();
+    // Log the error and rethrow with more context
+    throw new Error("Error in incrementTotalShare: " + (e as Error).message);
   }
 });
