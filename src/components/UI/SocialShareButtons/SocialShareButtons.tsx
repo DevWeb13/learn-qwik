@@ -10,7 +10,6 @@ import {
 } from "@builder.io/qwik";
 import { Link, useLocation } from "@builder.io/qwik-city";
 
-import { getTotalShare, incrementTotalShare } from "~/utils/totalShareData";
 import { ButtonHandleShare } from "./ButtonHandleShare";
 
 import { FacebookSvg } from "~/assets/svg/facebookSvg";
@@ -18,6 +17,7 @@ import { TwitterSvg } from "~/assets/svg/twitterSvg";
 import { LinkedInSvg } from "~/assets/svg/linkedinSvg";
 import { PinterestSvg } from "~/assets/svg/pinterestSvg";
 import { EmailSvg } from "~/assets/svg/emailSvg";
+import { getTotalShare, incrementTotalShare } from "~/utils/totalShareData";
 
 const shareLinks = [
   {
@@ -67,13 +67,6 @@ export default component$(() => {
     isOpen: true,
   });
 
-  const totalShareResource = useResource$(async () => {
-    if (!totalShareSignal.value) {
-      totalShareSignal.value = await getTotalShare();
-    }
-    return totalShareSignal.value;
-  });
-
   const displayIcon = (icon: string) => {
     switch (icon) {
       case "facebook":
@@ -90,6 +83,22 @@ export default component$(() => {
         return null;
     }
   };
+
+  const totalShareResource = useResource$(async ({ cleanup }) => {
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    try {
+      if (totalShareSignal.value === 0) {
+        const totalShare = await getTotalShare();
+        totalShareSignal.value = totalShare;
+      }
+    } catch (error) {
+      console.error("Error fetching total shares:", error);
+    }
+
+    return totalShareSignal.value;
+  });
 
   useStyles$(``);
   return (
@@ -123,7 +132,9 @@ export default component$(() => {
                 rel="noopener noreferrer"
                 aria-label={`Share on ${shareLink.name}`}
                 onClick$={async () => {
+                  console.log("totalShareSignal.value", totalShareSignal.value);
                   totalShareSignal.value++;
+                  console.log("totalShareSignal.value", totalShareSignal.value);
                   await incrementTotalShare();
                 }}
               >

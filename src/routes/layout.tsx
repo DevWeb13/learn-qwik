@@ -25,7 +25,7 @@ import type { ChapterType } from "~/types/chapterType";
 
 import { getCookie, initCookie, setCookie } from "~/utils/cookieManagement";
 import { Loader } from "~/components/UI/loader/loader";
-// import PreFooter from "~/components/UI/PreFooter/PreFooter";
+import PreFooter from "~/components/UI/PreFooter/PreFooter";
 
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
@@ -56,17 +56,6 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
     },
     "Vercel-CDN-Cache-Control",
   );
-
-  // await next();
-
-  // let completedChaptersCookie = cookie
-  //   .get("completedChapters")
-  //   ?.json<CompletedChaptersType>();
-  // if (!completedChaptersCookie) {
-  //   completedChaptersCookie = [];
-  //   cookie.set("completedChapters", completedChaptersCookie, { path: "/" });
-  //   console.log("Completed chapters cookie set");
-  // }
 };
 
 export const useServerTimeLoader = routeLoader$(() => {
@@ -203,7 +192,7 @@ export default component$(() => {
       <Header />
       {location.isNavigating ? <Loader /> : <Slot />}
 
-      {/* <PreFooter /> */}
+      <PreFooter />
       {location.isNavigating ? (
         <div class="absolute bottom-0 flex w-full items-center justify-center">
           <Footer />
