@@ -563,9 +563,16 @@ export const head: DocumentHead = {
         </p>
         <CodeBlock
           text="Terminal"
-          code={`npm i @qwikest/icons`}
+          code={`npm i -D @qwikest/icons`}
           hideLineNumbers
         />
+
+        <blockquote class="p-3 pt-5 text-sm">
+          <p>
+            <strong>Important:</strong> To work correctly, you must install the{" "}
+            <code>@qwikest/icons</code> package in the devDependencies.
+          </p>
+        </blockquote>
         <p>
           For your project, you can use the icons from the{" "}
           <code>Heroicons</code> set.
