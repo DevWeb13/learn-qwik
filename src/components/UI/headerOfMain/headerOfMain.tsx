@@ -24,8 +24,6 @@ export default component$(() => {
 
   const title = useSignal("");
 
-  console.log("currentChapterIndexInString", currentChapterIndexInString);
-
   useTask$(({ track }) => {
     track(() => currentChapterIndexInString);
     title.value =
@@ -33,14 +31,7 @@ export default component$(() => {
       currentChapterIndexInString.length <= 2
         ? chapters.value[parseInt(currentChapterIndexInString)].title
         : "Introduction";
-
-    console.log("title", title.value);
   });
-
-  console.log(
-    "currentChapterIndexInString.length",
-    currentChapterIndexInString.length,
-  );
 
   return (
     <div class="style_container relative z-10 mb-4 h-[67px] w-full max-w-[1072px] lg:-mx-12 lg:mb-8">
