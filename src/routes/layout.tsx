@@ -26,6 +26,7 @@ import type { ChapterType } from "~/types/chapterType";
 import { getCookie, initCookie, setCookie } from "~/utils/cookieManagement";
 import { Loader } from "~/components/UI/loader/loader";
 import PreFooter from "~/components/UI/PreFooter/PreFooter";
+import { createServerClient } from "supabase-auth-helpers-qwik";
 
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
@@ -192,7 +193,7 @@ export default component$(() => {
       <Header />
       {location.isNavigating ? <Loader /> : <Slot />}
 
-      <PreFooter />
+      {/* <PreFooter /> */}
       {location.isNavigating ? (
         <div class="absolute bottom-0 flex w-full items-center justify-center">
           <Footer />

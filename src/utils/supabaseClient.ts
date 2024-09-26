@@ -2,7 +2,6 @@
 
 import { createServerClient } from "supabase-auth-helpers-qwik";
 import { server$ } from "@builder.io/qwik-city";
-
 export const getSupabaseClient = server$(function () {
   const supabaseUrl = this.env.get("PUBLIC_SUPABASE_URL");
   const supabaseAnonKey = this.env.get("PUBLIC_SUPABASE_ANON_KEY");
