@@ -122,7 +122,6 @@ export const useServerTimeLoader = routeLoader$(() => {
 
 // Check if the environment is production
 const isProd = process.env.NODE_ENV === "production";
-console.log("isProd", isProd);
 
 export default component$(() => {
   if (!isProd) {
@@ -155,7 +154,7 @@ export default component$(() => {
   useOnDocument(
     "DOMContentLoaded",
     $(() => {
-      console.log("DOMContentLoaded");
+      // console.log("DOMContentLoaded");
 
       const completedChaptersCookie: number[] | undefined =
         getCookie("completedChapters");
@@ -225,7 +224,6 @@ export default component$(() => {
   useVisibleTask$(({ track }) => {
     track(() => location.isNavigating);
     track(() => firstScroll.value);
-    console.log("location.isNavigating", location.isNavigating);
 
     // Wait for the navigation to finish before reinitializing adsense
     if (location.isNavigating) return;
