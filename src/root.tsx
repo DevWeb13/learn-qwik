@@ -12,10 +12,6 @@ import { QwikPartytown } from "./components/partytown/partytown";
 import "./global.css";
 import "./button.css";
 
-// Check if the environment is production
-const isProd = process.env.NODE_ENV === "production";
-console.log("isProd", isProd);
-
 export default component$(() => {
   return (
     <QwikCityProvider>
@@ -64,7 +60,7 @@ export default component$(() => {
                 if (!window.frames['googlefcPresent']) {
                   if (document.body) {
                     const iframe = document.createElement('iframe');
-                    iframe.style = 'width: 0; height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
+                    iframe.style = 'width: 0; max-height: 0; border: none; z-index: -1000; left: -1000px; top: -1000px;';
                     iframe.style.display = 'none';
                     iframe.name = 'googlefcPresent';
                     document.body.appendChild(iframe);

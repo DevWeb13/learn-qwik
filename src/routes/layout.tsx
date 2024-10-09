@@ -13,7 +13,7 @@ import {
   useVisibleTask$,
 } from "@builder.io/qwik";
 import { isBrowser } from "@builder.io/qwik/build";
-import { routeLoader$, useLocation } from "@builder.io/qwik-city";
+import { routeAction$, routeLoader$, useLocation } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
 import Header from "../components/header/header";
@@ -24,8 +24,11 @@ import { CHAPTERS } from "~/constants/chapters";
 import type { ChapterType } from "~/types/chapterType";
 
 import { getCookie, initCookie, setCookie } from "~/utils/cookieManagement";
-import { Loader } from "~/components/UI/loader/loader";
+
 import PreFooter from "~/components/UI/PreFooter/PreFooter";
+import { updateSession } from "~/lib/supabase/middleware";
+import { type User } from "@supabase/supabase-js";
+import { createClient } from "~/lib/supabase/server";
 
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
@@ -51,12 +54,65 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
   cacheControl(
     {
-      maxAge: 5,
-      staleWhileRevalidate: 60 * 60 * 24 * 365,
+      maxAge: 60 * 60 * 24 * 7,
+      staleWhileRevalidate: 5,
     },
     "Vercel-CDN-Cache-Control",
   );
 };
+
+export const onRequest: RequestHandler = async (request) => {
+  request.cacheControl({
+    maxAge: 0,
+    staleWhileRevalidate: 0,
+    noStore: true,
+    noCache: true,
+  });
+  await updateSession(request);
+};
+
+export const useUser = routeLoader$<User | null>(async (request) => {
+  const user = request.sharedMap.get("user");
+  return user;
+});
+
+export const useGetTotalShare = routeLoader$(async (request) => {
+  request.cacheControl({
+    // Always serve a cached response by default, up to a week stale
+    staleWhileRevalidate: 60 * 60 * 24 * 7,
+    // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
+    maxAge: 5,
+  });
+  const supabase = createClient(request);
+
+  // Query the "shares" table to get total_share
+  const { data, error } = await supabase
+    .from("shares")
+    .select("*")
+    .limit(1)
+    .single();
+
+  if (error || !data) {
+    throw new Error(
+      "Failed to fetch total share: " + (error?.message || "No data returned"),
+    );
+  }
+
+  // Return the total_share from the first row
+  const totalShare: number = data.total_share;
+  return totalShare;
+});
+
+export const useIncrementTotalShare = routeAction$(async (data, request) => {
+  const supabase = createClient(request);
+
+  // Use Supabase's RPC to increment the total share
+  const { error } = await supabase.rpc("increment_total_share");
+
+  if (error) {
+    throw new Error("Failed to increment total share: " + error.message);
+  }
+});
 
 export const useServerTimeLoader = routeLoader$(() => {
   return {
@@ -64,11 +120,16 @@ export const useServerTimeLoader = routeLoader$(() => {
   };
 });
 
+// Check if the environment is production
+const isProd = process.env.NODE_ENV === "production";
+
 export default component$(() => {
-  if (isBrowser) {
-    console.log("Exécution côté client");
-  } else {
-    console.log("Exécution côté serveur");
+  if (!isProd) {
+    if (isBrowser) {
+      console.log("Exécution côté client");
+    } else {
+      console.log("Exécution côté serveur");
+    }
   }
 
   const location = useLocation();
@@ -93,7 +154,7 @@ export default component$(() => {
   useOnDocument(
     "DOMContentLoaded",
     $(() => {
-      console.log("DOMContentLoaded");
+      // console.log("DOMContentLoaded");
 
       const completedChaptersCookie: number[] | undefined =
         getCookie("completedChapters");
@@ -163,7 +224,6 @@ export default component$(() => {
   useVisibleTask$(({ track }) => {
     track(() => location.isNavigating);
     track(() => firstScroll.value);
-    console.log("location.isNavigating", location.isNavigating);
 
     // Wait for the navigation to finish before reinitializing adsense
     if (location.isNavigating) return;
@@ -188,29 +248,34 @@ export default component$(() => {
   });
 
   return (
-    <div class="overflow-hidden" ref={container}>
-      <Header />
-      {location.isNavigating ? <Loader /> : <Slot />}
+    <div class={`${location.isNavigating ? "cursor-wait" : ""}`}>
+      <div
+        class={`flex min-h-screen flex-col overflow-hidden ${location.isNavigating ? "pointer-events-none" : ""}`}
+        ref={container}
+      >
+        <Header />
+        <Slot />
 
-      <PreFooter />
-      {location.isNavigating ? (
-        <div class="absolute bottom-0 flex w-full items-center justify-center">
-          <Footer />
-        </div>
-      ) : (
-        <>
-          <div class="px-4 pb-8 md:px-8 md:pb-20">
-            <ins
-              class="adsbygoogle"
-              style="display:flex; text-align:center; justify-content:center;"
-              data-ad-format="autorelaxed"
-              data-ad-client="ca-pub-2091224773462896"
-              data-ad-slot="2125459059"
-            ></ins>
+        <PreFooter />
+        {location.isNavigating || location.url.pathname.startsWith("/auth") ? (
+          <div class="flex w-full items-center justify-center">
+            <Footer />
           </div>
-          <Footer />
-        </>
-      )}
+        ) : (
+          <>
+            <div class="px-4 pb-8 md:px-8 md:pb-20">
+              <ins
+                class="adsbygoogle"
+                style="display:flex; text-align:center; justify-content:center;"
+                data-ad-format="autorelaxed"
+                data-ad-client="ca-pub-2091224773462896"
+                data-ad-slot="2125459059"
+              ></ins>
+            </div>
+            <Footer />
+          </>
+        )}
+      </div>
     </div>
   );
 });

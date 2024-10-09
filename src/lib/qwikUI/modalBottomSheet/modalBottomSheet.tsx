@@ -1,14 +1,10 @@
 import {
   PropsOf,
-  Signal,
   Slot,
   component$,
-  useContext,
   useSignal,
   useStore,
   useStyles$,
-  useTask$,
-  useVisibleTask$,
 } from "@builder.io/qwik";
 import { Link, useLocation } from "@builder.io/qwik-city";
 import {

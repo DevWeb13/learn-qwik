@@ -5,9 +5,14 @@ import { Link, useLocation } from "@builder.io/qwik-city";
 import NavbarMobile from "../navbar-mobile/navbar-mobile";
 import Navbar from "../navbar/navbar";
 import Popover from "../../lib/qwikUI/popover/popover";
+import { useUser } from "~/routes/layout";
+import { HiArrowRightOnRectangleOutline } from "@qwikest/icons/heroicons";
+import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
 
 export default component$(() => {
   const loc = useLocation();
+
+  const user = useUser();
 
   return (
     <header
@@ -128,15 +133,24 @@ export default component$(() => {
           </a>
           <Link
             tabIndex={0}
-            href="/"
-            class={`button_base reset_reset button_button button_small button_invert`}
+            href={user.value ? "/auth/logout/" : "/auth/login/"}
+            class={`flex w-full items-center justify-center gap-1 rounded-sm border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500 ${user.value ? "bg-red-700 hover:bg-red-500 hover:text-white focus:ring-red-500" : "bg-sky-500 hover:bg-sky-600 focus:ring-sky-500"}`}
             data-geist-button=""
             data-prefix="false"
             data-suffix="false"
             data-version="v1"
             style="--geist-icon-size:16px"
           >
-            <span class={`button_content`}>home</span>
+            {user.value ? (
+              <>
+                Logout{" "}
+                <HiArrowRightOnRectangleOutline class="h-4 w-4 stroke-[2]" />
+              </>
+            ) : (
+              <>
+                Connect <ArrowRightEndOnRectangle />
+              </>
+            )}
           </Link>
         </div>
       </nav>

@@ -1,6 +1,5 @@
 // src/routes/index.tsx
 
-// import type { Signal } from "@builder.io/qwik";
 import { component$, useContext } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
