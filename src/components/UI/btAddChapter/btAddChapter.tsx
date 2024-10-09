@@ -28,8 +28,6 @@ export default component$<BtAddChapterProps>(
     completedChapters = [],
     disabled = false,
   }) => {
-    // const action = useSetCompletedChaptersCookie();
-
     const chapters = useContext(ChaptersContext);
 
     let nextUri = title.toLowerCase().replace(/\s+/g, "-");

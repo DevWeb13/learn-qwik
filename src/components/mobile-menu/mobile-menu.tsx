@@ -3,10 +3,13 @@ import styles from "./mobile-menu.module.css";
 import { NavLink } from "../navLink/navLink";
 import Popover from "../../lib/qwikUI/popover/popover";
 
-import { MobileMenuVisibleContext } from "~/routes/layout";
+import { MobileMenuVisibleContext, useUser } from "~/routes/layout";
 import { Link } from "@builder.io/qwik-city";
+import { HiArrowRightOnRectangleOutline } from "@qwikest/icons/heroicons";
+import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
 
 export default component$(() => {
+  const user = useUser();
   const mobileMenuVisible = useContext(MobileMenuVisibleContext);
   return (
     <div
@@ -18,6 +21,22 @@ export default component$(() => {
     >
       <div class={styles.jsx4194965384}>
         <ul>
+          {!user.value && (
+            <li class="mt-2">
+              <Link
+                tabIndex={0}
+                href="/auth/login/"
+                class="flex w-full items-center justify-center gap-1 rounded-sm border border-transparent bg-sky-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+                data-geist-button=""
+                data-prefix="false"
+                data-suffix="false"
+                data-version="v1"
+                style="--geist-icon-size:16px"
+              >
+                Connect <ArrowRightEndOnRectangle />
+              </Link>
+            </li>
+          )}
           <li>
             <NavLink
               class={styles.mute}
@@ -149,6 +168,23 @@ export default component$(() => {
               GitHub
             </Link>
           </li>
+          {user.value && (
+            <li class="mt-2">
+              <Link
+                tabIndex={0}
+                href="/auth/logout/"
+                class="flex w-full items-center justify-center gap-1 rounded-sm border border-transparent bg-red-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+                data-geist-button=""
+                data-prefix="false"
+                data-suffix="false"
+                data-version="v1"
+                style="--geist-icon-size:16px"
+              >
+                Logout{" "}
+                <HiArrowRightOnRectangleOutline class="h-4 w-4 stroke-[2]" />
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

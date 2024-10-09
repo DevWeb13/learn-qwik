@@ -12,10 +12,6 @@ import { QwikPartytown } from "./components/partytown/partytown";
 import "./global.css";
 import "./button.css";
 
-// Check if the environment is production
-const isProd = process.env.NODE_ENV === "production";
-console.log("isProd", isProd);
-
 export default component$(() => {
   return (
     <QwikCityProvider>

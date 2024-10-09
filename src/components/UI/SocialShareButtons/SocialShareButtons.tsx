@@ -3,7 +3,6 @@
 import {
   component$,
   Resource,
-  useResource$,
   useSignal,
   useStore,
   useStyles$,
@@ -17,7 +16,7 @@ import { TwitterSvg } from "~/assets/svg/twitterSvg";
 import { LinkedInSvg } from "~/assets/svg/linkedinSvg";
 import { PinterestSvg } from "~/assets/svg/pinterestSvg";
 import { EmailSvg } from "~/assets/svg/emailSvg";
-import { getTotalShare, incrementTotalShare } from "~/utils/totalShareData";
+import { useGetTotalShare, useIncrementTotalShare } from "~/routes/layout";
 
 const shareLinks = [
   {
@@ -61,7 +60,11 @@ export default component$(() => {
   const loc = useLocation();
   const href = loc.url.href;
 
-  const totalShareSignal = useSignal(0);
+  const getTotalShare = useGetTotalShare();
+
+  const incrementTotalShare = useIncrementTotalShare();
+
+  const totalShareSignal = useSignal(getTotalShare.value);
 
   const buttonHandleShareStore = useStore({
     isOpen: true,
@@ -84,23 +87,24 @@ export default component$(() => {
     }
   };
 
-  const totalShareResource = useResource$(async ({ cleanup }) => {
-    const controller = new AbortController();
-    cleanup(() => controller.abort());
+  // const totalShareResource = useResource$(async ({ cleanup }) => {
+  //   const controller = new AbortController();
+  //   cleanup(() => controller.abort());
 
-    try {
-      if (totalShareSignal.value === 0) {
-        const totalShare = await getTotalShare();
-        totalShareSignal.value = totalShare;
-      }
-    } catch (error) {
-      console.error("Error fetching total shares:", error);
-    }
+  //   try {
+  //     if (totalShareSignal.value === 0) {
+  //       const totalShare = getTotalShare.value;
+  //       totalShareSignal.value = totalShare;
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching total shares:", error);
+  //   }
 
-    return totalShareSignal.value;
-  });
+  //   return totalShareSignal.value;
+  // });
 
   useStyles$(``);
+
   return (
     <aside
       class={`group/1 fixed  bottom-0 flex h-12 w-full md:left-0 md:top-56 md:h-min  md:w-auto md:flex-col `}
@@ -110,7 +114,7 @@ export default component$(() => {
       >
         <div class="flex w-full max-w-[80px] flex-shrink flex-col justify-center bg-[#ffffff] md:max-w-[48px]">
           <Resource
-            value={totalShareResource}
+            value={getTotalShare}
             onResolved={() => (
               <p class="h-6 text-2xl">{totalShareSignal.value}</p>
             )}
@@ -135,7 +139,7 @@ export default component$(() => {
                   console.log("totalShareSignal.value", totalShareSignal.value);
                   totalShareSignal.value++;
                   console.log("totalShareSignal.value", totalShareSignal.value);
-                  await incrementTotalShare();
+                  await incrementTotalShare.submit();
                 }}
               >
                 <div class="min-w-12 md:max-w-12 flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover/2:translate-x-0.5 md:w-12">

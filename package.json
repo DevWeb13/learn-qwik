@@ -49,15 +49,14 @@
     "undici": "*",
     "vercel": "^29.1.1",
     "vite": "^5.0.12",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.1",
+    "@supabase/ssr": "^0.5.1",
+    "@supabase/supabase-js": "^2.45.4"
   },
   "dependencies": {
     "@qwik-ui/headless": "^0.2.2",
     "@qwikest/icons": "^0.0.13",
-    "@supabase/ssr": "^0.5.1",
-    "@supabase/supabase-js": "^2.45.4",
     "marked": "^13.0.3",
-    "sanitize-html": "^2.13.0",
-    "supabase-auth-helpers-qwik": "^0.0.3"
+    "sanitize-html": "^2.13.0"
   }
 }

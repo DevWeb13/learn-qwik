@@ -1,8 +1,7 @@
 // src/routes/index.tsx
 
-// import type { Signal } from "@builder.io/qwik";
 import { component$, useContext } from "@builder.io/qwik";
-import { Link, routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import { Link, type DocumentHead } from "@builder.io/qwik-city";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import HeroLinesDark from "~/assets/svg/heroLinesDark/heroLinesDark";
 import HeroLinesLight from "~/assets/svg/heroLinesLight/heroLinesLight";
@@ -20,39 +19,14 @@ import { findCompletedChapters } from "~/utils/findCompletedChapters";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 import { ChapterThumbnail } from "~/components/UI/chapterThumbnail/chapterThumbnail";
 import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesScrollWrapper";
-import { getSupabaseClient } from "~/utils/supabaseClient";
-
-export const useSession = routeLoader$(async () => {
-  const supabaseClient = await getSupabaseClient();
-  const { data: session } = await supabaseClient.auth.getSession();
-  console.log("session", session);
-  return { isAuthenticated: !!session.session }; // Return true if session exists
-});
 
 export default component$(() => {
   const chapters = useContext(ChaptersContext);
 
   const completedChapters = findCompletedChapters(chapters.value);
 
-  const session = useSession();
-
   return (
     <main>
-      {session.value.isAuthenticated ? (
-        <Link
-          href="/auth/logout"
-          class="button_base reset_reset button_button button_large button_primary mt-8"
-        >
-          Logout
-        </Link>
-      ) : (
-        <Link
-          href="/auth/login"
-          class="button_base reset_reset button_button button_large button_primary mt-8"
-        >
-          Sign in to start learning
-        </Link>
-      )}
       <MobileMenu />
       <div class="relative flex w-full flex-col items-center overflow-hidden py-12 md:py-20">
         <div class="flex flex-col items-center px-4">
