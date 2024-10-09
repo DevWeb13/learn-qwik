@@ -54,8 +54,10 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 
   cacheControl(
     {
-      maxAge: 60 * 60 * 24 * 7,
-      staleWhileRevalidate: 5,
+      maxAge: 0,
+      staleWhileRevalidate: 0,
+      noStore: true,
+      noCache: true,
     },
     "Vercel-CDN-Cache-Control",
   );
