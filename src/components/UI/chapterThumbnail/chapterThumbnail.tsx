@@ -20,10 +20,10 @@ export const ChapterThumbnail = component$<ChapterThumbnailProps>(
     }
     return (
       <div>
-        <div class="dark:bg-vercel-100 group h-full rounded-[12px] shadow-sm transition-all hover:shadow-lg dark:hover:bg-gray-100">
+        <div class="dark:bg-vercel-100 group h-full rounded-[12px] shadow-sm transition-all duration-300 hover:shadow-lg dark:hover:bg-gray-100">
           <Link class="flex flex-col p-6" href={href}>
             <div class="mb-2 flex items-center">
-              <div class="mr-2 flex h-8 w-8 flex-none flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-bold text-blue-700 group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black">
+              <div class="mr-2 flex h-8 w-8 flex-none flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-bold text-blue-700 transition-all duration-300 group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black">
                 <div class="group-hover:hidden">
                   {numberOrIcon === "circleWithISvg" ? (
                     <CircleWithISvg />
