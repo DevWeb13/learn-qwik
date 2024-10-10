@@ -18,10 +18,10 @@ import type { RequestHandler } from "@builder.io/qwik-city";
 
 import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
-import type { CompletedChaptersType } from "~/types/completedChapters";
+import type { CompletedChaptersType } from "../types/completedChapters";
 
 import { CHAPTERS } from "~/constants/chapters";
-import type { ChapterType } from "~/types/chapterType";
+import type { ChapterType } from "../types/chapterType";
 
 import { getCookie, initCookie, setCookie } from "~/utils/cookieManagement";
 
@@ -42,49 +42,64 @@ export const CompletedChaptersContext = createContextId<
   Signal<CompletedChaptersType>
 >("docs.completed-chapters-context");
 
-export const onGet: RequestHandler = async ({ cacheControl }) => {
-  // Control caching for this request for best performance and to reduce hosting costs:
-  // https://qwik.builder.io/docs/caching/
-  cacheControl({
-    // Always serve a cached response by default, up to a week stale
-    staleWhileRevalidate: 60 * 60 * 24 * 7,
-    // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
-    maxAge: 5,
+export const onRequest: RequestHandler = async (request) => {
+  request.cacheControl({
+    public: false,
+    maxAge: 0,
+    sMaxAge: 0,
+    staleWhileRevalidate: 0,
   });
 
-  cacheControl(
+  request.cacheControl(
     {
+      public: false,
       maxAge: 0,
+      sMaxAge: 0,
       staleWhileRevalidate: 0,
-      noStore: true,
-      noCache: true,
     },
     "Vercel-CDN-Cache-Control",
   );
-};
-
-export const onRequest: RequestHandler = async (request) => {
-  request.cacheControl({
-    maxAge: 0,
-    staleWhileRevalidate: 0,
-    noStore: true,
-    noCache: true,
-  });
   await updateSession(request);
 };
 
 export const useUser = routeLoader$<User | null>(async (request) => {
+  request.cacheControl({
+    public: false,
+    maxAge: 0,
+    sMaxAge: 0,
+    staleWhileRevalidate: 0,
+  });
+
+  request.cacheControl(
+    {
+      public: false,
+      maxAge: 0,
+      sMaxAge: 0,
+      staleWhileRevalidate: 0,
+    },
+    "Vercel-CDN-Cache-Control",
+  );
   const user = request.sharedMap.get("user");
   return user;
 });
 
 export const useGetTotalShare = routeLoader$(async (request) => {
   request.cacheControl({
-    // Always serve a cached response by default, up to a week stale
-    staleWhileRevalidate: 60 * 60 * 24 * 7,
-    // Max once every 5 seconds, revalidate on the server to get a fresh version of this page
+    public: true,
     maxAge: 5,
+    sMaxAge: 10,
+    staleWhileRevalidate: 60 * 60 * 24 * 365,
   });
+
+  request.cacheControl(
+    {
+      public: true,
+      maxAge: 5,
+      sMaxAge: 10,
+      staleWhileRevalidate: 60 * 60 * 24 * 365,
+    },
+    "Vercel-CDN-Cache-Control",
+  );
   const supabase = createClient(request);
 
   // Query the "shares" table to get total_share

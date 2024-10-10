@@ -10,7 +10,7 @@ import {
   // useSetCompletedChaptersCookie,
 } from "~/routes/layout";
 // import type { ChapterType } from "~/types/chapterType";
-import type { CompletedChaptersType } from "~/types/completedChapters";
+import type { CompletedChaptersType } from "../../../types/completedChapters";
 
 interface BtAddChapterProps {
   goToChapter: number;

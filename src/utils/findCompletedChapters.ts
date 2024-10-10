@@ -1,5 +1,5 @@
-import type { ChapterType } from "~/types/chapterType";
-import type { CompletedChaptersType } from "~/types/completedChapters";
+import type { ChapterType } from "../types/chapterType";
+import type { CompletedChaptersType } from "../types/completedChapters";
 
 export const findCompletedChapters = (chapters: ChapterType[]) => {
   const completedChapter: CompletedChaptersType = [];
