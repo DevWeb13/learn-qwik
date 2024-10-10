@@ -150,9 +150,9 @@ export default component$(() => {
           >
             How does the course work?
           </h2>
-          <div class="mx-auto my-1 w-[70%] text-gray-900 md:mx-0 md:my-0 md:ml-4 md:w-auto md:text-xl">
+          <p class="mx-auto my-1 w-[70%] text-gray-900 md:mx-0 md:my-0 md:ml-4 md:w-auto md:text-xl">
             By building a full web application. Step by step.
-          </div>
+          </p>
         </div>
         <div class="relative mx-auto mb-4 w-full max-w-7xl">
           <div class="hidden w-full lg:block">
@@ -577,9 +577,9 @@ export default component$(() => {
           >
             What will I learn?
           </h2>
-          <div class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-xl">
+          <p class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-xl">
             Here’s everything that’s covered in the course.
-          </div>
+          </p>
         </div>
         <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           <ChapterThumbnail

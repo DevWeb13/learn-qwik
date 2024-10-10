@@ -93,6 +93,7 @@ export const useGetTotalShare = routeLoader$(async (request) => {
     .select("*")
     .limit(1)
     .single();
+  console.log("data", data);
 
   if (error || !data) {
     throw new Error(

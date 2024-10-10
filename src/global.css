@@ -22,6 +22,27 @@
   src: url("./fonts/test.woff2") format("woff2");
 } */
 
+h1,
+h2,
+h3,
+p,
+li {
+  cursor: default;
+}
+
+a h1,
+a h2,
+a h3,
+a p,
+a li,
+button h1,
+button h2,
+button h3,
+button p,
+button li {
+  cursor: pointer; /* Ou tout autre style de curseur que tu préfères pour <a> et <button> */
+}
+
 :root {
   --qwik-dark-blue: #006ce9;
   --qwik-light-blue: #18b6f6;
