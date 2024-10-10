@@ -28,6 +28,8 @@
     "@builder.io/partytown": "^0.8.1",
     "@builder.io/qwik": "^1.4.5",
     "@builder.io/qwik-city": "^1.4.5",
+    "@supabase/ssr": "^0.5.1",
+    "@supabase/supabase-js": "^2.45.4",
     "@types/compression": "^1.7.2",
     "@types/eslint": "^8.56.2",
     "@types/express": "^4.17.19",
@@ -44,14 +46,13 @@
     "prettier": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.4",
     "shiki": "^1.2.0",
+    "supabase": "^1.204.3",
     "tailwindcss": "3.3.3",
     "typescript": "5.3.3",
     "undici": "*",
     "vercel": "^29.1.1",
     "vite": "^5.0.12",
-    "vite-tsconfig-paths": "^4.2.1",
-    "@supabase/ssr": "^0.5.1",
-    "@supabase/supabase-js": "^2.45.4"
+    "vite-tsconfig-paths": "^4.2.1"
   },
   "dependencies": {
     "@qwik-ui/headless": "^0.2.2",

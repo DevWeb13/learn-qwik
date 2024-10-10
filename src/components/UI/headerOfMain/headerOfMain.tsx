@@ -6,8 +6,8 @@ import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
 import { useScrollYPosition } from "~/hooks/useScrollYPosition";
 import ProgressCircle from "./progressCircle/progressCircle";
 import { ChaptersContext } from "~/routes/layout";
-import type { CompletedChaptersType } from "~/types/completedChapters";
-import type { ChapterType } from "~/types/chapterType";
+import type { CompletedChaptersType } from "../../../types/completedChapters";
+import type { ChapterType } from "../../../types/chapterType";
 import { findCompletedChapters } from "~/utils/findCompletedChapters";
 import { useGetCurrentChapterIndexInString } from "~/routes/learn/dashboard-app/layout";
 

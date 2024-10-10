@@ -3,7 +3,7 @@
 import type { Signal } from "@builder.io/qwik";
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import type { CompletedChaptersType } from "~/types/completedChapters";
+import type { CompletedChaptersType } from "../../../types/completedChapters";
 
 interface ModalLinkProps {
   id: number;

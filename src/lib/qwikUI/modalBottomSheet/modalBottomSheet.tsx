@@ -15,8 +15,8 @@ import {
 } from "@qwik-ui/headless";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import ModalLink from "~/components/UI/modalLink/modalLink";
-import { ChapterType } from "~/types/chapterType";
-import { CompletedChaptersType } from "~/types/completedChapters";
+import { ChapterType } from "../../../types/chapterType";
+import { CompletedChaptersType } from "../../../types/completedChapters";
 import { findCompletedChapters } from "~/utils/findCompletedChapters";
 
 interface ModalBottomSheetProps {
