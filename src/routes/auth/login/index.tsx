@@ -15,10 +15,12 @@ export const useSignUpOrLoginWithMagicLinkAction = routeAction$(
 
     const supabase = createClient(requestEvent);
 
+    console.log(requestEvent.url.origin);
+
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${requestEvent.url.origin}/auth/confirm`,
+        emailRedirectTo: requestEvent.url.origin,
       },
     });
 

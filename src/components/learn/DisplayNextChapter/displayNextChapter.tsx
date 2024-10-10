@@ -46,7 +46,7 @@ export default component$<DisplayNextChapterProps>(({ completed = [] }) => {
       <p
         class="text_wrapper flex"
         data-version="v1"
-        style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400; height: 20px;"
+        style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
       >
         {store.nextChapterDescription}
       </p>

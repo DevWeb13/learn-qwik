@@ -1,12 +1,12 @@
 import { component$ } from "@builder.io/qwik";
 
 import Feedback from "~/components/UI/feedback/feedback";
-import Popover from "~/lib/qwikUI/popover/popover";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.png?jsx";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (
@@ -50,17 +50,16 @@ export default component$(() => {
           <li>Dashboard pages that are protected by authentication.</li>
           <li>The ability for users to add, edit, and delete invoices.</li>
         </ul>
-        <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/22">
-          <p>
-            The dashboard will also have an accompanying database, which you'll
-            set up in{" "}
-            <span class="text-cyan-500">
-              {/* <Link href="/learn/dashboard-app/setting-up-your-database"> */}
-              a later chapter
-            </span>
-            {/* </Link> */}.
-          </p>
-        </Popover>
+
+        <p>
+          The dashboard will also have an accompanying database, which you'll
+          set up in{" "}
+          <Link href="/learn/dashboard-app/setting-up-your-database">
+            a later chapter
+          </Link>
+          .
+        </p>
+
         <p>
           By the end of the course, you'll have the essential skills needed to
           start building full-stack Qwik applications.
