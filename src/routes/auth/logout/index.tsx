@@ -6,9 +6,9 @@ import { routeAction$ } from "@builder.io/qwik-city";
 import { createClient } from "~/lib/supabase/server";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 import { ModalLogout } from "~/lib/qwikUI/modalLogout/modalLogout";
+import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 
 export const useSignoutAction = routeAction$(async (data, requestEvent) => {
-  console.log("requestEvent", requestEvent.url);
   const supabase = createClient(requestEvent);
 
   await supabase.auth.signOut();
@@ -18,7 +18,15 @@ export const useSignoutAction = routeAction$(async (data, requestEvent) => {
 
 export default component$(() => {
   return (
-    <div class="align-center flex flex-grow flex-col py-12 sm:px-6 lg:px-8">
+    <main class="relative flex w-full flex-grow flex-col items-center overflow-hidden py-12">
+      <div class="absolute bottom-[100px] left-1/2 z-[-1] -translate-x-1/2 md:bottom-0">
+        <div class="block dark:hidden">
+          <HomeBackground />
+        </div>
+        <div class="hidden dark:block">
+          <HomeBackground />
+        </div>
+      </div>
       <h1 class="mb-4  text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">
         Logout to <span class="text-blue-500">Learn Qwik</span>
       </h1>
@@ -35,7 +43,7 @@ export default component$(() => {
           <ModalLogout />
         </div>
       </div>
-    </div>
+    </main>
   );
 });
 
