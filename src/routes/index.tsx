@@ -13,7 +13,6 @@ import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
 import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground from "~/assets/img/ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground.png?jsx";
 
-import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import { ChaptersContext } from "./layout";
 import { findCompletedChapters } from "~/utils/findCompletedChapters";
 import { createDocumentHead } from "~/utils/createDocumentHead";
@@ -27,7 +26,6 @@ export default component$(() => {
 
   return (
     <main>
-      <MobileMenu />
       <div class="relative flex w-full flex-col items-center overflow-hidden py-12 md:py-20">
         <div class="flex flex-col items-center px-4">
           <h1 class="mb-4 max-w-[80%] text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">

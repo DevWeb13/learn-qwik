@@ -29,6 +29,7 @@ import PreFooter from "~/components/UI/PreFooter/PreFooter";
 import { updateSession } from "~/lib/supabase/middleware";
 import { type User } from "@supabase/supabase-js";
 import { createClient } from "~/lib/supabase/server";
+import MobileMenu from "~/components/mobile-menu/mobile-menu";
 
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
@@ -108,11 +109,11 @@ export const useGetTotalShare = routeLoader$(async (request) => {
     .select("*")
     .limit(1)
     .single();
-  console.log("data", data);
+  // console.log("data", data);
 
-  if (error || !data) {
+  if (error) {
     throw new Error(
-      "Failed to fetch total share: " + (error?.message || "No data returned"),
+      "Failed to fetch total share: " + (error.message || "No data returned"),
     );
   }
 
@@ -205,7 +206,7 @@ export default component$(() => {
       if (!firstScroll.value) {
         return;
       }
-      console.log("scroll");
+
       // Add Adsense script
       const script = document.createElement("script");
       script.src =
@@ -272,15 +273,18 @@ export default component$(() => {
         ref={container}
       >
         <Header />
+        <MobileMenu />
         <Slot />
 
-        <PreFooter />
-        {location.isNavigating || location.url.pathname.startsWith("/auth") ? (
+        {location.isNavigating ||
+        location.url.pathname.startsWith("/auth") ||
+        location.url.pathname.startsWith("/account") ? (
           <div class="flex w-full items-center justify-center">
             <Footer />
           </div>
         ) : (
           <>
+            <PreFooter />
             <div class="px-4 pb-8 md:px-8 md:pb-20">
               <ins
                 class="adsbygoogle"

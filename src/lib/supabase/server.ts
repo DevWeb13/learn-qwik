@@ -2,9 +2,10 @@
 
 import type { RequestEvent, RequestEventAction } from "@builder.io/qwik-city";
 import { createServerClient } from "@supabase/ssr";
+import { Database } from "~/types/database.types";
 
 export function createClient(requestEvent: RequestEventAction | RequestEvent) {
-  return createServerClient(
+  return createServerClient<Database>(
     requestEvent.env.get("PUBLIC_SUPABASE_URL")!,
     requestEvent.env.get("PUBLIC_SUPABASE_ANON_KEY")!,
     {
@@ -12,13 +13,14 @@ export function createClient(requestEvent: RequestEventAction | RequestEvent) {
         // Adapter `getAll` to return an array of cookies in the expected format
         getAll() {
           const allCookies = requestEvent.cookie.getAll();
-          // console.log('Cookies récupérés dans getAll:', allCookies);
-          // Transform the object Record<string, CookieValue> into an array [{ name, value }]
-          return Object.entries(allCookies).map(([name, cookieObject]) => ({
-            name,
-            value: String(cookieObject.value), // Ensure `value` is a string
-          }));
+          return Object.entries(allCookies)
+            .filter(([name, cookieObject]) => cookieObject && cookieObject.value != null)
+            .map(([name, cookieObject]) => ({
+              name,
+              value: String(cookieObject.value),
+            }));
         },
+
         setAll(cookiesToSet) {
           try {
             cookiesToSet.forEach(({ name, value, options }) => {

@@ -43,6 +43,13 @@ button li {
   cursor: pointer; /* Ou tout autre style de curseur que tu préfères pour <a> et <button> */
 }
 
+iframe[name="googlefcPresent"] {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  border: none !important;
+}
+
 :root {
   --qwik-dark-blue: #006ce9;
   --qwik-light-blue: #18b6f6;

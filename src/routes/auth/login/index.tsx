@@ -7,6 +7,7 @@ import { Message } from "~/components/UI/message/message";
 import { createClient } from "~/lib/supabase/server";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
+import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 
 export const useSignUpOrLoginWithMagicLinkAction = routeAction$(
   async (dataform, requestEvent) => {
@@ -14,8 +15,6 @@ export const useSignUpOrLoginWithMagicLinkAction = routeAction$(
     const email = dataform.emailMagicLink;
 
     const supabase = createClient(requestEvent);
-
-    console.log(requestEvent.url.origin);
 
     const { error } = await supabase.auth.signInWithOtp({
       email,
@@ -50,7 +49,15 @@ export default component$(() => {
     useSignUpOrLoginWithMagicLinkAction();
 
   return (
-    <div class="align-center flex flex-grow flex-col py-12 sm:px-6 lg:px-8">
+    <main class="relative flex w-full flex-grow flex-col items-center overflow-hidden py-12">
+      <div class="absolute bottom-[100px] left-1/2 z-[-1] -translate-x-1/2 md:bottom-0">
+        <div class="block dark:hidden">
+          <HomeBackground />
+        </div>
+        <div class="hidden dark:block">
+          <HomeBackground />
+        </div>
+      </div>
       <h1 class="mb-4  text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">
         Login to <span class="text-blue-500">Learn Qwik</span>
       </h1>
@@ -124,7 +131,7 @@ export default component$(() => {
           </Form>
         </div>
       </div>
-    </div>
+    </main>
   );
 });
 
