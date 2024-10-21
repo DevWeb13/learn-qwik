@@ -140,6 +140,7 @@ export default component$(() => {
             data-suffix="false"
             data-version="v1"
             style="--geist-icon-size: 16px;"
+            onClick$={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             <span class="button_content button_flex">
               <svg
