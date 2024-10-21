@@ -173,7 +173,7 @@ export const BlogContent = component$(() => {
   useVisibleTask$(({ track }) => {
     track(() => releasesResource.loading === false);
     // reinit adsense for spa navigation
-    console.log("reinit adsense");
+    // console.log("reinit adsense");
     const adsbygoogles = container.value?.querySelectorAll(".adsbygoogle");
     adsbygoogles?.forEach((adsbygoogle) => {
       adsbygoogle.setAttribute("data-adsbygoogle-status", ""); // Réinitialiser l'attribut de statut
