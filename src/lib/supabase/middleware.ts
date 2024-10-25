@@ -6,6 +6,17 @@ import { createClient } from "~/lib/supabase/server";
 export async function updateSession(requestEvent: RequestEvent) {
   const supabase = createClient(requestEvent);
 
+  // Détection des bots via le User-Agent
+  const userAgent = requestEvent.request.headers.get("user-agent") || "";
+  const isBot = /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|ia_archiver/.test(userAgent);
+
+  if (isBot) {
+    // Si c'est un bot, autoriser l'accès sans redirection
+    console.log("Bot detected, allowing access without redirection");
+    return;
+  }
+
+  // Authentification utilisateur
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -22,8 +33,9 @@ export async function updateSession(requestEvent: RequestEvent) {
       requestEvent.url.pathname.startsWith("/auth/logout") ||
       requestEvent.url.pathname.startsWith("/account"))
   ) {
-    // no user, potentially respond by redirecting the user to the login page
+    // Pas d'utilisateur authentifié, redirection vers la page de connexion
     console.log("redirecting to /auth/login");
     throw requestEvent.redirect(302, "/auth/login");
   }
 }
+
