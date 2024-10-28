@@ -7,15 +7,34 @@
  * Qwik uses a service worker to speed up your site and reduce latency, ie, not used in the traditional way of offline.
  * You can also use this file to add more functionality that runs in the service worker.
  */
+
 import { setupServiceWorker } from "@builder.io/qwik-city/service-worker";
 
-setupServiceWorker();
+// Détecte les bots via le User-Agent
+const isBot = /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|ia_archiver/i.test(navigator.userAgent);
 
-addEventListener("install", () => self.skipWaiting());
+// Si ce n'est pas un bot, configure le Service Worker
+if (!isBot) {
+    setupServiceWorker();
 
-addEventListener("activate", () => self.clients.claim());
+    addEventListener("install", () => self.skipWaiting());
+    addEventListener("activate", () => self.clients.claim());
+}
 
 declare const self: ServiceWorkerGlobalScope;
+
+// import { setupServiceWorker } from "@builder.io/qwik-city/service-worker";
+
+// setupServiceWorker();
+
+// addEventListener("install", () => self.skipWaiting());
+
+// addEventListener("activate", () => self.clients.claim());
+
+// declare const self: ServiceWorkerGlobalScope;
+
+
+// ------------------------------------------------------------
 
 // import { setupServiceWorker } from "@builder.io/qwik-city/service-worker";
 
