@@ -549,6 +549,18 @@ export default component$(() => {
           ></ins>
         </div>
 
+        <div class="prose prose-vercel flex max-w-none items-center justify-center">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/BzpWsu_uxRU?si=xvub8XcNA4aOXvuC"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullscreen
+          ></iframe>
+        </div>
+
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
         <p>
@@ -574,7 +586,6 @@ export default component$(() => {
         />
       </div>
       <Feedback />
-      <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );
 });

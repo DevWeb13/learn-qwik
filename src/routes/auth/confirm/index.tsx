@@ -1,3 +1,5 @@
+// src/routes/auth/confirm/index.tsx
+
 import type { RequestHandler } from "@builder.io/qwik-city";
 import { type EmailOtpType } from "@supabase/supabase-js";
 import { createClient } from "~/lib/supabase/server";
