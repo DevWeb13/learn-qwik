@@ -1,6 +1,30 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStore, $ } from "@builder.io/qwik";
 
 export default component$(() => {
+  const store = useStore({ loading: false });
+
+  const handlePayment = $(async (priceId: string) => {
+    store.loading = true;
+    const res = await fetch("/api/checkout/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ priceId }),
+    });
+
+    const data = await res.json();
+    store.loading = false;
+    if (data.url) window.location.href = data.url;
+  });
+
+  const isTestMode = import.meta.env.PUBLIC_STRIPE_TEST_MODE === "true";
+
+  const monthlyPriceId = isTestMode
+    ? import.meta.env.PUBLIC_STRIPE_PRICE_MONTHLY_TEST
+    : import.meta.env.PUBLIC_STRIPE_PRICE_MONTHLY;
+
+  const yearlyPriceId = isTestMode
+    ? import.meta.env.PUBLIC_STRIPE_PRICE_YEARLY_TEST
+    : import.meta.env.PUBLIC_STRIPE_PRICE_YEARLY;
   return (
     <div class="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-6">
       <h1 class="mb-4 text-3xl font-bold text-gray-900">
@@ -17,9 +41,13 @@ export default component$(() => {
             Abonnement Mensuel
           </h2>
           <p class="text-gray-600">Accès complet à tout le contenu</p>
-          <p class="my-4 text-3xl font-bold text-gray-900">9,99€ / mois</p>
-          <button class="rounded-xl bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition hover:bg-blue-700">
-            Choisir
+          <p class="my-4 text-3xl font-bold text-gray-900">1,99€ / mois</p>
+          <button
+            onClick$={() => handlePayment(monthlyPriceId)}
+            disabled={store.loading}
+            class="rounded-xl bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition hover:bg-blue-700"
+          >
+            {store.loading ? "Chargement..." : "Choisir"}
           </button>
         </div>
 
@@ -28,9 +56,13 @@ export default component$(() => {
             Abonnement Annuel
           </h2>
           <p class="text-gray-600">Économisez 2 mois !</p>
-          <p class="my-4 text-3xl font-bold text-blue-900">99€ / an</p>
-          <button class="rounded-xl bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition hover:bg-blue-700">
-            Choisir
+          <p class="my-4 text-3xl font-bold text-blue-900">19,99€ / an</p>
+          <button
+            onClick$={() => handlePayment(yearlyPriceId)}
+            disabled={store.loading}
+            class="rounded-xl bg-blue-600 px-6 py-3 text-lg font-semibold text-white transition hover:bg-blue-700"
+          >
+            {store.loading ? "Chargement..." : "Choisir"}
           </button>
         </div>
       </div>

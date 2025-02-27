@@ -34,7 +34,7 @@ export default component$<BtAddChapterProps>(
 
     // Go to the next chapter into landing page and there are completed chapters
     if (title === "" && completedChapters.length > 0) {
-      nextUri = chapters.value[Math.max(...completedChapters)].uri;
+      nextUri = chapters.value[Math.max(...completedChapters)].uri || "";
     }
 
     function generateText(
@@ -44,8 +44,6 @@ export default component$<BtAddChapterProps>(
     ) {
       return `${completedChapters.length > 0 ? "Resume Learning" : text} ${goToChapter ? goToChapter : ""}`;
     }
-
-    // console.log("completedChaptersTest", completedChapters.value);
 
     return (
       <div class={`w-full ${goToChapter && "md:w-fit"}`}>
