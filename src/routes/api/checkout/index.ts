@@ -1,13 +1,25 @@
 import { type RequestHandler } from '@builder.io/qwik-city';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2025-02-24.acacia'
-});
 
-console.log("STRIPE_SECRET_KEY", process.env.STRIPE_SECRET_KEY!);
 
-export const onPost: RequestHandler = async ({ request, json, sharedMap, }) => {
+
+
+export const onPost: RequestHandler = async ({ request, json, sharedMap, env }) => {
+
+  console.log("STRIPE_SECRET_KEY", env.get("STRIPE_SECRET_KEY"));
+
+  const STRIPE_SECRET_KEY = env.get("STRIPE_SECRET_KEY");
+  if (!STRIPE_SECRET_KEY) {
+    console.error("❌ Erreur : Clé secrète Stripe manquante !");
+     json(500, { error: "Clé secrète stripe manquante" });
+  }
+
+  const stripe = new Stripe(STRIPE_SECRET_KEY!, {
+    apiVersion: '2025-02-24.acacia'
+  });
+ 
+
   console.log("📢 Requête reçue sur /api/checkout");
 
   const { priceId } = await request.json();
