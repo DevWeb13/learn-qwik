@@ -60,7 +60,7 @@ export async function updateSession(requestEvent: RequestEvent) {
             
             console.log("Checking chapter access");
             console.log("User subscription status:", isSubscribed ? "Premium" : "Free");
-            console.log("chapterUri:", chapter?.uri);
+            console.log("chapterInMiddleware:", chapter);
             
             if (chapter && chapter.id > CHAPTERS_FREE_LIMIT) {
                 console.log(`Chapitre ${chapter.id} restreint. Redirection vers /subscribe`);
