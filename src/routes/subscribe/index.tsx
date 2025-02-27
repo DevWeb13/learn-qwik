@@ -18,13 +18,19 @@ export default component$(() => {
 
   const isTestMode = import.meta.env.PUBLIC_STRIPE_TEST_MODE === "true";
 
+  console.log("isTestMode", isTestMode);
+
   const monthlyPriceId = isTestMode
     ? import.meta.env.PUBLIC_STRIPE_PRICE_MONTHLY_TEST
     : import.meta.env.PUBLIC_STRIPE_PRICE_MONTHLY;
 
+  console.log("monthlyPriceId", monthlyPriceId);
+
   const yearlyPriceId = isTestMode
     ? import.meta.env.PUBLIC_STRIPE_PRICE_YEARLY_TEST
     : import.meta.env.PUBLIC_STRIPE_PRICE_YEARLY;
+
+  console.log("yearlyPriceId", yearlyPriceId);
   return (
     <div class="flex min-h-screen flex-col items-center justify-center bg-gray-100 p-6">
       <h1 class="mb-4 text-3xl font-bold text-gray-900">

@@ -5,6 +5,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-02-24.acacia'
 });
 
+console.log("STRIPE_SECRET_KEY", process.env.STRIPE_SECRET_KEY!);
+
 export const onPost: RequestHandler = async ({ request, json, sharedMap, }) => {
   console.log("📢 Requête reçue sur /api/checkout");
 
