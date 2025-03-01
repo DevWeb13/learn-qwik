@@ -20,6 +20,7 @@ export type Database = {
           grace_period_end: string | null
           id: string
           phone: string | null
+          stripe_customer_id: string | null
           updated_at: string | null
           username: string | null
           website: string | null
@@ -34,6 +35,7 @@ export type Database = {
           grace_period_end?: string | null
           id: string
           phone?: string | null
+          stripe_customer_id?: string | null
           updated_at?: string | null
           username?: string | null
           website?: string | null
@@ -48,6 +50,7 @@ export type Database = {
           grace_period_end?: string | null
           id?: string
           phone?: string | null
+          stripe_customer_id?: string | null
           updated_at?: string | null
           username?: string | null
           website?: string | null

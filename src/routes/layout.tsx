@@ -30,6 +30,9 @@ import { updateSession } from "~/lib/supabase/middleware";
 import { type User } from "@supabase/supabase-js";
 import { createClient } from "~/lib/supabase/server";
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
+import type { Database } from "~/types/database.types"; // Import des types générés Supabase
+
+type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 
 export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
   "docs.mobile-menu-visible-context",
@@ -82,6 +85,27 @@ export const useUser = routeLoader$<User | null>(async (request) => {
   );
   const user = request.sharedMap.get("user");
   return user;
+});
+
+export const useProfile = routeLoader$<Profile | null>(async (request) => {
+  request.cacheControl({
+    public: false,
+    maxAge: 0,
+    sMaxAge: 0,
+    staleWhileRevalidate: 0,
+  });
+
+  request.cacheControl(
+    {
+      public: false,
+      maxAge: 0,
+      sMaxAge: 0,
+      staleWhileRevalidate: 0,
+    },
+    "Vercel-CDN-Cache-Control",
+  );
+  const profile = request.sharedMap.get("profile") as Profile | null; // 💡 Correction du typage ici
+  return profile;
 });
 
 export const useGetTotalShare = routeLoader$(async (request) => {

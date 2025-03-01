@@ -3,16 +3,17 @@ import styles from "./mobile-menu.module.css";
 import { NavLink } from "../navLink/navLink";
 import Popover from "../../lib/qwikUI/popover/popover";
 
-import { MobileMenuVisibleContext, useUser } from "~/routes/layout";
-import { Link, useLocation } from "@builder.io/qwik-city";
+import { MobileMenuVisibleContext, useProfile } from "~/routes/layout";
+import { Link } from "@builder.io/qwik-city";
 import { HiUserCircleOutline } from "@qwikest/icons/heroicons";
 import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
 
 export default component$(() => {
-  const user = useUser();
+  const profile = useProfile();
+
+  console.log("profile", profile.value);
 
   const mobileMenuVisible = useContext(MobileMenuVisibleContext);
-  const loc = useLocation();
   return (
     <div
       class={
@@ -23,38 +24,39 @@ export default component$(() => {
     >
       <div class={styles.jsx4194965384}>
         <ul>
-          {!user.value && (
-            <li class="mt-2">
-              <Link
-                tabIndex={0}
-                href="/auth/login/"
-                class="flex w-full items-center justify-center gap-1 rounded-sm border border-transparent bg-sky-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
-                data-geist-button=""
-                data-prefix="false"
-                data-suffix="false"
-                data-version="v1"
-                style="--geist-icon-size:16px"
-              >
-                Connect <ArrowRightEndOnRectangle />
-              </Link>
-            </li>
-          )}
-          {user.value && !loc.url.pathname.startsWith("/account") && (
-            <li class="mt-2">
-              <Link
-                tabIndex={0}
-                href={`/account/${user.value.id}/`}
-                class="flex w-full items-center justify-center gap-1 rounded-sm border border-transparent bg-sky-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
-                data-geist-button=""
-                data-prefix="false"
-                data-suffix="false"
-                data-version="v1"
-                style="--geist-icon-size:16px"
-              >
-                Account <HiUserCircleOutline class="h-6 w-6" />
-              </Link>
-            </li>
-          )}
+          <li class="mt-2">
+            <Link
+              onClick$={() => (mobileMenuVisible.value = false)}
+              tabIndex={0}
+              href={
+                profile.value ? `/account/${profile.value.id}/` : "/auth/login/"
+              }
+              class={`flex items-center justify-center gap-1 rounded-md border border-transparent 
+    px-4 py-1 text-sm font-medium shadow-sm transition-all duration-300 
+    focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500
+    ${
+      !profile.value
+        ? "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500" // 🏴 Gris pour non connectés
+        : profile.value.access_status === "subscribed" ||
+            (profile.value.access_status === "canceled" &&
+              profile.value.grace_period_end &&
+              new Date(profile.value.grace_period_end) > new Date())
+          ? "bg-yellow-500 text-black hover:bg-yellow-600 focus:ring-yellow-500" // 🟡 OR pour abonnés actifs / période de grâce
+          : "bg-sky-500 text-white hover:bg-sky-600 focus:ring-sky-500" // 🔵 Bleu normal pour non abonnés
+    }`}
+            >
+              {profile.value ? (
+                <>
+                  Account <HiUserCircleOutline class="h-6 w-6" />
+                </>
+              ) : (
+                <>
+                  Connect <ArrowRightEndOnRectangle />
+                </>
+              )}
+            </Link>
+          </li>
+
           <li>
             <NavLink
               class={styles.mute}

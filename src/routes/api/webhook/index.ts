@@ -1,41 +1,35 @@
 import { type RequestHandler } from '@builder.io/qwik-city';
-import { createClient } from "~/lib/supabase/server";
+import { createAdminClient } from "~/lib/supabase/server";
+import { handleInvoicePaymentSucceeded, handleSubscriptionUpdated } from "~/lib/stripe/stripeHandlers";
 
 export const onPost: RequestHandler = async (requestEvent) => {
-    const supabase = createClient(requestEvent);
+    const supabase = createAdminClient(requestEvent);
 
     try {
         const event = await requestEvent.request.json();
         console.log("📢 Webhook Stripe reçu :", event.type);
-        console.log("🔍 Données complètes de l'événement :", JSON.stringify(event, null, 2));
 
-        if (event.type === "checkout.session.completed") {
-            const session = event.data.object;
-            const email = session.customer_email;
+        let response;
 
-            console.log("✅ Paiement validé pour :", email);
+        switch (event.type) {
+            case "invoice.payment_succeeded":
+                response = await handleInvoicePaymentSucceeded(supabase, event.data.object);
+                break;
 
-            // Vérifier si on récupère bien l'email
-            if (!email) {
-                console.error("❌ Erreur : Email non trouvé dans l'événement !");
-                 requestEvent.json(400, { error: "Email non trouvé" });
-            }
+            case "customer.subscription.updated":  // 🔥 NOUVEAU
+                response = await handleSubscriptionUpdated(supabase, event.data.object);
+                break;
 
-            // Mettre à jour l'utilisateur dans Supabase
-            const { error } = await supabase
-                .from("profiles")
-                .update({ access_status: "subscribed" })
-                .eq("email", email);
-
-            if (error) {
-                console.error("❌ Erreur Supabase :", error);
-                 requestEvent.json(500, { error: error.message });
-            }
-
-            console.log("✅ Utilisateur mis à jour dans Supabase !");
+            default:
+                console.log("⚠️ Événement Stripe non géré :", event.type);
+                response = { success: true }; // On ignore les autres événements
         }
 
-        requestEvent.json(200, { received: true });
+        if (response.error) {
+            requestEvent.json(400, { error: response.error });
+        } else {
+            requestEvent.json(200, { received: true });
+        }
     } catch (error) {
         console.error("❌ Erreur Webhook Stripe:", error);
         requestEvent.json(400, { error: "Webhook handling error" });

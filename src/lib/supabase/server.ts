@@ -35,3 +35,22 @@ export function createClient(requestEvent: RequestEventAction | RequestEvent) {
     },
   );
 }
+
+// ✅ Client administrateur avec SUPABASE_SERVICE_ROLE_KEY
+export function createAdminClient(requestEvent: RequestEvent) {
+  return createServerClient<Database>(
+    requestEvent.env.get("PUBLIC_SUPABASE_URL")!,
+    requestEvent.env.get("SUPABASE_SERVICE_ROLE_KEY")!, // 🔥 Clé admin pour bypass RLS
+    {
+      cookies: {
+        getAll() {
+          return [];
+        },
+        setAll() {
+          return;
+        },
+      },
+    }
+  );
+}
+

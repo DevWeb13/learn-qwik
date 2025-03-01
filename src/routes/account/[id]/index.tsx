@@ -26,7 +26,9 @@ export const useGetProfile = routeLoader$(async (requestEvent) => {
   // Récupérer le profil de l'utilisateur avec l'ID spécifié
   const { data: profiles, error } = await supabase
     .from("profiles")
-    .select("email, username,  avatar_url, website, phone, completedChapters")
+    .select(
+      "email, username,  avatar_url, website, phone, completedChapters, access_status, grace_period_end",
+    )
     .eq("id", id); // Filtrer par l'ID de l'utilisateur
 
   if (error) {
