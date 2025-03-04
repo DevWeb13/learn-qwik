@@ -78,16 +78,16 @@ export async function updateSession(requestEvent: RequestEvent) {
         if (isStillPremium) return; // ✅ Accès autorisé
 
         // ❌ Sinon, rediriger si l'utilisateur essaie d'accéder à un chapitre premium
-        if (requestEvent.url.pathname.startsWith("/learn/dashboard-app/")) {
-            const chapter = getChapterIdFromUrl(requestEvent.url.pathname);
+        // if (requestEvent.url.pathname.startsWith("/learn/dashboard-app/")) {
+        //     const chapter = getChapterIdFromUrl(requestEvent.url.pathname);
             
-            console.log("Checking chapter access");
-            console.log("User subscription status:", access_status);
+        //     console.log("Checking chapter access");
+        //     console.log("User subscription status:", access_status);
             
-            if (chapter && chapter.id > CHAPTERS_FREE_LIMIT) {
-                console.log(`Chapitre ${chapter.id} restreint. Redirection vers /subscribe`);
-                throw requestEvent.redirect(302, "/subscribe");
-            }
-        }
+        //     if (chapter && chapter.id > CHAPTERS_FREE_LIMIT) {
+        //         console.log(`Chapitre ${chapter.id} restreint. Redirection vers /subscribe`);
+        //         throw requestEvent.redirect(302, "/subscribe");
+        //     }
+        // }
     }
 }

@@ -1,5 +1,5 @@
 import { component$, useStore, $ } from "@builder.io/qwik";
-import { useGetProfile, useUpdateProfile } from "~/routes/account/[id]";
+import { useGetProfile, useUpdateProfile } from "~/routes/account";
 
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 import { Form, Link } from "@builder.io/qwik-city";
@@ -78,15 +78,34 @@ export const AccountContent = component$(() => {
       ) : (
         <>
           <div class="flex flex-col items-center">
-            <h1 class="mb-4  text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">
-              Welcome{" "}
-              <span class="mt-1 block text-2xl text-blue-500 md:hidden md:text-4xl">
-                {profile.username || emailPrefix} !
-              </span>
-              <span class="mt-2 hidden text-2xl text-blue-500 md:block md:text-4xl">
-                {profile.username || profile.email} !
-              </span>
+            <h1 class="text-center text-2xl font-semibold md:max-w-[100%] md:text-4xl">
+              <span>Welcome</span>{" "}
+              {profile.username ? (
+                <>
+                  <span class="block text-[#18b6f6] md:hidden">
+                    {profile.username} !
+                  </span>
+                  <span class="hidden text-[#18b6f6] md:block">
+                    {profile.username} !
+                  </span>
+                </>
+              ) : (
+                <>
+                  <span class="mt-1 block text-[#18b6f6] md:hidden">
+                    {emailPrefix} !
+                  </span>
+                  <span class="mt-2 hidden text-[#18b6f6] md:block">
+                    {profile.email} !
+                  </span>
+                </>
+              )}
             </h1>
+
+            {profile.username && (
+              <h2 class="text-l mb-2 text-center font-semibold md:mb-4 md:max-w-[100%] md:text-xl">
+                <span class="text-[#ac7ff4]">{profile.email}</span>
+              </h2>
+            )}
 
             {
               // Si l'user a un avatar, l'afficher
@@ -104,7 +123,27 @@ export const AccountContent = component$(() => {
             }
           </div>
 
-          <Form class="w-[220px] space-y-6 md:w-[400px]" action={updateProfile}>
+          <Form
+            class="w-[220px] space-y-6 md:w-[400px]"
+            action={updateProfile}
+            onSubmitCompleted$={() => {
+              // Réinitialiser chaque champ à sa valeur d'origine
+              formState.originalUsername = formState.username;
+              formState.originalAvatarUrl = formState.avatar_url;
+              formState.originalWebsite = formState.website;
+              formState.originalPhone = formState.phone;
+
+              // Marquer le formulaire comme non modifié
+              formState.isModified = false;
+
+              // Supprimer le message d'information au bout de 5 secondes
+              setTimeout(() => {
+                if (updateProfile.value) {
+                  updateProfile.value.message = "";
+                }
+              }, 5000);
+            }}
+          >
             <div>
               <label
                 class="block text-sm font-medium text-gray-700"

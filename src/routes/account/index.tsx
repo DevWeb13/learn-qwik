@@ -1,4 +1,4 @@
-// src/routes/blog/index.tsx
+// src/routes/account/index.tsx
 
 import { component$ } from "@builder.io/qwik";
 import {
@@ -12,50 +12,24 @@ import { AccountContent } from "~/components/account/accountContent";
 import { createClient } from "~/lib/supabase/server";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 
+// 🔄 Utiliser directement useProfile() pour récupérer les données de l'utilisateur connecté
 export const useGetProfile = routeLoader$(async (requestEvent) => {
-  const id = requestEvent.params.id;
+  const profile = requestEvent.sharedMap.get("profile");
 
-  if (!id) {
-    return requestEvent.fail(404, {
-      error: "No user ID provided.",
-    });
+  if (!profile) {
+    return requestEvent.fail(404, { error: "User not found." });
   }
 
-  const supabase = createClient(requestEvent);
-
-  // Récupérer le profil de l'utilisateur avec l'ID spécifié
-  const { data: profiles, error } = await supabase
-    .from("profiles")
-    .select(
-      "email, username,  avatar_url, website, phone, completedChapters, access_status, grace_period_end",
-    )
-    .eq("id", id); // Filtrer par l'ID de l'utilisateur
-
-  if (error) {
-    return requestEvent.fail(500, {
-      error: "Error fetching user profile.",
-    });
-  }
-
-  if (profiles.length === 0) {
-    return requestEvent.fail(404, {
-      error: "User not found.",
-    });
-  }
-
-  return profiles[0];
+  return profile;
 });
 
+// 🔄 Mettre à jour les infos du profil avec l'ID de useProfile()
 export const useUpdateProfile = routeAction$(
   async (data, requestEvent) => {
-    const id = requestEvent.params.id;
+    const profile = requestEvent.sharedMap.get("profile"); // ✅ Utilisation directe de profile
 
-    const { username, avatar_url, website, phone } = data;
-
-    if (!id) {
-      return requestEvent.fail(404, {
-        error: "No user ID provided.",
-      });
+    if (!profile) {
+      return requestEvent.fail(404, { error: "User not found." });
     }
 
     const supabase = createClient(requestEvent);
@@ -63,15 +37,15 @@ export const useUpdateProfile = routeAction$(
     const { error } = await supabase
       .from("profiles")
       .update({
-        username: username || null,
-        avatar_url: avatar_url || null,
-        website: website || null,
-        phone: phone || null,
+        username: data.username || null,
+        avatar_url: data.avatar_url || null,
+        website: data.website || null,
+        phone: data.phone || null,
       })
-      .eq("id", id);
+      .eq("id", profile.id); // ✅ Utilisation de l'ID du profil connecté
 
     if (error) {
-      console.error("Erreur lors de la mise à jour du profil", error);
+      console.error("❌ Erreur mise à jour profil :", error);
       return requestEvent.fail(500, {
         success: false,
         message: "Error updating user profile.",
@@ -131,5 +105,5 @@ export const head: DocumentHead = createDocumentHead(
   "Account Page",
   "Manage your account settings.",
   "https://www.learn-qwik.com/metaAccount.png",
-  "https://www.learn-qwik.com/account/exemple-id",
+  "https://www.learn-qwik.com/account/",
 );
