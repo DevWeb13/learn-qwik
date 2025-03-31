@@ -5,14 +5,14 @@ import { Link, useLocation } from "@builder.io/qwik-city";
 import NavbarMobile from "../navbar-mobile/navbar-mobile";
 import Navbar from "../navbar/navbar";
 import Popover from "../../lib/qwikUI/popover/popover";
-import { useUser } from "~/routes/layout";
+import { useProfile } from "~/routes/layout";
 import { HiUserCircleOutline } from "@qwikest/icons/heroicons";
 import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
 
 export default component$(() => {
   const loc = useLocation();
 
-  const user = useUser();
+  const profile = useProfile();
 
   return (
     <header
@@ -133,12 +133,24 @@ export default component$(() => {
           </a>
           <Link
             tabIndex={0}
-            href={user.value ? `/account/${user.value.id}/` : "/auth/login/"}
-            class={`flex items-center justify-center gap-1 rounded-md border border-transparent bg-sky-500 px-4 py-1  text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-sky-600 hover:text-white focus:outline-none focus:ring-2  focus:ring-sky-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500`}
+            href={profile.value ? `/account/` : "/auth/login/"}
+            class={`flex items-center justify-center gap-1 rounded-md border border-transparent 
+    px-4 py-1 text-sm font-medium shadow-sm transition-all duration-300 
+    focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500
+    ${
+      !profile.value
+        ? "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500" // 🏴 Gris pour non connectés
+        : profile.value.access_status === "subscribed" ||
+            (profile.value.access_status === "canceled" &&
+              profile.value.grace_period_end &&
+              new Date(profile.value.grace_period_end) > new Date())
+          ? "bg-yellow-500 text-black hover:bg-yellow-600 focus:ring-yellow-500" // 🟡 OR pour abonnés actifs / période de grâce
+          : "bg-sky-500 text-white hover:bg-sky-600 focus:ring-sky-500" // 🔵 Bleu normal pour non abonnés
+    }`}
           >
-            {user.value ? (
+            {profile.value ? (
               <>
-                Account <HiUserCircleOutline class="h-6 w-6 " />
+                Account <HiUserCircleOutline class="h-6 w-6" />
               </>
             ) : (
               <>

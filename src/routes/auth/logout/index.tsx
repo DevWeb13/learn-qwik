@@ -8,10 +8,13 @@ import { createDocumentHead } from "~/utils/createDocumentHead";
 import { ModalLogout } from "~/lib/qwikUI/modalLogout/modalLogout";
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 
-export const useSignoutAction = routeAction$(async (data, requestEvent) => {
+export const useSignoutAction = routeAction$(async (_, requestEvent) => {
   const supabase = createClient(requestEvent);
 
-  await supabase.auth.signOut();
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    return requestEvent.fail(500, { message: "Failed to log out." });
+  }
 
   throw requestEvent.redirect(302, "/");
 });

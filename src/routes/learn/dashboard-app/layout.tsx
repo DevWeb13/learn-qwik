@@ -2,8 +2,9 @@
 
 import { component$, Slot } from "@builder.io/qwik";
 
-import { routeLoader$ } from "@builder.io/qwik-city";
+import { routeAction$, routeLoader$ } from "@builder.io/qwik-city";
 import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
+import { createClient } from "~/lib/supabase/server";
 
 export const useGetCurrentChapterIndexInString = routeLoader$(
   (requestEvent) => {
@@ -20,6 +21,52 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
     if (pathname.includes("adding-search-and-pagination")) return "9";
     if (pathname.includes("mutating-data")) return "10";
     return "Introduction";
+  },
+);
+
+export const usePutCompletedChapters = routeAction$(
+  async (data, requestEvent) => {
+    const { completedChapter } = data;
+
+    const profile = requestEvent.sharedMap.get("profile");
+    const userId = profile?.id;
+    const completedChapters = profile?.completedChapters || [];
+
+    if (!userId) {
+      return requestEvent.fail(400, { error: "Missing parameters" });
+    }
+
+    // ✅ Vérification locale avant d'aller sur Supabase
+    if (completedChapters.includes(completedChapter)) {
+      console.log(
+        "✅ Chapitre déjà complété, aucune requête Supabase nécessaire.",
+      );
+      return { success: true };
+    }
+
+    const supabase = createClient(requestEvent);
+
+    // ✅ Ajout sécurisé du chapitre et suppression des doublons
+    const updatedChapters = [
+      ...new Set([...completedChapters, Number(completedChapter)]),
+    ];
+
+    const { error: updateError } = await supabase
+      .from("profiles")
+      .update({ completedChapters: updatedChapters })
+      .eq("id", userId);
+
+    if (updateError) {
+      return requestEvent.fail(500, { error: "Failed to update" });
+    }
+
+    // ✅ Met à jour le profil en mémoire pour éviter des requêtes inutiles après
+    requestEvent.sharedMap.set("profile", {
+      ...profile,
+      completedChapters: updatedChapters,
+    });
+
+    return { success: true };
   },
 );
 

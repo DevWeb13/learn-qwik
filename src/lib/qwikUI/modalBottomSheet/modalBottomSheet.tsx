@@ -16,8 +16,7 @@ import {
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import ModalLink from "~/components/UI/modalLink/modalLink";
 import { ChapterType } from "../../../types/chapterType";
-import { CompletedChaptersType } from "../../../types/completedChapters";
-import { findCompletedChapters } from "~/utils/findCompletedChapters";
+import { useProfile } from "~/routes/layout";
 
 interface ModalBottomSheetProps {
   chapters: ChapterType[];
@@ -29,7 +28,7 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
   const location = useLocation();
 
   const store = useStore({
-    completedChapters: findCompletedChapters(chapters) as CompletedChaptersType,
+    completedChapters: useProfile().value?.completedChapters || [],
   });
 
   useStyles$(`
@@ -41,7 +40,6 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
       <button
         onClick$={() => {
           showSig.value = true;
-          store.completedChapters = findCompletedChapters(chapters);
         }}
       >
         <Slot />

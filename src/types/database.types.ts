@@ -11,50 +11,51 @@ export type Database = {
     Tables: {
       profiles: {
         Row: {
+          access_status: string | null
           avatar_url: string | null
-          completedChapters: number[] | null
+          completedChapters: number[]
           created_at: string | null
           email: string
           full_name: string | null
+          grace_period_end: string | null
           id: string
           phone: string | null
+          stripe_customer_id: string | null
           updated_at: string | null
           username: string | null
           website: string | null
         }
         Insert: {
+          access_status?: string | null
           avatar_url?: string | null
-          completedChapters?: number[] | null
+          completedChapters?: number[]
           created_at?: string | null
           email: string
           full_name?: string | null
+          grace_period_end?: string | null
           id: string
           phone?: string | null
+          stripe_customer_id?: string | null
           updated_at?: string | null
           username?: string | null
           website?: string | null
         }
         Update: {
+          access_status?: string | null
           avatar_url?: string | null
-          completedChapters?: number[] | null
+          completedChapters?: number[]
           created_at?: string | null
           email?: string
           full_name?: string | null
+          grace_period_end?: string | null
           id?: string
           phone?: string | null
+          stripe_customer_id?: string | null
           updated_at?: string | null
           username?: string | null
           website?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "profiles_id_fkey"
-            columns: ["id"]
-            isOneToOne: true
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       shares: {
         Row: {
@@ -167,4 +168,19 @@ export type Enums<
   ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : PublicEnumNameOrOptions extends keyof PublicSchema["Enums"]
     ? PublicSchema["Enums"][PublicEnumNameOrOptions]
+    : never
+
+export type CompositeTypes<
+  PublicCompositeTypeNameOrOptions extends
+    | keyof PublicSchema["CompositeTypes"]
+    | { schema: keyof Database },
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    : never = never,
+> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof PublicSchema["CompositeTypes"]
+    ? PublicSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never
