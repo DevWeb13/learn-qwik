@@ -1,6 +1,6 @@
 // src/routes/index.tsx
 
-import { component$, useContext } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import HeroLinesDark from "~/assets/svg/heroLinesDark/heroLinesDark";
@@ -8,21 +8,21 @@ import HeroLinesLight from "~/assets/svg/heroLinesLight/heroLinesLight";
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 import BtAddChapter from "~/components/UI/btAddChapter/btAddChapter";
 import ProgressCircle from "~/components/UI/headerOfMain/progressCircle/progressCircle";
-import DisplayNextChapter from "~/components/learn/DisplayNextChapter/displayNextChapter";
+import { DisplayNextChapter } from "~/components/learn/DisplayNextChapter/displayNextChapter";
 import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
 import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground from "~/assets/img/ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground.png?jsx";
 
-import { ChaptersContext } from "./layout";
-import { findCompletedChapters } from "~/utils/findCompletedChapters";
+import { useProfile } from "./layout";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 import { ChapterThumbnail } from "~/components/UI/chapterThumbnail/chapterThumbnail";
 import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesScrollWrapper";
 
-export default component$(() => {
-  const chapters = useContext(ChaptersContext);
+import { CHAPTERS } from "~/constants/chapters";
+import { SubscribeSection } from "~/components/subcribeSection/subscribeSection";
 
-  const completedChapters = findCompletedChapters(chapters.value);
+export default component$(() => {
+  const profile = useProfile();
 
   return (
     <main>
@@ -61,7 +61,9 @@ export default component$(() => {
               <HeroLinesDark />
               <div class="relative -mt-[56px] flex w-full justify-center md:-mt-14">
                 <div class="relative">
-                  <BookSvgText completed={completedChapters} />
+                  <BookSvgText
+                    completed={profile.value?.completedChapters || []}
+                  />
 
                   <BookSvg id="learn" />
                 </div>
@@ -86,7 +88,9 @@ export default component$(() => {
                     </p>
                   </div>
                   <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug md:min-w-[400px]">
-                    <DisplayNextChapter completed={completedChapters} />
+                    <DisplayNextChapter
+                      completed={profile.value?.completedChapters || []}
+                    />
 
                     <div class="ml-2">
                       <div
@@ -96,7 +100,7 @@ export default component$(() => {
                         style="--circle-size: 100px; --circumference: 282.7433388230814; --percent-to-px: 2.827433388230814px; --gap-percent: 0; --offset-factor: 0;"
                       >
                         <ProgressCircle
-                          completed={completedChapters}
+                          completed={profile.value?.completedChapters || []}
                           onlyCircle
                           responsive="largeOnly"
                         />
@@ -111,10 +115,10 @@ export default component$(() => {
                     goToChapter={0}
                     title=""
                     text="Start Learning"
-                    completedChapters={completedChapters}
+                    completedChapters={profile.value?.completedChapters || []}
                   >
                     <ProgressCircle
-                      completed={completedChapters}
+                      completed={profile.value?.completedChapters || []}
                       onlyCircle
                       colorCircle="var(--ds-gray-900)"
                       colorProgressCircle="var(--ds-gray-100)"
@@ -126,6 +130,10 @@ export default component$(() => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="pb-8 md:pb-20">
+        <SubscribeSection profile={profile} />
       </div>
 
       <div class="px-4 pb-8 md:px-8 md:pb-20">
@@ -586,7 +594,7 @@ export default component$(() => {
             title="Getting Started"
             description="Learn how to build a full-stack web application with the free, Qwik App Course."
           />
-          {chapters.value.map((chapter) => (
+          {CHAPTERS.map((chapter) => (
             <ChapterThumbnail
               key={chapter.id}
               href={`/learn/dashboard-app/${chapter.uri}/`}
@@ -603,10 +611,10 @@ export default component$(() => {
                 goToChapter={0}
                 title=""
                 text="Start Learning"
-                completedChapters={completedChapters}
+                completedChapters={profile.value?.completedChapters || []}
               >
                 <ProgressCircle
-                  completed={completedChapters}
+                  completed={profile.value?.completedChapters || []}
                   onlyCircle
                   colorCircle="var(--ds-gray-900)"
                   colorProgressCircle="var(--ds-gray-100)"

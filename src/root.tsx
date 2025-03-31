@@ -6,11 +6,11 @@ import {
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
-import { RouterHead } from "./components/router-head/router-head";
 import { QwikPartytown } from "./components/partytown/partytown";
+import { RouterHead } from "./components/router-head/router-head";
 
-import "./global.css";
 import "./button.css";
+import "./global.css";
 
 export default component$(() => {
   return (

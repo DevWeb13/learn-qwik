@@ -13,7 +13,7 @@ export type Database = {
         Row: {
           access_status: string | null
           avatar_url: string | null
-          completedChapters: number[] | null
+          completedChapters: number[]
           created_at: string | null
           email: string
           full_name: string | null
@@ -28,7 +28,7 @@ export type Database = {
         Insert: {
           access_status?: string | null
           avatar_url?: string | null
-          completedChapters?: number[] | null
+          completedChapters?: number[]
           created_at?: string | null
           email: string
           full_name?: string | null
@@ -43,7 +43,7 @@ export type Database = {
         Update: {
           access_status?: string | null
           avatar_url?: string | null
-          completedChapters?: number[] | null
+          completedChapters?: number[]
           created_at?: string | null
           email?: string
           full_name?: string | null

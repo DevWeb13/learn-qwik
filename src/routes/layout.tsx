@@ -23,14 +23,13 @@ import type { CompletedChaptersType } from "../types/completedChapters";
 import { CHAPTERS } from "~/constants/chapters";
 import type { ChapterType } from "../types/chapterType";
 
-import { getCookie, initCookie, setCookie } from "~/utils/cookieManagement";
-
 import PreFooter from "~/components/UI/PreFooter/PreFooter";
 import { updateSession } from "~/lib/supabase/middleware";
 import { type User } from "@supabase/supabase-js";
 import { createClient } from "~/lib/supabase/server";
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import type { Database } from "~/types/database.types"; // Import des types générés Supabase
+import { isSubscriptionActive } from "~/utils/subscription";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 
@@ -49,9 +48,9 @@ export const CompletedChaptersContext = createContextId<
 export const onRequest: RequestHandler = async (request) => {
   request.cacheControl({
     public: false,
-    maxAge: 0,
-    sMaxAge: 0,
-    staleWhileRevalidate: 0,
+    maxAge: 5,
+    sMaxAge: 10,
+    staleWhileRevalidate: 60 * 60 * 24 * 365,
   });
 
   request.cacheControl(
@@ -83,7 +82,7 @@ export const useUser = routeLoader$<User | null>(async (request) => {
     },
     "Vercel-CDN-Cache-Control",
   );
-  const user = request.sharedMap.get("user");
+  const user = request.sharedMap.get("user") as User | null; // 💡 Correction du typage ici
   return user;
 });
 
@@ -105,7 +104,8 @@ export const useProfile = routeLoader$<Profile | null>(async (request) => {
     "Vercel-CDN-Cache-Control",
   );
   const profile = request.sharedMap.get("profile") as Profile | null; // 💡 Correction du typage ici
-  return profile;
+
+  return profile || null;
 });
 
 export const useGetTotalShare = routeLoader$(async (request) => {
@@ -153,7 +153,9 @@ export const useIncrementTotalShare = routeAction$(async (data, request) => {
   const { error } = await supabase.rpc("increment_total_share");
 
   if (error) {
-    throw new Error("Failed to increment total share: " + error.message);
+    return request.fail(500, {
+      error: "Failed to increment total share" + error.message,
+    });
   }
 });
 
@@ -194,40 +196,12 @@ export default component$(() => {
   const chapters = useSignal<ChapterType[]>(CHAPTERS);
   useContextProvider(ChaptersContext, chapters);
 
-  useOnDocument(
-    "DOMContentLoaded",
-    $(() => {
-      // console.log("DOMContentLoaded");
-
-      const completedChaptersCookie: number[] | undefined =
-        getCookie("completedChapters");
-      // console.log("completedChaptersCookie", completedChaptersCookie);
-
-      if (!completedChaptersCookie) {
-        return initCookie("completedChapters", 365);
-      }
-
-      if (completedChaptersCookie.length === 0) {
-        return chapters.value.forEach((chapter) => {
-          chapter.isCompleted = false;
-        });
-      }
-
-      if (completedChaptersCookie.length > 0) {
-        const newChapters = [...chapters.value];
-
-        completedChaptersCookie.forEach((chapter) => {
-          newChapters[chapter - 1].isCompleted = true;
-        });
-        chapters.value = newChapters;
-      }
-    }),
-  );
+  const profile = useProfile();
 
   useOnDocument(
     "scroll",
     $(() => {
-      if (!firstScroll.value) {
+      if (!firstScroll.value || isSubscriptionActive(profile.value)) {
         return;
       }
 
@@ -252,16 +226,6 @@ export default component$(() => {
       }, 500);
     }),
   );
-
-  useTask$(({ track }) => {
-    track(() => chapters.value);
-
-    chapters.value.forEach((chapter) => {
-      if (chapter.isCompleted) {
-        setCookie("completedChapters", chapter.id, 365);
-      }
-    });
-  });
 
   // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ track }) => {

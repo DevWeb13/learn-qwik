@@ -1,29 +1,34 @@
+// src/components/account/accountContent.tsx
+
 import { component$, useStore, $ } from "@builder.io/qwik";
-import { useGetProfile, useUpdateProfile } from "~/routes/account";
+import { useResetCompletedChapters, useUpdateProfile } from "~/routes/account";
 
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 import { Form, Link } from "@builder.io/qwik-city";
 
 import { Message } from "../UI/message/message";
 import { HiArrowRightOnRectangleOutline } from "@qwikest/icons/heroicons";
+import { useProfile } from "~/routes/layout";
+import { SubscribeSection } from "../subcribeSection/subscribeSection";
 
 export const AccountContent = component$(() => {
-  const profile = useGetProfile().value;
+  const profile = useProfile();
 
-  const emailPrefix = profile.email?.split("@")[0];
+  const emailPrefix = profile.value?.email.split("@")[0];
 
   const updateProfile = useUpdateProfile();
+  const resetCompletedChapters = useResetCompletedChapters();
 
   // Store pour gérer l'état des inputs
   const formState = useStore({
-    username: profile.username || "",
-    originalUsername: profile.username || "",
-    avatar_url: profile.avatar_url || "",
-    originalAvatarUrl: profile.avatar_url || "",
-    website: profile.website || "",
-    originalWebsite: profile.website || "",
-    phone: profile.phone || "",
-    originalPhone: profile.phone || "",
+    username: profile.value?.username || "",
+    originalUsername: profile.value?.username || "",
+    avatar_url: profile.value?.avatar_url || "",
+    originalAvatarUrl: profile.value?.avatar_url || "",
+    website: profile.value?.website || "",
+    originalWebsite: profile.value?.website || "",
+    phone: profile.value?.phone || "",
+    originalPhone: profile.value?.phone || "",
     isModified: false,
     isFocused: false,
   });
@@ -50,7 +55,7 @@ export const AccountContent = component$(() => {
   });
 
   return (
-    <main class="relative flex w-full flex-grow flex-col items-center justify-between overflow-hidden py-12">
+    <main class="relative flex w-full flex-grow flex-col items-center justify-between gap-4 overflow-hidden py-12 md:gap-8">
       <div class="absolute bottom-[100px] left-1/2 z-[-1] -translate-x-1/2 md:bottom-0">
         <div class="block dark:hidden">
           <HomeBackground />
@@ -60,11 +65,11 @@ export const AccountContent = component$(() => {
         </div>
       </div>
 
-      {profile.failed ? (
+      {!profile.value ? (
         <div class="flex flex-grow flex-col items-center justify-center ">
           <Message
             message={{
-              message: profile.error,
+              message: "User not found.",
               status: "error",
             }}
           />
@@ -80,13 +85,13 @@ export const AccountContent = component$(() => {
           <div class="flex flex-col items-center">
             <h1 class="text-center text-2xl font-semibold md:max-w-[100%] md:text-4xl">
               <span>Welcome</span>{" "}
-              {profile.username ? (
+              {profile.value.username ? (
                 <>
                   <span class="block text-[#18b6f6] md:hidden">
-                    {profile.username} !
+                    {profile.value.username} !
                   </span>
                   <span class="hidden text-[#18b6f6] md:block">
-                    {profile.username} !
+                    {profile.value.username} !
                   </span>
                 </>
               ) : (
@@ -95,25 +100,25 @@ export const AccountContent = component$(() => {
                     {emailPrefix} !
                   </span>
                   <span class="mt-2 hidden text-[#18b6f6] md:block">
-                    {profile.email} !
+                    {profile.value.email} !
                   </span>
                 </>
               )}
             </h1>
 
-            {profile.username && (
+            {profile.value.username && (
               <h2 class="text-l mb-2 text-center font-semibold md:mb-4 md:max-w-[100%] md:text-xl">
-                <span class="text-[#ac7ff4]">{profile.email}</span>
+                <span class="text-[#ac7ff4]">{profile.value.email}</span>
               </h2>
             )}
 
             {
               // Si l'user a un avatar, l'afficher
-              profile.avatar_url && (
+              profile.value.avatar_url && (
                 <div class="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full md:h-12 md:w-12">
                   <img
-                    src={profile.avatar_url}
-                    alt={"Avatar of " + profile.email}
+                    src={profile.value.avatar_url}
+                    alt={"Avatar of " + profile.value.email}
                     class="h-full w-full object-cover"
                     width={25}
                     height={25}
@@ -122,6 +127,8 @@ export const AccountContent = component$(() => {
               )
             }
           </div>
+
+          <SubscribeSection profile={profile} />
 
           <Form
             class="w-[220px] space-y-6 md:w-[400px]"
@@ -301,12 +308,49 @@ export const AccountContent = component$(() => {
               />
             )}
           </Form>
+          {/* ✅ Affichage des chapitres complétés */}
+          {profile.value.completedChapters.length > 0 ? (
+            <div class="mt-4 flex flex-col items-center">
+              <h3 class="text-lg font-semibold text-gray-800 md:text-xl">
+                Completed Chapters
+              </h3>
+              <ul class="mt-2 text-sm text-gray-700 md:text-base">
+                {profile.value.completedChapters
+                  .sort((a, b) => a - b) // ✅ Trier les chapitres dans l'ordre croissant
+                  .map((chapter) => (
+                    <li key={chapter} class="mt-1 font-medium text-gray-900">
+                      Chapter {chapter}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          ) : (
+            <p class="mt-4 text-sm text-gray-600">No completed chapters yet.</p>
+          )}
+          <button
+            onClick$={async () => {
+              const result = await resetCompletedChapters.submit();
+              if (result.value.success) {
+                profile.value.completedChapters = []; // ✅ Mise à jour locale après reset
+              }
+            }}
+            class="mt-4 flex items-center justify-center gap-1 rounded-md border border-transparent bg-gray-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          >
+            Reset Progress
+          </button>
           <Link
             tabIndex={0}
             href="/auth/logout/"
-            class="flex items-center justify-center gap-1 rounded-md border border-transparent bg-red-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+            class="mt-8 flex items-center justify-center gap-1 rounded-md border border-transparent bg-red-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
           >
             Logout <HiArrowRightOnRectangleOutline class="h-4 w-4 stroke-[2]" />
+          </Link>
+          <Link
+            tabIndex={0}
+            href="/auth/deleteProfile/"
+            class="mt-4 flex items-center justify-center gap-1 rounded-md border border-transparent bg-red-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+          >
+            Delete Account
           </Link>
         </>
       )}

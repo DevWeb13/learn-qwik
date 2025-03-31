@@ -2,9 +2,10 @@
 
 import type { RequestEvent, RequestEventAction } from "@builder.io/qwik-city";
 import { createServerClient } from "@supabase/ssr";
+import { SupabaseClient } from "@supabase/supabase-js";
 import { Database } from "~/types/database.types";
 
-export function createClient(requestEvent: RequestEventAction | RequestEvent) {
+export function createClient(requestEvent: RequestEventAction | RequestEvent): SupabaseClient<Database> {
   return createServerClient<Database>(
     requestEvent.env.get("PUBLIC_SUPABASE_URL")!,
     requestEvent.env.get("PUBLIC_SUPABASE_ANON_KEY")!,
@@ -37,7 +38,7 @@ export function createClient(requestEvent: RequestEventAction | RequestEvent) {
 }
 
 // ✅ Client administrateur avec SUPABASE_SERVICE_ROLE_KEY
-export function createAdminClient(requestEvent: RequestEvent) {
+export function createAdminClient(requestEvent: RequestEvent | RequestEventAction): SupabaseClient<Database> {
   return createServerClient<Database>(
     requestEvent.env.get("PUBLIC_SUPABASE_URL")!,
     requestEvent.env.get("SUPABASE_SERVICE_ROLE_KEY")!, // 🔥 Clé admin pour bypass RLS

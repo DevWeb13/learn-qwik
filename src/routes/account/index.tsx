@@ -3,7 +3,6 @@
 import { component$ } from "@builder.io/qwik";
 import {
   routeAction$,
-  routeLoader$,
   z,
   zod$,
   type DocumentHead,
@@ -11,17 +10,6 @@ import {
 import { AccountContent } from "~/components/account/accountContent";
 import { createClient } from "~/lib/supabase/server";
 import { createDocumentHead } from "~/utils/createDocumentHead";
-
-// 🔄 Utiliser directement useProfile() pour récupérer les données de l'utilisateur connecté
-export const useGetProfile = routeLoader$(async (requestEvent) => {
-  const profile = requestEvent.sharedMap.get("profile");
-
-  if (!profile) {
-    return requestEvent.fail(404, { error: "User not found." });
-  }
-
-  return profile;
-});
 
 // 🔄 Mettre à jour les infos du profil avec l'ID de useProfile()
 export const useUpdateProfile = routeAction$(
@@ -95,6 +83,39 @@ export const useUpdateProfile = routeAction$(
           "Phone number must be valid (10 to 15 digits, optionally with +)",
       }),
   }),
+);
+
+export const useResetCompletedChapters = routeAction$(
+  async (_, requestEvent) => {
+    const profile = requestEvent.sharedMap.get("profile"); // ✅ Récupération du profil connecté
+
+    if (!profile) {
+      return requestEvent.fail(404, { error: "User not found." });
+    }
+
+    const supabase = createClient(requestEvent);
+
+    // ✅ Réinitialiser la progression en mettant `completedChapters` à un tableau vide
+    const { error } = await supabase
+      .from("profiles")
+      .update({ completedChapters: [] })
+      .eq("id", profile.id);
+
+    if (error) {
+      console.error("❌ Erreur lors de la réinitialisation :", error);
+      return requestEvent.fail(500, {
+        success: false,
+        message: "Error resetting completed chapters.",
+        status: "error",
+      });
+    }
+
+    return {
+      success: true,
+      message: "Completed chapters reset successfully.",
+      status: "success",
+    };
+  },
 );
 
 export default component$(() => {

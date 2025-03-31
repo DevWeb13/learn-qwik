@@ -5,10 +5,8 @@ import BtMenuHeaderOfMain from "./btMenuHeaderOfMain/btMenuHeaderOfMain";
 import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
 import { useScrollYPosition } from "~/hooks/useScrollYPosition";
 import ProgressCircle from "./progressCircle/progressCircle";
-import { ChaptersContext } from "~/routes/layout";
-import type { CompletedChaptersType } from "../../../types/completedChapters";
+import { ChaptersContext, useProfile } from "~/routes/layout";
 import type { ChapterType } from "../../../types/chapterType";
-import { findCompletedChapters } from "~/utils/findCompletedChapters";
 import { useGetCurrentChapterIndexInString } from "~/routes/learn/dashboard-app/layout";
 
 export default component$(() => {
@@ -16,9 +14,7 @@ export default component$(() => {
 
   const chapters: Signal<ChapterType[]> = useContext(ChaptersContext);
 
-  const completedChapter: CompletedChaptersType = findCompletedChapters(
-    chapters.value,
-  );
+  const profile = useProfile();
 
   const currentChapterIndexInString = useGetCurrentChapterIndexInString().value;
 
@@ -120,7 +116,7 @@ export default component$(() => {
             </p>
           </div>
         </div> */}
-        <ProgressCircle completed={completedChapter} />
+        <ProgressCircle completed={profile.value?.completedChapters || []} />
         <div
           aria-hidden="true"
           class="bg-gray-alpha-400 ml-4 mr-3 hidden h-8 w-[1px] lg:block"

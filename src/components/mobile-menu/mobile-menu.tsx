@@ -11,8 +11,6 @@ import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle"
 export default component$(() => {
   const profile = useProfile();
 
-  console.log("profile", profile.value);
-
   const mobileMenuVisible = useContext(MobileMenuVisibleContext);
   return (
     <div
@@ -28,9 +26,7 @@ export default component$(() => {
             <Link
               onClick$={() => (mobileMenuVisible.value = false)}
               tabIndex={0}
-              href={
-                profile.value ? `/account/${profile.value.id}/` : "/auth/login/"
-              }
+              href={profile.value ? `/account/` : "/auth/login/"}
               class={`flex items-center justify-center gap-1 rounded-md border border-transparent 
     px-4 py-1 text-sm font-medium shadow-sm transition-all duration-300 
     focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500

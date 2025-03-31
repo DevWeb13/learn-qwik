@@ -6,9 +6,6 @@ import Stripe from 'stripe';
 
 
 export const onPost: RequestHandler = async ({ request, json, sharedMap, env }) => {
-
-  console.log("STRIPE_SECRET_KEY", env.get("STRIPE_SECRET_KEY"));
-
   const STRIPE_SECRET_KEY = env.get("STRIPE_SECRET_KEY");
   if (!STRIPE_SECRET_KEY) {
     console.error("❌ Erreur : Clé secrète Stripe manquante !");
@@ -43,10 +40,10 @@ export const onPost: RequestHandler = async ({ request, json, sharedMap, env }) 
           line_items: [{ price: priceId, quantity: 1 }],
           customer_email: user.email, // ✅ Pré-remplit l'email Stripe avec celui de l'utilisateur
           success_url: `${origin}/learn/dashboard-app/`,  // ✅ Dynamique (local ou prod)
-          cancel_url: `${origin}/subscribe/`,  // ✅ Dynamique (local ou prod)
+          cancel_url: `${origin}/`,  // ✅ Dynamique (local ou prod)
       });
 
-      console.log("✅ Session Stripe créée :", session);
+      // console.log("✅ Session Stripe créée :", session);
        json(200, { url: session.url });
 
   } catch (error) {
