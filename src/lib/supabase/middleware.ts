@@ -1,36 +1,27 @@
-// src/lib/supabase/middleware.ts
-
 import type { RequestEvent } from "@builder.io/qwik-city";
 import { SupabaseClient, User } from "@supabase/supabase-js";
-// import { CHAPTERS } from "~/constants/chapters";
 import { createClient } from "~/lib/supabase/server";
+import { getUserById } from "~/lib/supabase/supabaseUtils";
 import { Database } from "~/types/database.types";
 import { isSubscriptionActive } from "~/utils/subscription";
 
-// const CHAPTERS_FREE_LIMIT = 6;
-
 function isBotRequest(userAgent: string | null): boolean {
-    const botPattern = /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|ia_archiver/;
-    return botPattern.test(userAgent || "");
+  const botPattern =
+    /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|ia_archiver/;
+  return botPattern.test(userAgent || "");
 }
 
-// function getChapterIdFromUrl(pathname: string) {
-//     const pathSegments = pathname.split("/").filter(Boolean);
-//     return CHAPTERS.find(c => c.uri === pathSegments[pathSegments.length - 1]);
-// }
+async function getUser(
+  supabase: SupabaseClient<Database>,
+  requestEvent: RequestEvent
+): Promise<User | null> {
+  const { data } = await supabase.auth.getUser();
+  const user = data.user || null;
 
-async function getUser(supabase: SupabaseClient<Database>, requestEvent: RequestEvent): Promise<User | null> {
-    // console.log("📢 Appel à Supabase pour récupérer l'user");
-    
-    const { data } = await supabase.auth.getUser();
-    const user = data.user || null;
-    
-    requestEvent.sharedMap.set("user", user);
-    return user;
+  console.log("📢 Appel à Supabase pour récupérer l'user →", user?.id);
+  requestEvent.sharedMap.set("user", user);
+  return user;
 }
-
-
-import { getUserById } from "~/lib/supabase/supabaseUtils";
 
 async function getProfile(
   supabase: SupabaseClient<Database>,
@@ -48,57 +39,60 @@ async function getProfile(
     return null;
   }
 
-  requestEvent.sharedMap.set("profile", profile);
+  console.log("✅ Profil trouvé :", profile.id);
+
+  try {
+    requestEvent.sharedMap.set("profile", profile);
+    console.log("✅ Profil mis dans sharedMap");
+  } catch (e) {
+    console.error("❌ Erreur lors du set sharedMap :", e);
+  }
+
   return profile;
 }
 
-
 export async function updateSession(requestEvent: RequestEvent) {
-    const supabase = createClient(requestEvent);
-    
-    if (isBotRequest(requestEvent.request.headers.get("user-agent"))) {
-        console.log("Bot detected, allowing access without redirection");
-        return;
+  const supabase = createClient(requestEvent);
+  const pathname = requestEvent.url.pathname;
+
+  console.log("🚦 Middleware activé sur :", pathname);
+
+  if (isBotRequest(requestEvent.request.headers.get("user-agent"))) {
+    console.log("🤖 Bot détecté → accès autorisé");
+    return;
+  }
+
+  const user = await getUser(supabase, requestEvent);
+
+  if (user && pathname.startsWith("/auth/login")) {
+    console.log("🔁 Utilisateur connecté sur /auth/login → redirect /");
+    throw requestEvent.redirect(302, "/");
+  }
+
+  if (
+    !user &&
+    (pathname.startsWith("/learn") ||
+      pathname.startsWith("/account") ||
+      pathname.startsWith("/auth/logout"))
+  ) {
+    console.log("🔒 Non connecté → redirection /auth/login");
+    throw requestEvent.redirect(302, "/auth/login");
+  }
+
+  if (user) {
+    const profile = await getProfile(supabase, requestEvent, user);
+
+    if (!profile) {
+      console.warn("⚠️ Profil non trouvé après getUserById → pas de sharedMap");
+      return;
     }
 
-    const user = await getUser(supabase, requestEvent);
-    
-    if (user && requestEvent.url.pathname.startsWith("/auth/login/")) {
-        throw requestEvent.redirect(302, "/");
+    // Ce check est pour les accès premium (non utile ici, mais safe)
+    if (isSubscriptionActive(profile)) {
+      console.log("✅ Accès premium confirmé via isSubscriptionActive");
+      return;
     }
-    
-    if (!user &&
-        !requestEvent.url.pathname.startsWith("/auth/login") && // ✅ Évite la boucle infinie
-        (requestEvent.url.pathname.startsWith("/learn") ||
-         requestEvent.url.pathname.startsWith("/auth/logout") ||
-         requestEvent.url.pathname.startsWith("/account"))) {
-        console.log("Redirecting to /auth/login");
-        throw requestEvent.redirect(302, "/auth/login/");
-    }
-    
-    
-    if (user) {
-        const profile = await getProfile(supabase, requestEvent, user);
-        
-        if (!profile) {
-            console.log("⚠️ Aucun profil trouvé pour cet utilisateur.");
-            return;
-        }
+  }
 
-        // 🔄 Vérifier si l'utilisateur a encore un accès premium
-        if (isSubscriptionActive(profile)) return; // ✅ Accès autorisé
-
-        // ❌ Sinon, rediriger si l'utilisateur essaie d'accéder à un chapitre premium
-        // if (requestEvent.url.pathname.startsWith("/learn/dashboard-app/")) {
-        //     const chapter = getChapterIdFromUrl(requestEvent.url.pathname);
-            
-        //     console.log("Checking chapter access");
-        //     console.log("User subscription status:", profile.access_status);
-            
-        //     if (chapter && chapter.id > CHAPTERS_FREE_LIMIT) {
-        //         console.log(`Chapitre ${chapter.id} restreint. Redirection vers /subscribe`);
-        //         throw requestEvent.redirect(302, "/subscribe");
-        //     }
-        // }
-    }
+  console.log("✅ Fin du middleware sans redirection");
 }
