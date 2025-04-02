@@ -5,7 +5,7 @@ import { SupabaseClient, User } from "@supabase/supabase-js";
 // import { CHAPTERS } from "~/constants/chapters";
 import { createClient } from "~/lib/supabase/server";
 import { Database } from "~/types/database.types";
-import { isSubscriptionActive, updateExpiredSubscriptions } from "~/utils/subscription";
+import { isSubscriptionActive } from "~/utils/subscription";
 
 // const CHAPTERS_FREE_LIMIT = 6;
 
@@ -58,9 +58,6 @@ export async function updateSession(requestEvent: RequestEvent) {
         console.log("Bot detected, allowing access without redirection");
         return;
     }
-
-    // Vérifier et mettre à jour les abonnements expirés
-    await updateExpiredSubscriptions(requestEvent);
 
     const user = await getUser(supabase, requestEvent);
     
