@@ -60,11 +60,6 @@ export function isSubscriptionActive(profile: Profile | null): boolean {
     return true;
   }
 
-  // L'utilisateur a un abonnement en période de grâce
-  if (access_status === "grace_period") {
-    return true;
-  }
-
   // L'utilisateur a annulé mais est encore dans sa période de grâce
   if (
     access_status === "canceled" &&
