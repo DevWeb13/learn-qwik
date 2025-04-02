@@ -8,12 +8,12 @@ import {
   useStyles$,
   useVisibleTask$,
 } from "@builder.io/qwik";
+import { server$, useLocation } from "@builder.io/qwik-city";
+import { marked } from "marked";
+import { getEnvVariable } from "~/utils/getEnvVariable";
+import { Pagination } from "../UI/pagination/pagination";
 import { CardNews } from "./cardNews";
 import { CardNewsSkeleton } from "./cardNewsSkeleton"; // Importer le composant skeleton
-import { server$, useLocation } from "@builder.io/qwik-city";
-import { getEnvVariable } from "~/utils/getEnvVariable";
-import { marked } from "marked";
-import { Pagination } from "../UI/pagination/pagination";
 
 /* Types */
 export type Author = {
@@ -40,9 +40,26 @@ export type Release = {
   contributors: Contributor[];
 };
 
+type SafeRelease = {
+  id: number;
+  name: string;
+  html_url: string;
+  body: string;
+  published_at: string;
+  author: {
+    login: string;
+    avatar_url: string;
+    html_url: string;
+  };
+  tag_name: string;
+  tarball_url: string;
+  zipball_url: string;
+  contributors: Contributor[];
+};
+
 /* Server */
 const fetchReleases = server$(
-  async (page: number = 1, per_page: number = 6): Promise<Release[]> => {
+  async (page = 1, per_page = 6): Promise<SafeRelease[]> => {
     const token = await getEnvVariable("GITHUB_KEY");
 
     if (!token) {
@@ -62,17 +79,35 @@ const fetchReleases = server$(
       throw new Error("Failed to fetch releases");
     }
 
-    const releases: Release[] = await response.json();
+    const releases: any[] = await response.json();
+
+    const safeReleases: SafeRelease[] = [];
 
     for (const release of releases) {
-      release.body = adjustReleaseBodyLinks(release.body, release.tag_name);
-
-      const contributorLogins = extractContributorsFromBody(release.body);
-      release.contributors =
+      const body = adjustReleaseBodyLinks(release.body, release.tag_name);
+      const contributorLogins = extractContributorsFromBody(body);
+      const contributors =
         await fetchUniqueContributorAvatars(contributorLogins);
+
+      safeReleases.push({
+        id: release.id,
+        name: release.name,
+        html_url: release.html_url,
+        body,
+        published_at: release.published_at,
+        author: {
+          login: release.author?.login,
+          avatar_url: release.author?.avatar_url,
+          html_url: release.author?.html_url,
+        },
+        tag_name: release.tag_name,
+        tarball_url: release.tarball_url,
+        zipball_url: release.zipball_url,
+        contributors,
+      });
     }
 
-    return releases;
+    return safeReleases;
   },
 );
 
