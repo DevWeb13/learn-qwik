@@ -2,6 +2,7 @@
 
 import type { Signal } from "@builder.io/qwik";
 import {
+  $,
   component$,
   createContextId,
   Slot,
@@ -9,25 +10,24 @@ import {
   useOnDocument,
   useSignal,
   useTask$,
-  $,
   useVisibleTask$,
 } from "@builder.io/qwik";
-import { isBrowser } from "@builder.io/qwik/build";
-import { routeAction$, routeLoader$, useLocation } from "@builder.io/qwik-city";
 import type { RequestHandler } from "@builder.io/qwik-city";
+import { routeAction$, routeLoader$, useLocation } from "@builder.io/qwik-city";
+import { isBrowser } from "@builder.io/qwik/build";
 
-import Header from "../components/header/header";
 import Footer from "../components/footer/footer";
+import Header from "../components/header/header";
 import type { CompletedChaptersType } from "../types/completedChapters";
 
 import { CHAPTERS } from "~/constants/chapters";
 import type { ChapterType } from "../types/chapterType";
 
+import { type User } from "@supabase/supabase-js";
+import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import PreFooter from "~/components/UI/PreFooter/PreFooter";
 import { updateSession } from "~/lib/supabase/middleware";
-import { type User } from "@supabase/supabase-js";
 import { createClient } from "~/lib/supabase/server";
-import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import type { Database } from "~/types/database.types"; // Import des types générés Supabase
 import { isSubscriptionActive } from "~/utils/subscription";
 
@@ -56,9 +56,9 @@ export const onRequest: RequestHandler = async (request) => {
   request.cacheControl(
     {
       public: false,
-      maxAge: 0,
-      sMaxAge: 0,
-      staleWhileRevalidate: 0,
+      maxAge: 5,
+      sMaxAge: 10,
+      staleWhileRevalidate: 60 * 60 * 24 * 365,
     },
     "Vercel-CDN-Cache-Control",
   );
