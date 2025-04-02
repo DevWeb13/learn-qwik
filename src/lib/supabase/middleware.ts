@@ -30,26 +30,28 @@ async function getUser(supabase: SupabaseClient<Database>, requestEvent: Request
 }
 
 
-async function getProfile(supabase: SupabaseClient<Database>, requestEvent: RequestEvent, user: User): Promise<Database["public"]["Tables"]["profiles"]["Row"] | null> {
-    if (!user) return null;
+import { getUserById } from "~/lib/supabase/supabaseUtils";
 
-    console.log("📢 Appel à Supabase pour récupérer le profile");
+async function getProfile(
+  supabase: SupabaseClient<Database>,
+  requestEvent: RequestEvent,
+  user: User
+): Promise<Database["public"]["Tables"]["profiles"]["Row"] | null> {
+  if (!user) return null;
 
-    // 🟢 Récupère le profil via Supabase si pas trouvé en cache
-    const { data, error } = await supabase
-        .from("profiles")
-        .select("*")
-        .eq("id", user.id)
-        .single();
+  console.log("📢 Appel à Supabase pour récupérer le profile via getUserById");
 
-    if (error) {
-        console.error("❌ Erreur récupération profil :", error);
-        return null;
-    }
+  const profile = await getUserById(supabase, user.id);
 
-    requestEvent.sharedMap.set("profile", data);
-    return data;
+  if (!profile) {
+    console.warn("⚠️ Aucun profil trouvé (getUserById) pour :", user.id);
+    return null;
+  }
+
+  requestEvent.sharedMap.set("profile", profile);
+  return profile;
 }
+
 
 export async function updateSession(requestEvent: RequestEvent) {
     const supabase = createClient(requestEvent);
@@ -71,7 +73,7 @@ export async function updateSession(requestEvent: RequestEvent) {
          requestEvent.url.pathname.startsWith("/auth/logout") ||
          requestEvent.url.pathname.startsWith("/account"))) {
         console.log("Redirecting to /auth/login");
-        throw requestEvent.redirect(302, "/auth/login");
+        throw requestEvent.redirect(302, "/auth/login/");
     }
     
     

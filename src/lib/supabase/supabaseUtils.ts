@@ -51,3 +51,28 @@ export const updateUser = async (
   }
   return true;
 };
+
+// ✅ Fonction pour récupérer un utilisateur via son ID
+export const getUserById = async (
+  supabase: SupabaseClient<Database>,
+  userId: string
+) => {
+  try {
+    const { data: user, error } = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("id", userId)
+      .single();
+
+    if (error) {
+      console.error("❌ Utilisateur non trouvé via ID :", error);
+      return null;
+    }
+
+    return user;
+  } catch (e) {
+    console.error("❌ Exception dans getUserById :", e);
+    return null;
+  }
+};
+
