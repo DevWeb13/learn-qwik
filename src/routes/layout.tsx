@@ -22,7 +22,6 @@ import Header from "../components/header/header";
 import { CHAPTERS } from "~/constants/chapters";
 import type { ChapterType } from "../types/chapterType";
 
-import { type User } from "@supabase/supabase-js";
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import PreFooter from "~/components/UI/PreFooter/PreFooter";
 import { updateSession } from "~/lib/supabase/middleware";
@@ -60,26 +59,24 @@ export const onRequest: RequestHandler = async (request) => {
   await updateSession(request);
 };
 
-export const useUser = routeLoader$<User | null>(async (request) => {
-  request.cacheControl({
-    public: false,
-    maxAge: 0,
-    sMaxAge: 0,
-    staleWhileRevalidate: 0,
-  });
+type SafeUser = {
+  id: string;
+  email: string | null;
+  role: string | null;
+};
 
-  request.cacheControl(
-    {
-      public: false,
-      maxAge: 0,
-      sMaxAge: 0,
-      staleWhileRevalidate: 0,
-    },
-    "Vercel-CDN-Cache-Control",
-  );
-  const user = request.sharedMap.get("user") as User | null; // 💡 Correction du typage ici
-  console.log("user", user);
-  return user;
+export const useUser = routeLoader$<SafeUser | null>(async (request) => {
+  const user = request.sharedMap.get("user");
+
+  if (!user) return null;
+
+  const safeUser: SafeUser = {
+    id: user.id,
+    email: user.email ?? null,
+    role: user.role ?? null,
+  };
+
+  return safeUser;
 });
 
 export const useProfile = routeLoader$<Profile | null>(async (request) => {
