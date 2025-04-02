@@ -18,7 +18,6 @@ import { isBrowser } from "@builder.io/qwik/build";
 
 import Footer from "../components/footer/footer";
 import Header from "../components/header/header";
-import type { CompletedChaptersType } from "../types/completedChapters";
 
 import { CHAPTERS } from "~/constants/chapters";
 import type { ChapterType } from "../types/chapterType";
@@ -41,10 +40,6 @@ export const ChaptersContext = createContextId<Signal<ChapterType[]>>(
   "docs.chapters-context",
 );
 
-export const CompletedChaptersContext = createContextId<
-  Signal<CompletedChaptersType>
->("docs.completed-chapters-context");
-
 export const onRequest: RequestHandler = async (request) => {
   request.cacheControl({
     public: false,
@@ -56,9 +51,9 @@ export const onRequest: RequestHandler = async (request) => {
   request.cacheControl(
     {
       public: false,
-      maxAge: 5,
-      sMaxAge: 10,
-      staleWhileRevalidate: 60 * 60 * 24 * 365,
+      maxAge: 0,
+      sMaxAge: 0,
+      staleWhileRevalidate: 0,
     },
     "Vercel-CDN-Cache-Control",
   );
@@ -83,6 +78,7 @@ export const useUser = routeLoader$<User | null>(async (request) => {
     "Vercel-CDN-Cache-Control",
   );
   const user = request.sharedMap.get("user") as User | null; // 💡 Correction du typage ici
+  console.log("user", user);
   return user;
 });
 
@@ -104,6 +100,7 @@ export const useProfile = routeLoader$<Profile | null>(async (request) => {
     "Vercel-CDN-Cache-Control",
   );
   const profile = request.sharedMap.get("profile") as Profile | null; // 💡 Correction du typage ici
+  console.log("profile", profile);
 
   return profile || null;
 });
