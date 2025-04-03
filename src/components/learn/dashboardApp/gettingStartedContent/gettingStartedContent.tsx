@@ -2,14 +2,15 @@
 
 import { component$ } from "@builder.io/qwik";
 import StartPage from "~/assets/img/start-page.png?jsx";
-import Feedback from "~/components/UI/feedback/feedback";
+import BlankLink from "~/components/UI/blankLink/blankLink";
+import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
-import FolderStructure from "./folderStructure/folderStructure";
+import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
+import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
-import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
-import BlankLink from "~/components/UI/blankLink/blankLink";
+import FolderStructure from "./folderStructure/folderStructure";
 
 export default component$(() => {
   return (
@@ -560,6 +561,12 @@ export default component$(() => {
           .
         </p>
       </div>
+      <ChapterVideo
+        videoId="kVLfw2M3HnE"
+        title="📺 Chapter 1 Video Walkthrough"
+        description="Follow along with RumNCode 🥃 as he walks you through the first steps of building your Qwik app."
+      />
+
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
           chapterNumber={1}

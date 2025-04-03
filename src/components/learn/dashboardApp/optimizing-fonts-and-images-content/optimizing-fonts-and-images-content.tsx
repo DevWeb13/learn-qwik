@@ -1,23 +1,24 @@
 // src/components/dashboardApp/optimizing-fonts-and-images-content/optimizing-fonts-and-images-content.tsx
 
 import { component$, useSignal, useStyles$ } from "@builder.io/qwik";
+import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
+import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
+import BlankLink from "~/components/UI/blankLink/blankLink";
+import CodeBlock from "~/components/UI/codeBlock/codeBlock";
+import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
-import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
-import BlankLink from "~/components/UI/blankLink/blankLink";
-import CodeBlock from "~/components/UI/codeBlock/codeBlock";
-import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
-import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
-import { FontSoluce } from "./fontSoluce/fontSoluce";
 import { Quiz } from "~/components/UI/quiz/quiz";
+import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
+import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
+import { FontSoluce } from "./fontSoluce/fontSoluce";
 
-import AddLusitanaAndLRDQwikLogoImg from "~/assets/img/addLusitanaAndLRDQwikLogo.png?jsx";
-import AddInterImg from "~/assets/img/addInterImg.png?jsx";
-import CLSImg from "~/assets/img/CLS.png?jsx";
 import AddDesktopHeroImg from "~/assets/img/addDesktopHeroImg.png?jsx";
+import AddInterImg from "~/assets/img/addInterImg.png?jsx";
+import AddLusitanaAndLRDQwikLogoImg from "~/assets/img/addLusitanaAndLRDQwikLogo.png?jsx";
+import CLSImg from "~/assets/img/CLS.png?jsx";
+import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 import { ImageSoluce } from "./imageSoluce/imageSoluce";
 
 export default component$(() => {
@@ -946,6 +947,12 @@ export default component$(() => {
           data-ad-slot="6853759637"
         ></ins>
       </div>
+
+      <ChapterVideo
+        videoId="BzpWsu_uxRU"
+        title="📺 Chapter 3 Video Walkthrough"
+        description="Watch RumNCode 🥃 build out the third chapter with clear explanations and real-time coding."
+      />
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
