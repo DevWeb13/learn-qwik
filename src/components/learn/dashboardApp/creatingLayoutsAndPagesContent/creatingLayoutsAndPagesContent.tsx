@@ -1,25 +1,26 @@
 // src/components/learn/dashboardApp/CreatingLayoutsAndPagesContent/creatingLayoutsAndPagesContent.tsx
 
 import { component$, useSignal, useStyles$ } from "@builder.io/qwik";
+import BlankLink from "~/components/UI/blankLink/blankLink";
+import CodeBlock from "~/components/UI/codeBlock/codeBlock";
+import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
-import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
+import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-import CodeBlock from "~/components/UI/codeBlock/codeBlock";
-import BlankLink from "~/components/UI/blankLink/blankLink";
-import { Quiz } from "~/components/UI/quiz/quiz";
 import { DashboardPagesSoluce } from "./dashboardPagesSoluce/dashboardPagesSoluce";
 
 import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
 import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 
-import NestedRouting from "~/assets/img/nested-routing.png?jsx";
+import DashboardWithSidebar from "~/assets/img/dashboard-with-sidebar.png?jsx";
 import DiagramRoutes from "~/assets/img/diagram-routes.png?jsx";
 import LayoutNesting from "~/assets/img/layout-nesting.png?jsx";
-import DashboardWithSidebar from "~/assets/img/dashboard-with-sidebar.png?jsx";
+import NestedRouting from "~/assets/img/nested-routing.png?jsx";
 import PartialRendering from "~/assets/img/partial-rendering.png?jsx";
+import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 
 export default component$(() => {
   const dashboardPagesSoluce = useSignal(false);
@@ -692,6 +693,12 @@ export default component$(() => {
           data-ad-slot="3628431117"
         ></ins>
       </div>
+
+      <ChapterVideo
+        videoId="BzpWsu_uxRU"
+        title="📺 Chapter 4 Video Walkthrough"
+        description="RumNCode 🥃 walks you through this chapter, reinforcing key concepts from previous sections and adding new ones."
+      />
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter

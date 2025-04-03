@@ -1,20 +1,21 @@
 // src/components/dashboardApp/cssStylingContent/cssStylingContent.tsx
 
 import { component$, useStyles$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
+import BlankLink from "~/components/UI/blankLink/blankLink";
+import CodeBlock from "~/components/UI/codeBlock/codeBlock";
+import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
-import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
+import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-import CodeBlock from "~/components/UI/codeBlock/codeBlock";
-import BlankLink from "~/components/UI/blankLink/blankLink";
-import { Quiz } from "~/components/UI/quiz/quiz";
-import { Link } from "@builder.io/qwik-city";
 
+import AddArrow from "~/assets/img/addArrowIcon.png?jsx";
 import InstyledPage from "~/assets/img/instyled-page.png?jsx";
 import StyledPage from "~/assets/img/styled-page.png?jsx";
-import AddArrow from "~/assets/img/addArrowIcon.png?jsx";
+import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 
 export default component$(() => {
   useStyles$(``);
@@ -915,6 +916,12 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           data-ad-slot="9287501222"
         ></ins>
       </div>
+
+      <ChapterVideo
+        videoId="kVLfw2M3HnE"
+        title="📺 Chapter 2 Video Walkthrough"
+        description="In this video, RumNCode 🥃 continues the setup of the Qwik project and explains the fundamentals step by step."
+      />
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
