@@ -13,5 +13,5 @@ export const head: DocumentHead = createDocumentHead(
   "Chapter 8: Optimizing Data Fetch",
   "Learn how to optimize data fetching in Qwik. Understand the basics of optimizing data fetching in your Qwik application.",
   "https://www.learn-qwik.com/metaChapter8.png",
-  "https://www.learn-qwik.com/learn/dashboard-app/optimizing-data-fetch/",
+  "https://www.learn-qwik.com/learn/dashboard-app/optimizing-data-fetching/",
 );
