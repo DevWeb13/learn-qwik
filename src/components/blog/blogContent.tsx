@@ -193,11 +193,12 @@ export const BlogContent = component$(() => {
 
   const loc = useLocation();
 
-  const releasesResource = useResource$<Release[]>(async ({ track }) => {
-    const page = Number(loc.url.searchParams.get("page") || "1");
-    track(() => page); // 💡 suivi direct de la valeur dynamique
+  const pageParam = loc.url.searchParams.get("page") || "1";
 
-    const newReleases = await fetchReleases(page, 6);
+  const releasesResource = useResource$<Release[]>(async ({ track }) => {
+    track(() => loc.url.pathname);
+
+    const newReleases = await fetchReleases(Number(pageParam), 6);
     return newReleases;
   });
 
