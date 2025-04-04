@@ -11,7 +11,7 @@ export default component$(() => {
 
 export const head: DocumentHead = createDocumentHead(
   "Blog",
-  "The last news releases from the Qwik team.",
+  "Browse the latest Qwik framework releases directly from GitHub. Stay informed with all updates, fixes, and performance improvements.",
   "https://www.learn-qwik.com/metaBlog.png",
   "https://www.learn-qwik.com/blog/",
 );

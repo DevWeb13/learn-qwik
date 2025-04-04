@@ -50,5 +50,11 @@ export const createDocumentHead = (
         content: imageUrl,
       },
     ],
+    links: [
+      {
+        rel: "canonical",
+        href: url,
+      },
+    ],    
   };
 };
