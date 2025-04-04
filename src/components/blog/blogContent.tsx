@@ -58,13 +58,25 @@ type SafeRelease = {
 };
 
 /* Server */
+// --- Simple cache mémoire ---
+const releaseCache = new Map<
+  string,
+  { data: SafeRelease[]; expires: number }
+>();
+
 const fetchReleases = server$(
   async (page = 1, per_page = 6): Promise<SafeRelease[]> => {
-    const token = await getEnvVariable("GITHUB_KEY");
+    const key = `page-${page}`;
+    const now = Date.now();
 
-    if (!token) {
-      throw new Error("GitHub token not found in environment variables");
+    const cached = releaseCache.get(key);
+    if (cached && now < cached.expires) {
+      return cached.data;
     }
+
+    const token = await getEnvVariable("GITHUB_KEY");
+    if (!token)
+      throw new Error("GitHub token not found in environment variables");
 
     const response = await fetch(
       `https://api.github.com/repos/QwikDev/qwik/releases?page=${page}&per_page=${per_page}`,
@@ -80,7 +92,6 @@ const fetchReleases = server$(
     }
 
     const releases: any[] = await response.json();
-
     const safeReleases: SafeRelease[] = [];
 
     for (const release of releases) {
@@ -106,6 +117,12 @@ const fetchReleases = server$(
         contributors,
       });
     }
+
+    // ✅ Mise en cache 10 minutes
+    releaseCache.set(key, {
+      data: safeReleases,
+      expires: now + 10 * 60 * 1000,
+    });
 
     return safeReleases;
   },
