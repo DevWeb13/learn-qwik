@@ -193,12 +193,12 @@ export const BlogContent = component$(() => {
 
   const loc = useLocation();
 
-  const pageParam = loc.url.searchParams.get("page") || "1";
-
   const releasesResource = useResource$<Release[]>(async ({ track }) => {
     track(() => loc.url.pathname);
+    track(() => loc.url.searchParams.get("page")); // 👈 ajout crucial ici
 
-    const newReleases = await fetchReleases(Number(pageParam), 6);
+    const page = Number(loc.url.searchParams.get("page") || "1");
+    const newReleases = await fetchReleases(page, 6);
     return newReleases;
   });
 
