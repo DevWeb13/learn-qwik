@@ -3,11 +3,11 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Form, routeAction$, z, zod$ } from "@builder.io/qwik-city";
+import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
+import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 import { Message } from "~/components/UI/message/message";
 import { createClient } from "~/lib/supabase/server";
 import { createDocumentHead } from "~/utils/createDocumentHead";
-import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
-import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 
 export const useSignUpOrLoginWithMagicLinkAction = routeAction$(
   async (dataform, requestEvent) => {
@@ -137,7 +137,7 @@ export default component$(() => {
 
 export const head: DocumentHead = createDocumentHead(
   "Login to Learn Qwik",
-  "Login to Learn Qwik to access the content.",
+  "Login to Learn Qwik and unlock interactive tutorials, progress tracking, and premium content for Qwik developers.",
   "https://www.learn-qwik.com/metaLanding.png",
   "https://www.learn-qwik.com/auth/login/",
 );
