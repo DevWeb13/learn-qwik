@@ -11,9 +11,10 @@ import { isSubscriptionActive } from "~/utils/subscription";
 // const CHAPTERS_FREE_LIMIT = 6;
 
 function isBotRequest(userAgent: string | null): boolean {
-    const botPattern = /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|ia_archiver/;
-    return botPattern.test(userAgent || "");
-}
+    if (!userAgent) return false;
+    const botPattern = /bot|crawl|slurp|spider|ahrefs/i;
+    return botPattern.test(userAgent.toLowerCase());
+  }  
 
 // function getChapterIdFromUrl(pathname: string) {
 //     const pathSegments = pathname.split("/").filter(Boolean);
@@ -56,6 +57,9 @@ async function getProfile(
 
 export async function updateSession(requestEvent: RequestEvent) {
     const supabase = createClient(requestEvent);
+
+    const userAgent = requestEvent.request.headers.get("user-agent");
+    console.log("userAgent", userAgent);
     
     if (isBotRequest(requestEvent.request.headers.get("user-agent"))) {
         console.log("Bot detected, allowing access without redirection");
