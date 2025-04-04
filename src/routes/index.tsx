@@ -2,24 +2,24 @@
 
 import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
+import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground from "~/assets/img/ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground.png?jsx";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import HeroLinesDark from "~/assets/svg/heroLinesDark/heroLinesDark";
 import HeroLinesLight from "~/assets/svg/heroLinesLight/heroLinesLight";
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
+import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
 import BtAddChapter from "~/components/UI/btAddChapter/btAddChapter";
 import ProgressCircle from "~/components/UI/headerOfMain/progressCircle/progressCircle";
 import { DisplayNextChapter } from "~/components/learn/DisplayNextChapter/displayNextChapter";
 import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
-import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
-import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground from "~/assets/img/ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersionsWithoutBackground.png?jsx";
 
-import { useProfile } from "./layout";
-import { createDocumentHead } from "~/utils/createDocumentHead";
 import { ChapterThumbnail } from "~/components/UI/chapterThumbnail/chapterThumbnail";
 import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesScrollWrapper";
+import { createDocumentHead } from "~/utils/createDocumentHead";
+import { useProfile } from "./layout";
 
-import { CHAPTERS } from "~/constants/chapters";
 import { SubscribeSection } from "~/components/subcribeSection/subscribeSection";
+import { CHAPTERS } from "~/constants/chapters";
 
 export default component$(() => {
   const profile = useProfile();

@@ -400,7 +400,7 @@ export default component$(() => {
 
         <p>
           In the chapter on{" "}
-          <a href="/learn/dashboard-app/setting-up-your-database">
+          <a href="/learn/dashboard-app/setting-up-your-database/">
             setting up your database
           </a>
           , you'll use this data to <em>seed</em> your database (populate it

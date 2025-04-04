@@ -1,13 +1,13 @@
 import type { Signal } from "@builder.io/qwik";
 import { component$, useContext, useSignal, useTask$ } from "@builder.io/qwik";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
-import BtMenuHeaderOfMain from "./btMenuHeaderOfMain/btMenuHeaderOfMain";
-import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
 import { useScrollYPosition } from "~/hooks/useScrollYPosition";
-import ProgressCircle from "./progressCircle/progressCircle";
+import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
 import { ChaptersContext, useProfile } from "~/routes/layout";
-import type { ChapterType } from "../../../types/chapterType";
 import { useGetCurrentChapterIndexInString } from "~/routes/learn/dashboard-app/layout";
+import type { ChapterType } from "../../../types/chapterType";
+import BtMenuHeaderOfMain from "./btMenuHeaderOfMain/btMenuHeaderOfMain";
+import ProgressCircle from "./progressCircle/progressCircle";
 
 export default component$(() => {
   const scrollY = useScrollYPosition();

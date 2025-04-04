@@ -2,8 +2,8 @@
 
 import { Slot, component$, useContext } from "@builder.io/qwik";
 import { Link, useNavigate } from "@builder.io/qwik-city";
-import { usePutCompletedChapters } from "~/routes/learn/dashboard-app/layout";
 import { ChaptersContext } from "~/routes/layout";
+import { usePutCompletedChapters } from "~/routes/learn/dashboard-app/layout";
 import type { CompletedChaptersType } from "../../../types/completedChapters";
 
 interface BtAddChapterProps {
@@ -71,7 +71,7 @@ export default component$<BtAddChapterProps>(
           </button>
         ) : title === "" ? ( // 🌟 Utilisation de Link pour la page d'accueil
           <Link
-            href={`/learn/dashboard-app/${nextUri}`}
+            href={`/learn/dashboard-app/${nextUri}/`}
             aria-label={
               goToChapter ? `Start Chapter ${goToChapter}` : "Start Learning"
             }
@@ -114,7 +114,7 @@ export default component$<BtAddChapterProps>(
               const completedChapter = goToChapter - 1; // ✅ Stocke le chapitre complété
 
               if (completedChapter < 1) {
-                navigate(`/learn/dashboard-app/${nextUri}`);
+                navigate(`/learn/dashboard-app/${nextUri}/`);
                 return;
               }
 
@@ -125,7 +125,7 @@ export default component$<BtAddChapterProps>(
 
               if (result.value.success) {
                 // ✅ Redirige vers le chapitre suivant
-                navigate(`/learn/dashboard-app/${nextUri}`);
+                navigate(`/learn/dashboard-app/${nextUri}/`);
               }
             }}
             aria-label={

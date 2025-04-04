@@ -19,7 +19,7 @@ export default component$<ModalLinkProps>(
     return (
       <Link
         class="group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100"
-        href={`/learn/dashboard-app/${uri}`}
+        href={`/learn/dashboard-app/${uri}/`}
         key={id}
         onClick$={() => {
           showSig.value = false;

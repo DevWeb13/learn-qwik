@@ -1,12 +1,12 @@
 import { component$ } from "@builder.io/qwik";
 
+import BlankLink from "~/components/UI/blankLink/blankLink";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
-import BlankLink from "~/components/UI/blankLink/blankLink";
 
-import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.png?jsx";
 import { Link } from "@builder.io/qwik-city";
+import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.png?jsx";
 
 export default component$(() => {
   return (
@@ -54,7 +54,7 @@ export default component$(() => {
         <p>
           The dashboard will also have an accompanying database, which you'll
           set up in{" "}
-          <Link href="/learn/dashboard-app/setting-up-your-database">
+          <Link href="/learn/dashboard-app/setting-up-your-database/">
             a later chapter
           </Link>
           .

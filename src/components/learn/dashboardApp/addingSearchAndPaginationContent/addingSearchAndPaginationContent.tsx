@@ -551,7 +551,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           <li>
             The URL is updated without reloading the page, thanks to Qwik SPA
             navigation (which you learned about in the chapter on{" "}
-            <a href="/learn/dashboard-app/navigating-between-pages">
+            <a href="/learn/dashboard-app/navigating-between-pages/">
               navigating between pages
             </a>
             ).
