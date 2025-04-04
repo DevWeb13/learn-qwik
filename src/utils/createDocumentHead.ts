@@ -49,12 +49,6 @@ export const createDocumentHead = (
         name: "twitter:image",
         content: imageUrl,
       },
-    ],
-    links: [
-      {
-        rel: "canonical",
-        href: url,
-      },
-    ],    
+    ],   
   };
 };
