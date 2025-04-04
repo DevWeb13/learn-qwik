@@ -9,5 +9,18 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "learn-qwik.com"
+        }
+      ],
+      "destination": "https://www.learn-qwik.com/",
+      "permanent": true
+    }
   ]
 }
