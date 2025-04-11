@@ -248,10 +248,27 @@ export default component$(() => {
     });
   });
 
+  // Desactiver le scroll quand le menu mobile est visible
+  // eslint-disable-next-line qwik/no-use-visible-task
+  useVisibleTask$(({ track }) => {
+    track(() => mobileMenuVisible.value);
+
+    if (mobileMenuVisible.value) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    }
+  });
+
   return (
     <div class={`${location.isNavigating ? "cursor-wait" : ""}`}>
       <div
-        class={`flex min-h-screen flex-col overflow-hidden ${location.isNavigating ? "pointer-events-none" : ""}`}
+        class={`flex min-h-screen flex-col ${location.isNavigating ? "pointer-events-none" : ""}
+`}
         ref={container}
       >
         <Header />

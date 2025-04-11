@@ -529,6 +529,7 @@ html {
     "Segoe UI Symbol",
     "Noto Color Emoji";
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {

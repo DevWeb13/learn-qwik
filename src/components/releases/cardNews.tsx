@@ -1,11 +1,11 @@
 // src/components/blog/cardNews.tsx
 
 import { component$, useStore, useStylesScoped$ } from "@builder.io/qwik";
-import sanitizeHtml from "sanitize-html";
-import { formatDate } from "~/utils/formatDate";
-import type { Release } from "./blogContent";
 import { Link } from "@builder.io/qwik-city";
+import sanitizeHtml from "sanitize-html";
 import { FileSvg } from "~/assets/svg/fileSvg/fileSvg";
+import { formatDate } from "~/utils/formatDate";
+import type { Release } from "./releasesContent";
 
 type CardNewsProps = {
   release: Release;

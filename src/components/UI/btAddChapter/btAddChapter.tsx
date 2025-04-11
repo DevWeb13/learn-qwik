@@ -46,6 +46,8 @@ export default component$<BtAddChapterProps>(
       }`;
     }
 
+    console.log("nextUri", nextUri);
+
     return (
       <div class={`w-full ${goToChapter ? "md:w-fit" : ""}`}>
         {disabled ? (
@@ -71,7 +73,11 @@ export default component$<BtAddChapterProps>(
           </button>
         ) : title === "" ? ( // 🌟 Utilisation de Link pour la page d'accueil
           <Link
-            href={`/learn/dashboard-app/${nextUri}/`}
+            href={
+              nextUri
+                ? `/learn/dashboard-app/${nextUri}/`
+                : "/learn/dashboard-app/"
+            }
             aria-label={
               goToChapter ? `Start Chapter ${goToChapter}` : "Start Learning"
             }

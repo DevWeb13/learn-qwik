@@ -16,6 +16,8 @@ export const useSignUpOrLoginWithMagicLinkAction = routeAction$(
 
     const supabase = createClient(requestEvent);
 
+    console.log("urlorigin", requestEvent.url.origin);
+
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {

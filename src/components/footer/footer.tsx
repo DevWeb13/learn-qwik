@@ -4,13 +4,19 @@ import { component$ } from "@builder.io/qwik";
 // import { useServerTimeLoader } from "~/routes/layout";
 import { Link } from "@builder.io/qwik-city";
 import { ExternalArrowIcon } from "~/components/icons/externalArrowIcon";
+import { useProfile } from "~/routes/layout";
+import { isSubscriptionActive } from "~/utils/subscription";
 import styles from "./footer.module.css";
 
 export default component$(() => {
   // const serverTime = useServerTimeLoader();
+  const profile = useProfile();
+  const isSubscribed = isSubscriptionActive(profile.value);
 
   return (
-    <footer class="flex flex-col items-center p-4 text-sm text-[#666]">
+    <footer
+      class={`flex flex-col items-center p-4 text-sm text-[#666] md:mb-0 ${isSubscribed ? "mb-12" : "mb-40"}`}
+    >
       <div class="mt-4 flex flex-wrap items-center justify-center space-x-2">
         <p>
           Made with ❤️ by{" "}
