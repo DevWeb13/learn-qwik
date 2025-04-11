@@ -1,5 +1,3 @@
-// src/components/blog/articles/qwik2025.tsx
-
 import { component$ } from "@builder.io/qwik";
 import JSComparisonChart from "~/assets/img/js-comparison.webp?jsx";
 import QwikEcoPlanet from "~/assets/img/qwik-eco-planet.webp?jsx";
@@ -75,9 +73,10 @@ export const Qwik2025Article = component$(() => {
             <p>
               Traditional frameworks ship tens or hundreds of kilobytes of
               JavaScript upfront, even for simple pages. Vue loads 53.6 KB on
-              page load. React loads 140 KB. Qwik only loads{" "}
-              <strong>1 KB</strong> of JavaScript initially—its tiny Qwikloader—
-              and defers the rest until user interaction.
+              page load. React loads 140 KB. Qwik initially loads just
+              <strong>1.6 KB (Brotli compressed)</strong> of JavaScript—its
+              small Qwikloader. For any non-trivial interaction, Qwik loads its
+              core, which is about <strong>69 KB raw / 24 KB Brotli</strong>.
             </p>
 
             <figure class="mb-8">
@@ -86,15 +85,24 @@ export const Qwik2025Article = component$(() => {
                 class="mx-auto w-full max-w-2xl rounded-md shadow"
               />
               <figcaption class="mt-2 text-center text-sm text-gray-500">
-                Qwik leads with the smallest initial JS payload: just 1 KB
-                loaded on page load.
+                Qwik starts with the smallest JS payload (1.6 KB), loading more
+                only when needed.
               </figcaption>
             </figure>
 
             <p>
               This approach drastically improves performance metrics like
               Largest Contentful Paint (LCP) and Time to Interactive (TTI),
-              especially on mobile or low-end devices.
+              especially on mobile or low-end devices. You can find more details
+              about the exact sizes and breakdowns of Qwik's loader and core in
+              the official Qwik repository:{" "}
+              <a
+                href="https://github.com/QwikDev/qwik/actions/runs/14367454638/job/40283641680#step:6:42"
+                target="_blank"
+              >
+                Qwik GitHub Actions (details)
+              </a>
+              .
             </p>
 
             <h2>🌱 3. Sustainability: Less Carbon, Less Load</h2>
@@ -138,16 +146,18 @@ export const Qwik2025Article = component$(() => {
             </p>
 
             <h2>📊 5. Use Cases: When to Choose Qwik</h2>
+            <p>Qwik excels in:</p>
             <ul>
               <li>Marketing sites that must load instantly</li>
               <li>eCommerce apps where conversion depends on speed</li>
               <li>Content platforms with SEO needs</li>
               <li>SPAs that need long-term maintainability</li>
             </ul>
-
             <p>
-              Qwik is already used in production by companies looking to
-              future-proof their frontend stack.
+              That said, Qwik is still a wonderful choice for more 'regular'
+              uses, thanks to its seamless SSR, Signals API, and minimal
+              browser-side JS footprint, making it a great fit for most web
+              projects.
             </p>
 
             <h2>📈 Final Comparison (2025)</h2>
@@ -178,7 +188,7 @@ export const Qwik2025Article = component$(() => {
                 <tr>
                   <td class="border px-4 py-2 font-bold text-blue-600">Qwik</td>
                   <td class="border px-4 py-2 font-bold">~100ms</td>
-                  <td class="border px-4 py-2 font-bold">1 KB</td>
+                  <td class="border px-4 py-2 font-bold">1.6 KB (starter)</td>
                   <td class="border px-4 py-2 font-bold">No (Resumable)</td>
                 </tr>
               </tbody>
