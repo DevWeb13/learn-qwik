@@ -1,13 +1,13 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./header.module.css";
 import { Link, useLocation } from "@builder.io/qwik-city";
+import styles from "./header.module.css";
 
-import NavbarMobile from "../navbar-mobile/navbar-mobile";
-import Navbar from "../navbar/navbar";
-import Popover from "../../lib/qwikUI/popover/popover";
-import { useProfile } from "~/routes/layout";
 import { HiUserCircleOutline } from "@qwikest/icons/heroicons";
 import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
+import { useProfile } from "~/routes/layout";
+import Popover from "../../lib/qwikUI/popover/popover";
+import NavbarMobile from "../navbar-mobile/navbar-mobile";
+import Navbar from "../navbar/navbar";
 
 export default component$(() => {
   const loc = useLocation();

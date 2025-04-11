@@ -1,18 +1,18 @@
 // src/components/UI/pagination.tsx
 
 import {
-  HiArrowLeftOutline,
-  HiArrowRightOutline,
-} from "@qwikest/icons/heroicons";
-import { Link, server$, useLocation } from "@builder.io/qwik-city";
-import { generatePagination } from "~/components/UI/pagination/generatePagination";
-import {
   component$,
   Resource,
   useResource$,
   useSignal,
 } from "@builder.io/qwik";
-import type { Release } from "~/components/blog/blogContent";
+import { Link, server$, useLocation } from "@builder.io/qwik-city";
+import {
+  HiArrowLeftOutline,
+  HiArrowRightOutline,
+} from "@qwikest/icons/heroicons";
+import type { Release } from "~/components/releases/releasesContent";
+import { generatePagination } from "~/components/UI/pagination/generatePagination";
 import { getEnvVariable } from "~/utils/getEnvVariable";
 
 /* Server */
