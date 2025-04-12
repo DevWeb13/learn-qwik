@@ -1,3 +1,5 @@
+// src/components/blog/articles/qwik2025.tsx
+
 import { component$ } from "@builder.io/qwik";
 import JSComparisonChart from "~/assets/img/js-comparison.webp?jsx";
 import QwikEcoPlanet from "~/assets/img/qwik-eco-planet.webp?jsx";
@@ -161,38 +163,44 @@ export const Qwik2025Article = component$(() => {
             </p>
 
             <h2>📈 Final Comparison (2025)</h2>
-            <table class="mt-4 w-full table-auto border-collapse text-sm md:text-base">
-              <thead>
-                <tr>
-                  <th class="border px-4 py-2 text-left">Framework</th>
-                  <th class="border px-4 py-2 text-left">
-                    Time to Interactive
-                  </th>
-                  <th class="border px-4 py-2 text-left">Initial JS on Load</th>
-                  <th class="border px-4 py-2 text-left">Hydration</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="border px-4 py-2">React (Vite)</td>
-                  <td class="border px-4 py-2">~1200ms</td>
-                  <td class="border px-4 py-2">140 KB</td>
-                  <td class="border px-4 py-2">Yes</td>
-                </tr>
-                <tr>
-                  <td class="border px-4 py-2">Vue (Vite)</td>
-                  <td class="border px-4 py-2">~950ms</td>
-                  <td class="border px-4 py-2">53.6 KB</td>
-                  <td class="border px-4 py-2">Yes</td>
-                </tr>
-                <tr>
-                  <td class="border px-4 py-2 font-bold text-blue-600">Qwik</td>
-                  <td class="border px-4 py-2 font-bold">~100ms</td>
-                  <td class="border px-4 py-2 font-bold">1.6 KB (starter)</td>
-                  <td class="border px-4 py-2 font-bold">No (Resumable)</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="w-full overflow-auto ">
+              <table class="mt-4 w-full table-auto border-collapse text-sm md:text-base">
+                <thead>
+                  <tr>
+                    <th class="border px-4 py-2 text-left">Framework</th>
+                    <th class="border px-4 py-2 text-left">
+                      Time to Interactive
+                    </th>
+                    <th class="border px-4 py-2 text-left">
+                      Initial JS on Load
+                    </th>
+                    <th class="border px-4 py-2 text-left">Hydration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border px-4 py-2">React (Vite)</td>
+                    <td class="border px-4 py-2">~1200ms</td>
+                    <td class="border px-4 py-2">140 KB</td>
+                    <td class="border px-4 py-2">Yes</td>
+                  </tr>
+                  <tr>
+                    <td class="border px-4 py-2">Vue (Vite)</td>
+                    <td class="border px-4 py-2">~950ms</td>
+                    <td class="border px-4 py-2">53.6 KB</td>
+                    <td class="border px-4 py-2">Yes</td>
+                  </tr>
+                  <tr>
+                    <td class="border px-4 py-2 font-bold text-blue-600">
+                      Qwik
+                    </td>
+                    <td class="border px-4 py-2 font-bold">~100ms</td>
+                    <td class="border px-4 py-2 font-bold">1.6 KB (starter)</td>
+                    <td class="border px-4 py-2 font-bold">No (Resumable)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <h2 class="mt-12">🧠 Conclusion: Qwik is Ready for Prime Time</h2>
             <p>
