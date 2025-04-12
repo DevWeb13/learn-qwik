@@ -107,7 +107,7 @@ export default component$(() => {
 
   return (
     <aside
-      class={`group/1 fixed  bottom-0 flex h-12 w-full md:left-0 md:top-56 md:h-min  md:w-auto md:flex-col `}
+      class={`group/1 fixed bottom-0 z-[9999] flex h-12 w-full md:left-0 md:top-56 md:h-min md:w-auto md:flex-col`}
     >
       <div
         class={`flex w-full  flex-shrink  justify-center  md:flex-col md:transition-all md:duration-300 md:ease-in-out ${buttonHandleShareStore.isOpen ? "md:translate-x-0 " : "md:-translate-x-12 "}`}
