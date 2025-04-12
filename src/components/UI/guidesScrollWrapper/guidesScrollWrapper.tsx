@@ -1,4 +1,4 @@
-import { component$, useSignal, useStylesScoped$, $ } from "@builder.io/qwik";
+import { $, component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
 
 export const GuidesScrollWrapper = component$(() => {
   useStylesScoped$(`
@@ -187,7 +187,7 @@ fieldset {
   });
 
   return (
-    <div class="guides_guidesScrollWrapper__X_Ocn">
+    <div class="guides_guidesScrollWrapper__X_Ocn overflow-x-hidden">
       <div
         ref={containerRef}
         class="stack_stack__iZkUS stack guides_guidesListScrollView__ih_Nc"
