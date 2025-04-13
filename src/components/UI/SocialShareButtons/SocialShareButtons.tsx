@@ -112,7 +112,7 @@ export default component$(() => {
       <div
         class={`flex w-full  flex-shrink  justify-center  md:flex-col md:transition-all md:duration-300 md:ease-in-out ${buttonHandleShareStore.isOpen ? "md:translate-x-0 " : "md:-translate-x-12 "}`}
       >
-        <div class="flex w-full max-w-[80px] flex-shrink flex-col justify-center bg-white md:max-w-[48px]">
+        <div class="flex w-full max-w-[80px] flex-shrink flex-col justify-center rounded-tr-md bg-white md:max-w-[48px]">
           <Resource
             value={getTotalShare}
             onResolved={() => (

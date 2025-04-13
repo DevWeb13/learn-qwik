@@ -3,11 +3,16 @@
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import QwikEcoPlanet from "~/assets/img/qwik-eco-planet.webp?jsx";
+import { useProfile } from "~/routes/layout";
+import { isSubscriptionActive } from "~/utils/subscription";
+import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "../mobileStickyAd/mobileStickyAd";
 
 export const BlogContent = component$(() => {
+  const profile = useProfile();
+  const isSubscribed = isSubscriptionActive(profile.value);
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 overflow-hidden bg-white py-12 md:px-12 md:py-20">
+    <div class="relative flex min-h-screen w-full flex-col items-center gap-8  bg-white py-12 md:px-12 md:py-20">
       <div class="flex flex-col items-center gap-4 px-4 md:gap-8">
         <h1 class="max-w-[80%] text-center text-4xl font-semibold md:max-w-[100%] md:text-6xl">
           All About <span class="text-blue-500">Qwik</span>: Tutorials, News &
@@ -20,7 +25,7 @@ export const BlogContent = component$(() => {
       </div>
 
       {/* ✅ Flex row : barre à gauche + contenu */}
-      <div class="relative flex w-full max-w-screen-lg flex-col gap-4 px-4 md:flex-row">
+      <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
         <div class="flex w-full flex-col gap-4 md:max-w-[calc(100%-300px)]">
           <div class="flex flex-col gap-4 rounded-lg bg-white p-6 shadow-md">
             <div class="relative h-48 w-full overflow-hidden rounded-lg">
@@ -45,21 +50,10 @@ export const BlogContent = component$(() => {
             </Link>
           </div>
         </div>
-        <aside class="hidden h-full w-[300px] md:block">
-          <div class="rounded-lg bg-white p-0 shadow-sm">
-            <div class="overflow-hidden rounded-lg">
-              <ins
-                class="adsbygoogle"
-                style="display:inline-block;width:300px;height:600px"
-                data-ad-client="ca-pub-2091224773462896"
-                data-ad-slot="1127159078"
-              ></ins>
-            </div>
-          </div>
-        </aside>
+        {!isSubscribed && <DesktopStickyAd />}
       </div>
 
-      <MobileStickyAd />
+      {!isSubscribed && <MobileStickyAd />}
     </div>
   );
 });
