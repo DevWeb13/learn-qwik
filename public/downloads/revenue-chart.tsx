@@ -1,9 +1,9 @@
 // @ts-nocheck
 
-import { generateYAxis } from "~/lib/utils";
+import { component$ } from "@builder.io/qwik";
 import { HiCalendarOutline } from "@qwikest/icons/heroicons";
 import type { Revenue } from "~/lib/definitions";
-import { component$ } from "@builder.io/qwik";
+import { generateYAxis } from "~/lib/utils";
 
 // This component is representational only.
 // For data visualization UI, check out:
@@ -18,7 +18,6 @@ export const RevenueChart = component$<RevenueChartProps>(({ revenue }) => {
   const chartHeight = 350;
   const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
-  // if (!revenue || revenue.length === 0) {
   if (revenue.length === 0) {
     return <p class="mt-4 text-gray-400">No data available.</p>;
   }

@@ -14,8 +14,8 @@ export const ChapterVideo = component$(
           {title || "📺 Chapter video"}
         </h2>
         <p class="mb-4">
-          {description && <>{description} </>}
-          This chapter is presented by{" "}
+          {description && `${description} `}
+          This chapter is presented by&nbsp;
           <a
             href="https://www.youtube.com/@RumNCode"
             target="_blank"

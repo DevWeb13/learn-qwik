@@ -1,12 +1,6 @@
 // src/components/UI/SocialShareButtons/SocialShareButtons.tsx
 
-import {
-  component$,
-  Resource,
-  useSignal,
-  useStore,
-  useStyles$,
-} from "@builder.io/qwik";
+import { component$, Resource, useSignal, useStore } from "@builder.io/qwik";
 import { Link, useLocation } from "@builder.io/qwik-city";
 
 import { ButtonHandleShare } from "./ButtonHandleShare";
@@ -86,24 +80,6 @@ export default component$(() => {
         return null;
     }
   };
-
-  // const totalShareResource = useResource$(async ({ cleanup }) => {
-  //   const controller = new AbortController();
-  //   cleanup(() => controller.abort());
-
-  //   try {
-  //     if (totalShareSignal.value === 0) {
-  //       const totalShare = getTotalShare.value;
-  //       totalShareSignal.value = totalShare;
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching total shares:", error);
-  //   }
-
-  //   return totalShareSignal.value;
-  // });
-
-  useStyles$(``);
 
   return (
     <aside

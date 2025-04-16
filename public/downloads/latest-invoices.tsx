@@ -27,7 +27,7 @@ export const LatestInvoices = component$<LatestInvoicesProps>(
                   <div class="flex items-center">
                     <img
                       src={invoice.image_url}
-                      alt={`${invoice.name}'s profile picture`}
+                      alt={invoice.name}
                       class="mr-4 rounded-full"
                       width={32}
                       height={32}
