@@ -9,26 +9,35 @@ export const onGet: RequestHandler = (ev) => {
     .map(([route]) => route as string)
     .filter((route) => route.startsWith("learn/dashboard-app/"));
 
-  const privacyPolicy = "/privacy/";
-  learnRoutes.push(privacyPolicy);
+  const blogRoutes = routes
+    .map(([route]) => route as string)
+    .filter((route) => route.startsWith("blog/"));
 
-  // Définissez le nombre de pages de blog dynamiquement
-  const totalBlogPages = 30; // ou une valeur récupérée dynamiquement
-  const blogPages = Array.from(
-    { length: totalBlogPages },
-    (_, i) => `/blog/?page=${i + 1}`,
+  const staticRoutes = ["/privacy/"];
+
+  const totalReleasesPages = 30;
+  const releasePages = Array.from(
+    { length: totalReleasesPages },
+    (_, i) => `/releases/?page=${i + 1}`,
   );
 
-  // Créez le sitemap avec toutes les routes
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },
     ...learnRoutes.map((route) => ({
       loc: route,
       priority: 0.9,
     })),
-    ...blogPages.map((page) => ({
+    ...blogRoutes.map((route) => ({
+      loc: `/${route}`,
+      priority: 0.8,
+    })),
+    ...staticRoutes.map((route) => ({
+      loc: route,
+      priority: 0.6,
+    })),
+    ...releasePages.map((page) => ({
       loc: page,
-      priority: 0.8, // Priorité plus faible pour les pages de blog si nécessaire
+      priority: 0.7,
     })),
   ]);
 
