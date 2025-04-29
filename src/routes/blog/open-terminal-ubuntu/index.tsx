@@ -11,5 +11,5 @@ export const head: DocumentHead = createDocumentHead(
   "How to Open the Terminal on Ubuntu (2025)",
   "Learn how to open and use the Terminal on Ubuntu. The essential first step to install Node.js and start building your Qwik project.",
   "https://www.learn-qwik.com/metaOpenTerminalUbuntu.png", // 👉 (image SEO dédiée, à créer ou remplacer plus tard)
-  "https://www.learn-qwik.com/terminal-opened.png/",
+  "https://www.learn-qwik.com/blog/open-terminal-ubuntu/",
 );
