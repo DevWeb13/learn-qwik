@@ -1,3 +1,5 @@
+// src/routes/blog/open-terminal-ubuntu/index.tsx
+
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import { OpenTerminalUbuntuArticle } from "~/components/blog/articles/open-terminal-ubuntu";

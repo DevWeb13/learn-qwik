@@ -1,5 +1,9 @@
+// src/components/blog/articles/open-terminal-ubuntu.tsx
+
 import { component$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import ImgOpenApplications from "~/assets/img/open-applications-ubuntu.png?jsx";
+import MetaOpenTerminalUbuntu from "~/assets/img/open-terminal/metaOpenTerminalUbuntu.png?jsx";
 import ImgPinTerminal from "~/assets/img/pin-terminal-ubuntu.png?jsx";
 import ImgSearchTerminal from "~/assets/img/search-terminal-ubuntu.png?jsx";
 import ImgTerminalInDash from "~/assets/img/terminal-in-dash.png?jsx";
@@ -7,6 +11,7 @@ import ImgTerminalOpenedLs from "~/assets/img/terminal-opened-ls.png?jsx";
 import ImgTerminalOpened from "~/assets/img/terminal-opened.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
+import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
@@ -37,12 +42,12 @@ export const OpenTerminalUbuntuArticle = component$(() => {
           <div class="flex flex-col gap-6 rounded-lg bg-white p-6 pt-0 shadow-md">
             <article class="prose prose-lg max-w-none text-gray-800">
               <figure>
-                <ImgTerminalOpened
+                <MetaOpenTerminalUbuntu
                   class="h-full w-full object-contain object-center"
-                  alt="Ubuntu Terminal Opened"
+                  alt="Open the Terminal on Ubuntu"
                 />
                 <figcaption class="mt-2 text-center text-sm text-gray-500">
-                  Starting your Qwik journey from scratch on Ubuntu.
+                  Open the Terminal on Ubuntu
                 </figcaption>
               </figure>
 
@@ -76,8 +81,15 @@ export const OpenTerminalUbuntuArticle = component$(() => {
                   ◇ <strong>Basic Terminal commands</strong> (you are here)
                 </li>
                 <li>
-                  ◇ <strong>Node.js v18.17 or higher</strong> (coming soon)
+                  ◇ <strong>Node.js v18.17 or higher</strong> —{" "}
+                  <Link
+                    href="/blog/install-node-ubuntu/"
+                    class="text-blue-600 underline hover:text-blue-800"
+                  >
+                    Install Node.js and NPM on Ubuntu (next step)
+                  </Link>
                 </li>
+
                 <li>
                   ◇ <strong>Visual Studio Code (or Cursor)</strong> (coming
                   soon)
@@ -221,21 +233,41 @@ export const OpenTerminalUbuntuArticle = component$(() => {
                 ></iframe>
               </div>
 
-              {/* ✅ CTA */}
+              <h3>🎉 Well done!</h3>
               <p>
-                Now that your Terminal is open and working, you're ready to
-                install Node.js — the first tool needed to start developing your
-                Qwik app! 🚀
+                Congratulations ! You’ve successfully opened the{" "}
+                <strong>Terminal on Ubuntu</strong>! This is a huge first step
+                towards becoming a Qwik developer.
+              </p>
+              <p>
+                From now on, the Terminal will be your main tool to install
+                software, run commands, and manage your Qwik projects. By
+                mastering this simple skill, you've unlocked the door to the
+                entire world of modern web development.
+              </p>
+              <p>
+                You’re now ready for the next step, let’s install{" "}
+                <strong>Node.js</strong> and <strong>npm</strong> so you can
+                start creating your first Qwik app!
               </p>
 
+              <ArticleDiscordCallout />
+
+              {/* ✅ CTA */}
+              <h3>🚀 Next step</h3>
               <p>
-                Next step: <strong>Install Node.js on Ubuntu</strong> →{" "}
-                <a
+                Now that your Terminal is open and working, you're ready to
+                install Node.js, the first tool needed to start developing your
+                Qwik app! 🚀
+              </p>
+              <p>
+                Next step 👉{" "}
+                <Link
                   href="/blog/install-nodejs-ubuntu/"
                   class="text-blue-600 underline hover:text-blue-800"
                 >
-                  Go to the next chapter
-                </a>
+                  <strong>Install Node.js and NPM on Ubuntu</strong>
+                </Link>
                 .
               </p>
             </article>

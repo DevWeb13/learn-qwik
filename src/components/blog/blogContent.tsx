@@ -1,8 +1,9 @@
 // src/components/blog/blogContent.tsx
 
 import { component$ } from "@builder.io/qwik";
+import MetaInstallNodeUbuntu from "~/assets/img/install-node/metaInstallNodeUbuntu.png?jsx";
+import MetaOpenTerminalUbuntu from "~/assets/img/open-terminal/metaOpenTerminalUbuntu.png?jsx";
 import QwikEcoPlanet from "~/assets/img/qwik-eco-planet.webp?jsx";
-import ImgTerminalOpened from "~/assets/img/terminal-opened.png?jsx";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
 import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
@@ -29,15 +30,28 @@ export const BlogContent = component$(() => {
       <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
         <div class="flex w-full flex-col gap-4 md:max-w-[calc(100%-300px)]">
           <BlogCard
+            title="Learn Qwik From A to Z (2025) — Install Node.js and NPM on Ubuntu (1/∞)"
+            description="Step-by-step instructions to install Node.js and npm on Ubuntu. Includes commands, explanations, and source links."
+            href="/blog/install-nodejs-ubuntu/"
+            date="April 2025"
+            readTime="3 min read"
+          >
+            <MetaInstallNodeUbuntu
+              class="h-full w-full object-contain object-center"
+              alt="Install Node.js on Ubuntu"
+            />
+          </BlogCard>
+
+          <BlogCard
             title="Learn Qwik From A to Z (2025) — Open the Terminal on Ubuntu (0/∞)"
             description="Learn how to open and use the Ubuntu Terminal – the essential tool for installing and building your first Qwik project."
             href="/blog/open-terminal-ubuntu/"
             date="April 2025"
             readTime="2 min read"
           >
-            <ImgTerminalOpened
+            <MetaOpenTerminalUbuntu
               class="h-full w-full object-contain object-center"
-              alt="Ubuntu Terminal Opened"
+              alt="Open the Terminal on Ubuntu"
             />
           </BlogCard>
 
