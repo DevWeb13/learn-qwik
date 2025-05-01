@@ -67,7 +67,7 @@ export const InstallNodeJsUbuntuArticle = component$(() => {
                 smoothly and safely.
               </p>
               <p>
-                We won't go into every advanced detail, but we'll make sure you
+                We won’t go into every advanced detail, but we’ll make sure you
                 install everything the right way, so you can focus on learning
                 and building real Qwik applications with confidence.
               </p>
@@ -182,7 +182,7 @@ export const InstallNodeJsUbuntuArticle = component$(() => {
                   href="https://github.com/nodesource/distributions"
                   target="_blank"
                 >
-                  NodeSource's GitHub page
+                  NodeSource’s GitHub page
                 </a>
                 . It adds the latest LTS version (v18) to your system:
               </p>
@@ -254,7 +254,7 @@ export const InstallNodeJsUbuntuArticle = component$(() => {
               {/* ✅ Video */}
               <h3>🎥 Watch the Video</h3>
               <p>
-                If you're not sure how to open the Terminal on Ubuntu, don't
+                If you’re not sure how to open the Terminal on Ubuntu, don’t
                 worry, this short video will show you exactly what to do step by
                 step.
               </p>
@@ -272,7 +272,7 @@ export const InstallNodeJsUbuntuArticle = component$(() => {
 
               <h3>🎉 Well done!</h3>
               <p>
-                Congratulations — you've successfully installed{" "}
+                Congratulations — you’ve successfully installed{" "}
                 <strong>Node.js</strong> and <strong>npm</strong> on your Ubuntu
                 system. This means your computer is now fully ready to start
                 creating Qwik projects and running modern JavaScript tools

@@ -83,7 +83,7 @@ export const OpenTerminalUbuntuArticle = component$(() => {
                 <li>
                   ◇ <strong>Node.js v18.17 or higher</strong> —{" "}
                   <Link
-                    href="/blog/install-node-ubuntu/"
+                    href="/blog/install-nodejs-ubuntu/"
                     class="text-blue-600 underline hover:text-blue-800"
                   >
                     Install Node.js and NPM on Ubuntu (next step)
