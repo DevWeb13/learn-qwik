@@ -82,6 +82,15 @@ export const RemoveConsoleLogProdArticle = component$(() => {
                 and opening the browser console on the live production site, I
                 realized something important.
               </p>
+              <figure>
+                <ImgCaptureConsoleProd
+                  alt="Console opened on Learn Qwik production site"
+                  class="mx-auto rounded-md shadow-md"
+                />
+                <figcaption class="mt-2 text-center text-sm text-gray-500">
+                  Console logs shown on the live production site (Learn Qwik).
+                </figcaption>
+              </figure>
               <p>
                 The console was showing private data like the user profile (
                 <code>id</code>, <code>username</code>, <code>avatar_url</code>)
@@ -107,16 +116,6 @@ export const RemoveConsoleLogProdArticle = component$(() => {
                 It makes the site cleaner, faster, and avoids exposing
                 unnecessary data to visitors.
               </p>
-
-              <figure>
-                <ImgCaptureConsoleProd
-                  alt="Console opened on Learn Qwik production site"
-                  class="mx-auto rounded-md shadow-md"
-                />
-                <figcaption class="mt-2 text-center text-sm text-gray-500">
-                  Console logs shown on the live production site (Learn Qwik).
-                </figcaption>
-              </figure>
 
               {/* ✅ How to do it */}
               <h3>📦 How to remove console.log in a Qwik project</h3>
@@ -192,6 +191,15 @@ export default defineConfig({
                 <code>vite.config.ts</code> and deploying the changes, I opened
                 the console again on Learn Qwik.
               </p>
+              <figure>
+                <ImgConsoleClean
+                  alt="Console cleaned in production"
+                  class="mx-auto rounded-md shadow-md"
+                />
+                <figcaption class="mt-2 text-center text-sm text-gray-500">
+                  No more console logs on the live production site (Learn Qwik).
+                </figcaption>
+              </figure>
               <p>
                 This time, the result was exactly what I wanted:{" "}
                 <strong>
@@ -203,16 +211,6 @@ export default defineConfig({
                 This small optimization keeps the site clean, protects user
                 data, and makes the project look more professional.
               </p>
-
-              <figure>
-                <ImgConsoleClean
-                  alt="Console cleaned in production"
-                  class="mx-auto rounded-md shadow-md"
-                />
-                <figcaption class="mt-2 text-center text-sm text-gray-500">
-                  No more console logs on the live production site (Learn Qwik).
-                </figcaption>
-              </figure>
 
               {/* ✅ Conclusion */}
               <h3>🎉 That's it!</h3>
@@ -236,10 +234,10 @@ export default defineConfig({
               <p>
                 👉{" "}
                 <Link
-                  href="/blog/install-nodejs-ubuntu/"
+                  href="/blog/"
                   class="text-blue-600 underline hover:text-blue-800"
                 >
-                  Install Node.js and NPM on Ubuntu
+                  Return to the Learn Qwik Blog
                 </Link>
               </p>
             </article>
