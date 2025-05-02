@@ -4,6 +4,7 @@ import { component$ } from "@builder.io/qwik";
 import MetaInstallNodeUbuntu from "~/assets/img/install-node/metaInstallNodeUbuntu.png?jsx";
 import MetaOpenTerminalUbuntu from "~/assets/img/open-terminal/metaOpenTerminalUbuntu.png?jsx";
 import QwikEcoPlanet from "~/assets/img/qwik-eco-planet.webp?jsx";
+import MetaRemoveConsoleLog from "~/assets/img/remove-console-log/metaRemoveConsoleLog.png?jsx";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
 import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
@@ -29,6 +30,19 @@ export const BlogContent = component$(() => {
       {/* ✅ Flex row : barre à gauche + contenu */}
       <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
         <div class="flex w-full flex-col gap-4 md:max-w-[calc(100%-300px)]">
+          <BlogCard
+            title="Learn Qwik (2025) — Remove console.log in production (Qwik + Vite)"
+            description="Learn how to automatically clean up your production builds by removing console.log using Vite. Works with all Vite-based projects."
+            href="/blog/remove-console-log-prod/"
+            date="May 2025"
+            readTime="2 min read"
+          >
+            <MetaRemoveConsoleLog
+              class="h-full w-full object-contain object-center"
+              alt="Remove console.log in production"
+            />
+          </BlogCard>
+
           <BlogCard
             title="Learn Qwik From A to Z (2025) — Install Node.js and NPM on Ubuntu (1/∞)"
             description="Step-by-step instructions to install Node.js and npm on Ubuntu. Includes commands, explanations, and source links."
