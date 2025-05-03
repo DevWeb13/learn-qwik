@@ -1,3 +1,5 @@
+// src/components/blog/articles/install-nodejs-ubuntu.tsx
+
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import ImgAptUpdate from "~/assets/img/install-node/apt-update.png?jsx";
@@ -12,6 +14,7 @@ import ImgPassword from "~/assets/img/install-node/password.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
+import { BackToBlogButton } from "~/components/UI/backToBlogButton/backToBlogButton";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
@@ -80,10 +83,17 @@ export const InstallNodeJsUbuntuArticle = component$(() => {
               <ul>
                 <li>
                   ✅ <strong>Ubuntu 22.04 LTS</strong> (or another recent
-                  version)
+                  version) 👉{" "}
+                  <a
+                    href="https://ubuntu.com/download/desktop"
+                    target="_blank"
+                    class="text-blue-600 underline hover:text-blue-800"
+                  >
+                    Download Ubuntu
+                  </a>
                 </li>
                 <li>
-                  ✅ <strong>Basic Terminal commands</strong> —{" "}
+                  ✅ <strong>Basic Terminal commands</strong> 👉{" "}
                   <Link
                     href="/blog/open-terminal-ubuntu/"
                     class="text-blue-600 underline hover:text-blue-800"
@@ -95,23 +105,15 @@ export const InstallNodeJsUbuntuArticle = component$(() => {
                   ◇ <strong>Node.js v18.17 or higher</strong> (you are here)
                 </li>
                 <li>
-                  ◇ <strong>Visual Studio Code (or Cursor)</strong> (coming
-                  soon)
+                  ◇ <strong>Visual Studio Code (or Cursor)</strong> 👉{" "}
+                  <Link
+                    href="/blog/install-vscode-ubuntu/"
+                    class="text-blue-600 underline hover:text-blue-800"
+                  >
+                    Install Visual Studio Code on Ubuntu
+                  </Link>
                 </li>
               </ul>
-
-              <p>
-                👉 If you don't have Ubuntu installed yet, you can download it
-                from the official website:{" "}
-                <a
-                  href="https://ubuntu.com/download/desktop"
-                  target="_blank"
-                  class="text-blue-600 underline hover:text-blue-800"
-                >
-                  ubuntu.com/download/desktop
-                </a>
-                .
-              </p>
 
               <h3>📌 Open your Terminal</h3>
               <figure>
@@ -120,8 +122,12 @@ export const InstallNodeJsUbuntuArticle = component$(() => {
                   alt="Open Terminal Ubuntu"
                 />
                 <figcaption class="mt-2 text-center text-sm text-gray-500">
-                  Launch your Terminal from the sidebar. If it's not pinned,
-                  refer to our previous article.
+                  Launch your Terminal from the sidebar or press Ctrl + Alt + T.
+                  If it's not pinned, refer to our{" "}
+                  <Link href="/blog/open-terminal-ubuntu/">
+                    previous article
+                  </Link>
+                  .
                 </figcaption>
               </figure>
 
@@ -294,13 +300,18 @@ export const InstallNodeJsUbuntuArticle = component$(() => {
               </p>
               <p>
                 Next step 👉{" "}
-                <span class="cursor-not-allowed text-gray-400">
-                  Install VS Code on Ubuntu
-                </span>
+                <Link
+                  href="/blog/install-nodejs-ubuntu/"
+                  class="text-blue-600 underline hover:text-blue-800"
+                >
+                  <strong>Install VS Code on Ubuntu</strong>
+                </Link>
+                .
               </p>
             </article>
           </div>
         </div>
+        <BackToBlogButton />
 
         {!isSubscribed && <DesktopStickyAd />}
       </div>

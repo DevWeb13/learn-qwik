@@ -10,6 +10,8 @@ import { isSubscriptionActive } from "~/utils/subscription";
 import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "../mobileStickyAd/mobileStickyAd";
 import { BlogCard } from "./blogCard";
+import MetaInstallVSCodeUbuntu from "~/assets/img/install-vscode/metaInstallVSCodeUbuntu.png?jsx";
+
 
 export const BlogContent = component$(() => {
   const profile = useProfile();
@@ -30,6 +32,19 @@ export const BlogContent = component$(() => {
       {/* ✅ Flex row : barre à gauche + contenu */}
       <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
         <div class="flex w-full flex-col gap-4 md:max-w-[calc(100%-300px)]">
+          <BlogCard
+            title="Learn Qwik From A to Z (2025) — Install Visual Studio Code on Ubuntu (2/∞)"
+            description="Complete step-by-step guide to install Visual Studio Code on Ubuntu using the official repository. Safe and easy method for beginners."
+            href="/blog/install-vscode-ubuntu/"
+            date="May 2025"
+            readTime="3 min read"
+          >
+            <MetaInstallVSCodeUbuntu
+              class="h-full w-full object-contain object-center"
+              alt="Install Visual Studio Code on Ubuntu"
+            />
+          </BlogCard>
+
           <BlogCard
             title="Learn Qwik (2025) — Remove console.log in production (Qwik + Vite)"
             description="Learn how to automatically clean up your production builds by removing console.log using Vite. Works with all Vite-based projects."

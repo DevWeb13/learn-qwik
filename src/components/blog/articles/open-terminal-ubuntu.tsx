@@ -75,13 +75,20 @@ export const OpenTerminalUbuntuArticle = component$(() => {
               <ul>
                 <li>
                   ✅ <strong>Ubuntu 22.04 LTS</strong> (or another recent
-                  version)
+                  version) 👉{" "}
+                  <a
+                    href="https://ubuntu.com/download/desktop"
+                    target="_blank"
+                    class="text-blue-600 underline hover:text-blue-800"
+                  >
+                    Download Ubuntu
+                  </a>
                 </li>
                 <li>
                   ◇ <strong>Basic Terminal commands</strong> (you are here)
                 </li>
                 <li>
-                  ◇ <strong>Node.js v18.17 or higher</strong> —{" "}
+                  ◇ <strong>Node.js v18.17 or higher</strong> 👉{" "}
                   <Link
                     href="/blog/install-nodejs-ubuntu/"
                     class="text-blue-600 underline hover:text-blue-800"
@@ -91,23 +98,15 @@ export const OpenTerminalUbuntuArticle = component$(() => {
                 </li>
 
                 <li>
-                  ◇ <strong>Visual Studio Code (or Cursor)</strong> (coming
-                  soon)
+                  ◇ <strong>Visual Studio Code (or Cursor)</strong> 👉{" "}
+                  <Link
+                    href="/blog/install-vscode-ubuntu/"
+                    class="text-blue-600 underline hover:text-blue-800"
+                  >
+                    Install Visual Studio Code on Ubuntu
+                  </Link>
                 </li>
               </ul>
-
-              <p>
-                👉 If you don't have Ubuntu installed yet, you can download it
-                from the official website:{" "}
-                <a
-                  href="https://ubuntu.com/download/desktop"
-                  target="_blank"
-                  class="text-blue-600 underline hover:text-blue-800"
-                >
-                  ubuntu.com/download/desktop
-                </a>
-                .
-              </p>
 
               {/* ✅ Steps */}
               <h3>📂 Step 0: Open the Terminal on Ubuntu</h3>
