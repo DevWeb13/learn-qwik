@@ -212,6 +212,76 @@ export default defineConfig({
                 data, and makes the project look more professional.
               </p>
 
+              <div class="rounded-lg bg-gray-100 p-4 pt-1">
+                <h3>💡 Bonus: Alternative with a plugin</h3>
+                <p>
+                  If you want even more flexibility, you can use a Vite plugin
+                  to remove <code>console.log</code> and other statements.
+                </p>
+                <p>
+                  One of the most popular options is{" "}
+                  <a
+                    href="https://www.npmjs.com/package/vite-plugin-remove-console"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <code>vite-plugin-remove-console</code>
+                  </a>
+                  .
+                </p>
+                <p>
+                  This method lets you choose exactly which console methods you
+                  want to remove (<code>log</code>, <code>warn</code>,{" "}
+                  <code>error</code>, <code>debug</code>, etc).
+                </p>
+                <h4>How to use</h4>
+                <p>First, install the plugin:</p>
+                <CodeBlock
+                  code={`npm install vite-plugin-remove-console --save-dev`}
+                  language="bash"
+                  icon="terminal"
+                  text="Install plugin"
+                  hideLineNumbers
+                />
+                <p>
+                  Then, update your <code>vite.config.ts</code>:
+                </p>
+                <CodeBlock
+                  code={`import { defineConfig } from "vite";
+import { qwikCity } from "@builder.io/qwik-city/vite";
+import { qwikVite } from "@builder.io/qwik/optimizer";
+import removeConsole from "vite-plugin-remove-console";
+
+export default defineConfig({
+  plugins: [qwikCity(), qwikVite(), removeConsole()],
+});`}
+                  language="typescript"
+                  icon="typescript"
+                  text="vite.config.ts (with plugin)"
+                  hideLineNumbers
+                />
+                <h4>When to use this?</h4>
+                <p>
+                  For Qwik projects, the built-in <code>esbuild.drop</code>{" "}
+                  option is usually enough. However, this plugin can be useful
+                  if:
+                </p>
+                <ul>
+                  <li>
+                    You need advanced control over which <code>console</code>{" "}
+                    methods are removed.
+                  </li>
+                  <li>
+                    You use a custom build process or Vite with a non-esbuild
+                    bundler.
+                  </li>
+                </ul>
+                <p>
+                  For most Qwik projects, you can stick to{" "}
+                  <code>esbuild.drop</code> to keep things simple and fast.
+                </p>
+              </div>
+
               {/* ✅ Conclusion */}
               <h3>🎉 That's it!</h3>
               <p>
