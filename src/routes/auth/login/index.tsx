@@ -61,7 +61,8 @@ export default component$(() => {
         </div>
       </div>
       <h1 class="mb-4  text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">
-        Login to <span class="text-blue-500">Learn Qwik</span>
+        Login to <span class="text-blue-500">Learn Qwik</span> | Access your
+        account
       </h1>
       <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white px-4 py-8 shadow sm:rounded-sm sm:px-10">

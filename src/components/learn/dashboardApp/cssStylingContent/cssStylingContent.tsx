@@ -22,7 +22,10 @@ export default component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle chapterNumber={2} chapterTitle="CSS Styling" />
+        <PageTitle
+          chapterNumber={2}
+          chapterTitle="Style Your Qwik App with CSS and Tailwind"
+        />
         <p style="vertical-align: inherit;">
           Currently, your homepage has the default style of Qwik. In this
           chapter, you will learn how to customize the style of your Qwik

@@ -2,13 +2,13 @@
 
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
-import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
-import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-import { Quiz } from "~/components/UI/quiz/quiz";
-import { LatestInvoicesSoluce } from "./latestInvoicesSoluce";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
+import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { Quiz } from "~/components/UI/quiz/quiz";
+import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
+import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
+import { LatestInvoicesSoluce } from "./latestInvoicesSoluce";
 
 import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
 import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
@@ -24,7 +24,10 @@ export const StreamingContent = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle chapterNumber={9} chapterTitle="Streaming" />
+        <PageTitle
+          chapterNumber={9}
+          chapterTitle="Streaming in Qwik | Optimize Loading and Performance"
+        />
 
         <p>
           In the previous chapter, we discussed how the slow data fetches can

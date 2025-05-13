@@ -16,7 +16,10 @@ export default component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle chapterNumber={1} chapterTitle="Getting Started" />
+        <PageTitle
+          chapterNumber={1}
+          chapterTitle="Getting Started with Qwik | Your First Interactive App"
+        />
 
         <SubtitleWithAnchor
           title="Create an app using the CLI"

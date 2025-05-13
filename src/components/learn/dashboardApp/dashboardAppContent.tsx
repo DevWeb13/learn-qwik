@@ -21,7 +21,7 @@ export default component$(() => {
             data-version="v1"
             style="--text-color: var(--ds-gray-1000); --text-size: 2.5rem; --text-line-height: 3.5rem; --text-letter-spacing: -0.058125rem; --text-weight: 600;"
           >
-            Learn Qwik
+            Learn Qwik | Interactive Dashboard Overview
           </h1>
         </div>
         <p>

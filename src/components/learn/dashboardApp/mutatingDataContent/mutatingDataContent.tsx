@@ -1,16 +1,16 @@
 // src/components/learn/dashboardApp/mutatingDataContent/mutatingDataContent.tsx
 
 import { component$ } from "@builder.io/qwik";
+import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-import BlankLink from "~/components/UI/blankLink/blankLink";
 
 import AddCreateInvoiceRoute from "~/assets/img/addCreateInvoiceRoute.png?jsx";
-import CreateInvoicesPage from "~/assets/img/createInvoicesPage.png?jsx";
 import AddEditInvoiceRoute from "~/assets/img/addEditInvoiceRoute.png?jsx";
+import CreateInvoicesPage from "~/assets/img/createInvoicesPage.png?jsx";
 import EditInvoicePage from "~/assets/img/editInvoicePage.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
@@ -20,7 +20,10 @@ export const MutatingDataContent = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle chapterNumber={11} chapterTitle="Mutating Data" />
+        <PageTitle
+          chapterNumber={11}
+          chapterTitle="Mutating Data in Qwik | Create, Update, and Delete"
+        />
         <p>
           In the previous chapter, you implemented search and pagination using
           URL Search Params and Qwik-city APIs. Let's continue working on the

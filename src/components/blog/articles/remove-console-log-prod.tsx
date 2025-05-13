@@ -21,10 +21,10 @@ export const RemoveConsoleLogProdArticle = component$(() => {
       {/* ✅ Main Title */}
       <div class="flex flex-col items-center gap-2 px-4 md:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold md:max-w-[100%] md:text-5xl">
-          Learn Qwik (2025)
+          Remove console.log in production (Qwik + Vite)
         </h1>
         <h2 class="max-w-[80%] text-center text-2xl font-semibold text-gray-800 md:max-w-[100%] md:text-4xl">
-          Remove console.log in production (Qwik + Vite)
+          Learn Qwik (2025)
         </h2>
         <p class="mt-2 max-w-xl text-center text-gray-700">
           Let's clean up your production builds! Learn how to automatically

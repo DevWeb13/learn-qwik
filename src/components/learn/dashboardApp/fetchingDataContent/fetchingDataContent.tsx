@@ -1,14 +1,14 @@
 // src/components/learn/dashboardApp/fetchingDataContent/fetchingDataContent.tsx
 
 import { component$, useSignal, useStyles$ } from "@builder.io/qwik";
+import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
+import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
-import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 import { FetchDataCardsSoluce } from "./fetchDataCardsSoluce";
 
 import DashboardPageWithAllTheDataFetched from "~/assets/img/dashboard-page-with-all-the-data-fetched.png?jsx";
@@ -17,8 +17,8 @@ import CompletedChapter from "~/components/UI/completedChapter/completedChapter"
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
-import RevenueChart from "~/assets/img/revenueChart.png?jsx";
 import LatestInvoices from "~/assets/img/latestInvoices.png?jsx";
+import RevenueChart from "~/assets/img/revenueChart.png?jsx";
 
 export const FetchingDataContent = component$(() => {
   const fetchDataCardsSoluceDisplay = useSignal(false);
@@ -26,7 +26,10 @@ export const FetchingDataContent = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle chapterNumber={7} chapterTitle="Fetching Data" />
+        <PageTitle
+          chapterNumber={7}
+          chapterTitle="Fetching Data from the Database"
+        />
         <p>
           Now that you've created and seeded your database, let's discuss the
           different ways you can fetch data for your application, and build out
