@@ -82,8 +82,33 @@ export const CardNews = component$<CardNewsProps>(({ release, index }) => {
       margin-bottom: 0.5rem;
     }
 
+   .container-body > :global(.section-title) {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+
 
     `);
+
+  const sanitizedHtml = sanitizeHtml(release.body, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.filter(
+      (tag) => !tag.startsWith("h"),
+    ),
+    allowedAttributes: {
+      a: ["href", "target", "rel"],
+      img: ["src", "alt"],
+    },
+    transformTags: {
+      h1: () => ({ tagName: "p", attribs: { class: "section-title" } }),
+      h2: () => ({ tagName: "p", attribs: { class: "section-title" } }),
+      h3: () => ({ tagName: "p", attribs: { class: "section-title" } }),
+      h4: () => ({ tagName: "p", attribs: { class: "section-title" } }),
+      h5: () => ({ tagName: "p", attribs: { class: "section-title" } }),
+      h6: () => ({ tagName: "p", attribs: { class: "section-title" } }),
+    },
+  });
 
   return (
     <article class="mb-4 flex flex-col overflow-hidden rounded-lg border border-gray-300 p-4 shadow-md">
@@ -100,12 +125,12 @@ export const CardNews = component$<CardNewsProps>(({ release, index }) => {
       </Link>
       <div>
         <div
-          class="container-body  mt-2 flex flex-col gap-2 text-gray-700"
-          dangerouslySetInnerHTML={sanitizeHtml(release.body)}
+          class="container-body mt-2 flex flex-col gap-2 text-gray-700"
+          dangerouslySetInnerHTML={sanitizedHtml}
         />
       </div>
       <div class="my-2 flex flex-col gap-2 border-t">
-        <h2 class="mt-4 font-bold text-gray-700">Assets:</h2>
+        <p class="mt-4 font-bold text-gray-700">Assets:</p>
         <ul class="flex flex-col gap-1 text-base">
           <li>
             <Link
@@ -130,7 +155,7 @@ export const CardNews = component$<CardNewsProps>(({ release, index }) => {
       <div class="my-2 flex flex-grow flex-col gap-2 border-t">
         {release.contributors.length > 0 && (
           <>
-            <h2 class="mt-4 font-bold text-gray-700">Contributors:</h2>
+            <p class="mt-4 font-bold text-gray-700">Contributors:</p>
             <ul class="flex flex-wrap gap-2">
               {release.contributors.map((contributor) => (
                 <li key={contributor.login} title={contributor.login}>
