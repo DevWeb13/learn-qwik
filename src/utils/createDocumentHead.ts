@@ -1,3 +1,5 @@
+// src/utils/createDocumentHead.ts
+
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 export const createDocumentHead = (

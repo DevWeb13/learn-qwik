@@ -55,6 +55,10 @@ export const Pagination = component$(() => {
   });
 
   const createPageURL = (pageNumber: number | string) => {
+    if (Number(pageNumber) === 1) {
+      return "/releases/";
+    }
+
     const params = new URLSearchParams(loc.url.searchParams);
     params.set("page", pageNumber.toString());
     return `${loc.url.pathname}?${params.toString()}`;
