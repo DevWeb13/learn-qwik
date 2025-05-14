@@ -114,7 +114,7 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
               <div class="py-2">
                 <Link
                   class="group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100"
-                  href="/learn/dashboard-app"
+                  href="/learn/dashboard-app/"
                   onClick$={() => {
                     showSig.value = false;
                   }}
