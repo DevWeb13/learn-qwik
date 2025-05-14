@@ -16,9 +16,8 @@ export const onGet: RequestHandler = (ev) => {
   const staticRoutes = ["/privacy/"];
 
   const totalReleasesPages = 30;
-  const releasePages = Array.from(
-    { length: totalReleasesPages },
-    (_, i) => `/releases/?page=${i + 1}`,
+  const releasePages = Array.from({ length: totalReleasesPages }, (_, i) =>
+    i === 0 ? "/releases/" : `/releases/?page=${i + 1}`,
   );
 
   const sitemap = createSitemap([
