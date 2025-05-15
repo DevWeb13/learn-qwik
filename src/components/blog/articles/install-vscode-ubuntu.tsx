@@ -25,10 +25,10 @@ export const InstallVSCodeUbuntuArticle = component$(() => {
     <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
       <div class="flex flex-col items-center gap-2 px-4 md:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold md:max-w-[100%] md:text-5xl">
-          Learn Qwik from A to Z (2025)
+          Install Visual Studio Code on Ubuntu (2/∞)
         </h1>
         <h2 class="max-w-[80%] text-center text-2xl font-semibold text-gray-800 md:max-w-[100%] md:text-4xl">
-          Install Visual Studio Code on Ubuntu (2/∞)
+          Learn Qwik from A to Z (2025)
         </h2>
         <p class="mt-2 max-w-xl text-center text-gray-700">
           This guide will help you install Visual Studio Code easily and safely
@@ -49,8 +49,8 @@ export const InstallVSCodeUbuntuArticle = component$(() => {
                   Install Visual Studio Code on Ubuntu
                 </figcaption>
               </figure>
-              <h3>🚀 Why install Visual Studio Code?</h3>
 
+              <h3>🚀 Why install Visual Studio Code?</h3>
               <p>
                 Visual Studio Code is one of the most popular code editors. It's
                 fast, extensible and offers great support for JavaScript and
@@ -337,9 +337,12 @@ sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/`
               </p>
               <p>
                 Next step 👉{" "}
-                <span class="cursor-not-allowed text-gray-400">
-                  Create your first Qwik app
-                </span>
+                <Link
+                  href="/blog/create-qwik-app-cli/"
+                  class="text-blue-600 underline hover:text-blue-800"
+                >
+                  <strong>Create your first Qwik app</strong>
+                </Link>
               </p>
             </article>
           </div>

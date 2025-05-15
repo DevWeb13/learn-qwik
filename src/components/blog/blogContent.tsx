@@ -1,7 +1,9 @@
 // src/components/blog/blogContent.tsx
 
 import { component$ } from "@builder.io/qwik";
+import MetaCreateQwikAppCli from "~/assets/img/create-qwik-app-cli/metaCreateQwikAppCli.png?jsx";
 import MetaInstallNodeUbuntu from "~/assets/img/install-node/metaInstallNodeUbuntu.png?jsx";
+import MetaInstallVSCodeUbuntu from "~/assets/img/install-vscode/metaInstallVSCodeUbuntu.png?jsx";
 import MetaOpenTerminalUbuntu from "~/assets/img/open-terminal/metaOpenTerminalUbuntu.png?jsx";
 import QwikEcoPlanet from "~/assets/img/qwik-eco-planet.webp?jsx";
 import MetaRemoveConsoleLog from "~/assets/img/remove-console-log/metaRemoveConsoleLog.png?jsx";
@@ -10,8 +12,6 @@ import { isSubscriptionActive } from "~/utils/subscription";
 import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "../mobileStickyAd/mobileStickyAd";
 import { BlogCard } from "./blogCard";
-import MetaInstallVSCodeUbuntu from "~/assets/img/install-vscode/metaInstallVSCodeUbuntu.png?jsx";
-
 
 export const BlogContent = component$(() => {
   const profile = useProfile();
@@ -32,6 +32,19 @@ export const BlogContent = component$(() => {
       {/* ✅ Flex row : barre à gauche + contenu */}
       <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
         <div class="flex w-full flex-col gap-4 md:max-w-[calc(100%-300px)]">
+          <BlogCard
+            title="Learn Qwik From A to Z (2025) — Create a Qwik App with the CLI (3/∞)"
+            description="Beginner-friendly guide to create a new Qwik app using the official CLI. Step-by-step instructions using only the terminal."
+            href="/blog/create-qwik-app-cli/"
+            date="May 2025"
+            readTime="3 min read"
+          >
+            <MetaCreateQwikAppCli
+              class="h-full w-full object-contain object-center"
+              alt="Create a Qwik App with the CLI"
+            />
+          </BlogCard>
+
           <BlogCard
             title="Learn Qwik From A to Z (2025) — Install Visual Studio Code on Ubuntu (2/∞)"
             description="Complete step-by-step guide to install Visual Studio Code on Ubuntu using the official repository. Safe and easy method for beginners."

@@ -25,10 +25,10 @@ export const OpenTerminalUbuntuArticle = component$(() => {
       {/* ✅ Main Title */}
       <div class="flex flex-col items-center gap-2 px-4 md:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold md:max-w-[100%] md:text-5xl">
-          Learn Qwik from A to Z (2025)
+          Open the Terminal on Ubuntu (0/∞)
         </h1>
         <h2 class="max-w-[80%] text-center text-2xl font-semibold text-gray-800 md:max-w-[100%] md:text-4xl">
-          Open the Terminal on Ubuntu (0/∞)
+          Learn Qwik from A to Z (2025)
         </h2>
         <p class="mt-2 max-w-xl text-center text-gray-700">
           Learn how to open and use the Terminal on Ubuntu. The essential first
