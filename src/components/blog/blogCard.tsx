@@ -13,18 +13,20 @@ interface BlogCardProps {
 export const BlogCard = component$<BlogCardProps>(
   ({ title, description, href, date, readTime }) => {
     return (
-      <div class="flex flex-col gap-4 rounded-lg bg-white p-6 shadow-md">
-        <div class="relative h-48 w-full overflow-hidden rounded-lg">
+      <div class="flex h-auto  flex-col gap-4 rounded-lg bg-white shadow-md">
+        <div class="relative  w-full overflow-hidden rounded-t-lg">
           <Slot />
         </div>
-        <h2 class="text-2xl font-bold text-gray-900">{title}</h2>
-        <p class="text-sm text-gray-500">
-          {date} • {readTime}
-        </p>
-        <p class="text-gray-800">{description}</p>
-        <Link href={href} class="font-medium text-blue-600 hover:underline">
-          Read the full article →
-        </Link>
+        <div class="flex flex-col gap-4 px-4 py-2">
+          <h3 class="text-2xl font-bold text-gray-900">{title}</h3>
+          <p class="text-sm text-gray-500">
+            {date} • {readTime}
+          </p>
+          <p class="text-gray-800">{description}</p>
+          <Link href={href} class="font-medium text-blue-600 hover:underline">
+            Read the full article →
+          </Link>
+        </div>
       </div>
     );
   },

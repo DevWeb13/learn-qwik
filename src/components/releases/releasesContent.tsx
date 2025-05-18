@@ -5,7 +5,7 @@ import {
   Resource,
   useResource$,
   useSignal,
-  useStyles$,
+  useStylesScoped$,
   useVisibleTask$,
 } from "@builder.io/qwik";
 import { server$, useLocation } from "@builder.io/qwik-city";
@@ -179,8 +179,8 @@ const extractContributorsFromBody = (body: string): string[] => {
 
 /* Component */
 export const ReleasesContent = component$(() => {
-  useStyles$(`
-    .blog_posts__nCN7i {
+  useStylesScoped$(`
+    .blog_posts {
       margin-top: 48px;
       gap: 16px;
       display: grid;
@@ -232,7 +232,7 @@ export const ReleasesContent = component$(() => {
             The latest news releases from the Qwik team
           </h1>
 
-          <div class="blog_posts__nCN7i">
+          <div class="blog_posts">
             <Resource
               value={releasesResource}
               onResolved={(releases) => {

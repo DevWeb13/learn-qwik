@@ -13,6 +13,7 @@ import ImgVSCodeOpened from "~/assets/img/install-vscode/vscode-opened.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
+import { BackToBlogButton } from "~/components/UI/backToBlogButton/backToBlogButton";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
@@ -347,6 +348,7 @@ sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/`
             </article>
           </div>
         </div>
+        <BackToBlogButton />
 
         {!isSubscribed && <DesktopStickyAd />}
       </div>

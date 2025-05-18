@@ -17,6 +17,7 @@ import ImgResolveGitError from "~/assets/img/create-qwik-app-cli/resolve-git-err
 import ImgSelectStarter from "~/assets/img/create-qwik-app-cli/select-starter.png?jsx";
 import ImgWannaHearAJoke from "~/assets/img/create-qwik-app-cli/wanna-hear-a-joke.png?jsx";
 import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
+import { BackToBlogButton } from "~/components/UI/backToBlogButton/backToBlogButton";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
@@ -509,6 +510,7 @@ export const CreateQwikAppCliArticle = component$(() => {
             </article>
           </div>
         </div>
+        <BackToBlogButton />
 
         {!isSubscribed && <DesktopStickyAd />}
       </div>

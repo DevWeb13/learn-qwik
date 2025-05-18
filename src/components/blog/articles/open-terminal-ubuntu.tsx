@@ -12,6 +12,7 @@ import ImgTerminalOpened from "~/assets/img/terminal-opened.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
+import { BackToBlogButton } from "~/components/UI/backToBlogButton/backToBlogButton";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
@@ -272,6 +273,7 @@ export const OpenTerminalUbuntuArticle = component$(() => {
             </article>
           </div>
         </div>
+        <BackToBlogButton />
 
         {/* ✅ Right ad */}
         {!isSubscribed && <DesktopStickyAd />}

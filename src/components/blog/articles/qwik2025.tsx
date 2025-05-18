@@ -2,9 +2,10 @@
 
 import { component$ } from "@builder.io/qwik";
 import JSComparisonChart from "~/assets/img/js-comparison.webp?jsx";
-import QwikEcoPlanet from "~/assets/img/qwik-eco-planet.webp?jsx";
+import MetaQwik2025 from "~/assets/img/metaQwik2025.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
+import { BackToBlogButton } from "~/components/UI/backToBlogButton/backToBlogButton";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
 
@@ -31,7 +32,7 @@ export const Qwik2025Article = component$(() => {
           <div class="flex flex-col gap-4 rounded-lg bg-white p-6 pt-0 shadow-md">
             <article class="prose prose-lg max-w-none text-gray-800">
               <figure>
-                <QwikEcoPlanet
+                <MetaQwik2025
                   alt="Qwik sustainable future"
                   class="mx-auto w-full max-w-3xl rounded-md shadow-md"
                 />
@@ -232,6 +233,7 @@ export const Qwik2025Article = component$(() => {
             </article>
           </div>
         </div>
+        <BackToBlogButton />
 
         {/* ✅ Pub à droite */}
         {!isSubscribed && <DesktopStickyAd />}
