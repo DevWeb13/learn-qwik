@@ -1,5 +1,4 @@
 import { component$, useContext } from "@builder.io/qwik";
-import Popover from "../../lib/qwikUI/popover/popover";
 import { NavLink } from "../navLink/navLink";
 import styles from "./mobile-menu.module.css";
 
@@ -122,32 +121,19 @@ export default component$(() => {
               </span>
             </NavLink>
           </li>
-          <li>
-            <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/6?">
-              {/* <Link
-              class="mute"
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://vercel.com/templates/next.js?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=nextjs-templates"
+          {/* <li>
+            <NavLink
+              class={`${styles.mute} relative inline-flex items-center`}
+              activeClass="text-black"
+              href="/games/"
+              onClick$={() => (mobileMenuVisible.value = false)}
             >
-              Templates
-            </Link> */}
-              <p class={styles.mute}>Templates</p>
-            </Popover>
-          </li>
-          <li>
-            <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/7">
-              {/* <Link
-              class="mute"
-              href="https://vercel.com/contact/sales?utm_source=next-site&amp;utm_medium=navbar&amp;utm_campaign=learn"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Enterprise
-            </Link> */}
-              <p class={styles.mute}>Enterprise</p>
-            </Popover>
-          </li>
+              Games
+              <span class=" ml-2 flex animate-bounce items-center rounded-full bg-red-500 px-2 py-0.5 text-[10px]  font-bold uppercase text-white">
+                New
+              </span>
+            </NavLink>
+          </li> */}
 
           <li>
             <Link

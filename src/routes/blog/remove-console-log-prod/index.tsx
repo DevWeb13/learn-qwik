@@ -10,7 +10,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead(
-  "Learn Qwik (2025) — Remove console.log in production (Qwik + Vite)",
+  "(2025) | Remove console.log in production (Qwik + Vite)",
   "Learn how to automatically clean up your production builds by removing console.log using Vite. This works with all Vite-based projects, not only Qwik.",
   "https://www.learn-qwik.com/metaRemoveConsoleLog.png",
   "https://www.learn-qwik.com/blog/remove-console-log-prod/",

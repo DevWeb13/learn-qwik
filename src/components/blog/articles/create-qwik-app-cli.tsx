@@ -17,7 +17,7 @@ import ImgResolveGitError from "~/assets/img/create-qwik-app-cli/resolve-git-err
 import ImgSelectStarter from "~/assets/img/create-qwik-app-cli/select-starter.png?jsx";
 import ImgWannaHearAJoke from "~/assets/img/create-qwik-app-cli/wanna-hear-a-joke.png?jsx";
 import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
-import { BackToBlogButton } from "~/components/UI/backToBlogButton/backToBlogButton";
+import { BackButton } from "~/components/UI/backButton/backButton";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
@@ -29,8 +29,8 @@ export const CreateQwikAppCliArticle = component$(() => {
   const isSubscribed = isSubscriptionActive(profile.value);
 
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
-      <div class="flex flex-col items-center gap-2 px-4 md:gap-4">
+    <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+      <header class="flex flex-col items-center gap-2 px-4 md:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold md:max-w-[100%] md:text-5xl">
           Create a Qwik App with the CLI (3/∞)
         </h1>
@@ -41,7 +41,7 @@ export const CreateQwikAppCliArticle = component$(() => {
           Learn how to create a brand new Qwik app using only the terminal,
           step-by-step, even if you're just getting started.
         </p>
-      </div>
+      </header>
 
       <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
         <div class="flex w-full flex-col gap-4 md:max-w-[calc(100%-300px)]">
@@ -510,12 +510,12 @@ export const CreateQwikAppCliArticle = component$(() => {
             </article>
           </div>
         </div>
-        <BackToBlogButton />
+        <BackButton />
 
         {!isSubscribed && <DesktopStickyAd />}
       </div>
 
       {!isSubscribed && <MobileStickyAd />}
-    </div>
+    </main>
   );
 });

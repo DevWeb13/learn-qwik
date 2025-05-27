@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
-import Popover from "../../lib/qwikUI/popover/popover";
 import { ExternalArrowIcon } from "../icons/externalArrowIcon";
 import { NavLink } from "../navLink/navLink";
 import styles from "./navbar.module.css";
@@ -131,12 +130,18 @@ export default component$(() => {
         </span>
       </NavLink>
 
-      <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/7">
-        {/* <a class={styles.link} href="/enterprise">
-        Enterprise
-      </a> */}
-        <p class={styles.replaceLink}>Enterprise</p>
-      </Popover>
+      {/* <NavLink
+        class={`${styles.link} relative inline-flex items-center`}
+        activeClass={
+          styles.link + " " + "!text-black relative inline-flex items-center"
+        }
+        href="/games/"
+      >
+        Games
+        <span class="ml-2 animate-bounce rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+          New
+        </span>
+      </NavLink> */}
     </div>
   );
 });

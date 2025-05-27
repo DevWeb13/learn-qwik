@@ -13,7 +13,7 @@ import ImgVSCodeOpened from "~/assets/img/install-vscode/vscode-opened.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
-import { BackToBlogButton } from "~/components/UI/backToBlogButton/backToBlogButton";
+import { BackButton } from "~/components/UI/backButton/backButton";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
@@ -23,8 +23,8 @@ export const InstallVSCodeUbuntuArticle = component$(() => {
   const isSubscribed = isSubscriptionActive(profile.value);
 
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
-      <div class="flex flex-col items-center gap-2 px-4 md:gap-4">
+    <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+      <header class="flex flex-col items-center gap-2 px-4 md:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold md:max-w-[100%] md:text-5xl">
           Install Visual Studio Code on Ubuntu (2/∞)
         </h1>
@@ -35,7 +35,7 @@ export const InstallVSCodeUbuntuArticle = component$(() => {
           This guide will help you install Visual Studio Code easily and safely
           on Ubuntu using official sources.
         </p>
-      </div>
+      </header>
 
       <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
         <div class="flex w-full flex-col gap-4 md:max-w-[calc(100%-300px)]">
@@ -348,12 +348,12 @@ sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/`
             </article>
           </div>
         </div>
-        <BackToBlogButton />
+        <BackButton />
 
         {!isSubscribed && <DesktopStickyAd />}
       </div>
 
       {!isSubscribed && <MobileStickyAd />}
-    </div>
+    </main>
   );
 });

@@ -8,7 +8,7 @@ import MetaRemoveConsoleLog from "~/assets/img/remove-console-log/metaRemoveCons
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
-import { BackToBlogButton } from "~/components/UI/backToBlogButton/backToBlogButton";
+import { BackButton } from "~/components/UI/backButton/backButton";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
@@ -18,9 +18,9 @@ export const RemoveConsoleLogProdArticle = component$(() => {
   const isSubscribed = isSubscriptionActive(profile.value);
 
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+    <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
       {/* ✅ Main Title */}
-      <div class="flex flex-col items-center gap-2 px-4 md:gap-4">
+      <header class="flex flex-col items-center gap-2 px-4 md:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold md:max-w-[100%] md:text-5xl">
           Remove console.log in production (Qwik + Vite)
         </h1>
@@ -31,7 +31,7 @@ export const RemoveConsoleLogProdArticle = component$(() => {
           Let's clean up your production builds! Learn how to automatically
           remove console logs with Vite, including Qwik projects.
         </p>
-      </div>
+      </header>
 
       {/* ✅ Article + ad */}
       <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
@@ -314,12 +314,12 @@ export default defineConfig({
             </article>
           </div>
         </div>
-        <BackToBlogButton />
+        <BackButton />
 
         {!isSubscribed && <DesktopStickyAd />}
       </div>
 
       {!isSubscribed && <MobileStickyAd />}
-    </div>
+    </main>
   );
 });

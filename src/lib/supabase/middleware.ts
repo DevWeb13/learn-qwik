@@ -76,7 +76,9 @@ export async function updateSession(requestEvent: RequestEvent) {
         !requestEvent.url.pathname.startsWith("/auth/login") && // ✅ Évite la boucle infinie
         (requestEvent.url.pathname.startsWith("/learn") ||
          requestEvent.url.pathname.startsWith("/auth/logout") ||
-         requestEvent.url.pathname.startsWith("/account"))) {
+         requestEvent.url.pathname.startsWith("/account") ||
+         requestEvent.url.pathname.startsWith("/games/game/path")
+        )) {
         console.log("Redirecting to /auth/login");
         throw requestEvent.redirect(302, "/auth/login/");
     }

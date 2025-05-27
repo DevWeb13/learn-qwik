@@ -10,7 +10,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead(
-  "Learn Qwik From A to Z (2025) — Install Node.js and NPM on Ubuntu (1/∞)",
+  "From A to Z (2025) | Install Node.js and NPM on Ubuntu (1/∞)",
   "Step-by-step instructions to install Node.js and npm on Ubuntu. Includes commands, explanations, and source links.",
   "https://www.learn-qwik.com/metaInstallNodeUbuntu.png", // 👉 image SEO à ajouter
   "https://www.learn-qwik.com/blog/install-nodejs-ubuntu/",

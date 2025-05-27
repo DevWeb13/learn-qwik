@@ -5,7 +5,7 @@ import JSComparisonChart from "~/assets/img/js-comparison.webp?jsx";
 import MetaQwik2025 from "~/assets/img/metaQwik2025.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
-import { BackToBlogButton } from "~/components/UI/backToBlogButton/backToBlogButton";
+import { BackButton } from "~/components/UI/backButton/backButton";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
 
@@ -13,9 +13,9 @@ export const Qwik2025Article = component$(() => {
   const profile = useProfile();
   const isSubscribed = isSubscriptionActive(profile.value);
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8  bg-white py-12 md:px-12 md:py-20">
+    <main class="relative flex min-h-screen w-full flex-col items-center gap-8  bg-white py-12 md:px-12 md:py-20">
       {/* ✅ Titre principal pleine largeur */}
-      <div class="flex flex-col items-center gap-4 px-4 md:gap-8">
+      <header class="flex flex-col items-center gap-4 px-4 md:gap-8">
         <h1 class="max-w-[80%] text-center text-4xl font-semibold md:max-w-[100%] md:text-6xl">
           Qwik in 2025: Why It's the Future of Web Development
         </h1>
@@ -23,7 +23,7 @@ export const Qwik2025Article = component$(() => {
           Discover why Qwik is reshaping the future of web development. Faster,
           cleaner, and more sustainable.
         </p>
-      </div>
+      </header>
 
       {/* ✅ Bloc article + pub */}
       <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
@@ -233,13 +233,13 @@ export const Qwik2025Article = component$(() => {
             </article>
           </div>
         </div>
-        <BackToBlogButton />
+        <BackButton />
 
         {/* ✅ Pub à droite */}
         {!isSubscribed && <DesktopStickyAd />}
       </div>
 
       {!isSubscribed && <MobileStickyAd />}
-    </div>
+    </main>
   );
 });

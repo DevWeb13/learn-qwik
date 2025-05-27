@@ -19,15 +19,14 @@ export const BlogContent = component$(() => {
 
   useStylesScoped$(`
     .blog_posts {
-      
       gap: 16px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     }
   `);
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8  bg-white py-12 md:px-12 md:py-20">
-      <div class="flex flex-col items-center gap-4 px-4 md:gap-8">
+    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+      <header class="flex flex-col items-center gap-4 px-4 md:gap-8">
         <h1 class="max-w-[80%] text-center text-4xl font-semibold md:max-w-[100%] md:text-6xl">
           All About <span class="text-blue-500">Qwik</span>: Tutorials, News &
           Best Practices
@@ -36,11 +35,11 @@ export const BlogContent = component$(() => {
           Discover why Qwik is reshaping the future of web development. Faster,
           cleaner, and more sustainable.
         </p>
-      </div>
+      </header>
 
       {/* ✅ Flex row : barre à gauche + contenu */}
-      <div class=" relative flex w-full max-w-screen-2xl flex-col justify-center gap-4 px-4 md:flex-row">
-        <div class="flex w-full flex-col gap-8 md:max-w-[calc(100%-300px)]">
+      <main class="relative flex w-full max-w-screen-2xl flex-col justify-center gap-4 px-4 md:flex-row">
+        <section class="flex w-full flex-col gap-8 md:max-w-[calc(100%-300px)]">
           <h2 class="text-2xl font-bold text-gray-900">
             <span class="text-blue-500">Learn Qwik</span> From A to Z (2025)
           </h2>
@@ -128,9 +127,10 @@ export const BlogContent = component$(() => {
               />
             </BlogCard>
           </div>
-        </div>
+        </section>
+
         {!isSubscribed && <DesktopStickyAd />}
-      </div>
+      </main>
 
       {!isSubscribed && <MobileStickyAd />}
     </div>
