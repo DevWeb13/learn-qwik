@@ -62,7 +62,7 @@ export function isSubscriptionActive(profile: Profile | null): boolean {
 
   // L'utilisateur a annulé mais est encore dans sa période de grâce
   if (
-    access_status === "canceled" &&
+    access_status === "deleted_pending" &&
     grace_period_end &&
     new Date(grace_period_end) > new Date()
   ) {

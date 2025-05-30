@@ -137,7 +137,7 @@ export const SubscribeSection = component$<SubscribeSectionProps>(
           {/* Profile connected with canceled but still active subscription */}
           {profile.value &&
             isSubscribed &&
-            profile.value.access_status === "canceled" && (
+            profile.value.access_status === "deleted_pending" && (
               <>
                 <h2 class="text-xl font-semibold text-red-600">
                   Subscription Canceled
