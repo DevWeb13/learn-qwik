@@ -7,6 +7,8 @@ import {
   routeAction$,
   routeLoader$,
   useLocation,
+  z,
+  zod$,
 } from "@builder.io/qwik-city";
 import { QwikPathLevel } from "~/components/games/game/qwikpath/qwikPathLevel";
 import { createClient } from "~/lib/supabase/server";
@@ -30,49 +32,70 @@ export const useLevel = routeLoader$(async (requestEvent) => {
   return data;
 });
 
-export const useValidateLevel = routeAction$(async (form, requestEvent) => {
-  const supabase = createClient(requestEvent);
-  const profile = requestEvent.sharedMap.get("profile");
+export const useValidateLevel = routeAction$(
+  async (data, requestEvent) => {
+    const supabase = createClient(requestEvent);
+    const profile = requestEvent.sharedMap.get("profile");
 
-  if (!profile) {
-    return requestEvent.fail(401, { message: "Not authenticated" });
-  }
+    if (!profile) {
+      return requestEvent.fail(401, { message: "Not authenticated" });
+    }
 
-  const { time_taken, level_id, completed_path } = form;
+    const { time_taken, level_id, completed_path } = data;
 
-  const parsedPath = completed_path ? JSON.parse(String(completed_path)) : null;
+    const parsedPath = completed_path
+      ? JSON.parse(String(completed_path))
+      : null;
 
-  // 1. Insertion dans user_levels
-  const { error: insertError } = await supabase.from("user_levels").insert({
-    user_id: String(profile.id),
-    level_id: String(level_id),
-    time_taken: Number(time_taken),
-    completed_at: new Date().toISOString(),
-    is_valid: true,
-    completed_path: parsedPath,
-  });
-
-  if (insertError) {
-    console.error("❌ Failed to insert user level", insertError.message);
-    return requestEvent.fail(500, { message: "Supabase error" });
-  }
-
-  // 2. Suppression de la progression sauvegardée
-  const { error: deleteError } = await supabase
-    .from("user_progress")
-    .delete()
-    .match({
-      user_id: profile.id,
-      level_id: level_id,
+    // 1. Insertion dans user_levels
+    const { error: insertError } = await supabase.from("user_levels").insert({
+      user_id: String(profile.id),
+      level_id: String(level_id),
+      time_taken: Number(time_taken),
+      completed_at: new Date().toISOString(),
+      is_valid: true,
+      completed_path: parsedPath,
     });
 
-  if (deleteError) {
-    console.error("⚠️ Failed to delete user progress", deleteError.message);
-    // Pas de return fail ici, on ne bloque pas la validation du niveau
-  }
+    if (insertError) {
+      console.error("❌ Failed to insert user level", insertError.message);
+      return requestEvent.fail(500, { message: "Supabase error" });
+    }
 
-  return { success: true };
-});
+    // 2. Suppression de la progression sauvegardée
+    const { error: deleteError } = await supabase
+      .from("user_progress")
+      .delete()
+      .match({
+        user_id: profile.id,
+        level_id: level_id,
+      });
+
+    if (deleteError) {
+      console.error("⚠️ Failed to delete user progress", deleteError.message);
+      // Pas de return fail ici, on ne bloque pas la validation du niveau
+    }
+
+    return { success: true };
+  },
+  zod$({
+    level_id: z.string().uuid(),
+    time_taken: z.number().nonnegative(),
+    completed_path: z.string().refine(
+      (val) => {
+        try {
+          const parsed = JSON.parse(val);
+          return Array.isArray(parsed);
+        } catch {
+          return false;
+        }
+      },
+      {
+        message: "completed_path must be a valid JSON array",
+      },
+    ),
+  }),
+);
 
 export const useLevelLeaderboard = routeLoader$(async (requestEvent) => {
   const supabase = createClient(requestEvent);
@@ -97,12 +120,8 @@ export const useSavedProgress = routeLoader$(async (requestEvent) => {
   requestEvent.cacheControl({ noStore: true });
   const supabase = createClient(requestEvent);
 
-  const {
-    data: { user },
-    error: authError,
-  } = await supabase.auth.getUser();
-
-  if (authError || !user) return null;
+  const profile = requestEvent.sharedMap.get("profile");
+  if (!profile) return null;
 
   // 1. On récupère l’ID réel du niveau depuis son numéro
   const levelNumber = parseInt(requestEvent.params.level, 10);
@@ -120,7 +139,7 @@ export const useSavedProgress = routeLoader$(async (requestEvent) => {
   const { data, error } = await supabase
     .from("user_progress")
     .select("elapsed_seconds, last_path, last_history")
-    .eq("user_id", user.id)
+    .eq("user_id", profile.id)
     .eq("level_id", levelData.id)
     .single();
 
