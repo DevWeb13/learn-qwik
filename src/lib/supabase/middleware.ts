@@ -16,11 +16,6 @@ function isBotRequest(userAgent: string | null): boolean {
     return botPattern.test(userAgent.toLowerCase());
   }  
 
-// function getChapterIdFromUrl(pathname: string) {
-//     const pathSegments = pathname.split("/").filter(Boolean);
-//     return CHAPTERS.find(c => c.uri === pathSegments[pathSegments.length - 1]);
-// }
-
 async function getUser(supabase: SupabaseClient<Database>, requestEvent: RequestEvent): Promise<User | null> {
     // console.log("📢 Appel à Supabase pour récupérer l'user");
     
@@ -56,56 +51,69 @@ async function getProfile(
 
 
 export async function updateSession(requestEvent: RequestEvent) {
-    const supabase = createClient(requestEvent);
+  const supabase = createClient(requestEvent);
 
-    const userAgent = requestEvent.request.headers.get("user-agent");
-    console.log("userAgent", userAgent);
-    
-    if (isBotRequest(requestEvent.request.headers.get("user-agent"))) {
-        console.log("Bot detected, allowing access without redirection");
-        return;
+  const userAgent = requestEvent.request.headers.get("user-agent");
+  console.log("userAgent", userAgent);
+
+  if (isBotRequest(userAgent)) {
+    console.log("Bot detected, allowing access without redirection");
+    return;
+  }
+
+  const user = await getUser(supabase, requestEvent);
+
+  if (user && requestEvent.url.pathname.startsWith("/auth/login/")) {
+    throw requestEvent.redirect(302, "/");
+  }
+
+  if (
+    !user &&
+    !requestEvent.url.pathname.startsWith("/auth/login") &&
+    (requestEvent.url.pathname.startsWith("/learn") ||
+      requestEvent.url.pathname.startsWith("/auth/logout") ||
+      requestEvent.url.pathname.startsWith("/account") ||
+      requestEvent.url.pathname.startsWith("/games/game/path"))
+  ) {
+    console.log("Redirecting to /auth/login");
+    throw requestEvent.redirect(302, "/auth/login/");
+  }
+
+  if (user) {
+    let profile = await getProfile(supabase, requestEvent, user);
+
+    // ✅ Si aucun profil trouvé, on le crée maintenant
+    if (!profile) {
+      console.log("➡️ Création d'un nouveau profil Supabase (après login)");
+
+      const email = user.email;
+      const metadata = user.user_metadata;
+      const full_name = metadata?.full_name ?? null;
+      const avatar_url = metadata?.avatar_url ?? null;
+
+      const { error: insertError } = await supabase.from("profiles").insert({
+        id: user.id,
+        email: user.email || '',  // Assure que email est une string
+        full_name,
+        avatar_url,
+        access_status: "free",
+        completedChapters: [],
+      } satisfies Database['public']['Tables']['profiles']['Insert']);
+
+      if (insertError) {
+        console.error("❌ Erreur lors de la création du profil :", insertError.message);
+      } else {
+        console.log("✅ Profil créé avec succès pour", email);
+      }
+
+      // 🔁 Recharge le profil après l'insertion
+      profile = await getUserById(supabase, user.id);
+      if (profile) {
+        requestEvent.sharedMap.set("profile", profile);
+      }
     }
 
-    const user = await getUser(supabase, requestEvent);
-    
-    if (user && requestEvent.url.pathname.startsWith("/auth/login/")) {
-        throw requestEvent.redirect(302, "/");
-    }
-    
-    if (!user &&
-        !requestEvent.url.pathname.startsWith("/auth/login") && // ✅ Évite la boucle infinie
-        (requestEvent.url.pathname.startsWith("/learn") ||
-         requestEvent.url.pathname.startsWith("/auth/logout") ||
-         requestEvent.url.pathname.startsWith("/account") ||
-         requestEvent.url.pathname.startsWith("/games/game/path")
-        )) {
-        console.log("Redirecting to /auth/login");
-        throw requestEvent.redirect(302, "/auth/login/");
-    }
-    
-    
-    if (user) {
-        const profile = await getProfile(supabase, requestEvent, user);
-        
-        if (!profile) {
-            console.log("⚠️ Aucun profil trouvé pour cet utilisateur.");
-            return;
-        }
-
-        // 🔄 Vérifier si l'utilisateur a encore un accès premium
-        if (isSubscriptionActive(profile)) return; // ✅ Accès autorisé
-
-        // ❌ Sinon, rediriger si l'utilisateur essaie d'accéder à un chapitre premium
-        // if (requestEvent.url.pathname.startsWith("/learn/dashboard-app/")) {
-        //     const chapter = getChapterIdFromUrl(requestEvent.url.pathname);
-            
-        //     console.log("Checking chapter access");
-        //     console.log("User subscription status:", profile.access_status);
-            
-        //     if (chapter && chapter.id > CHAPTERS_FREE_LIMIT) {
-        //         console.log(`Chapitre ${chapter.id} restreint. Redirection vers /subscribe`);
-        //         throw requestEvent.redirect(302, "/subscribe");
-        //     }
-        // }
-    }
+    // 🔄 Vérifie l'abonnement si profil dispo
+    if (profile && isSubscriptionActive(profile)) return;
+  }
 }

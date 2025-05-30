@@ -2,7 +2,13 @@
 
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Form, routeAction$, z, zod$ } from "@builder.io/qwik-city";
+import {
+  Form,
+  routeAction$,
+  useNavigate,
+  z,
+  zod$,
+} from "@builder.io/qwik-city";
 import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 import { Message } from "~/components/UI/message/message";
@@ -42,13 +48,43 @@ export const useSignUpOrLoginWithMagicLinkAction = routeAction$(
   },
   zod$({
     emailMagicLink: z.string().email({ message: "Invalid email" }),
-    // termsMagicLink: z.string().optional(),
   }),
+);
+
+export const useLoginWithGoogleAction = routeAction$(
+  async (_, requestEvent) => {
+    const supabase = createClient(requestEvent);
+
+    const { data, error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${requestEvent.url.origin}/auth/callback`,
+      },
+    });
+
+    // console.log("data", data);
+
+    if (error) {
+      console.error("Error during Google login:", error.message);
+      return requestEvent.fail(500, {
+        error: true,
+        message: "Login failed. Please try again later.",
+      });
+    }
+
+    return {
+      success: true,
+      url: data.url,
+      message: "Login successful.",
+    };
+  },
 );
 
 export default component$(() => {
   const signUpOrLoginWithMagicLinkAction =
     useSignUpOrLoginWithMagicLinkAction();
+  const loginWithGoogleAction = useLoginWithGoogleAction();
+  const nav = useNavigate();
 
   return (
     <main class="relative flex w-full flex-grow flex-col items-center overflow-hidden py-12">
@@ -134,6 +170,33 @@ export default component$(() => {
           </Form>
         </div>
       </div>
+
+      {/* Separator */}
+      <div class="relative py-5">
+        <div class="absolute inset-0 flex items-center">
+          <div class="w-full border-t border-gray-300" />
+        </div>
+        <div class="relative flex justify-center text-sm">
+          <span class="bg-white px-2 text-gray-500">Or continue with</span>
+        </div>
+      </div>
+
+      {/* Google Button */}
+      <Form
+        action={loginWithGoogleAction}
+        onSubmitCompleted$={async () => {
+          loginWithGoogleAction.value?.success &&
+            (await nav(loginWithGoogleAction.value.url));
+        }}
+      >
+        <button
+          type="submit"
+          class="flex w-full items-center justify-center gap-1 rounded-sm border border-transparent bg-sky-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+          disabled={loginWithGoogleAction.isRunning}
+        >
+          Connect with Google
+        </button>
+      </Form>
     </main>
   );
 });
