@@ -12,7 +12,14 @@ import {
 import { useLocation } from "@builder.io/qwik-city";
 import { useValidateLevel } from "~/routes/games/game/path/[level]";
 import type { QwikPathLevelData } from "~/types/games/qwikpath.types";
+import { getTileInfosFromPath } from "~/utils/games/path-tiles";
+import { getFullPath } from "~/utils/games/path-utils";
 import { Chrono } from "./chrono";
+
+import Corner from "~/assets/img/games/game/gamePath/corner.png?jsx";
+import Endpoint from "~/assets/img/games/game/gamePath/endpoint.png?jsx";
+import StartSingle from "~/assets/img/games/game/gamePath/start-single.png?jsx";
+import Straight from "~/assets/img/games/game/gamePath/straight.png?jsx";
 
 export interface Position {
   x: number;
@@ -137,22 +144,6 @@ export const GameGrid = component$<GameGridProps>(
       }
     });
 
-    const getFullPath = (from: Position, to: Position): Position[] => {
-      const path: Position[] = [];
-      if (from.x === to.x) {
-        const step = from.y < to.y ? 1 : -1;
-        for (let y = from.y + step; y !== to.y + step; y += step) {
-          path.push({ x: from.x, y });
-        }
-      } else if (from.y === to.y) {
-        const step = from.x < to.x ? 1 : -1;
-        for (let x = from.x + step; x !== to.x + step; x += step) {
-          path.push({ x, y: from.y });
-        }
-      }
-      return path;
-    };
-
     const saveProgress = $(() => {
       if (gameStarted.value && !isSolved.value && path.value.length > 0) {
         const payload = {
@@ -178,6 +169,12 @@ export const GameGrid = component$<GameGridProps>(
       track(() => loc.isNavigating);
       saveProgress();
     });
+
+    const tileInfos = useComputed$(() => getTileInfosFromPath(path.value));
+
+    const getTile = (x: number, y: number) => {
+      return tileInfos.value.find((t) => t.pos.x === x && t.pos.y === y);
+    };
 
     return (
       <div class="mx-auto w-full max-w-[320px] sm:max-w-[340px] md:max-w-[360px]">
@@ -218,6 +215,7 @@ export const GameGrid = component$<GameGridProps>(
                   (last && isSameLine && allFree));
 
               const showValue = cellValue === 1 || gameStarted.value || inPath;
+              const tile = getTile(x, y);
 
               return (
                 <button
@@ -259,7 +257,31 @@ export const GameGrid = component$<GameGridProps>(
                   ${x === 0 ? "border-l-[2.5px]" : ""}
                   ${inPath ? "bg-blue-300/60 text-blue-700" : cellValue !== null ? "bg-blue-100 text-blue-700" : "bg-white text-gray-900"}`}
                 >
-                  {showValue ? (cellValue ?? "") : ""}
+                  <div class="relative flex h-full w-full items-center justify-center">
+                    {tile && (
+                      <div
+                        class="absolute inset-0 z-0"
+                        style={{ transform: `rotate(${tile.rotation}deg)` }}
+                      >
+                        {tile.type === "start" && (
+                          <StartSingle class="h-full w-full" />
+                        )}
+                        {tile.type === "end" && (
+                          <Endpoint class="h-full w-full" />
+                        )}
+                        {tile.type === "straight" && (
+                          <Straight class="h-full w-full" />
+                        )}
+                        {tile.type === "corner" && (
+                          <Corner class="h-full w-full" />
+                        )}
+                      </div>
+                    )}
+
+                    <span class="z-10 text-sm font-bold text-blue-700">
+                      {showValue ? (cellValue ?? "") : ""}
+                    </span>
+                  </div>
                 </button>
               );
             }),
