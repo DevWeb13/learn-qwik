@@ -11,28 +11,28 @@ import { isSubscriptionActive } from "~/utils/subscription";
 // const CHAPTERS_FREE_LIMIT = 6;
 
 function isBotRequest(userAgent: string | null): boolean {
-    if (!userAgent) return false;
-    const botPattern = /bot|crawl|slurp|spider|ahrefs/i;
-    return botPattern.test(userAgent.toLowerCase());
-  }  
-
-async function getUser(supabase: SupabaseClient<Database>, requestEvent: RequestEvent): Promise<User | null> {
-    // console.log("📢 Appel à Supabase pour récupérer l'user");
-    
-    const { data } = await supabase.auth.getUser();
-    const user = data.user || null;
-    
-    requestEvent.sharedMap.set("user", user);
-    return user;
+  if (!userAgent) return false;
+  const botPattern = /bot|crawl|slurp|spider|ahrefs/i;
+  return botPattern.test(userAgent.toLowerCase());
 }
 
+async function getUser(
+  supabase: SupabaseClient<Database>,
+  requestEvent: RequestEvent,
+): Promise<User | null> {
+  // console.log("📢 Appel à Supabase pour récupérer l'user");
 
+  const { data } = await supabase.auth.getUser();
+  const user = data.user || null;
 
+  requestEvent.sharedMap.set("user", user);
+  return user;
+}
 
 async function getProfile(
   supabase: SupabaseClient<Database>,
   requestEvent: RequestEvent,
-  user: User
+  user: User,
 ): Promise<Database["public"]["Tables"]["profiles"]["Row"] | null> {
   if (!user) return null;
 
@@ -48,7 +48,6 @@ async function getProfile(
   requestEvent.sharedMap.set("profile", profile);
   return profile;
 }
-
 
 export async function updateSession(requestEvent: RequestEvent) {
   const supabase = createClient(requestEvent);
@@ -93,15 +92,18 @@ export async function updateSession(requestEvent: RequestEvent) {
 
       const { error: insertError } = await supabase.from("profiles").insert({
         id: user.id,
-        email: user.email || '',  // Assure que email est une string
+        email: user.email || "", // Assure que email est une string
         full_name,
         avatar_url,
         access_status: "free",
         completedChapters: [],
-      } satisfies Database['public']['Tables']['profiles']['Insert']);
+      } satisfies Database["public"]["Tables"]["profiles"]["Insert"]);
 
       if (insertError) {
-        console.error("❌ Erreur lors de la création du profil :", insertError.message);
+        console.error(
+          "❌ Erreur lors de la création du profil :",
+          insertError.message,
+        );
       } else {
         console.log("✅ Profil créé avec succès pour", email);
       }

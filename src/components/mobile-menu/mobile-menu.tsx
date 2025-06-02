@@ -121,7 +121,7 @@ export default component$(() => {
               </span>
             </NavLink>
           </li>
-          {/* <li>
+          <li>
             <NavLink
               class={`${styles.mute} relative inline-flex items-center`}
               activeClass="text-black"
@@ -130,10 +130,10 @@ export default component$(() => {
             >
               Games
               <span class=" ml-2 flex animate-bounce items-center rounded-full bg-red-500 px-2 py-0.5 text-[10px]  font-bold uppercase text-white">
-                New
+                Beta
               </span>
             </NavLink>
-          </li> */}
+          </li>
 
           <li>
             <Link

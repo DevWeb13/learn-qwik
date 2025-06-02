@@ -130,7 +130,7 @@ export default component$(() => {
         </span>
       </NavLink>
 
-      {/* <NavLink
+      <NavLink
         class={`${styles.link} relative inline-flex items-center`}
         activeClass={
           styles.link + " " + "!text-black relative inline-flex items-center"
@@ -139,9 +139,9 @@ export default component$(() => {
       >
         Games
         <span class="ml-2 animate-bounce rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
-          New
+          Beta
         </span>
-      </NavLink> */}
+      </NavLink>
     </div>
   );
 });
