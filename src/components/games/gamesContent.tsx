@@ -1,22 +1,20 @@
-// src/components/games/gamesContent.tsx
-
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import MetaQwikPath from "~/assets/img/games/game/gamePath/metaQwikPath.png?jsx";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
-import { BlogCard } from "../blog/blogCard";
 import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "../mobileStickyAd/mobileStickyAd";
+import { GameCard } from "./gameCard";
 
 export const GamesContent = component$(() => {
   const profile = useProfile();
   const isSubscribed = isSubscriptionActive(profile.value);
 
   useStylesScoped$(`
-    .games_grid {
-      gap: 16px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    .games_grid_single {
+      display: flex;
+      justify-content: center;
+      width: 100%;
     }
   `);
 
@@ -38,8 +36,8 @@ export const GamesContent = component$(() => {
             <span class="text-blue-500">Available</span> Games
           </h2>
 
-          <div class="games_grid">
-            <BlogCard
+          <div class="games_grid_single">
+            <GameCard
               title="Qwik Path | Daily Logic Puzzle"
               description="Connect numbers and fill the grid. A fresh challenge every day."
               href="/games/game/path/"
@@ -51,7 +49,7 @@ export const GamesContent = component$(() => {
                 class="h-full w-full object-contain object-center"
                 alt="QwikPath logic puzzle preview"
               />
-            </BlogCard>
+            </GameCard>
           </div>
         </section>
 

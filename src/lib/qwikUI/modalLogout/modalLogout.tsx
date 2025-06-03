@@ -7,7 +7,6 @@ import {
   ModalHeader,
 } from "@qwik-ui/headless";
 import { HiArrowRightOnRectangleOutline } from "@qwikest/icons/heroicons";
-
 import { useSignoutAction } from "~/routes/auth/logout";
 
 export const ModalLogout = component$(() => {
@@ -22,15 +21,15 @@ export const ModalLogout = component$(() => {
           onClick$={() => {
             showSig.value = true;
           }}
-          class="flex w-full items-center justify-center gap-1 rounded-sm border border-transparent bg-red-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+          class="flex w-full items-center justify-center gap-2 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2"
         >
-          Logout <HiArrowRightOnRectangleOutline class="h-4 w-4 stroke-[2]" />
+          <HiArrowRightOnRectangleOutline class="h-5 w-5 stroke-[2]" /> Logout
         </button>
         <button
           onClick$={() => {
             nav("/");
           }}
-          class="flex w-full justify-center rounded-sm border border-transparent bg-gray-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+          class="flex w-full items-center justify-center gap-2 rounded-md bg-gray-500 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
         >
           Cancel
         </button>
@@ -38,38 +37,44 @@ export const ModalLogout = component$(() => {
 
       <Modal
         bind:show={showSig}
-        class="bottom-sheet shadow-dark-medium bg-background text-foreground fixed max-h-[80%] max-w-[80%] rounded-md border-0 p-[28px] backdrop:backdrop-blur backdrop:backdrop-brightness-50 dark:backdrop:backdrop-brightness-100"
+        class="bottom-sheet fixed max-w-md rounded-xl border border-gray-200 bg-white p-6 shadow-xl backdrop:backdrop-blur-md dark:border-gray-700 dark:bg-gray-900"
       >
         <div class="flex flex-col gap-4">
           <ModalHeader>
-            <h2 class="text-2xl font-semibold">Logout</h2>
+            <h2 class="text-xl font-semibold text-gray-800 dark:text-white">
+              Confirm Logout
+            </h2>
           </ModalHeader>
+
           <ModalContent>
-            <p>Are you sure you want to logout?</p>
-            {/* 🔥 Affichage de l'erreur si échec */}
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Are you sure you want to log out from Learn Qwik?
+            </p>
             {signoutAction.value?.failed && (
               <p class="mt-2 text-sm text-red-600">
                 {signoutAction.value.message}
               </p>
             )}
           </ModalContent>
+
           <ModalFooter class="flex flex-col gap-4">
             <button
               disabled={signoutAction.isRunning}
               onClick$={() => {
                 signoutAction.submit();
               }}
-              class="flex w-full items-center justify-center gap-1 rounded-sm border border-transparent bg-red-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+              class="flex w-full items-center justify-center gap-2 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-offset-2 disabled:bg-gray-400"
             >
-              Logout{" "}
-              <HiArrowRightOnRectangleOutline class="h-4 w-4 stroke-[2]" />
+              <HiArrowRightOnRectangleOutline class="h-5 w-5 stroke-[2]" />{" "}
+              Logout
             </button>
+
             <button
               onClick$={() => {
                 showSig.value = false;
                 nav("/");
               }}
-              class="flex w-full justify-center rounded-sm border border-transparent bg-sky-500 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
+              class="flex w-full items-center justify-center gap-2 rounded-md bg-sky-600 px-4 py-2 text-sm font-semibold text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-600 focus:ring-offset-2"
             >
               Cancel
             </button>

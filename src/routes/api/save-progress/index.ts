@@ -6,7 +6,8 @@ export const onPost: RequestHandler = async (requestEvent) => {
 
   try {
     const body = await requestEvent.request.json();
-    const { level_id, elapsed_seconds, last_path, last_history } = body;
+    const { level_id, elapsed_seconds, last_path, last_history, back_count } =
+      body;
 
     const {
       data: { user },
@@ -25,6 +26,7 @@ export const onPost: RequestHandler = async (requestEvent) => {
       last_path,
       last_history, // ✅ nouvelle colonne
       last_updated_at: new Date().toISOString(),
+      back_count: Number(back_count),
     });
 
     if (error) {
@@ -39,4 +41,3 @@ export const onPost: RequestHandler = async (requestEvent) => {
     requestEvent.json(400, { error: "Requête invalide" });
   }
 };
-

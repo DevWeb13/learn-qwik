@@ -47,6 +47,8 @@ export const useLeaderboard = routeLoader$(async (requestEvent) => {
     requestEvent.fail(500, { message: "Leaderboard fetch error" });
   }
 
+  console.log("data: ", data);
+  console.log("error: ", error);
   return data;
 });
 

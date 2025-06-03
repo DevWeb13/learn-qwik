@@ -1,6 +1,4 @@
-// src/components/games/game/qwikpath/qwikPathLevel.tsx
-
-import { component$ } from "@builder.io/qwik";
+import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import { BackButton } from "~/components/UI/backButton/backButton";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
@@ -21,11 +19,7 @@ import { isSubscriptionActive } from "~/utils/subscription";
 import { GameGrid } from "./gameGrid";
 import { ResolvedGrid } from "./resolvedGrid";
 
-type QwikPathLevelProps = {
-  level: string;
-};
-
-export const QwikPathLevel = component$<QwikPathLevelProps>(() => {
+export const QwikPathLevel = component$(() => {
   const profile = useProfile();
   const isSubscribed = isSubscriptionActive(profile.value);
 
@@ -40,6 +34,53 @@ export const QwikPathLevel = component$<QwikPathLevelProps>(() => {
   const completedPath = completed?.completed_path as
     | { x: number; y: number }[]
     | undefined;
+
+  useStylesScoped$(`
+    .leaderboard-table {
+      background: #1f1f1f;
+      color: #e0e0e0;
+      font-family: 'Courier New', Courier, monospace;
+      border-radius: 12px;
+      overflow: auto;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .leaderboard-table thead {
+      background-color: #292929;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: #888;
+    }
+
+    .leaderboard-table thead th {
+      padding: 12px 16px;
+      white-space: nowrap;
+    }
+
+    .leaderboard-table tbody tr {
+      transition: background 0.2s;
+    }
+
+    .leaderboard-table tbody tr:hover {
+      background: #333;
+    }
+
+    .leaderboard-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #333;
+      white-space: nowrap;
+    }
+
+    .leaderboard-highlight {
+      background: #3b0764;
+      color: #fff;
+    }
+
+    .leaderboard-medal {
+      font-size: 1.2rem;
+    }
+  `);
 
   if ("errorMessage" in level.value || !level.value.id) {
     return (
@@ -56,7 +97,6 @@ export const QwikPathLevel = component$<QwikPathLevelProps>(() => {
 
   function renderGameContent() {
     if (completedPath) {
-      console.log("completedPath", completedPath);
       return (
         <>
           <div class="w-full rounded-lg border border-green-200 bg-green-50 p-6 text-center text-green-700 shadow-sm">
@@ -79,11 +119,11 @@ export const QwikPathLevel = component$<QwikPathLevelProps>(() => {
     }
 
     if (savedProgress.value) {
-      console.log("savedProgress", savedProgress.value);
       const progress = {
         elapsed_seconds: savedProgress.value.elapsed_seconds,
         last_path: String(savedProgress.value.last_path),
         last_history: String(savedProgress.value.last_history),
+        back_count: Number(savedProgress.value.back_count),
       };
       return (
         <GameGrid
@@ -95,16 +135,15 @@ export const QwikPathLevel = component$<QwikPathLevelProps>(() => {
     }
 
     return (
-      console.log("levelData", levelData),
-      (<GameGrid levelData={levelData} levelId={level.value.id as string} />)
+      <GameGrid levelData={levelData} levelId={level.value.id as string} />
     );
   }
 
   return (
-    <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
       <header class="flex flex-col items-center gap-4 px-4 md:gap-6">
         <h1 class="text-center text-4xl font-bold md:text-6xl">
-          <span class="text-blue-500">Qwik</span> Path – Level{" "}
+          <span class="text-blue-500">Qwik</span> Path | Level{" "}
           {level.value.level_number}
         </h1>
         <p class="max-w-xl text-center text-gray-700">
@@ -112,21 +151,20 @@ export const QwikPathLevel = component$<QwikPathLevelProps>(() => {
         </p>
       </header>
 
-      <div class="relative flex w-full max-w-screen-xl flex-col gap-6 px-4 md:flex-row">
+      <main class="relative flex w-full max-w-screen-2xl flex-col justify-center gap-4 px-4 md:flex-row">
         <section class="flex w-full flex-col gap-6 md:max-w-[calc(100%-300px)]">
-          {renderGameContent()}
-
-          <section class="mt-8 w-full max-w-screen-xl px-4 md:px-0">
+          <section class="w-full ">
             <h2 class="mb-6 text-center text-2xl font-bold text-gray-900 md:text-left">
               Top Players – Level {level.value.level_number}
             </h2>
-            <div class="overflow-x-auto rounded-lg bg-gray-50 shadow-sm">
-              <table class="w-full table-auto text-left text-sm text-gray-700">
-                <thead class="border-b bg-white text-xs uppercase text-gray-500">
+            <div class="leaderboard-table shadow-sm">
+              <table class="w-full min-w-[480px] table-auto text-left text-sm">
+                <thead>
                   <tr>
-                    <th class="px-4 py-3">Rank</th>
-                    <th class="px-4 py-3">Player</th>
-                    <th class="px-4 py-3">Time</th>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Time</th>
+                    <th>Backs</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -134,11 +172,19 @@ export const QwikPathLevel = component$<QwikPathLevelProps>(() => {
                     const isCurrentUser = player.user_id === profile.value?.id;
                     const userNotInTop = isCurrentUser && player.rank > 5;
 
+                    const medal =
+                      player.rank === 1
+                        ? "🥇"
+                        : player.rank === 2
+                          ? "🥈"
+                          : player.rank === 3
+                            ? "🥉"
+                            : `#${player.rank}`;
+
                     return (
                       <>
-                        {/* Séparateur visuel si le joueur est hors top 5 */}
                         {userNotInTop && (
-                          <tr key="separator" class="border-t">
+                          <tr key="separator">
                             <td
                               colSpan={3}
                               class="px-4 py-2 text-xs text-gray-400"
@@ -147,18 +193,18 @@ export const QwikPathLevel = component$<QwikPathLevelProps>(() => {
                             </td>
                           </tr>
                         )}
-
                         <tr
                           key={player.user_id}
-                          class={`border-t hover:bg-gray-100 ${
-                            isCurrentUser ? "bg-yellow-50 font-bold" : ""
-                          }`}
+                          class={
+                            isCurrentUser
+                              ? "leaderboard-highlight font-bold"
+                              : ""
+                          }
                         >
-                          <td class="px-4 py-2 font-mono">#{player.rank}</td>
-                          <td class="px-4 py-2">{player.player}</td>
-                          <td class="px-4 py-2">
-                            {formatTime(player.time_taken)}
-                          </td>
+                          <td class="leaderboard-medal">{medal}</td>
+                          <td>{player.player}</td>
+                          <td>{formatTime(player.time_taken)}</td>
+                          <td>{player.back_count ?? 0}</td>
                         </tr>
                       </>
                     );
@@ -167,14 +213,16 @@ export const QwikPathLevel = component$<QwikPathLevelProps>(() => {
               </table>
             </div>
           </section>
+
+          {renderGameContent()}
         </section>
 
         <BackButton href="/games/game/path/" label="Back to Levels" />
 
         {!isSubscribed && <DesktopStickyAd />}
-      </div>
+      </main>
 
       {!isSubscribed && <MobileStickyAd />}
-    </main>
+    </div>
   );
 });

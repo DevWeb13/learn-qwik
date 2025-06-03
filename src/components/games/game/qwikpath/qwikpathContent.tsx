@@ -1,8 +1,4 @@
-// src/components/games/game/qwikpath/qwikPathContent.tsx
-
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
-import MetaQwikPathLevelOne from "~/assets/img/games/game/gamePath/metaQwikPathLevelOne.png?jsx";
-import { BlogCard } from "~/components/blog/blogCard";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { BackButton } from "~/components/UI/backButton/backButton";
@@ -11,10 +7,10 @@ import {
   useLeaderboard,
   useLevels,
 } from "~/routes/games/game/path/layout";
-
 import { useProfile } from "~/routes/layout";
 import { formatTime } from "~/utils/formatTime";
 import { isSubscriptionActive } from "~/utils/subscription";
+import { LevelCard } from "./levelCard";
 
 export const QwikPathContent = component$(() => {
   const profile = useProfile();
@@ -23,8 +19,6 @@ export const QwikPathContent = component$(() => {
   const completedLevels = useCompletedLevels();
   const leaderboard = useLeaderboard();
 
-  console.log(completedLevels.value);
-
   const getCompletedLevel = (levelId: string) =>
     completedLevels.value?.find((l) => l.level_id === levelId);
 
@@ -32,7 +26,50 @@ export const QwikPathContent = component$(() => {
     .levels_grid {
       gap: 16px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+
+    .leaderboard-table {
+      background: #1f1f1f;
+      color: #e0e0e0;
+      font-family: 'Courier New', Courier, monospace;
+      border-radius: 12px;
+      overflow: auto;
+    }
+
+    .leaderboard-table thead {
+      background-color: #292929;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      color: #888;
+    }
+
+    .leaderboard-table thead th {
+      padding: 12px 16px;
+      white-space: nowrap;
+    }
+
+    .leaderboard-table tbody tr {
+      transition: background 0.2s;
+    }
+
+    .leaderboard-table tbody tr:hover {
+      background: #333;
+    }
+
+    .leaderboard-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #333;
+      white-space: nowrap;
+    }
+
+    .leaderboard-highlight {
+      background: #3b0764;
+      color: #fff;
+    }
+
+    .leaderboard-medal {
+      font-size: 1.2rem;
     }
   `);
 
@@ -50,52 +87,19 @@ export const QwikPathContent = component$(() => {
 
       <main class="relative flex w-full max-w-screen-2xl flex-col justify-center gap-4 px-4 md:flex-row">
         <section class="flex w-full flex-col gap-8 md:max-w-[calc(100%-300px)]">
-          <h2 class="text-2xl font-bold text-gray-900">Available Levels</h2>
-
-          <div class="levels_grid">
-            {levels.value.map((level) => {
-              const completed = getCompletedLevel(level.id);
-              return (
-                <BlogCard
-                  key={level.id}
-                  title={`Qwik Path | Level ${level.level_number} | ${level.difficulty}`}
-                  href={`/games/game/path/${level.level_number}`}
-                  date={new Date(level.published_at).toLocaleDateString(
-                    "en-US",
-                    {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    },
-                  )}
-                  readTime={
-                    completed
-                      ? `✅ Completed | ⏱ ${formatTime(completed.time_taken)}`
-                      : "1 min to play"
-                  }
-                  cta={completed ? "Replay (disabled)" : "Play level →"}
-                >
-                  <MetaQwikPathLevelOne
-                    class="h-full w-full object-contain object-center"
-                    alt="QwikPath level preview"
-                  />
-                </BlogCard>
-              );
-            })}
-          </div>
-
-          <section class="mt-12 w-full max-w-screen-2xl px-4 md:px-0">
+          <section class="w-full max-w-screen-2xl ">
             <h2 class="mb-6 text-center text-2xl font-bold text-gray-900 md:text-left">
               Top Players
             </h2>
-            <div class="overflow-x-auto rounded-lg bg-gray-50 shadow-sm">
-              <table class="w-full table-auto text-left text-sm text-gray-700">
-                <thead class="border-b bg-white text-xs uppercase text-gray-500">
+            <div class="leaderboard-table w-full overflow-x-auto shadow-sm">
+              <table class="w-full min-w-[480px] table-auto text-left text-sm">
+                <thead>
                   <tr>
-                    <th class="px-4 py-3">Rank</th>
-                    <th class="px-4 py-3">Player</th>
-                    <th class="px-4 py-3">Levels</th>
-                    <th class="px-4 py-3">Total Time</th>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Levels</th>
+                    <th>Total Time</th>
+                    <th>Backs</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -103,11 +107,19 @@ export const QwikPathContent = component$(() => {
                     const isCurrentUser = player.user_id === profile.value?.id;
                     const userNotInTop = isCurrentUser && player.rank > 5;
 
+                    const medal =
+                      player.rank === 1
+                        ? "🥇"
+                        : player.rank === 2
+                          ? "🥈"
+                          : player.rank === 3
+                            ? "🥉"
+                            : `#${player.rank}`;
+
                     return (
                       <>
-                        {/* Séparateur visuel si le joueur est hors top 5 */}
                         {userNotInTop && (
-                          <tr key="separator" class="border-t">
+                          <tr key="separator">
                             <td
                               colSpan={4}
                               class="px-4 py-2 text-xs text-gray-400"
@@ -116,19 +128,19 @@ export const QwikPathContent = component$(() => {
                             </td>
                           </tr>
                         )}
-
                         <tr
                           key={player.user_id}
-                          class={`border-t hover:bg-gray-100 ${
-                            isCurrentUser ? "bg-yellow-50 font-bold" : ""
-                          }`}
+                          class={
+                            isCurrentUser
+                              ? "leaderboard-highlight font-bold"
+                              : ""
+                          }
                         >
-                          <td class="px-4 py-2 font-mono">#{player.rank}</td>
-                          <td class="px-4 py-2">{player.player}</td>
-                          <td class="px-4 py-2">{player.levels}</td>
-                          <td class="px-4 py-2">
-                            {formatTime(player.total_time)}
-                          </td>
+                          <td class="leaderboard-medal">{medal}</td>
+                          <td>{player.player}</td>
+                          <td>{player.levels}</td>
+                          <td>{formatTime(player.total_time)}</td>
+                          <td>{player.total_back_count ?? 0}</td>
                         </tr>
                       </>
                     );
@@ -137,6 +149,27 @@ export const QwikPathContent = component$(() => {
               </table>
             </div>
           </section>
+
+          <h2 class="text-2xl font-bold text-gray-900">Available Levels</h2>
+
+          <div class="levels_grid">
+            {levels.value.map((level) => {
+              const completed = getCompletedLevel(level.id);
+              return (
+                <LevelCard
+                  key={level.id}
+                  levelNumber={level.level_number}
+                  difficulty={level.difficulty}
+                  href={`/games/game/path/${level.level_number}`}
+                  completed={!!completed}
+                  timeTaken={
+                    completed ? formatTime(completed.time_taken) : undefined
+                  }
+                  disabled={!!completed}
+                />
+              );
+            })}
+          </div>
         </section>
 
         <BackButton href="/games/" label="Back to Games" />

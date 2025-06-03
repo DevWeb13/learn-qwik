@@ -6,7 +6,6 @@ import {
   type DocumentHeadProps,
   routeAction$,
   routeLoader$,
-  useLocation,
   z,
   zod$,
 } from "@builder.io/qwik-city";
@@ -41,7 +40,7 @@ export const useValidateLevel = routeAction$(
       return requestEvent.fail(401, { message: "Not authenticated" });
     }
 
-    const { time_taken, level_id, completed_path } = data;
+    const { time_taken, level_id, completed_path, back_count } = data;
 
     const parsedPath = completed_path
       ? JSON.parse(String(completed_path))
@@ -55,6 +54,7 @@ export const useValidateLevel = routeAction$(
       completed_at: new Date().toISOString(),
       is_valid: true,
       completed_path: parsedPath,
+      back_count: Number(back_count),
     });
 
     if (insertError) {
@@ -81,6 +81,7 @@ export const useValidateLevel = routeAction$(
   zod$({
     level_id: z.string().uuid(),
     time_taken: z.number().nonnegative(),
+    back_count: z.number().nonnegative(),
     completed_path: z.string().refine(
       (val) => {
         try {
@@ -105,9 +106,12 @@ export const useLevelLeaderboard = routeLoader$(async (requestEvent) => {
   const { data, error } = await supabase.rpc(
     "get_leaderboard_by_level_number_with_rank",
     {
-      level_number: levelNumber,
+      level_number_input: levelNumber,
     },
   );
+
+  console.log("data: ", data);
+  console.log("error: ", error);
 
   if (error) {
     requestEvent.fail(500, { message: "Level leaderboard fetch error" });
@@ -138,12 +142,10 @@ export const useSavedProgress = routeLoader$(async (requestEvent) => {
   // 2. On peut alors chercher la progression
   const { data, error } = await supabase
     .from("user_progress")
-    .select("elapsed_seconds, last_path, last_history")
+    .select("elapsed_seconds, last_path, last_history, back_count") // 👈 ici
     .eq("user_id", profile.id)
     .eq("level_id", levelData.id)
     .single();
-
-  console.log("data", data);
 
   if (error) return null;
 
@@ -151,14 +153,12 @@ export const useSavedProgress = routeLoader$(async (requestEvent) => {
     elapsed_seconds: Number(data.elapsed_seconds),
     last_path: data.last_path ?? [],
     last_history: data.last_history ?? [],
+    back_count: Number(data.back_count) || 0,
   };
 });
 
 export default component$(() => {
-  const loc = useLocation();
-  const level: string = loc.params.level;
-
-  return <QwikPathLevel level={level} />;
+  return <QwikPathLevel />;
 });
 
 export const head = ({ params }: DocumentHeadProps): DocumentHead =>

@@ -1,15 +1,15 @@
+// src/utils/games/path-tiles.ts
+
 import type { Position } from "~/components/games/game/qwikpath/gameGrid";
 
-export function getTileInfosFromPath(path: Position[]): {
+export type TileInfo = {
   pos: Position;
   type: "start" | "end" | "straight" | "corner";
   rotation: number;
-}[] {
-  const result: {
-    pos: Position;
-    type: "start" | "end" | "straight" | "corner";
-    rotation: number;
-  }[] = [];
+};
+
+export function getTileInfosFromPath(path: Position[]): TileInfo[] {
+  const result: TileInfo[] = [];
 
   for (let i = 0; i < path.length; i++) {
     const curr = path[i];

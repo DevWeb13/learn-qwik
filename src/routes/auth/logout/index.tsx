@@ -3,10 +3,10 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { routeAction$ } from "@builder.io/qwik-city";
+import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
+import { ModalLogout } from "~/lib/qwikUI/modalLogout/modalLogout";
 import { createClient } from "~/lib/supabase/server";
 import { createDocumentHead } from "~/utils/createDocumentHead";
-import { ModalLogout } from "~/lib/qwikUI/modalLogout/modalLogout";
-import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 
 export const useSignoutAction = routeAction$(async (_, requestEvent) => {
   const supabase = createClient(requestEvent);
@@ -21,30 +21,32 @@ export const useSignoutAction = routeAction$(async (_, requestEvent) => {
 
 export default component$(() => {
   return (
-    <main class="relative flex w-full flex-grow flex-col items-center overflow-hidden py-12">
-      <div class="absolute bottom-[100px] left-1/2 z-[-1] -translate-x-1/2 md:bottom-0">
-        <div class="block dark:hidden">
+    <main class="relative flex w-full flex-grow flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
+      <div class="absolute inset-0 -z-10 overflow-hidden">
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 dark:hidden">
           <HomeBackground />
         </div>
-        <div class="hidden dark:block">
+        <div class="absolute bottom-0 left-1/2 hidden -translate-x-1/2 dark:block">
           <HomeBackground />
         </div>
       </div>
-      <h1 class="mb-4  text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">
-        Logout to <span class="text-blue-500">Learn Qwik</span>
+      <h1 class="text-center text-3xl font-bold tracking-tight text-gray-900 md:text-5xl">
+        Logged out of <span class="text-sky-600">Learn Qwik</span>
       </h1>
-      <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="bg-white px-4 py-8 shadow sm:rounded-sm sm:px-10">
-          <div class="relative py-5">
-            <div class="absolute inset-0 flex items-center">
-              <div class="w-full border-t border-gray-300" />
-            </div>
-            <div class="relative flex justify-center text-sm">
-              <span class="bg-white px-2 text-gray-500">Logout</span>
-            </div>
+      <p class="mt-2 text-center text-sm text-gray-600 md:text-base">
+        You have been successfully logged out.
+      </p>
+
+      <div class="mt-10 w-full max-w-md rounded-xl bg-white p-6 shadow-md">
+        <div class="relative py-3">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-gray-300" />
           </div>
-          <ModalLogout />
+          <div class="relative flex justify-center text-sm">
+            <span class="bg-white px-2 text-gray-500">Logout</span>
+          </div>
         </div>
+        <ModalLogout />
       </div>
     </main>
   );

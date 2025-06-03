@@ -33,6 +33,7 @@ type GameGridProps = {
     elapsed_seconds: number;
     last_path: string;
     last_history: string;
+    back_count: number;
   } | null;
 };
 
@@ -47,6 +48,7 @@ export const GameGrid = component$<GameGridProps>(
     const path = useSignal<Position[]>(initialPath);
     const elapsedSeconds = useSignal(savedProgress?.elapsed_seconds ?? 0);
     const gameStarted = useSignal(savedProgress ? true : false);
+    const backCount = useSignal(savedProgress?.back_count ?? 0);
 
     const clickedNumbers = useSignal<number[]>(() => {
       return initialPath
@@ -110,6 +112,7 @@ export const GameGrid = component$<GameGridProps>(
       if (history.value.length > 0) {
         const lastMove = history.value.pop();
         if (lastMove) {
+          backCount.value += 1;
           path.value = path.value.filter(
             (p) => !lastMove.some((pos) => pos.x === p.x && pos.y === p.y),
           );
@@ -140,6 +143,7 @@ export const GameGrid = component$<GameGridProps>(
           level_id: levelId,
           time_taken: elapsedSeconds.value,
           completed_path: JSON.stringify(path.value),
+          back_count: backCount.value,
         });
       }
     });
@@ -150,7 +154,8 @@ export const GameGrid = component$<GameGridProps>(
           level_id: levelId,
           elapsed_seconds: elapsedSeconds.value,
           last_path: JSON.stringify(path.value),
-          last_history: JSON.stringify(history.value), // ✅ Ajout ici
+          last_history: JSON.stringify(history.value),
+          back_count: backCount.value,
         };
 
         const blob = new Blob([JSON.stringify(payload)], {
@@ -250,12 +255,19 @@ export const GameGrid = component$<GameGridProps>(
                       : "Oops! Les chiffres doivent être cochés dans l'ordre.";
                   }}
                   class={`flex aspect-square items-center justify-center
-                  border-b-[2.5px] border-r-[2.5px] border-black
-                  text-sm font-bold tracking-tight
-                  transition-colors duration-150 ease-in-out
-                  ${y === 0 ? "border-t-[2.5px]" : ""}
-                  ${x === 0 ? "border-l-[2.5px]" : ""}
-                  ${inPath ? "bg-blue-300/60 text-blue-700" : cellValue !== null ? "bg-blue-100 text-blue-700" : "bg-white text-gray-900"}`}
+                    border-b-[2.5px] border-r-[2.5px] border-black
+                    font-bold tracking-tight transition-colors duration-150 ease-in-out
+                    ${y === 0 ? "border-t-[2.5px]" : ""}
+                    ${x === 0 ? "border-l-[2.5px]" : ""}
+                    ${
+                      inPath
+                        ? cellValue !== null
+                          ? "bg-purple-400/60 text-white"
+                          : "bg-purple-200 text-blue-700"
+                        : cellValue !== null
+                          ? "bg-blue-100 text-blue-700"
+                          : "bg-white text-gray-900"
+                    }`}
                 >
                   <div class="relative flex h-full w-full items-center justify-center">
                     {tile && (
@@ -278,7 +290,7 @@ export const GameGrid = component$<GameGridProps>(
                       </div>
                     )}
 
-                    <span class="z-10 text-sm font-bold text-blue-700">
+                    <span class="z-10 text-xl font-bold text-blue-700">
                       {showValue ? (cellValue ?? "") : ""}
                     </span>
                   </div>

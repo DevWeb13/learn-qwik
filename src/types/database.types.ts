@@ -101,6 +101,7 @@ export type Database = {
       }
       user_levels: {
         Row: {
+          back_count: number
           completed_at: string
           completed_path: Json | null
           id: string
@@ -110,6 +111,7 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          back_count?: number
           completed_at?: string
           completed_path?: Json | null
           id?: string
@@ -119,6 +121,7 @@ export type Database = {
           user_id: string
         }
         Update: {
+          back_count?: number
           completed_at?: string
           completed_path?: Json | null
           id?: string
@@ -146,6 +149,7 @@ export type Database = {
       }
       user_progress: {
         Row: {
+          back_count: number
           elapsed_seconds: number
           last_history: Json | null
           last_path: Json
@@ -155,6 +159,7 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          back_count?: number
           elapsed_seconds?: number
           last_history?: Json | null
           last_path?: Json
@@ -164,6 +169,7 @@ export type Database = {
           user_id: string
         }
         Update: {
+          back_count?: number
           elapsed_seconds?: number
           last_history?: Json | null
           last_path?: Json
@@ -188,23 +194,29 @@ export type Database = {
     }
     Functions: {
       get_leaderboard_by_level_number_with_rank: {
-        Args: { level_number: number }
+        Args: { level_number_input: number }
         Returns: {
+          user_id: string
           player: string
           time_taken: number
+          back_count: number
           rank: number
-          user_id: string
         }[]
       }
       get_leaderboard_with_rank: {
         Args: Record<PropertyKey, never>
         Returns: {
+          user_id: string
           player: string
           levels: number
           total_time: number
+          total_back_count: number
           rank: number
-          user_id: string
         }[]
+      }
+      get_leaderboard_with_rank_test: {
+        Args: Record<PropertyKey, never>
+        Returns: Json
       }
       increment_total_share: {
         Args: Record<PropertyKey, never>
