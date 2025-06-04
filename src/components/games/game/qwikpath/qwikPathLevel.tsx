@@ -204,7 +204,7 @@ export const QwikPathLevel = component$(() => {
                           <td class="leaderboard-medal">{medal}</td>
                           <td>{player.player}</td>
                           <td>{formatTime(player.time_taken)}</td>
-                          <td>{player.back_count ?? 0}</td>
+                          <td>{player.back_count}</td>
                         </tr>
                       </>
                     );

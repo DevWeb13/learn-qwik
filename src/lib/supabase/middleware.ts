@@ -74,8 +74,9 @@ export async function updateSession(requestEvent: RequestEvent) {
       requestEvent.url.pathname.startsWith("/account") ||
       requestEvent.url.pathname.startsWith("/games/game/path"))
   ) {
-    console.log("Redirecting to /auth/login");
-    throw requestEvent.redirect(302, "/auth/login/");
+    const next = requestEvent.url.pathname;
+    console.log("Redirecting to /auth/login", next);
+    throw requestEvent.redirect(302, "/auth/login/?next=" + next);
   }
 
   if (user) {

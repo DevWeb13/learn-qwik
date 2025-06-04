@@ -19,11 +19,13 @@ export const useSignUpOrLoginWithMagicLinkAction = routeAction$(
   async (dataform, requestEvent) => {
     const email = dataform.emailMagicLink;
     const supabase = createClient(requestEvent);
+    const next = requestEvent.url.searchParams.get("next") ?? "/";
+    console.log("next", next);
 
     const { error } = await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: requestEvent.url.origin,
+        emailRedirectTo: `${requestEvent.url.origin}/auth/confirm?next=${next}`,
       },
     });
 
@@ -50,10 +52,11 @@ export const useSignUpOrLoginWithMagicLinkAction = routeAction$(
 export const useLoginWithGoogleAction = routeAction$(
   async (_, requestEvent) => {
     const supabase = createClient(requestEvent);
+    const next = requestEvent.url.searchParams.get("next") || "/";
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${requestEvent.url.origin}/auth/callback`,
+        redirectTo: `${requestEvent.url.origin}/auth/callback/?next=${next}`,
       },
     });
 
