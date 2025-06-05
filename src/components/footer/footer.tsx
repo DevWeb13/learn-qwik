@@ -30,11 +30,19 @@ export default component$(() => {
           </a>
         </p>
         <span class={styles.spacer}>|</span>
-        <Link href="/privacy/" class={`${styles.anchor} hover:text-[#000]`}>
+        <Link
+          href="/privacy-policy/"
+          class={`${styles.anchor} hover:text-[#000]`}
+        >
           Privacy Policy
         </Link>
         <span class={styles.spacer}>|</span>
-        {/* <p>{serverTime.value.date}</p> */}
+        <Link
+          href="/terms-of-use/"
+          class={`${styles.anchor} hover:text-[#000]`}
+        >
+          Terms of Use
+        </Link>
       </div>
     </footer>
   );
