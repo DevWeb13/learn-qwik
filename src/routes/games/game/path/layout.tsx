@@ -1,41 +1,35 @@
 // src/routes/games/game/path/layout.tsx
 
 import { component$, Slot } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
+import { routeAction$, routeLoader$ } from "@builder.io/qwik-city";
 import { createClient } from "~/lib/supabase/server";
 
-export const useLevels = routeLoader$(async (requestEvent) => {
-  const supabase = createClient(requestEvent);
-
-  const { data, error } = await supabase
-    .from("levels")
-    .select("id, level_number, difficulty, published_at");
-
-  if (error) {
-    requestEvent.fail(500, { message: "Supabase error" });
-  }
-
-  return data?.sort((a, b) => a.level_number - b.level_number) ?? []; // tri croissant
-});
-
-export const useCompletedLevels = routeLoader$(async (requestEvent) => {
+export const useCompletedLevels = routeAction$(async (_, requestEvent) => {
   requestEvent.cacheControl({ noStore: true });
 
   const supabase = createClient(requestEvent);
   const profile = requestEvent.sharedMap.get("profile");
 
-  if (!profile) return [];
-
-  const { data, error } = await supabase
-    .from("user_levels")
-    .select("level_id,time_taken,completed_path")
-    .eq("user_id", profile.id); // ✅ plus direct et plus sûr
-
-  if (error) {
-    requestEvent.fail(500, { message: "Supabase error" });
+  if (!profile) {
+    requestEvent.fail(401, {
+      success: false,
+      message: "User not authenticated",
+    });
   }
 
-  return data;
+  const { data, error } = await supabase.rpc("get_completed_levels", {
+    uid: profile.id,
+  });
+
+  if (error) {
+    requestEvent.fail(500, { success: false, message: "Supabase error" });
+  }
+
+  return {
+    success: true,
+    message: "Success",
+    data: data ?? [],
+  };
 });
 
 export const useLeaderboard = routeLoader$(async (requestEvent) => {
@@ -47,8 +41,37 @@ export const useLeaderboard = routeLoader$(async (requestEvent) => {
     requestEvent.fail(500, { message: "Leaderboard fetch error" });
   }
 
-  console.log("data: ", data);
-  console.log("error: ", error);
+  return data;
+});
+
+export const useNextLevels = routeLoader$(async (requestEvent) => {
+  const supabase = createClient(requestEvent);
+  const profile = requestEvent.sharedMap.get("profile");
+
+  if (!profile) return [];
+
+  const { data, error } = await supabase.rpc("get_next_levels", {
+    user_uuid: profile.id,
+    limit_count: 8,
+    offset_count: 0,
+  });
+
+  if (error) {
+    requestEvent.fail(500, { message: "Supabase RPC error" });
+  }
+
+  return data ?? [];
+});
+
+export const useTotalPlayers = routeLoader$(async (requestEvent) => {
+  const supabase = createClient(requestEvent);
+
+  const { data, error } = await supabase.rpc("get_total_players");
+
+  if (error) {
+    requestEvent.fail(500, { message: "Total players fetch error" });
+  }
+
   return data;
 });
 

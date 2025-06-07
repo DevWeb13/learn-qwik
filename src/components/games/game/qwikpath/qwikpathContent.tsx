@@ -1,11 +1,12 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { $, component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { BackButton } from "~/components/UI/backButton/backButton";
 import {
   useCompletedLevels,
   useLeaderboard,
-  useLevels,
+  useNextLevels,
+  useTotalPlayers,
 } from "~/routes/games/game/path/layout";
 import { useProfile } from "~/routes/layout";
 import { formatTime } from "~/utils/formatTime";
@@ -15,12 +16,17 @@ import { LevelCard } from "./levelCard";
 export const QwikPathContent = component$(() => {
   const profile = useProfile();
   const isSubscribed = isSubscriptionActive(profile.value);
-  const levels = useLevels();
+  const nextLevels = useNextLevels();
+  const showCompleted = useSignal(false);
   const completedLevels = useCompletedLevels();
-  const leaderboard = useLeaderboard();
+  const totalPlayers = useTotalPlayers();
 
-  const getCompletedLevel = (levelId: string) =>
-    completedLevels.value?.find((l) => l.level_id === levelId);
+  const loadCompletedLevels = $(() => {
+    completedLevels.submit();
+    showCompleted.value = true;
+  });
+
+  const leaderboard = useLeaderboard();
 
   useStylesScoped$(`
     .levels_grid {
@@ -85,12 +91,17 @@ export const QwikPathContent = component$(() => {
         </p>
       </header>
 
-      <main class="relative flex w-full max-w-screen-2xl flex-col justify-center gap-4 px-4 md:flex-row">
-        <section class="flex w-full flex-col gap-8 md:max-w-[calc(100%-300px)]">
-          <section class="w-full max-w-screen-2xl ">
-            <h2 class="mb-6 text-center text-2xl font-bold text-gray-900 md:text-left">
-              Top Players
-            </h2>
+      <main class="relative flex w-full max-w-screen-xl flex-col justify-center gap-4 px-4 md:flex-row">
+        <div class="flex w-full flex-col gap-8 md:max-w-[calc(100%-300px)]">
+          <section class="w-full">
+            <div class=" flex items-center justify-between py-4">
+              <h2 class=" text-center text-2xl font-bold text-gray-900 ">
+                Top Players
+              </h2>
+              <p class=" text-center text-xl font-bold text-gray-500 ">
+                {totalPlayers.value?.toLocaleString()} players in total
+              </p>
+            </div>
             <div class="leaderboard-table w-full overflow-x-auto shadow-sm">
               <table class="w-full min-w-[480px] table-auto text-left text-sm">
                 <thead>
@@ -140,7 +151,7 @@ export const QwikPathContent = component$(() => {
                           <td>{player.player}</td>
                           <td>{player.levels}</td>
                           <td>{formatTime(player.total_time)}</td>
-                          <td>{player.total_back_count ?? 0}</td>
+                          <td>{player.total_back_count}</td>
                         </tr>
                       </>
                     );
@@ -150,27 +161,54 @@ export const QwikPathContent = component$(() => {
             </div>
           </section>
 
-          <h2 class="text-2xl font-bold text-gray-900">Available Levels</h2>
-
-          <div class="levels_grid">
-            {levels.value.map((level) => {
-              const completed = getCompletedLevel(level.id);
-              return (
+          <section class="w-full">
+            <h2 class="mb-6 text-center text-2xl font-bold text-gray-900 md:text-left">
+              Available Levels
+            </h2>
+            <div class="levels_grid">
+              {nextLevels.value.map((level) => (
                 <LevelCard
                   key={level.id}
                   levelNumber={level.level_number}
                   difficulty={level.difficulty}
                   href={`/games/game/path/${level.level_number}`}
-                  completed={!!completed}
-                  timeTaken={
-                    completed ? formatTime(completed.time_taken) : undefined
-                  }
-                  disabled={!!completed}
+                  completed={false}
+                  disabled={false}
                 />
-              );
-            })}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+
+          <section class="w-full">
+            <h2 class="mb-6 text-center text-2xl font-bold text-gray-900 md:text-left">
+              Completed Levels
+            </h2>
+
+            {showCompleted.value === false && (
+              <button
+                class="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+                onClick$={loadCompletedLevels}
+              >
+                Show Completed Levels
+              </button>
+            )}
+
+            {showCompleted.value === true && (
+              <div class="levels_grid">
+                {completedLevels.value?.data.map((level) => (
+                  <LevelCard
+                    key={level.level_id}
+                    levelNumber={level.level_number}
+                    difficulty={level.difficulty}
+                    href={`/games/game/path/${level.level_number}`}
+                    completed={true}
+                    timeTaken={formatTime(level.time_taken)}
+                  />
+                ))}
+              </div>
+            )}
+          </section>
+        </div>
 
         <BackButton href="/games/" label="Back to Games" />
 

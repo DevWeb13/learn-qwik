@@ -26,6 +26,7 @@ export const Chrono = component$<{
   );
 
   // Gère le timer
+  // eslint-disable-next-line qwik/no-use-visible-task
   useVisibleTask$(({ cleanup }) => {
     intervalRef.value = window.setInterval(() => {
       if (gameStarted.value && !isSolved.value && isTabVisible.value) {
@@ -37,7 +38,7 @@ export const Chrono = component$<{
   });
 
   return (
-    <p class="mb-4 text-center text-sm font-semibold text-gray-700">
+    <p class=" text-center text-sm font-semibold text-gray-700">
       Time: {String(Math.floor(elapsedSeconds.value / 60)).padStart(2, "0")}:
       {String(elapsedSeconds.value % 60).padStart(2, "0")}
     </p>

@@ -4,11 +4,12 @@ import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 
 import {
+  useCompletedLevel,
   useLevel,
   useLevelLeaderboard,
   useSavedProgress,
+  useTotalPlayersForLevel,
 } from "~/routes/games/game/path/[level]";
-import { useCompletedLevels } from "~/routes/games/game/path/layout";
 import { useProfile } from "~/routes/layout";
 import type {
   QwikPathClue,
@@ -25,13 +26,14 @@ export const QwikPathLevel = component$(() => {
 
   const level = useLevel();
   const levelLeaderboard = useLevelLeaderboard();
-  const completedLevels = useCompletedLevels();
-  const completed = completedLevels.value?.find(
-    (l) => l.level_id === level.value.id,
-  );
+
   const savedProgress = useSavedProgress();
 
-  const completedPath = completed?.completed_path as
+  const completed = useCompletedLevel();
+
+  const totalPlayersForLevel = useTotalPlayersForLevel();
+
+  const completedPath = completed.value?.completed_path as
     | { x: number; y: number }[]
     | undefined;
 
@@ -96,7 +98,7 @@ export const QwikPathLevel = component$(() => {
   };
 
   function renderGameContent() {
-    if (completedPath) {
+    if (completedPath && completed.value) {
       return (
         <>
           <div class="w-full rounded-lg border border-green-200 bg-green-50 p-6 text-center text-green-700 shadow-sm">
@@ -105,7 +107,9 @@ export const QwikPathLevel = component$(() => {
             </p>
             <p class="mt-2 text-sm">
               Time:{" "}
-              <span class="font-mono">{formatTime(completed!.time_taken)}</span>
+              <span class="font-mono">
+                {formatTime(completed.value.time_taken)}
+              </span>
             </p>
           </div>
 
@@ -124,6 +128,7 @@ export const QwikPathLevel = component$(() => {
         last_path: String(savedProgress.value.last_path),
         last_history: String(savedProgress.value.last_history),
         back_count: Number(savedProgress.value.back_count),
+        invalid_order: Boolean(savedProgress.value.invalid_order),
       };
       return (
         <GameGrid
@@ -151,12 +156,17 @@ export const QwikPathLevel = component$(() => {
         </p>
       </header>
 
-      <main class="relative flex w-full max-w-screen-2xl flex-col justify-center gap-4 px-4 md:flex-row">
+      <main class="relative flex w-full max-w-screen-xl flex-col justify-center gap-4 px-4 md:flex-row">
         <section class="flex w-full flex-col gap-6 md:max-w-[calc(100%-300px)]">
           <section class="w-full ">
-            <h2 class="mb-6 text-center text-2xl font-bold text-gray-900 md:text-left">
-              Top Players – Level {level.value.level_number}
-            </h2>
+            <div class=" flex items-center justify-between py-4">
+              <h2 class=" text-center text-2xl font-bold text-gray-900 md:text-left">
+                Top Players – Level {level.value.level_number}
+              </h2>
+              <p class=" text-center text-xl font-bold text-gray-500 ">
+                {totalPlayersForLevel.value?.toLocaleString()} players in total
+              </p>
+            </div>
             <div class="leaderboard-table shadow-sm">
               <table class="w-full min-w-[480px] table-auto text-left text-sm">
                 <thead>
@@ -168,47 +178,60 @@ export const QwikPathLevel = component$(() => {
                   </tr>
                 </thead>
                 <tbody>
-                  {levelLeaderboard.value?.map((player) => {
-                    const isCurrentUser = player.user_id === profile.value?.id;
-                    const userNotInTop = isCurrentUser && player.rank > 5;
+                  {levelLeaderboard.value &&
+                  levelLeaderboard.value.length > 0 ? (
+                    levelLeaderboard.value.map((player) => {
+                      const isCurrentUser =
+                        player.user_id === profile.value?.id;
+                      const userNotInTop = isCurrentUser && player.rank > 5;
 
-                    const medal =
-                      player.rank === 1
-                        ? "🥇"
-                        : player.rank === 2
-                          ? "🥈"
-                          : player.rank === 3
-                            ? "🥉"
-                            : `#${player.rank}`;
+                      const medal =
+                        player.rank === 1
+                          ? "🥇"
+                          : player.rank === 2
+                            ? "🥈"
+                            : player.rank === 3
+                              ? "🥉"
+                              : `#${player.rank}`;
 
-                    return (
-                      <>
-                        {userNotInTop && (
-                          <tr key="separator">
-                            <td
-                              colSpan={3}
-                              class="px-4 py-2 text-xs text-gray-400"
-                            >
-                              Your rank
-                            </td>
+                      return (
+                        <>
+                          {userNotInTop && (
+                            <tr key="separator">
+                              <td
+                                colSpan={4}
+                                class="px-4 py-2 text-xs text-gray-400"
+                              >
+                                Your rank
+                              </td>
+                            </tr>
+                          )}
+                          <tr
+                            key={player.user_id}
+                            class={
+                              isCurrentUser
+                                ? "leaderboard-highlight font-bold"
+                                : ""
+                            }
+                          >
+                            <td class="leaderboard-medal">{medal}</td>
+                            <td>{player.player}</td>
+                            <td>{formatTime(player.time_taken)}</td>
+                            <td>{player.back_count}</td>
                           </tr>
-                        )}
-                        <tr
-                          key={player.user_id}
-                          class={
-                            isCurrentUser
-                              ? "leaderboard-highlight font-bold"
-                              : ""
-                          }
-                        >
-                          <td class="leaderboard-medal">{medal}</td>
-                          <td>{player.player}</td>
-                          <td>{formatTime(player.time_taken)}</td>
-                          <td>{player.back_count}</td>
-                        </tr>
-                      </>
-                    );
-                  })}
+                        </>
+                      );
+                    })
+                  ) : (
+                    <tr>
+                      <td
+                        colSpan={4}
+                        class="px-4 py-3 text-center text-sm text-gray-500"
+                      >
+                        No players have completed this level yet.
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>

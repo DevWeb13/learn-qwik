@@ -151,6 +151,7 @@ export type Database = {
         Row: {
           back_count: number
           elapsed_seconds: number
+          invalid_order: boolean | null
           last_history: Json | null
           last_path: Json
           last_updated_at: string
@@ -161,6 +162,7 @@ export type Database = {
         Insert: {
           back_count?: number
           elapsed_seconds?: number
+          invalid_order?: boolean | null
           last_history?: Json | null
           last_path?: Json
           last_updated_at?: string
@@ -171,6 +173,7 @@ export type Database = {
         Update: {
           back_count?: number
           elapsed_seconds?: number
+          invalid_order?: boolean | null
           last_history?: Json | null
           last_path?: Json
           last_updated_at?: string
@@ -193,6 +196,30 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_completed_level: {
+        Args:
+          | { uid: string; lvl_id: string }
+          | { uid: string; lvl_number: number }
+        Returns: {
+          level_id: string
+          time_taken: number
+          completed_path: Json
+          completed_at: string
+          back_count: number
+        }[]
+      }
+      get_completed_levels: {
+        Args: { uid: string }
+        Returns: {
+          level_id: string
+          level_number: number
+          difficulty: string
+          time_taken: number
+          back_count: number
+          completed_path: Json
+          completed_at: string
+        }[]
+      }
       get_leaderboard_by_level_number_with_rank: {
         Args: { level_number_input: number }
         Returns: {
@@ -214,9 +241,22 @@ export type Database = {
           rank: number
         }[]
       }
-      get_leaderboard_with_rank_test: {
+      get_next_levels: {
+        Args: { user_uuid: string; limit_count?: number; offset_count?: number }
+        Returns: {
+          id: string
+          level_number: number
+          difficulty: string
+          published_at: string
+        }[]
+      }
+      get_total_players: {
         Args: Record<PropertyKey, never>
-        Returns: Json
+        Returns: number
+      }
+      get_total_players_by_level_number: {
+        Args: { level_number_input: number }
+        Returns: number
       }
       increment_total_share: {
         Args: Record<PropertyKey, never>

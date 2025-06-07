@@ -6,8 +6,14 @@ export const onPost: RequestHandler = async (requestEvent) => {
 
   try {
     const body = await requestEvent.request.json();
-    const { level_id, elapsed_seconds, last_path, last_history, back_count } =
-      body;
+    const {
+      level_id,
+      elapsed_seconds,
+      last_path,
+      last_history,
+      back_count,
+      invalid_order,
+    } = body;
 
     const {
       data: { user },
@@ -27,6 +33,7 @@ export const onPost: RequestHandler = async (requestEvent) => {
       last_history, // ✅ nouvelle colonne
       last_updated_at: new Date().toISOString(),
       back_count: Number(back_count),
+      invalid_order: Boolean(invalid_order),
     });
 
     if (error) {

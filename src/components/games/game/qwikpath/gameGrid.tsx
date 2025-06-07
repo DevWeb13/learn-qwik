@@ -34,6 +34,7 @@ type GameGridProps = {
     last_path: string;
     last_history: string;
     back_count: number;
+    invalid_order: boolean;
   } | null;
 };
 
@@ -49,6 +50,7 @@ export const GameGrid = component$<GameGridProps>(
     const elapsedSeconds = useSignal(savedProgress?.elapsed_seconds ?? 0);
     const gameStarted = useSignal(savedProgress ? true : false);
     const backCount = useSignal(savedProgress?.back_count ?? 0);
+    const invalidOrder = useSignal(savedProgress?.invalid_order ?? false);
 
     const clickedNumbers = useSignal<number[]>(() => {
       return initialPath
@@ -83,7 +85,7 @@ export const GameGrid = component$<GameGridProps>(
 
     const history = useSignal<Position[][]>(initialHistory);
 
-    const invalidClickMessage = useSignal<string | null>(null);
+    console.log("invalidOrder", invalidOrder.value);
     const validateLevelAction = useValidateLevel();
     const hasSubmitted = useSignal(false);
 
@@ -128,9 +130,7 @@ export const GameGrid = component$<GameGridProps>(
             .filter((v) => v !== 1)
             .sort((a, b) => a - b);
           const allNumbersInOrder = expected.every((n, i) => n === required[i]);
-          invalidClickMessage.value = allNumbersInOrder
-            ? null
-            : "Oops! Les chiffres doivent être cochés dans l'ordre.";
+          invalidOrder.value = !allNumbersInOrder;
         }
       }
     });
@@ -150,13 +150,16 @@ export const GameGrid = component$<GameGridProps>(
 
     const saveProgress = $(() => {
       if (gameStarted.value && !isSolved.value && path.value.length > 0) {
+        // 👈 ici
         const payload = {
           level_id: levelId,
           elapsed_seconds: elapsedSeconds.value,
           last_path: JSON.stringify(path.value),
           last_history: JSON.stringify(history.value),
           back_count: backCount.value,
+          invalid_order: invalidOrder.value,
         };
+        console.log("Payload envoyé :", payload);
 
         const blob = new Blob([JSON.stringify(payload)], {
           type: "application/json",
@@ -183,17 +186,20 @@ export const GameGrid = component$<GameGridProps>(
 
     return (
       <div class="mx-auto w-full max-w-[320px] sm:max-w-[340px] md:max-w-[360px]">
-        <Chrono
-          gameStarted={gameStarted}
-          elapsedSeconds={elapsedSeconds}
-          isSolved={isSolved}
-        />
+        <div class="mb-4 flex items-center justify-around">
+          <button
+            onClick$={goBack}
+            class="rounded bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-800 transition hover:bg-gray-300"
+          >
+            Return
+          </button>
 
-        {invalidClickMessage.value && (
-          <p class="mb-2 text-center text-sm text-red-600">
-            {invalidClickMessage.value}
-          </p>
-        )}
+          <Chrono
+            gameStarted={gameStarted}
+            elapsedSeconds={elapsedSeconds}
+            isSolved={isSolved}
+          />
+        </div>
 
         <div
           class="grid"
@@ -250,9 +256,7 @@ export const GameGrid = component$<GameGridProps>(
                     const allNumbersInOrder = expected.every(
                       (n, i) => n === required[i],
                     );
-                    invalidClickMessage.value = allNumbersInOrder
-                      ? null
-                      : "Oops! Les chiffres doivent être cochés dans l'ordre.";
+                    invalidOrder.value = !allNumbersInOrder;
                   }}
                   class={`flex aspect-square items-center justify-center
                     border-b-[2.5px] border-r-[2.5px] border-black
@@ -300,22 +304,21 @@ export const GameGrid = component$<GameGridProps>(
           )}
         </div>
 
-        {isSolved.value && (
-          <p class="mt-4 text-center font-semibold text-green-600">
-            🎉 Puzzle completed!
-          </p>
-        )}
+        <div class="mt-4 h-[24px]">
+          {invalidOrder.value && (
+            <p class="text-center text-sm text-red-600">
+              Oops! Les chiffres doivent être cochés dans l'ordre.
+            </p>
+          )}
+        </div>
 
-        {!isSolved.value && (
-          <div class="mt-4 flex justify-center">
-            <button
-              onClick$={goBack}
-              class="rounded bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-800 transition hover:bg-gray-300"
-            >
-              Back
-            </button>
-          </div>
-        )}
+        <div class="mt-4 h-[24px]">
+          {isSolved.value && (
+            <p class="mt-4 text-center font-semibold text-green-600">
+              🎉 Puzzle completed!
+            </p>
+          )}
+        </div>
       </div>
     );
   },

@@ -207,7 +207,7 @@ export default component$(() => {
       script.defer = true;
       document.head.appendChild(script);
 
-      // Add FundingChoices script
+      // // Add FundingChoices script
       const script2 = document.createElement("script");
       script2.src =
         "https://fundingchoicesmessages.google.com/i/pub-2091224773462896?ers=1";
