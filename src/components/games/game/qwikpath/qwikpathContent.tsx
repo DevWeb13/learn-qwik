@@ -1,4 +1,5 @@
 import { $, component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
+import QwikPathGraf from "~/assets/img/games/game/gamePath/qwik-path-graf.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { BackButton } from "~/components/UI/backButton/backButton";
@@ -85,6 +86,7 @@ export const QwikPathContent = component$(() => {
         <h1 class="max-w-[80%] text-center text-4xl font-semibold md:max-w-[100%] md:text-6xl">
           <span class="text-blue-500">Qwik</span> Path | Daily Logic Puzzle
         </h1>
+        <QwikPathGraf class="h-[200px] w-[300px] object-cover  md:h-[300px] md:w-[450px]" />
         <p class="max-w-xl text-center text-gray-900">
           Connect numbers in order and fill every cell. A new puzzle every day,
           powered by Qwik.
