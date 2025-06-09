@@ -11,7 +11,7 @@ interface GameCardProps {
 }
 
 export const GameCard = component$<GameCardProps>(
-  ({ title, description, href, date, readTime, cta }) => {
+  ({ title, description, href, date, cta }) => {
     return (
       <Link
         href={href}
@@ -22,16 +22,15 @@ export const GameCard = component$<GameCardProps>(
         </div>
 
         <div class="flex flex-col gap-2 px-5 py-4 text-white">
-          <h3 class="text-lg font-bold">{title}</h3>
-          <p class="text-sm text-gray-300">{description}</p>
+          <h3 class="text-md font-bold">{title}</h3>
+          <p class="text-xs text-gray-300">{description}</p>
 
           <div class="mt-2 flex items-center justify-between text-xs text-gray-400">
             {date && <span>{date}</span>}
-            {readTime && <span>{readTime}</span>}
           </div>
 
           {cta && (
-            <span class="mt-4 inline-block w-max rounded-full bg-sky-500 px-4 py-1 text-xs font-semibold text-white shadow-md transition group-hover:bg-sky-600">
+            <span class="mt-4 flex w-max items-center rounded-lg bg-sky-500 px-4 py-2 text-xs  text-white shadow-md transition group-hover:bg-sky-600">
               {cta}
             </span>
           )}

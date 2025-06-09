@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
+import { HiArrowRightSolid } from "@qwikest/icons/heroicons";
 
 interface LevelCardProps {
   levelNumber: number;
@@ -21,19 +22,19 @@ export const LevelCard = component$<LevelCardProps>(
       "bg-gray-500";
 
     return (
-      <div class="relative w-full rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 p-4 text-white shadow-md transition-transform hover:-translate-y-1 hover:shadow-lg">
+      <div class="relative w-full  rounded-xl bg-[#1f1f1f] p-4 text-[#e0e0e0] shadow-md transition-transform hover:-translate-y-1 hover:text-white hover:shadow-lg">
         <div class="flex items-center justify-between">
-          <h3 class="text-xl font-bold">#{levelNumber}</h3>
+          <h3 class="text-lg font-bold">#{levelNumber}</h3>
           <span
-            class={`rounded-full px-2 py-0.5 text-xs font-semibold uppercase text-white ${difficultyColor}`}
+            class={`rounded-full px-4 py-2 text-xs  uppercase  ${difficultyColor}`}
           >
             {difficulty}
           </span>
         </div>
 
-        <div class="mt-2 text-sm text-gray-300">
+        <div class="mt-4  text-xs ">
           {completed ? (
-            <p>
+            <p class="align-text-bottom">
               ✅ Completed · ⏱ <span class="font-mono">{timeTaken}</span>
             </p>
           ) : (
@@ -43,14 +44,24 @@ export const LevelCard = component$<LevelCardProps>(
 
         <Link
           href={href}
-          class={`mt-4 inline-block w-full rounded-md px-4 py-2 text-center text-sm font-semibold text-white transition-all duration-200 ${
+          class={`mt-4 flex w-full items-center justify-center gap-2 rounded-md px-4 py-2 text-center text-sm transition-all  duration-200 hover:text-white ${
             completed || disabled
-              ? " bg-gray-500 hover:bg-gray-500"
-              : "bg-sky-600 hover:bg-sky-700"
+              ? " bg-gray-500 hover:bg-gray-600"
+              : "bg-sky-600 hover:bg-sky-700 "
           }`}
           tabIndex={completed || disabled ? -1 : 0}
         >
-          {completed ? "View Results →" : "Play level →"}
+          {completed ? (
+            <>
+              <p>View Results</p>
+              <HiArrowRightSolid class="strokeWidth-2 h-6 w-6 stroke-white" />
+            </>
+          ) : (
+            <>
+              <p>Play Level</p>
+              <HiArrowRightSolid class="strokeWidth-2 h-6 w-6 stroke-white" />
+            </>
+          )}
         </Link>
       </div>
     );

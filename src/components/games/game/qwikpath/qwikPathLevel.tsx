@@ -1,8 +1,11 @@
+// src/components/games/game/qwikpath/qwikPathLevel.tsx
+
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import { BackButton } from "~/components/UI/backButton/backButton";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 
+import QwikPathGraf from "~/assets/img/games/game/gamePath/qwik-path-graf.png?jsx";
 import {
   useCompletedLevel,
   useLevel,
@@ -145,12 +148,16 @@ export const QwikPathLevel = component$(() => {
   }
 
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 font-retro md:px-12 md:py-20">
       <header class="flex flex-col items-center gap-4 px-4 md:gap-6">
-        <h1 class="text-center text-4xl font-bold md:text-6xl">
-          <span class="text-blue-500">Qwik</span> Path | Level{" "}
-          {level.value.level_number}
-        </h1>
+        <h1 class="sr-only">Qwik Path | Level {level.value.level_number}</h1>
+
+        <QwikPathGraf class="h-[200px] w-[300px] object-cover md:h-[300px] md:w-[450px] lg:h-[400px] lg:w-[600px]" />
+
+        <p class="text-center text-2xl font-bold md:text-4xl">
+          Level {level.value.level_number}
+        </p>
+
         <p class="max-w-xl text-center text-gray-700">
           Connect the numbers in order and fill every cell of the grid to win.
         </p>
@@ -160,10 +167,10 @@ export const QwikPathLevel = component$(() => {
         <section class="flex w-full flex-col gap-6 md:max-w-[calc(100%-300px)]">
           <section class="w-full ">
             <div class=" flex items-center justify-between py-4">
-              <h2 class=" text-center text-2xl font-bold text-gray-900 md:text-left">
-                Top Players – Level {level.value.level_number}
+              <h2 class=" text-center text-xl font-bold text-gray-900 md:text-left">
+                Top Players | Level {level.value.level_number}
               </h2>
-              <p class=" text-center text-xl font-bold text-gray-500 ">
+              <p class=" text-center text-base font-bold text-gray-500 ">
                 {totalPlayersForLevel.value?.toLocaleString()} players in total
               </p>
             </div>
@@ -240,7 +247,7 @@ export const QwikPathLevel = component$(() => {
           {renderGameContent()}
         </section>
 
-        <BackButton href="/games/game/path/" label="Back to Levels" />
+        <BackButton href="/games/game/path/" label="Levels" />
 
         {!isSubscribed && <DesktopStickyAd />}
       </main>

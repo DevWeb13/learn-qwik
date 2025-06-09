@@ -1,5 +1,6 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import MetaQwikPath from "~/assets/img/games/game/gamePath/metaQwikPath.png?jsx";
+import QwikGamesGraf from "~/assets/img/games/game/gamePath/qwik-games-graf.png?jsx";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
 import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
@@ -19,20 +20,25 @@ export const GamesContent = component$(() => {
   `);
 
   return (
-    <div class="relative flex w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+    <div class="font-retro relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
       <header class="flex flex-col items-center gap-4 px-4 md:gap-8">
-        <h1 class="max-w-[80%] text-center text-4xl font-semibold md:max-w-[100%] md:text-6xl">
-          Play <span class="text-blue-500">Qwik</span> Games Daily
-        </h1>
+        <h1 class="sr-only">Qwik Games | Logic & Speed Challenges</h1>
+
+        <QwikGamesGraf class="h-[200px] w-[300px] object-cover md:h-[300px] md:w-[450px] lg:h-[400px] lg:w-[600px]" />
+
+        <p class="max-w-xl text-center text-2xl font-semibold text-gray-900 md:text-3xl">
+          <span class="text-blue-500">Qwik</span> Games
+        </p>
+
         <p class="max-w-xl text-center text-gray-900">
-          Discover fun logic games built with Qwik. A new puzzle every day to
-          challenge your brain, and your friends.
+          Smart and fast-paced games built with Qwik, test your logic, climb the
+          leaderboard, and challenge players from around the world.
         </p>
       </header>
 
       <main class="relative flex w-full max-w-screen-2xl flex-col justify-center gap-4 px-4 md:flex-row">
         <section class="flex w-full flex-col gap-8 md:min-w-[360px] md:max-w-[calc(100%-300px)]">
-          <h2 class="text-2xl font-bold text-gray-900">
+          <h2 class="text-xl font-bold text-gray-900">
             <span class="text-blue-500">Available</span> Games
           </h2>
 

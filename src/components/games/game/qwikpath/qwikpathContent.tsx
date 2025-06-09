@@ -81,12 +81,16 @@ export const QwikPathContent = component$(() => {
   `);
 
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 font-retro md:px-12 md:py-20">
       <header class="flex flex-col items-center gap-4 px-4 md:gap-8">
-        <h1 class="max-w-[80%] text-center text-4xl font-semibold md:max-w-[100%] md:text-6xl">
-          <span class="text-blue-500">Qwik</span> Path | Daily Logic Puzzle
-        </h1>
-        <QwikPathGraf class="h-[200px] w-[300px] object-cover  md:h-[300px] md:w-[450px]" />
+        <h1 class="sr-only">Qwik Path | Daily Logic Puzzle</h1>
+
+        <QwikPathGraf class="h-[200px] w-[300px] object-cover md:h-[300px] md:w-[450px] lg:h-[400px] lg:w-[600px]" />
+
+        <p class="max-w-xl text-center text-2xl font-semibold text-gray-900 md:text-3xl">
+          Daily Logic Puzzle
+        </p>
+
         <p class="max-w-xl text-center text-gray-900">
           Connect numbers in order and fill every cell. A new puzzle every day,
           powered by Qwik.
@@ -96,11 +100,11 @@ export const QwikPathContent = component$(() => {
       <main class="relative flex w-full max-w-screen-xl flex-col justify-center gap-4 px-4 md:flex-row">
         <div class="flex w-full flex-col gap-8 md:max-w-[calc(100%-300px)]">
           <section class="w-full">
-            <div class=" flex items-center justify-between py-4">
-              <h2 class=" text-center text-2xl font-bold text-gray-900 ">
+            <div class=" flex items-center justify-between gap-8 py-4">
+              <h2 class=" text-center text-xl font-bold text-gray-900 ">
                 Top Players
               </h2>
-              <p class=" text-center text-xl font-bold text-gray-500 ">
+              <p class=" text-center text-base font-bold text-gray-500 ">
                 {totalPlayers.value?.toLocaleString()} players in total
               </p>
             </div>
@@ -164,7 +168,7 @@ export const QwikPathContent = component$(() => {
           </section>
 
           <section class="w-full">
-            <h2 class="mb-6 text-center text-2xl font-bold text-gray-900 md:text-left">
+            <h2 class="mb-6 text-center text-xl font-bold text-gray-900 md:text-left">
               Available Levels
             </h2>
             <div class="levels_grid">
@@ -182,7 +186,7 @@ export const QwikPathContent = component$(() => {
           </section>
 
           <section class="w-full">
-            <h2 class="mb-6 text-center text-2xl font-bold text-gray-900 md:text-left">
+            <h2 class="mb-6 text-center text-xl font-bold text-gray-900 md:text-left">
               Completed Levels
             </h2>
 
@@ -212,7 +216,7 @@ export const QwikPathContent = component$(() => {
           </section>
         </div>
 
-        <BackButton href="/games/" label="Back to Games" />
+        <BackButton href="/games/" label="Games" />
 
         {!isSubscribed && <DesktopStickyAd />}
       </main>
