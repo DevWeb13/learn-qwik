@@ -10,8 +10,8 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead(
-  "QwikPath – Daily Logic Puzzle Made with Qwik",
-  "Play QwikPath, a daily logic puzzle where you connect numbers in order to fill the grid. Built with Qwik. Fast, fun, and minimal JavaScript.",
+  "QwikPath | Logic Puzzle Made with Qwik",
+  "Play QwikPath, a logic puzzle where you connect numbers in order to fill the grid. Built with Qwik. Fast, fun, and minimal JavaScript.",
   "https://www.learn-qwik.com/metaQwikPath.png",
   "https://www.learn-qwik.com/games/game/path/",
 );

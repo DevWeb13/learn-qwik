@@ -21,12 +21,6 @@ export const RouterHead = component$(() => {
       {head.meta.map((m) => (
         <meta key={m.key} {...m} />
       ))}
-      {/* {pwaHead.meta.map((l) => (
-        <meta key={l.key} {...l} />
-      ))}
-      {pwaHead.links.map((l) => (
-        <link key={l.key} {...l} />
-      ))} */}
 
       {head.links.map((l) => (
         <link key={l.key} {...l} />

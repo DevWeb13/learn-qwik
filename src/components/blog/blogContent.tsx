@@ -6,6 +6,7 @@ import MetaInstallNodeUbuntu from "~/assets/img/install-node/metaInstallNodeUbun
 import MetaInstallVSCodeUbuntu from "~/assets/img/install-vscode/metaInstallVSCodeUbuntu.png?jsx";
 import MetaQwik2025 from "~/assets/img/metaQwik2025.png?jsx";
 import MetaOpenTerminalUbuntu from "~/assets/img/open-terminal/metaOpenTerminalUbuntu.png?jsx";
+import MetaQwik2Beta from "~/assets/img/qwik-2-beta/metaQwik2Beta.png?jsx";
 import MetaRemoveConsoleLog from "~/assets/img/remove-console-log/metaRemoveConsoleLog.png?jsx";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
@@ -101,6 +102,19 @@ export const BlogContent = component$(() => {
             <span class="text-blue-500">Qwik</span> in 2025 | Special Edition
           </h2>
           <div class="blog_posts">
+            <BlogCard
+              title="Qwik 2.0 Beta is here | What’s New & How to Migrate"
+              description="Explore the Qwik 2.0 Beta release: core rewrite, async APIs, leaner HTML, and migration tips. A big step forward for resumable apps!"
+              href="/blog/qwik-2-beta/"
+              date="July 2025"
+              readTime="4 min read"
+            >
+              <MetaQwik2Beta
+                class="h-full w-full object-contain object-center"
+                alt="Qwik 2.0 Beta article banner"
+              />
+            </BlogCard>
+
             <BlogCard
               title="Learn Qwik (2025) | Remove console.log in production (Qwik + Vite)"
               description="Learn how to automatically clean up your production builds by removing console.log using Vite. Works with all Vite-based projects."

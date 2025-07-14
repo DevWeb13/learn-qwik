@@ -151,6 +151,7 @@ export type Database = {
         Row: {
           back_count: number
           elapsed_seconds: number
+          invalid_last_path: boolean | null
           invalid_order: boolean | null
           last_history: Json | null
           last_path: Json
@@ -162,6 +163,7 @@ export type Database = {
         Insert: {
           back_count?: number
           elapsed_seconds?: number
+          invalid_last_path?: boolean | null
           invalid_order?: boolean | null
           last_history?: Json | null
           last_path?: Json
@@ -173,6 +175,7 @@ export type Database = {
         Update: {
           back_count?: number
           elapsed_seconds?: number
+          invalid_last_path?: boolean | null
           invalid_order?: boolean | null
           last_history?: Json | null
           last_path?: Json

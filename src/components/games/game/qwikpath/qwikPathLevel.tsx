@@ -1,10 +1,12 @@
 // src/components/games/game/qwikpath/qwikPathLevel.tsx
 
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
-import { BackButton } from "~/components/UI/backButton/backButton";
+import CompletedLevelsButtonImg from "~/assets/img/games/game/gamePath/completed-levels-button.png?jsx";
+import PlayNextLevelImgButton from "~/assets/img/games/game/gamePath/play-next-level-button.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 
+import { Link } from "@builder.io/qwik-city";
 import QwikPathGraf from "~/assets/img/games/game/gamePath/qwik-path-graf.png?jsx";
 import {
   useCompletedLevel,
@@ -13,6 +15,7 @@ import {
   useSavedProgress,
   useTotalPlayersForLevel,
 } from "~/routes/games/game/path/[level]";
+import { useNextLevels } from "~/routes/games/game/path/layout";
 import { useProfile } from "~/routes/layout";
 import type {
   QwikPathClue,
@@ -35,6 +38,8 @@ export const QwikPathLevel = component$(() => {
   const completed = useCompletedLevel();
 
   const totalPlayersForLevel = useTotalPlayersForLevel();
+
+  const nextLevels = useNextLevels();
 
   const completedPath = completed.value?.completed_path as
     | { x: number; y: number }[]
@@ -87,7 +92,10 @@ export const QwikPathLevel = component$(() => {
     }
   `);
 
-  if ("errorMessage" in level.value || !level.value.id) {
+  const is_publishable =
+    level.value.published_at && new Date(level.value.published_at) < new Date();
+
+  if ("errorMessage" in level.value || !level.value.id || !is_publishable) {
     return (
       <div class="text-center text-red-500">
         {level.value.errorMessage || "Level ID not found"}
@@ -121,6 +129,25 @@ export const QwikPathLevel = component$(() => {
             clues={levelData.clues}
             path={completedPath}
           />
+          {nextLevels.value.length > 0 ? (
+            <div class="flex justify-center">
+              <Link
+                href={`/games/game/path/${nextLevels.value[0].level_number}`}
+                class=" flex h-32 w-32  items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 shadow-[0_0_20px_rgba(255,0,255,0.9)] transition-transform duration-200 hover:scale-105"
+              >
+                <PlayNextLevelImgButton alt="Play Next Level" />
+              </Link>
+            </div>
+          ) : (
+            <div class="flex justify-center">
+              <Link
+                href="/games/game/path/completed/"
+                class=" flex h-32 w-32  items-center justify-center rounded-full bg-gradient-to-br from-teal-800 via-green-300 to-emerald-800 shadow-[0_0_20px_rgba(255,0,255,0.9)] transition-transform duration-200 hover:scale-105"
+              >
+                <CompletedLevelsButtonImg alt="Completed Levels" />
+              </Link>
+            </div>
+          )}
         </>
       );
     }
@@ -132,6 +159,7 @@ export const QwikPathLevel = component$(() => {
         last_history: String(savedProgress.value.last_history),
         back_count: Number(savedProgress.value.back_count),
         invalid_order: Boolean(savedProgress.value.invalid_order),
+        invalid_last_path: Boolean(savedProgress.value.invalid_last_path),
       };
       return (
         <GameGrid
@@ -148,8 +176,8 @@ export const QwikPathLevel = component$(() => {
   }
 
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 font-retro md:px-12 md:py-20">
-      <header class="flex flex-col items-center gap-4 px-4 md:gap-6">
+    <>
+      <header class="flex flex-col items-center gap-4 px-4 md:gap-8">
         <h1 class="sr-only">Qwik Path | Level {level.value.level_number}</h1>
 
         <QwikPathGraf class="h-[200px] w-[300px] object-cover md:h-[300px] md:w-[450px] lg:h-[400px] lg:w-[600px]" />
@@ -167,10 +195,10 @@ export const QwikPathLevel = component$(() => {
         <section class="flex w-full flex-col gap-6 md:max-w-[calc(100%-300px)]">
           <section class="w-full ">
             <div class=" flex items-center justify-between py-4">
-              <h2 class=" text-center text-xl font-bold text-gray-900 md:text-left">
-                Top Players | Level {level.value.level_number}
+              <h2 class="  text-left text-xl font-bold text-gray-900">
+                Top Players
               </h2>
-              <p class=" text-center text-base font-bold text-gray-500 ">
+              <p class=" text-right text-base font-bold text-gray-500 ">
                 {totalPlayersForLevel.value?.toLocaleString()} players in total
               </p>
             </div>
@@ -247,12 +275,10 @@ export const QwikPathLevel = component$(() => {
           {renderGameContent()}
         </section>
 
-        <BackButton href="/games/game/path/" label="Levels" />
-
         {!isSubscribed && <DesktopStickyAd />}
       </main>
 
       {!isSubscribed && <MobileStickyAd />}
-    </div>
+    </>
   );
 });

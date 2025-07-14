@@ -1,10 +1,9 @@
-import { $, component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useStylesScoped$ } from "@builder.io/qwik";
+
 import QwikPathGraf from "~/assets/img/games/game/gamePath/qwik-path-graf.png?jsx";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
-import { BackButton } from "~/components/UI/backButton/backButton";
 import {
-  useCompletedLevels,
   useLeaderboard,
   useNextLevels,
   useTotalPlayers,
@@ -18,15 +17,7 @@ export const QwikPathContent = component$(() => {
   const profile = useProfile();
   const isSubscribed = isSubscriptionActive(profile.value);
   const nextLevels = useNextLevels();
-  const showCompleted = useSignal(false);
-  const completedLevels = useCompletedLevels();
   const totalPlayers = useTotalPlayers();
-
-  const loadCompletedLevels = $(() => {
-    completedLevels.submit();
-    showCompleted.value = true;
-  });
-
   const leaderboard = useLeaderboard();
 
   useStylesScoped$(`
@@ -81,17 +72,22 @@ export const QwikPathContent = component$(() => {
   `);
 
   return (
-    <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 font-retro md:px-12 md:py-20">
+    <>
       <header class="flex flex-col items-center gap-4 px-4 md:gap-8">
         <h1 class="sr-only">Qwik Path | Daily Logic Puzzle</h1>
 
         <QwikPathGraf class="h-[200px] w-[300px] object-cover md:h-[300px] md:w-[450px] lg:h-[400px] lg:w-[600px]" />
 
-        <p class="max-w-xl text-center text-2xl font-semibold text-gray-900 md:text-3xl">
+        <p
+          class="max-w-xl bg-gradient-to-r from-fuchsia-500 via-pink-500 to-indigo-400 bg-clip-text 
+         text-center  
+         text-3xl font-extrabold uppercase tracking-widest 
+         text-transparent drop-shadow-[0_1px_2px_rgba(255,0,255,0.6)] md:text-4xl"
+        >
           Daily Logic Puzzle
         </p>
 
-        <p class="max-w-xl text-center text-gray-900">
+        <p class="max-w-xl text-center font-mono text-xl text-pink-500">
           Connect numbers in order and fill every cell. A new puzzle every day,
           powered by Qwik.
         </p>
@@ -101,10 +97,15 @@ export const QwikPathContent = component$(() => {
         <div class="flex w-full flex-col gap-8 md:max-w-[calc(100%-300px)]">
           <section class="w-full">
             <div class=" flex items-center justify-between gap-8 py-4">
-              <h2 class=" text-center text-xl font-bold text-gray-900 ">
+              <h2
+                class="bg-gradient-to-r from-fuchsia-500 via-pink-500 to-indigo-400 bg-clip-text 
+            text-2xl 
+           font-extrabold uppercase tracking-widest text-transparent 
+           drop-shadow-[0_1px_2px_rgba(255,0,255,0.6)]"
+              >
                 Top Players
               </h2>
-              <p class=" text-center text-base font-bold text-gray-500 ">
+              <p class="font-mono text-lg font-bold tracking-wide text-pink-500">
                 {totalPlayers.value?.toLocaleString()} players in total
               </p>
             </div>
@@ -167,61 +168,59 @@ export const QwikPathContent = component$(() => {
             </div>
           </section>
 
-          <section class="w-full">
-            <h2 class="mb-6 text-center text-xl font-bold text-gray-900 md:text-left">
+          <section class="flex w-full flex-col gap-4">
+            <h2
+              class="bg-gradient-to-r from-fuchsia-500 via-pink-500 to-indigo-400 bg-clip-text 
+           text-2xl 
+           font-extrabold uppercase tracking-widest text-transparent 
+           drop-shadow-[0_1px_2px_rgba(255,0,255,0.6)]"
+            >
               Available Levels
             </h2>
-            <div class="levels_grid">
-              {nextLevels.value.map((level) => (
-                <LevelCard
-                  key={level.id}
-                  levelNumber={level.level_number}
-                  difficulty={level.difficulty}
-                  href={`/games/game/path/${level.level_number}`}
-                  completed={false}
-                  disabled={false}
-                />
-              ))}
-            </div>
-          </section>
 
-          <section class="w-full">
-            <h2 class="mb-6 text-center text-xl font-bold text-gray-900 md:text-left">
-              Completed Levels
-            </h2>
+            {nextLevels.value.length === 0 ? (
+              <p class="text-center text-gray-500">
+                No more levels available. Wait for the next one!
+              </p>
+            ) : (
+              ["easy", "medium", "hard"].map((difficulty) => {
+                const levelsByDifficulty = nextLevels.value.filter(
+                  (level) => level.difficulty === difficulty,
+                );
 
-            {showCompleted.value === false && (
-              <button
-                class="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-                onClick$={loadCompletedLevels}
-              >
-                Show Completed Levels
-              </button>
-            )}
+                if (levelsByDifficulty.length === 0) return null;
 
-            {showCompleted.value === true && (
-              <div class="levels_grid">
-                {completedLevels.value?.data.map((level) => (
-                  <LevelCard
-                    key={level.level_id}
-                    levelNumber={level.level_number}
-                    difficulty={level.difficulty}
-                    href={`/games/game/path/${level.level_number}`}
-                    completed={true}
-                    timeTaken={formatTime(level.time_taken)}
-                  />
-                ))}
-              </div>
+                return (
+                  <div key={difficulty} class="mb-8">
+                    <h3
+                      class="mb-4 text-center text-lg font-bold capitalize 
+         text-sky-600 md:text-left"
+                    >
+                      {difficulty}
+                    </h3>
+                    <div class="levels_grid">
+                      {levelsByDifficulty.map((level) => (
+                        <LevelCard
+                          key={level.id}
+                          levelNumber={level.level_number}
+                          difficulty={level.difficulty}
+                          href={`/games/game/path/${level.level_number}`}
+                          completed={false}
+                          published_at={new Date(level.published_at)}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })
             )}
           </section>
         </div>
-
-        <BackButton href="/games/" label="Games" />
 
         {!isSubscribed && <DesktopStickyAd />}
       </main>
 
       {!isSubscribed && <MobileStickyAd />}
-    </div>
+    </>
   );
 });

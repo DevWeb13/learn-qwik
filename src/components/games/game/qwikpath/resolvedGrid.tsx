@@ -1,9 +1,16 @@
 import { component$ } from "@builder.io/qwik";
 
-import Corner from "~/assets/img/games/game/gamePath/corner.png?jsx";
-import Endpoint from "~/assets/img/games/game/gamePath/endpoint.png?jsx";
-import StartSingle from "~/assets/img/games/game/gamePath/start-single.png?jsx";
-import Straight from "~/assets/img/games/game/gamePath/straight.png?jsx";
+import CornerLeftBottom from "~/assets/img/games/game/gamePath/neon/green/corner-left-bottom.png?jsx";
+import CornerLeftUp from "~/assets/img/games/game/gamePath/neon/green/corner-left-up.png?jsx";
+import CornerRightBottom from "~/assets/img/games/game/gamePath/neon/green/corner-right-bottom.png?jsx";
+import CornerRightUp from "~/assets/img/games/game/gamePath/neon/green/corner-right-up.png?jsx";
+import EndpointBottom from "~/assets/img/games/game/gamePath/neon/green/endpoint-bottom.png?jsx";
+import EndpointLeft from "~/assets/img/games/game/gamePath/neon/green/endpoint-left.png?jsx";
+import EndpointRight from "~/assets/img/games/game/gamePath/neon/green/endpoint-right.png?jsx";
+import EndpointUp from "~/assets/img/games/game/gamePath/neon/green/endpoint-up.png?jsx";
+import StartSingle from "~/assets/img/games/game/gamePath/neon/green/start-single.png?jsx";
+import StraightHorizontal from "~/assets/img/games/game/gamePath/neon/green/straight-horizontal.png?jsx";
+import StraightVertical from "~/assets/img/games/game/gamePath/neon/green/straight-vertical.png?jsx";
 import { getTileInfosFromPath } from "~/utils/games/path-tiles";
 
 export const ResolvedGrid = component$<{
@@ -38,34 +45,56 @@ export const ResolvedGrid = component$<{
             <div
               key={index}
               class={`flex aspect-square items-center justify-center
-              border-b-[2.5px] border-r-[2.5px] border-black
+              border-b-[1.5px] border-r-[1.5px] border-black
               font-bold tracking-tight
-              ${y === 0 ? "border-t-[2.5px]" : ""}
-              ${x === 0 ? "border-l-[2.5px]" : ""}
+              ${y === 0 ? "border-t-[1.5px]" : ""}
+              ${x === 0 ? "border-l-[1.5px]" : ""}
               ${
                 inPath
                   ? cellValue !== null
-                    ? "bg-purple-400/60 text-white"
-                    : "bg-purple-200 text-blue-700"
+                    ? "bg-teal-400/60 text-white"
+                    : "bg-teal-200 text-blue-700"
                   : cellValue !== null
-                    ? "bg-blue-100 text-blue-700"
-                    : "bg-white text-gray-900"
+                    ? "bg-teal-100 text-blue-700"
+                    : "bg-teal-50 text-gray-900"
               }`}
             >
               <div class="relative flex h-full w-full items-center justify-center">
                 {tile && (
-                  <div
-                    class="absolute inset-0 z-0"
-                    style={{ transform: `rotate(${tile.rotation}deg)` }}
-                  >
+                  <div class="absolute inset-0 z-0">
                     {tile.type === "start" && (
                       <StartSingle class="h-full w-full" />
                     )}
-                    {tile.type === "end" && <Endpoint class="h-full w-full" />}
-                    {tile.type === "straight" && (
-                      <Straight class="h-full w-full" />
+                    {tile.type === "end-right" && (
+                      <EndpointRight class="h-full w-full" />
                     )}
-                    {tile.type === "corner" && <Corner class="h-full w-full" />}
+                    {tile.type === "end-left" && (
+                      <EndpointLeft class="h-full w-full" />
+                    )}
+                    {tile.type === "end-bottom" && (
+                      <EndpointBottom class="h-full w-full" />
+                    )}
+                    {tile.type === "end-up" && (
+                      <EndpointUp class="h-full w-full" />
+                    )}
+                    {tile.type === "straight-horizontal" && (
+                      <StraightHorizontal class="h-full w-full" />
+                    )}
+                    {tile.type === "straight-vertical" && (
+                      <StraightVertical class="h-full w-full" />
+                    )}
+                    {tile.type === "corner-right-up" && (
+                      <CornerRightUp class="h-full w-full" />
+                    )}
+                    {tile.type === "corner-right-bottom" && (
+                      <CornerRightBottom class="h-full w-full" />
+                    )}
+                    {tile.type === "corner-left-up" && (
+                      <CornerLeftUp class="h-full w-full" />
+                    )}
+                    {tile.type === "corner-left-bottom" && (
+                      <CornerLeftBottom class="h-full w-full" />
+                    )}
                   </div>
                 )}
 

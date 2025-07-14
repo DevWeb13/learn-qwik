@@ -20,7 +20,7 @@ export const GamesContent = component$(() => {
   `);
 
   return (
-    <div class="font-retro relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+    <>
       <header class="flex flex-col items-center gap-4 px-4 md:gap-8">
         <h1 class="sr-only">Qwik Games | Logic & Speed Challenges</h1>
 
@@ -49,7 +49,8 @@ export const GamesContent = component$(() => {
               href="/games/game/path/"
               date="May 2025"
               readTime="1 min to play"
-              cta="Play now →"
+              cta="Play now"
+              rulesLink="/games/game/path/rules/"
             >
               <MetaQwikPath
                 class="h-full w-full object-contain object-center"
@@ -63,6 +64,6 @@ export const GamesContent = component$(() => {
       </main>
 
       {!isSubscribed && <MobileStickyAd />}
-    </div>
+    </>
   );
 });

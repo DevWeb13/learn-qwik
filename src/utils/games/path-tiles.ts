@@ -4,12 +4,24 @@ import type { Position } from "~/components/games/game/qwikpath/gameGrid";
 
 export type TileInfo = {
   pos: Position;
-  type: "start" | "end" | "straight" | "corner";
-  rotation: number;
+  type:
+    | "start"
+    | "end-right"
+    | "end-left"
+    | "end-bottom"
+    | "end-up"
+    | "end"
+    | "straight-horizontal"
+    | "straight-vertical"
+    | "corner-right-up"
+    | "corner-right-bottom"
+    | "corner-left-up"
+    | "corner-left-bottom";
 };
 
 export function getTileInfosFromPath(path: Position[]): TileInfo[] {
   const result: TileInfo[] = [];
+  let type: TileInfo["type"] = "start";
 
   for (let i = 0; i < path.length; i++) {
     const curr = path[i];
@@ -17,7 +29,7 @@ export function getTileInfosFromPath(path: Position[]): TileInfo[] {
     // Cas 1 : début
     if (i === 0) {
       if (path.length === 1) {
-        result.push({ pos: curr, type: "start", rotation: 0 });
+        result.push({ pos: curr, type: "start" });
         continue;
       }
       const next = path[i + 1];
@@ -25,13 +37,11 @@ export function getTileInfosFromPath(path: Position[]): TileInfo[] {
       const dx = next.x - curr.x;
       const dy = next.y - curr.y;
 
-      let rotation = 0;
-      if (dx === 1) rotation = 180;
-      if (dx === -1) rotation = 0;
-      if (dy === -1) rotation = 90;
-      if (dy === 1) rotation = 270;
+      if (dx === 1) result.push({ pos: curr, type: "end-left" });
+      if (dx === -1) result.push({ pos: curr, type: "end-right" });
+      if (dy === -1) result.push({ pos: curr, type: "end-bottom" });
+      if (dy === 1) result.push({ pos: curr, type: "end-up" });
 
-      result.push({ pos: curr, type: "end", rotation });
       continue;
     }
 
@@ -41,13 +51,11 @@ export function getTileInfosFromPath(path: Position[]): TileInfo[] {
       const dx = prev.x - curr.x;
       const dy = curr.y - prev.y;
 
-      let rotation = 0;
-      if (dx === 1) rotation = 180;
-      if (dx === -1) rotation = 0;
-      if (dy === 1) rotation = 90;
-      if (dy === -1) rotation = 270;
+      if (dx === 1) result.push({ pos: curr, type: "end-left" });
+      if (dx === -1) result.push({ pos: curr, type: "end-right" });
+      if (dy === 1) result.push({ pos: curr, type: "end-bottom" });
+      if (dy === -1) result.push({ pos: curr, type: "end-up" });
 
-      result.push({ pos: curr, type: "end", rotation });
       continue;
     }
 
@@ -66,42 +74,39 @@ export function getTileInfosFromPath(path: Position[]): TileInfo[] {
       const isVertical = dy1 !== 0;
       result.push({
         pos: curr,
-        type: "straight",
-        rotation: isVertical ? 90 : 0,
+        type: isVertical ? "straight-vertical" : "straight-horizontal",
       });
     } else {
-      let rotation = 0;
-
       // Rotation 0° ↘ (gauche→bas) et ↖ (bas→gauche)
       if (
         (dx1 === 1 && dy1 === 0 && dx2 === 0 && dy2 === 1) || // ↘
         (dx1 === 0 && dy1 === -1 && dx2 === -1 && dy2 === 0) // ↖
       ) {
-        rotation = 0;
+        type = "corner-right-up";
       }
       // Rotation 90° ↗ (gauche→haut) et ↙ (haut→gauche)
       else if (
         (dx1 === 1 && dy1 === 0 && dx2 === 0 && dy2 === -1) || // ↗
         (dx1 === 0 && dy1 === 1 && dx2 === -1 && dy2 === 0) // ↙
       ) {
-        rotation = 90;
+        type = "corner-right-bottom";
       }
       // Rotation 180° ↖ (droite→haut) et ↘ (haut→droite)
       else if (
         (dx1 === -1 && dy1 === 0 && dx2 === 0 && dy2 === -1) || // ↖
         (dx1 === 0 && dy1 === 1 && dx2 === 1 && dy2 === 0) // ↘
       ) {
-        rotation = 180;
+        type = "corner-left-bottom";
       }
       // Rotation 270° ↙ (droite→bas) et ↗ (bas→droite)
       else if (
         (dx1 === -1 && dy1 === 0 && dx2 === 0 && dy2 === 1) || // ↙
         (dx1 === 0 && dy1 === -1 && dx2 === 1 && dy2 === 0) // ↗
       ) {
-        rotation = 270;
+        type = "corner-left-up";
       }
 
-      result.push({ pos: curr, type: "corner", rotation });
+      result.push({ pos: curr, type });
     }
   }
 

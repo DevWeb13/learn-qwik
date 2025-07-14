@@ -16,10 +16,18 @@ import { getTileInfosFromPath } from "~/utils/games/path-tiles";
 import { getFullPath } from "~/utils/games/path-utils";
 import { Chrono } from "./chrono";
 
-import Corner from "~/assets/img/games/game/gamePath/corner.png?jsx";
-import Endpoint from "~/assets/img/games/game/gamePath/endpoint.png?jsx";
-import StartSingle from "~/assets/img/games/game/gamePath/start-single.png?jsx";
-import Straight from "~/assets/img/games/game/gamePath/straight.png?jsx";
+import BackButtonImg from "~/assets/img/games/game/gamePath/back-button.png?jsx";
+import CornerLeftBottom from "~/assets/img/games/game/gamePath/neon/green/corner-left-bottom.png?jsx";
+import CornerLeftUp from "~/assets/img/games/game/gamePath/neon/green/corner-left-up.png?jsx";
+import CornerRightBottom from "~/assets/img/games/game/gamePath/neon/green/corner-right-bottom.png?jsx";
+import CornerRightUp from "~/assets/img/games/game/gamePath/neon/green/corner-right-up.png?jsx";
+import EndpointBottom from "~/assets/img/games/game/gamePath/neon/green/endpoint-bottom.png?jsx";
+import EndpointLeft from "~/assets/img/games/game/gamePath/neon/green/endpoint-left.png?jsx";
+import EndpointRight from "~/assets/img/games/game/gamePath/neon/green/endpoint-right.png?jsx";
+import EndpointUp from "~/assets/img/games/game/gamePath/neon/green/endpoint-up.png?jsx";
+import StartSingle from "~/assets/img/games/game/gamePath/neon/green/start-single.png?jsx";
+import StraightHorizontal from "~/assets/img/games/game/gamePath/neon/green/straight-horizontal.png?jsx";
+import StraightVertical from "~/assets/img/games/game/gamePath/neon/green/straight-vertical.png?jsx";
 
 export interface Position {
   x: number;
@@ -35,6 +43,7 @@ type GameGridProps = {
     last_history: string;
     back_count: number;
     invalid_order: boolean;
+    invalid_last_path: boolean;
   } | null;
 };
 
@@ -46,11 +55,16 @@ export const GameGrid = component$<GameGridProps>(
       ? JSON.parse(savedProgress.last_path)
       : [];
 
+    console.log("savedProgress", savedProgress);
+
     const path = useSignal<Position[]>(initialPath);
     const elapsedSeconds = useSignal(savedProgress?.elapsed_seconds ?? 0);
     const gameStarted = useSignal(savedProgress ? true : false);
     const backCount = useSignal(savedProgress?.back_count ?? 0);
     const invalidOrder = useSignal(savedProgress?.invalid_order ?? false);
+    const invalidLastPath = useSignal(
+      savedProgress?.invalid_last_path ?? false,
+    );
 
     const clickedNumbers = useSignal<number[]>(() => {
       return initialPath
@@ -85,7 +99,6 @@ export const GameGrid = component$<GameGridProps>(
 
     const history = useSignal<Position[][]>(initialHistory);
 
-    console.log("invalidOrder", invalidOrder.value);
     const validateLevelAction = useValidateLevel();
     const hasSubmitted = useSignal(false);
 
@@ -98,16 +111,35 @@ export const GameGrid = component$<GameGridProps>(
 
     const isSolved = useComputed$(() => {
       const expected = [...clickedNumbers.value];
+      console.log("expected: ", expected);
+
       const required = clues
         .map((c) => c.value)
         .filter((v) => v !== 1)
         .sort((a, b) => a - b);
+      console.log("required: ", required);
+
+      const lastClue = clues.at(-1);
+
+      console.log("lastClue: ", lastClue);
+
+      const lastPath = path.value.at(-1);
+      console.log("lastPath: ", lastPath);
       const allNumbersInOrder = expected.every((n, i) => n === required[i]);
-      return (
-        path.value.length === gridSize * gridSize &&
-        allNumbersInOrder &&
-        clickedNumbers.value.length === required.length
-      );
+
+      console.log("clickedNumbers.value: ", clickedNumbers.value);
+      const checkLastClicked =
+        lastClue?.x === lastPath?.x && lastClue?.y === lastPath?.y;
+
+      const checkIfGridIsComplete = path.value.length === gridSize * gridSize;
+
+      const checkIfGridIsCompleteAndcheckLastClicked =
+        checkIfGridIsComplete && checkLastClicked;
+
+      const checkIsValid =
+        checkIfGridIsCompleteAndcheckLastClicked && allNumbersInOrder;
+
+      return checkIsValid;
     });
 
     const goBack = $(() => {
@@ -130,7 +162,17 @@ export const GameGrid = component$<GameGridProps>(
             .filter((v) => v !== 1)
             .sort((a, b) => a - b);
           const allNumbersInOrder = expected.every((n, i) => n === required[i]);
+          const lastClue = clues.at(-1);
+          // const lastPath = path.value.at(-1);
+          // const checkLastClicked =
+          //   lastClue?.x === lastPath?.x && lastClue?.y === lastPath?.y;
+          const checkIfLastClueIsInPath = path.value.some(
+            (pos) => pos.x === lastClue?.x && pos.y === lastClue.y,
+          );
+          // const checkIfGridIsComplete =
+          //   path.value.length === gridSize * gridSize;
           invalidOrder.value = !allNumbersInOrder;
+          invalidLastPath.value = checkIfLastClueIsInPath;
         }
       }
     });
@@ -150,7 +192,6 @@ export const GameGrid = component$<GameGridProps>(
 
     const saveProgress = $(() => {
       if (gameStarted.value && !isSolved.value && path.value.length > 0) {
-        // 👈 ici
         const payload = {
           level_id: levelId,
           elapsed_seconds: elapsedSeconds.value,
@@ -158,8 +199,8 @@ export const GameGrid = component$<GameGridProps>(
           last_history: JSON.stringify(history.value),
           back_count: backCount.value,
           invalid_order: invalidOrder.value,
+          invalid_last_path: invalidLastPath.value,
         };
-        console.log("Payload envoyé :", payload);
 
         const blob = new Blob([JSON.stringify(payload)], {
           type: "application/json",
@@ -187,12 +228,15 @@ export const GameGrid = component$<GameGridProps>(
     return (
       <div class="mx-auto w-full max-w-[320px] sm:max-w-[340px] md:max-w-[360px]">
         <div class="mb-4 flex items-center justify-around">
-          <button
-            onClick$={goBack}
-            class="rounded bg-gray-200 px-4 py-2 text-sm font-semibold text-gray-800 transition hover:bg-gray-300"
-          >
-            Return
-          </button>
+          <div class="flex items-center gap-2">
+            <p class="text-blue-600">{backCount.value}</p>
+            <button
+              onClick$={goBack}
+              class="h-20 w-20 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 shadow-[0_0_20px_rgba(255,0,255,0.6)] transition-transform duration-200 hover:scale-105"
+            >
+              <BackButtonImg class="h-full w-full" />
+            </button>
+          </div>
 
           <Chrono
             gameStarted={gameStarted}
@@ -228,6 +272,8 @@ export const GameGrid = component$<GameGridProps>(
               const showValue = cellValue === 1 || gameStarted.value || inPath;
               const tile = getTile(x, y);
 
+              console.log(tile);
+
               return (
                 <button
                   key={index}
@@ -256,40 +302,89 @@ export const GameGrid = component$<GameGridProps>(
                     const allNumbersInOrder = expected.every(
                       (n, i) => n === required[i],
                     );
+                    const lastClue = clues.at(-1);
+                    const lastPath = path.value.at(-1);
+                    const checkLastClicked =
+                      lastClue?.x === lastPath?.x &&
+                      lastClue?.y === lastPath?.y;
+                    console.log("checkLastClicked: ", checkLastClicked);
+                    const checkIfLastClueIsInPath = path.value.some(
+                      (pos) => pos.x === lastClue?.x && pos.y === lastClue.y,
+                    );
+                    console.log(
+                      "checkIfLastClueIsInPath: ",
+                      checkIfLastClueIsInPath,
+                    );
+                    const checkIfGridIsComplete =
+                      path.value.length === gridSize * gridSize;
+                    console.log(
+                      "checkIfGridIsComplete: ",
+                      checkIfGridIsComplete,
+                    );
+
+                    const checkIfGridIsCompleteAndcheckLastClicked =
+                      checkIfGridIsComplete && checkLastClicked;
                     invalidOrder.value = !allNumbersInOrder;
+                    invalidLastPath.value =
+                      checkIfLastClueIsInPath &&
+                      !checkIfGridIsCompleteAndcheckLastClicked;
+
+                    console.log("invalidOrder.value: ", invalidOrder.value);
+                    console.log(
+                      "invalidLastPath.value: ",
+                      invalidLastPath.value,
+                    );
                   }}
                   class={`flex aspect-square items-center justify-center
-                    border-b-[2.5px] border-r-[2.5px] border-black
+                    border-b-[1.5px] border-r-[1.5px] border-black
                     font-bold tracking-tight transition-colors duration-150 ease-in-out
-                    ${y === 0 ? "border-t-[2.5px]" : ""}
-                    ${x === 0 ? "border-l-[2.5px]" : ""}
+                    ${y === 0 ? "border-t-[1.5px]" : ""}
+                    ${x === 0 ? "border-l-[1.5px]" : ""}
                     ${
                       inPath
                         ? cellValue !== null
-                          ? "bg-purple-400/60 text-white"
-                          : "bg-purple-200 text-blue-700"
+                          ? "bg-teal-400/60 text-white"
+                          : "bg-teal-200 text-blue-700"
                         : cellValue !== null
-                          ? "bg-blue-100 text-blue-700"
-                          : "bg-white text-gray-900"
+                          ? "bg-teal-100 text-blue-700"
+                          : "bg-teal-50 text-gray-900"
                     }`}
                 >
                   <div class="relative flex h-full w-full items-center justify-center">
                     {tile && (
-                      <div
-                        class="absolute inset-0 z-0"
-                        style={{ transform: `rotate(${tile.rotation}deg)` }}
-                      >
+                      <div class="absolute inset-0 z-0">
                         {tile.type === "start" && (
                           <StartSingle class="h-full w-full" />
                         )}
-                        {tile.type === "end" && (
-                          <Endpoint class="h-full w-full" />
+                        {tile.type === "end-right" && (
+                          <EndpointRight class="h-full w-full" />
                         )}
-                        {tile.type === "straight" && (
-                          <Straight class="h-full w-full" />
+                        {tile.type === "end-left" && (
+                          <EndpointLeft class="h-full w-full" />
                         )}
-                        {tile.type === "corner" && (
-                          <Corner class="h-full w-full" />
+                        {tile.type === "end-bottom" && (
+                          <EndpointBottom class="h-full w-full" />
+                        )}
+                        {tile.type === "end-up" && (
+                          <EndpointUp class="h-full w-full" />
+                        )}
+                        {tile.type === "straight-horizontal" && (
+                          <StraightHorizontal class="h-full w-full" />
+                        )}
+                        {tile.type === "straight-vertical" && (
+                          <StraightVertical class="h-full w-full" />
+                        )}
+                        {tile.type === "corner-right-up" && (
+                          <CornerRightUp class="h-full w-full" />
+                        )}
+                        {tile.type === "corner-right-bottom" && (
+                          <CornerRightBottom class="h-full w-full" />
+                        )}
+                        {tile.type === "corner-left-up" && (
+                          <CornerLeftUp class="h-full w-full" />
+                        )}
+                        {tile.type === "corner-left-bottom" && (
+                          <CornerLeftBottom class="h-full w-full" />
                         )}
                       </div>
                     )}
@@ -308,6 +403,11 @@ export const GameGrid = component$<GameGridProps>(
           {invalidOrder.value && (
             <p class="text-center text-sm text-red-600">
               Oops! Les chiffres doivent être cochés dans l'ordre.
+            </p>
+          )}
+          {!invalidOrder.value && invalidLastPath.value && (
+            <p class="text-center text-sm text-red-600">
+              Oops! Le dernier chiffre doit être coché sur la dernière case.
             </p>
           )}
         </div>

@@ -110,9 +110,6 @@ export const useLevelLeaderboard = routeLoader$(async (requestEvent) => {
     },
   );
 
-  console.log("data: ", data);
-  console.log("error: ", error);
-
   if (error) {
     requestEvent.fail(500, { message: "Level leaderboard fetch error" });
   }
@@ -135,15 +132,13 @@ export const useSavedProgress = routeLoader$(async (requestEvent) => {
     .eq("level_number", levelNumber)
     .single();
 
-  console.log("levelData", levelData);
-
   if (levelError || !levelData.id) return null;
 
   // 2. On peut alors chercher la progression
   const { data, error } = await supabase
     .from("user_progress")
     .select(
-      "elapsed_seconds, last_path, last_history, back_count, invalid_order",
+      "elapsed_seconds, last_path, last_history, back_count, invalid_order, invalid_last_path",
     ) // 👈 ici
     .eq("user_id", profile.id)
     .eq("level_id", levelData.id)
@@ -157,6 +152,7 @@ export const useSavedProgress = routeLoader$(async (requestEvent) => {
     last_history: data.last_history ?? [],
     back_count: Number(data.back_count) || 0,
     invalid_order: Boolean(data.invalid_order) || false,
+    invalid_last_path: Boolean(data.invalid_last_path) || false,
   };
 });
 
@@ -164,8 +160,6 @@ export const useCompletedLevel = routeLoader$(async (requestEvent) => {
   const supabase = createClient(requestEvent);
   const profile = requestEvent.sharedMap.get("profile");
   const levelId = requestEvent.params.level;
-
-  console.log("useCompletedLevel", levelId);
 
   if (!profile) {
     requestEvent.fail(401, {
@@ -182,8 +176,6 @@ export const useCompletedLevel = routeLoader$(async (requestEvent) => {
     uid: profile.id,
     lvl_number: parseInt(levelId),
   });
-
-  console.log("data 2 ", data);
 
   if (error) {
     requestEvent.fail(500, { success: false, message: "Supabase error" });

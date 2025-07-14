@@ -1,5 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
+import { GamesLink } from "./game/qwikpath/gamesLink";
 
 interface GameCardProps {
   title: string;
@@ -8,15 +8,13 @@ interface GameCardProps {
   date?: string;
   readTime?: string;
   cta?: string;
+  rulesLink?: string;
 }
 
 export const GameCard = component$<GameCardProps>(
-  ({ title, description, href, date, cta }) => {
+  ({ title, description, href, date, cta, rulesLink }) => {
     return (
-      <Link
-        href={href}
-        class="group relative w-[360px] overflow-hidden rounded-2xl bg-gradient-to-br from-[#0f172a] to-[#1e293b] shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_#0ea5e9]"
-      >
+      <div class="group relative w-[360px] overflow-hidden rounded-2xl bg-gradient-to-br from-[#3e568e] to-[#1e293b] shadow-[0_0_20px_rgba(0,0,0,0.4)] transition-transform duration-300  hover:shadow-[0_0_20px_#0ea5e9]">
         <div class="w-full">
           <Slot />
         </div>
@@ -30,12 +28,23 @@ export const GameCard = component$<GameCardProps>(
           </div>
 
           {cta && (
-            <span class="mt-4 flex w-max items-center rounded-lg bg-sky-500 px-4 py-2 text-xs  text-white shadow-md transition group-hover:bg-sky-600">
+            <GamesLink href={href} label={cta} icon="arrow-right">
               {cta}
-            </span>
+            </GamesLink>
+          )}
+
+          {rulesLink && (
+            <GamesLink
+              href={rulesLink}
+              label="Rules"
+              icon="arrow-right"
+              completed
+            >
+              Rules
+            </GamesLink>
           )}
         </div>
-      </Link>
+      </div>
     );
   },
 );
