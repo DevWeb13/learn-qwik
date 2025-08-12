@@ -88,6 +88,27 @@ export default component$(() => {
         </Link>
       </div>
 
+      <NavLink
+        class={`${styles.link} relative inline-flex items-center`}
+        activeClass={
+          styles.link + " " + "!text-black relative inline-flex items-center"
+        }
+        href="/blog/"
+      >
+        Blog
+        <span class="ml-2 animate-bounce rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
+          New
+        </span>
+      </NavLink>
+
+      <NavLink
+        class={styles.link}
+        activeClass={styles.link + " " + "!text-black"}
+        href="/releases/"
+      >
+        Releases
+      </NavLink>
+
       <Link
         class={styles.link}
         title="Showcase"
@@ -109,28 +130,8 @@ export default component$(() => {
         Docs
         <ExternalArrowIcon />
       </Link>
-      <NavLink
-        class={styles.link}
-        activeClass={styles.link + " " + "!text-black"}
-        href="/releases/"
-      >
-        Releases
-      </NavLink>
 
-      <NavLink
-        class={`${styles.link} relative inline-flex items-center`}
-        activeClass={
-          styles.link + " " + "!text-black relative inline-flex items-center"
-        }
-        href="/blog/"
-      >
-        Blog
-        <span class="ml-2 animate-bounce rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
-          New
-        </span>
-      </NavLink>
-
-      <NavLink
+      {/* <NavLink
         class={`${styles.link} relative inline-flex items-center`}
         activeClass={
           styles.link + " " + "!text-black relative inline-flex items-center"
@@ -141,7 +142,7 @@ export default component$(() => {
         <span class="ml-2 animate-bounce rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold uppercase text-white">
           Beta
         </span>
-      </NavLink>
+      </NavLink> */}
     </div>
   );
 });

@@ -53,6 +53,31 @@ export default component$(() => {
           </li>
 
           <li>
+            <NavLink
+              class={`${styles.mute} relative inline-flex items-center`}
+              activeClass="text-black"
+              href="/blog/"
+              onClick$={() => (mobileMenuVisible.value = false)}
+            >
+              Blog
+              <span class=" ml-2 flex animate-bounce items-center rounded-full bg-red-500 px-2 py-0.5 text-[10px]  font-bold uppercase text-white">
+                New
+              </span>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              class={styles.mute}
+              activeClass="text-black"
+              href="/releases/"
+              onClick$={() => (mobileMenuVisible.value = false)}
+            >
+              Releases
+            </NavLink>
+          </li>
+
+          <li>
             <Link
               class={styles.mute}
               title="Showcase"
@@ -98,30 +123,8 @@ export default component$(() => {
               </svg>
             </Link>
           </li>
-          <li>
-            <NavLink
-              class={styles.mute}
-              activeClass="text-black"
-              href="/releases/"
-              onClick$={() => (mobileMenuVisible.value = false)}
-            >
-              Releases
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              class={`${styles.mute} relative inline-flex items-center`}
-              activeClass="text-black"
-              href="/blog/"
-              onClick$={() => (mobileMenuVisible.value = false)}
-            >
-              Blog
-              <span class=" ml-2 flex animate-bounce items-center rounded-full bg-red-500 px-2 py-0.5 text-[10px]  font-bold uppercase text-white">
-                New
-              </span>
-            </NavLink>
-          </li>
-          <li>
+
+          {/* <li>
             <NavLink
               class={`${styles.mute} relative inline-flex items-center`}
               activeClass="text-black"
@@ -133,7 +136,7 @@ export default component$(() => {
                 Beta
               </span>
             </NavLink>
-          </li>
+          </li> */}
 
           <li>
             <Link
