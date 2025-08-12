@@ -50,16 +50,18 @@ async function getProfile(
 }
 
 export async function updateSession(requestEvent: RequestEvent) {
-  const supabase = createClient(requestEvent);
-
   const userAgent = requestEvent.request.headers.get("user-agent");
-  console.log("userAgent", userAgent);
+
+  const path = requestEvent.url.pathname;
 
   if (isBotRequest(userAgent)) {
-    console.log("Bot detected, allowing access without redirection");
     return;
   }
 
+  const PUBLIC_PATHS = ["/blog"];
+  if (PUBLIC_PATHS.some((p) => path.startsWith(p))) return;
+
+  const supabase = createClient(requestEvent);
   const user = await getUser(supabase, requestEvent);
 
   if (user && requestEvent.url.pathname.startsWith("/auth/login/")) {
