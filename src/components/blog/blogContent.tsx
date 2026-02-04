@@ -15,6 +15,8 @@ import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "../mobileStickyAd/mobileStickyAd";
 import { BlogCard } from "./blogCard";
 
+import MetaOpenAICodexApp from "~/assets/openai-codex-app/metaOpenAICodexApp.png?jsx";
+
 export const BlogContent = component$(() => {
   const profile = useProfile();
   const isSubscribed = isSubscriptionActive(profile.value);
@@ -42,6 +44,28 @@ export const BlogContent = component$(() => {
       {/* ✅ Flex row : barre à gauche + contenu */}
       <main class="relative flex w-full max-w-screen-2xl flex-col justify-center gap-4 px-4 md:flex-row">
         <section class="flex w-full flex-col gap-8 md:max-w-[calc(100%-300px)]">
+          <h2 class="text-2xl font-bold text-gray-900">
+            <h2 class="text-2xl font-bold text-gray-900">
+              <span class="text-blue-500">Off</span> Topic | Special Edition
+              2026
+            </h2>
+          </h2>
+
+          <div class="blog_posts">
+            <BlogCard
+              title="Codex App explained for beginners | From AI assistant to AI worker"
+              description="An off-topic article exploring how AI agents like OpenAI Codex App are changing the way developers work, shifting from writing code to orchestrating AI-driven workflows."
+              href="/blog/openai-codex-app-beginners/"
+              date="January 2026"
+              readTime="5 min read"
+            >
+              <MetaOpenAICodexApp
+                class="h-full w-full object-contain object-center"
+                alt="OpenAI Codex App overview"
+              />
+            </BlogCard>
+          </div>
+
           <h2 class="text-2xl font-bold text-gray-900">
             <span class="text-blue-500">Qwik</span> in 2026 | Special Edition
           </h2>
