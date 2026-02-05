@@ -60,7 +60,6 @@ export const BlogContent = component$(() => {
               <MetaQwikCVE2026
                 class="h-full w-full object-contain object-center"
                 alt="Qwik security advisory CVE-2026-25148"
-                loading="eager"
               />
             </BlogCard>
 
