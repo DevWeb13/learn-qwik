@@ -58,8 +58,8 @@ export async function updateSession(requestEvent: RequestEvent) {
     return;
   }
 
-  const PUBLIC_PATHS = ["/blog"];
-  if (PUBLIC_PATHS.some((p) => path.startsWith(p))) return;
+  // const PUBLIC_PATHS = ["/blog"];
+  // if (PUBLIC_PATHS.some((p) => path.startsWith(p))) return;
 
   const supabase = createClient(requestEvent);
   const user = await getUser(supabase, requestEvent);
@@ -74,7 +74,8 @@ export async function updateSession(requestEvent: RequestEvent) {
     (requestEvent.url.pathname.startsWith("/learn") ||
       requestEvent.url.pathname.startsWith("/auth/logout") ||
       requestEvent.url.pathname.startsWith("/account") ||
-      requestEvent.url.pathname.startsWith("/games/game/path"))
+      requestEvent.url.pathname.startsWith("/games/game/path") ||
+      requestEvent.url.pathname.startsWith("/blog"))
   ) {
     const next = requestEvent.url.pathname;
     console.log("Redirecting to /auth/login", next);

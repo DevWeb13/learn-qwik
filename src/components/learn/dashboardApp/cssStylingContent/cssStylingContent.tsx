@@ -174,7 +174,7 @@ export default component$(() => {
             </Link>
             , brought to you by{" "}
             <Link
-              href="https://www.lareponsedev.com/"
+              href="https://www.lareponsedev.fr/"
               target="_blank"
               class="text-blue-500"
             >
@@ -662,7 +662,7 @@ export default component$(() => {
             </Link>
             , brought to you by{" "}
             <Link
-              href="https://www.lareponsedev.com/"
+              href="https://www.lareponsedev.fr/"
               target="_blank"
               class="text-blue-500"
             >

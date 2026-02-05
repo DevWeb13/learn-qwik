@@ -90,7 +90,7 @@ export default component$(() => {
               entity.
               <br />
               <strong>Webmaster:</strong> Loic Giuliano –
-              contact@lareponsedev.com
+              contact@lareponsedev.fr
               <br />
               <strong>Host:</strong> Vercel – Vercel Inc. – 340 S Lemon Ave
               #4133 CA 91789 Walnut https://vercel.com

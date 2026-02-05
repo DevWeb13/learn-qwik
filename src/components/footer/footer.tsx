@@ -21,7 +21,7 @@ export default component$(() => {
         <p>
           Made with ❤️ by{" "}
           <a
-            href="https://www.lareponsedev.com/"
+            href="https://www.lareponsedev.fr/"
             target="_blank"
             class={`${styles.anchor} hover:text-[#000]`}
           >

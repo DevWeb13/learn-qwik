@@ -9,7 +9,7 @@ import { BackButton } from "~/components/UI/backButton/backButton";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
 
-import MetaOpenAICodexApp from "~/assets/openai-codex-app/metaOpenAICodexApp.png?jsx";
+import MetaOpenAICodexApp from "~/assets/img/openai-codex-app/metaOpenAICodexApp.png?jsx";
 
 export const OpenAICodexAppBeginnersArticle = component$(() => {
   const profile = useProfile();
