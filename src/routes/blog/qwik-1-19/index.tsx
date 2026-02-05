@@ -10,7 +10,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead(
-  "(2026) | Qwik 1.19.0: a quiet but strategic update",
+  "(2026) | Qwik 1.19.0: a discreet but strategic update",
   "Qwik 1.19.0 does not try to impress. This release refines the engine, fixes subtle behaviors, and strengthens application reliability in production.",
   "https://www.learn-qwik.com/metaQwik119.png", // 👉 (dedicated SEO image, to create or replace later)
   "https://www.learn-qwik.com/blog/qwik-1-19/",

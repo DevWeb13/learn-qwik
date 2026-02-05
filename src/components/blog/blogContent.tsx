@@ -15,7 +15,8 @@ import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "../mobileStickyAd/mobileStickyAd";
 import { BlogCard } from "./blogCard";
 
-import MetaOpenAICodexApp from "~/assets/openai-codex-app/metaOpenAICodexApp.png?jsx";
+import MetaOpenAICodexApp from "~/assets/img/openai-codex-app/metaOpenAICodexApp.png?jsx";
+import MetaQwikCVE2026 from "~/assets/img/qwik-cve-2026/metaQwikCVE2026.png?jsx";
 
 export const BlogContent = component$(() => {
   const profile = useProfile();
@@ -44,11 +45,40 @@ export const BlogContent = component$(() => {
       {/* ✅ Flex row : barre à gauche + contenu */}
       <main class="relative flex w-full max-w-screen-2xl flex-col justify-center gap-4 px-4 md:flex-row">
         <section class="flex w-full flex-col gap-8 md:max-w-[calc(100%-300px)]">
-          <h2 class="text-2xl font-bold text-gray-900">
-            <h2 class="text-2xl font-bold text-gray-900">
-              <span class="text-blue-500">Off</span> Topic | Special Edition
-              2026
-            </h2>
+          <h2 class="text-3xl font-bold text-gray-900">
+            <span class="text-blue-500">Qwik</span> in 2026 | Special Edition
+          </h2>
+          <div class="blog_posts">
+            <BlogCard
+              title="Security Advisory (2026) | CVE-2026-25148 Fixed in Qwik 1.19.0"
+              description="A Cross-Site Scripting (XSS) vulnerability affecting Qwik SSR apps prior to 1.19.0. Learn what was impacted, who is concerned, and why updating is enough."
+              href="/blog/qwik-cve-2026-25148/"
+              date="January 2026"
+              readTime="5 min read"
+              badge="Security advisory"
+            >
+              <MetaQwikCVE2026
+                class="h-full w-full object-contain object-center"
+                alt="Qwik security advisory CVE-2026-25148"
+              />
+            </BlogCard>
+
+            <BlogCard
+              title="Qwik 1.19.0 (2026): A Discreet but Strategic Update"
+              description="Qwik 1.19.0 focuses on precision rather than spectacle. Smarter reactivity control, cleaner SSR outputs, safer server events, and better performance in real-world apps."
+              href="/blog/qwik-1-19/"
+              date="January 2026"
+              readTime="6 min read"
+            >
+              <MetaQwik119
+                class="h-full w-full object-contain object-center"
+                alt="Qwik 1.19.0 release overview"
+              />
+            </BlogCard>
+          </div>
+
+          <h2 class="border-t-2 pt-8 text-3xl font-bold text-gray-900">
+            <span class="text-blue-500">Off</span> Topic | Special Edition 2026
           </h2>
 
           <div class="blog_posts">
@@ -66,25 +96,7 @@ export const BlogContent = component$(() => {
             </BlogCard>
           </div>
 
-          <h2 class="text-2xl font-bold text-gray-900">
-            <span class="text-blue-500">Qwik</span> in 2026 | Special Edition
-          </h2>
-          <div class="blog_posts">
-            <BlogCard
-              title="Qwik 1.19.0 (2026): A Quiet but Strategic Update"
-              description="Qwik 1.19.0 focuses on precision rather than spectacle. Smarter reactivity control, cleaner SSR outputs, safer server events, and better performance in real-world apps."
-              href="/blog/qwik-1-19/"
-              date="January 2026"
-              readTime="6 min read"
-            >
-              <MetaQwik119
-                class="h-full w-full object-contain object-center"
-                alt="Qwik 1.19.0 release overview"
-              />
-            </BlogCard>
-          </div>
-
-          <h2 class="text-2xl font-bold text-gray-900">
+          <h2 class="border-t-2 pt-8 text-3xl font-bold text-gray-900">
             <span class="text-blue-500">Learn Qwik</span> From A to Z (2025)
           </h2>
           <div class="blog_posts">
@@ -141,7 +153,7 @@ export const BlogContent = component$(() => {
             </BlogCard>
           </div>
 
-          <h2 class="text-2xl font-bold text-gray-900">
+          <h2 class="border-t-2 pt-8 text-3xl font-bold text-gray-900">
             <span class="text-blue-500">Qwik</span> in 2025 | Special Edition
           </h2>
           <div class="blog_posts">

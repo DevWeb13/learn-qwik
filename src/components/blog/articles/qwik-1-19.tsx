@@ -19,7 +19,7 @@ export const Qwik119Article = component$(() => {
     <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
       <header class="flex flex-col items-center gap-2 px-4 md:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold md:max-w-[100%] md:text-5xl">
-          Qwik 1.19.0: a quiet but strategic update
+          Qwik 1.19.0: a discreet but strategic update
         </h1>
         <h2 class="max-w-[80%] text-center text-2xl font-semibold text-gray-800 md:max-w-[100%] md:text-4xl">
           More control, fewer invisible traps
