@@ -248,18 +248,24 @@ export const Qwik119Article = component$(() => {
               <h4>Simple framework update</h4>
               <CodeBlock
                 code={`# npm
-npm install @builder.io/qwik@latest
+npm install @builder.io/qwik@latest @builder.io/qwik-city@latest
 
 # pnpm
-pnpm up @builder.io/qwik
+pnpm up @builder.io/qwik @builder.io/qwik-city
 
 # yarn
-yarn upgrade @builder.io/qwik`}
+yarn upgrade @builder.io/qwik @builder.io/qwik-city`}
                 language="bash"
                 icon="terminal"
-                text="Update Qwik"
+                text="Update Qwik and Qwik City"
                 hideLineNumbers
               />
+
+              <p>
+                If your project uses Qwik City (routing, SSR, loaders, actions),
+                make sure to update both <code>@builder.io/qwik</code> and
+                <code>@builder.io/qwik-city</code> to keep versions aligned.
+              </p>
 
               <h4>Recommended checks after updating</h4>
               <p>

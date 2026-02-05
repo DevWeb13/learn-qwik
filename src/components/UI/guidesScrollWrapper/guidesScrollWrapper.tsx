@@ -385,7 +385,7 @@ fieldset {
             class="guides_bookPerspective__1DMxp"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://www.lareponsedev.com/"
+            href="https://www.lareponsedev.fr/"
           >
             <div
               class="guides_bookRotateWrapper__Z22Ip"

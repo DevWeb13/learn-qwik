@@ -1,9 +1,9 @@
-import { component$, useStore, $, useStyles$ } from "@builder.io/qwik";
-import { QuizHeader } from "./quizHeader/quizHeader";
+import { $, component$, useStore, useStyles$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
+import Popover from "~/lib/qwikUI/popover/popover";
 import { ButtonQuizOption } from "./buttonQuizOption/buttonQuizOption";
 import { IsCorrectResponse } from "./isCorrectResponse/isCorrectResponse";
-import Popover from "~/lib/qwikUI/popover/popover";
-import { Link } from "@builder.io/qwik-city";
+import { QuizHeader } from "./quizHeader/quizHeader";
 
 export type Option = {
   text: string;
@@ -210,11 +210,11 @@ export const Quiz = component$<QuizProps>(
                     All the links are into this site:{" "}
                     <Link
                       class="text-blue-500"
-                      href="https://www.lareponsedev.com/"
+                      href="https://www.lareponsedev.fr/"
                       rel="noopener "
                       target="_blank"
                     >
-                      lareponsedev.com
+                      lareponsedev.fr
                     </Link>{" "}
                     <br />I will be happy to help you. 😊
                   </p>
