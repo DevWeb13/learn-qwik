@@ -70,7 +70,7 @@ export const StreamingContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9720994927"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -125,7 +125,7 @@ export const StreamingContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9495835469"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -164,7 +164,7 @@ export const StreamingContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4783528867"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -383,7 +383,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3470447199"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -422,7 +422,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1980437403"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -463,7 +463,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2157365528"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -644,7 +644,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9479523591"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -683,7 +683,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8217007846"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -826,7 +826,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8531202183"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1118,7 +1118,7 @@ export const fetchRevenue = server$(async function () {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1305520102"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1172,7 +1172,7 @@ export const fetchRevenue = server$(async function () {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1617345444"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1400,7 +1400,7 @@ export const CardsWrapper = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1601033579"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1459,7 +1459,7 @@ export const CardsWrapper = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3860365401"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1499,7 +1499,7 @@ export const CardsWrapper = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6763659096"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1520,7 +1520,7 @@ export const CardsWrapper = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5450577427"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
       </div>

@@ -46,7 +46,7 @@ export const AddingSearchAndPaginationContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9037123747"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -146,7 +146,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6712354480"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -190,7 +190,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4981875384"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -238,7 +238,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4530449243"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -322,7 +322,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4516769701"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -577,7 +577,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -642,7 +642,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9475784049"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -902,7 +902,7 @@ export const fetchFilteredInvoices = server$(async function (
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8491673735"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1141,7 +1141,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9198250747"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1180,7 +1180,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5865510395"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1537,7 +1537,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3239347057"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1590,7 +1590,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1926265389"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -1611,7 +1611,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8300102042"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
       </div>

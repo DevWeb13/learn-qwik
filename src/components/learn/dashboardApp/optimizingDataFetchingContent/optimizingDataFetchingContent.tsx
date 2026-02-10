@@ -7,9 +7,9 @@ import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTo
 // import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 
-import FetchSequentialTime from "~/assets/img/fetchSequentialTime.png?jsx";
 import FetchParallelTime from "~/assets/img/fetchParallelTime.png?jsx";
 import FetchParallelTimeWithPromiseAll from "~/assets/img/fetchParallelTimeWithPromiseAll.png?jsx";
+import FetchSequentialTime from "~/assets/img/fetchSequentialTime.png?jsx";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
@@ -50,7 +50,7 @@ export const OptimizingDataFetchingContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6112922403"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -104,7 +104,7 @@ export const OptimizingDataFetchingContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9940486770"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -304,7 +304,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5923421967"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -343,7 +343,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6001241760"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -507,7 +507,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2061996757"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -546,7 +546,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4156842903"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -749,7 +749,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8435833411"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -793,7 +793,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1982105707"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -896,7 +896,7 @@ Data fetch completed after 3 seconds.`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3103615687"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -935,7 +935,7 @@ Data fetch completed after 3 seconds.`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8244261722"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -956,7 +956,7 @@ Data fetch completed after 3 seconds.`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6931180058"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
       </div>

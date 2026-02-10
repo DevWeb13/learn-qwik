@@ -52,7 +52,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8205519691"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -130,7 +130,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9918056612"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -300,7 +300,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="7291893273"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -372,7 +372,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5854688524"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -459,7 +459,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1640111347"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -517,7 +517,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4541606850"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -589,7 +589,7 @@ export const head: DocumentHead = {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9327029678"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -721,7 +721,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2913664561"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -893,7 +893,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1600582891"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -916,7 +916,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           data-ad-layout="in-article"
           data-ad-format="fluid"
           data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="9287501222"
+          data-ad-slot="3655900596"
         ></ins>
       </div>
 

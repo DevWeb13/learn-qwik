@@ -3,25 +3,25 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import BlankLink from "~/components/UI/blankLink/blankLink";
+import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-import CodeBlock from "~/components/UI/codeBlock/codeBlock";
-import { Quiz } from "~/components/UI/quiz/quiz";
 
-import ImportInVercel from "~/assets/img/importInVercel.png?jsx";
-import NameAndDeployVercel from "~/assets/img/nameAndDeployVercel.png?jsx";
 import CompletedDeploymentVercelFail from "~/assets/img/completedDeploymentVercelFail.png?jsx";
-import ErrorAfterDeploymentVercel from "~/assets/img/errorAfterDeploymentVercel.png?jsx";
-import VercelEdgeFinishPrompt from "~/assets/img/vercelEdgeFinishPrompt.png?jsx";
-import VercelDeploymentsPageFail from "~/assets/img/vercel-deployments-page-fail.png?jsx";
-import VercelDeploymentPageFailDetails from "~/assets/img/vercel-deployment-page-fail-details.png?jsx";
-import VercelDeploymentsPageSuccess from "~/assets/img/vercel-deployments-page-success.png?jsx";
+import ConnectDatabase from "~/assets/img/connectDatabase.png?jsx";
 import ConnectStore from "~/assets/img/connectStore.png?jsx";
 import DatabaseCreationModal from "~/assets/img/databaseCreationModal.png?jsx";
-import ConnectDatabase from "~/assets/img/connectDatabase.png?jsx";
-import HiddenDatabaseSecrets from "~/assets/img/hiddenDatabaseSecrets.png?jsx";
 import DatabaseTables from "~/assets/img/databaseTables.avif?jsx";
+import ErrorAfterDeploymentVercel from "~/assets/img/errorAfterDeploymentVercel.png?jsx";
+import HiddenDatabaseSecrets from "~/assets/img/hiddenDatabaseSecrets.png?jsx";
+import ImportInVercel from "~/assets/img/importInVercel.png?jsx";
+import NameAndDeployVercel from "~/assets/img/nameAndDeployVercel.png?jsx";
+import VercelDeploymentPageFailDetails from "~/assets/img/vercel-deployment-page-fail-details.png?jsx";
+import VercelDeploymentsPageFail from "~/assets/img/vercel-deployments-page-fail.png?jsx";
+import VercelDeploymentsPageSuccess from "~/assets/img/vercel-deployments-page-success.png?jsx";
+import VercelEdgeFinishPrompt from "~/assets/img/vercelEdgeFinishPrompt.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
@@ -69,7 +69,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5588380045"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -115,7 +115,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6420044162"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -140,7 +140,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1470969811"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -221,7 +221,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1167717486"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -271,7 +271,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6228472470"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -420,7 +420,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2289227460"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -561,7 +561,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6036900789"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -716,7 +716,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2097655770"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -755,7 +755,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8471492431"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -808,7 +808,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4532247422"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -847,7 +847,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5218643134"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -881,7 +881,7 @@ WHERE invoices.amount = 666;`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6966839070"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -920,7 +920,7 @@ WHERE invoices.amount = 666;`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8966316455"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -945,7 +945,7 @@ WHERE invoices.amount = 666;`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4446688762"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
       </div>

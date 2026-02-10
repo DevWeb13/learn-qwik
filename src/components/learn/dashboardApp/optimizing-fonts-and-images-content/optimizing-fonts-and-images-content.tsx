@@ -63,7 +63,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9534913230"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -144,7 +144,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1448539654"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -239,7 +239,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="7630804623"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -280,7 +280,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9506993070"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -316,7 +316,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6086622813"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -340,7 +340,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4773541143"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -440,7 +440,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9810245408"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -616,7 +616,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9834296133"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -681,7 +681,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="7427624647"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -788,7 +788,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5441455678"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -855,7 +855,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5249883984"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -884,7 +884,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="7492903947"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -921,7 +921,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8614413921"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -944,7 +944,7 @@ export default component$(() => {
           data-ad-layout="in-article"
           data-ad-format="fluid"
           data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="6853759637"
+          data-ad-slot="3655900596"
         ></ins>
       </div>
 

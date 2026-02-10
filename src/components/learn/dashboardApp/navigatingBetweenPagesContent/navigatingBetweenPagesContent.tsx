@@ -1,15 +1,15 @@
 // src/components/learn/dashboardApp/navigatingBetweenPagesContent/navigatingBetweenPagesContent.tsx
 
 import { component$, useStyles$ } from "@builder.io/qwik";
+import BlankLink from "~/components/UI/blankLink/blankLink";
+import CodeBlock from "~/components/UI/codeBlock/codeBlock";
+import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
-import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
+import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-import CodeBlock from "~/components/UI/codeBlock/codeBlock";
-import { Quiz } from "~/components/UI/quiz/quiz";
-import BlankLink from "~/components/UI/blankLink/blankLink";
 
 export default component$(() => {
   useStyles$(``);
@@ -48,7 +48,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5681677565"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -77,7 +77,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1854113197"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -190,7 +190,7 @@ export const NavLinks = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="6914868189"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -215,7 +215,7 @@ export const NavLinks = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="5601786513"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -254,7 +254,7 @@ export const NavLinks = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="8116269210"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -457,7 +457,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="4177024208"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -497,7 +497,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3153788390"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -532,7 +532,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="1840706724"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
 
@@ -553,7 +553,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="9237779191"
+            data-ad-slot="3655900596"
           ></ins>
         </div>
       </div>
