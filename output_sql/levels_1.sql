@@ -1,5 +1,0 @@
-INSERT INTO "public"."levels" (grid_size, clues, difficulty, published_at, level_number) VALUES ('3', '[{"x":0,"y":0,"value":1},{"x":0,"y":1,"value":2},{"x":2,"y":0,"value":3},{"x":1,"y":1,"value":4}]', 'easy', NOW(), '1');
-INSERT INTO "public"."levels" (grid_size, clues, difficulty, published_at, level_number) VALUES ('3', '[{"x":0,"y":2,"value":1},{"x":2,"y":0,"value":2},{"x":1,"y":1,"value":3},{"x":0,"y":0,"value":4}]', 'easy', NOW(), '2');
-INSERT INTO "public"."levels" (grid_size, clues, difficulty, published_at, level_number) VALUES ('3', '[{"x":2,"y":2,"value":1},{"x":2,"y":0,"value":2},{"x":1,"y":1,"value":3},{"x":0,"y":0,"value":4}]', 'easy', NOW(), '3');
-INSERT INTO "public"."levels" (grid_size, clues, difficulty, published_at, level_number) VALUES ('3', '[{"x":2,"y":0,"value":1},{"x":1,"y":0,"value":2},{"x":1,"y":1,"value":3},{"x":0,"y":0,"value":4}]', 'easy', NOW(), '4');
-INSERT INTO "public"."levels" (grid_size, clues, difficulty, published_at, level_number) VALUES ('3', '[{"x":1,"y":1,"value":1},{"x":1,"y":2,"value":2},{"x":2,"y":2,"value":3},{"x":0,"y":2,"value":4}]', 'easy', NOW(), '5');
