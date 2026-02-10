@@ -50,7 +50,7 @@ export const OptimizingDataFetchingContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -104,7 +104,7 @@ export const OptimizingDataFetchingContent = component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -304,7 +304,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -343,7 +343,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -507,7 +507,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -546,7 +546,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -749,7 +749,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -793,7 +793,7 @@ export default component$(() => {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -896,7 +896,7 @@ Data fetch completed after 3 seconds.`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -935,7 +935,7 @@ Data fetch completed after 3 seconds.`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
 
@@ -956,7 +956,7 @@ Data fetch completed after 3 seconds.`}
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="3655900596"
+            data-ad-slot="2773109472"
           ></ins>
         </div>
       </div>
