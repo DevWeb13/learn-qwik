@@ -247,13 +247,13 @@ export default component$(() => {
       }
     });
 
-    // 🔴 THIS IS THE MISSING PIECE
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "page_view", {
-        page_path: location.url.pathname,
-        page_location: window.location.href,
-      });
-    }
+    // // 🔴 THIS IS THE MISSING PIECE
+    // if (typeof window !== "undefined" && (window as any).gtag) {
+    //   (window as any).gtag("event", "page_view", {
+    //     page_path: location.url.pathname,
+    //     page_location: window.location.href,
+    //   });
+    // }
   });
 
   // Desactiver le scroll quand le menu mobile est visible
