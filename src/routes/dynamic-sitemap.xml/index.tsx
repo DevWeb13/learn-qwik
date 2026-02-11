@@ -18,16 +18,16 @@ export const onGet: RequestHandler = (ev) => {
     .map(([route]) => route as string)
     .filter((route) => route.startsWith("blog/"));
 
+  const totalReleasesPages = 30;
+  const releasePages = Array.from({ length: totalReleasesPages }, (_, i) =>
+    i === 0 ? "/releases/" : `/releases/?page=${i + 1}`,
+  );
+
   const privacyPolicyAndTermsOfUseRoute = routes
     .map(([route]) => route as string)
     .filter(
       (route) => route === "privacy-policy/" || route === "terms-of-use/",
     );
-
-  const totalReleasesPages = 30;
-  const releasePages = Array.from({ length: totalReleasesPages }, (_, i) =>
-    i === 0 ? "/releases/" : `/releases/?page=${i + 1}`,
-  );
 
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },
@@ -39,13 +39,13 @@ export const onGet: RequestHandler = (ev) => {
       loc: `/${route}`,
       priority: 0.8,
     })),
-    ...privacyPolicyAndTermsOfUseRoute.map((route) => ({
-      loc: route,
-      priority: 0.6,
-    })),
     ...releasePages.map((page) => ({
       loc: page,
       priority: 0.7,
+    })),
+    ...privacyPolicyAndTermsOfUseRoute.map((route) => ({
+      loc: route,
+      priority: 0.6,
     })),
   ]);
 
