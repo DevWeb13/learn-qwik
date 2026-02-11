@@ -47,16 +47,16 @@ export const onGet: RequestHandler = (ev) => {
       loc: `/${route}`,
       priority: 0.8,
     })),
-    ...releasePages.map((page) => ({
-      loc: page,
-      priority: 0.7,
-    })),
     ...accountRoutes.map((route) => ({
       loc: route,
-      priority: 0.7,
+      priority: 0.8,
     })),
     ...authRoutes.map((route) => ({
       loc: route,
+      priority: 0.8,
+    })),
+    ...releasePages.map((page) => ({
+      loc: page,
       priority: 0.7,
     })),
     ...privacyPolicyAndTermsOfUseRoute.map((route) => ({
