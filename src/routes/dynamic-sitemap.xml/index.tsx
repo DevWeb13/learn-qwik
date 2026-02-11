@@ -5,11 +5,6 @@ import { routes } from "@qwik-city-plan";
 import { createSitemap } from "./create-sitemap";
 
 export const onGet: RequestHandler = (ev) => {
-  console.log("Generating sitemap.xml...");
-  console.log(
-    "Available routes:",
-    routes.map(([route]) => route),
-  );
   const learnRoutes = routes
     .map(([route]) => route as string)
     .filter((route) => route.startsWith("learn/dashboard-app/"));
