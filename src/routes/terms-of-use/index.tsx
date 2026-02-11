@@ -79,8 +79,9 @@ export default component$(() => {
             </p>
             <h2>2. Privacy Policy</h2>
             <p>
-              Please review our <Link href="/privacy/">Privacy Policy</Link> to
-              understand how we collect, use, and protect your information.
+              Please review our{" "}
+              <Link href="/privacy-policy/">Privacy Policy</Link> to understand
+              how we collect, use, and protect your information.
             </p>
             <h2>3. Copyright Policy</h2>
             <p>
