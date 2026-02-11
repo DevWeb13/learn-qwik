@@ -5,6 +5,11 @@ import { routes } from "@qwik-city-plan";
 import { createSitemap } from "./create-sitemap";
 
 export const onGet: RequestHandler = (ev) => {
+  console.log("Generating sitemap.xml...");
+  console.log(
+    "Available routes:",
+    routes.map(([route]) => route),
+  );
   const learnRoutes = routes
     .map(([route]) => route as string)
     .filter((route) => route.startsWith("learn/dashboard-app/"));
@@ -15,7 +20,9 @@ export const onGet: RequestHandler = (ev) => {
 
   const privacyPolicyAndTermsOfUseRoute = routes
     .map(([route]) => route as string)
-    .filter((route) => route === "privacy-policy" || route === "terms-of-use");
+    .filter(
+      (route) => route === "privacy-policy/" || route === "terms-of-use/",
+    );
 
   const totalReleasesPages = 30;
   const releasePages = Array.from({ length: totalReleasesPages }, (_, i) =>
