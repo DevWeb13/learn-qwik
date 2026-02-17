@@ -1,58 +1,46 @@
-// src/components/UI/headerOfMain/headerOfMain.tsx
-
-import type { Signal } from "@builder.io/qwik";
-import { component$, useComputed$, useContext } from "@builder.io/qwik";
+import { component$, useContext, useSignal, useTask$ } from "@builder.io/qwik";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import { useScrollYPosition } from "~/hooks/useScrollYPosition";
-import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
-import { ChaptersContext, useProfile } from "~/routes/layout";
-import { useGetCurrentChapterIndexInString } from "~/routes/learn/dashboard-app/layout";
-import type { ChapterType } from "../../../types/chapterType";
+
+import { ModalBottomSheet2026 } from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet2026";
+import { Chapters2026Context, useProfile } from "~/routes/layout";
+import { useGetCurrentChapterIndex2026 } from "~/routes/learn/dashboard-app-2026/layout";
 import BtMenuHeaderOfMain from "./btMenuHeaderOfMain/btMenuHeaderOfMain";
 import ProgressCircle from "./progressCircle/progressCircle";
+// import { chapters2026 } from "~/routes/learn/dashboard-app-2026/layout";
 
 export default component$(() => {
   const scrollY = useScrollYPosition();
 
-  const chapters: Signal<ChapterType[]> = useContext(ChaptersContext);
+  const chapters2026 = useContext(Chapters2026Context);
 
   const profile = useProfile();
 
-  const currentChapterIndexSignal = useGetCurrentChapterIndexInString();
+  const currentChapterIndex2026 = useGetCurrentChapterIndex2026().value;
+  const title = useSignal("");
 
-  const currentChapterIndex = useComputed$(() => {
-    const value = currentChapterIndexSignal.value;
-    const parsed = Number(value);
-
-    if (!Number.isNaN(parsed) && chapters.value[parsed]) {
-      return parsed;
-    }
-
-    return null;
-  });
-
-  const title = useComputed$(() => {
-    if (currentChapterIndex.value !== null) {
-      return chapters.value[currentChapterIndex.value].title;
-    }
-
-    return "Introduction";
+  useTask$(({ track }) => {
+    track(() => currentChapterIndex2026);
+    title.value =
+      currentChapterIndex2026.length >= 1 && currentChapterIndex2026.length <= 2
+        ? chapters2026.value[parseInt(currentChapterIndex2026)].title
+        : "Introduction-2026";
   });
 
   return (
-    <div class="style_container relative z-10 mb-4 h-[67px] w-full max-w-[1072px] lg:-mx-12 lg:mb-8">
+    <div class="relative z-10 mb-4 flex h-[var(--header-of-main-height)]  w-full items-center justify-center  lg:mb-8">
       <aside
         class={
           scrollY.value > 80
-            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-3.5 top-4 z-10 flex h-[52px] max-w-[1072px] items-center rounded-full px-3 py-3 shadow-sm lg:left-1/2 lg:right-[unset] lg:h-[auto] lg:w-full lg:-translate-x-1/2"
-            : "bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-[52px] w-full max-w-[1072px] items-center rounded-full px-3 py-3 lg:h-[auto] lg:w-full"
+            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-3.5 top-4 z-10 flex h-[var(--header-of-main-height)] max-w-[1072px] items-center rounded-full px-3 py-3 shadow-sm lg:left-1/2 lg:right-[unset]  lg:mx-4 lg:w-full lg:-translate-x-1/2"
+            : "bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-[var(--header-of-main-height)] w-full max-w-[1072px] items-center rounded-full px-3 py-3  lg:w-full"
         }
         style="background-clip: padding-box;"
       >
         <div class="md:hidden">
-          <ModalBottomSheet chapters={chapters.value}>
+          <ModalBottomSheet2026 chapters={chapters2026.value}>
             <BtMenuHeaderOfMain classStyle="button_base button_button reset_reset geist-new-themed geist-new-tertiary geist-new-tertiary-fill button_tertiary button_shape button_circle button_small button_invert" />
-          </ModalBottomSheet>
+          </ModalBottomSheet2026>
         </div>
         <div class="hidden md:block">
           <nav aria-label="Main" data-orientation="horizontal" dir="ltr">
@@ -65,9 +53,9 @@ export default component$(() => {
                     data-version="v1"
                     tabIndex={-1}
                   >
-                    <ModalBottomSheet chapters={chapters.value}>
+                    <ModalBottomSheet2026 chapters={chapters2026.value}>
                       <BtMenuHeaderOfMain classStyle="button_base reset_reset button_button reset_reset style_button__ft10U geist-new-themed geist-new-tertiary geist-new-tertiary-fill button_tertiary button_shape button_circle button_small button_invert" />
-                    </ModalBottomSheet>
+                    </ModalBottomSheet2026>
                   </span>
                 </li>
               </ul>
@@ -88,7 +76,7 @@ export default component$(() => {
               data-version="v1"
               style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.8125rem; --xs-text-line-height: 1.125rem; --xs-text-weight: 500; --xs-text-letter-spacing: initial; --sm-text-size: 0.8125rem; --sm-text-line-height: 1.125rem; --sm-text-weight: 500; --sm-text-letter-spacing: initial; --smd-text-size: 0.8125rem; --smd-text-line-height: 1.125rem; --smd-text-weight: 500; --smd-text-letter-spacing: initial; --md-text-size: 0.8125rem; --md-text-line-height: 1.125rem; --md-text-weight: 500; --md-text-letter-spacing: initial; --lg-text-size: 0.875rem; --lg-text-line-height: 1.25rem; --lg-text-weight: 500; --lg-text-letter-spacing: initial;"
             >
-              {currentChapterIndexSignal.value.length > 2
+              {currentChapterIndex2026.length > 2
                 ? title.value
                 : title.value.split(":")[0] + ":"}
             </p>
@@ -97,13 +85,14 @@ export default component$(() => {
               data-version="v1"
               style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
             >
-              {currentChapterIndexSignal.value.length >= 1 &&
-                title.value.split(":")[1]}
+              {currentChapterIndex2026.length >= 1 && title.value.split(":")[1]}
             </p>
           </div>
         </div>
 
-        <ProgressCircle completed={profile.value?.completedChapters || []} />
+        <ProgressCircle
+          completed={profile.value?.completedChapters2026 || []}
+        />
         <div
           aria-hidden="true"
           class="bg-gray-alpha-400 ml-4 mr-3 hidden h-8 w-[1px] lg:block"

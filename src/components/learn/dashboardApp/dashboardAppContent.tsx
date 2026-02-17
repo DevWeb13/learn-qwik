@@ -1,3 +1,5 @@
+// src/components/learn/dashboardApp/dashboardAppContent.tsx
+
 import { component$ } from "@builder.io/qwik";
 
 import BlankLink from "~/components/UI/blankLink/blankLink";

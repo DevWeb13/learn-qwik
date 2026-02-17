@@ -18,8 +18,10 @@ import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesS
 import { createDocumentHead } from "~/utils/createDocumentHead";
 import { useProfile } from "./layout";
 
+import { BtAddChapter2026 } from "~/components/UI/btAddChapter/btAddChapter2026";
 import { SubscribeSection } from "~/components/subcribeSection/subscribeSection";
 import { CHAPTERS } from "~/constants/chapters";
+import { CHAPTERS2026 } from "~/constants/chapters2026";
 
 export default component$(() => {
   const profile = useProfile();
@@ -62,7 +64,7 @@ export default component$(() => {
               <div class="relative -mt-[56px] flex w-full justify-center md:-mt-14">
                 <div class="relative">
                   <BookSvgText
-                    completed={profile.value?.completedChapters || []}
+                    completed={profile.value?.completedChapters2026 || []}
                   />
 
                   <BookSvg id="learn" />
@@ -89,7 +91,7 @@ export default component$(() => {
                   </div>
                   <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug md:min-w-[400px]">
                     <DisplayNextChapter
-                      completed={profile.value?.completedChapters || []}
+                      completed={profile.value?.completedChapters2026 || []}
                     />
 
                     <div class="ml-2">
@@ -100,7 +102,7 @@ export default component$(() => {
                         style="--circle-size: 100px; --circumference: 282.7433388230814; --percent-to-px: 2.827433388230814px; --gap-percent: 0; --offset-factor: 0;"
                       >
                         <ProgressCircle
-                          completed={profile.value?.completedChapters || []}
+                          completed={profile.value?.completedChapters2026 || []}
                           onlyCircle
                           responsive="largeOnly"
                         />
@@ -111,20 +113,22 @@ export default component$(() => {
                 <div class="h-px w-full bg-gray-100"></div>
 
                 <div>
-                  <BtAddChapter
+                  <BtAddChapter2026
                     goToChapter={0}
                     title=""
                     text="Start Learning"
-                    completedChapters={profile.value?.completedChapters || []}
+                    completedChapters2026={
+                      profile.value?.completedChapters2026 || []
+                    }
                   >
                     <ProgressCircle
-                      completed={profile.value?.completedChapters || []}
+                      completed={profile.value?.completedChapters2026 || []}
                       onlyCircle
                       colorCircle="var(--ds-gray-900)"
                       colorProgressCircle="var(--ds-gray-100)"
                       responsive="smallOnly"
                     />
-                  </BtAddChapter>
+                  </BtAddChapter2026>
                 </div>
               </div>
             </div>
@@ -578,7 +582,57 @@ export default component$(() => {
         <div class="mb-4 flex flex-col justify-center text-center md:mb-8 md:flex-row md:items-baseline md:justify-center md:text-left">
           <h2
             class="text_wrapper"
-            data-version="v1"
+            style="--text-color:var(--ds-gray-1000);--xs-text-size:1.5rem;--xs-text-line-height:2rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.029375rem;--sm-text-size:1.5rem;--sm-text-line-height:2rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.029375rem;--smd-text-size:2rem;--smd-text-line-height:2.5rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.049375rem;--md-text-size:2rem;--md-text-line-height:2.5rem;--md-text-weight:600;--md-text-letter-spacing:-0.049375rem;--lg-text-size:2rem;--lg-text-line-height:2.5rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.049375rem"
+          >
+            What will I learn?
+          </h2>
+          <p class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-xl">
+            Here’s everything that’s covered in the course.
+          </p>
+        </div>
+        <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <ChapterThumbnail
+            href="/learn/dashboard-app-2026/"
+            numberOrIcon="circleWithISvg"
+            title="Getting Started"
+            description="Learn how to build a full-stack web application with the free, Qwik App Course."
+          />
+          {CHAPTERS2026.map((chapter2026) => (
+            <ChapterThumbnail
+              key={chapter2026.id}
+              href={`/learn/dashboard-app-2026/${chapter2026.uri}/`}
+              numberOrIcon={chapter2026.id.toString()}
+              title={chapter2026.title}
+              description={chapter2026.description}
+            />
+          ))}
+        </div>
+        <div class="mt-4 flex w-full items-center justify-center pb-10 md:mt-8 md:w-auto md:pb-20">
+          <div class="w-[100%] md:w-[233px]">
+            <div>
+              <BtAddChapter2026
+                goToChapter={0}
+                title=""
+                text="Start Learning"
+                completedChapters2026={
+                  profile.value?.completedChapters2026 || []
+                }
+              >
+                <ProgressCircle
+                  completed={profile.value?.completedChapters2026 || []}
+                  onlyCircle
+                  colorCircle="var(--ds-gray-900)"
+                  colorProgressCircle="var(--ds-gray-100)"
+                  responsive="smallOnly"
+                />
+              </BtAddChapter2026>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4 flex flex-col justify-center text-center md:mb-8 md:flex-row md:items-baseline md:justify-center md:text-left">
+          <h2
+            class="text_wrapper"
             style="--text-color:var(--ds-gray-1000);--xs-text-size:1.5rem;--xs-text-line-height:2rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.029375rem;--sm-text-size:1.5rem;--sm-text-line-height:2rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.029375rem;--smd-text-size:2rem;--smd-text-line-height:2.5rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.049375rem;--md-text-size:2rem;--md-text-line-height:2.5rem;--md-text-weight:600;--md-text-letter-spacing:-0.049375rem;--lg-text-size:2rem;--lg-text-line-height:2.5rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.049375rem"
           >
             What will I learn?

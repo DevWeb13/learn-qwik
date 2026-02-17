@@ -4,7 +4,10 @@ import { SupabaseClient } from "@supabase/supabase-js";
 import { Database } from "~/types/database.types";
 
 // ✅ Fonction pour récupérer un utilisateur via son email
-export const getUserByEmail = async (supabase: SupabaseClient<Database>, email: string) => {
+export const getUserByEmail = async (
+  supabase: SupabaseClient<Database>,
+  email: string,
+) => {
   const { data: user, error } = await supabase
     .from("profiles")
     .select("*")
@@ -19,7 +22,10 @@ export const getUserByEmail = async (supabase: SupabaseClient<Database>, email: 
 };
 
 // ✅ Fonction pour obtenir un utilisateur via stripe_customer_id
-export const getUserByCustomerId = async (supabase: SupabaseClient<Database>, customerId: string) => {
+export const getUserByCustomerId = async (
+  supabase: SupabaseClient<Database>,
+  customerId: string,
+) => {
   const { data: user, error } = await supabase
     .from("profiles")
     .select("*")
@@ -36,8 +42,8 @@ export const getUserByCustomerId = async (supabase: SupabaseClient<Database>, cu
 // ✅ Fonction pour mettre à jour un utilisateur
 export const updateUser = async (
   supabase: SupabaseClient<Database>, // ✅ On passe maintenant `supabase`
-  userId: string, 
-  data: Partial<Database["public"]["Tables"]["profiles"]["Row"]>
+  userId: string,
+  data: Partial<Database["public"]["Tables"]["profiles"]["Row"]>,
 ) => {
   const { error } = await supabase
     .from("profiles")
@@ -53,9 +59,9 @@ export const updateUser = async (
 };
 
 // ✅ Fonction pour récupérer un utilisateur via son ID
-export const getUserById = async (
+export const getProfileById = async (
   supabase: SupabaseClient<Database>,
-  userId: string
+  userId: string,
 ) => {
   try {
     const { data: user, error } = await supabase
@@ -71,8 +77,7 @@ export const getUserById = async (
 
     return user;
   } catch (e) {
-    console.error("❌ Exception dans getUserById :", e);
+    console.error("❌ Exception dans getProfileById :", e);
     return null;
   }
 };
-

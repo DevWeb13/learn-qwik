@@ -24,6 +24,7 @@ import type { ChapterType } from "../types/chapterType";
 
 import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import PreFooter from "~/components/UI/PreFooter/PreFooter";
+import { CHAPTERS2026 } from "~/constants/chapters2026";
 import { updateSession } from "~/lib/supabase/middleware";
 import { createClient } from "~/lib/supabase/server";
 import type { Database } from "~/types/database.types"; // Import des types générés Supabase
@@ -37,6 +38,10 @@ export const MobileMenuVisibleContext = createContextId<Signal<boolean>>(
 
 export const ChaptersContext = createContextId<Signal<ChapterType[]>>(
   "docs.chapters-context",
+);
+
+export const Chapters2026Context = createContextId<Signal<ChapterType[]>>(
+  "docs.chapters-2026-context",
 );
 
 export const onRequest: RequestHandler = async (request) => {
@@ -58,26 +63,6 @@ export const onRequest: RequestHandler = async (request) => {
   );
   await updateSession(request);
 };
-
-type SafeUser = {
-  id: string;
-  email: string | null;
-  role: string | null;
-};
-
-export const useUser = routeLoader$<SafeUser | null>(async (request) => {
-  const user = request.sharedMap.get("user");
-
-  if (!user) return null;
-
-  const safeUser: SafeUser = {
-    id: user.id,
-    email: user.email ?? null,
-    role: user.role ?? null,
-  };
-
-  return safeUser;
-});
 
 export const useProfile = routeLoader$<Profile | null>(async (request) => {
   request.cacheControl({
@@ -190,6 +175,9 @@ export default component$(() => {
   const chapters = useSignal<ChapterType[]>(CHAPTERS);
   useContextProvider(ChaptersContext, chapters);
 
+  const chapters2026 = useSignal<ChapterType[]>(CHAPTERS2026);
+  useContextProvider(Chapters2026Context, chapters2026);
+
   const profile = useProfile();
 
   useOnDocument(
@@ -267,7 +255,7 @@ export default component$(() => {
   return (
     <div class={`${location.isNavigating ? "cursor-wait" : ""}`}>
       <div
-        class={`flex min-h-screen flex-col ${location.isNavigating ? "pointer-events-none" : ""}
+        class={`flex flex-col ${location.isNavigating ? "pointer-events-none" : ""}
 `}
         ref={container}
       >
