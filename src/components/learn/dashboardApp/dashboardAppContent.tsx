@@ -4,7 +4,7 @@ import { component$ } from "@builder.io/qwik";
 
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 
 import { Link } from "@builder.io/qwik-city";
@@ -289,6 +289,7 @@ export default component$(() => {
           </p>
         </div>
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={1}
           title="Getting Started"
           text="Learn how to create a Qwik application and run your local

@@ -1,11 +1,10 @@
 // src/routes/learn/dashboard-app-2026/layout.tsxs
 
 import { component$, Slot } from "@builder.io/qwik";
-import { routeAction$, routeLoader$ } from "@builder.io/qwik-city";
+import { routeLoader$ } from "@builder.io/qwik-city";
 import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import HeaderOfMain2026 from "~/components/UI/headerOfMain/headerOfMain2026";
-import { createClient } from "~/lib/supabase/server";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
 
@@ -24,45 +23,6 @@ export const useGetCurrentChapterIndex2026 = routeLoader$((requestEvent) => {
   if (pathname.includes("mutating-data-2026")) return "10";
   return "Introduction-2026";
 });
-
-export const usePutCompletedChapters2026 = routeAction$(
-  async (data, requestEvent) => {
-    const { completedChapter2026 } = data;
-    const profile = requestEvent.sharedMap.get("profile");
-    const userId = profile?.id;
-    const completedChapters2026 = profile?.completedChapter2026 || [];
-
-    if (!userId) {
-      return requestEvent.fail(400, { error: "Missing parameters" });
-    }
-
-    if (completedChapters2026.includes(Number(completedChapter2026))) {
-      return { success: true };
-    }
-
-    const supabase = createClient(requestEvent);
-
-    const updatedChapters2026 = [
-      ...new Set([...completedChapters2026, Number(completedChapter2026)]),
-    ];
-
-    const { error } = await supabase
-      .from("profiles")
-      .update({ completedChapters2026: updatedChapters2026 })
-      .eq("id", userId);
-
-    if (error) {
-      return requestEvent.fail(500, { error: "Failed to update" });
-    }
-
-    requestEvent.sharedMap.set("profile", {
-      ...profile,
-      completedChapters2026: updatedChapters2026,
-    });
-
-    return { success: true };
-  },
-);
 
 export default component$(() => {
   const profile = useProfile();

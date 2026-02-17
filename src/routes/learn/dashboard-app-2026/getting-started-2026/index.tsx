@@ -2,16 +2,16 @@
 
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
-import GettingStartedContent from "~/components/learn/dashboardApp/gettingStartedContent/gettingStartedContent";
+import { GettingStartedContent2026 } from "~/components/learn/dashboardApp2026/gettingStartedContent2026/gettingStartedContent2026";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 
 export default component$(() => {
-  return <GettingStartedContent />;
+  return <GettingStartedContent2026 />;
 });
 
 export const head: DocumentHead = createDocumentHead(
   "Chapter 1: Getting Started",
   "Get started with Qwik by creating an app using the Qwik CLI. This chapter guides you through setting up your Qwik or Qwik City project from scratch.",
   "https://www.learn-qwik.com/metaChapter1.png",
-  "https://www.learn-qwik.com/learn/dashboard-app/getting-started/",
+  "https://www.learn-qwik.com/learn/dashboard-app/getting-started-2026/",
 );

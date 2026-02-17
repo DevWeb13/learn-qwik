@@ -16,9 +16,9 @@ import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 import WhatIsStreamingImg from "~/assets/img/whatIsStreaming.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock2026 from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock2026";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
-export const StreamingContent = component$(() => {
+export const StreamingContent2026 = component$(() => {
   const latestInvoicesSoluce = useSignal(false);
 
   return (
@@ -1530,9 +1530,10 @@ export const CardsWrapper = component$(() => {
           chapterNumber={9}
           text="You've learned how to stream components with <Resource /> and loading skeletons."
         />
-        <GoToNextChapterBlock2026
+        <GoToNextChapterBlock
+          version="2026"
           goToChapter={10}
-          title="Adding Search and Pagination"
+          title="Adding Search and Pagination 2026"
           text="Learn how to implement search and pagination in your application."
         />
       </div>

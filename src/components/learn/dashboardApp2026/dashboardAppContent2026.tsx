@@ -8,9 +8,9 @@ import Feedback from "~/components/UI/feedback/feedback";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.png?jsx";
-import GoToNextChapterBlock2026 from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock2026";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
-export default component$(() => {
+export const DashboardAppContent2026 = component$(() => {
   return (
     <article class="mt-8 w-full max-w-6xl">
       <div class="prose prose-vercel max-w-none">
@@ -163,9 +163,10 @@ export default component$(() => {
           building the application.
         </p>
 
-        <GoToNextChapterBlock2026
+        <GoToNextChapterBlock
+          version="2026"
           goToChapter={1}
-          title="Getting Started"
+          title="Getting Started 2026"
           text="Create your Qwik application and run the development server."
         />
       </div>

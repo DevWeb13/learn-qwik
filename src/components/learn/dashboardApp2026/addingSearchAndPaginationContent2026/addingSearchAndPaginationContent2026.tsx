@@ -5,13 +5,13 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
 
-export const AddingSearchAndPaginationContent = component$(() => {
+export const AddingSearchAndPaginationContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
@@ -1622,8 +1622,9 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           text="You've learned how to add search and pagination to your app."
         />
         <GoToNextChapterBlock
+          version="2026"
           goToChapter={11}
-          title="Mutating data"
+          title="Mutating data 2026"
           text="Learn how to update data in your database."
         />
       </div>

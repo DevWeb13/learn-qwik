@@ -5,7 +5,7 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
@@ -564,6 +564,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
           text="Well done! You've learned how to navigate between pages in Qwik."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={6}
           title="Setting up your database"
           text="Let's create a database to start fetching real data!"

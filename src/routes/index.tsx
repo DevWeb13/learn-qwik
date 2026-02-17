@@ -8,7 +8,6 @@ import HeroLinesDark from "~/assets/svg/heroLinesDark/heroLinesDark";
 import HeroLinesLight from "~/assets/svg/heroLinesLight/heroLinesLight";
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
-import BtAddChapter from "~/components/UI/btAddChapter/btAddChapter";
 import ProgressCircle from "~/components/UI/headerOfMain/progressCircle/progressCircle";
 import { DisplayNextChapter } from "~/components/learn/DisplayNextChapter/displayNextChapter";
 import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
@@ -18,7 +17,7 @@ import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesS
 import { createDocumentHead } from "~/utils/createDocumentHead";
 import { useProfile } from "./layout";
 
-import { BtAddChapter2026 } from "~/components/UI/btAddChapter/btAddChapter2026";
+import { BtAddChapter } from "~/components/UI/btAddChapter/btAddChapter";
 import { SubscribeSection } from "~/components/subcribeSection/subscribeSection";
 import { CHAPTERS } from "~/constants/chapters";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
@@ -32,14 +31,14 @@ export default component$(() => {
         <div class="flex flex-col items-center px-4">
           <h1 class="mb-4 max-w-[80%] text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">
             Start building with{" "}
-            <a
+            <Link
               href="https://qwik.dev"
               class="text-blue-500 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
               Qwik
-            </a>
+            </Link>
           </h1>
           <div class="max-w-xl text-center text-gray-900 md:mb-16">
             Go from beginner to expert by learning the foundations of Qwik and
@@ -113,13 +112,14 @@ export default component$(() => {
                 <div class="h-px w-full bg-gray-100"></div>
 
                 <div>
-                  <BtAddChapter2026
+                  <BtAddChapter
                     goToChapter={0}
                     title=""
                     text="Start Learning"
-                    completedChapters2026={
+                    completedChapters={
                       profile.value?.completedChapters2026 || []
                     }
+                    version="2026"
                   >
                     <ProgressCircle
                       completed={profile.value?.completedChapters2026 || []}
@@ -128,7 +128,7 @@ export default component$(() => {
                       colorProgressCircle="var(--ds-gray-100)"
                       responsive="smallOnly"
                     />
-                  </BtAddChapter2026>
+                  </BtAddChapter>
                 </div>
               </div>
             </div>
@@ -610,13 +610,12 @@ export default component$(() => {
         <div class="mt-4 flex w-full items-center justify-center pb-10 md:mt-8 md:w-auto md:pb-20">
           <div class="w-[100%] md:w-[233px]">
             <div>
-              <BtAddChapter2026
+              <BtAddChapter
                 goToChapter={0}
                 title=""
                 text="Start Learning"
-                completedChapters2026={
-                  profile.value?.completedChapters2026 || []
-                }
+                completedChapters={profile.value?.completedChapters2026 || []}
+                version="2026"
               >
                 <ProgressCircle
                   completed={profile.value?.completedChapters2026 || []}
@@ -625,7 +624,7 @@ export default component$(() => {
                   colorProgressCircle="var(--ds-gray-100)"
                   responsive="smallOnly"
                 />
-              </BtAddChapter2026>
+              </BtAddChapter>
             </div>
           </div>
         </div>
@@ -666,6 +665,7 @@ export default component$(() => {
                 title=""
                 text="Start Learning"
                 completedChapters={profile.value?.completedChapters || []}
+                version="Legacy"
               >
                 <ProgressCircle
                   completed={profile.value?.completedChapters || []}

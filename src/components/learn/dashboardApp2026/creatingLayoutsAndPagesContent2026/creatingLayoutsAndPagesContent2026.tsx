@@ -5,12 +5,12 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
-import { DashboardPagesSoluce } from "./dashboardPagesSoluce/dashboardPagesSoluce";
+import { DashboardPagesSoluce } from "./dashboardPagesSoluce2026/dashboardPagesSoluce2026";
 
 import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
 import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
@@ -22,7 +22,7 @@ import NestedRouting from "~/assets/img/nested-routing.png?jsx";
 import PartialRendering from "~/assets/img/partial-rendering.png?jsx";
 import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 
-export default component$(() => {
+export const CreatingLayoutsAndPagesContent2026 = component$(() => {
   const dashboardPagesSoluce = useSignal(false);
 
   useStyles$(``);
@@ -706,6 +706,7 @@ export default component$(() => {
           text="Well done! You've learned how to create layouts and pages in Qwik."
         />
         <GoToNextChapterBlock
+          version="2026"
           goToChapter={5}
           title="Navigating Between Pages"
           text="Learn how to navigate between dashboard pages in Qwik."

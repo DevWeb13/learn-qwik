@@ -18,9 +18,9 @@ import Feedback from "~/components/UI/feedback/feedback";
 
 import LatestInvoices from "~/assets/img/latestInvoices.png?jsx";
 import RevenueChart from "~/assets/img/revenueChart.png?jsx";
-import GoToNextChapterBlock2026 from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock2026";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
-export const FetchingDataContent = component$(() => {
+export const FetchingDataContent2026 = component$(() => {
   const fetchDataCardsSoluceDisplay = useSignal(false);
   useStyles$(``);
   return (
@@ -1358,9 +1358,10 @@ try {
           chapterNumber={7}
           text="You've learned how to fetch data from your database in Qwik."
         />
-        <GoToNextChapterBlock2026
+        <GoToNextChapterBlock
+          version="2026"
           goToChapter={8}
-          title="Optimizing data fetching"
+          title="Optimizing data fetching 2026"
           text="Learn how to optimize data fetching by parallelizing queries and relocating routeLoader$() functions."
         />
       </div>

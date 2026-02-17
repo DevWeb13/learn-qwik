@@ -1,4 +1,4 @@
-// src/components/dashboardApp/gettingStartedContent/gettingStartedContent.tsx
+// src/components/learn/dashboardApp2026/gettingStartedContent2026/gettingStartedContent2026.tsx
 
 import { component$ } from "@builder.io/qwik";
 import StartPage from "~/assets/img/start-page.png?jsx";
@@ -7,12 +7,12 @@ import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock2026 from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock2026";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import FolderStructure from "./folderStructure2026/folderStructure2026";
 
-export default component$(() => {
+export const GettingStartedContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
@@ -576,9 +576,10 @@ export default component$(() => {
           text="Congratulations! You've created a Qwik application from scratch
            and ran the development server."
         />
-        <GoToNextChapterBlock2026
+        <GoToNextChapterBlock
+          version="2026"
           goToChapter={2}
-          title="CSS Styling"
+          title="CSS Styling 2026"
           text="Let's work on your home page and discuss the different ways you can
         style your application."
         />

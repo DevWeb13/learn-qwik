@@ -1,5 +1,5 @@
 import { $, component$, useStore, useTask$ } from "@builder.io/qwik";
-import { CHAPTERS } from "~/constants/chapters";
+import { CHAPTERS2026 } from "~/constants/chapters2026";
 
 interface BookSvgTextProps {
   completed: number[];
@@ -7,8 +7,10 @@ interface BookSvgTextProps {
 
 export const BookSvgText = component$<BookSvgTextProps>(({ completed }) => {
   const store = useStore({
-    nextChapterTitle: (CHAPTERS[0].title.split(":")[0] + ":") as string | null,
-    nextChapterSubtitle: CHAPTERS[0].title.split(":")[1] as string | null,
+    nextChapterTitle: (CHAPTERS2026[0].title.split(":")[0] + ":") as
+      | string
+      | null,
+    nextChapterSubtitle: CHAPTERS2026[0].title.split(":")[1] as string | null,
   });
   const findNextChapter = $(() => {
     return Math.max(...completed) + 1;
@@ -20,9 +22,9 @@ export const BookSvgText = component$<BookSvgTextProps>(({ completed }) => {
     if (completed.length !== 0) {
       const nextChapterIndex = await findNextChapter();
       store.nextChapterTitle =
-        CHAPTERS[nextChapterIndex - 1].title.split(":")[0] + ":";
+        CHAPTERS2026[nextChapterIndex - 1].title.split(":")[0] + ":";
       store.nextChapterSubtitle =
-        CHAPTERS[nextChapterIndex - 1].title.split(":")[1];
+        CHAPTERS2026[nextChapterIndex - 1].title.split(":")[1];
     }
   });
 

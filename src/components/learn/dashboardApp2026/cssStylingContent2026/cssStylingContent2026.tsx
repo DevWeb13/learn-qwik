@@ -6,7 +6,7 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
@@ -17,7 +17,7 @@ import InstyledPage from "~/assets/img/instyled-page.png?jsx";
 import StyledPage from "~/assets/img/styled-page.png?jsx";
 import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 
-export default component$(() => {
+export const CSSStylingContent2026 = component$(() => {
   useStyles$(``);
   return (
     <>
@@ -933,8 +933,9 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           a Qwik application."
         />
         <GoToNextChapterBlock
+          version="2026"
           goToChapter={3}
-          title="Optimizing Fonts and Images"
+          title="Optimizing Fonts and Images 2026"
           text="Continue working on your home page by adding a hero image and a custom font."
         />
       </div>

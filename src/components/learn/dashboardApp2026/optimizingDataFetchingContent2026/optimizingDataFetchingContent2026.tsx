@@ -13,10 +13,10 @@ import FetchSequentialTime from "~/assets/img/fetchSequentialTime.png?jsx";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock2026 from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock2026";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { Quiz } from "~/components/UI/quiz/quiz";
 
-export const OptimizingDataFetchingContent = component$(() => {
+export const OptimizingDataFetchingContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
@@ -966,9 +966,10 @@ Data fetch completed after 3 seconds.`}
           chapterNumber={8}
           text="Nice! You've learned about optimizing data fetching in Qwik."
         />
-        <GoToNextChapterBlock2026
+        <GoToNextChapterBlock
+          version="2026"
           goToChapter={9}
-          title="Streaming"
+          title="Streaming 2026"
           text="Learn how to improve your user's experience by adding streaming."
         />
       </div>

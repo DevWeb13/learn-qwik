@@ -18,10 +18,10 @@ import AddInterImg from "~/assets/img/addInterImg.png?jsx";
 import AddLusitanaAndLRDQwikLogoImg from "~/assets/img/addLusitanaAndLRDQwikLogo.png?jsx";
 import CLSImg from "~/assets/img/CLS.png?jsx";
 import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
-import GoToNextChapterBlock2026 from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock2026";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { ImageSoluce } from "./imageSoluce2026/imageSoluce2026";
 
-export default component$(() => {
+export const OptimizingFontsAndImagesContent2026 = component$(() => {
   const fontSoluceDisplay = useSignal(false);
   const imageSoluceDisplay = useSignal(false);
   useStyles$(``);
@@ -960,9 +960,10 @@ export default component$(() => {
           text="
           You've learned how to use fonts and images using Qwik."
         />
-        <GoToNextChapterBlock2026
+        <GoToNextChapterBlock
+          version="2026"
           goToChapter={4}
-          title="Creating Layouts and Pages"
+          title="Creating Layouts and Pages 2026"
           text="Let's create your dashboard routes using nested layouts and pages!"
         />
       </div>

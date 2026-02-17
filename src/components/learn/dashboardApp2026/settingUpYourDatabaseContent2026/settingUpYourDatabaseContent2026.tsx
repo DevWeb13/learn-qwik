@@ -24,9 +24,9 @@ import VercelDeploymentsPageSuccess from "~/assets/img/vercel-deployments-page-s
 import VercelEdgeFinishPrompt from "~/assets/img/vercelEdgeFinishPrompt.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock2026 from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock2026";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
-export const SettingUpYourDatabaseContent = component$(() => {
+export const SettingUpYourDatabaseContent2026 = component$(() => {
   useStyles$(``);
   return (
     <>
@@ -955,9 +955,10 @@ WHERE invoices.amount = 666;`}
           chapterNumber={6}
           text="Well done! You've learned how to set up a database in Qwik."
         />
-        <GoToNextChapterBlock2026
+        <GoToNextChapterBlock
+          version="2026"
           goToChapter={7}
-          title="Fetching Data"
+          title="Fetching Data 2026"
           text="Learn how to fetch data from your database in Qwik."
         />
       </div>

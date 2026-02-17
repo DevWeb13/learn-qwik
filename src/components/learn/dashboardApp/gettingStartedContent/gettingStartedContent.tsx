@@ -7,7 +7,7 @@ import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import FolderStructure from "./folderStructure/folderStructure";
@@ -577,6 +577,7 @@ export default component$(() => {
            and ran the development server."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={2}
           title="CSS Styling"
           text="Let's work on your home page and discuss the different ways you can

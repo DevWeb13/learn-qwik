@@ -13,7 +13,7 @@ import FetchSequentialTime from "~/assets/img/fetchSequentialTime.png?jsx";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { Quiz } from "~/components/UI/quiz/quiz";
 
 export const OptimizingDataFetchingContent = component$(() => {
@@ -967,6 +967,7 @@ Data fetch completed after 3 seconds.`}
           text="Nice! You've learned about optimizing data fetching in Qwik."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={9}
           title="Streaming"
           text="Learn how to improve your user's experience by adding streaming."

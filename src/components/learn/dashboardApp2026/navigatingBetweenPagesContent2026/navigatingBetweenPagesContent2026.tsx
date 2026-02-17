@@ -5,13 +5,13 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock2026 from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock2026";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
 
-export default component$(() => {
+export const NavigatingBetweenPagesContent2026 = component$(() => {
   useStyles$(``);
   return (
     <>
@@ -563,9 +563,10 @@ const pathname = url.pathname.replace(/\\/$/, "");
           chapterNumber={5}
           text="Well done! You've learned how to navigate between pages in Qwik."
         />
-        <GoToNextChapterBlock2026
+        <GoToNextChapterBlock
+          version="2026"
           goToChapter={6}
-          title="Setting up your database"
+          title="Setting up your database 2026"
           text="Let's create a database to start fetching real data!"
         />
       </div>

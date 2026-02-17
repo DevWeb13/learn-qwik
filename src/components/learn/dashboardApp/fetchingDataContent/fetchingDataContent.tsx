@@ -15,7 +15,7 @@ import DashboardPageWithAllTheDataFetched from "~/assets/img/dashboard-page-with
 import SequentialParallelDataFetching from "~/assets/img/sequential-parallel-data-fetching.avif?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 import LatestInvoices from "~/assets/img/latestInvoices.png?jsx";
 import RevenueChart from "~/assets/img/revenueChart.png?jsx";
@@ -1359,6 +1359,7 @@ try {
           text="You've learned how to fetch data from your database in Qwik."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={8}
           title="Optimizing data fetching"
           text="Learn how to optimize data fetching by parallelizing queries and relocating routeLoader$() functions."

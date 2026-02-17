@@ -14,9 +14,9 @@ import CreateInvoicesPage from "~/assets/img/createInvoicesPage.png?jsx";
 import EditInvoicePage from "~/assets/img/editInvoicePage.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock2026 from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock2026";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
-export const MutatingDataContent = component$(() => {
+export const MutatingDataContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
@@ -1778,9 +1778,10 @@ export const deleteInvoice = server$(async function (id: string) {
           chapterNumber={11}
           text="You've learned how to create, update, and delete invoices."
         />
-        <GoToNextChapterBlock2026
+        <GoToNextChapterBlock
+          version="2026"
           goToChapter={12}
-          title="Handling Errors"
+          title="Handling Errors 2026"
           text="Let's explore best practices for mutating data with forms, including error handling and accessibility."
           disabledButton
         />

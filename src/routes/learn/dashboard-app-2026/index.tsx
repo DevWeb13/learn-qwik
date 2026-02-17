@@ -2,11 +2,12 @@
 
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
-import DashboardApp2026Content from "~/components/learn/dashboardApp2026/dashboardApp2026Content";
+import { DashboardAppContent2026 } from "~/components/learn/dashboardApp2026/dashboardAppContent2026";
+
 import { createDocumentHead } from "~/utils/createDocumentHead";
 
 export default component$(() => {
-  return <DashboardApp2026Content />;
+  return <DashboardAppContent2026 />;
 });
 
 export const head: DocumentHead = createDocumentHead(
