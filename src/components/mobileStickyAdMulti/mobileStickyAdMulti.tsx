@@ -7,7 +7,7 @@ export const MobileStickyAdMulti = component$(() => {
     <aside class="fixed bottom-12 left-0 right-0 z-50 block bg-white shadow-inner lg:hidden">
       <div class="mx-auto">
         <ins
-          class="adsbygoogle"
+          class="adsbygoogle w-full"
           style="display:inline-block;height:100px"
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="3249947732"
