@@ -272,7 +272,7 @@ export const Quiz = component$<QuizProps>(
     return (
       <div
         class={
-          "tailwind bg-vercel-200 not-prose  flex flex-col justify-center rounded-[16px] px-4 py-4 md:-mx-[62px] md:px-0 md:py-14" +
+          "tailwind bg-vercel-200 not-prose  flex flex-col justify-center rounded-[16px] px-4 py-4 md:px-0 md:py-14" +
           " " +
           (displayHeader && "mt-12")
         }

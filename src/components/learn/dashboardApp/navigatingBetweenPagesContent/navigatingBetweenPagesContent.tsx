@@ -41,7 +41,7 @@ export default component$(() => {
           ]}
         />
 
-        <div class="px-4  md:px-8 ">
+        {/* <div class="px-4  md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -50,7 +50,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Why Optimize Navigation?"
@@ -70,7 +70,7 @@ export default component$(() => {
           times.🚤
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -79,7 +79,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="The <Link> component 🖇️"
@@ -183,7 +183,7 @@ export const NavLinks = component$(() => {
           🚀
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -192,7 +192,7 @@ export const NavLinks = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="When to use &lt;a&gt; instead of &lt;Link&gt; 🔄"
@@ -208,7 +208,7 @@ export const NavLinks = component$(() => {
           reload is crucial to maintain performance. 🔍
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -217,7 +217,7 @@ export const NavLinks = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="How does Qwik handle component loading when a user interacts with a <Link> component in a production environment?"
@@ -247,7 +247,7 @@ export const NavLinks = component$(() => {
           responseText="Qwik selectively hydrates only the components that need to be updated when a user interacts with a <Link> component. This selective hydration approach helps to optimize performance and improve the user experience by reducing the amount of work required to update the UI."
         />
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -256,7 +256,7 @@ export const NavLinks = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Displaying an Active Link 🌟"
@@ -450,7 +450,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
           design.💅
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -459,7 +459,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="How navigation works in Qwik-City"
@@ -490,7 +490,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
           the overall user experience.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -499,7 +499,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Recommended reading"
@@ -525,7 +525,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
           </li>
         </ul>
 
-        <div class="px-4  md:px-8 ">
+        {/* <div class="px-4  md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -534,7 +534,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
         <p>

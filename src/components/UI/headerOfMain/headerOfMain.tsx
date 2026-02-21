@@ -40,7 +40,7 @@ export default component$(() => {
   });
 
   return (
-    <div class="style_container relative z-10 mb-4 h-[67px] w-full max-w-[1072px] lg:-mx-12 lg:mb-8">
+    <div class="relative z-10 mb-4 flex h-[var(--header-of-main-height)]  w-full items-center justify-center  lg:mb-8">
       <aside
         class={
           scrollY.value > 80

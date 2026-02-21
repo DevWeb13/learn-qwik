@@ -369,7 +369,7 @@ export const AccountContent = component$(() => {
                       </span>
                     </h2>
 
-                    <button
+                    {/* <button
                       onClick$={async () => {
                         const result = await resetCompletedChapters.submit({
                           version: "2026",
@@ -384,7 +384,10 @@ export const AccountContent = component$(() => {
                     >
                       <HiArrowPathOutline class="h-4 w-4" />
                       <span>Reset Progress</span>
-                    </button>
+                    </button> */}
+                    <p class="text-xl font-semibold text-[var(--qwik-dark-blue)]">
+                      👀 Coming Soon 🤫
+                    </p>
                   </div>
 
                   <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-8">
@@ -415,7 +418,7 @@ export const AccountContent = component$(() => {
                   <div class="mb-4 flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-gray-800">
                       Completed Chapters{" "}
-                      <span class="text-red-700">Legacy Version</span>
+                      {/* <span class="text-red-700">Legacy Version</span> */}
                     </h2>
 
                     <button

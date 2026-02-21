@@ -1,12 +1,12 @@
-// src/components/desktopStickyAd/desktopStickyAd.tsx
+// src/components/desktopStickyAdMulti/desktopStickyAdMulti.tsx
 
 import { component$ } from "@builder.io/qwik";
 
-interface DesktopStickyAdProps {
+interface DesktopStickyAdMultiProps {
   topPosition?: string;
 }
 
-export const DesktopStickyAd = component$<DesktopStickyAdProps>(
+export const DesktopStickyAdMulti = component$<DesktopStickyAdMultiProps>(
   ({
     topPosition = "top-4", // Valeur par défaut si aucune n'est fournie
   }) => {
@@ -18,7 +18,7 @@ export const DesktopStickyAd = component$<DesktopStickyAdProps>(
               class="adsbygoogle"
               style="display:inline-block;width:300px;height:600px"
               data-ad-client="ca-pub-2091224773462896"
-              data-ad-slot="1127159078"
+              data-ad-slot="5487905329"
             ></ins>
           </div>
         </div>

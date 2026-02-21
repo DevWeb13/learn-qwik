@@ -12,8 +12,8 @@ import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToN
 
 export const DashboardAppContent2026 = component$(() => {
   return (
-    <article class="mt-8 w-full max-w-6xl">
-      <div class="prose prose-vercel max-w-none">
+    <>
+      <article class="prose prose-vercel max-w-none">
         <h1>Learn Qwik | Interactive Dashboard Overview (2026 Edition)</h1>
 
         <p>
@@ -154,7 +154,7 @@ export const DashboardAppContent2026 = component$(() => {
           />
           .
         </p>
-      </div>
+      </article>
 
       <div class="mx-auto my-16 flex w-full max-w-[640px] flex-col items-center gap-6 text-center">
         <h2 class="text-3xl font-semibold">Ready to get started?</h2>
@@ -174,6 +174,6 @@ export const DashboardAppContent2026 = component$(() => {
       <Feedback />
 
       <div class="mb-24"></div>
-    </article>
+    </>
   );
 });

@@ -73,6 +73,14 @@ export async function updateSession(requestEvent: RequestEvent) {
 
   const isAuthRoute = currentPath.startsWith("/auth/login");
 
+  const isNextDashboardRouteComingSoon = currentPath.startsWith(
+    "/learn/dashboard-app-2026",
+  );
+
+  if (isNextDashboardRouteComingSoon) {
+    throw requestEvent.redirect(302, "/");
+  }
+
   if (!user && !isPublic) {
     throw requestEvent.redirect(302, "/auth/login/?next=" + currentPath);
   }

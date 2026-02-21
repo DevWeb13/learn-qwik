@@ -10,7 +10,7 @@ interface PageTitleProps {
 export default component$<PageTitleProps>(({ chapterNumber, chapterTitle }) => {
   return (
     <div class="not-prose mb-4 flex flex-col items-start gap-2 md:mb-10 md:flex-row md:items-center md:gap-6">
-      <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 md:h-[72px] md:w-[72px]">
+      <div class="min-w-10 flex h-10 items-center justify-center rounded-full bg-gray-100 md:h-[72px] md:min-w-[72px]">
         <p
           class="text_wrapper"
           data-version="v1"

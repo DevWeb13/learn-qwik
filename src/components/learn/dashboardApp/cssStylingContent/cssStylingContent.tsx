@@ -45,7 +45,7 @@ export default component$(() => {
           ]}
         />
 
-        <div class="px-4  md:px-8">
+        {/* <div class="px-4  md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -54,7 +54,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Global styles" id="global-styles" />
         <p>
@@ -123,7 +123,7 @@ export default component$(() => {
           ]}
         />
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -132,7 +132,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Adding Tailwind CSS"
@@ -293,7 +293,7 @@ export const head: DocumentHead = {
           application.🎉
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -302,7 +302,7 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Tailwind" id="tailwind" />
         <p>
@@ -365,7 +365,7 @@ export const head: DocumentHead = {
           separate from your JSX - CSS Modules are a great alternative.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -374,7 +374,7 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="CSS Modules" id="css-modules" />
         <p>
@@ -452,7 +452,7 @@ export const head: DocumentHead = {
           responseText="CSS Modules create unique class names for each component, so you don't have to worry about style collisions."
         />
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -461,7 +461,7 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Other styling solutions"
@@ -510,7 +510,7 @@ export const head: DocumentHead = {
           </li>
         </ul>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -519,7 +519,7 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Icons" id="Icons" />
         <p>
@@ -582,7 +582,7 @@ export const head: DocumentHead = {
           <code>Heroicons</code> set.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -591,7 +591,7 @@ export const head: DocumentHead = {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Heroicons" id="heroicons" />
 
@@ -714,7 +714,7 @@ export default component$(() => {
           />
         </figure>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -723,7 +723,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Other ways to add icons"
@@ -886,7 +886,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           application.🎉
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -895,7 +895,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
@@ -909,7 +909,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
         </p>
       </div>
 
-      <div class="px-4 pt-8 md:px-8 md:pt-20">
+      {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
         <ins
           class="adsbygoogle"
           style="display:flex; justify-content:center;"
@@ -918,7 +918,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="2773109472"
         ></ins>
-      </div>
+      </div> */}
 
       <ChapterVideo
         videoId="kVLfw2M3HnE"

@@ -20,7 +20,6 @@ import { useProfile } from "./layout";
 import { BtAddChapter } from "~/components/UI/btAddChapter/btAddChapter";
 import { SubscribeSection } from "~/components/subcribeSection/subscribeSection";
 import { CHAPTERS } from "~/constants/chapters";
-import { CHAPTERS2026 } from "~/constants/chapters2026";
 
 export default component$(() => {
   const profile = useProfile();
@@ -63,7 +62,7 @@ export default component$(() => {
               <div class="relative -mt-[56px] flex w-full justify-center md:-mt-14">
                 <div class="relative">
                   <BookSvgText
-                    completed={profile.value?.completedChapters2026 || []}
+                    completed={profile.value?.completedChapters || []}
                   />
 
                   <BookSvg id="learn" />
@@ -90,7 +89,7 @@ export default component$(() => {
                   </div>
                   <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug md:min-w-[400px]">
                     <DisplayNextChapter
-                      completed={profile.value?.completedChapters2026 || []}
+                      completed={profile.value?.completedChapters || []}
                     />
 
                     <div class="ml-2">
@@ -101,7 +100,7 @@ export default component$(() => {
                         style="--circle-size: 100px; --circumference: 282.7433388230814; --percent-to-px: 2.827433388230814px; --gap-percent: 0; --offset-factor: 0;"
                       >
                         <ProgressCircle
-                          completed={profile.value?.completedChapters2026 || []}
+                          completed={profile.value?.completedChapters || []}
                           onlyCircle
                           responsive="largeOnly"
                         />
@@ -116,13 +115,11 @@ export default component$(() => {
                     goToChapter={0}
                     title=""
                     text="Start Learning"
-                    completedChapters={
-                      profile.value?.completedChapters2026 || []
-                    }
-                    version="2026"
+                    completedChapters={profile.value?.completedChapters || []}
+                    version="Legacy"
                   >
                     <ProgressCircle
-                      completed={profile.value?.completedChapters2026 || []}
+                      completed={profile.value?.completedChapters || []}
                       onlyCircle
                       colorCircle="var(--ds-gray-900)"
                       colorProgressCircle="var(--ds-gray-100)"
@@ -140,7 +137,7 @@ export default component$(() => {
         <SubscribeSection profile={profile} />
       </div>
 
-      <div class="px-4 pb-8 md:px-8 md:pb-20">
+      {/* <div class="px-4 pb-8 md:px-8 md:pb-20">
         <ins
           class="adsbygoogle"
           style="display:flex; justify-content:center;"
@@ -149,7 +146,7 @@ export default component$(() => {
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="2773109472"
         ></ins>
-      </div>
+      </div> */}
 
       <div class="pb-8 md:pb-20">
         <div class="flex flex-col justify-center text-center md:flex-row md:items-baseline md:text-left">
@@ -567,7 +564,7 @@ export default component$(() => {
         </div>
       </div>
 
-      <div class="px-4 pb-8 md:px-8 md:pb-20">
+      {/* <div class="px-4 pb-8 md:px-8 md:pb-20">
         <ins
           class="adsbygoogle"
           style="display:flex; text-align:center; justify-content:center;"
@@ -576,10 +573,10 @@ export default component$(() => {
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="2773109472"
         ></ins>
-      </div>
+      </div> */}
 
       <div class="mx-auto max-w-6xl px-4 pb-10 md:pb-20">
-        <div class="mb-4 flex flex-col justify-center text-center md:mb-8 md:flex-row md:items-baseline md:justify-center md:text-left">
+        {/* <div class="mb-4 flex flex-col justify-center text-center md:mb-8 md:flex-row md:items-baseline md:justify-center md:text-left">
           <h2
             class="text_wrapper"
             style="--text-color:var(--ds-gray-1000);--xs-text-size:1.5rem;--xs-text-line-height:2rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.029375rem;--sm-text-size:1.5rem;--sm-text-line-height:2rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.029375rem;--smd-text-size:2rem;--smd-text-line-height:2.5rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.049375rem;--md-text-size:2rem;--md-text-line-height:2.5rem;--md-text-weight:600;--md-text-letter-spacing:-0.049375rem;--lg-text-size:2rem;--lg-text-line-height:2.5rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.049375rem"
@@ -614,11 +611,11 @@ export default component$(() => {
                 goToChapter={0}
                 title=""
                 text="Start Learning"
-                completedChapters={profile.value?.completedChapters2026 || []}
+                completedChapters={profile.value?.completedChapters || []}
                 version="2026"
               >
                 <ProgressCircle
-                  completed={profile.value?.completedChapters2026 || []}
+                  completed={profile.value?.completedChapters || []}
                   onlyCircle
                   colorCircle="var(--ds-gray-900)"
                   colorProgressCircle="var(--ds-gray-100)"
@@ -627,7 +624,7 @@ export default component$(() => {
               </BtAddChapter>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div class="mb-4 flex flex-col justify-center text-center md:mb-8 md:flex-row md:items-baseline md:justify-center md:text-left">
           <h2
@@ -679,7 +676,7 @@ export default component$(() => {
           </div>
         </div>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        {/* <div class="px-4 pb-8 md:px-8 md:pb-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -688,7 +685,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <div class="bg-background-200 border-t pt-12 md:pt-16">
           <div class="flex w-full flex-col items-center justify-between space-y-4 px-4  text-center md:flex-row md:space-y-0  md:text-left lg:px-0">

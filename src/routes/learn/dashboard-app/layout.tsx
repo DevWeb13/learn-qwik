@@ -3,7 +3,11 @@
 import { component$, Slot } from "@builder.io/qwik";
 
 import { routeLoader$ } from "@builder.io/qwik-city";
+import { DesktopStickyAdMulti } from "~/components/desktopStickyAdMulti/desktopStickyAdMulti";
+import { MobileStickyAdMulti } from "~/components/mobileStickyAdMulti/mobileStickyAdMulti";
 import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
+import { useProfile } from "~/routes/layout";
+import { isSubscriptionActive } from "~/utils/subscription";
 
 export const useGetCurrentChapterIndexInString = routeLoader$(
   (requestEvent) => {
@@ -24,19 +28,29 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
 );
 
 export default component$(() => {
+  const profile = useProfile();
+  const isSubscribed = isSubscriptionActive(profile.value);
   return (
-    <>
-      <main>
-        <div class="relative mx-auto max-w-screen-lg px-4 py-4 md:py-10">
-          <HeaderOfMain />
-          <article
-            class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
-            style="min-height: calc(100vh - 103px);"
-          >
-            <Slot />
-          </article>
-        </div>
-      </main>
-    </>
+    <main class="relative mx-auto max-w-full px-4 py-4 md:px-8 lg:px-4 lg:py-10">
+      <HeaderOfMain />
+      <div
+        class={`relative mx-auto flex w-full flex-col  gap-8 py-6 lg:max-w-7xl lg:flex-row lg:py-10 ${!isSubscribed ? "lg:pl-12 xl:px-12" : "justify-center lg:px-12"}`}
+      >
+        {/* Main content */}
+        <section
+          class={`w-full overflow-hidden ${!isSubscribed ? "lg:max-w-[calc(100%-300px)]" : "w-full"}`}
+        >
+          <Slot />
+        </section>
+
+        {/* Desktop ad */}
+        {!isSubscribed && (
+          <DesktopStickyAdMulti topPosition="top-20 lg:top-24" />
+        )}
+      </div>
+
+      {/* Mobile ad */}
+      {!isSubscribed && <MobileStickyAdMulti />}
+    </main>
   );
 });

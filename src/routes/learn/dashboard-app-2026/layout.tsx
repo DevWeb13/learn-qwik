@@ -29,22 +29,20 @@ export default component$(() => {
   const isSubscribed = isSubscriptionActive(profile.value);
 
   return (
-    <div class="max-w-screen relative mx-auto px-4 py-4 md:py-10">
+    <main class="relative mx-auto max-w-full px-4 py-4 lg:py-10">
       <HeaderOfMain2026 />
-      <main class="relative mx-auto flex w-full max-w-screen-2xl flex-col gap-8 py-6 md:flex-row md:px-12 md:py-10">
+      <div class="relative mx-auto flex w-full max-w-screen-2xl flex-col gap-8 py-6 lg:flex-row lg:py-10 lg:pl-12">
         {/* Main content */}
-        <section class="w-full md:max-w-[calc(100%-300px)]">
-          <article class="min-h-[70vh]">
-            <Slot />
-          </article>
+        <section class="w-full lg:max-w-[calc(100%-300px)]">
+          <Slot />
         </section>
 
         {/* Desktop ad */}
         {!isSubscribed && <DesktopStickyAd topPosition="top-20 lg:top-24" />}
-      </main>
+      </div>
 
       {/* Mobile ad */}
       {!isSubscribed && <MobileStickyAd />}
-    </div>
+    </main>
   );
 });

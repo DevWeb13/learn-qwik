@@ -56,7 +56,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
           ]}
         />
 
-        <div class="px-4  md:px-8 ">
+        {/* <div class="px-4  md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -65,7 +65,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Why Optimize Fonts?"
@@ -137,7 +137,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
           </p>
         </figure>
 
-        <div class="px-4  md:px-8 ">
+        {/* <div class="px-4  md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -146,7 +146,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="Why is it recommended to self-host fonts in a Qwik application?"
@@ -232,7 +232,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
           responseText="The font-display CSS property provides several options to control how fonts are displayed as they load. For instance, the swap value allows the text to be shown immediately with a fallback font while the custom font is loading. This prevents the text from being invisible during the loading process, thereby improving the perceptual load speed of the page. By using this property, developers can significantly enhance the user experience by ensuring text remains visible and usable, reducing the likelihood of layout shifts and maintaining a better overall aesthetic consistency throughout the loading phase."
         />
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -241,7 +241,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Google Fonts" id="google-fonts" />
         <p>
@@ -273,7 +273,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
           fonts.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -282,7 +282,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Self Hosting" id="self-hosting" />
         <p>
@@ -309,7 +309,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
           </li>
         </ul>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -318,7 +318,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Fontsource" id="fontsource" />
         <p>
@@ -333,7 +333,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
           , without the hassle of managing the files yourself.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -342,7 +342,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Adding a primary font with Fontsource"
@@ -433,7 +433,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
           />
         </figure>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -442,7 +442,7 @@ export const OptimizingFontsAndImagesContent2026 = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Add a second font by hosting it in your project"
@@ -609,7 +609,7 @@ export default component$(() => {
           added custom fonts to your Qwik application.🎉
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -618,7 +618,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Why optimize images?"
@@ -674,7 +674,7 @@ export default component$(() => {
           </li>
         </ol>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -683,7 +683,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Adding the desktop hero image"
@@ -781,7 +781,7 @@ export default component$(() => {
           />
         </figure>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -790,7 +790,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Practice: Adding the mobile hero image"
@@ -848,7 +848,7 @@ export default component$(() => {
           font and hero images.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -857,7 +857,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="Using the .jsx suffix when importing images in Qwik enables automatic optimization, including conversion to modern formats and lazy loading of images."
@@ -877,7 +877,7 @@ export default component$(() => {
           responseText="When you use the .jsx suffix in Qwik, it activates the vite-imagetools which automatically handles image optimization. This includes converting images to more efficient formats like WebP and AVIF, and implementing lazy loading to improve page load times. This is essential for enhancing performance and user experience on modern websites."
         />
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -886,7 +886,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Recommended reading"
@@ -914,7 +914,7 @@ export default component$(() => {
           </li>
         </ul>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -923,7 +923,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
@@ -937,7 +937,7 @@ export default component$(() => {
         </p>
       </div>
 
-      <div class="px-4 pt-8 md:px-8 md:pt-20">
+      {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
         <ins
           class="adsbygoogle"
           style="display:flex; justify-content:center;"
@@ -946,7 +946,7 @@ export default component$(() => {
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="2773109472"
         ></ins>
-      </div>
+      </div> */}
 
       <ChapterVideo
         videoId="BzpWsu_uxRU"
