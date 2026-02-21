@@ -102,7 +102,7 @@ export default component$(() => {
         <RouterHead />
         <ServiceWorkerRegister />
       </head>
-      <body lang="en" class="min-h-svh">
+      <body lang="en" class="min-h-svh max-w-svw">
         <RouterOutlet />
       </body>
     </QwikCityProvider>
