@@ -1,8 +1,10 @@
+// src/components/learn/dashboardApp/dashboardAppContent.tsx
+
 import { component$ } from "@builder.io/qwik";
 
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 
 import { Link } from "@builder.io/qwik-city";
@@ -10,11 +12,8 @@ import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/a
 
 export default component$(() => {
   return (
-    <article
-      class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
-      style="min-height: calc(100vh - 103px);"
-    >
-      <div class="prose prose-vercel max-w-none">
+    <>
+      <article class="prose prose-vercel max-w-none">
         <div class="mb-10">
           <h1
             class="text_wrapper"
@@ -65,7 +64,7 @@ export default component$(() => {
           start building full-stack Qwik applications.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -74,7 +73,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor id="overview" title="Overview" />
 
@@ -147,7 +146,7 @@ export default component$(() => {
           </li>
         </ul>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -156,7 +155,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           id="prerequisite-knowledge"
@@ -177,7 +176,7 @@ export default component$(() => {
           unique features more effectively.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -186,7 +185,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           id="system-requirements"
@@ -212,7 +211,7 @@ export default component$(() => {
           .
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -221,7 +220,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           id="join-the-conversation"
@@ -242,7 +241,7 @@ export default component$(() => {
           />
           .
         </p>
-      </div>
+      </article>
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <div
           aria-hidden="true"
@@ -287,79 +286,17 @@ export default component$(() => {
           </p>
         </div>
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={1}
           title="Getting Started"
           text="Learn how to create a Qwik application and run your local
           development server."
         />
-        {/* <div class="border-gray-alpha-400 mt-8 flex w-full flex-col items-center justify-center gap-1 rounded-lg border px-4 py-8 shadow-md md:mt-12">
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
-          >
-            Next Up
-          </p>
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-1000); --text-size: 1.25rem; --text-line-height: 1.5rem; --text-letter-spacing: -0.020625rem; --text-weight: 600;"
-          >
-            1: Getting Started
-          </p>
-          <p
-            class="text_wrapper max-w-[540px] pb-4 pt-3 md:pb-6"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial; --text-align: center;"
-          >
-            Learn how to create a Qwik application and run your local
-            development server.
-          </p>
-          <div class="w-full md:w-fit">
-            <Link
-              tabIndex={0}
-              href="/learn/dashboard-app/getting-started"
-              class="button_base reset_reset button_button reset_reset button_large button_invert"
-              data-geist-button=""
-              data-prefix="false"
-              data-suffix="true"
-              data-version="v1"
-              style="min-width: 100%; max-width: 100%; --geist-icon-size: 16px;"
-              onPointerEnter$={(e) => {
-                const target = e.target as HTMLElement; // Assertion de type pour HTMLElement
-                target.setAttribute("data-hover", "");
-              }}
-              onPointerLeave$={(e) => {
-                const target = e.target as HTMLElement; // Assertion de type pour HTMLElement
-                target.removeAttribute("data-hover");
-              }}
-            >
-              <span class="button_content">Start Chapter 1</span>
-              <span class="button_suffix">
-                <svg
-                  data-testid="geist-icon"
-                  height="16"
-                  stroke-linejoin="round"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  style="color: currentcolor;"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z"
-                    fill="currentColor"
-                  ></path>
-                </svg>
-              </span>
-            </Link>
-          </div>
-        </div> */}
       </div>
 
       <Feedback />
 
       <div class="mb-[40px] md:mb-[120px]"></div>
-    </article>
+    </>
   );
 });

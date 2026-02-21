@@ -15,7 +15,7 @@ import DashboardPageWithAllTheDataFetched from "~/assets/img/dashboard-page-with
 import SequentialParallelDataFetching from "~/assets/img/sequential-parallel-data-fetching.avif?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 import LatestInvoices from "~/assets/img/latestInvoices.png?jsx";
 import RevenueChart from "~/assets/img/revenueChart.png?jsx";
@@ -65,7 +65,7 @@ export const FetchingDataContent = component$(() => {
           ]}
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -74,7 +74,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Choosing how to fetch data"
@@ -103,7 +103,7 @@ export const FetchingDataContent = component$(() => {
           .
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -112,7 +112,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Database queries" id="database-queries" />
 
@@ -147,7 +147,7 @@ export const FetchingDataContent = component$(() => {
           </li>
         </ul>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -156,7 +156,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="In which of these scenarios should you not query your database directly?"
@@ -192,7 +192,7 @@ export const FetchingDataContent = component$(() => {
           functions.
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -201,7 +201,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Fetching data with server$() functions"
@@ -241,7 +241,7 @@ export const FetchingDataContent = component$(() => {
           application performance. ⚡
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -250,7 +250,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="What is the primary benefit of using server$() functions to fetch data?"
@@ -280,7 +280,7 @@ export const FetchingDataContent = component$(() => {
           responseText="Exactly! The primary benefit of using server$() functions to fetch data is efficient and secure data retrieval."
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -289,7 +289,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Using SQL" id="summary" level="h3" />
 
@@ -331,7 +331,7 @@ export const FetchingDataContent = component$(() => {
           queries for you.
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -340,7 +340,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="What does SQL allow you to do in terms of fetching data?"
@@ -370,7 +370,7 @@ export const FetchingDataContent = component$(() => {
           responseText="Correct! SQL allows you to fetch and manipulate specific data."
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -379,7 +379,7 @@ export const FetchingDataContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Fetching specific data from @vercel/postgres database"
@@ -561,7 +561,7 @@ export const fetchCardData = server$(async function () {
           </li>
         </ul>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -570,7 +570,7 @@ export const fetchCardData = server$(async function () {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Fetching data for the dashboard overview page"
@@ -661,7 +661,7 @@ export default component$(() => {
           file.
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -670,7 +670,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Fetching data for <RevenueChart/>"
@@ -770,7 +770,7 @@ export default component$(() => {
           />
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -779,7 +779,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Diplaying data for <RevenueChart/>"
@@ -838,7 +838,7 @@ export default component$(() => {
 
         <p>Let's continue importing some more data queries!</p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -847,7 +847,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Fetching data for <LatestInvoices/>"
@@ -933,7 +933,7 @@ export default component$(() => {
           ]}
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -942,7 +942,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Diplaying data for <LatestInvoices/>"
@@ -1008,7 +1008,7 @@ export default component$(() => {
           />
         </figure>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1017,7 +1017,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Practice: Fetch data for the <Card> components"
@@ -1136,7 +1136,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
           />
         </figure>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1145,7 +1145,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="What are request waterfalls?"
@@ -1200,7 +1200,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
           performance.
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1209,7 +1209,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="When might you want to use a waterfall pattern?"
@@ -1239,7 +1239,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
           responseText="For example, you might want to fetch a user's ID and profile information first. Once you have the ID, you might then proceed to fetch their list of friends."
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1248,7 +1248,7 @@ const customerCountPromise = pool.query(\`SELECT COUNT(*) FROM customers\`);`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Parallel data fetching"
@@ -1319,7 +1319,7 @@ try {
           than all the others?
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1328,7 +1328,7 @@ try {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
@@ -1341,7 +1341,7 @@ try {
           .
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1350,7 +1350,7 @@ try {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
@@ -1359,6 +1359,7 @@ try {
           text="You've learned how to fetch data from your database in Qwik."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={8}
           title="Optimizing data fetching"
           text="Learn how to optimize data fetching by parallelizing queries and relocating routeLoader$() functions."

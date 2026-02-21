@@ -7,7 +7,7 @@ import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import FolderStructure from "./folderStructure/folderStructure";
@@ -97,7 +97,7 @@ export default component$(() => {
           will also initialize a git repository.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -106,7 +106,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Exploring the project"
@@ -134,7 +134,7 @@ export default component$(() => {
 
         <p>Let's spend some time exploring the project.</p>
 
-        <div class="px-4 py-8 md:px-8 md:py-20">
+        {/* <div class="px-4 py-8 md:px-8 md:py-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -143,7 +143,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <h3 id="folder-structure" data-docs-heading="">
           <a href="#folder-structure">
@@ -303,7 +303,7 @@ export default component$(() => {
           understand everything the code is doing yet.
         </p>
 
-        <div class="px-4 py-8 md:px-8 md:py-20">
+        {/* <div class="px-4 py-8 md:px-8 md:py-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -312,7 +312,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Placeholder data"
@@ -410,7 +410,7 @@ export default component$(() => {
           with some initial data).
         </p>
 
-        <div class="px-4 py-8 md:px-8 md:py-20">
+        {/* <div class="px-4 py-8 md:px-8 md:py-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -419,7 +419,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="TypeScript" id="typescript" level="h3" />
 
@@ -507,7 +507,7 @@ export default component$(() => {
           </ul>
         </blockquote>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -516,7 +516,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Running the development server"
@@ -542,7 +542,7 @@ export default component$(() => {
           />
         </figure>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -551,7 +551,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
@@ -577,6 +577,7 @@ export default component$(() => {
            and ran the development server."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={2}
           title="CSS Styling"
           text="Let's work on your home page and discuss the different ways you can

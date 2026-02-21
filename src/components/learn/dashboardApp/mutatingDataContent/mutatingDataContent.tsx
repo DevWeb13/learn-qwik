@@ -14,7 +14,7 @@ import CreateInvoicesPage from "~/assets/img/createInvoicesPage.png?jsx";
 import EditInvoicePage from "~/assets/img/editInvoicePage.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export const MutatingDataContent = component$(() => {
   return (
@@ -1779,6 +1779,7 @@ export const deleteInvoice = server$(async function (id: string) {
           text="You've learned how to create, update, and delete invoices."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={12}
           title="Handling Errors"
           text="Let's explore best practices for mutating data with forms, including error handling and accessibility."

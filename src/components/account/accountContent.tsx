@@ -27,6 +27,7 @@ import {
   HiUserCircleOutline,
   HiUserOutline,
 } from "@qwikest/icons/heroicons";
+import { CHAPTERS2026 } from "~/constants/chapters2026";
 
 export const AccountContent = component$(() => {
   const profile = useProfile();
@@ -357,22 +358,81 @@ export const AccountContent = component$(() => {
                   </Form>
                 </div>
                 <SubscribeSection profile={profile} />
+
+                {/* ✅ Affichage des chapitres complétés version 2026 */}
+                <div class="rounded-lg bg-gray-50 p-6">
+                  <div class="mb-4 flex items-center justify-between">
+                    <h2 class="text-xl font-semibold text-gray-800">
+                      Completed Chapters{" "}
+                      <span class="text-[var(--qwik-dark-blue)]">
+                        2026 Version
+                      </span>
+                    </h2>
+
+                    {/* <button
+                      onClick$={async () => {
+                        const result = await resetCompletedChapters.submit({
+                          version: "2026",
+                        });
+
+                        if (result.value.success) {
+                          profile.value.completedChapters2026 = [];
+                        }
+                      }}
+                      class="flex items-center space-x-1 rounded-md bg-gray-200 px-3 py-1 text-sm text-gray-800 transition hover:bg-gray-300"
+                      id="resetProgress2026"
+                    >
+                      <HiArrowPathOutline class="h-4 w-4" />
+                      <span>Reset Progress</span>
+                    </button> */}
+                    <p class="text-xl font-semibold text-[var(--qwik-dark-blue)]">
+                      👀 Coming Soon 🤫
+                    </p>
+                  </div>
+
+                  <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-8">
+                    {CHAPTERS2026.map((i) => {
+                      const isCompleted =
+                        profile.value.completedChapters2026.includes(i.id);
+
+                      return (
+                        <div
+                          key={i.id}
+                          class="relative flex h-20 flex-col items-center justify-center rounded-md border border-gray-300 bg-white p-3 text-center shadow-sm"
+                        >
+                          <span class="text-sm font-semibold text-gray-800">
+                            Chapter {i.id}
+                          </span>
+
+                          {isCompleted && (
+                            <HiCheckCircleMini class="absolute right-1 top-1 h-5 w-5 text-green-500" />
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
                 {/* ✅ Affichage des chapitres complétés */}
                 <div class="rounded-lg bg-gray-50 p-6">
                   <div class="mb-4 flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-gray-800">
-                      Completed Chapters
+                      Completed Chapters{" "}
+                      {/* <span class="text-red-700">Legacy Version</span> */}
                     </h2>
 
                     <button
                       onClick$={async () => {
-                        const result = await resetCompletedChapters.submit();
+                        const result = await resetCompletedChapters.submit({
+                          version: "legacy",
+                        });
+
                         if (result.value.success) {
-                          profile.value.completedChapters = []; // ✅ Mise à jour locale après reset
+                          profile.value.completedChapters = [];
                         }
                       }}
                       class="flex items-center space-x-1 rounded-md bg-gray-200 px-3 py-1 text-sm text-gray-800 transition hover:bg-gray-300"
-                      id="resetProgress"
+                      id="resetProgressLegacy"
                     >
                       <HiArrowPathOutline class="h-4 w-4" />
                       <span>Reset Progress</span>

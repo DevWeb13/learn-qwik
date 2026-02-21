@@ -2,32 +2,32 @@
 
 import { component$ } from "@builder.io/qwik";
 import { BraceAndSemiColonSvg } from "~/assets/svg/braceAndSemiColonSvg/braceAndSemiColonSvg";
-import { FileSvg } from "~/assets/svg/fileSvg/fileSvg";
-import { PenSvg } from "~/assets/svg/penSvg/penSvg";
-import { TSvg } from "~/assets/svg/tSvg/tSvg";
-import { ImageIconSvg } from "~/assets/svg/imageIconSvg/imageIconSvg";
-import { ValidIconWithCircleSvg } from "~/assets/svg/validIconWithCircleSvg/validIconWithCircleSvg";
-import { RelationPointSvg } from "~/assets/svg/relationPointSvg/relationPointSvg";
-import { FolderSvg } from "~/assets/svg/folderSvg/folderSvg";
-import { NestedFolderSvg } from "~/assets/svg/nestedFolderSvg/nestedFolderSvg";
-import { LinesAndArrowBackSvg } from "~/assets/svg/linesAndArrowBackSvg/linesAndArrowBackSvg";
-import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
-import { LinkSvg } from "~/assets/svg/linkSvg/linkSvg";
-import { PlanePaperSvg } from "~/assets/svg/planePaperSvg/planePaperSvg";
-import { GithubSvg } from "~/assets/svg/githubSvg/githubSvg";
-import { VercelSvg } from "~/assets/svg/vercelSvg";
-import { PostgresSvg } from "~/assets/svg/postgresSvg";
-import { DatabaseSvg } from "~/assets/svg/databaseSvg";
-import { TableOfTopicsCoveredHeader } from "./tableOfTopicsCoveredHeader";
-import { ServerSvg } from "~/assets/svg/serverSvg";
-import { WaterfallSvg } from "~/assets/svg/waterfallSvg";
-import { TwoConnectedPointsSvg } from "~/assets/svg/twoConnectedPointsSvg";
 import { ClockSvg } from "~/assets/svg/clockSvg";
-import { SkeletonSvg } from "~/assets/svg/skeletonSvg";
+import { DatabaseSvg } from "~/assets/svg/databaseSvg";
+import { FileSvg } from "~/assets/svg/fileSvg/fileSvg";
+import { FolderSvg } from "~/assets/svg/folderSvg/folderSvg";
+import { GithubSvg } from "~/assets/svg/githubSvg/githubSvg";
+import { ImageIconSvg } from "~/assets/svg/imageIconSvg/imageIconSvg";
+import { LinesAndArrowBackSvg } from "~/assets/svg/linesAndArrowBackSvg/linesAndArrowBackSvg";
+import { LinkSvg } from "~/assets/svg/linkSvg/linkSvg";
 import { MagnifyingGlassSvg } from "~/assets/svg/magnifyingGlassSvg";
+import { NestedFolderSvg } from "~/assets/svg/nestedFolderSvg/nestedFolderSvg";
 import { NotebookWithLineSvg } from "~/assets/svg/notebookWithLineSvg";
-import { ThreePointsSvg } from "~/assets/svg/threePointsSvg";
+import { PenSvg } from "~/assets/svg/penSvg/penSvg";
+import { PlanePaperSvg } from "~/assets/svg/planePaperSvg/planePaperSvg";
+import { PostgresSvg } from "~/assets/svg/postgresSvg";
+import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
 import { RecyclingSvg } from "~/assets/svg/recyclingSvg";
+import { RelationPointSvg } from "~/assets/svg/relationPointSvg/relationPointSvg";
+import { ServerSvg } from "~/assets/svg/serverSvg";
+import { SkeletonSvg } from "~/assets/svg/skeletonSvg";
+import { ThreePointsSvg } from "~/assets/svg/threePointsSvg";
+import { TSvg } from "~/assets/svg/tSvg/tSvg";
+import { TwoConnectedPointsSvg } from "~/assets/svg/twoConnectedPointsSvg";
+import { ValidIconWithCircleSvg } from "~/assets/svg/validIconWithCircleSvg/validIconWithCircleSvg";
+import { VercelSvg } from "~/assets/svg/vercelSvg";
+import { WaterfallSvg } from "~/assets/svg/waterfallSvg";
+import { TableOfTopicsCoveredHeader } from "./tableOfTopicsCoveredHeader";
 
 type TopicType = {
   title: string;
@@ -99,7 +99,7 @@ export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   };
 
   return (
-    <div class="not-prose in-this-chapter_wrapper__yrXTP mb-4 rounded-[12px] md:mx-[-64px] md:my-12 md:bg-[#fafafa] md:p-4 md:px-[64px] md:py-12">
+    <div class="not-prose  mb-4 w-full rounded-[12px]  md:my-12 md:bg-[#fafafa] md:p-4  md:py-12">
       <TableOfTopicsCoveredHeader />
       <div class="bg-vercel-100 mx-auto mt-4 flex w-full max-w-[960px] flex-col rounded-md px-4 py-2 shadow-md md:mt-8">
         {topics.map((topic, index) => (

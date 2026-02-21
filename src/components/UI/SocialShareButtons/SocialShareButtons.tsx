@@ -107,12 +107,12 @@ export default component$(() => {
 
   return (
     <aside
-      class={`group/1 fixed bottom-0 z-[9999] flex h-12 w-full md:left-0 md:top-56 md:h-min md:w-auto md:flex-col`}
+      class={`group/1 fixed bottom-0 z-[9999] flex h-12 w-full lg:left-0 lg:top-56 lg:h-min lg:w-auto lg:flex-col`}
     >
       <div
-        class={`flex w-full  flex-shrink  justify-center  md:flex-col md:transition-all md:duration-300 md:ease-in-out ${buttonHandleShareStore.isOpen ? "md:translate-x-0 " : "md:-translate-x-12 "}`}
+        class={`flex w-full  flex-shrink  justify-center  lg:flex-col lg:transition-all lg:duration-300 lg:ease-in-out ${buttonHandleShareStore.isOpen ? "lg:translate-x-0 " : "lg:-translate-x-12 "}`}
       >
-        <div class="flex w-full max-w-[80px] flex-shrink flex-col justify-center rounded-tr-md bg-white md:max-w-[48px]">
+        <div class="flex w-full max-w-[80px] flex-shrink flex-col justify-center rounded-tr-md bg-white lg:max-w-[48px]">
           <Resource
             value={getTotalShare}
             onResolved={() => (
@@ -123,13 +123,13 @@ export default component$(() => {
           />
           <p class="text-xs">Shares</p>
         </div>
-        <div class=" flex w-full transition-all duration-300 ease-in-out   md:flex-col md:overflow-hidden md:rounded-br-md md:rounded-tr-md md:group-hover/1:rounded-br-none">
+        <div class=" flex w-full transition-all duration-300 ease-in-out   lg:flex-col lg:overflow-hidden lg:rounded-br-md lg:rounded-tr-md lg:group-hover/1:rounded-br-none">
           {
             // Share buttons
             shareLinks.map((shareLink) => (
               <Link
                 key={shareLink.name}
-                class={`group/2 flex  w-full  md:h-12 md:w-12 md:transition-all md:duration-300 md:ease-in-out md:hover:w-32 md:hover:justify-start md:hover:rounded-bl-none md:hover:rounded-br-md md:hover:rounded-tl-none md:hover:rounded-tr-md`}
+                class={`group/2 flex  w-full  lg:h-12 lg:w-12 lg:transition-all lg:duration-300 lg:ease-in-out lg:hover:w-32 lg:hover:justify-start lg:hover:rounded-bl-none lg:hover:rounded-br-md lg:hover:rounded-tl-none lg:hover:rounded-tr-md`}
                 style={`background-color: ${shareLink.bgColor};`}
                 href={shareLink.url + href}
                 target="_blank"
@@ -142,10 +142,10 @@ export default component$(() => {
                   await incrementTotalShare.submit();
                 }}
               >
-                <div class="min-w-12 md:max-w-12 flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover/2:translate-x-0.5 md:w-12">
+                <div class="min-w-12 lg:max-w-12 flex w-full items-center justify-center transition-all duration-300 ease-in-out group-hover/2:translate-x-0.5 lg:w-12">
                   {displayIcon(shareLink.icon)}
                 </div>
-                <p class=" hidden w-0 pl-1 text-lg text-white  transition-all duration-300 ease-in-out md:items-center group-hover/2:md:flex">
+                <p class=" hidden w-0 pl-1 text-lg text-white  transition-all duration-300 ease-in-out lg:items-center group-hover/2:lg:flex">
                   {shareLink.text}
                 </p>
               </Link>

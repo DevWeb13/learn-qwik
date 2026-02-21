@@ -164,6 +164,7 @@ export default component$<CodeBlockProps>(
     font-size: 13px;
   }
 
+
   .code_block_with_copy_button_absolute .code_block_copy_button_wrapper {
     opacity: 0;
   }

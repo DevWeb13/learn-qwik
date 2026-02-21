@@ -22,7 +22,8 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "gen:types": "npx supabase gen types typescript --project-id evcwdenaghdmspnvzjls > src/types/database.types.ts"
   },
   "devDependencies": {
     "@builder.io/partytown": "^0.8.1",

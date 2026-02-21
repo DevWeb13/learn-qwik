@@ -2,31 +2,36 @@
 
 import { Slot, component$, useContext } from "@builder.io/qwik";
 import { Link, useNavigate } from "@builder.io/qwik-city";
-import { ChaptersContext } from "~/routes/layout";
-import { usePutCompletedChapters } from "~/routes/learn/dashboard-app/layout";
-import type { CompletedChaptersType } from "../../../types/completedChapters";
+import { Chapters2026Context, ChaptersContext } from "~/routes/layout";
+
+import { usePutCompletedChapters } from "~/routes/learn/layout";
+import type { CompletedChaptersType } from "~/types/completedChapters";
 
 interface BtAddChapterProps {
   goToChapter: number;
   title: string;
-  userId?: string;
   text?: string;
   completedChapters?: CompletedChaptersType;
   disabled?: boolean;
+  version: "2026" | "Legacy";
 }
 
-export default component$<BtAddChapterProps>(
+export const BtAddChapter = component$<BtAddChapterProps>(
   ({
     goToChapter,
     title,
     text = "Start Chapter",
-    userId = null,
     completedChapters = [],
     disabled = false,
+    version,
   }) => {
-    const chapters = useContext(ChaptersContext);
+    const chapters = useContext(
+      version === "Legacy" ? ChaptersContext : Chapters2026Context,
+    );
     const navigate = useNavigate();
     const putCompletedChapters = usePutCompletedChapters();
+    const uriLink =
+      version === "Legacy" ? "dashboard-app" : "dashboard-app-2026";
 
     let nextUri = title.toLowerCase().replace(/\s+/g, "-");
 
@@ -74,9 +79,7 @@ export default component$<BtAddChapterProps>(
         ) : title === "" ? ( // 🌟 Utilisation de Link pour la page d'accueil
           <Link
             href={
-              nextUri
-                ? `/learn/dashboard-app/${nextUri}/`
-                : "/learn/dashboard-app/"
+              nextUri ? `/learn/${uriLink}/${nextUri}/` : `/learn/${uriLink}/`
             }
             aria-label={
               goToChapter ? `Start Chapter ${goToChapter}` : "Start Learning"
@@ -115,23 +118,22 @@ export default component$<BtAddChapterProps>(
         ) : (
           <button
             onClick$={async () => {
-              console.log("userId", userId);
               console.log("goToChapter", goToChapter);
               const completedChapter = goToChapter - 1; // ✅ Stocke le chapitre complété
 
               if (completedChapter < 1) {
-                navigate(`/learn/dashboard-app/${nextUri}/`);
+                navigate(`/learn/${uriLink}/${nextUri}/`);
                 return;
               }
 
               const result = await putCompletedChapters.submit({
-                userId,
                 completedChapter, // ✅ Enregistre le bon chapitre
+                version,
               });
 
               if (result.value.success) {
                 // ✅ Redirige vers le chapitre suivant
-                navigate(`/learn/dashboard-app/${nextUri}/`);
+                navigate(`/learn/${uriLink}/${nextUri}/`);
               }
             }}
             aria-label={

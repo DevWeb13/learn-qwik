@@ -24,7 +24,7 @@ import VercelDeploymentsPageSuccess from "~/assets/img/vercel-deployments-page-s
 import VercelEdgeFinishPrompt from "~/assets/img/vercelEdgeFinishPrompt.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export const SettingUpYourDatabaseContent = component$(() => {
   useStyles$(``);
@@ -62,7 +62,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           ]}
         />
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -71,7 +71,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Create a GitHub repository"
@@ -108,7 +108,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           </ul>
         </blockquote>
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -117,7 +117,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Create a Vercel account"
@@ -133,7 +133,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           with GitHub to connect your GitHub and Vercel accounts.
         </p>
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -142,7 +142,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Connect and deploy your project"
@@ -214,7 +214,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           . Let's do that now. 👇
         </p>
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -223,7 +223,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Install the Vercel Edge Adapter"
@@ -264,7 +264,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
         </p>
         <p>Resolve the error by following the next steps 👇</p>
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -273,7 +273,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Resolve Vercel error"
@@ -413,7 +413,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           </ul>
         </blockquote>
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -422,7 +422,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Create a Postgres database"
@@ -554,7 +554,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           database on Vercel! 🚀
         </p>
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -563,7 +563,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Seed your database"
@@ -709,7 +709,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           terminal to let you know the script is running.
         </p>
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -718,7 +718,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="What is 'seeding' in the context of databases?"
@@ -748,7 +748,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           responseText="That's right! Seeding is useful when you want to have some data to work with as you build your application."
         />
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -757,7 +757,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <blockquote class="p-3 text-sm">
           <p>
@@ -801,7 +801,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           </ul>
         </blockquote>
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -810,7 +810,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Exploring your database"
@@ -840,7 +840,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
           file.
         </p>
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -849,7 +849,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Executing queries" id="executing-queries" />
 
@@ -874,7 +874,7 @@ WHERE invoices.amount = 666;`}
           displayCopyButtonAbsolute
         />
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -883,7 +883,7 @@ WHERE invoices.amount = 666;`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="Which customer does this invoice belong to?"
@@ -913,7 +913,7 @@ WHERE invoices.amount = 666;`}
           responseText="That's right! The invoice with an amount of 666 belongs to Evil Rabbit."
         />
 
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -922,7 +922,7 @@ WHERE invoices.amount = 666;`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <p>
           Congratulations, you've successfully set up your database in Qwik! 🎉
@@ -938,7 +938,7 @@ WHERE invoices.amount = 666;`}
           />
           .
         </p>
-        <div class="px-4 md:px-8 ">
+        {/* <div class="px-4 md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -947,7 +947,7 @@ WHERE invoices.amount = 666;`}
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
@@ -956,6 +956,7 @@ WHERE invoices.amount = 666;`}
           text="Well done! You've learned how to set up a database in Qwik."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={7}
           title="Fetching Data"
           text="Learn how to fetch data from your database in Qwik."

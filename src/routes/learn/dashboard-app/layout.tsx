@@ -2,9 +2,12 @@
 
 import { component$, Slot } from "@builder.io/qwik";
 
-import { routeAction$, routeLoader$ } from "@builder.io/qwik-city";
+import { routeLoader$ } from "@builder.io/qwik-city";
+import { DesktopStickyAdMulti } from "~/components/desktopStickyAdMulti/desktopStickyAdMulti";
+import { MobileStickyAdMulti } from "~/components/mobileStickyAdMulti/mobileStickyAdMulti";
 import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
-import { createClient } from "~/lib/supabase/server";
+import { useProfile } from "~/routes/layout";
+import { isSubscriptionActive } from "~/utils/subscription";
 
 export const useGetCurrentChapterIndexInString = routeLoader$(
   (requestEvent) => {
@@ -24,66 +27,30 @@ export const useGetCurrentChapterIndexInString = routeLoader$(
   },
 );
 
-export const usePutCompletedChapters = routeAction$(
-  async (data, requestEvent) => {
-    const { completedChapter } = data;
-
-    const profile = requestEvent.sharedMap.get("profile");
-    const userId = profile?.id;
-    const completedChapters = profile?.completedChapters || [];
-
-    if (!userId) {
-      return requestEvent.fail(400, { error: "Missing parameters" });
-    }
-
-    // ✅ Vérification locale avant d'aller sur Supabase
-    if (completedChapters.includes(completedChapter)) {
-      console.log(
-        "✅ Chapitre déjà complété, aucune requête Supabase nécessaire.",
-      );
-      return { success: true };
-    }
-
-    const supabase = createClient(requestEvent);
-
-    // ✅ Ajout sécurisé du chapitre et suppression des doublons
-    const updatedChapters = [
-      ...new Set([...completedChapters, Number(completedChapter)]),
-    ];
-
-    const { error: updateError } = await supabase
-      .from("profiles")
-      .update({ completedChapters: updatedChapters })
-      .eq("id", userId);
-
-    if (updateError) {
-      return requestEvent.fail(500, { error: "Failed to update" });
-    }
-
-    // ✅ Met à jour le profil en mémoire pour éviter des requêtes inutiles après
-    requestEvent.sharedMap.set("profile", {
-      ...profile,
-      completedChapters: updatedChapters,
-    });
-
-    return { success: true };
-  },
-);
-
 export default component$(() => {
+  const profile = useProfile();
+  const isSubscribed = isSubscriptionActive(profile.value);
   return (
-    <>
-      <main>
-        <div class="relative mx-auto max-w-screen-lg px-4 py-4 md:py-10">
-          <HeaderOfMain />
-          <article
-            class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
-            style="min-height: calc(100vh - 103px);"
-          >
-            <Slot />
-          </article>
-        </div>
-      </main>
-    </>
+    <main class="relative mx-auto max-w-full px-4 py-4 md:px-8 lg:px-4 lg:py-10">
+      <HeaderOfMain />
+      <div
+        class={`relative mx-auto flex w-full flex-col  gap-8 py-6 lg:max-w-7xl lg:flex-row lg:py-10 ${!isSubscribed ? "lg:pl-12 xl:px-12" : "justify-center lg:px-12"}`}
+      >
+        {/* Main content */}
+        <section
+          class={`w-full overflow-hidden ${!isSubscribed ? "lg:max-w-[calc(100%-300px)]" : "w-full"}`}
+        >
+          <Slot />
+        </section>
+
+        {/* Desktop ad */}
+        {!isSubscribed && (
+          <DesktopStickyAdMulti topPosition="top-20 lg:top-24" />
+        )}
+      </div>
+
+      {/* Mobile ad */}
+      {!isSubscribed && <MobileStickyAdMulti />}
+    </main>
   );
 });

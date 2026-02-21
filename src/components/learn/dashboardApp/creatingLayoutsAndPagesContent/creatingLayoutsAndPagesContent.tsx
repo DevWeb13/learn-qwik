@@ -5,7 +5,7 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import PageTitle from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
@@ -63,7 +63,7 @@ export default component$(() => {
           ]}
         />
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        {/* <div class="px-4 pb-8 md:px-8 md:pb-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -72,7 +72,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Nested routing" id="nested-routing" />
         <p>
@@ -124,7 +124,7 @@ export default component$(() => {
           works!"
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -133,7 +133,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Creating the Dashboard Page"
@@ -180,7 +180,7 @@ export default component$(() => {
           <code>`/src`</code> folder alongside your routes.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -189,7 +189,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Practice: Creating the dashboard pages"
@@ -253,7 +253,7 @@ export default component$(() => {
           {dashboardPagesSoluce.value && <DashboardPagesSoluce />}
         </div>
 
-        <div class="px-4  md:px-8 ">
+        {/* <div class="px-4  md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -262,7 +262,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Creating the dashboard layout"
@@ -500,7 +500,7 @@ export default component$(() => {
           />
         </figure>
 
-        <div class="px-4  md:px-8 ">
+        {/* <div class="px-4  md:px-8 ">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -509,7 +509,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Root layout with Qwik"
@@ -579,7 +579,7 @@ export default component$(() => {
           mentioned above.
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -588,7 +588,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="What is the role of the layout.tsx file in Qwik?"
@@ -623,7 +623,7 @@ export default component$(() => {
           Qwik! 🎉
         </p>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -632,7 +632,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Recommended reading"
@@ -660,7 +660,7 @@ export default component$(() => {
           </li>
         </ul>
 
-        <div class="px-4 pt-8 md:px-8 md:pt-20">
+        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -669,7 +669,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
@@ -683,7 +683,7 @@ export default component$(() => {
         </p>
       </div>
 
-      <div class="px-4  md:px-8 ">
+      {/* <div class="px-4  md:px-8 ">
         <ins
           class="adsbygoogle"
           style="display:flex; justify-content:center;"
@@ -692,7 +692,7 @@ export default component$(() => {
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="2773109472"
         ></ins>
-      </div>
+      </div> */}
 
       <ChapterVideo
         videoId="BzpWsu_uxRU"
@@ -706,6 +706,7 @@ export default component$(() => {
           text="Well done! You've learned how to create layouts and pages in Qwik."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={5}
           title="Navigating Between Pages"
           text="Learn how to navigate between dashboard pages in Qwik."

@@ -1,5 +1,7 @@
+// src/components/UI/headerOfMain/headerOfMain.tsx
+
 import type { Signal } from "@builder.io/qwik";
-import { component$, useContext, useSignal, useTask$ } from "@builder.io/qwik";
+import { component$, useComputed$, useContext } from "@builder.io/qwik";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import { useScrollYPosition } from "~/hooks/useScrollYPosition";
 import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
@@ -16,21 +18,29 @@ export default component$(() => {
 
   const profile = useProfile();
 
-  const currentChapterIndexInString = useGetCurrentChapterIndexInString().value;
+  const currentChapterIndexSignal = useGetCurrentChapterIndexInString();
 
-  const title = useSignal("");
+  const currentChapterIndex = useComputed$(() => {
+    const value = currentChapterIndexSignal.value;
+    const parsed = Number(value);
 
-  useTask$(({ track }) => {
-    track(() => currentChapterIndexInString);
-    title.value =
-      currentChapterIndexInString.length >= 1 &&
-      currentChapterIndexInString.length <= 2
-        ? chapters.value[parseInt(currentChapterIndexInString)].title
-        : "Introduction";
+    if (!Number.isNaN(parsed) && chapters.value[parsed]) {
+      return parsed;
+    }
+
+    return null;
+  });
+
+  const title = useComputed$(() => {
+    if (currentChapterIndex.value !== null) {
+      return chapters.value[currentChapterIndex.value].title;
+    }
+
+    return "Introduction";
   });
 
   return (
-    <div class="style_container relative z-10 mb-4 h-[67px] w-full max-w-[1072px] lg:-mx-12 lg:mb-8">
+    <div class="relative z-10 mb-4 flex h-[var(--header-of-main-height)]  w-full items-center justify-center  lg:mb-8">
       <aside
         class={
           scrollY.value > 80
@@ -78,7 +88,7 @@ export default component$(() => {
               data-version="v1"
               style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.8125rem; --xs-text-line-height: 1.125rem; --xs-text-weight: 500; --xs-text-letter-spacing: initial; --sm-text-size: 0.8125rem; --sm-text-line-height: 1.125rem; --sm-text-weight: 500; --sm-text-letter-spacing: initial; --smd-text-size: 0.8125rem; --smd-text-line-height: 1.125rem; --smd-text-weight: 500; --smd-text-letter-spacing: initial; --md-text-size: 0.8125rem; --md-text-line-height: 1.125rem; --md-text-weight: 500; --md-text-letter-spacing: initial; --lg-text-size: 0.875rem; --lg-text-line-height: 1.25rem; --lg-text-weight: 500; --lg-text-letter-spacing: initial;"
             >
-              {currentChapterIndexInString.length > 2
+              {currentChapterIndexSignal.value.length > 2
                 ? title.value
                 : title.value.split(":")[0] + ":"}
             </p>
@@ -87,35 +97,12 @@ export default component$(() => {
               data-version="v1"
               style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
             >
-              {currentChapterIndexInString.length >= 1 &&
+              {currentChapterIndexSignal.value.length >= 1 &&
                 title.value.split(":")[1]}
             </p>
           </div>
         </div>
-        {/* <div class="ml-3 flex items-center gap-3 lg:ml-0">
-          <div class="hidden lg:block">
-            <BookSvg small id="headerOfMain" />
-          </div>
-          <div class="animation-fadeIn flex flex-col">
-            <p
-              class="text_wrapper text_truncate"
-              data-version="v1"
-              style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.8125rem; --xs-text-line-height: 1.125rem; --xs-text-weight: 500; --xs-text-letter-spacing: initial; --sm-text-size: 0.8125rem; --sm-text-line-height: 1.125rem; --sm-text-weight: 500; --sm-text-letter-spacing: initial; --smd-text-size: 0.8125rem; --smd-text-line-height: 1.125rem; --smd-text-weight: 500; --smd-text-letter-spacing: initial; --md-text-size: 0.8125rem; --md-text-line-height: 1.125rem; --md-text-weight: 500; --md-text-letter-spacing: initial; --lg-text-size: 0.875rem; --lg-text-line-height: 1.25rem; --lg-text-weight: 500; --lg-text-letter-spacing: initial;"
-            >
-              {currentChapterIndexInString.length > 1
-                ? title.value
-                : title.value.split(":")[0] + ":"}
-            </p>
-            <p
-              class="text_wrapper text_truncate"
-              data-version="v1"
-              style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
-            >
-              {currentChapterIndexInString.length === 1 &&
-                title.value.split(":")[1]}
-            </p>
-          </div>
-        </div> */}
+
         <ProgressCircle completed={profile.value?.completedChapters || []} />
         <div
           aria-hidden="true"

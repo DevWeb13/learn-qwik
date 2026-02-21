@@ -16,14 +16,14 @@ import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 import WhatIsStreamingImg from "~/assets/img/whatIsStreaming.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
-import GoToNextChapterBlock from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export const StreamingContent = component$(() => {
   const latestInvoicesSoluce = useSignal(false);
 
   return (
     <>
-      <div class="prose prose-vercel max-w-none">
+      <article class="prose prose-vercel max-w-none">
         <PageTitle
           chapterNumber={9}
           chapterTitle="Streaming in Qwik | Optimize Loading and Performance"
@@ -63,7 +63,7 @@ export const StreamingContent = component$(() => {
           ]}
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -72,7 +72,7 @@ export const StreamingContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="What is streaming?" id="what-is-streaming" />
 
@@ -118,7 +118,7 @@ export const StreamingContent = component$(() => {
 
         <p>Let's see how this works.</p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -127,7 +127,7 @@ export const StreamingContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="What is streaming?"
@@ -157,7 +157,7 @@ export const StreamingContent = component$(() => {
           responseText="Streaming is a data transfer technique that allows you to gradually distribute data from the server to the client as soon as they are ready. By streaming, you can prevent slow data requests from blocking your whole page."
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -166,7 +166,7 @@ export const StreamingContent = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="How to implement streaming with routeLoader$() and <Resource />"
@@ -376,7 +376,7 @@ export default component$(() => {
           page layout before the data is ready.
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -385,7 +385,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="Which Qwik component is used to handle streaming and manage loading states?"
@@ -415,7 +415,7 @@ export default component$(() => {
           responseText="The correct answer is '<Resource />'. This component is used to handle streaming and manage loading states in Qwik."
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -424,7 +424,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <p>
           The most observant will have noticed that the <code>onPending</code>,
@@ -456,7 +456,7 @@ export default component$(() => {
           This is what we will see in the next section.👇
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -465,7 +465,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="How to implement streaming with useResource$() and <Resource />"
@@ -637,7 +637,7 @@ export default component$(() => {
           of the <code>Loading…</code> text.
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -646,7 +646,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="What is the purpose of the onPending callback?"
@@ -676,7 +676,7 @@ export default component$(() => {
           responseText="The onPending callback is called while the data is being fetched."
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -685,7 +685,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Adding loading skeletons 💀"
@@ -819,7 +819,7 @@ export default component$(() => {
           </p>
         </figure>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -828,7 +828,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Streaming a component"
@@ -1111,7 +1111,7 @@ export const fetchRevenue = server$(async function () {
           ]}
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1120,7 +1120,7 @@ export const fetchRevenue = server$(async function () {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Practice: Streaming <LatestInvoices>"
@@ -1141,7 +1141,7 @@ export const fetchRevenue = server$(async function () {
 
         <p>Once you're ready, expand the toggle to see the solution code:</p>
 
-        <div class="bg-vercel-200 -mx-5 mb-8 p-[21px] md:-mx-[62px] md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
+        <div class="bg-vercel-200  mb-8 p-[21px]  md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
           <button
             class="button_base reset_reset button_button  geist-new-themed geist-new-button geist-new-button-fill button_invert"
             data-geist-button=""
@@ -1165,7 +1165,7 @@ export const fetchRevenue = server$(async function () {
           {latestInvoicesSoluce.value && <LatestInvoicesSoluce />}
         </div>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1174,7 +1174,7 @@ export const fetchRevenue = server$(async function () {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Grouping components"
@@ -1393,7 +1393,7 @@ export const CardsWrapper = component$(() => {
           according to their loading state completely independently. 🚀
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1402,7 +1402,7 @@ export const CardsWrapper = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor
           title="Deciding where to place your <Resource /> boundaries"
@@ -1452,7 +1452,7 @@ export const CardsWrapper = component$(() => {
           Don't be afraid to experiment and see what works best for your users.
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1461,7 +1461,7 @@ export const CardsWrapper = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <Quiz
           question="In general, what is considered good practice when working with useResource$(), <Resource /> and data fetching?"
@@ -1492,7 +1492,7 @@ export const CardsWrapper = component$(() => {
           This allows you to stream specific components and prevent the UI from blocking."
         />
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1501,7 +1501,7 @@ export const CardsWrapper = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <SubtitleWithAnchor title="Source code" id="source-code" />
         <p>
@@ -1513,7 +1513,7 @@ export const CardsWrapper = component$(() => {
           .
         </p>
 
-        <div class="px-4 md:px-8">
+        {/* <div class="px-4 md:px-8">
           <ins
             class="adsbygoogle"
             style="display:flex; justify-content:center;"
@@ -1522,8 +1522,8 @@ export const CardsWrapper = component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
-      </div>
+        </div> */}
+      </article>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
@@ -1531,6 +1531,7 @@ export const CardsWrapper = component$(() => {
           text="You've learned how to stream components with <Resource /> and loading skeletons."
         />
         <GoToNextChapterBlock
+          version="Legacy"
           goToChapter={10}
           title="Adding Search and Pagination"
           text="Learn how to implement search and pagination in your application."

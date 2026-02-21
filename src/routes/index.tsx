@@ -8,7 +8,6 @@ import HeroLinesDark from "~/assets/svg/heroLinesDark/heroLinesDark";
 import HeroLinesLight from "~/assets/svg/heroLinesLight/heroLinesLight";
 import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
 import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
-import BtAddChapter from "~/components/UI/btAddChapter/btAddChapter";
 import ProgressCircle from "~/components/UI/headerOfMain/progressCircle/progressCircle";
 import { DisplayNextChapter } from "~/components/learn/DisplayNextChapter/displayNextChapter";
 import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
@@ -18,6 +17,7 @@ import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesS
 import { createDocumentHead } from "~/utils/createDocumentHead";
 import { useProfile } from "./layout";
 
+import { BtAddChapter } from "~/components/UI/btAddChapter/btAddChapter";
 import { SubscribeSection } from "~/components/subcribeSection/subscribeSection";
 import { CHAPTERS } from "~/constants/chapters";
 
@@ -30,14 +30,14 @@ export default component$(() => {
         <div class="flex flex-col items-center px-4">
           <h1 class="mb-4 max-w-[80%] text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">
             Start building with{" "}
-            <a
+            <Link
               href="https://qwik.dev"
               class="text-blue-500 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
               Qwik
-            </a>
+            </Link>
           </h1>
           <div class="max-w-xl text-center text-gray-900 md:mb-16">
             Go from beginner to expert by learning the foundations of Qwik and
@@ -116,6 +116,7 @@ export default component$(() => {
                     title=""
                     text="Start Learning"
                     completedChapters={profile.value?.completedChapters || []}
+                    version="Legacy"
                   >
                     <ProgressCircle
                       completed={profile.value?.completedChapters || []}
@@ -136,7 +137,7 @@ export default component$(() => {
         <SubscribeSection profile={profile} />
       </div>
 
-      <div class="px-4 pb-8 md:px-8 md:pb-20">
+      {/* <div class="px-4 pb-8 md:px-8 md:pb-20">
         <ins
           class="adsbygoogle"
           style="display:flex; justify-content:center;"
@@ -145,7 +146,7 @@ export default component$(() => {
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="2773109472"
         ></ins>
-      </div>
+      </div> */}
 
       <div class="pb-8 md:pb-20">
         <div class="flex flex-col justify-center text-center md:flex-row md:items-baseline md:text-left">
@@ -563,7 +564,7 @@ export default component$(() => {
         </div>
       </div>
 
-      <div class="px-4 pb-8 md:px-8 md:pb-20">
+      {/* <div class="px-4 pb-8 md:px-8 md:pb-20">
         <ins
           class="adsbygoogle"
           style="display:flex; text-align:center; justify-content:center;"
@@ -572,13 +573,62 @@ export default component$(() => {
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="2773109472"
         ></ins>
-      </div>
+      </div> */}
 
       <div class="mx-auto max-w-6xl px-4 pb-10 md:pb-20">
+        {/* <div class="mb-4 flex flex-col justify-center text-center md:mb-8 md:flex-row md:items-baseline md:justify-center md:text-left">
+          <h2
+            class="text_wrapper"
+            style="--text-color:var(--ds-gray-1000);--xs-text-size:1.5rem;--xs-text-line-height:2rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.029375rem;--sm-text-size:1.5rem;--sm-text-line-height:2rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.029375rem;--smd-text-size:2rem;--smd-text-line-height:2.5rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.049375rem;--md-text-size:2rem;--md-text-line-height:2.5rem;--md-text-weight:600;--md-text-letter-spacing:-0.049375rem;--lg-text-size:2rem;--lg-text-line-height:2.5rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.049375rem"
+          >
+            What will I learn?
+          </h2>
+          <p class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-xl">
+            Here’s everything that’s covered in the course.
+          </p>
+        </div>
+        <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <ChapterThumbnail
+            href="/learn/dashboard-app-2026/"
+            numberOrIcon="circleWithISvg"
+            title="Getting Started"
+            description="Learn how to build a full-stack web application with the free, Qwik App Course."
+          />
+          {CHAPTERS2026.map((chapter2026) => (
+            <ChapterThumbnail
+              key={chapter2026.id}
+              href={`/learn/dashboard-app-2026/${chapter2026.uri}/`}
+              numberOrIcon={chapter2026.id.toString()}
+              title={chapter2026.title}
+              description={chapter2026.description}
+            />
+          ))}
+        </div>
+        <div class="mt-4 flex w-full items-center justify-center pb-10 md:mt-8 md:w-auto md:pb-20">
+          <div class="w-[100%] md:w-[233px]">
+            <div>
+              <BtAddChapter
+                goToChapter={0}
+                title=""
+                text="Start Learning"
+                completedChapters={profile.value?.completedChapters || []}
+                version="2026"
+              >
+                <ProgressCircle
+                  completed={profile.value?.completedChapters || []}
+                  onlyCircle
+                  colorCircle="var(--ds-gray-900)"
+                  colorProgressCircle="var(--ds-gray-100)"
+                  responsive="smallOnly"
+                />
+              </BtAddChapter>
+            </div>
+          </div>
+        </div> */}
+
         <div class="mb-4 flex flex-col justify-center text-center md:mb-8 md:flex-row md:items-baseline md:justify-center md:text-left">
           <h2
             class="text_wrapper"
-            data-version="v1"
             style="--text-color:var(--ds-gray-1000);--xs-text-size:1.5rem;--xs-text-line-height:2rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.029375rem;--sm-text-size:1.5rem;--sm-text-line-height:2rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.029375rem;--smd-text-size:2rem;--smd-text-line-height:2.5rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.049375rem;--md-text-size:2rem;--md-text-line-height:2.5rem;--md-text-weight:600;--md-text-letter-spacing:-0.049375rem;--lg-text-size:2rem;--lg-text-line-height:2.5rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.049375rem"
           >
             What will I learn?
@@ -612,6 +662,7 @@ export default component$(() => {
                 title=""
                 text="Start Learning"
                 completedChapters={profile.value?.completedChapters || []}
+                version="Legacy"
               >
                 <ProgressCircle
                   completed={profile.value?.completedChapters || []}
@@ -625,7 +676,7 @@ export default component$(() => {
           </div>
         </div>
 
-        <div class="px-4 pb-8 md:px-8 md:pb-20">
+        {/* <div class="px-4 pb-8 md:px-8 md:pb-20">
           <ins
             class="adsbygoogle"
             style="display:flex; text-align:center; justify-content:center;"
@@ -634,7 +685,7 @@ export default component$(() => {
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="2773109472"
           ></ins>
-        </div>
+        </div> */}
 
         <div class="bg-background-200 border-t pt-12 md:pt-16">
           <div class="flex w-full flex-col items-center justify-between space-y-4 px-4  text-center md:flex-row md:space-y-0  md:text-left lg:px-0">

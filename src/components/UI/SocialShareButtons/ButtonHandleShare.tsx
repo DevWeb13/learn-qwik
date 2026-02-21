@@ -12,7 +12,7 @@ export const ButtonHandleShare = component$<ButtonHandleShareProps>(
   ({ buttonHandleShareStore }) => {
     return (
       <button
-        class="hidden justify-center  rounded-br-md bg-[#CCCCCC] transition-all duration-300 ease-in-out group-hover/1:right-0 md:relative md:right-12 md:flex md:w-12"
+        class="hidden justify-center  rounded-br-md bg-[#CCCCCC] transition-all duration-300 ease-in-out group-hover/1:right-0 lg:relative lg:right-12 lg:flex lg:w-12"
         onClick$={() => {
           buttonHandleShareStore.isOpen = !buttonHandleShareStore.isOpen;
         }}
