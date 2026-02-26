@@ -3,7 +3,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { routeAction$ } from "@builder.io/qwik-city";
-import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
+import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
 import { ModalLogout } from "~/lib/qwikUI/modalLogout/modalLogout";
 import { createClient } from "~/lib/supabase/server";
 import { createDocumentHead } from "~/utils/createDocumentHead";
@@ -21,7 +21,7 @@ export const useSignoutAction = routeAction$(async (_, requestEvent) => {
 
 export default component$(() => {
   return (
-    <main class="relative flex w-full flex-grow flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
+    <main class="relative flex w-full grow flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
       <div class="absolute inset-0 -z-10 overflow-hidden">
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 dark:hidden">
           <HomeBackground />

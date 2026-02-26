@@ -10,7 +10,7 @@ interface BlankLinkProps {
 
 export default component$<BlankLinkProps>(({ href, text }) => {
   return (
-    <Link href={href} rel="noopener" target="_blank">
+    <Link href={href} rel="noopener noreferrer" target="_blank">
       {text}
       <span class="inline-flex">
         <svg

@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 
-export const HomeBackground = component$(() => {
+export const HomeBackgroundPurple = component$(() => {
   return (
     <svg
       fill="none"
@@ -12,38 +12,41 @@ export const HomeBackground = component$(() => {
       <g filter="url(#filter0_f_521_2815)" opacity="0.25">
         <ellipse cx="872" cy="330" fill="#D6DBDC" rx="792" ry="230"></ellipse>
       </g>
-      <g filter="url(#filter1_f_521_2815)" opacity="0.2">
+      <g filter="url(#filter1_f_521_2815)" opacity="0.13">
         <ellipse
           cx="464"
           cy="411.5"
-          fill="#6ADDF4"
+          fill="#ac7ff4"
           rx="256"
           ry="129.5"
         ></ellipse>
       </g>
-      <g filter="url(#filter2_f_521_2815)" opacity="0.2">
+
+      <g filter="url(#filter2_f_521_2815)" opacity="0.13">
         <ellipse
           cx="592"
           cy="364.5"
-          fill="#6AB2F4"
+          fill="#713fc2"
           rx="128"
           ry="176.5"
         ></ellipse>
       </g>
-      <g filter="url(#filter3_f_521_2815)" opacity="0.2">
+
+      <g filter="url(#filter3_f_521_2815)" opacity="0.13">
         <ellipse
           cx="1162"
           cy="396.5"
-          fill="#6ADDF4"
+          fill="#ac7ff4"
           rx="256"
           ry="129.5"
         ></ellipse>
       </g>
-      <g filter="url(#filter4_f_521_2815)" opacity="0.2">
+
+      <g filter="url(#filter4_f_521_2815)" opacity="0.13">
         <ellipse
           cx="1162"
           cy="256.5"
-          fill="#6AB2F4"
+          fill="#713fc2"
           rx="128"
           ry="176.5"
         ></ellipse>

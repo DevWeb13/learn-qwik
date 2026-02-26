@@ -1,12 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-
-/**
- * Tailwind CSS imports
- * View the full documentation at https://tailwindcss.com
- */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 h1,
 h2,
@@ -16,17 +8,13 @@ li {
   cursor: default;
 }
 
-a h1,
-a h2,
-a h3,
-a p,
-a li,
-button h1,
-button h2,
-button h3,
-button p,
-button li {
-  cursor: pointer; /* Ou tout autre style de curseur que tu préfères pour <a> et <button> */
+a,
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
 }
 
 iframe[name="googlefcPresent"] {
@@ -34,6 +22,10 @@ iframe[name="googlefcPresent"] {
   width: 0 !important;
   height: 0 !important;
   border: none !important;
+}
+
+@theme {
+  --qwik-dark-purple: #713fc2;
 }
 
 :root {
@@ -44,16 +36,6 @@ iframe[name="googlefcPresent"] {
   --qwik-dirty-black: #1d2033;
   --qwik-dark-background: #151934;
   --qwik-dark-text: #ffffff;
-
-  --next-selection: var(--geist-success);
-  --next-selection-text-color: #fff;
-  --geist-page-margin: var(--geist-space-gap);
-  --geist-page-width: 1000px;
-  --geist-page-width-with-margin: calc(
-    var(--geist-page-width) + (var(--geist-page-margin) * 2)
-  );
-  --geist-selection: var(--next-selection);
-  --geist-selection-text-color: var(--next-selection-text-color);
 
   --header-height: 64px;
   --header-of-main-height: 67px;
@@ -241,8 +223,8 @@ iframe[name="googlefcPresent"] {
   --ds-background-100: #fff;
   --ds-background-200: #fafafa;
   --ds-contrast-fg: #fff;
-  --ds-focus-border: 0 0 0 1px var(--ds-gray-alpha-600),
-    0px 0px 0px 4px rgba(0, 0, 0, 0.16);
+  --ds-focus-border:
+    0 0 0 1px var(--ds-gray-alpha-600), 0px 0px 0px 4px rgba(0, 0, 0, 0.16);
   --ds-focus-color: var(--ds-blue-700);
   --vaul-overlay-background: 255, 255, 255;
   --vaul-overlay-background-start: transparent;
@@ -394,12 +376,13 @@ iframe[name="googlefcPresent"] {
   --geist-radius: 5px;
   --geist-marketing-radius: 8px;
   --geist-text-gradient: linear-gradient(180deg, rgba(0, 0, 0, 0.8), #000);
-  --font-sans-fallback: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  --font-mono-fallback: "Roboto Mono", Menlo, Monaco, Lucida Console,
-    Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
-    monospace;
+  --font-sans-fallback:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  --font-mono-fallback:
+    "Roboto Mono", Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
   --font-space-grotesk: Space Grotesk, var(--font-sans);
   --header-height: 64px;
   --header-zindex: 10;
@@ -420,78 +403,28 @@ iframe[name="googlefcPresent"] {
   --ds-shadow-border-inset: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
   --ds-shadow-small: 0px 2px 2px rgba(0, 0, 0, 0.04);
   --ds-shadow-border-small: var(--ds-shadow-border), var(--ds-shadow-small);
-  --ds-shadow-medium: 0px 2px 2px rgba(0, 0, 0, 0.04),
-    0px 8px 8px -8px rgba(0, 0, 0, 0.04);
+  --ds-shadow-medium:
+    0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 8px -8px rgba(0, 0, 0, 0.04);
   --ds-shadow-border-medium: var(--ds-shadow-border), var(--ds-shadow-medium);
-  --ds-shadow-large: 0px 2px 2px rgba(0, 0, 0, 0.04),
-    0px 8px 16px -4px rgba(0, 0, 0, 0.04);
+  --ds-shadow-large:
+    0px 2px 2px rgba(0, 0, 0, 0.04), 0px 8px 16px -4px rgba(0, 0, 0, 0.04);
   --ds-shadow-border-large: var(--ds-shadow-border), var(--ds-shadow-large);
-  --ds-shadow-tooltip: var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+  --ds-shadow-tooltip:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
     0px 4px 8px rgba(0, 0, 0, 0.04);
-  --ds-shadow-menu: var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+  --ds-shadow-menu:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
     0px 4px 8px -4px rgba(0, 0, 0, 0.04), 0px 16px 24px -8px rgba(0, 0, 0, 0.06);
-  --ds-shadow-modal: var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+  --ds-shadow-modal:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
     0px 8px 16px -4px rgba(0, 0, 0, 0.04),
     0px 24px 32px -8px rgba(0, 0, 0, 0.06);
-  --ds-shadow-fullscreen: var(--ds-shadow-border),
-    0px 1px 1px rgba(0, 0, 0, 0.02), 0px 8px 16px -4px rgba(0, 0, 0, 0.04),
+  --ds-shadow-fullscreen:
+    var(--ds-shadow-border), 0px 1px 1px rgba(0, 0, 0, 0.02),
+    0px 8px 16px -4px rgba(0, 0, 0, 0.04),
     0px 24px 32px -8px rgba(0, 0, 0, 0.06);
-  --ds-focus-ring: 0 0 0 2px var(--ds-background-100),
-    0 0 0 4px var(--ds-focus-color);
-}
-
-*,
-:after,
-:before {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-pan-x: ;
-  --tw-pan-y: ;
-  --tw-pinch-zoom: ;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-ordinal: ;
-  --tw-slashed-zero: ;
-  --tw-numeric-figure: ;
-  --tw-numeric-spacing: ;
-  --tw-numeric-fraction: ;
-  --tw-ring-inset: ;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgba(147, 197, 253, 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
-  --tw-blur: ;
-  --tw-brightness: ;
-  --tw-contrast: ;
-  --tw-grayscale: ;
-  --tw-hue-rotate: ;
-  --tw-invert: ;
-  --tw-saturate: ;
-  --tw-sepia: ;
-  --tw-drop-shadow: ;
-  --tw-backdrop-blur: ;
-  --tw-backdrop-brightness: ;
-  --tw-backdrop-contrast: ;
-  --tw-backdrop-grayscale: ;
-  --tw-backdrop-hue-rotate: ;
-  --tw-backdrop-invert: ;
-  --tw-backdrop-opacity: ;
-  --tw-backdrop-saturate: ;
-  --tw-backdrop-sepia: ;
-  --tw-prose-links: var(--ds-blue-900);
-  box-sizing: border-box;
-  border-width: 0;
-  border-style: solid;
-  border-color: var(--ds-gray-200);
+  --ds-focus-ring:
+    0 0 0 2px var(--ds-background-100), 0 0 0 4px var(--ds-focus-color);
 }
 
 html {
@@ -591,8 +524,9 @@ svg rect {
 .shadow,
 .shadow-md,
 .shadow-sm {
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000),
+    var(--tw-shadow);
 }
 
 .shadow,
@@ -671,11 +605,6 @@ svg rect {
   padding-left: 0.375em;
 }
 
-.prose :where(a):not(:where([class~="not-prose"] *)) {
-  color: var(--tw-prose-links);
-  text-decoration: underline;
-  font-weight: 500;
-}
 .prose-vercel :where(a):not(:where([class~="not-prose"] *)) {
   text-decoration: none;
   font-weight: inherit;
@@ -730,7 +659,7 @@ svg rect {
   padding-left: 1em;
 }
 
-.prose-vercel :where(blockquote):not(:where([class~="not-prose"] *)) {
+/* .prose-vercel :where(blockquote):not(:where([class~="not-prose"] *)) {
   border-width: 1px;
   border-left-color: var(--ds-gray-200);
   border-radius: 0.375rem;
@@ -741,7 +670,7 @@ svg rect {
 .prose-vercel :where(blockquote):not(:where([class~="not-prose"] *)) p {
   margin-top: 0;
   margin-bottom: 0.5rem;
-}
+} */
 
 .prose :where(ul):not(:where([class~="not-prose"] *)) {
   list-style-type: disc;
@@ -749,10 +678,10 @@ svg rect {
   margin-bottom: 1.25em;
   padding-left: 1.625em;
 }
-.prose-vercel :where(blockquote):not(:where([class~="not-prose"] *)) ul {
+/* .prose-vercel :where(blockquote):not(:where([class~="not-prose"] *)) ul {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
+} */
 
 pre {
   --padding: 20px;

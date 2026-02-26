@@ -1,0 +1,175 @@
+ <SubtitleWithAnchor
+          title="Placeholder data"
+          id="placeholder-data"
+          level="h3"
+        />
+
+        <p>
+          When building user interfaces, it is helpful to work with placeholder
+          data. At this stage, we are focusing on the UI and application
+          structure, not on the database.
+        </p>
+
+        <p>If a database or API is not yet available, you can:</p>
+
+        <ul>
+          <li>Use placeholder data in JSON format or as JavaScript objects.</li>
+          <li>
+            Use a 3rd party service like{" "}
+            <a href="https://mockapi.io/" rel="noopener" target="_blank">
+              mockAPI
+              <span class="inline-flex">
+                <svg
+                  class="with-icon_icon"
+                  data-testid="geist-icon"
+                  fill="none"
+                  height="24"
+                  shape-rendering="geometricPrecision"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  style="color: currentcolor; width: 14px; height: 14px;"
+                >
+                  <path d="M7 17L17 7"></path>
+                  <path d="M7 7h10v10"></path>
+                </svg>
+              </span>
+            </a>
+            .
+          </li>
+        </ul>
+
+        <p>
+          For this project, we provide placeholder data that you can{" "}
+          <span class="font-bold">download here</span>:
+        </p>
+
+        <ul>
+          <li>
+            <a
+              href="/downloads/placeholder-data-2026.ts"
+              download="placeholder-data-2026.ts"
+            >
+              <code>placeholder-data-2026.ts 💾</code>
+            </a>
+          </li>
+        </ul>
+
+        <p>
+          Inside the <code>src</code> folder, create a <code>lib</code>{" "}
+          directory and add the file at:
+        </p>
+
+        <p>
+          <code>src/lib/placeholder-data-2026.ts</code>
+        </p>
+
+        <p>
+          Each object inside this file represents a table in your future
+          database. For example, the invoices table:
+        </p>
+
+        <CodeBlock
+          text="/src/lib/placeholder-data-2026.ts"
+          icon="javascript"
+          language="javascript"
+          code={`const invoices: Invoice[] = [
+  {
+    id: "9f1c2a44-7d8b-4c91-a2b3-1f3e9a7b6c01",
+    customer_id: customers[0].id,
+    amount: 15795,
+    status: "pending",
+    date: "2026-01-12",
+  },
+  {
+    id: "2c7e5d90-1a3f-4e88-b7c4-9d1f0a6e2b11",
+    customer_id: customers[1].id,
+    amount: 20348,
+    status: "pending",
+    date: "2026-02-03",
+  },
+  // ...
+];`}
+        />
+
+        <p>
+          Later, in the{" "}
+          <Link href="/learn/dashboard-app-2026/setting-up-your-database-2026/">
+            Setting Up Your Database
+          </Link>{" "}
+          chapter, you will use this data to seed your database with initial
+          records.
+        </p>
+
+        <SubtitleWithAnchor title="TypeScript" id="typescript" level="h3" />
+
+        <p>
+          You may notice that most files use a <code>.ts</code> or{" "}
+          <code>.tsx</code> extension. This is because the project is written in
+          TypeScript. We want this course to reflect the modern web landscape.
+        </p>
+
+        <p>
+          It's okay if you don't know TypeScript. We will introduce concepts
+          only when necessary.
+        </p>
+
+        <p>For now, download the following file:</p>
+
+        <ul>
+          <li>
+            <a
+              href="/downloads/definitions-2026.ts"
+              download="definitions-2026.ts"
+            >
+              <code>definitions-2026.ts 💾</code>
+            </a>
+          </li>
+        </ul>
+
+        <p>
+          Then place it inside <code>src/lib/definitions-2026.ts</code>.
+        </p>
+
+        <p>
+          This file defines the types that represent the shape of the data that
+          will eventually come from our database. For example, the{" "}
+          <code>Invoice</code> type:
+        </p>
+
+        <CodeBlock
+          text="/src/lib/definitions-2026.ts"
+          icon="typescript"
+          language="typescript"
+          code={`export type Invoice = {
+  id: string;
+  customer_id: string;
+  amount: number;
+  date: string;
+  // In TypeScript, this is called a string union type.
+  // The "status" property can only be one of two values: 'pending' or 'paid'.
+  status: 'pending' | 'paid';
+};`}
+        />
+
+        <p>
+          By using TypeScript, you reduce the risk of passing incorrect data to
+          your components or future database logic. For example, passing a{" "}
+          <code>string</code> instead of a <code>number</code> to the{" "}
+          <code>amount</code> field.
+        </p>
+
+        <blockquote class="p-3 text-sm">
+          <p>
+            <strong>If you're a TypeScript developer:</strong>
+          </p>
+          <ul>
+            <li>
+              Qwik is TypeScript-ready by default. No additional configuration
+              is required.
+            </li>
+          </ul>
+        </blockquote>

@@ -10,7 +10,7 @@ import {
   zod$,
 } from "@builder.io/qwik-city";
 import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle";
-import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
+import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
 import { Message } from "~/components/UI/message/message";
 import { createClient } from "~/lib/supabase/server";
 import { createDocumentHead } from "~/utils/createDocumentHead";

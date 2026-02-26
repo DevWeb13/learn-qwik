@@ -1773,7 +1773,7 @@ export const deleteInvoice = server$(async function (id: string) {
         </p>
       </div>
 
-      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-160 flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
           chapterNumber={11}
           text="You've learned how to create, update, and delete invoices."
@@ -1787,7 +1787,7 @@ export const deleteInvoice = server$(async function (id: string) {
         />
       </div>
       <Feedback />
-      <div class="mb-[40px] md:mb-[120px]"></div>
+      <div class="mb-10 md:mb-30"></div>
     </>
   );
 });

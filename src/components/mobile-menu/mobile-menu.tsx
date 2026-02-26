@@ -16,7 +16,7 @@ export default component$(() => {
       class={
         styles.mobileMenu_mobileMenu__xqbOP +
         " " +
-        (mobileMenuVisible.value ? styles.visible + " " + "md:ml-8" : "")
+        (mobileMenuVisible.value && styles.visible)
       }
     >
       <div class={styles.jsx4194965384}>

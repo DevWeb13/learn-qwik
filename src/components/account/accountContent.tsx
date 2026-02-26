@@ -4,7 +4,7 @@ import { $, component$, useStore } from "@builder.io/qwik";
 import { useResetCompletedChapters, useUpdateProfile } from "~/routes/account";
 
 import { Form, Link } from "@builder.io/qwik-city";
-import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
+import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
 
 import { HiArrowRightOnRectangleOutline } from "@qwikest/icons/heroicons";
 import { useProfile } from "~/routes/layout";
@@ -71,8 +71,8 @@ export const AccountContent = component$(() => {
   });
 
   return (
-    <main class="relative flex w-full flex-grow flex-col items-center justify-between gap-4 overflow-hidden  md:gap-8">
-      <div class="absolute bottom-[100px] left-1/2 z-[-1] -translate-x-1/2 md:bottom-0">
+    <main class="relative flex w-full grow flex-col items-center justify-between gap-4 overflow-hidden  md:gap-8">
+      <div class="absolute bottom-25 left-1/2 z-[-1] -translate-x-1/2 md:bottom-0">
         <div class="block dark:hidden">
           <HomeBackground />
         </div>
@@ -82,7 +82,7 @@ export const AccountContent = component$(() => {
       </div>
 
       {!profile.value ? (
-        <div class="flex flex-grow flex-col items-center justify-center ">
+        <div class="flex grow flex-col items-center justify-center ">
           <Message
             message={{
               message: "User not found.",
@@ -364,12 +364,10 @@ export const AccountContent = component$(() => {
                   <div class="mb-4 flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-gray-800">
                       Completed Chapters{" "}
-                      <span class="text-[var(--qwik-dark-blue)]">
-                        2026 Version
-                      </span>
+                      <span class="text-(--qwik-dark-blue)">2026 Version</span>
                     </h2>
 
-                    {/* <button
+                    <button
                       onClick$={async () => {
                         const result = await resetCompletedChapters.submit({
                           version: "2026",
@@ -384,10 +382,7 @@ export const AccountContent = component$(() => {
                     >
                       <HiArrowPathOutline class="h-4 w-4" />
                       <span>Reset Progress</span>
-                    </button> */}
-                    <p class="text-xl font-semibold text-[var(--qwik-dark-blue)]">
-                      👀 Coming Soon 🤫
-                    </p>
+                    </button>
                   </div>
 
                   <div class="grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-8">
@@ -418,7 +413,7 @@ export const AccountContent = component$(() => {
                   <div class="mb-4 flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-gray-800">
                       Completed Chapters{" "}
-                      {/* <span class="text-red-700">Legacy Version</span> */}
+                      <span class="text-red-700">Legacy Version</span>
                     </h2>
 
                     <button
@@ -462,9 +457,25 @@ export const AccountContent = component$(() => {
                   </div>
                 </div>
 
+                <div class="rounded-lg bg-gray-50 p-6">
+                  <h2 class="mb-2 text-sm font-medium text-gray-800">Logout</h2>
+                  <p class="mb-4 text-sm text-gray-600">
+                    End your current session on this device.
+                  </p>
+
+                  <Link
+                    tabIndex={0}
+                    href="/auth/logout/"
+                    id="logoutBtn"
+                    class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  >
+                    <HiArrowRightOnRectangleOutline class="mr-1" />
+                    Logout
+                  </Link>
+                </div>
                 <div class="warning-section rounded-lg border-l-4 border-red-500 bg-red-50 p-4">
                   <div class="flex">
-                    <div class="flex-shrink-0">
+                    <div class="shrink-0">
                       <HiExclamationTriangleOutline class="text-xl text-red-500" />
                     </div>
                     <div class="ml-3">
@@ -473,19 +484,11 @@ export const AccountContent = component$(() => {
                       </h3>
                       <div class="mt-2 text-sm text-red-700">
                         <p>
-                          These actions are irreversible. Please be certain.
+                          Deleting your account is permanent and cannot be
+                          undone.
                         </p>
                       </div>
-                      <div class="mt-4 flex space-x-3">
-                        <Link
-                          tabIndex={0}
-                          href="/auth/logout/"
-                          id="logoutBtn"
-                          class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                        >
-                          <HiArrowRightOnRectangleOutline class="mr-1" />
-                          Logout
-                        </Link>
+                      <div class="mt-4">
                         <Link
                           tabIndex={0}
                           href="/auth/deleteProfile/"

@@ -99,15 +99,15 @@ export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   };
 
   return (
-    <div class="not-prose  mb-4 w-full rounded-[12px]  md:my-12 md:bg-[#fafafa] md:p-4  md:py-12">
+    <div class="not-prose  mb-4 w-full rounded-xl  md:my-12 md:bg-[#fafafa] md:p-4  md:py-12">
       <TableOfTopicsCoveredHeader />
-      <div class="bg-vercel-100 mx-auto mt-4 flex w-full max-w-[960px] flex-col rounded-md px-4 py-2 shadow-md md:mt-8">
+      <div class="bg-vercel-100 mx-auto mt-4 flex w-full max-w-240 flex-col rounded-md px-4 py-2 shadow-md md:mt-8">
         {topics.map((topic, index) => (
           <div
             class="border-gray-alpha-400 flex gap-4 border-b px-4 py-3 last-of-type:border-0"
             key={index}
           >
-            <div class="mt-1 flex-shrink-0 text-gray-900">
+            <div class="mt-1 shrink-0 text-gray-900">
               {displayIcon(topic.icon)}
             </div>
             <p

@@ -28,12 +28,12 @@ export default component$(() => {
   });
 
   return (
-    <div class="relative z-10 mb-4 flex h-[var(--header-of-main-height)]  w-full items-center justify-center  lg:mb-8">
+    <div class="relative z-10 mb-4 flex h-(--header-of-main-height)  w-full items-center justify-center  lg:mb-8">
       <aside
         class={
           scrollY.value > 80
-            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-3.5 top-4 z-10 flex h-[var(--header-of-main-height)] max-w-[1072px] items-center rounded-full px-3 py-3 shadow-sm lg:left-1/2 lg:right-[unset]  lg:mx-4 lg:w-full lg:-translate-x-1/2"
-            : "bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-[var(--header-of-main-height)] w-full max-w-[1072px] items-center rounded-full px-3 py-3  lg:w-full"
+            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-4 top-4 z-10 flex h-(--header-of-main-height) max-w-268 items-center rounded-full px-3 py-3 shadow-sm   lg:mx-auto "
+            : "bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-(--header-of-main-height) w-full max-w-268 items-center rounded-full px-3 py-3  lg:w-full"
         }
         style="background-clip: padding-box;"
       >
@@ -64,9 +64,9 @@ export default component$(() => {
         </div>
         <div
           aria-hidden="true"
-          class="bg-gray-alpha-400 ml-3 mr-4 hidden h-8 w-[1px] lg:block"
+          class="bg-gray-alpha-400 ml-3 mr-4 hidden h-8 w-px lg:block"
         ></div>
-        <div class="ml-3 flex flex-grow items-center gap-3 lg:ml-0">
+        <div class="ml-3 flex grow items-center gap-3 lg:ml-0">
           <div class="relative hidden lg:block">
             <BookSvg small id="headerOfMain" />
           </div>
@@ -95,7 +95,7 @@ export default component$(() => {
         />
         <div
           aria-hidden="true"
-          class="bg-gray-alpha-400 ml-4 mr-3 hidden h-8 w-[1px] lg:block"
+          class="bg-gray-alpha-400 ml-4 mr-3 hidden h-8 w-px lg:block"
         ></div>
         <span
           class="tooltip_container"

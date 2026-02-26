@@ -3,11 +3,11 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { routeAction$ } from "@builder.io/qwik-city";
-import { createDocumentHead } from "~/utils/createDocumentHead";
+import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
 import { ModalDeleteProfile } from "~/lib/qwikUI/modalDeleteProfile/modalDeleteProfile";
-import HomeBackground from "~/assets/svg/homeBackground/homeBackground";
+import { createDocumentHead } from "~/utils/createDocumentHead";
 
-import { createClient, createAdminClient } from "~/lib/supabase/server"; // 🔥 Import des 2 clients
+import { createAdminClient, createClient } from "~/lib/supabase/server"; // 🔥 Import des 2 clients
 import { useProfile } from "~/routes/layout";
 
 export const useDeleteProfileAction = routeAction$(

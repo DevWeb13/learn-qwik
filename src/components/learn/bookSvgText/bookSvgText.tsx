@@ -29,30 +29,25 @@ export const BookSvgText = component$<BookSvgTextProps>(({ completed }) => {
   });
 
   return (
-    <div class="absolute left-[34px] top-4 max-w-[100px]">
+    <div class="absolute left-[34px] flex h-full max-w-[100px] flex-col justify-around overflow-hidden py-3">
       <p
         class="text_wrapper"
         data-version="v1"
         style="--text-color:var(--ds-gray-1000);--text-size:1.125rem;--text-line-height:1.25rem;--text-letter-spacing:initial;--text-weight:600;color:#000;max-width:80px"
       >
-        Learn Qwik
+        Learn <span class="text-[var(--qwik-dark-blue)]">Qwik</span>
       </p>
       <div class="animate-fadeIn">
+        <p class="text-sm font-bold ">{store.nextChapterTitle}</p>
         <p
           class="text_wrapper"
           data-version="v1"
-          style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 500; font-size: 11px; color: rgb(102, 102, 102); padding-top: 8px;"
-        >
-          {store.nextChapterTitle}
-        </p>
-        <p
-          class="text_wrapper"
-          data-version="v1"
-          style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400; font-size: 11px; color: rgb(102, 102, 102); line-height: 1;"
+          style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.50rem; --text-letter-spacing: initial; --text-weight: 400; font-size: 11px; color: rgb(102, 102, 102); line-height: 1.2;"
         >
           {store.nextChapterSubtitle}
         </p>
       </div>
+      <p class="text-lg font-black text-[var(--qwik-dark-blue)]">2026</p>
     </div>
   );
 });
