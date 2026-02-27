@@ -33,10 +33,11 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     const uriLink =
       version === "Legacy" ? "dashboard-app" : "dashboard-app-2026";
 
-    let nextUri =
-      version === "Legacy"
+    let nextUri = goToChapter
+      ? version === "Legacy"
         ? title.toLowerCase().replace(/\s+/g, "-")
-        : title.toLowerCase().replace(/\s+/g, "-") + "-2026";
+        : title.toLowerCase().replace(/\s+/g, "-") + "-2026"
+      : "";
 
     // 🔥 Restauration de la logique pour la page d'accueil
     if (title === "" && completedChapters.length > 0) {
