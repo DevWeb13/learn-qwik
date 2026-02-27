@@ -29,8 +29,6 @@
     "@builder.io/partytown": "^0.8.1",
     "@builder.io/qwik": "^1.19.0",
     "@builder.io/qwik-city": "^1.19.0",
-    "@supabase/ssr": "^0.5.1",
-    "@supabase/supabase-js": "^2.45.4",
     "@tailwindcss/vite": "^4.1.4",
     "@types/compression": "^1.7.2",
     "@types/eslint": "^8.56.2",
@@ -47,11 +45,11 @@
     "prettier": "^3.2.4",
     "shiki": "^1.2.0",
     "stripe": "^17.7.0",
-    "supabase": "^1.204.3",
+    "supabase": "^2.76.15",
     "tailwindcss": "^4.1.4",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.3",
-    "typescript": "^5.8.3",
+    "typescript": "5.4.5",
     "typescript-plugin-css-modules": "^5.2.0",
     "undici": "*",
     "vercel": "^29.1.1",
@@ -61,6 +59,7 @@
   "dependencies": {
     "@qwik-ui/headless": "^0.2.2",
     "@qwikest/icons": "^0.0.13",
+    "@supabase/ssr": "^0.8.0",
     "marked": "^13.0.3",
     "sanitize-html": "^2.13.0"
   }
