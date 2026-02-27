@@ -19,7 +19,7 @@ export default component$<ModalLinkProps>(
     return (
       <Link
         class="group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100"
-        href={`/learn/dashboard-app/${uri}/`}
+        href={uri ? `/learn/dashboard-app/${uri}/` : `/learn/dashboard-app/`}
         key={id}
         onClick$={() => {
           showSig.value = false;
@@ -27,7 +27,7 @@ export default component$<ModalLinkProps>(
       >
         <div
           aria-hidden="true"
-          class={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full ${active ? "bg-blue-900 text-gray-50" : "bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"}  text-sm font-medium text-blue-900  `}
+          class={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${active ? "bg-blue-900 text-gray-50" : "bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"}  text-sm font-medium text-blue-900  `}
         >
           {completedChapters.includes(id) ? (
             <svg

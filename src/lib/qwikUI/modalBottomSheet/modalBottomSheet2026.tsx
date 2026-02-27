@@ -112,43 +112,6 @@ export const ModalBottomSheet2026 = component$<ModalBottomSheet2026Props>(
             </ModalHeader>
             <div class="border-gray-alpha-400 border-t p-2 pt-0">
               <ModalContent>
-                <div class="py-2">
-                  <Link
-                    class="group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100"
-                    href="/learn/dashboard-app-2026/"
-                    onClick$={() => {
-                      showSig.value = false;
-                    }}
-                  >
-                    <div
-                      aria-hidden="true"
-                      class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
-                    >
-                      <svg
-                        data-testid="geist-icon"
-                        height="16"
-                        stroke-linejoin="round"
-                        viewBox="0 0 16 16"
-                        width="16"
-                        style="color: currentcolor;"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
-                          d="M8 14.5C11.5899 14.5 14.5 11.5899 14.5 8C14.5 4.41015 11.5899 1.5 8 1.5C4.41015 1.5 1.5 4.41015 1.5 8C1.5 11.5899 4.41015 14.5 8 14.5ZM8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM6.25 7H7H7.74999C8.30227 7 8.74999 7.44772 8.74999 8V11.5V12.25H7.24999V11.5V8.5H7H6.25V7ZM8 6C8.55229 6 9 5.55228 9 5C9 4.44772 8.55229 4 8 4C7.44772 4 7 4.44772 7 5C7 5.55228 7.44772 6 8 6Z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </div>
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
-                    >
-                      Introduction 2026
-                    </p>
-                  </Link>
-                </div>
                 <div class="border-gray-alpha-400 flex flex-col border-t py-2">
                   <div class="flex flex-col">
                     {chapters.map((chapter, id) => (
@@ -179,7 +142,7 @@ export const ModalBottomSheet2026 = component$<ModalBottomSheet2026Props>(
                   >
                     <div
                       aria-hidden="true"
-                      class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
+                      class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                     >
                       <svg
                         data-testid="geist-icon"

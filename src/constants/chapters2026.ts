@@ -1,5 +1,13 @@
 export const CHAPTERS2026 = [
   {
+    id: 0,
+    title: "Introduction: Interactive Dashboard Overview",
+    description:
+      "Understand the architecture of the 2026 edition and how the course is structured.",
+    isCompleted: false,
+    uri: "",
+  },
+  {
     id: 1,
     title: "Chapter 1: Getting Started",
     description:

@@ -166,12 +166,6 @@ export default component$(() => {
             </p>
           </div>
           <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <ChapterThumbnail
-              href="/learn/dashboard-app-2026/"
-              numberOrIcon="circleWithISvg"
-              title="Getting Started"
-              description="Learn how to build a full-stack web application with the free, Qwik App Course."
-            />
             {CHAPTERS2026.map((chapter2026) => (
               <ChapterThumbnail
                 key={chapter2026.id}
@@ -222,12 +216,6 @@ export default component$(() => {
             </p>
           </div>
           <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <ChapterThumbnail
-              href="/learn/dashboard-app/"
-              numberOrIcon="circleWithISvg"
-              title="Getting Started"
-              description="Learn how to build a full-stack web application with the free, Qwik App Course."
-            />
             {CHAPTERS.map((chapter) => (
               <ChapterThumbnail
                 key={chapter.id}

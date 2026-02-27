@@ -1,31 +1,11 @@
 // src/routes/learn/dashboard-app-2026/layout.tsxs
 
 import { component$, Slot } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
 import { DesktopStickyAdMulti } from "~/components/desktopStickyAdMulti/desktopStickyAdMulti";
 import { MobileStickyAdMulti } from "~/components/mobileStickyAdMulti/mobileStickyAdMulti";
 import HeaderOfMain2026 from "~/components/UI/headerOfMain/headerOfMain2026";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
-
-export const useGetCurrentChapterIndex2026 = routeLoader$((requestEvent) => {
-  const pathname = requestEvent.url.pathname;
-
-  if (pathname.includes("getting-started-2026")) return "0";
-  if (pathname.includes("css-styling-2026")) return "1";
-  if (pathname.includes("icons-and-svg-components-2026")) return "2";
-  if (pathname.includes("optimizing-fonts-and-images-2026")) return "3";
-  if (pathname.includes("creating-layouts-and-pages-2026")) return "4";
-  if (pathname.includes("navigating-between-pages-2026")) return "5";
-  if (pathname.includes("setting-up-your-database-2026")) return "6";
-  if (pathname.includes("fetching-data-2026")) return "7";
-  if (pathname.includes("optimizing-data-fetching-2026")) return "8";
-  if (pathname.includes("streaming-2026")) return "9";
-  if (pathname.includes("adding-search-and-pagination-2026")) return "10";
-  if (pathname.includes("mutating-data-2026")) return "11";
-
-  return "Introduction-2026";
-});
 
 export default component$(() => {
   const profile = useProfile();

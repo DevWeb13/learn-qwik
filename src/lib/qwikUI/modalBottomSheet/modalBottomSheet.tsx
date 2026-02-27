@@ -46,13 +46,13 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
       </button>
       <Modal
         bind:show={showSig}
-        class="bottom-sheet shadow-dark-medium bg-background text-foreground fixed bottom-0 mb-0 max-h-[80%] min-w-full max-w-[25rem] rounded-md border-0 p-[28px] backdrop:backdrop-blur backdrop:backdrop-brightness-50 dark:backdrop:backdrop-brightness-100"
+        class="bottom-sheet shadow-dark-medium bg-background text-foreground fixed bottom-0 mb-0 max-h-[80%] min-w-full max-w-100 rounded-md border-0 p-7 backdrop:backdrop-blur backdrop:backdrop-brightness-50 dark:backdrop:backdrop-brightness-100"
       >
         <div class="new-dialog_inner">
           <ModalHeader>
             <div class="flex justify-between gap-3 p-3">
               <Link
-                class=" flex w-[50%] cursor-pointer items-center gap-3 rounded-md bg-gray-100 px-3 py-2.5 hover:bg-gray-100 md:w-auto md:min-w-[225px]"
+                class=" flex w-[50%] cursor-pointer items-center gap-3 rounded-md bg-gray-100 px-3 py-2.5 hover:bg-gray-100 md:w-auto md:min-w-56.25"
                 type="button"
                 onClick$={() => {
                   showSig.value = false;
@@ -89,7 +89,7 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
               >
                 <div
                   aria-hidden="true"
-                  class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-red-400 text-sm font-medium text-blue-900 group-hover:bg-red-600 group-hover:text-gray-900"
+                  class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-400 text-sm font-medium text-blue-900 group-hover:bg-red-600 group-hover:text-gray-900"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -111,43 +111,6 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
           </ModalHeader>
           <div class="border-gray-alpha-400 border-t p-2 pt-0">
             <ModalContent>
-              <div class="py-2">
-                <Link
-                  class="group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100"
-                  href="/learn/dashboard-app/"
-                  onClick$={() => {
-                    showSig.value = false;
-                  }}
-                >
-                  <div
-                    aria-hidden="true"
-                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
-                  >
-                    <svg
-                      data-testid="geist-icon"
-                      height="16"
-                      stroke-linejoin="round"
-                      viewBox="0 0 16 16"
-                      width="16"
-                      style="color: currentcolor;"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M8 14.5C11.5899 14.5 14.5 11.5899 14.5 8C14.5 4.41015 11.5899 1.5 8 1.5C4.41015 1.5 1.5 4.41015 1.5 8C1.5 11.5899 4.41015 14.5 8 14.5ZM8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM6.25 7H7H7.74999C8.30227 7 8.74999 7.44772 8.74999 8V11.5V12.25H7.24999V11.5V8.5H7H6.25V7ZM8 6C8.55229 6 9 5.55228 9 5C9 4.44772 8.55229 4 8 4C7.44772 4 7 4.44772 7 5C7 5.55228 7.44772 6 8 6Z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
-                  </div>
-                  <p
-                    class="text_wrapper"
-                    data-version="v1"
-                    style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
-                  >
-                    Introduction
-                  </p>
-                </Link>
-              </div>
               <div class="border-gray-alpha-400 flex flex-col border-t py-2">
                 <div class="flex flex-col">
                   {chapters.map((chapter, id) => (
@@ -178,7 +141,7 @@ export default component$<ModalBottomSheetProps>(({ chapters }) => {
                 >
                   <div
                     aria-hidden="true"
-                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
+                    class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-medium text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"
                   >
                     <svg
                       data-testid="geist-icon"

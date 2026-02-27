@@ -1,39 +1,47 @@
-import { component$, useContext, useSignal, useTask$ } from "@builder.io/qwik";
+import { component$, useComputed$, useContext } from "@builder.io/qwik";
+import { useLocation } from "@builder.io/qwik-city";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import { useScrollYPosition } from "~/hooks/useScrollYPosition";
 
 import { ModalBottomSheet2026 } from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet2026";
 import { Chapters2026Context, useProfile } from "~/routes/layout";
-import { useGetCurrentChapterIndex2026 } from "~/routes/learn/dashboard-app-2026/layout";
 import BtMenuHeaderOfMain from "./btMenuHeaderOfMain/btMenuHeaderOfMain";
 import ProgressCircle from "./progressCircle/progressCircle";
-// import { chapters2026 } from "~/routes/learn/dashboard-app-2026/layout";
 
 export default component$(() => {
   const scrollY = useScrollYPosition();
+  const location = useLocation();
 
   const chapters2026 = useContext(Chapters2026Context);
-
   const profile = useProfile();
 
-  const currentChapterIndex2026 = useGetCurrentChapterIndex2026().value;
-  const title = useSignal("");
+  // 🔥 Calcul dynamique basé sur l’URL
+  const currentIndex = useComputed$(() => {
+    const pathname = location.url.pathname;
+    const basePath = "/learn/dashboard-app-2026/";
 
-  useTask$(({ track }) => {
-    track(() => currentChapterIndex2026);
-    title.value =
-      currentChapterIndex2026.length >= 1 && currentChapterIndex2026.length <= 2
-        ? chapters2026.value[parseInt(currentChapterIndex2026)].title
-        : "Introduction-2026";
+    if (pathname === basePath) return 0;
+
+    const slug = pathname.replace(basePath, "").split("/")[0];
+
+    const index = chapters2026.value.findIndex(
+      (chapter) => chapter.uri === slug,
+    );
+
+    return index >= 0 ? index : 0;
+  });
+
+  const title = useComputed$(() => {
+    return chapters2026.value[currentIndex.value].title;
   });
 
   return (
-    <div class="relative z-10 mb-4 flex h-(--header-of-main-height)  w-full items-center justify-center  lg:mb-8">
+    <div class="relative z-10 mb-4 flex h-(--header-of-main-height) w-full items-center justify-center lg:mb-8">
       <aside
         class={
           scrollY.value > 80
-            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-4 top-4 z-10 flex h-(--header-of-main-height) max-w-268 items-center rounded-full px-3 py-3 shadow-sm   lg:mx-auto "
-            : "bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-(--header-of-main-height) w-full max-w-268 items-center rounded-full px-3 py-3  lg:w-full"
+            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-4 top-4 z-10 flex h-(--header-of-main-height) max-w-268 items-center rounded-full px-3 py-3 shadow-sm lg:mx-auto"
+            : "bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-(--header-of-main-height) w-full max-w-268 items-center rounded-full px-3 py-3 lg:w-full"
         }
         style="background-clip: padding-box;"
       >
@@ -42,6 +50,7 @@ export default component$(() => {
             <BtMenuHeaderOfMain classStyle="button_base button_button reset_reset geist-new-themed geist-new-tertiary geist-new-tertiary-fill button_tertiary button_shape button_circle button_small button_invert" />
           </ModalBottomSheet2026>
         </div>
+
         <div class="hidden md:block">
           <nav aria-label="Main" data-orientation="horizontal" dir="ltr">
             <div style="position: relative;">
@@ -62,30 +71,32 @@ export default component$(() => {
             </div>
           </nav>
         </div>
+
         <div
           aria-hidden="true"
           class="bg-gray-alpha-400 ml-3 mr-4 hidden h-8 w-px lg:block"
         ></div>
+
         <div class="ml-3 flex grow items-center gap-3 lg:ml-0">
           <div class="relative hidden lg:block">
             <BookSvg small id="headerOfMain" />
           </div>
+
           <div class="animation-fadeIn flex flex-col">
             <p
               class="text_wrapper text_truncate"
               data-version="v1"
               style="--text-color: var(--ds-gray-1000); --xs-text-size: 0.8125rem; --xs-text-line-height: 1.125rem; --xs-text-weight: 500; --xs-text-letter-spacing: initial; --sm-text-size: 0.8125rem; --sm-text-line-height: 1.125rem; --sm-text-weight: 500; --sm-text-letter-spacing: initial; --smd-text-size: 0.8125rem; --smd-text-line-height: 1.125rem; --smd-text-weight: 500; --smd-text-letter-spacing: initial; --md-text-size: 0.8125rem; --md-text-line-height: 1.125rem; --md-text-weight: 500; --md-text-letter-spacing: initial; --lg-text-size: 0.875rem; --lg-text-line-height: 1.25rem; --lg-text-weight: 500; --lg-text-letter-spacing: initial;"
             >
-              {currentChapterIndex2026.length > 2
-                ? title.value
-                : title.value.split(":")[0] + ":"}
+              {title.value.split(":")[0] + ":"}
             </p>
+
             <p
               class="text_wrapper text_truncate"
               data-version="v1"
               style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
             >
-              {currentChapterIndex2026.length >= 1 && title.value.split(":")[1]}
+              {title.value.split(":")[1]}
             </p>
           </div>
         </div>
@@ -93,10 +104,12 @@ export default component$(() => {
         <ProgressCircle
           completed={profile.value?.completedChapters2026 || []}
         />
+
         <div
           aria-hidden="true"
           class="bg-gray-alpha-400 ml-4 mr-3 hidden h-8 w-px lg:block"
         ></div>
+
         <span
           class="tooltip_container"
           data-testid="legacy/tooltip-trigger"

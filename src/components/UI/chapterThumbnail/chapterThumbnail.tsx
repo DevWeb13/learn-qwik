@@ -24,7 +24,7 @@ export const ChapterThumbnail = component$<ChapterThumbnailProps>(
             <div class="mr-2 flex h-8 w-8 flex-none shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-bold text-blue-700 transition-all duration-300  group-hover:bg-white group-hover:text-black relative overflow-hidden">
               {/* Number or intro icon */}
               <div class="transition-opacity duration-200 group-hover:opacity-0">
-                {numberOrIcon === "circleWithISvg" ? (
+                {numberOrIcon === "0" ? (
                   <CircleWithISvg />
                 ) : (
                   <div>{numberOrIcon}</div>
@@ -42,9 +42,7 @@ export const ChapterThumbnail = component$<ChapterThumbnailProps>(
               data-version="v1"
               style="--text-color:var(--ds-gray-1000);--text-size:1.25rem;--text-line-height:1.5rem;--text-letter-spacing:-0.020625rem;--text-weight:600"
             >
-              {numberOrIcon === "circleWithISvg"
-                ? "Introduction"
-                : getAfterColon(title)}
+              {numberOrIcon === "0" ? "Introduction" : getAfterColon(title)}
             </p>
           </div>
 

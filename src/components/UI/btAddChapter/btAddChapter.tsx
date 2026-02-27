@@ -40,9 +40,17 @@ export const BtAddChapter = component$<BtAddChapterProps>(
       : "";
 
     // 🔥 Restauration de la logique pour la page d'accueil
-    if (title === "" && completedChapters.length > 0) {
-      const lastCompleted = Math.max(...completedChapters);
-      nextUri = chapters.value[lastCompleted]?.uri || "";
+    if (title === "") {
+      if (completedChapters.length > 0) {
+        const nextIndex = Math.max(...completedChapters) + 1;
+
+        nextUri =
+          nextIndex < chapters.value.length
+            ? chapters.value[nextIndex].uri
+            : "";
+      } else {
+        nextUri = chapters.value[0]?.uri || "";
+      }
     }
 
     function generateText(
@@ -54,8 +62,6 @@ export const BtAddChapter = component$<BtAddChapterProps>(
         goToChapter ? goToChapter : ""
       }`;
     }
-
-    console.log("nextUri", nextUri);
 
     return (
       <div class={`w-full ${goToChapter ? "md:w-fit" : ""}`}>
@@ -122,21 +128,14 @@ export const BtAddChapter = component$<BtAddChapterProps>(
         ) : (
           <button
             onClick$={async () => {
-              console.log("goToChapter", goToChapter);
-              const completedChapter = goToChapter - 1; // ✅ Stocke le chapitre complété
-
-              if (completedChapter < 1) {
-                navigate(`/learn/${uriLink}/${nextUri}/`);
-                return;
-              }
+              const completedChapter = goToChapter - 1;
 
               const result = await putCompletedChapters.submit({
-                completedChapter, // ✅ Enregistre le bon chapitre
+                completedChapter,
                 version,
               });
 
               if (result.value.success) {
-                // ✅ Redirige vers le chapitre suivant
                 navigate(`/learn/${uriLink}/${nextUri}/`);
               }
             }}
