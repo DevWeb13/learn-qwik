@@ -47,13 +47,13 @@ export const ModalBottomSheet2026 = component$<ModalBottomSheet2026Props>(
         </button>
         <Modal
           bind:show={showSig}
-          class="bottom-sheet shadow-dark-medium bg-background text-foreground fixed bottom-0 mb-0 max-h-[80%] min-w-full max-w-[25rem] rounded-md border-0 p-[28px] backdrop:backdrop-blur backdrop:backdrop-brightness-50 dark:backdrop:backdrop-brightness-100"
+          class="bottom-sheet shadow-dark-medium bg-background text-foreground fixed bottom-0 mb-0 max-h-[80%] min-w-full max-w-100 rounded-md border-0 p-7 backdrop:backdrop-blur backdrop:backdrop-brightness-50 dark:backdrop:backdrop-brightness-100"
         >
           <div class="new-dialog_inner">
             <ModalHeader>
               <div class="flex justify-between gap-3 p-3">
                 <Link
-                  class=" flex w-[50%] cursor-pointer items-center gap-3 rounded-md bg-gray-100 px-3 py-2.5 hover:bg-gray-100 md:w-auto md:min-w-[225px]"
+                  class=" flex w-[50%] cursor-pointer items-center gap-3 rounded-md bg-gray-100 px-3 py-2.5 hover:bg-gray-100 md:w-auto md:min-w-56.25"
                   type="button"
                   onClick$={() => {
                     showSig.value = false;
@@ -61,7 +61,11 @@ export const ModalBottomSheet2026 = component$<ModalBottomSheet2026Props>(
                   href="/"
                 >
                   <div class="relative">
-                    <BookSvg small id="modalBottomSheet" />
+                    <BookSvg
+                      small
+                      id="modalBottomSheet"
+                      version="2026 Edition"
+                    />
                   </div>
 
                   <div class="flex flex-col items-start text-left">
@@ -70,7 +74,10 @@ export const ModalBottomSheet2026 = component$<ModalBottomSheet2026Props>(
                       data-version="v1"
                       style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 500;"
                     >
-                      Learn Qwik
+                      Learn Qwik{" "}
+                      <span class="text-(--qwik-dark-purple)">
+                        2026 Edition
+                      </span>
                     </p>
                     <p
                       class="text_wrapper hidden md:block"
@@ -90,7 +97,7 @@ export const ModalBottomSheet2026 = component$<ModalBottomSheet2026Props>(
                 >
                   <div
                     aria-hidden="true"
-                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-red-400 text-sm font-medium text-blue-900 group-hover:bg-red-600 group-hover:text-gray-900"
+                    class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-red-400 text-sm font-medium text-blue-900 group-hover:bg-red-600 group-hover:text-gray-900"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +141,7 @@ export const ModalBottomSheet2026 = component$<ModalBottomSheet2026Props>(
               <ModalFooter>
                 <div class="border-gray-alpha-400 grid grid-cols-2 border-t pt-2">
                   <Link
-                    class="group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100"
+                    class="group flex  items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100 cursor-not-allowed!"
                     href={location.url.pathname}
                     onClick$={() => {
                       showSig.value = false;

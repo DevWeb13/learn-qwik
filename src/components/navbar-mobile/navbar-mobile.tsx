@@ -1,9 +1,9 @@
 import { component$, useContext } from "@builder.io/qwik";
-import styles from "./navbar-mobile.module.css";
-import Popover from "../../lib/qwikUI/popover/popover";
 import { Link } from "@builder.io/qwik-city";
-import { MobileMenuVisibleContext } from "~/routes/layout";
 import { VercelSvg } from "~/assets/svg/vercelSvg";
+import { MobileMenuVisibleContext } from "~/routes/layout";
+import Popover from "../../lib/qwikUI/popover/popover";
+import styles from "./navbar-mobile.module.css";
 
 export default component$(() => {
   const mobileMenuVisible = useContext(MobileMenuVisibleContext);
@@ -35,7 +35,7 @@ export default component$(() => {
         </svg>
 
         <Link
-          class={`${styles.navbar_mobileLogo}`}
+          class={`${styles.navbar_mobileLogo} `}
           title="Go to the homepage"
           href="/"
         >

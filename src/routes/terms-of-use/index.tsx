@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 
 export default component$(() => {

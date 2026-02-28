@@ -100,7 +100,7 @@ export const AccountContent = component$(() => {
         <>
           <div class="container mx-auto max-w-4xl px-4 py-8">
             <div class="overflow-hidden rounded-xl bg-white shadow-lg">
-              <div class="bg-[#18b6f6] px-6 py-6 text-white">
+              <div class="bg-(--qwik-dark-purple) px-6 py-6 text-white">
                 <h1 class="text-3xl font-bold">My Account</h1>
                 <p class="opacity-90">
                   Manage your personal information and progress
@@ -364,7 +364,9 @@ export const AccountContent = component$(() => {
                   <div class="mb-4 flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-gray-800">
                       Completed Chapters{" "}
-                      <span class="text-(--qwik-dark-blue)">2026 Version</span>
+                      <span class="text-(--qwik-dark-purple)">
+                        2026 Edition
+                      </span>
                     </h2>
 
                     <button
@@ -400,7 +402,7 @@ export const AccountContent = component$(() => {
                           </span>
 
                           {isCompleted && (
-                            <HiCheckCircleMini class="absolute right-1 top-1 h-5 w-5 text-green-500" />
+                            <HiCheckCircleMini class="absolute right-1 top-1 h-5 w-5 text-(--qwik-dark-purple)" />
                           )}
                         </div>
                       );
@@ -413,7 +415,7 @@ export const AccountContent = component$(() => {
                   <div class="mb-4 flex items-center justify-between">
                     <h2 class="text-xl font-semibold text-gray-800">
                       Completed Chapters{" "}
-                      <span class="text-red-700">Legacy Version</span>
+                      <span class="text-red-700">Legacy Edition</span>
                     </h2>
 
                     <button
@@ -449,7 +451,7 @@ export const AccountContent = component$(() => {
                           </span>
 
                           {isCompleted && (
-                            <HiCheckCircleMini class="absolute right-1 top-1 h-5 w-5 text-green-500" />
+                            <HiCheckCircleMini class="absolute right-1 top-1 h-5 w-5 text-(--qwik-dark-blue)" />
                           )}
                         </div>
                       );
@@ -467,7 +469,7 @@ export const AccountContent = component$(() => {
                     tabIndex={0}
                     href="/auth/logout/"
                     id="logoutBtn"
-                    class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    class="inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700! shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                     <HiArrowRightOnRectangleOutline class="mr-1" />
                     Logout
@@ -493,7 +495,7 @@ export const AccountContent = component$(() => {
                           tabIndex={0}
                           href="/auth/deleteProfile/"
                           id="deleteAccountBtn"
-                          class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                          class="inline-flex items-center rounded-md border border-transparent bg-red-600 px-3 py-2 text-sm font-medium leading-4 text-white! shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                         >
                           <HiTrashOutline class="mr-1" />
                           Delete Account

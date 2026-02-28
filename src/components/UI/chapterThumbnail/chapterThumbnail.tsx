@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
+import { HiCheckCircleMini } from "@qwikest/icons/heroicons";
 import { Arrow45Svg } from "~/assets/svg/arrow45Svg";
 import { CircleWithISvg } from "~/assets/svg/circleWithISvg";
 
@@ -8,21 +9,41 @@ interface ChapterThumbnailProps {
   numberOrIcon: string;
   title: string;
   description: string;
+  isCompleted?: boolean;
+  version?: "2026 Edition";
 }
 
 export const ChapterThumbnail = component$<ChapterThumbnailProps>(
-  ({ href, numberOrIcon, title, description }) => {
+  ({ href, numberOrIcon, title, description, isCompleted, version }) => {
     function getAfterColon(str: string): string {
       const parts = str.split(":", 2);
       return parts.length > 1 ? parts[1].trim() : "";
     }
 
+    const is2026 = version === "2026 Edition";
+
+    const accentColor = is2026
+      ? "var(--qwik-dark-purple)"
+      : "var(--qwik-dark-blue)";
+
     return (
-      <div class="group h-full rounded-xl shadow-sm transition-all duration-300 hover:shadow-lg hover:bg-gray-100 z-50">
+      <div
+        class={`relative group h-full rounded-xl transition-all duration-300
+    shadow-sm hover:shadow-lg hover:bg-gray-100
+    ${isCompleted ? "border shadow-md" : ""}
+  `}
+        style={isCompleted ? { borderColor: accentColor } : undefined}
+      >
+        {isCompleted && (
+          <HiCheckCircleMini
+            class="absolute right-3 top-3 h-6 w-6 drop-shadow-sm"
+            style={{ color: accentColor }}
+          />
+        )}
+
         <Link class="flex flex-col p-6" href={href}>
           <div class="mb-2 flex items-center">
-            <div class="mr-2 flex h-8 w-8 flex-none shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-bold text-blue-700 transition-all duration-300  group-hover:bg-white group-hover:text-black relative overflow-hidden">
-              {/* Number or intro icon */}
+            <div class="mr-2 flex h-8 w-8 flex-none shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-bold text-blue-700 transition-all duration-300 group-hover:bg-white group-hover:text-black relative overflow-hidden">
               <div class="transition-opacity duration-200 group-hover:opacity-0">
                 {numberOrIcon === "0" ? (
                   <CircleWithISvg />
@@ -31,7 +52,6 @@ export const ChapterThumbnail = component$<ChapterThumbnailProps>(
                 )}
               </div>
 
-              {/* Arrow (hidden by default) */}
               <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                 <Arrow45Svg />
               </div>

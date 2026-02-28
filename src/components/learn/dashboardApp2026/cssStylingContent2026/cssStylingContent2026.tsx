@@ -7,7 +7,7 @@ import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 
@@ -20,10 +20,7 @@ export const CSSStylingContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle
-          chapterNumber={2}
-          chapterTitle="Style Your Qwik App with CSS and Tailwind"
-        />
+        <PageTitle version="2026 Edition" />
         <p style="vertical-align: inherit;">
           Currently, your homepage has the default style of Qwik. In this
           chapter, you will learn how to customize the style of your Qwik

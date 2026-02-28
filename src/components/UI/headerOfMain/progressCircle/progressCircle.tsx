@@ -8,6 +8,7 @@ interface ProgressCircleProps {
   colorCircle?: string;
   colorProgressCircle?: string;
   responsive?: "smallOnly" | "largeOnly" | "both";
+  version?: "2026 Edition";
 }
 
 export default component$<ProgressCircleProps>(
@@ -15,14 +16,19 @@ export default component$<ProgressCircleProps>(
     completed = [],
     onlyCircle = false,
     colorCircle = "var(--ds-gray-alpha-400)",
-    colorProgressCircle = "var(--ds-blue-700)",
+    colorProgressCircle,
     responsive = "both",
+    version,
   }) => {
     const totalChapters = 16;
     const completedChapters = completed.length;
     const percentageCompleted = (completedChapters / totalChapters) * 100;
 
-    // console.log({ completed });
+    const progressColor =
+      colorProgressCircle ??
+      (version === "2026 Edition"
+        ? "var(--qwik-dark-purple)"
+        : "var(--qwik-dark-blue)");
 
     return (
       <>
@@ -44,8 +50,11 @@ export default component$<ProgressCircleProps>(
             </p>
           </div>
         )}
+
         <div
-          class={`mr-2 ${responsive === "smallOnly" ? "" : "lg:hidden"} ${responsive === "largeOnly" ? "hidden" : ""}`}
+          class={`mr-2 ${
+            responsive === "smallOnly" ? "" : "lg:hidden"
+          } ${responsive === "largeOnly" ? "hidden" : ""}`}
         >
           <div
             class="gauge_circle gauge_animate"
@@ -65,7 +74,6 @@ export default component$<ProgressCircleProps>(
                 cy="50"
                 r="42.5"
                 stroke-width="15"
-                stroke-dashoffset="0"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="gauge_arcSecondary"
@@ -77,27 +85,28 @@ export default component$<ProgressCircleProps>(
                 cy="50"
                 r="42.5"
                 stroke-width="15"
-                stroke-dashoffset="0"
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="gauge_arc"
                 data-geist-progress-circle-fg=""
-                stroke={colorProgressCircle}
+                stroke={progressColor}
                 style={{
                   opacity: 1,
                   strokeDasharray: `282.7433388230814`,
-                  strokeDashoffset: `${282.7433388230814 * (1 - percentageCompleted / 100)}`,
+                  strokeDashoffset: `${
+                    282.7433388230814 * (1 - percentageCompleted / 100)
+                  }`,
                 }}
               ></circle>
             </svg>
           </div>
         </div>
+
         <div
           class={`
-        ${responsive === "largeOnly" ? "block" : "hidden"} 
-        ${responsive === "smallOnly" ? "" : "lg:block"}
-          
-        `}
+            ${responsive === "largeOnly" ? "block" : "hidden"} 
+            ${responsive === "smallOnly" ? "" : "lg:block"}
+          `}
         >
           <div
             class="gauge_circle gauge_animate ml-4"
@@ -132,11 +141,13 @@ export default component$<ProgressCircleProps>(
                 stroke-linejoin="round"
                 class="gauge_arc"
                 data-geist-progress-circle-fg=""
-                stroke={colorProgressCircle}
+                stroke={progressColor}
                 style={{
                   opacity: 1,
                   strokeDasharray: `282.7433388230814`,
-                  strokeDashoffset: `${282.7433388230814 * (1 - percentageCompleted / 100)}`,
+                  strokeDashoffset: `${
+                    282.7433388230814 * (1 - percentageCompleted / 100)
+                  }`,
                 }}
               ></circle>
             </svg>

@@ -23,7 +23,6 @@ export default component$(() => {
         <ul>
           <li class="mt-2">
             <Link
-              onClick$={() => (mobileMenuVisible.value = false)}
               tabIndex={0}
               href={profile.value ? `/account/` : "/auth/login/"}
               class={`flex items-center justify-center gap-1 rounded-md border border-transparent 
@@ -31,13 +30,13 @@ export default component$(() => {
     focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500
     ${
       !profile.value
-        ? "bg-gray-500 text-white hover:bg-gray-600 focus:ring-gray-500" // 🏴 Gris pour non connectés
+        ? "bg-gray-500 text-white! hover:bg-gray-600 focus:ring-gray-500" // 🏴 Gris pour non connectés
         : profile.value.access_status === "subscribed" ||
             (profile.value.access_status === "canceled" &&
               profile.value.grace_period_end &&
               new Date(profile.value.grace_period_end) > new Date())
-          ? "bg-yellow-500 text-black hover:bg-yellow-600 focus:ring-yellow-500" // 🟡 OR pour abonnés actifs / période de grâce
-          : "bg-sky-500 text-white hover:bg-sky-600 focus:ring-sky-500" // 🔵 Bleu normal pour non abonnés
+          ? "bg-yellow-500 text-black! hover:bg-yellow-600 focus:ring-yellow-500" // 🟡 OR pour abonnés actifs / période de grâce
+          : "bg-(--qwik-dark-purple) text-white! hover:bg-(--qwik-light-purple) focus:ring-(--qwik-light-purple)" // 🔵 Bleu normal pour non abonnés
     }`}
             >
               {profile.value ? (

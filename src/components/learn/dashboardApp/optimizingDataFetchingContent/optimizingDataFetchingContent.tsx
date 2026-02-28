@@ -1,7 +1,7 @@
 // src/components/learn/dashboardApp/optimizingDataFetch/optimizingDataFetch.tsx
 
 import { component$ } from "@builder.io/qwik";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
 // import BlankLink from "~/components/UI/blankLink/blankLink";

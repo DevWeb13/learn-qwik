@@ -27,7 +27,7 @@ export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
               key={index}
             >
               <div class=" text-xl">{topic.emoji}</div>
-              <p class="text_wrapper in-this-chapter_content__QPwZX">
+              <p class=" in-this-chapter_content__QPwZX text-gray-800 hover:text-blue-400">
                 {topic.title}
               </p>
             </Link>

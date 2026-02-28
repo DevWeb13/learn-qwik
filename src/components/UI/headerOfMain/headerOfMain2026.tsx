@@ -79,7 +79,7 @@ export default component$(() => {
 
         <div class="ml-3 flex grow items-center gap-3 lg:ml-0">
           <div class="relative hidden lg:block">
-            <BookSvg small id="headerOfMain" />
+            <BookSvg small id="headerOfMain" version="2026 Edition" />
           </div>
 
           <div class="animation-fadeIn flex flex-col">
@@ -103,6 +103,7 @@ export default component$(() => {
 
         <ProgressCircle
           completed={profile.value?.completedChapters2026 || []}
+          version="2026 Edition"
         />
 
         <div

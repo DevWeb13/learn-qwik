@@ -6,7 +6,7 @@ import CompletedChapter from "~/components/UI/completedChapter/completedChapter"
 import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { InfoBox2026 } from "~/components/UI/infoBox/infoBox2026";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered2026 from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered2026";
@@ -15,11 +15,7 @@ export const IconsAndSVGComponentsContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle
-          chapterNumber={3}
-          chapterTitle="Icons and SVG Components"
-          version="2026 Edition"
-        />
+        <PageTitle version="2026 Edition" />
 
         <p>
           Icons are small details that have a big impact on user experience. In

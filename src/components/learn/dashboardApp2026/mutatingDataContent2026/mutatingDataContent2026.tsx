@@ -3,7 +3,7 @@
 import { component$ } from "@builder.io/qwik";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
@@ -20,10 +20,7 @@ export const MutatingDataContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle
-          chapterNumber={11}
-          chapterTitle="Mutating Data in Qwik | Create, Update, and Delete"
-        />
+        <PageTitle />
         <p>
           In the previous chapter, you implemented search and pagination using
           URL Search Params and Qwik-city APIs. Let's continue working on the

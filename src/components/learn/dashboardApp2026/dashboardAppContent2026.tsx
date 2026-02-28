@@ -9,20 +9,14 @@ import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithA
 
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.png?jsx";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 
 export const DashboardAppContent2026 = component$(() => {
   return (
     <>
       <article class="prose prose-vercel max-w-none">
         <div class="mb-10">
-          <h1
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-1000); --text-size: 2.5rem; --text-line-height: 3.5rem; --text-letter-spacing: -0.058125rem; --text-weight: 600;"
-          >
-            Learn Qwik | Interactive Dashboard Overview |{" "}
-            <span class="text-(--qwik-dark-blue)">2026 Edition</span>
-          </h1>
+          <PageTitle version="2026 Edition" />
         </div>
         <p>
           Welcome to the Qwik course. In this free interactive experience, you
@@ -171,13 +165,50 @@ export const DashboardAppContent2026 = component$(() => {
         </p>
       </article>
 
-      <div class="mx-auto my-16 flex w-full max-w-160 flex-col items-center gap-6 text-center">
-        <h2 class="text-3xl font-semibold">Ready to get started?</h2>
-        <p>
-          Now that you understand what we will build and what you will learn,
-          let us begin creating the application.
-        </p>
-
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-160 flex-col items-center md:my-20 md:mt-12">
+        <div
+          aria-hidden="true"
+          class="mx-auto h-32 w-px bg-linear-to-t from-blue-300 md:h-48"
+        ></div>
+        <div
+          aria-hidden="true"
+          class="relative flex h-24 w-24 items-center justify-center rounded-full bg-blue-300 text-[48px] font-semibold text-blue-900  md:h-32 md:w-32 md:text-[72px]"
+        >
+          <svg
+            class="with-icon_icon__MHUeb"
+            data-testid="geist-icon"
+            fill="none"
+            height="24"
+            shape-rendering="geometricPrecision"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            width="24"
+            style="color: currentcolor; width: 64px; height: 64px;"
+          >
+            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"></path>
+          </svg>
+        </div>
+        <h2
+          class="text_wrapper block pb-2 pt-8"
+          data-version="v1"
+          style="--text-color: var(--ds-gray-1000); --xs-text-size: 1.5rem; --xs-text-line-height: 2rem; --xs-text-weight: 600; --xs-text-letter-spacing: -0.029375rem; --sm-text-size: 1.5rem; --sm-text-line-height: 2rem; --sm-text-weight: 600; --sm-text-letter-spacing: -0.029375rem; --smd-text-size: 2.5rem; --smd-text-line-height: 3.5rem; --smd-text-weight: 600; --smd-text-letter-spacing: -0.058125rem; --md-text-size: 2.5rem; --md-text-line-height: 3.5rem; --md-text-weight: 600; --md-text-letter-spacing: -0.058125rem; --lg-text-size: 2.5rem; --lg-text-line-height: 3.5rem; --lg-text-weight: 600; --lg-text-letter-spacing: -0.058125rem;"
+        >
+          Ready to get started?
+        </h2>
+        <div class="text-center">
+          <p
+            class="text_wrapper"
+            data-version="v1"
+            style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial;"
+          >
+            Now that you understand what we will build and what you will learn,
+            let us begin creating the application.
+          </p>
+        </div>
         <GoToNextChapterBlock
           version="2026"
           goToChapter={1}

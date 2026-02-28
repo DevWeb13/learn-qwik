@@ -8,7 +8,7 @@ import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered2026 from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered2026";
 import { FolderStructure2026 } from "./folderStructure2026/folderStructure2026";
@@ -17,11 +17,7 @@ export const GettingStartedContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle
-          chapterNumber={1}
-          chapterTitle="Getting Started with Qwik | Your First Interactive App"
-          version="2026 Edition"
-        />
+        <PageTitle version="2026 Edition" />
 
         <p>
           In this first chapter, you will set up a brand new Qwik application

@@ -13,6 +13,10 @@ button {
   cursor: pointer;
 }
 
+a p {
+  cursor: pointer;
+}
+
 button:disabled {
   cursor: not-allowed;
 }
@@ -605,6 +609,10 @@ svg rect {
   padding-left: 0.375em;
 }
 
+a {
+  color: var(--ds-blue-700);
+}
+
 .prose-vercel :where(a):not(:where([class~="not-prose"] *)) {
   text-decoration: none;
   font-weight: inherit;
@@ -616,7 +624,7 @@ svg rect {
 }
 @media (hover: hover) {
   a:hover {
-    color: #68b5fb;
+    color: var(--color-blue-400);
   }
 }
 

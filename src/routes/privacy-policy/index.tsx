@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { createDocumentHead } from "~/utils/createDocumentHead";
 
 export default component$(() => {
@@ -357,7 +357,8 @@ export default component$(() => {
               </li>
 
               <li>
-                to improve navigation on the Site: connection and usage data{" "}
+                to improve navigation on the Site: connection and usage
+                data{" "}
               </li>
 
               <li>

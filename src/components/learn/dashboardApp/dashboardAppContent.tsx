@@ -242,10 +242,10 @@ export default component$(() => {
           .
         </p>
       </article>
-      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-160 flex-col items-center md:my-20 md:mt-12">
         <div
           aria-hidden="true"
-          class="mx-auto h-32 w-[1px] bg-gradient-to-t from-blue-300 md:h-48"
+          class="mx-auto h-32 w-px bg-linear-to-t from-blue-300 md:h-48"
         ></div>
         <div
           aria-hidden="true"
@@ -296,7 +296,7 @@ export default component$(() => {
 
       <Feedback />
 
-      <div class="mb-[40px] md:mb-[120px]"></div>
+      <div class="mb-10 md:mb-30"></div>
     </>
   );
 });

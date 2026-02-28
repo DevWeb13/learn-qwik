@@ -91,7 +91,7 @@ export default component$(() => {
       <NavLink
         class={`${styles.link} relative inline-flex items-center`}
         activeClass={
-          styles.link + " " + "!text-black relative inline-flex items-center"
+          styles.link + " " + "text-black! relative inline-flex items-center"
         }
         href="/blog/"
       >
@@ -103,7 +103,7 @@ export default component$(() => {
 
       <NavLink
         class={styles.link}
-        activeClass={styles.link + " " + "!text-black"}
+        activeClass={styles.link + " " + "text-black!"}
         href="/releases/"
       >
         Releases

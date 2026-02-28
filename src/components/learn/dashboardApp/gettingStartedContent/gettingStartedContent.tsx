@@ -8,7 +8,7 @@ import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import FolderStructure from "./folderStructure/folderStructure";
 
@@ -16,10 +16,7 @@ export default component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle
-          chapterNumber={1}
-          chapterTitle="Getting Started with Qwik | Your First Interactive App"
-        />
+        <PageTitle />
 
         <SubtitleWithAnchor
           title="Create an app using the CLI"

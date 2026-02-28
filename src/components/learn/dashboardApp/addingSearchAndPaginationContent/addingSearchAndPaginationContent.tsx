@@ -6,7 +6,7 @@ import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
 import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
-import PageTitle from "~/components/UI/pageTitle/pageTitle";
+import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
@@ -15,10 +15,7 @@ export const AddingSearchAndPaginationContent = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle
-          chapterNumber={10}
-          chapterTitle="Adding Search and Pagination"
-        />
+        <PageTitle />
         <p>
           In the previous chapter, you improved your dashboard's initial loading
           performance with streaming. Now let's move on to the{" "}
@@ -268,7 +265,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
     console.log("searching for", term);
   });
   return (
-    <div class="relative flex flex-1 flex-shrink-0">
+    <div class="relative flex flex-1 shrink-0">
       <label for="search" class="sr-only">
         Search
       </label>

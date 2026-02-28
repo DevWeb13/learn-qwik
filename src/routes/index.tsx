@@ -36,7 +36,7 @@ export default component$(() => {
             Start building with{" "}
             <Link
               href="https://qwik.dev"
-              class="text-blue-500 hover:underline"
+              class="text-(--qwik-dark-purple)! hover:text-(--qwik-light-purple)!"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -73,12 +73,12 @@ export default component$(() => {
               <div class="relative mt-6 flex w-full max-w-full flex-col items-center justify-center space-y-4 pb-0 md:space-y-6 md:pb-4 lg:pt-4">
                 <div class="flex max-w-full flex-col items-center justify-center">
                   <p
-                    class="text_wrapper pb-2"
+                    class="text_wrapper pb-2 text-(--qwik-dark-purple)"
                     data-version="v1"
                     style="--text-color:var(--ds-gray-1000);--xs-text-size:1.25rem;--xs-text-line-height:1.5rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.020625rem;--sm-text-size:1.25rem;--sm-text-line-height:1.5rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.020625rem;--smd-text-size:1.5rem;--smd-text-line-height:2rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.029375rem;--md-text-size:1.5rem;--md-text-line-height:2rem;--md-text-weight:600;--md-text-letter-spacing:-0.029375rem;--lg-text-size:1.5rem;--lg-text-line-height:2rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.029375rem"
                   >
-                    Learn Qwik |{" "}
-                    <span class="text-(--qwik-dark-blue)">2026 Edition</span>
+                    Learn Qwik{" "}
+                    <span class="text-(--qwik-dark-purple)">2026 Edition</span>
                   </p>
 
                   <div class="mx-auto  text-center ">
@@ -108,6 +108,7 @@ export default component$(() => {
                           completed={profile.value?.completedChapters2026 || []}
                           onlyCircle
                           responsive="largeOnly"
+                          version="2026 Edition"
                         />
                       </div>
                     </div>
@@ -132,6 +133,7 @@ export default component$(() => {
                       colorCircle="var(--ds-gray-900)"
                       colorProgressCircle="var(--ds-gray-100)"
                       responsive="smallOnly"
+                      version="2026 Edition"
                     />
                   </BtAddChapter>
                 </div>
@@ -147,8 +149,8 @@ export default component$(() => {
 
       <HowDoesTheCourseWorkSection />
 
-      <section class="mx-auto max-w-6xl px-4 pb-10 md:pb-20">
-        <div class="rounded-2xl relative p-6 md:p-10 mb-8 md:mb-20 shadow-xl border border-(--qwik-dark-purple)/50 overflow-hidden z-10">
+      <section class="mx-auto max-w-7xl px-4 pb-10 md:pb-20 ">
+        <div class="rounded-2xl relative p-6 md:p-10 mb-8 md:mb-20 shadow-xl  overflow-hidden z-10 bg-(--qwik-light-purple)/5">
           <div class="absolute top-0">
             <HomeBackgroundPurple />
           </div>
@@ -157,24 +159,32 @@ export default component$(() => {
               class="text_wrapper"
               style="--text-color:var(--ds-gray-1000);--xs-text-size:1.5rem;--xs-text-line-height:2rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.029375rem;--sm-text-size:1.5rem;--sm-text-line-height:2rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.029375rem;--smd-text-size:2rem;--smd-text-line-height:2.5rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.049375rem;--md-text-size:2rem;--md-text-line-height:2.5rem;--md-text-weight:600;--md-text-letter-spacing:-0.049375rem;--lg-text-size:2rem;--lg-text-line-height:2.5rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.049375rem"
             >
-              Learn Qwik |{" "}
-              <span class="text-(--qwik-dark-blue)">2026 Edition</span>
+              Learn Qwik{" "}
+              <span class="text-(--qwik-dark-purple)">2026 Edition</span>
             </h2>
-            <p class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-xl">
+            <p class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-lg">
               The actively maintained version of the course, Built with Qwik
               1.19, Tailwind v4, Supabase and deployed on Vercel.
             </p>
           </div>
           <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {CHAPTERS2026.map((chapter2026) => (
-              <ChapterThumbnail
-                key={chapter2026.id}
-                href={`/learn/dashboard-app-2026/${chapter2026.uri}/`}
-                numberOrIcon={chapter2026.id.toString()}
-                title={chapter2026.title}
-                description={chapter2026.description}
-              />
-            ))}
+            {CHAPTERS2026.map((chapter2026) => {
+              const isCompleted = profile.value?.completedChapters2026.includes(
+                chapter2026.id,
+              );
+
+              return (
+                <ChapterThumbnail
+                  key={chapter2026.id}
+                  href={`/learn/dashboard-app-2026/${chapter2026.uri}/`}
+                  numberOrIcon={chapter2026.id.toString()}
+                  title={chapter2026.title}
+                  description={chapter2026.description}
+                  isCompleted={isCompleted}
+                  version="2026 Edition"
+                />
+              );
+            })}
           </div>
           <div class="mt-4 flex w-full items-center justify-center  md:mt-8 md:w-auto">
             <div class="w-full md:w-58.25">
@@ -199,7 +209,7 @@ export default component$(() => {
           </div>
         </div>
 
-        <div class="rounded-2xl relative p-6 md:p-10 mb-8 md:mb-20 shadow-xl border border-red-700 overflow-hidden z-10">
+        <div class="rounded-2xl relative p-6 md:p-10 mb-8 md:mb-20 shadow-xl overflow-hidden z-10 bg-(--qwik-light-blue)/5">
           <div class="absolute top-0">
             <HomeBackground />
           </div>
@@ -208,23 +218,30 @@ export default component$(() => {
               class="text_wrapper"
               style="--text-color:var(--ds-gray-1000);--xs-text-size:1.5rem;--xs-text-line-height:2rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.029375rem;--sm-text-size:1.5rem;--sm-text-line-height:2rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.029375rem;--smd-text-size:2rem;--smd-text-line-height:2.5rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.049375rem;--md-text-size:2rem;--md-text-line-height:2.5rem;--md-text-weight:600;--md-text-letter-spacing:-0.049375rem;--lg-text-size:2rem;--lg-text-line-height:2.5rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.049375rem"
             >
-              Learn Qwik | <span class="text-red-700">Legacy Version</span>
+              Learn Qwik <span class="text-red-700">Legacy Version</span>
             </h2>
-            <p class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-xl">
+            <p class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-lg">
               An earlier version of the course. Not actively maintained, but
               still useful for reference.
             </p>
           </div>
           <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {CHAPTERS.map((chapter) => (
-              <ChapterThumbnail
-                key={chapter.id}
-                href={`/learn/dashboard-app/${chapter.uri}/`}
-                numberOrIcon={chapter.id.toString()}
-                title={chapter.title}
-                description={chapter.description}
-              />
-            ))}
+            {CHAPTERS.map((chapter) => {
+              const isCompleted = profile.value?.completedChapters.includes(
+                chapter.id,
+              );
+
+              return (
+                <ChapterThumbnail
+                  key={chapter.id}
+                  href={`/learn/dashboard-app/${chapter.uri}/`}
+                  numberOrIcon={chapter.id.toString()}
+                  title={chapter.title}
+                  description={chapter.description}
+                  isCompleted={isCompleted}
+                />
+              );
+            })}
           </div>
           <div class="mt-4 flex w-full items-center justify-center  md:mt-8 md:w-auto ">
             <div class="w-full md:w-58.25">

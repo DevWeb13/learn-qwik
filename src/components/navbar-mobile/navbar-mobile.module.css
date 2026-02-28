@@ -36,6 +36,7 @@
 @media (max-width: 1020px) {
   .navbar_mobileLogo {
     display: flex;
+    color: var(--accents-5);
   }
 }
 

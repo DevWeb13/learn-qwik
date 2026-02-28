@@ -63,9 +63,10 @@ const FeFloodDuplicate = ({ result }: FeFloodDuplicateProps) => (
 interface BookSvgProps {
   small?: boolean;
   id: string;
+  version?: "2026 Edition";
 }
 
-export const BookSvg = ({ small, id }: BookSvgProps) =>
+export const BookSvg = ({ small, id, version }: BookSvgProps) =>
   small ? (
     <>
       <svg
@@ -113,7 +114,7 @@ export const BookSvg = ({ small, id }: BookSvgProps) =>
             <g filter={`url(#filter1_d_${id})`}>
               <path
                 d="M20 -8C20 -8.55228 20.4477 -9 21 -9H27C27.5523 -9 28 -8.55228 28 -8V6.79623C28 7.65539 26.9881 8.11457 26.3405 7.54881L24.6585 6.07619C24.2815 5.74629 23.7185 5.74629 23.3415 6.07619L21.6585 7.54881C21.0119 8.11457 20 7.65539 20 6.79623V-8Z"
-                fill="#3291FF"
+                fill={version === "2026 Edition" ? "#713fc2" : "#006ce9"}
               ></path>
             </g>
           </g>
@@ -328,7 +329,7 @@ export const BookSvg = ({ small, id }: BookSvgProps) =>
         <g filter={`url(#filter1_d_${id})`}>
           <path
             d="M122 1C122 0.447716 122.448 0 123 0H137C137.552 0 138 0.447715 138 1V22.259C138 23.0308 137.163 23.5116 136.496 23.1227L130.504 19.6273C130.193 19.4456 129.807 19.4456 129.496 19.6273L123.504 23.1227C122.837 23.5116 122 23.0308 122 22.259V1Z"
-            fill="#3291FF"
+            fill="#713fc2"
           ></path>
         </g>
         <defs>

@@ -18,7 +18,7 @@ export const DisplayNextChapter = component$<DisplayNextChapterProps>(
       nextChapterIndex < chapters.length ? chapters[nextChapterIndex] : null;
 
     const nextChapterTitle = nextChapter
-      ? nextChapter.title
+      ? nextChapter.title.split(":")
       : "All chapters completed";
 
     const nextChapterDescription = nextChapter
@@ -26,8 +26,11 @@ export const DisplayNextChapter = component$<DisplayNextChapterProps>(
       : "You have completed all available chapters.";
 
     return (
-      <div class="animate-fadeIn mr-2 flex min-w-0 flex-1 shrink flex-col">
-        <p class="text_wrapper text_truncate">{nextChapterTitle}</p>
+      <div class="animate-fadeIn mr-2 flex min-w-0 flex-1 shrink flex-col gap-1">
+        <div class="flex items-center gap-1">
+          <p class=" font-bold">{nextChapterTitle[0] + ":"}</p>
+          <p class="text_wrapper">{nextChapterTitle[1].trim()}</p>
+        </div>
         <p class="text_wrapper flex">{nextChapterDescription}</p>
       </div>
     );
