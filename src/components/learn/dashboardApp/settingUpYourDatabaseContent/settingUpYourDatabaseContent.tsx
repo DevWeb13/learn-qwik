@@ -31,7 +31,7 @@ export const SettingUpYourDatabaseContent = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle chapterNumber={6} chapterTitle="Setting Up Your Database" />
+        <PageTitle />
         <p>
           Before you can continue working on your dashboard, you'll need some
           data. In this chapter, you'll be setting up a PostgreSQL database

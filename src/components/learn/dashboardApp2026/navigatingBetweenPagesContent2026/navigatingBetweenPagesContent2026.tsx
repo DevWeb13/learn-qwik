@@ -16,7 +16,7 @@ export const NavigatingBetweenPagesContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle chapterNumber={5} chapterTitle="Navigating Between Pages" />
+        <PageTitle />
         <p style="vertical-align: inherit;">
           In the previous chapter, you created the layout and the dashboard
           pages. Now let's add some links to allow users to navigate between the

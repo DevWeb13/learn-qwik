@@ -20,7 +20,7 @@ export const OptimizingDataFetchingContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle chapterNumber={8} chapterTitle="Optimizing Data Fetching" />
+        <PageTitle />
         <p>
           In the previous chapter, you fetched data for the Dashboard page.
           However the data requests are creating an unintentional waterfall.

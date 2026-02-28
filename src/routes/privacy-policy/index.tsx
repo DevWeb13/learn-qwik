@@ -12,7 +12,7 @@ export default component$(() => {
           style="min-height: calc(100vh - 103px);"
         >
           <div class="prose prose-vercel max-w-none">
-            <PageTitle chapterNumber={0} chapterTitle="Privacy Policy" />
+            <PageTitle number={0} title="Privacy Policy" />
             <p>
               Welcome to our Privacy Policy page! At Learn Qwik, we are
               committed to protecting your privacy and ensuring that your
