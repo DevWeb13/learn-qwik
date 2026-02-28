@@ -296,8 +296,8 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead(
-  "Start building with Qwik",
-  "Qwik offers a new way to build web applications. Learn the foundations with interactive courses and create a functional demo site.",
+  "Start building with Qwik 2026 Edition",
+  "Qwik offers a new way to build web applications. Learn the foundations with interactive courses and create a functional demo site. 2026 Edition.",
   "https://www.learn-qwik.com/metaLanding.png",
   "https://www.learn-qwik.com/",
 );
