@@ -269,7 +269,7 @@ export const BookSvg = ({ small, id, version }: BookSvgProps) =>
           </clipPath>
         </defs>
       </svg>
-      <div class="absolute left-1.5 top-2.5 w-[24px]">
+      <div class="absolute left-1.5 top-2.5 w-6">
         <LearnQwikLogo alt="Learn Qwik Logo" />
       </div>
     </>
@@ -498,7 +498,7 @@ export const BookSvg = ({ small, id, version }: BookSvgProps) =>
           </clipPath>
         </defs>
       </svg>
-      <div class="absolute bottom-3 right-3 w-[40px]">
+      <div class="absolute bottom-3 right-3 w-10">
         <LearnQwikLogo alt="Learn Qwik Logo" />
       </div>
     </>
