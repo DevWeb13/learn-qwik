@@ -60,17 +60,6 @@ export default component$(() => {
           ]}
         />
 
-        {/* <div class="px-4 pb-8 md:px-8 md:pb-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor title="Nested routing" id="nested-routing" />
         <p>
           Qwik also uses a file-system-based routing system where{" "}
@@ -121,17 +110,6 @@ export default component$(() => {
           works!"
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Creating the Dashboard Page"
           id="creating-the-dashboard-page"
@@ -177,17 +155,6 @@ export default component$(() => {
           <code>`/src`</code> folder alongside your routes.
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Practice: Creating the dashboard pages"
           id="practice-creating-the-dashboard-pages"
@@ -226,7 +193,7 @@ export default component$(() => {
           the toggle below for the solution:
         </p>
 
-        <div class="bg-vercel-200 -mx-5 mb-8 p-[21px] md:-mx-[62px] md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
+        <div class="bg-vercel-200 -mx-5 mb-8 p-5.25 md:-mx-[62px] md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
           <button
             class="button_base reset_reset button_button  geist-new-themed geist-new-button geist-new-button-fill button_invert"
             data-geist-button=""
@@ -249,17 +216,6 @@ export default component$(() => {
           </button>
           {dashboardPagesSoluce.value && <DashboardPagesSoluce />}
         </div>
-
-        {/* <div class="px-4  md:px-8 ">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="Creating the dashboard layout"
@@ -311,7 +267,7 @@ export const NavLinks = component$(() => {
           <a
             key={link.name}
             href={link.href}
-            class="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+            class="flex h-12 grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
           >
             <LinkIcon class="w-6" />
             <p class="hidden md:block">{link.name}</p>
@@ -382,7 +338,7 @@ export const SideNav = component$(() => {
         <NavLinks />
         <div class="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>
         <form>
-          <button class="flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
+          <button class="flex h-12 w-full grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3">
             <HiPowerOutline class="w-6" />
             <div class="hidden md:block">Sign Out</div>
           </button>
@@ -433,7 +389,7 @@ export default component$(() => {
       <div class="w-full flex-none md:w-64">
         <SideNav />
       </div>
-      <div class="flex-grow p-6 md:overflow-y-auto md:p-12">
+      <div class="grow p-6 md:overflow-y-auto md:p-12">
         <Slot />
       </div>
     </div>
@@ -496,17 +452,6 @@ export default component$(() => {
             class="block w-full rounded-md border border-gray-200 bg-gray-100"
           />
         </figure>
-
-        {/* <div class="px-4  md:px-8 ">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="Root layout with Qwik"
@@ -576,17 +521,6 @@ export default component$(() => {
           mentioned above.
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <Quiz
           question="What is the role of the layout.tsx file in Qwik?"
           options={[
@@ -620,17 +554,6 @@ export default component$(() => {
           Qwik! 🎉
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Recommended reading"
           id="recommended reading"
@@ -657,17 +580,6 @@ export default component$(() => {
           </li>
         </ul>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
         <p>
@@ -679,17 +591,6 @@ export default component$(() => {
           .
         </p>
       </div>
-
-      {/* <div class="px-4  md:px-8 ">
-        <ins
-          class="adsbygoogle"
-          style="display:flex; justify-content:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="2773109472"
-        ></ins>
-      </div> */}
 
       <ChapterVideo
         videoId="BzpWsu_uxRU"

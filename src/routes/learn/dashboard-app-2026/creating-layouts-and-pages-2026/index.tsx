@@ -1,4 +1,4 @@
-// src/routes/learn/dashboard-app/creating-layouts-and-pages/index.tsx
+// src/routes/learn/dashboard-app-2026/creating-layouts-and-pages-2026/index.tsx
 
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
@@ -11,7 +11,7 @@ export default component$(() => {
 
 export const head: DocumentHead = createDocumentHead(
   "Chapter 4: Creating Layouts and Pages",
-  "Learn how to create layouts and pages in your Qwik application. This chapter covers the basics of layout design, page creation, and routing in Qwik.",
-  "https://www.learn-qwik.com/metaChapter4.png",
-  "https://www.learn-qwik.com/learn/dashboard-app/creating-layouts-and-pages-2026/",
+  "Understand file-based routing in Qwik, create nested routes, and share UI using layout.tsx in a structured dashboard application.",
+  "https://www.learn-qwik.com/metaChapter4.png", // Update with the correct image URL for chapter 4 when available
+  "https://www.learn-qwik.com/learn/dashboard-app-2026/creating-layouts-and-pages-2026/",
 );

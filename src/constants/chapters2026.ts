@@ -29,4 +29,12 @@ export const CHAPTERS2026 = [
     isCompleted: false,
     uri: "icons-and-svg-components-2026",
   },
+  {
+    id: 4,
+    title: "Chapter 4: Creating Layouts and Pages",
+    description:
+      "Understand file-based routing in Qwik, create nested routes, and share UI using layout.tsx.",
+    isCompleted: false,
+    uri: "creating-layouts-and-pages-2026",
+  },
 ];

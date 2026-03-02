@@ -424,7 +424,7 @@ peer eslint@"^10.0.0" from @eslint/js@10.x`}
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
         <p>
-          You can find the source code for chapter 1 on{" "}
+          You can find the source code for chapter 1 2026 edition on{" "}
           <BlankLink
             href="https://github.com/DevWeb13/qwik-dashboard-2026/tree/Chapter-1---Getting-Started-2026"
             text="GitHub"
@@ -438,6 +438,7 @@ peer eslint@"^10.0.0" from @eslint/js@10.x`}
           chapterNumber={1}
           text="Congratulations! You've created a Qwik application from scratch
            and ran the development server."
+          version="2026 Edition"
         />
         <GoToNextChapterBlock
           version="2026"

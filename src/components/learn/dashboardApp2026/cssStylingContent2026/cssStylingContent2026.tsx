@@ -513,7 +513,7 @@ export default component$(() => {
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
         <p>
-          You can find the source code for chapter 2 on{" "}
+          You can find the source code for chapter 2 2026 edition on{" "}
           <BlankLink
             href="https://github.com/DevWeb13/qwik-dashboard-2026/tree/Chapter-2---CSS-Styling-2026"
             text="GitHub"
@@ -526,6 +526,7 @@ export default component$(() => {
         <CompletedChapter
           chapterNumber={2}
           text="Well done! You've learned the different ways of styling a Qwik application."
+          version="2026 Edition"
         />
 
         <GoToNextChapterBlock

@@ -7,7 +7,7 @@ import { TableOfTopicsCoveredHeader } from "./tableOfTopicsCoveredHeader";
 type TopicType = {
   title: string;
   emoji: string;
-  anchor?: string;
+  anchor: string;
 };
 
 interface TableOfTopicsCoveredProps {

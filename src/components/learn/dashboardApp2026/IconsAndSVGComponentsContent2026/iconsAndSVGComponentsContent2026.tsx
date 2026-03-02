@@ -29,27 +29,37 @@ export const IconsAndSVGComponentsContent2026 = component$(() => {
             {
               title: "Why icons matter in modern UI",
               emoji: "🧩",
+              anchor: "icons",
             },
             {
               title: "Installing and using @qwikest/icons",
               emoji: "📦",
+              anchor: "qwikest-icons",
             },
             {
               title: "Using Heroicons in a Qwik component",
               emoji: "🦸",
+              anchor: "heroicons",
             },
             {
               title: "Creating a custom SVG component",
               emoji: "🎨",
+              anchor: "other-ways-to-add-icons",
             },
             {
-              title: "Adding props for flexible styling",
-              emoji: "⚙️",
+              title: "Using icones.js.org",
+              emoji: "🌐",
+              anchor: "using-icones-js-org",
+            },
+            {
+              title: "Source code",
+              emoji: "📎",
+              anchor: "source-code",
             },
           ]}
         />
 
-        <SubtitleWithAnchor title="🧩 Icons" id="Icons" />
+        <SubtitleWithAnchor title="🧩 Icons" id="icons" />
         <p>
           Icons are small visual elements that guide users, reinforce meaning,
           and improve usability. In modern frontend development, they are
@@ -448,7 +458,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
         <SubtitleWithAnchor title="Source code" id="source-code" />
 
         <p>
-          You can find the source code for chapter 3 on{" "}
+          You can find the source code for chapter 3 2026 edition on{" "}
           <BlankLink
             href="https://github.com/DevWeb13/qwik-dashboard-2026/tree/Chapter-3-Icons-and-SVG-Components"
             text="GitHub"

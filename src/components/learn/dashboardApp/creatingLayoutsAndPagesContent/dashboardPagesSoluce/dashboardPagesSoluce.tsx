@@ -23,7 +23,7 @@ export const DashboardPagesSoluce = component$(() => {
 export default component$(() => {
   return <p>Customers Page</p>;
 });`}
-        text="/src/routes/customers/index.tsx"
+        text="/src/routes/dashboard/customers/index.tsx"
         icon="typescript"
         language="tsx"
       />
@@ -36,7 +36,7 @@ export default component$(() => {
 export default component$(() => {
   return <p>Invoices Page</p>;
 });`}
-        text="/src/routes/invoices/index.tsx"
+        text="/src/routes/dashboard/invoices/index.tsx"
         icon="typescript"
         language="tsx"
       />

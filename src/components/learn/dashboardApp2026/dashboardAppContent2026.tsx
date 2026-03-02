@@ -168,15 +168,15 @@ export const DashboardAppContent2026 = component$(() => {
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-160 flex-col items-center md:my-20 md:mt-12">
         <div
           aria-hidden="true"
-          class="mx-auto h-32 w-px bg-linear-to-t from-blue-300 md:h-48"
+          class="mx-auto h-32 w-px bg-linear-to-t from-(--qwik-light-purple) md:h-48"
         ></div>
+
         <div
           aria-hidden="true"
-          class="relative flex h-24 w-24 items-center justify-center rounded-full bg-blue-300 text-[48px] font-semibold text-blue-900  md:h-32 md:w-32 md:text-[72px]"
+          class="relative flex h-24 w-24 items-center justify-center rounded-full bg-(--qwik-light-purple) text-(--qwik-deep-purple) md:h-32 md:w-32"
         >
           <svg
             class="with-icon_icon__MHUeb"
-            data-testid="geist-icon"
             fill="none"
             height="24"
             shape-rendering="geometricPrecision"
@@ -186,12 +186,13 @@ export const DashboardAppContent2026 = component$(() => {
             stroke-width="1.5"
             viewBox="0 0 24 24"
             width="24"
-            style="color: currentcolor; width: 64px; height: 64px;"
+            style="width: 64px; height: 64px;"
           >
             <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"></path>
             <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"></path>
           </svg>
         </div>
+
         <h2
           class="text_wrapper block pb-2 pt-8"
           data-version="v1"
@@ -199,16 +200,18 @@ export const DashboardAppContent2026 = component$(() => {
         >
           Ready to get started?
         </h2>
+
         <div class="text-center">
           <p
             class="text_wrapper"
             data-version="v1"
-            style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --smd-text-letter-spacing: initial; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --md-text-letter-spacing: initial; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400; --lg-text-letter-spacing: initial;"
+            style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400;"
           >
             Now that you understand what we will build and what you will learn,
             let us begin creating the application.
           </p>
         </div>
+
         <GoToNextChapterBlock
           version="2026"
           goToChapter={1}
