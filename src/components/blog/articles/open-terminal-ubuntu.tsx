@@ -22,13 +22,13 @@ export const OpenTerminalUbuntuArticle = component$(() => {
   const isSubscribed = isSubscriptionActive(profile.value);
 
   return (
-    <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
+    <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 lg:px-12 lg:py-20">
       {/* ✅ Main Title */}
-      <header class="flex flex-col items-center gap-2 px-4 md:gap-4">
-        <h1 class="max-w-[90%] text-center text-3xl font-bold md:max-w-[100%] md:text-5xl">
+      <header class="flex flex-col items-center gap-2 px-4 lg:gap-4">
+        <h1 class="max-w-[90%] text-center text-3xl font-bold lg:max-w-full lg:text-5xl">
           Open the Terminal on Ubuntu (0/∞)
         </h1>
-        <h2 class="max-w-[80%] text-center text-2xl font-semibold text-gray-800 md:max-w-[100%] md:text-4xl">
+        <h2 class="max-w-[80%] text-center text-2xl font-semibold text-gray-800 lg:max-w-full lg:text-4xl">
           Learn Qwik from A to Z (2025)
         </h2>
         <p class="mt-2 max-w-xl text-center text-gray-700">
@@ -38,8 +38,8 @@ export const OpenTerminalUbuntuArticle = component$(() => {
       </header>
 
       {/* ✅ Article + ad */}
-      <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
-        <div class="flex w-full flex-col gap-4 md:max-w-[calc(100%-300px)]">
+      <div class="relative flex w-full max-w-5xl flex-col justify-center gap-4 px-4 lg:flex-row">
+        <div class="flex w-full flex-col gap-4 lg:max-w-[calc(100%-300px)]">
           <div class="flex flex-col gap-6 rounded-lg bg-white p-6 pt-0 shadow-md">
             <article class="prose prose-lg max-w-none text-gray-800">
               <figure>
@@ -111,7 +111,7 @@ export const OpenTerminalUbuntuArticle = component$(() => {
 
               {/* ✅ Steps */}
               <h3>📂 Step 0: Open the Terminal on Ubuntu</h3>
-              <ol class="list-inside list-decimal space-y-6 pl-4 md:list-outside md:pl-8">
+              <ol class="list-inside list-decimal space-y-6 pl-4 lg:list-outside lg:pl-8">
                 <li>
                   <p>
                     Click on the <strong>Activities</strong> menu at the{" "}

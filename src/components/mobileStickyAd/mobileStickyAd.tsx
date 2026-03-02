@@ -5,7 +5,7 @@ import { component$ } from "@builder.io/qwik";
 export const MobileStickyAd = component$(() => {
   return (
     <aside class="fixed bottom-12 left-0 right-0 z-50 block bg-white shadow-inner lg:hidden">
-      <div class="mx-auto max-w-[360px]">
+      <div class="mx-auto max-w-90">
         <ins
           class="adsbygoogle"
           style="display:inline-block;width:320px;height:100px"

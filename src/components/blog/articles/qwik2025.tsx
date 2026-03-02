@@ -13,10 +13,10 @@ export const Qwik2025Article = component$(() => {
   const profile = useProfile();
   const isSubscribed = isSubscriptionActive(profile.value);
   return (
-    <main class="relative flex min-h-screen w-full flex-col items-center gap-8  bg-white py-12 md:px-12 md:py-20">
+    <main class="relative flex min-h-screen w-full flex-col items-center gap-8  bg-white py-12 lg:px-12 lg:py-20">
       {/* ✅ Titre principal pleine largeur */}
-      <header class="flex flex-col items-center gap-4 px-4 md:gap-8">
-        <h1 class="max-w-[80%] text-center text-4xl font-semibold md:max-w-[100%] md:text-6xl">
+      <header class="flex flex-col items-center gap-4 px-4 lg:gap-8">
+        <h1 class="max-w-[80%] text-center text-4xl font-semibold lg:max-w-[100%] lg:text-6xl">
           Qwik in 2025: Why It's the Future of Web Development
         </h1>
         <p class="max-w-xl text-center text-gray-900">
@@ -26,9 +26,9 @@ export const Qwik2025Article = component$(() => {
       </header>
 
       {/* ✅ Bloc article + pub */}
-      <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 md:flex-row">
+      <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 lg:flex-row">
         {/* ✅ Article */}
-        <div class="flex w-full flex-col gap-4 md:max-w-[calc(100%-300px)]">
+        <div class="flex w-full flex-col gap-4 lg:max-w-[calc(100%-300px)]">
           <div class="flex flex-col gap-4 rounded-lg bg-white p-6 pt-0 shadow-md">
             <article class="prose prose-lg max-w-none text-gray-800">
               <figure>
@@ -177,7 +177,7 @@ export const Qwik2025Article = component$(() => {
 
               <h2>📈 Final Comparison (2025)</h2>
               <div class="w-full overflow-auto">
-                <table class="mt-4 w-full table-auto border-collapse text-sm md:text-base">
+                <table class="mt-4 w-full table-auto border-collapse text-sm lg:text-base">
                   <thead>
                     <tr>
                       <th class="border px-4 py-2 text-left">Framework</th>

@@ -8,6 +8,7 @@ import MetaQwik2025 from "~/assets/img/metaQwik2025.png?jsx";
 import MetaOpenTerminalUbuntu from "~/assets/img/open-terminal/metaOpenTerminalUbuntu.png?jsx";
 import MetaQwik119 from "~/assets/img/qwik-1-19/metaQwik119.png?jsx";
 import MetaQwik2Beta from "~/assets/img/qwik-2-beta/metaQwik2Beta.png?jsx";
+import MetaQwikVsReact2026 from "~/assets/img/qwik-vs-react-2026/metaQwikVsReact2026.png?jsx";
 import MetaRemoveConsoleLog from "~/assets/img/remove-console-log/metaRemoveConsoleLog.png?jsx";
 import { useProfile } from "~/routes/layout";
 import { isSubscriptionActive } from "~/utils/subscription";
@@ -32,7 +33,7 @@ export const BlogContent = component$(() => {
   return (
     <div class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 md:px-12 md:py-20">
       <header class="flex flex-col items-center gap-4 px-4 md:gap-8">
-        <h1 class="max-w-[80%] text-center text-4xl font-semibold md:max-w-[100%] md:text-6xl">
+        <h1 class="max-w-[80%] text-center text-4xl font-semibold md:max-w-full md:text-6xl">
           All About <span class="text-blue-500">Qwik</span>: Tutorials, News &
           Best Practices
         </h1>
@@ -50,12 +51,28 @@ export const BlogContent = component$(() => {
           </h2>
           <div class="blog_posts">
             <BlogCard
+              title="Qwik vs React in 2026 | Performance, Hydration & the Future of the Web"
+              description="A technical comparison between React and Qwik in 2026. Hydration vs resumability, JavaScript payload, edge architecture, and long-term scalability."
+              href="/blog/qwik-vs-react-2026/"
+              date="March 2026"
+              readTime="7 min read"
+              badge="Framework comparison"
+              badgeVariant="comparison"
+            >
+              <MetaQwikVsReact2026
+                class="h-full w-full object-contain object-center"
+                alt="Qwik vs React 2026 comparison"
+              />
+            </BlogCard>
+
+            <BlogCard
               title="Security Advisory (2026) | CVE-2026-25148 Fixed in Qwik 1.19.0"
               description="A Cross-Site Scripting (XSS) vulnerability affecting Qwik SSR apps prior to 1.19.0. Learn what was impacted, who is concerned, and why updating is enough."
               href="/blog/qwik-cve-2026-25148/"
               date="January 2026"
               readTime="5 min read"
               badge="Security advisory"
+              badgeVariant="security"
             >
               <MetaQwikCVE2026
                 class="h-full w-full object-contain object-center"
