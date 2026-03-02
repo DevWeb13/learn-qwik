@@ -4,7 +4,7 @@ import { component$, useSignal, useStyles$ } from "@builder.io/qwik";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 
-import DashboardWithSidebar from "~/assets/img/dashboard-with-sidebar.png?jsx";
+import DashboardWithSidebar2026 from "~/assets/img/dashboard-with-sidebar-2026.png?jsx";
 import DiagramRoutes from "~/assets/img/diagram-routes.png?jsx";
 import LayoutNesting from "~/assets/img/layout-nesting.png?jsx";
 import NestedRouting from "~/assets/img/nested-routing.png?jsx";
@@ -399,7 +399,7 @@ export default component$(() => {
         </p>
 
         <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
-          <DashboardWithSidebar
+          <DashboardWithSidebar2026
             alt="Dashboard page with a sidebar navigation and a main content area"
             class="block w-full rounded-md border border-gray-200 bg-gray-100"
           />
