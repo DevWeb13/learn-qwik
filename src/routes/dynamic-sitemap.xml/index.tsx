@@ -7,7 +7,11 @@ import { createSitemap } from "./create-sitemap";
 export const onGet: RequestHandler = (ev) => {
   const learnRoutes = routes
     .map(([route]) => route as string)
-    .filter((route) => route.startsWith("learn/"));
+    .filter(
+      (route) =>
+        route.startsWith("learn/dashboard-app/") ||
+        route.startsWith("learn/dashboard-app-2026/"),
+    );
 
   const blogRoutes = routes
     .map(([route]) => route as string)
