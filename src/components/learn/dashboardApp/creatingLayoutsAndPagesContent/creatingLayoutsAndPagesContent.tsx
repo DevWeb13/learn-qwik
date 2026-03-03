@@ -193,7 +193,7 @@ export default component$(() => {
           the toggle below for the solution:
         </p>
 
-        <div class="bg-vercel-200 -mx-5 mb-8 p-5.25 md:-mx-[62px] md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
+        <div class="bg-vercel-200 -mx-5 mb-8 p-5.25 md:-mx-15.5 md:rounded-2xl md:p-4 md:px-15.5 md:py-12">
           <button
             class="button_base reset_reset button_button  geist-new-themed geist-new-button geist-new-button-fill button_invert"
             data-geist-button=""
@@ -598,7 +598,7 @@ export default component$(() => {
         description="RumNCode 🥃 walks you through this chapter, reinforcing key concepts from previous sections and adding new ones."
       />
 
-      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-160 flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
           chapterNumber={4}
           text="Well done! You've learned how to create layouts and pages in Qwik."
@@ -611,7 +611,7 @@ export default component$(() => {
         />
       </div>
       <Feedback />
-      <div class="mb-[40px] md:mb-[120px]"></div>
+      <div class="mb-10 md:mb-30"></div>
     </>
   );
 });
