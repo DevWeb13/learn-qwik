@@ -241,7 +241,7 @@ export default component$(() => {
                   href={
                     chapter.uri === ""
                       ? "/learn/dashboard-app/"
-                      : `/learn/dashboard-app-2026/${chapter.uri}/`
+                      : `/learn/dashboard-app/${chapter.uri}/`
                   }
                   numberOrIcon={chapter.id.toString()}
                   title={chapter.title}
