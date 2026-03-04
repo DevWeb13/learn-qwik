@@ -39,17 +39,13 @@ export async function updateSession(requestEvent: RequestEvent) {
   // 1. Bypass bots (SEO)
   // -----------------------------
   const userAgent = requestEvent.request.headers.get("user-agent") || "";
-  const isBot =
-    /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|ia_archiver/i.test(
-      userAgent,
-    );
+  const isBot = /bot|crawl|spider|slurp|ahrefs|semrush|mj12|dotbot/i.test(
+    userAgent || "",
+  );
 
   if (isBot) {
     return;
   }
-
-  // const PUBLIC_PATHS = ["/blog"];
-  // if (PUBLIC_PATHS.some((p) => path.startsWith(p))) return;
 
   const supabase = createClient(requestEvent);
   // -----------------------------

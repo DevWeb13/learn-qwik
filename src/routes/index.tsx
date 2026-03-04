@@ -176,7 +176,11 @@ export default component$(() => {
               return (
                 <ChapterThumbnail
                   key={chapter2026.id}
-                  href={`/learn/dashboard-app-2026/${chapter2026.uri}/`}
+                  href={
+                    chapter2026.uri === ""
+                      ? "/learn/dashboard-app-2026/"
+                      : `/learn/dashboard-app-2026/${chapter2026.uri}/`
+                  }
                   numberOrIcon={chapter2026.id.toString()}
                   title={chapter2026.title}
                   description={chapter2026.description}
@@ -234,7 +238,11 @@ export default component$(() => {
               return (
                 <ChapterThumbnail
                   key={chapter.id}
-                  href={`/learn/dashboard-app/${chapter.uri}/`}
+                  href={
+                    chapter.uri === ""
+                      ? "/learn/dashboard-app/"
+                      : `/learn/dashboard-app-2026/${chapter.uri}/`
+                  }
                   numberOrIcon={chapter.id.toString()}
                   title={chapter.title}
                   description={chapter.description}
