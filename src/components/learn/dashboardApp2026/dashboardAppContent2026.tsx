@@ -26,6 +26,18 @@ export const DashboardAppContent2026 = component$(() => {
           ready patterns.
         </p>
 
+        <p>
+          This course takes about <strong>3 to 4 hours</strong> to complete and
+          is designed to be followed step by step.
+        </p>
+
+        <p>
+          The first part of this course is completely free and focuses on the
+          core concepts of Qwik. Later chapters introduce the full-stack aspects
+          of the application, including authentication, database integration,
+          and production deployment.
+        </p>
+
         <SubtitleWithAnchor
           id="what-well-be-building"
           title="What we'll be building"
@@ -132,7 +144,7 @@ export const DashboardAppContent2026 = component$(() => {
 
         <ul>
           <li>
-            Node.js 18.17.0 or later.{" "}
+            Node.js 18.17 or later (or any modern runtime like Bun or Deno).{" "}
             <BlankLink href="https://nodejs.org/en" text="Download here" />
           </li>
           <li>macOS, Windows including WSL, or Linux.</li>
@@ -203,12 +215,15 @@ export const DashboardAppContent2026 = component$(() => {
 
         <div class="text-center">
           <p
-            class="text_wrapper"
+            class="text_wrapper max-w-xl mx-auto mt-3 leading-relaxed"
             data-version="v1"
             style="--text-color: var(--ds-gray-900); --xs-text-size: 0.875rem; --xs-text-line-height: 1.25rem; --xs-text-weight: 400; --xs-text-letter-spacing: initial; --sm-text-size: 0.875rem; --sm-text-line-height: 1.25rem; --sm-text-weight: 400; --sm-text-letter-spacing: initial; --smd-text-size: 1rem; --smd-text-line-height: 1.5rem; --smd-text-weight: 400; --md-text-size: 1rem; --md-text-line-height: 1.5rem; --md-text-weight: 400; --lg-text-size: 1rem; --lg-text-line-height: 1.5rem; --lg-text-weight: 400;"
           >
             Now that you understand what we will build and what you will learn,
-            let us begin creating the application.
+            let us begin creating the application. <br />
+            <strong>The first step only takes a few minutes</strong> and you can
+            follow the course at your own pace. <br />
+            <strong>Your progress will be saved automatically.</strong>
           </p>
         </div>
 
