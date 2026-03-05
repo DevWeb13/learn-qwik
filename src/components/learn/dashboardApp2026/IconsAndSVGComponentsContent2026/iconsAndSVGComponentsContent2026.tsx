@@ -471,13 +471,13 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
         <CompletedChapter
           chapterNumber={3}
           text="Great work! You now know how to add and customize icons in your Qwik application."
+          version="2026 Edition"
         />
         <GoToNextChapterBlock
           version="2026"
           goToChapter={4}
-          title="Optimizing Fonts and Images"
-          text="Continue enhancing your UI by adding custom fonts and optimizing images."
-          disabledButton
+          title="Creating Layouts And Pages"
+          text="In the next chapter, you will learn how to create layouts and pages in your Qwik application using the file-based routing system of Qwik City."
         />
       </div>
 
