@@ -39,9 +39,10 @@ export async function updateSession(requestEvent: RequestEvent) {
   // 1. Bypass bots (SEO)
   // -----------------------------
   const userAgent = requestEvent.request.headers.get("user-agent") || "";
-  const isBot = /bot|crawl|spider|slurp|ahrefs|semrush|mj12|dotbot/i.test(
-    userAgent || "",
-  );
+  const isBot =
+    /bot|crawl|spider|slurp|ahrefs|semrush|mj12|dotbot|googlebot|bingbot|yandex/i.test(
+      userAgent,
+    );
 
   if (isBot) {
     return;
@@ -66,6 +67,10 @@ export async function updateSession(requestEvent: RequestEvent) {
   const isPublic =
     currentPath === "/" ||
     publicRoutes.some((route) => currentPath.startsWith(route));
+
+  console.log(
+    `[AUTH] isPublic=${isPublic} isAuthRoute=${currentPath.startsWith("/auth/login")}`,
+  );
 
   const isAuthRoute = currentPath.startsWith("/auth/login");
 

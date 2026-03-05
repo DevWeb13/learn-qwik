@@ -22,8 +22,6 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
     const nav = useNavigate();
     const deleteProfileAction = useDeleteProfileAction();
 
-    console.log("profile", profile.value);
-
     // 🔥 Vérifier si l'utilisateur a un abonnement actif
     const hasActiveSubscription = isSubscriptionActive(profile.value);
     const subscriptionEndDate = profile.value?.grace_period_end
@@ -39,7 +37,7 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
             }}
             class="flex w-full items-center justify-center gap-1 rounded-sm border border-transparent bg-red-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
           >
-            Delete Account <HiTrashOutline class="h-4 w-4 stroke-[2]" />
+            Delete Account <HiTrashOutline class="h-4 w-4 stroke-2" />
           </button>
 
           <button
@@ -54,7 +52,7 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
 
         <Modal
           bind:show={showModal}
-          class="bottom-sheet shadow-dark-medium bg-background text-foreground fixed mx-auto max-h-[80%] max-w-[80%] rounded-md border-0 p-[28px] backdrop:backdrop-blur backdrop:backdrop-brightness-50 dark:backdrop:backdrop-brightness-100 md:max-w-[50%]"
+          class="bottom-sheet shadow-dark-medium bg-background text-foreground fixed mx-auto max-h-[80%] max-w-[80%] rounded-md border-0 p-7 backdrop:backdrop-blur backdrop:backdrop-brightness-50 dark:backdrop:backdrop-brightness-100 md:max-w-[50%]"
         >
           <div class="flex flex-col gap-4">
             <ModalHeader>
@@ -97,7 +95,7 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
                 }}
                 class="flex w-full items-center justify-center gap-1 rounded-sm border border-transparent bg-red-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-300 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500"
               >
-                Delete Account <HiTrashOutline class="h-4 w-4 stroke-[2]" />
+                Delete Account <HiTrashOutline class="h-4 w-4 stroke-2" />
               </button>
               <button
                 onClick$={() => {

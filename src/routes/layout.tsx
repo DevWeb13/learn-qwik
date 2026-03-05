@@ -82,8 +82,6 @@ export const useProfile = routeLoader$<Profile | null>(async (request) => {
     "Vercel-CDN-Cache-Control",
   );
   const profile = request.sharedMap.get("profile") as Profile | null; // 💡 Correction du typage ici
-  console.log("profile", profile);
-
   return profile || null;
 });
 

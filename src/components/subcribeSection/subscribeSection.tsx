@@ -14,8 +14,6 @@ export const SubscribeSection = component$<SubscribeSectionProps>(
     const store = useStore({ loading: false });
     const nav = useNavigate();
 
-    console.log("profile", profile.value);
-
     const handlePayment = $(async (priceId: string) => {
       if (!profile.value) {
         nav("/auth/login");

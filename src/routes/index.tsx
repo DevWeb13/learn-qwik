@@ -26,8 +26,6 @@ import { CHAPTERS2026 } from "~/constants/chapters2026";
 export default component$(() => {
   const profile = useProfile();
 
-  console.log(CHAPTERS2026);
-
   return (
     <main>
       <section class="relative flex w-full flex-col items-center overflow-hidden py-12 md:py-20">
