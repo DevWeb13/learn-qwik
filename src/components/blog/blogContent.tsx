@@ -51,7 +51,7 @@ export const BlogContent = component$(() => {
           </h2>
           <div class="blog_posts">
             <BlogCard
-              title="Qwik vs React in 2026 | Performance, Hydration & the Future of the Web"
+              title="Qwik vs React in 2026 | Hydration vs Resumability"
               description="A technical comparison between React and Qwik in 2026. Hydration vs resumability, JavaScript payload, edge architecture, and long-term scalability."
               href="/blog/qwik-vs-react-2026/"
               date="March 2026"
