@@ -40,7 +40,7 @@ export async function updateSession(requestEvent: RequestEvent) {
   // -----------------------------
   const userAgent = requestEvent.request.headers.get("user-agent") || "";
   const isBot =
-    /bot|crawl|spider|slurp|ahrefs|semrush|mj12|dotbot|googlebot|bingbot|yandex/i.test(
+    /bot|crawl|spider|slurp|ahrefs|semrush|mj12|dotbot|bingbot|yandex|google-inspectiontool/i.test(
       userAgent,
     );
 
