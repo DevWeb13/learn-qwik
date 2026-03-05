@@ -150,6 +150,18 @@ export const QwikVsReact2026Article = component$(() => {
 
               <h3>⚡ Performance Under Real Conditions</h3>
 
+              <p>
+                Hydration cost increases as applications grow because React must
+                execute component logic again in the browser before the page
+                becomes interactive.
+              </p>
+
+              <p>
+                This startup work happens even if the user never interacts with
+                most of the page. Large dashboards or SaaS interfaces often pay
+                this cost on every page load.
+              </p>
+
               <p>Hydration cost increases with:</p>
 
               <ul>
@@ -181,22 +193,90 @@ export const QwikVsReact2026Article = component$(() => {
               <h4>Nuance: React Server Components (RSC)</h4>
 
               <p>
-                React Server Components are part of React itself. They allow
-                certain components to run exclusively on the server and avoid
-                sending their JavaScript to the client.
+                React Server Components were introduced to reduce the amount of
+                JavaScript sent to the browser. Server-only components can
+                render on the server and their code is never shipped to the
+                client.
               </p>
 
               <p>
-                This can significantly reduce the amount of JavaScript shipped
-                compared to traditional client-heavy React applications.
-                However, components that require interactivity still need client
-                bundles and hydration to attach event listeners.
+                However, this introduces a second mental model inside React.
+                Developers now need to reason about two different kinds of
+                components: server components and client components. Any
+                component that needs interactivity must still be downloaded and
+                hydrated in the browser.
               </p>
 
               <p>
-                In practice, React Server Components reduce what is sent to the
-                browser, while Qwik’s resumability model changes when and how
-                JavaScript executes once the page loads.
+                In practice this means developers must pay close attention to
+                what runs on the server and what runs on the client. Managing
+                this boundary becomes an important part of building React
+                applications with RSC.
+              </p>
+
+              <p>
+                Qwik takes a different approach. Instead of separating
+                components into two categories, it automatically splits code
+                between server and client. Only the code that actually runs in
+                the browser is downloaded.
+              </p>
+
+              <p>
+                There is no need to maintain two mental models of components.
+                The framework handles the boundary automatically.
+              </p>
+
+              <h3>🏗 Architecture Differences</h3>
+
+              <p>
+                React introduced a powerful developer experience based on the
+                idea that the entire UI can be rendered from scratch whenever
+                state changes. This model simplified many problems when React
+                first appeared.
+              </p>
+
+              <p>
+                Because rendering is tied to state updates, performance tuning
+                in large applications often involves techniques such as
+                memoization, Suspense boundaries, or careful component
+                structure.
+              </p>
+
+              <p>
+                In other words, React progressively optimized the hydration
+                model. Qwik takes a different path. Instead of optimizing
+                hydration, it removes the need for hydration entirely by
+                resuming the application from the state already produced on the
+                server.
+              </p>
+
+              <p>
+                This execution model works extremely well for many applications,
+                but as interfaces grow larger developers sometimes need
+                additional techniques to control rendering cost.
+              </p>
+
+              <p>
+                Handling asynchronous data in React typically requires
+                additional state management to represent loading and resolved
+                states.
+              </p>
+
+              <p>
+                Qwik keeps a similar developer experience but changes the
+                underlying execution model.
+              </p>
+
+              <ul>
+                <li>Server and client code splitting happens automatically</li>
+                <li>Signals ensure only the code that actually changes runs</li>
+                <li>Promises can be used directly in rendering</li>
+                <li>Bundle loading happens automatically at function level</li>
+              </ul>
+
+              <p>
+                Instead of re-executing the entire component tree, Qwik resumes
+                from the state that was already produced on the server.
               </p>
 
               <h3>🛠 Developer Experience</h3>
@@ -238,15 +318,28 @@ export const QwikVsReact2026Article = component$(() => {
 
               <h3>🔮 Final Takeaway</h3>
 
-              <p>This debate is not emotional. It is architectural.</p>
-
-              <p>React refined hydration. Qwik rethinks it.</p>
-
-              <p class="font-semibold">Resumability is the real innovation.</p>
+              <p>This comparison is fundamentally about architecture.</p>
 
               <p>
-                Whether Qwik overtakes React is secondary. The shift toward
-                shipping less JavaScript is already happening.
+                React optimized the hydration model over time through tools such
+                as streaming and Server Components.
+              </p>
+
+              <p>
+                Qwik approaches the problem differently. It removes the need for
+                hydration entirely by resuming the application from serialized
+                state.
+              </p>
+
+              <p>
+                The result is a framework where JavaScript execution is
+                distributed across user interactions instead of concentrated at
+                startup.
+              </p>
+
+              <p class="font-semibold">
+                Less JavaScript upfront often means faster startup and better
+                scalability for large applications.
               </p>
 
               <ArticleDiscordCallout />
