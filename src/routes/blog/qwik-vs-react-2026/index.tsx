@@ -8,7 +8,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead(
-  "(2026) | Qwik vs React | Performance, Hydration & Resumability Compared",
+  "Qwik vs React (2026) | Hydration vs Resumability",
   "Qwik vs React in 2026: a deep technical comparison of hydration vs resumability, performance, JavaScript payload size, and edge-ready architecture.",
   "https://www.learn-qwik.com/metaQwikVsReact2026.png",
   "https://www.learn-qwik.com/blog/qwik-vs-react-2026/",
