@@ -12,6 +12,6 @@ export default component$(() => {
 export const head: DocumentHead = createDocumentHead(
   "Chapter 5: Navigating Between Pages 2026",
   "Learn how to navigate between pages in Qwik City with Link, useNavigate, and useLocation. Improve dashboard navigation, active links, and URL consistency.",
-  "https://www.learn-qwik.com/metaChapter5.png",
+  "https://www.learn-qwik.com/meta-chapter-5-2026.png",
   "https://www.learn-qwik.com/learn/dashboard-app-2026/navigating-between-pages-2026/",
 );

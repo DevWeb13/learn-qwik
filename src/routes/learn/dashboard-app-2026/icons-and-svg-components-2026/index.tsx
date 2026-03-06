@@ -12,6 +12,6 @@ export default component$(() => {
 export const head: DocumentHead = createDocumentHead(
   "Chapter 3: Icons and SVG Components 2026",
   "Learn how to add, customize, and manage icons in your Qwik application using packages and raw SVG components.",
-  "https://www.learn-qwik.com/metaChapter3.png",
+  "https://www.learn-qwik.com/meta-chapter-3-2026.png",
   "https://www.learn-qwik.com/learn/dashboard-app/working-with-icons-2026/",
 );

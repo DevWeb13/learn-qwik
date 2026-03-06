@@ -270,7 +270,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
         Search
       </label>
       <input
-        class="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+        class="peer block w-full rounded-md border border-gray-200 py-2.25 pl-10 text-sm outline-2 placeholder:text-gray-500"
         placeholder={placeholder}
         onInput$={(e) => {
           const inputValue = (e.target as HTMLInputElement).value;

@@ -160,7 +160,7 @@ export default component$(() => {
       <div class="w-full flex-none md:w-64">
         <SideNav />
       </div>
-      <div class="flex-grow p-6 md:overflow-y-auto md:p-12">
+      <div class="grow p-6 md:overflow-y-auto md:p-12">
         <Slot />
       </div>
     </div>
