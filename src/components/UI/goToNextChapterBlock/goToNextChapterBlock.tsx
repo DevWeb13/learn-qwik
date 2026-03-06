@@ -11,7 +11,6 @@ interface GoToNextChapterBlockProps {
 
 export const GoToNextChapterBlock = component$<GoToNextChapterBlockProps>(
   ({ goToChapter, title, text, disabledButton = false, version }) => {
-    console.log("test2 " + title);
     return (
       <div class="border-gray-alpha-400 mt-8 flex w-full flex-col items-center justify-center gap-1 rounded-lg px-4 py-8 shadow-md md:mt-12">
         <p

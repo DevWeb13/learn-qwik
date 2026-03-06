@@ -17,10 +17,6 @@ async function getProfile(
 ): Promise<Database["public"]["Tables"]["profiles"]["Row"] | null> {
   if (!user) return null;
 
-  console.log(
-    "📢 Appel à Supabase pour récupérer le profile via getProfileById",
-  );
-
   const profile = await getProfileById(supabase, user.id);
 
   if (!profile) {
@@ -56,8 +52,6 @@ export async function updateSession(requestEvent: RequestEvent) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  console.log(`[AUTH] path=${currentPath} authenticated=${Boolean(user)}`);
-
   // -----------------------------
   // 3. Redirections basées sur l'authentification
   // -----------------------------
@@ -67,10 +61,6 @@ export async function updateSession(requestEvent: RequestEvent) {
   const isPublic =
     currentPath === "/" ||
     publicRoutes.some((route) => currentPath.startsWith(route));
-
-  console.log(
-    `[AUTH] isPublic=${isPublic} isAuthRoute=${currentPath.startsWith("/auth/login")}`,
-  );
 
   const isAuthRoute = currentPath.startsWith("/auth/login");
 

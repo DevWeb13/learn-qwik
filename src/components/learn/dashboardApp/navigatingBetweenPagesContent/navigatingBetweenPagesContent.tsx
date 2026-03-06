@@ -41,17 +41,6 @@ export default component$(() => {
           ]}
         />
 
-        {/* <div class="px-4  md:px-8 ">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Why Optimize Navigation?"
           id="why-optimize-navigation"
@@ -69,17 +58,6 @@ export default component$(() => {
           it can slow down the user experience and increase page loading
           times.🚤
         </p>
-
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="The <Link> component 🖇️"
@@ -132,7 +110,7 @@ export const NavLinks = component$(() => {
           <Link
             key={link.name}
             href={link.href}
-            class="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
+            class="flex h-12 grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3"
           >
             <LinkIcon class="w-6" />
             <p class="hidden md:block">{link.name}</p>
@@ -183,17 +161,6 @@ export const NavLinks = component$(() => {
           🚀
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="When to use &lt;a&gt; instead of &lt;Link&gt; 🔄"
           id="the-link-component"
@@ -207,17 +174,6 @@ export const NavLinks = component$(() => {
           This differs from most SPA frameworks where avoiding a full page
           reload is crucial to maintain performance. 🔍
         </p>
-
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <Quiz
           question="How does Qwik handle component loading when a user interacts with a <Link> component in a production environment?"
@@ -246,17 +202,6 @@ export const NavLinks = component$(() => {
           hint="Remember that Qwik selectively hydrates components, which means it only updates the components that need to be updated when a user interacts with a <Link> component."
           responseText="Qwik selectively hydrates only the components that need to be updated when a user interacts with a <Link> component. This selective hydration approach helps to optimize performance and improve the user experience by reducing the amount of work required to update the UI."
         />
-
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="Displaying an Active Link 🌟"
@@ -370,7 +315,7 @@ export const NavLinks = component$(() => {
             key={link.name}
             href={link.href}
             class={
-              "flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3" +
+              "flex h-12 grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3" +
               (pathname === link.href ? " bg-sky-100 text-blue-600" : "")
             }
           >
@@ -450,17 +395,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
           design.💅
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="How navigation works in Qwik-City"
           id="how-navigation-works-in-qwik-city"
@@ -490,17 +424,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
           the overall user experience.
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Recommended reading"
           id="recommended reading"
@@ -525,17 +448,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
           </li>
         </ul>
 
-        {/* <div class="px-4  md:px-8 ">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor title="Source code" id="source-code" />
         <p>
           You can find the source code for chapter 5 on{" "}
@@ -545,20 +457,9 @@ const pathname = url.pathname.replace(/\\/$/, "");
           />
           .
         </p>
-
-        <div class="px-4 md:px-8 ">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
       </div>
 
-      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-160 flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
           chapterNumber={5}
           text="Well done! You've learned how to navigate between pages in Qwik."
@@ -571,7 +472,7 @@ const pathname = url.pathname.replace(/\\/$/, "");
         />
       </div>
       <Feedback />
-      <div class="mb-[40px] md:mb-[120px]"></div>
+      <div class="mb-10 md:mb-30"></div>
     </>
   );
 });

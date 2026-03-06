@@ -37,4 +37,12 @@ export const CHAPTERS2026 = [
     isCompleted: false,
     uri: "creating-layouts-and-pages-2026",
   },
+  {
+    id: 5,
+    title: "Chapter 5: Navigating Between Pages",
+    description:
+      "Use Qwik City navigation, replace anchor tags with Link, and highlight the active route.",
+    isCompleted: false,
+    uri: "navigating-between-pages-2026",
+  },
 ];
