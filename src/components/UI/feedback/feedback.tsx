@@ -110,11 +110,11 @@ export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
       }
 
       .feedback_theme--2026 {
-        --feedback-selected-color: var(--qwik-deep-purple);
+        --feedback-selected-color: var(--qwik-dark-purple);
       }
 
       .feedback_theme--legacy {
-        --feedback-selected-color: var(--qwik-blue);
+        --feedback-selected-color: var(--qwik-dark-blue);
       }
 
       .feedback_emojiCountBadge {
