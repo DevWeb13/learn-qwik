@@ -11,7 +11,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead(
-  "Introduction",
+  "Introduction 2026",
   "Learn Qwik 2026 edition. Build a modern full-stack dashboard application using Qwik, Qwik City, and Supabase with production-ready architecture.",
   "https://www.learn-qwik.com/metaDashboard2026.png",
   "https://www.learn-qwik.com/learn/dashboard-app-2026/",
