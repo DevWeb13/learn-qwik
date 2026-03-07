@@ -1,127 +1,379 @@
-import { component$, useStyles$ } from "@builder.io/qwik";
-import Popover from "~/lib/qwikUI/popover/popover";
+import {
+  $,
+  component$,
+  useSignal,
+  useStyles$,
+  useTask$,
+} from "@builder.io/qwik";
+import {
+  useGetChapterFeedback,
+  useGetChapterFeedbackCounts,
+  useSaveChapterFeedback,
+} from "~/routes/learn/layout";
 
-export default component$(() => {
+type FeedbackReaction = "love" | "happy" | "sad" | "cry";
+
+interface FeedbackProps {
+  courseVersion: "Legacy" | "2026";
+  chapterNumber: number;
+}
+
+export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
+  const saveChapterFeedback = useSaveChapterFeedback();
+  const chapterFeedback = useGetChapterFeedback();
+  const chapterFeedbackCounts = useGetChapterFeedbackCounts();
+
+  const selectedReaction = useSignal<FeedbackReaction | null>(null);
+  const message = useSignal("");
+  const isFormOpen = useSignal(false);
+  const showSuccessToast = useSignal(false);
+
+  const counts =
+    chapterFeedbackCounts.value.courseVersion === courseVersion &&
+    chapterFeedbackCounts.value.chapterNumber === chapterNumber
+      ? {
+          love: chapterFeedbackCounts.value.love,
+          happy: chapterFeedbackCounts.value.happy,
+          sad: chapterFeedbackCounts.value.sad,
+          cry: chapterFeedbackCounts.value.cry,
+        }
+      : {
+          love: 0,
+          happy: 0,
+          sad: 0,
+          cry: 0,
+        };
+
   useStyles$(`
+      .feedback_inlineWrapper, .feedback_successWrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
 
-  .feedback_inlineWrapper, .feedback_successWrapper {
-    display: flex;
-    justify-content: center;
-  }
+      .feedback_inlineTriggerWrapper {
+        background: var(--ds-background-100);
+        box-shadow: var(--ds-shadow-border-small);
+        width: fit-content;
+        overflow: hidden;
+      }
 
-  .feedback_inlineTriggerWrapper {
-    background: var(--ds-background-100);
-    box-shadow: var(--ds-shadow-border-small);
-    width: -moz-fit-content;
-    width: fit-content;
-    overflow: hidden;
-  }
+      .feedback_trigger {
+        padding: 10px 12px 10px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
 
-  .feedback_trigger {
-    padding: 8px 8px 8px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
+      .feedback_emojisWrapper {
+        display: flex;
+        align-items: center;
+        color: var(--ds-gray-900);
+        gap: 6px;
+      }
 
-  .feedback_emojisWrapper {
-    display: flex;
-    align-items: center;
-    color: var(--ds-gray-900);
-    gap: 1px;
-  }
+      .feedback_emojiItem {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+      }
 
-  .feedback_emoji {
-      background: transparent;
-      border: none;
-      border-radius: 50%;
-      height: 32px;
-      width: 32px;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background .2s,border-color .2s;
-  }
+      .feedback_emoji {
+        background: transparent;
+        border: none;
+        border-radius: 9999px;
+        height: 36px;
+        width: 36px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background .2s, border-color .2s, box-shadow .2s;
+      }
 
-  [type=button], [type=reset], [type=submit], button {
-    -webkit-appearance: button;
-    background-color: transparent;
-    background-image: none;
-  }
+      .feedback_emoji:hover {
+        background: var(--ds-gray-alpha-100);
+      }
 
-  .feedback_formWrapper {
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .feedback_textarea__iiRZ8 {
-      padding: 10px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--ds-gray-alpha-400);
-      transition: border-color .2s;
-      background: var(--ds-background-100);
-      width: 100%;
-      height: 100px;
-      resize: none;
-      font-size: 14px;
-      font-family: var(--font-sans);
-  }
+      .feedback_emoji--selected {
+        background: var(--ds-gray-alpha-100);
+        box-shadow: inset 0 0 0 1px var(--feedback-selected-color);
+      }
 
-  @media (max-width: 640px) {
-    .feedback_textarea {
-      font-size: 16px;
+      .feedback_emoji--selected:hover {
+        background: var(--ds-gray-alpha-100);
+      }
+
+      .feedback_theme--2026 {
+        --feedback-selected-color: var(--qwik-deep-purple);
+      }
+
+      .feedback_theme--legacy {
+        --feedback-selected-color: var(--qwik-blue);
+      }
+
+      .feedback_emojiCountBadge {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        min-width: 16px;
+        height: 16px;
+        padding: 0 4px;
+        border-radius: 9999px;
+        background: var(--ds-background-100);
+        box-shadow: inset 0 0 0 1px var(--ds-gray-alpha-400);
+        color: var(--ds-gray-900);
+        font-size: 10px;
+        line-height: 16px;
+        text-align: center;
+        pointer-events: none;
+      }
+
+      [type=button], [type=reset], [type=submit], button {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none;
+      }
+
+      .feedback_formWrapper {
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      
+      .feedback_textarea__iiRZ8 {
+        padding: 10px 12px;
+        border-radius: 6px;
+        border: 1px solid var(--ds-gray-alpha-400);
+        transition: border-color .2s;
+        background: var(--ds-background-100);
+        width: 100%;
+        height: 100px;
+        resize: none;
+        font-size: 14px;
+        font-family: var(--font-sans);
+      }
+
+      .feedback_textarea__iiRZ8:focus {
+        outline: none;
+        border-color: var(--ds-gray-700);
+      }
+
+      @media (max-width: 640px) {
+        .feedback_textarea__iiRZ8 {
+          font-size: 16px;
+        }
+      }
+
+      .feedback_actions {
+        display: flex;
+        justify-content: flex-end;
+        padding: var(--geist-gap-half);
+        background: var(--accents-1);
+        border-top: 1px solid var(--accents-2);
+      }
+
+      .feedback_successText {
+        padding: 10px 16px 0 16px;
+        text-align: center;
+      }
+        
+      .feedback_toast {
+        position: fixed;
+        z-index: 9999;
+        right: 24px;
+        bottom: 24px;
+        border-radius: 9999px;
+        color: var(--ds-background-100);
+        padding: 10px 16px;
+        box-shadow: var(--ds-shadow-border-small);
+        font-size: 14px;
+        line-height: 1;
+        opacity: 0;
+        transform: translateY(16px);
+        animation: feedback-toast-in-out 3s ease forwards;
+      }
+
+      .feedback_toast--2026 {
+        background: var(--qwik-deep-purple);
+      }
+
+      .feedback_toast--legacy {
+        background: var(--qwik-blue);
+      }
+
+      @keyframes feedback-toast-in-out {
+        0% {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        12% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        82% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .feedback_toast {
+          left: 50%;
+          right: auto;
+          bottom: 68px;
+          transform: translateX(-50%) translateY(16px);
+          max-width: calc(100vw - 32px);
+          text-align: center;
+        }
+
+        @keyframes feedback-toast-in-out {
+          0% {
+            opacity: 0;
+            transform: translateX(-50%) translateY(16px);
+          }
+          12% {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
+          82% {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
+          100% {
+            opacity: 0;
+            transform: translateX(-50%) translateY(16px);
+          }
+        }
+      }
+
+      .feedback_formContainer {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition:
+          max-height 0.32s ease,
+          opacity 0.22s ease,
+          transform 0.22s ease;
+      }
+
+      .feedback_formContainer--open {
+        max-height: 220px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    `);
+
+  const handleReactionClick = $((reaction: FeedbackReaction) => {
+    selectedReaction.value = reaction;
+    isFormOpen.value = true;
+    showSuccessToast.value = false;
+  });
+
+  const handleSubmit = $(async () => {
+    if (!selectedReaction.value) return;
+
+    await saveChapterFeedback.submit({
+      courseVersion,
+      chapterNumber,
+      reaction: selectedReaction.value,
+      message: message.value,
+    });
+  });
+
+  useTask$(({ track }) => {
+    const feedback = track(() => chapterFeedback.value);
+    const trackedCourseVersion = track(() => courseVersion);
+    const trackedChapterNumber = track(() => chapterNumber);
+
+    selectedReaction.value =
+      feedback.courseVersion === trackedCourseVersion &&
+      feedback.chapterNumber === trackedChapterNumber
+        ? (feedback.reaction as FeedbackReaction | null)
+        : null;
+
+    message.value =
+      feedback.courseVersion === trackedCourseVersion &&
+      feedback.chapterNumber === trackedChapterNumber
+        ? (feedback.message ?? "")
+        : "";
+
+    isFormOpen.value = false;
+    showSuccessToast.value = false;
+  });
+
+  useTask$(({ track, cleanup }) => {
+    track(() => saveChapterFeedback.value);
+
+    let timeoutId: number | undefined;
+
+    if (saveChapterFeedback.value?.success) {
+      const activeElement = document.activeElement as HTMLElement | null;
+      activeElement?.blur();
+
+      isFormOpen.value = false;
+      showSuccessToast.value = true;
+
+      timeoutId = window.setTimeout(() => {
+        showSuccessToast.value = false;
+      }, 3000);
     }
-  }
-  
 
+    cleanup(() => {
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+      }
+    });
+  });
 
-
-
-  .feedback_actions {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px;
-    background: var(--accents-1);
-    border-top: 1px solid var(--accents-2);
-    padding: var(--geist-gap-half);
-  }
-
-  `);
   return (
-    <div class="feedback_inlineWrapper">
-      {/* After close issue put back the buttons and the types's buttons */}
-      <Popover issueLink="https://github.com/DevWeb13/learn-qwik/issues/23">
-        <div
-          class="feedback_inlineTriggerWrapper"
-          style="height: 48px; border-radius: 30px;"
-        >
-          <div class="feedback_trigger">
-            <p
-              class="text_wrapper"
-              data-version="v1"
-              style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
-            >
-              Was this helpful?
-            </p>
-            <span class="feedback_emojisWrapper">
-              <div
-                aria-checked="false"
+    <div
+      class={{
+        feedback_inlineWrapper: true,
+        "feedback_theme--2026": courseVersion === "2026",
+        "feedback_theme--legacy": courseVersion === "Legacy",
+      }}
+    >
+      <div class="feedback_inlineTriggerWrapper" style="border-radius: 30px;">
+        <div class="feedback_trigger">
+          <p
+            class="text_wrapper"
+            data-version="v1"
+            style="--text-color: var(--ds-gray-1000); --text-size: 0.9375rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
+          >
+            Was this helpful?
+          </p>
+
+          <span class="feedback_emojisWrapper">
+            <div class="feedback_emojiItem">
+              <button
                 aria-label="Select Love it! emoji"
-                class="feedback_emoji"
-                // role="radio"
-                // type="button"
+                class={{
+                  feedback_emoji: true,
+                  "feedback_emoji--selected": selectedReaction.value === "love",
+                }}
+                onClick$={() => handleReactionClick("love")}
+                type="button"
               >
                 <svg
                   data-testid="geist-icon"
-                  height="16"
+                  height="18"
                   stroke-linejoin="round"
                   viewBox="0 0 16 16"
-                  width="16"
+                  width="18"
                   style="color: currentcolor;"
                 >
                   <path
@@ -137,20 +389,30 @@ export default component$(() => {
                     fill="var(--ds-amber-800)"
                   ></path>
                 </svg>
-              </div>
-              <div
-                aria-checked="false"
+              </button>
+
+              {counts.love > 0 && (
+                <span class="feedback_emojiCountBadge">{counts.love}</span>
+              )}
+            </div>
+
+            <div class="feedback_emojiItem">
+              <button
                 aria-label="Select It’s okay emoji"
-                class="feedback_emoji"
-                // role="radio"
-                // type="button"
+                class={{
+                  feedback_emoji: true,
+                  "feedback_emoji--selected":
+                    selectedReaction.value === "happy",
+                }}
+                onClick$={() => handleReactionClick("happy")}
+                type="button"
               >
                 <svg
                   data-testid="geist-icon"
-                  height="16"
+                  height="18"
                   stroke-linejoin="round"
                   viewBox="0 0 16 16"
-                  width="16"
+                  width="18"
                   style="color: currentcolor;"
                 >
                   <path
@@ -160,43 +422,61 @@ export default component$(() => {
                     fill="currentColor"
                   ></path>
                 </svg>
-              </div>
-              <div
-                aria-checked="false"
+              </button>
+
+              {counts.happy > 0 && (
+                <span class="feedback_emojiCountBadge">{counts.happy}</span>
+              )}
+            </div>
+
+            <div class="feedback_emojiItem">
+              <button
                 aria-label="Select Not great emoji"
-                class="feedback_emoji"
-                // role="radio"
-                // type="button"
+                class={{
+                  feedback_emoji: true,
+                  "feedback_emoji--selected": selectedReaction.value === "sad",
+                }}
+                onClick$={() => handleReactionClick("sad")}
+                type="button"
               >
                 <svg
                   data-testid="geist-icon"
-                  height="16"
+                  height="18"
                   stroke-linejoin="round"
                   viewBox="0 0 16 16"
-                  width="16"
+                  width="18"
                   style="color: currentcolor;"
                 >
                   <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
-                    d="M14.5 8C14.5 11.5899 11.5899 14.5 8 14.5C4.41015 14.5 1.5 11.5899 1.5 8C1.5 4.41015 4.41015 1.5 8 1.5C11.5899 1.5 14.5 4.41015 14.5 8ZM16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM5.75 7.75C6.30228 7.75 6.75 7.30228 6.75 6.75C6.75 6.19772 6.30228 5.75 5.75 5.75C5.19772 5.75 4.75 6.19772 4.75 6.75C4.75 7.30228 5.19772 7.75 5.75 7.75ZM11.25 6.75C11.25 7.30228 10.8023 7.75 10.25 7.75C9.69771 7.75 9.25 7.30228 9.25 6.75C9.25 6.19772 9.69771 5.75 10.25 5.75C10.8023 5.75 11.25 6.19772 11.25 6.75ZM11.5249 11.2622L11.8727 11.7814L10.8342 12.4771L10.4863 11.9578C9.94904 11.1557 9.0363 10.6298 8.00098 10.6298C6.96759 10.6298 6.05634 11.1537 5.51863 11.9533L5.16986 12.4719L4.13259 11.7744L4.48137 11.2558C5.2414 10.1256 6.53398 9.37982 8.00098 9.37982C9.47073 9.37982 10.7654 10.1284 11.5249 11.2622Z"
+                    d="M14.5 8C14.5 11.5899 11.5899 14.5 8 14.5C4.41015 14.5 1.5 11.5899 1.5 8C1.5 4.41015 4.41015 1.5 8 1.5C11.5899 1.5 14.5 4.41015 14.5 8ZM16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM5.75 7.75C6.30228 7.75 6.75 7.30228 6.75 6.75C6.75 6.19772 6.30228 5.75 5.75 5.75C5.19772 5.75 4.75 6.19772 4.75 6.75C4.75 7.30228 5.19772 7.75 5.75 7.75ZM11.25 6.75C11.25 7.30228 10.8023 7.75 10.25 7.75C9.69771 7.75 9.25 6.19772 9.25 6.75C9.25 6.19772 9.69771 5.75 10.25 5.75C10.8023 5.75 11.25 6.19772 11.25 6.75ZM11.5249 11.2622L11.8727 11.7814L10.8342 12.4771L10.4863 11.9578C9.94904 11.1557 9.0363 10.6298 8.00098 10.6298C6.96759 10.6298 6.05634 11.1537 5.51863 11.9533L5.16986 12.4719L4.13259 11.7744L4.48137 11.2558C5.2414 10.1256 6.53398 9.37982 8.00098 9.37982C9.47073 9.37982 10.7654 10.1284 11.5249 11.2622Z"
                     fill="currentColor"
                   ></path>
                 </svg>
-              </div>
-              <div
-                aria-checked="false"
+              </button>
+
+              {counts.sad > 0 && (
+                <span class="feedback_emojiCountBadge">{counts.sad}</span>
+              )}
+            </div>
+
+            <div class="feedback_emojiItem">
+              <button
                 aria-label="Select Hate it emoji"
-                class="feedback_emoji"
-                // role="radio"
-                // type="button"
+                class={{
+                  feedback_emoji: true,
+                  "feedback_emoji--selected": selectedReaction.value === "cry",
+                }}
+                onClick$={() => handleReactionClick("cry")}
+                type="button"
               >
                 <svg
                   data-testid="geist-icon"
-                  height="16"
+                  height="18"
                   stroke-linejoin="round"
                   viewBox="0 0 16 16"
-                  width="16"
+                  width="18"
                   style="color: currentcolor;"
                 >
                   <path
@@ -212,56 +492,81 @@ export default component$(() => {
                     fill="currentColor"
                   ></path>
                 </svg>
-              </div>
-            </span>
-          </div>
-          <div>
-            <form>
-              <div class="feedback_formWrapper">
-                <textarea
-                  class="feedback_textarea__iiRZ8"
-                  id="feedback-textarea"
-                  placeholder="Your feedback..."
-                ></textarea>
-                <div
-                  class="text_wrapper feedback_markdown-tip"
-                  data-version="v1"
-                  style="--text-color: var(--ds-gray-900); --text-size: 0.75rem; --text-line-height: 1rem; --text-letter-spacing: initial; --text-weight: 400;"
-                >
-                  <svg
-                    fill="none"
-                    height="14"
-                    viewBox="0 0 22 14"
-                    width="22"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M19.5 1.25H2.5C1.80964 1.25 1.25 1.80964 1.25 2.5V11.5C1.25 12.1904 1.80964 12.75 2.5 12.75H19.5C20.1904 12.75 20.75 12.1904 20.75 11.5V2.5C20.75 1.80964 20.1904 1.25 19.5 1.25ZM2.5 0C1.11929 0 0 1.11929 0 2.5V11.5C0 12.8807 1.11929 14 2.5 14H19.5C20.8807 14 22 12.8807 22 11.5V2.5C22 1.11929 20.8807 0 19.5 0H2.5ZM3 3.5H4H4.25H4.6899L4.98715 3.82428L7 6.02011L9.01285 3.82428L9.3101 3.5H9.75H10H11V4.5V10.5H9V6.79807L7.73715 8.17572L7 8.97989L6.26285 8.17572L5 6.79807V10.5H3V4.5V3.5ZM15 7V3.5H17V7H19.5L17 9.5L16 10.5L15 9.5L12.5 7H15Z"
-                      fill="var(--ds-gray-700)"
-                      fill-rule="evenodd"
-                    ></path>
-                  </svg>
-                  supported.
-                </div>
-              </div>
-              <div class="feedback_actions" style="justify-content: flex-end;">
-                <div
-                  // type="submit"
-                  class="button_base reset_reset button_button reset_reset button_small button_invert"
-                  data-geist-button=""
-                  data-prefix="false"
-                  data-suffix="false"
-                  data-version="v1"
-                  style="--geist-icon-size: 16px;"
-                >
-                  <span class="button_content">Send</span>
-                </div>
-              </div>
-            </form>
-          </div>
+              </button>
+
+              {counts.cry > 0 && (
+                <span class="feedback_emojiCountBadge">{counts.cry}</span>
+              )}
+            </div>
+          </span>
         </div>
-      </Popover>
+
+        <div
+          class={{
+            feedback_formContainer: true,
+            "feedback_formContainer--open": isFormOpen.value,
+          }}
+        >
+          <form preventdefault:submit onSubmit$={handleSubmit}>
+            <div class="feedback_formWrapper">
+              <textarea
+                class="feedback_textarea__iiRZ8"
+                id="feedback-textarea"
+                placeholder="Your feedback..."
+                value={message.value}
+                onInput$={(_, el) => {
+                  message.value = el.value;
+                }}
+              ></textarea>
+
+              <div
+                class="text_wrapper feedback_markdown-tip"
+                data-version="v1"
+                style="--text-color: var(--ds-gray-900); --text-size: 0.75rem; --text-line-height: 1rem; --text-letter-spacing: initial; --text-weight: 400;"
+              >
+                Feedback is optional.
+              </div>
+            </div>
+
+            <div class="feedback_actions" style="justify-content: flex-end;">
+              <button
+                type="submit"
+                class="button_base reset_reset button_button reset_reset button_small button_invert"
+                data-geist-button=""
+                data-prefix="false"
+                data-suffix="false"
+                data-version="v1"
+                style="--geist-icon-size: 16px;"
+                disabled={saveChapterFeedback.isRunning}
+              >
+                <span class="button_content">
+                  {saveChapterFeedback.isRunning ? "Saving..." : "Send"}
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {saveChapterFeedback.value?.failed && (
+          <p class="feedback_successText text-red-600">
+            {saveChapterFeedback.value.fieldErrors?.message ||
+              saveChapterFeedback.value.error ||
+              "An error occurred."}
+          </p>
+        )}
+
+        {showSuccessToast.value && (
+          <div
+            class={{
+              feedback_toast: true,
+              "feedback_toast--2026": courseVersion === "2026",
+              "feedback_toast--legacy": courseVersion === "Legacy",
+            }}
+          >
+            Thanks for your feedback.
+          </div>
+        )}
+      </div>
     </div>
   );
 });

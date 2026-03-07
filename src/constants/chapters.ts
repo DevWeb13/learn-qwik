@@ -4,7 +4,6 @@ export const CHAPTERS = [
     title: "Introduction: Interactive Dashboard Overview",
     description:
       "Understand what you are going to build and how the course is structured.",
-    isCompleted: false,
     uri: "",
   },
   {
@@ -12,14 +11,12 @@ export const CHAPTERS = [
     title: "Chapter 1: Getting Started",
     description:
       "Create a new Qwik application using the dashboard starter example and explore the project.",
-    isCompleted: false,
     uri: "getting-started",
   },
   {
     id: 2,
     title: "Chapter 2: CSS Styling",
     description: "Style your Qwik application with Tailwind and CSS modules.",
-    isCompleted: false,
     uri: "css-styling",
   },
   {
@@ -27,7 +24,6 @@ export const CHAPTERS = [
     title: "Chapter 3: Optimizing Fonts and Images",
     description:
       "Continue working on your home page by adding a hero image and a custom font.",
-    isCompleted: false,
     uri: "optimizing-fonts-and-images",
   },
   {
@@ -35,7 +31,6 @@ export const CHAPTERS = [
     title: "Chapter 4: Creating Layouts and Pages",
     description:
       "Create a new page for your application and learn how to manage layouts.",
-    isCompleted: false,
     uri: "creating-layouts-and-pages",
   },
   {
@@ -43,7 +38,6 @@ export const CHAPTERS = [
     title: "Chapter 5: Navigating Between Pages",
     description:
       "Add navigation to your application and learn how to navigate between pages.",
-    isCompleted: false,
     uri: "navigating-between-pages",
   },
   {
@@ -51,28 +45,24 @@ export const CHAPTERS = [
     title: "Chapter 6: Setting Up Your Database",
     description:
       "Setup a database for your application and seed it with initial data.",
-    isCompleted: false,
     uri: "setting-up-your-database",
   },
   {
     id: 7,
     title: "Chapter 7: Fetching Data",
     description: "Learn how to fetch data in Qwik.",
-    isCompleted: false,
     uri: "fetching-data",
   },
   {
     id: 8,
     title: "Chapter 8: Optimizing Data Fetching",
     description: "Learn how to optimize data fetching in Qwik.",
-    isCompleted: false,
     uri: "optimizing-data-fetching",
   },
   {
     id: 9,
     title: "Chapter 9: Streaming",
     description: "Learn how to stream data in Qwik.",
-    isCompleted: false,
     uri: "streaming",
   },
   {
@@ -80,7 +70,6 @@ export const CHAPTERS = [
     title: "Chapter 10: Adding Search and Pagination",
     description:
       "Learn how to add search and pagination to your Qwik application.",
-    isCompleted: false,
     uri: "adding-search-and-pagination",
   },
   {
@@ -88,7 +77,6 @@ export const CHAPTERS = [
     title: "Chapter 11: Mutating Data",
     description:
       "Learn how to create, update, and delete data in your Qwik application.",
-    isCompleted: false,
     uri: "mutating-data",
   },
 ];

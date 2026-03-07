@@ -23,7 +23,6 @@ import VercelDeploymentsPageFail from "~/assets/img/vercel-deployments-page-fail
 import VercelDeploymentsPageSuccess from "~/assets/img/vercel-deployments-page-success.png?jsx";
 import VercelEdgeFinishPrompt from "~/assets/img/vercelEdgeFinishPrompt.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export const SettingUpYourDatabaseContent = component$(() => {
@@ -962,7 +961,7 @@ WHERE invoices.amount = 666;`}
           text="Learn how to fetch data from your database in Qwik."
         />
       </div>
-      <Feedback />
+
       <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );

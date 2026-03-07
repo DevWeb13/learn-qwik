@@ -4,7 +4,6 @@ export const CHAPTERS2026 = [
     title: "Introduction: Interactive Dashboard Overview",
     description:
       "Understand the architecture of the 2026 edition and how the course is structured.",
-    isCompleted: false,
     uri: "",
   },
   {
@@ -12,21 +11,18 @@ export const CHAPTERS2026 = [
     title: "Chapter 1: Getting Started",
     description:
       "Create a new Qwik application using the dashboard starter example and explore the project.",
-    isCompleted: false,
     uri: "getting-started-2026",
   },
   {
     id: 2,
     title: "Chapter 2: CSS Styling",
     description: "Style your Qwik application with Tailwind and CSS Modules.",
-    isCompleted: false,
     uri: "css-styling-2026",
   },
   {
     id: 3,
     title: "Chapter 3: Icons and SVG Components",
     description: "Use icon libraries and create custom SVG components.",
-    isCompleted: false,
     uri: "icons-and-svg-components-2026",
   },
   {
@@ -34,7 +30,6 @@ export const CHAPTERS2026 = [
     title: "Chapter 4: Creating Layouts and Pages",
     description:
       "Understand file-based routing in Qwik, create nested routes, and share UI using layout.tsx.",
-    isCompleted: false,
     uri: "creating-layouts-and-pages-2026",
   },
   {
@@ -42,7 +37,6 @@ export const CHAPTERS2026 = [
     title: "Chapter 5: Navigating Between Pages",
     description:
       "Use Qwik City navigation, replace anchor tags with Link, and highlight the active route.",
-    isCompleted: false,
     uri: "navigating-between-pages-2026",
   },
 ];

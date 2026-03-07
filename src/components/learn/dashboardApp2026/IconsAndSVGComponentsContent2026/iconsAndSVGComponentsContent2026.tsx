@@ -3,7 +3,6 @@ import AddArrow from "~/assets/img/addArrowIcon.png?jsx";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { InfoBox2026 } from "~/components/UI/infoBox/infoBox2026";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
@@ -480,9 +479,6 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           text="In the next chapter, you will learn how to create layouts and pages in your Qwik application using the file-based routing system of Qwik City."
         />
       </div>
-
-      <Feedback />
-      <div class="mb-10 md:mb-30"></div>
     </>
   );
 });

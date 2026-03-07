@@ -14,7 +14,6 @@ import { FetchDataCardsSoluce } from "./fetchDataCardsSoluce";
 import DashboardPageWithAllTheDataFetched from "~/assets/img/dashboard-page-with-all-the-data-fetched.png?jsx";
 import SequentialParallelDataFetching from "~/assets/img/sequential-parallel-data-fetching.avif?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 import LatestInvoices from "~/assets/img/latestInvoices.png?jsx";
@@ -1362,7 +1361,7 @@ try {
           text="Learn how to optimize data fetching by parallelizing queries and relocating routeLoader$() functions."
         />
       </div>
-      <Feedback />
+
       <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );

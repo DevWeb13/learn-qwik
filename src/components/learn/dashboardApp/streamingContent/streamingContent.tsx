@@ -15,7 +15,6 @@ import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 
 import WhatIsStreamingImg from "~/assets/img/whatIsStreaming.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export const StreamingContent = component$(() => {
@@ -1534,7 +1533,7 @@ export const CardsWrapper = component$(() => {
           text="Learn how to implement search and pagination in your application."
         />
       </div>
-      <Feedback />
+
       <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );

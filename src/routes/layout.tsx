@@ -261,8 +261,7 @@ export default component$(() => {
         <MobileMenu />
         <Slot />
 
-        {location.isNavigating ||
-        location.url.pathname.startsWith("/auth") ||
+        {location.url.pathname.startsWith("/auth") ||
         location.url.pathname.startsWith("/account") ? (
           <div class="flex w-full items-center justify-center">
             <Footer />

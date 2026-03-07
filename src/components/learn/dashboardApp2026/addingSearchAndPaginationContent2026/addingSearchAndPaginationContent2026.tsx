@@ -4,7 +4,6 @@ import { component$ } from "@builder.io/qwik";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
@@ -1625,7 +1624,7 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           text="Learn how to update data in your database."
         />
       </div>
-      <Feedback />
+
       <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );

@@ -6,7 +6,6 @@ import BlankLink from "~/components/UI/blankLink/blankLink";
 import { ChapterVideo } from "~/components/UI/chapterVideo/chapterVideo";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
@@ -515,8 +514,6 @@ export default component$(() => {
         style your application."
         />
       </div>
-      <Feedback />
-      <div class="mb-10 md:mb-30"></div>
     </>
   );
 });

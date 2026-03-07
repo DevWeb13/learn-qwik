@@ -6,7 +6,6 @@ import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
@@ -964,7 +963,7 @@ export default component$(() => {
           text="Let's create your dashboard routes using nested layouts and pages!"
         />
       </div>
-      <Feedback />
+
       <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );

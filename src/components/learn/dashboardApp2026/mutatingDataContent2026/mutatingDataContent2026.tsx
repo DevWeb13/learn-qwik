@@ -13,7 +13,6 @@ import AddEditInvoiceRoute from "~/assets/img/addEditInvoiceRoute.png?jsx";
 import CreateInvoicesPage from "~/assets/img/createInvoicesPage.png?jsx";
 import EditInvoicePage from "~/assets/img/editInvoicePage.png?jsx";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export const MutatingDataContent2026 = component$(() => {
@@ -1783,7 +1782,7 @@ export const deleteInvoice = server$(async function (id: string) {
           disabledButton
         />
       </div>
-      <Feedback />
+
       <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );

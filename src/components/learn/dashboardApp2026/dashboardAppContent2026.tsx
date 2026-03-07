@@ -4,7 +4,6 @@ import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 
 import BlankLink from "~/components/UI/blankLink/blankLink";
-import Feedback from "~/components/UI/feedback/feedback";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
 
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.png?jsx";
@@ -234,8 +233,6 @@ export const DashboardAppContent2026 = component$(() => {
           text="Create your Qwik application and run the development server."
         />
       </div>
-
-      <Feedback />
 
       <div class="mb-24"></div>
     </>

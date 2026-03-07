@@ -4,7 +4,6 @@ import { component$, useStyles$ } from "@builder.io/qwik";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
@@ -471,8 +470,6 @@ const pathname = url.pathname.replace(/\\/$/, "");
           text="Let's create a database to start fetching real data!"
         />
       </div>
-      <Feedback />
-      <div class="mb-10 md:mb-30"></div>
     </>
   );
 });

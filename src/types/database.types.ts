@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      chapter_feedback: {
+        Row: {
+          chapterNumber: number
+          courseVersion: string
+          created_at: string
+          id: string
+          message: string | null
+          reaction: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          chapterNumber: number
+          courseVersion: string
+          created_at?: string
+          id?: string
+          message?: string | null
+          reaction: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          chapterNumber?: number
+          courseVersion?: string
+          created_at?: string
+          id?: string
+          message?: string | null
+          reaction?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           access_status: string | null

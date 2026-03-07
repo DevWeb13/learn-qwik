@@ -6,7 +6,6 @@ import StartPage from "~/assets/img/start-page.png?jsx";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
@@ -448,8 +447,6 @@ peer eslint@"^10.0.0" from @eslint/js@10.x`}
         style your application."
         />
       </div>
-      <Feedback />
-      <div class="mb-10 md:mb-30"></div>
     </>
   );
 });

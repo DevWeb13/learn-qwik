@@ -4,7 +4,6 @@ import { component$, useStyles$ } from "@builder.io/qwik";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import Feedback from "~/components/UI/feedback/feedback";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { InfoBox2026 } from "~/components/UI/infoBox/infoBox2026";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
@@ -939,9 +938,6 @@ export const NavLinks = component$(() => {
           disabledButton
         />
       </div>
-
-      <Feedback />
-      <div class="mb-10 md:mb-30"></div>
     </>
   );
 });
