@@ -31,6 +31,8 @@ export default component$(() => {
     return chapter?.id ?? null;
   });
 
+  const currentChapterId = chapterId.value;
+
   return (
     <main class="relative mx-auto max-w-full bg-(--qwik-light-purple)/2 px-4 py-4 md:px-8 lg:px-4 lg:py-10">
       <HeaderOfMain2026 />
@@ -42,8 +44,8 @@ export default component$(() => {
         >
           <Slot />
 
-          {!location.isNavigating && chapterId.value !== null ? (
-            <Feedback courseVersion="2026" chapterNumber={chapterId.value} />
+          {currentChapterId !== null ? (
+            <Feedback courseVersion="2026" chapterNumber={currentChapterId} />
           ) : null}
         </section>
 
