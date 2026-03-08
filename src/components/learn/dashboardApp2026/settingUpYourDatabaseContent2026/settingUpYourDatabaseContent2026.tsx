@@ -927,7 +927,7 @@ WHERE invoices.amount = 666;`}
           Congratulations, you've successfully set up your database in Qwik! 🎉
         </p>
 
-        <SubtitleWithAnchor title="Source code" id="source-code" />
+        <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
 
         <p>
           You can find the source code for chapter 6 on{" "}

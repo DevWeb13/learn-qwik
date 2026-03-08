@@ -420,7 +420,7 @@ peer eslint@"^10.0.0" from @eslint/js@10.x`}
           />
         </figure>
 
-        <SubtitleWithAnchor title="Source code" id="source-code" />
+        <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
 
         <p>
           You can find the source code for chapter 1 2026 edition on{" "}

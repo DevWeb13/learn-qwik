@@ -579,7 +579,7 @@ export default component$(() => {
           </li>
         </ul>
 
-        <SubtitleWithAnchor title="Source code" id="source-code" />
+        <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
 
         <p>
           You can find the source code for chapter 4 on{" "}

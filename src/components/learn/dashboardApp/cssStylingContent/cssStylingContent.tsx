@@ -893,7 +893,7 @@ export const HiArrowRightOutline = component$<HiArrowRightOutlineProps>(
           ></ins>
         </div> */}
 
-        <SubtitleWithAnchor title="Source code" id="source-code" />
+        <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
 
         <p>
           You can find the source code for chapter 2 on{" "}

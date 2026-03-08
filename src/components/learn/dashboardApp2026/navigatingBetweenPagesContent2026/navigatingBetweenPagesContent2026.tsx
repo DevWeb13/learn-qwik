@@ -912,7 +912,7 @@ export const NavLinks = component$(() => {
           </li>
         </ul>
 
-        <SubtitleWithAnchor title="Source code" id="source-code" />
+        <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
 
         <p>
           You can find the source code for chapter 5 2026 edition on{" "}
@@ -933,9 +933,8 @@ export const NavLinks = component$(() => {
         <GoToNextChapterBlock
           version="2026"
           goToChapter={6}
-          title="Optimizing Fonts and Images"
-          text="Improve performance and polish your dashboard with better font and image handling."
-          disabledButton
+          title="Optimizing Fonts"
+          text="Improve performance and polish your dashboard with better font loading and self-hosting."
         />
       </div>
     </>

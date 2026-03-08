@@ -52,17 +52,6 @@ export default component$(() => {
           ]}
         />
 
-        {/* <div class="px-4  md:px-8 ">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Why Optimize Fonts?"
           id="why-optimize-fonts"
@@ -132,17 +121,6 @@ export default component$(() => {
             intended to cancel.
           </p>
         </figure>
-
-        {/* <div class="px-4  md:px-8 ">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <Quiz
           question="Why is it recommended to self-host fonts in a Qwik application?"
@@ -228,17 +206,6 @@ export default component$(() => {
           responseText="The font-display CSS property provides several options to control how fonts are displayed as they load. For instance, the swap value allows the text to be shown immediately with a fallback font while the custom font is loading. This prevents the text from being invisible during the loading process, thereby improving the perceptual load speed of the page. By using this property, developers can significantly enhance the user experience by ensuring text remains visible and usable, reducing the likelihood of layout shifts and maintaining a better overall aesthetic consistency throughout the loading phase."
         />
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor title="Google Fonts" id="google-fonts" />
         <p>
           Google Fonts is a popular open source library, offering over 1500 font
@@ -269,17 +236,6 @@ export default component$(() => {
           fonts.
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor title="Self Hosting" id="self-hosting" />
         <p>
           Rather than using a third-party provider like Google Fonts, we can
@@ -305,17 +261,6 @@ export default component$(() => {
           </li>
         </ul>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor title="Fontsource" id="fontsource" />
         <p>
           Self-hosting with{" "}
@@ -328,17 +273,6 @@ export default component$(() => {
           />
           , without the hassle of managing the files yourself.
         </p>
-
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="Adding a primary font with Fontsource"
@@ -429,17 +363,6 @@ export default component$(() => {
           />
         </figure>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Add a second font by hosting it in your project"
           id="add-a-second-font-by-hosting-it-in-your-project"
@@ -502,7 +425,7 @@ export default component$(() => {
             </li>
           </ul>
         </blockquote>
-        <div class="bg-vercel-200 -mx-5 mb-8 p-[21px] md:-mx-[62px] md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
+        <div class="bg-vercel-200 -mx-5 mb-8 p-5.25 md:-mx-15.5 md:rounded-2xl md:p-4 md:px-15.5 md:py-12">
           <button
             class="button_base reset_reset button_button  geist-new-themed geist-new-button geist-new-button-fill button_invert"
             data-geist-button=""
@@ -605,17 +528,6 @@ export default component$(() => {
           added custom fonts to your Qwik application.🎉
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Why optimize images?"
           id="why-optimize-images?"
@@ -669,17 +581,6 @@ export default component$(() => {
             suffix at the end of the image path to enable image optimization.
           </li>
         </ol>
-
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="Adding the desktop hero image"
@@ -777,17 +678,6 @@ export default component$(() => {
           />
         </figure>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Practice: Adding the mobile hero image"
           id="practice:-adding-the-mobile-hero-image"
@@ -815,7 +705,7 @@ export default component$(() => {
           Once you're ready, expand the code snippet below to see the solution.
         </p>
 
-        <div class="bg-vercel-200 -mx-5 mb-8 p-[21px] md:-mx-[62px] md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
+        <div class="bg-vercel-200 -mx-5 mb-8 p-5.25 md:-mx-15.5 md:rounded-2xl md:p-4 md:px-15.5 md:py-12">
           <button
             class="button_base reset_reset button_button  geist-new-themed geist-new-button geist-new-button-fill button_invert"
             data-geist-button=""
@@ -844,17 +734,6 @@ export default component$(() => {
           font and hero images.
         </p>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <Quiz
           question="Using the .jsx suffix when importing images in Qwik enables automatic optimization, including conversion to modern formats and lazy loading of images."
           options={[
@@ -872,17 +751,6 @@ export default component$(() => {
           hint="Remember to review how the .jsx suffix affects image processing in Qwik. This suffix is crucial for activating certain automatic optimizations."
           responseText="When you use the .jsx suffix in Qwik, it activates the vite-imagetools which automatically handles image optimization. This includes converting images to more efficient formats like WebP and AVIF, and implementing lazy loading to improve page load times. This is essential for enhancing performance and user experience on modern websites."
         />
-
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="Recommended reading"
@@ -910,18 +778,7 @@ export default component$(() => {
           </li>
         </ul>
 
-        {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
-        <SubtitleWithAnchor title="Source code" id="source-code" />
+        <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
 
         <p>
           You can find the source code for chapter 3 on{" "}
@@ -933,24 +790,13 @@ export default component$(() => {
         </p>
       </div>
 
-      {/* <div class="px-4 pt-8 md:px-8 md:pt-20">
-        <ins
-          class="adsbygoogle"
-          style="display:flex; justify-content:center;"
-          data-ad-layout="in-article"
-          data-ad-format="fluid"
-          data-ad-client="ca-pub-2091224773462896"
-          data-ad-slot="2773109472"
-        ></ins>
-      </div> */}
-
       <ChapterVideo
         videoId="BzpWsu_uxRU"
         title="📺 Chapter 3 Video Walkthrough"
         description="Watch RumNCode 🥃 build out the third chapter with clear explanations and real-time coding."
       />
 
-      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-160 flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
           chapterNumber={3}
           text="
@@ -963,8 +809,6 @@ export default component$(() => {
           text="Let's create your dashboard routes using nested layouts and pages!"
         />
       </div>
-
-      <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );
 });

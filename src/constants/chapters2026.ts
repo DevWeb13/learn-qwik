@@ -39,4 +39,11 @@ export const CHAPTERS2026 = [
       "Use Qwik City navigation, replace anchor tags with Link, and highlight the active route.",
     uri: "navigating-between-pages-2026",
   },
+  {
+    id: 6,
+    title: "Chapter 6: Optimizing Fonts",
+    description:
+      "Optimize font loading in your Qwik application with self-hosting, Fontsource, and font-display.",
+    uri: "optimizing-fonts-2026",
+  },
 ];

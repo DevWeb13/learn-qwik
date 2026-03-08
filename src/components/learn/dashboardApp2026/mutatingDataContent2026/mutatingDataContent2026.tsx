@@ -1757,7 +1757,7 @@ export const deleteInvoice = server$(async function (id: string) {
           them to the user.
         </p>
 
-        <SubtitleWithAnchor title="Source code" id="source-code" />
+        <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
 
         <p>
           You can find the source code for chapter 11 on{" "}
