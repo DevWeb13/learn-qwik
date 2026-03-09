@@ -8,7 +8,6 @@ import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
 
 import { HiArrowRightOnRectangleOutline } from "@qwikest/icons/heroicons";
 import { useProfile } from "~/routes/layout";
-import { SubscribeSection } from "../subcribeSection/subscribeSection";
 import { Message } from "../UI/message/message";
 
 import { CHAPTERS } from "~/constants/chapters";
@@ -357,7 +356,7 @@ export const AccountContent = component$(() => {
                     )}
                   </Form>
                 </div>
-                <SubscribeSection profile={profile} />
+                {/* <SubscribeSection profile={profile} /> */}
 
                 {/* ✅ Affichage des chapitres complétés version 2026 */}
                 <div class="rounded-lg bg-gray-50 p-6">

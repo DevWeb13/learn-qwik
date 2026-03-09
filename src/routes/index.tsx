@@ -19,7 +19,6 @@ import { HomeBackgroundPurple } from "~/assets/svg/homeBackground/homeBackground
 import { BtAddChapter } from "~/components/UI/btAddChapter/btAddChapter";
 import { HowDoesTheCourseWorkSection } from "~/components/home/howDoesTheCourseWorkSection";
 import { QwikDocumentationArticle } from "~/components/home/qwikDocumentationArticle";
-import { SubscribeSection } from "~/components/subcribeSection/subscribeSection";
 import { CHAPTERS } from "~/constants/chapters";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
 
@@ -141,9 +140,9 @@ export default component$(() => {
         </div>
       </section>
 
-      <div class="pb-8 md:pb-20">
+      {/* <div class="pb-8 md:pb-20">
         <SubscribeSection profile={profile} />
-      </div>
+      </div> */}
 
       <HowDoesTheCourseWorkSection />
 
