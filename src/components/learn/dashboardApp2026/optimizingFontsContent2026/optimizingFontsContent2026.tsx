@@ -754,7 +754,7 @@ export const head: DocumentHead = {
         <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
 
         <p>
-          You can find the source code for chapter 6 on{" "}
+          You can find the source code for chapter 6 2026 Edition on{" "}
           <BlankLink
             href="https://github.com/DevWeb13/qwik-dashboard-2026/tree/Chapter-6-Optimizing-Fonts"
             text="GitHub"
@@ -774,7 +774,6 @@ export const head: DocumentHead = {
           goToChapter={7}
           title="Optimizing Images"
           text="Next, you'll improve image loading and see how Qwik handles image optimization."
-          disabledButton
         />
       </div>
     </>

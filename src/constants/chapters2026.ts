@@ -46,4 +46,11 @@ export const CHAPTERS2026 = [
       "Optimize font loading in your Qwik application with self-hosting, Fontsource, and font-display.",
     uri: "optimizing-fonts-2026",
   },
+  {
+    id: 7,
+    title: "Chapter 7: Optimizing Images",
+    description:
+      "Optimize image loading in your Qwik application with automatic image processing, responsive sources, and mobile-friendly rendering.",
+    uri: "optimizing-images-2026",
+  },
 ];
