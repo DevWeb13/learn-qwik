@@ -30,20 +30,20 @@ export const CreateQwikAppCliArticle = component$(() => {
 
   return (
     <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 lg:px-12 lg:py-20">
-      <header class="flex flex-col items-center gap-2 px-4 lg:gap-4">
+      <header class="flex flex-col items-center gap-3 px-4 lg:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold lg:max-w-full lg:text-5xl">
-          Create a Qwik App with the CLI (3/∞)
+          Create a Qwik App with the CLI
         </h1>
-        <h2 class="max-w-[80%] text-center text-2xl font-semibold text-gray-800 lg:max-w-full lg:text-4xl">
-          Learn Qwik from A to Z (2025)
+        <h2 class="text-center text-sm font-medium text-gray-600 lg:text-base">
+          Part 3 of the Learn Qwik From A to Z (2025) series
         </h2>
-        <p class="mt-2 max-w-xl text-center text-gray-700">
+        <p class="mt-2 max-w-2xl text-center text-gray-700">
           Learn how to create a brand new Qwik app using only the terminal,
           step-by-step, even if you're just getting started.
         </p>
       </header>
 
-      <div class="relative flex w-full max-w-screen-lg flex-col justify-center gap-4 px-4 lg:flex-row">
+      <div class="relative flex w-full max-w-5xl flex-col justify-center gap-4 px-4 lg:flex-row">
         <div class="flex w-full flex-col gap-4 lg:max-w-[calc(100%-300px)]">
           <div class="flex flex-col gap-6 rounded-lg bg-white p-6 pt-0 shadow-md">
             <article class="prose prose-lg max-w-none text-gray-800">

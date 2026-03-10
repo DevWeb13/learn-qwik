@@ -24,14 +24,14 @@ export const InstallVSCodeUbuntuArticle = component$(() => {
 
   return (
     <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 lg:px-12 lg:py-20">
-      <header class="flex flex-col items-center gap-2 px-4 lg:gap-4">
+      <header class="flex flex-col items-center gap-3 px-4 lg:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold lg:max-w-full lg:text-5xl">
-          Install Visual Studio Code on Ubuntu (2/∞)
+          Install Visual Studio Code on Ubuntu
         </h1>
-        <h2 class="max-w-[80%] text-center text-2xl font-semibold text-gray-800 lg:max-w-full lg:text-4xl">
-          Learn Qwik from A to Z (2025)
+        <h2 class="text-center text-sm font-medium text-gray-600 lg:text-base">
+          Part 2 of the Learn Qwik From A to Z (2025) series
         </h2>
-        <p class="mt-2 max-w-xl text-center text-gray-700">
+        <p class="mt-2 max-w-2xl text-center text-gray-700">
           This guide will help you install Visual Studio Code easily and safely
           on Ubuntu using official sources.
         </p>

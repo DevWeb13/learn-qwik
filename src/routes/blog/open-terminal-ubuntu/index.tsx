@@ -3,15 +3,17 @@
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import { OpenTerminalUbuntuArticle } from "~/components/blog/articles/open-terminal-ubuntu";
-import { createDocumentHead } from "~/utils/createDocumentHead";
+import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 export default component$(() => {
   return <OpenTerminalUbuntuArticle />;
 });
 
-export const head: DocumentHead = createDocumentHead(
-  "From A to Z (2025) | How to Open the Terminal on Ubuntu (0/∞)",
-  "Learn how to open and use the Terminal on Ubuntu. The essential first step to install Node.js and start building your Qwik project.",
-  "https://www.learn-qwik.com/metaOpenTerminalUbuntu.png",
-  "https://www.learn-qwik.com/blog/open-terminal-ubuntu/",
-);
+export const head: DocumentHead = createDocumentHead2026({
+  title: "How to Open the Terminal on Ubuntu | From A to Z (2025) | Part 0",
+  description:
+    "Learn how to open and use the Terminal on Ubuntu. The essential first step to install Node.js and start building your Qwik project.",
+  imageUrl: "https://www.learn-qwik.com/metaOpenTerminalUbuntu.png",
+  url: "https://www.learn-qwik.com/blog/open-terminal-ubuntu/",
+  type: "article",
+});

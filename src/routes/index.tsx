@@ -11,7 +11,6 @@ import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
 
 import { ChapterThumbnail } from "~/components/UI/chapterThumbnail/chapterThumbnail";
 import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesScrollWrapper";
-import { createDocumentHead } from "~/utils/createDocumentHead";
 import { useProfile } from "./layout";
 
 import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
@@ -21,6 +20,7 @@ import { HowDoesTheCourseWorkSection } from "~/components/home/howDoesTheCourseW
 import { QwikDocumentationArticle } from "~/components/home/qwikDocumentationArticle";
 import { CHAPTERS } from "~/constants/chapters";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
+import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 export default component$(() => {
   const profile = useProfile();
@@ -300,9 +300,11 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = createDocumentHead(
-  "Start building with Qwik 2026 Edition",
-  "Qwik offers a new way to build web applications. Learn the foundations with interactive courses and create a functional demo site. 2026 Edition.",
-  "https://www.learn-qwik.com/metaLanding.png",
-  "https://www.learn-qwik.com/",
-);
+export const head: DocumentHead = createDocumentHead2026({
+  title: "Qwik Course and Tutorial",
+  description:
+    "Learn Qwik through a structured course with practical chapters, modern best practices, and a real application built with Qwik, Tailwind and Supabase.",
+  imageUrl: "https://www.learn-qwik.com/metaLanding.png",
+  url: "https://www.learn-qwik.com/",
+  type: "website",
+});
