@@ -52,7 +52,7 @@ export default component$<ProgressCircleProps>(
         )}
 
         <div
-          class={`mr-2 ${
+          class={`${
             responsive === "smallOnly" ? "" : "lg:hidden"
           } ${responsive === "largeOnly" ? "hidden" : ""}`}
         >

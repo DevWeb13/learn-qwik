@@ -5,10 +5,11 @@ import { CHAPTERS2026 } from "~/constants/chapters2026";
 interface DisplayNextChapterProps {
   completed: number[];
   version?: "2026" | "Legacy";
+  compact?: boolean;
 }
 
 export const DisplayNextChapter = component$<DisplayNextChapterProps>(
-  ({ completed = [], version = "Legacy" }) => {
+  ({ completed = [], version = "Legacy", compact = false }) => {
     const chapters = version === "2026" ? CHAPTERS2026 : CHAPTERS;
 
     const nextChapterIndex =
@@ -17,21 +18,46 @@ export const DisplayNextChapter = component$<DisplayNextChapterProps>(
     const nextChapter =
       nextChapterIndex < chapters.length ? chapters[nextChapterIndex] : null;
 
-    const nextChapterTitle = nextChapter
-      ? nextChapter.title.split(":")
-      : "All chapters completed";
+    if (!nextChapter) {
+      return (
+        <div class="animate-fadeIn flex min-w-0 flex-1 flex-col">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-400">
+            Course status
+          </p>
+          <p class="mt-2 text-base font-semibold leading-snug text-(--qwik-dirty-black)">
+            All chapters completed
+          </p>
+          <p class="mt-2 text-sm leading-6 text-gray-600">
+            You have completed all available chapters.
+          </p>
+        </div>
+      );
+    }
 
-    const nextChapterDescription = nextChapter
-      ? nextChapter.description
-      : "You have completed all available chapters.";
+    const titleParts = nextChapter.title.split(":");
+    const chapterLabel = titleParts[0]?.trim() || "Next chapter";
+    const chapterTitle =
+      titleParts.length > 1
+        ? titleParts.slice(1).join(":").trim()
+        : nextChapter.title;
+
+    const compactDescription =
+      nextChapter.description.split(".")[0]?.trim() +
+      (nextChapter.description.includes(".") ? "." : "");
 
     return (
-      <div class="animate-fadeIn mr-2 flex min-w-0 flex-1 shrink flex-col gap-1">
-        <div class="flex items-center gap-1">
-          <p class=" font-bold">{nextChapterTitle[0] + ":"}</p>
-          <p class="text_wrapper">{nextChapterTitle[1].trim()}</p>
-        </div>
-        <p class="text_wrapper flex">{nextChapterDescription}</p>
+      <div class="animate-fadeIn flex min-w-0 flex-1 flex-col">
+        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-gray-400">
+          {chapterLabel}
+        </p>
+
+        <p class="mt-2 text-base font-semibold leading-snug text-(--qwik-dirty-black)">
+          {chapterTitle}
+        </p>
+
+        <p class="mt-2 text-sm leading-6 text-gray-600">
+          {compact ? compactDescription : nextChapter.description}
+        </p>
       </div>
     );
   },

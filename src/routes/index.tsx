@@ -1,134 +1,207 @@
-// src/routes/index.tsx
-
 import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
+import LearnQwikLogo from "~/assets/img/android-chrome-192x192.png?jsx";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
-import HeroLinesDark from "~/assets/svg/heroLinesDark/heroLinesDark";
-import HeroLinesLight from "~/assets/svg/heroLinesLight/heroLinesLight";
-import ProgressCircle from "~/components/UI/headerOfMain/progressCircle/progressCircle";
-import { DisplayNextChapter } from "~/components/learn/DisplayNextChapter/displayNextChapter";
-import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
-
-import { ChapterThumbnail } from "~/components/UI/chapterThumbnail/chapterThumbnail";
-import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesScrollWrapper";
-import { useProfile } from "./layout";
-
 import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
 import { HomeBackgroundPurple } from "~/assets/svg/homeBackground/homeBackgroundPurple";
 import { BtAddChapter } from "~/components/UI/btAddChapter/btAddChapter";
+import { GuidesScrollWrapper } from "~/components/UI/guidesScrollWrapper/guidesScrollWrapper";
+import ProgressCircle from "~/components/UI/headerOfMain/progressCircle/progressCircle";
+import { HomeChapterThumbnail } from "~/components/home/homeChapterThumbnail";
 import { HowDoesTheCourseWorkSection } from "~/components/home/howDoesTheCourseWorkSection";
 import { QwikDocumentationArticle } from "~/components/home/qwikDocumentationArticle";
+import { DisplayNextChapter } from "~/components/learn/DisplayNextChapter/displayNextChapter";
+import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
 import { CHAPTERS } from "~/constants/chapters";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
 import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
+import { useProfile } from "./layout";
 
 export default component$(() => {
   const profile = useProfile();
 
-  return (
-    <main>
-      <section class="relative flex w-full flex-col items-center overflow-hidden py-12 md:py-20">
-        <div class="flex flex-col items-center px-4">
-          <h1 class="mb-4 max-w-[80%] text-center text-4xl font-semibold md:mb-8 md:max-w-full md:text-6xl">
-            Start building with{" "}
-            <Link
-              href="https://qwik.dev"
-              class="text-(--qwik-dark-purple)! hover:text-(--qwik-light-purple)!"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Qwik
-            </Link>
-          </h1>
-          <div class="max-w-xl text-center text-gray-900 md:mb-16">
-            Learn Qwik through the updated 2026 edition and build a fully
-            functional application using modern architecture and best practices.
-          </div>
-        </div>
+  const completed2026 = profile.value?.completedChapters2026 || [];
+  const completedLegacy = profile.value?.completedChapters || [];
 
-        <div class="relative flex h-full w-full flex-col items-center justify-center px-4">
-          <div class="absolute bottom-25 md:bottom-0">
+  const total2026 = CHAPTERS2026.length;
+  const totalLegacy = CHAPTERS.length;
+
+  const hasStarted2026 = completed2026.length > 0;
+  const primaryCtaText = hasStarted2026
+    ? "Resume 2026 Edition"
+    : "Start 2026 Edition";
+
+  const shellClass = "mx-auto max-w-7xl px-4 md:px-6 lg:px-14 2xl:px-0";
+
+  return (
+    <main class="bg-white">
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+          <div class="absolute left-1/2 top-0 -translate-x-1/2 opacity-90">
             <HomeBackgroundPurple />
           </div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.10),transparent_45%)]" />
+        </div>
 
-          <div class="bg-vercel-100 absolute left-0 right-0 top-[57%] h-87.5 md:top-[62.7%] md:h-50" />
+        <div
+          class={`${shellClass} relative grid min-h-[calc(100dvh-var(--header-height))] gap-10 py-12 md:py-20 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-14`}
+        >
+          <div class="relative">
+            <div class="inline-flex items-center rounded-full border border-(--qwik-dark-purple)/12 bg-(--qwik-light-purple)/10 px-4 py-2 text-sm font-medium text-(--qwik-dark-purple)">
+              Updated course • 2026 Edition
+            </div>
 
-          <div class="relative flex w-full flex-col items-center pt-20 md:pt-8">
-            <div class="dark:bg-vercel-100 relative flex w-full flex-col items-center rounded-xl bg-white p-4 shadow-md lg:w-178.25">
-              <HeroLinesLight />
-              <HeroLinesDark />
+            <h1 class="mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] text-(--qwik-dirty-black) md:text-6xl">
+              Learn Qwik by building a real modern app.
+            </h1>
 
-              <div class="relative -mt-14 flex w-full justify-center md:-mt-14">
-                <div class="relative">
-                  <BookSvgText
-                    completed={profile.value?.completedChapters2026 || []}
+            <p class="mt-6 max-w-2xl text-base leading-7 text-gray-700 md:text-xl md:leading-8">
+              A practical Qwik course focused on modern architecture, clear
+              progression, and a real-world project built with Qwik, Tailwind,
+              Supabase, and Vercel.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div class="w-full sm:w-auto">
+                <BtAddChapter
+                  goToChapter={0}
+                  title=""
+                  text={primaryCtaText}
+                  completedChapters={completed2026}
+                  version="2026"
+                >
+                  <ProgressCircle
+                    completed={completed2026}
+                    onlyCircle
+                    colorCircle="var(--ds-gray-200)"
+                    responsive="smallOnly"
+                    version="2026 Edition"
                   />
-                  <BookSvg id="learn" />
-                </div>
+                </BtAddChapter>
               </div>
 
-              <div class="relative mt-6 flex w-full max-w-full flex-col items-center justify-center space-y-4 pb-0 md:space-y-6 md:pb-4 lg:pt-4">
-                <div class="flex max-w-full flex-col items-center justify-center">
-                  <p
-                    class="text_wrapper pb-2 text-(--qwik-dark-purple)"
-                    data-version="v1"
-                    style="--text-color:var(--ds-gray-1000);--xs-text-size:1.25rem;--xs-text-line-height:1.5rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.020625rem;--sm-text-size:1.25rem;--sm-text-line-height:1.5rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.020625rem;--smd-text-size:1.5rem;--smd-text-line-height:2rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.029375rem;--md-text-size:1.5rem;--md-text-line-height:2rem;--md-text-weight:600;--md-text-letter-spacing:-0.029375rem;--lg-text-size:1.5rem;--lg-text-line-height:2rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.029375rem"
-                  >
-                    Learn Qwik{" "}
-                    <span class="text-(--qwik-dark-purple)">2026 Edition</span>
-                  </p>
+              <Link
+                href="#edition-2026"
+                class="inline-flex items-center justify-center rounded-[1.1rem] border border-gray-200 bg-gray-50 px-5 py-3 text-sm font-medium text-(--qwik-dirty-black)! transition-all duration-200 hover:border-gray-300 hover:bg-white hover:text-(--qwik-dark-background)!"
+              >
+                Explore the curriculum
+              </Link>
+            </div>
 
-                  <div class="mx-auto  text-center ">
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-900);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:400"
-                    >
-                      16 chapters that take you build a modern fully functional
-                      Qwik app.
+            <div class="mt-8 grid gap-3 sm:grid-cols-3">
+              <div class="rounded-3xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
+                <p class="text-2xl font-semibold text-(--qwik-dirty-black)">
+                  {total2026}
+                </p>
+                <p class="mt-1 text-sm text-gray-600">Structured chapters</p>
+              </div>
+
+              <div class="rounded-3xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
+                <p class="text-2xl font-semibold text-(--qwik-dirty-black)">
+                  Real app
+                </p>
+                <p class="mt-1 text-sm text-gray-600">Learn through practice</p>
+              </div>
+
+              <div class="rounded-3xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
+                <p class="text-2xl font-semibold text-(--qwik-dirty-black)">
+                  Modern stack
+                </p>
+                <p class="mt-1 text-sm text-gray-600">Qwik, Supabase, Vercel</p>
+              </div>
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-2">
+              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                Qwik 1.19
+              </div>
+              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                Tailwind v4
+              </div>
+              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                Supabase Auth
+              </div>
+              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                Deployment on Vercel
+              </div>
+            </div>
+
+            <p class="mt-6 text-sm text-gray-600">
+              Prefer the official docs first?{" "}
+              <Link
+                href="https://qwik.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-medium text-(--qwik-dark-purple) underline-offset-4 hover:underline"
+              >
+                Visit Qwik.dev
+              </Link>
+            </p>
+          </div>
+
+          <div class="relative">
+            <div class="absolute inset-0 rounded-4xl bg-(--qwik-light-purple)/10 blur-3xl" />
+
+            <div class="relative overflow-hidden rounded-4xl border border-(--qwik-dark-purple)/10 bg-white/90 p-5 shadow-[0_20px_60px_rgba(17,24,39,0.08)] backdrop-blur-sm md:p-6">
+              <div class="relative">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+                      Learn Qwik
+                    </p>
+                    <h2 class="mt-2 text-2xl font-semibold text-(--qwik-dirty-black)">
+                      2026 Edition
+                    </h2>
+                  </div>
+
+                  <div class="shrink-0 block">
+                    <LearnQwikLogo class="size-12" />
+                  </div>
+                </div>
+                <p class="mt-3  text-sm leading-6 text-gray-600">
+                  The actively maintained version of the course, designed to
+                  teach Qwik progressively without unnecessary complexity.
+                </p>
+
+                <div class="mt-8 flex justify-center">
+                  <div class="relative scale-[1.02]">
+                    <BookSvgText completed={completed2026} />
+                    <BookSvg id="learn" />
+                  </div>
+                </div>
+
+                <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                  <div class="rounded-3xl border border-gray-200 bg-gray-50 p-4">
+                    <p class="text-sm font-medium text-gray-500">Progress</p>
+                    <p class="mt-2 text-lg font-semibold text-(--qwik-dirty-black)">
+                      {completed2026.length} / {total2026} chapters completed
                     </p>
                   </div>
 
-                  <div class="mt-6 flex w-full max-w-md items-center justify-between gap-2 rounded-full bg-gray-50 px-6 py-3 text-sm leading-snug md:min-w-100">
-                    <DisplayNextChapter
-                      completed={profile.value?.completedChapters2026 || []}
-                      version="2026"
-                    />
-
-                    <div class="ml-2">
-                      <div
-                        class="gauge_circle__N47Fa gauge_animate__yiaIw"
-                        data-geist-progress-circle=""
-                        style="--circle-size: 100px; --circumference: 282.7433388230814; --percent-to-px: 2.827433388230814px; --gap-percent: 0; --offset-factor: 0;"
-                      >
-                        <ProgressCircle
-                          completed={profile.value?.completedChapters2026 || []}
-                          onlyCircle
-                          responsive="largeOnly"
-                          version="2026 Edition"
-                        />
-                      </div>
+                  <div class="rounded-3xl border border-gray-200 bg-gray-50 p-4">
+                    <p class="text-sm font-medium text-gray-500">Next step</p>
+                    <div class="mt-3">
+                      <DisplayNextChapter
+                        completed={completed2026}
+                        version="2026"
+                        compact
+                      />
                     </div>
                   </div>
                 </div>
 
-                <div class="h-px w-full bg-gray-100"></div>
-
-                <div>
+                <div class="mt-6">
                   <BtAddChapter
                     goToChapter={0}
                     title=""
-                    text="Start 2026 Edition"
-                    completedChapters={
-                      profile.value?.completedChapters2026 || []
-                    }
+                    text={primaryCtaText}
+                    completedChapters={completed2026}
                     version="2026"
                   >
                     <ProgressCircle
-                      completed={profile.value?.completedChapters2026 || []}
+                      completed={completed2026}
                       onlyCircle
-                      colorCircle="var(--ds-gray-900)"
-                      colorProgressCircle="var(--ds-gray-100)"
+                      colorCircle="var(--ds-gray-200)"
                       responsive="smallOnly"
                       version="2026 Edition"
                     />
@@ -140,129 +213,182 @@ export default component$(() => {
         </div>
       </section>
 
-      {/* <div class="pb-8 md:pb-20">
-        <SubscribeSection profile={profile} />
-      </div> */}
-
-      <HowDoesTheCourseWorkSection />
-
-      <section class="mx-auto max-w-7xl px-4 pb-10 md:pb-20 ">
-        <div class="rounded-2xl relative p-6 md:p-10 mb-8 md:mb-20 shadow-xl  overflow-hidden z-10 bg-(--qwik-light-purple)/5">
-          <div class="absolute top-0">
-            <HomeBackgroundPurple />
-          </div>
-          <div class="pb-8 flex flex-col justify-center text-center gap-4">
-            <h2
-              class="text_wrapper"
-              style="--text-color:var(--ds-gray-1000);--xs-text-size:1.5rem;--xs-text-line-height:2rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.029375rem;--sm-text-size:1.5rem;--sm-text-line-height:2rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.029375rem;--smd-text-size:2rem;--smd-text-line-height:2.5rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.049375rem;--md-text-size:2rem;--md-text-line-height:2.5rem;--md-text-weight:600;--md-text-letter-spacing:-0.049375rem;--lg-text-size:2rem;--lg-text-line-height:2.5rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.049375rem"
-            >
-              Learn Qwik{" "}
-              <span class="text-(--qwik-dark-purple)">2026 Edition</span>
+      <section class={`${shellClass} py-12 md:py-16`}>
+        <div class="grid gap-4 md:grid-cols-3">
+          <div class="rounded-[1.75rem] border border-gray-200 bg-white p-6 shadow-sm">
+            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+              Practical
+            </p>
+            <h2 class="mt-3 text-xl font-semibold text-(--qwik-dirty-black)">
+              Built around an actual application
             </h2>
-            <p class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-lg">
-              The actively maintained version of the course, Built with Qwik
-              1.19, Tailwind v4, Supabase and deployed on Vercel.
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              This is not a vague tour of the framework. You move through real
+              chapters and assemble a concrete project.
             </p>
           </div>
-          <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {CHAPTERS2026.map((chapter2026) => {
-              const isCompleted = profile.value?.completedChapters2026.includes(
-                chapter2026.id,
-              );
 
-              return (
-                <ChapterThumbnail
-                  key={chapter2026.id}
-                  href={
-                    chapter2026.uri === ""
-                      ? "/learn/dashboard-app-2026/"
-                      : `/learn/dashboard-app-2026/${chapter2026.uri}/`
-                  }
-                  numberOrIcon={chapter2026.id.toString()}
-                  title={chapter2026.title}
-                  description={chapter2026.description}
-                  isCompleted={isCompleted}
-                  version="2026 Edition"
-                />
-              );
-            })}
+          <div class="rounded-[1.75rem] border border-gray-200 bg-white p-6 shadow-sm">
+            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+              Modern
+            </p>
+            <h2 class="mt-3 text-xl font-semibold text-(--qwik-dirty-black)">
+              Updated stack and current workflow
+            </h2>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Qwik, Tailwind v4, Supabase, auth flows, deployment, and the kind
+              of structure people actually need in 2026.
+            </p>
           </div>
-          <div class="mt-4 flex w-full items-center justify-center  md:mt-8 md:w-auto">
-            <div class="w-full md:w-58.25">
-              <div>
-                <BtAddChapter
-                  goToChapter={0}
-                  title=""
-                  text="Start 2026 Edition"
-                  completedChapters={profile.value?.completedChapters2026 || []}
-                  version="2026"
-                >
-                  <ProgressCircle
-                    completed={profile.value?.completedChapters2026 || []}
-                    onlyCircle
-                    colorCircle="var(--ds-gray-900)"
-                    colorProgressCircle="var(--ds-gray-100)"
-                    responsive="smallOnly"
-                  />
-                </BtAddChapter>
-              </div>
-            </div>
+
+          <div class="rounded-[1.75rem] border border-gray-200 bg-white p-6 shadow-sm">
+            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+              Progressive
+            </p>
+            <h2 class="mt-3 text-xl font-semibold text-(--qwik-dirty-black)">
+              Clear path without useless noise
+            </h2>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              The point is to understand Qwik by shipping things, not by bathing
+              in a hot tub of over-explained abstraction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="edition-2026" class={`${shellClass} py-12 md:py-20`}>
+        <div class="mb-8 flex flex-col gap-4 md:mb-12 md:flex-row md:items-end md:justify-between">
+          <div class="max-w-3xl">
+            <p class="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+              Main course
+            </p>
+            <h2 class="text-3xl font-semibold text-(--qwik-dirty-black) md:text-5xl">
+              The 2026 Edition is the version to follow.
+            </h2>
+            <p class="mt-4 text-base leading-7 text-gray-700 md:text-lg">
+              Actively maintained, modern, and designed as the main learning
+              path. The Legacy version stays available, but this is the one that
+              deserves the spotlight.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/10 px-5 py-4 text-sm text-gray-700">
+            <span class="font-semibold text-(--qwik-dirty-black)">
+              Recommended path:
+            </span>{" "}
+            start here unless you specifically need the old version.
           </div>
         </div>
 
-        <div class="rounded-2xl relative p-6 md:p-10 mb-8 md:mb-20 shadow-xl overflow-hidden z-10 bg-(--qwik-light-blue)/5">
-          <div class="absolute top-0">
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {CHAPTERS2026.map((chapter2026) => {
+            const isCompleted = completed2026.includes(chapter2026.id);
+
+            return (
+              <HomeChapterThumbnail
+                key={chapter2026.id}
+                href={
+                  chapter2026.uri === ""
+                    ? "/learn/dashboard-app-2026/"
+                    : `/learn/dashboard-app-2026/${chapter2026.uri}/`
+                }
+                numberOrIcon={chapter2026.id.toString()}
+                title={chapter2026.title}
+                description={chapter2026.description}
+                isCompleted={isCompleted}
+                version="2026 Edition"
+              />
+            );
+          })}
+        </div>
+
+        <div class="mt-8 flex justify-center md:mt-10">
+          <div class="w-full md:w-auto">
+            <BtAddChapter
+              goToChapter={0}
+              title=""
+              text={primaryCtaText}
+              completedChapters={completed2026}
+              version="2026"
+            >
+              <ProgressCircle
+                completed={completed2026}
+                onlyCircle
+                colorCircle="var(--ds-gray-200)"
+                responsive="smallOnly"
+                version="2026 Edition"
+              />
+            </BtAddChapter>
+          </div>
+        </div>
+      </section>
+
+      <HowDoesTheCourseWorkSection />
+
+      <section class={`${shellClass} py-12 md:py-20`}>
+        <div class="relative overflow-hidden rounded-4xl border border-gray-200 bg-gray-50 p-6 md:p-10">
+          <div class="absolute right-0 top-0 opacity-70">
             <HomeBackground />
           </div>
-          <div class="pb-8 flex flex-col justify-center text-center gap-4">
-            <h2
-              class="text_wrapper"
-              style="--text-color:var(--ds-gray-1000);--xs-text-size:1.5rem;--xs-text-line-height:2rem;--xs-text-weight:600;--xs-text-letter-spacing:-0.029375rem;--sm-text-size:1.5rem;--sm-text-line-height:2rem;--sm-text-weight:600;--sm-text-letter-spacing:-0.029375rem;--smd-text-size:2rem;--smd-text-line-height:2.5rem;--smd-text-weight:600;--smd-text-letter-spacing:-0.049375rem;--md-text-size:2rem;--md-text-line-height:2.5rem;--md-text-weight:600;--md-text-letter-spacing:-0.049375rem;--lg-text-size:2rem;--lg-text-line-height:2.5rem;--lg-text-weight:600;--lg-text-letter-spacing:-0.049375rem"
-            >
-              Learn Qwik <span class="text-red-700">Legacy Version</span>
-            </h2>
-            <p class="mx-auto my-1 w-[70%] text-gray-900 md:ml-2 md:mr-0 md:w-auto md:text-lg">
-              An earlier version of the course. Not actively maintained, but
-              still useful for reference.
-            </p>
-          </div>
-          <div class="grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {CHAPTERS.map((chapter) => {
-              const isCompleted = profile.value?.completedChapters.includes(
-                chapter.id,
-              );
 
-              return (
-                <ChapterThumbnail
-                  key={chapter.id}
-                  href={
-                    chapter.uri === ""
-                      ? "/learn/dashboard-app/"
-                      : `/learn/dashboard-app/${chapter.uri}/`
-                  }
-                  numberOrIcon={chapter.id.toString()}
-                  title={chapter.title}
-                  description={chapter.description}
-                  isCompleted={isCompleted}
-                />
-              );
-            })}
-          </div>
-          <div class="mt-4 flex w-full items-center justify-center  md:mt-8 md:w-auto ">
-            <div class="w-full md:w-58.25">
-              <div>
+          <div class="relative">
+            <div class="mb-8 flex flex-col gap-4 md:mb-10 md:flex-row md:items-end md:justify-between">
+              <div class="max-w-3xl">
+                <p class="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-blue)">
+                  Secondary reference
+                </p>
+                <h2 class="text-3xl font-semibold text-(--qwik-dirty-black) md:text-4xl">
+                  Legacy Version
+                </h2>
+                <p class="mt-4 text-base leading-7 text-gray-700">
+                  Still available for reference, comparison, or older material.
+                  Useful, yes. Main path, no.
+                </p>
+              </div>
+
+              <div class="rounded-3xl border border-(--qwik-dark-blue)/10 bg-(--qwik-light-blue)/10 px-5 py-4 text-sm text-gray-700">
+                <span class="font-semibold text-(--qwik-dirty-black)">
+                  Progress:
+                </span>{" "}
+                {completedLegacy.length} / {totalLegacy} chapters completed
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {CHAPTERS.map((chapter) => {
+                const isCompleted = completedLegacy.includes(chapter.id);
+
+                return (
+                  <HomeChapterThumbnail
+                    key={chapter.id}
+                    href={
+                      chapter.uri === ""
+                        ? "/learn/dashboard-app/"
+                        : `/learn/dashboard-app/${chapter.uri}/`
+                    }
+                    numberOrIcon={chapter.id.toString()}
+                    title={chapter.title}
+                    description={chapter.description}
+                    isCompleted={isCompleted}
+                    version="Legacy"
+                  />
+                );
+              })}
+            </div>
+
+            <div class="mt-8 flex justify-center">
+              <div class="w-full md:w-auto">
                 <BtAddChapter
                   goToChapter={0}
                   title=""
                   text="Browse Legacy Edition"
-                  completedChapters={profile.value?.completedChapters || []}
+                  completedChapters={completedLegacy}
                   version="Legacy"
                 >
                   <ProgressCircle
-                    completed={profile.value?.completedChapters || []}
+                    completed={completedLegacy}
                     onlyCircle
-                    colorCircle="var(--ds-gray-900)"
-                    colorProgressCircle="var(--ds-gray-100)"
+                    colorCircle="var(--ds-gray-200)"
                     responsive="smallOnly"
                   />
                 </BtAddChapter>
@@ -270,30 +396,28 @@ export default component$(() => {
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="bg-background-200 border-t pt-12 md:pt-16">
-          <div class="flex w-full flex-col items-center justify-between space-y-4 px-4  text-center md:flex-row md:space-y-0  md:text-left lg:px-0">
-            <div>
-              <p
-                class="text_wrapper pb-1"
-                data-version="v1"
-                style="--text-color:var(--ds-gray-1000);--text-size:1.5rem;--text-line-height:2rem;--text-letter-spacing:-0.029375rem;--text-weight:600"
-              >
-                Looking to go deeper?
-              </p>
-              <p
-                class="text_wrapper"
-                data-version="v1"
-                style="--text-color:var(--ds-gray-900);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:400"
-              >
-                Continue learning by using guides.
-              </p>
-            </div>
+      <section class="border-t bg-white">
+        <div class={`${shellClass} py-12 md:py-20`}>
+          <div class="mb-8 text-center md:mb-10 md:text-left">
+            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+              Keep going
+            </p>
+            <h2 class="mt-3 text-3xl font-semibold text-(--qwik-dirty-black) md:text-4xl">
+              Go deeper with guides and official Qwik resources.
+            </h2>
+            <p class="mt-4 max-w-2xl text-base leading-7 text-gray-700">
+              Once the course gets you moving, use these extra resources to
+              explore specific Qwik topics in more depth.
+            </p>
           </div>
 
           <GuidesScrollWrapper />
 
-          <QwikDocumentationArticle />
+          <div class="mt-6 md:mt-8">
+            <QwikDocumentationArticle />
+          </div>
         </div>
       </section>
     </main>
@@ -301,9 +425,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Qwik Course and Tutorial",
+  title: "Learn Qwik with a Modern 2026 Course",
   description:
-    "Learn Qwik through a structured course with practical chapters, modern best practices, and a real application built with Qwik, Tailwind and Supabase.",
+    "Learn Qwik through a practical 2026 course and build a real application with Qwik, Tailwind, Supabase, authentication, and deployment.",
   imageUrl: "https://www.learn-qwik.com/metaLanding.png",
   url: "https://www.learn-qwik.com/",
   type: "website",
