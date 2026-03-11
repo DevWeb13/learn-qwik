@@ -115,6 +115,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      get_chapter_feedback_counts: {
+        Args: { p_chapter_number: number; p_course_version: string }
+        Returns: {
+          cry: number
+          happy: number
+          love: number
+          sad: number
+        }[]
+      }
       increment_total_share: { Args: never; Returns: undefined }
     }
     Enums: {

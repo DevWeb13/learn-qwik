@@ -7,6 +7,48 @@ import { CHAPTERS2026 } from "~/constants/chapters2026";
 import { createClient } from "~/lib/supabase/server";
 import type { Database } from "~/types/database.types";
 
+function getChapterContextFromPathname(pathname: string): {
+  courseVersion: "Legacy" | "2026" | null;
+  chapterNumber: number | null;
+} {
+  if (pathname.startsWith("/learn/dashboard-app-2026/")) {
+    const courseVersion = "2026" as const;
+    const basePath = "/learn/dashboard-app-2026/";
+
+    const currentChapter =
+      pathname === basePath
+        ? CHAPTERS2026.find((chapter) => chapter.uri === "")
+        : CHAPTERS2026.find(
+            (chapter) => `${basePath}${chapter.uri}/` === pathname,
+          );
+
+    return {
+      courseVersion,
+      chapterNumber: currentChapter?.id ?? null,
+    };
+  }
+
+  if (pathname.startsWith("/learn/dashboard-app/")) {
+    const courseVersion = "Legacy" as const;
+    const basePath = "/learn/dashboard-app/";
+
+    const currentChapter =
+      pathname === basePath
+        ? CHAPTERS.find((chapter) => chapter.uri === "")
+        : CHAPTERS.find((chapter) => `${basePath}${chapter.uri}/` === pathname);
+
+    return {
+      courseVersion,
+      chapterNumber: currentChapter?.id ?? null,
+    };
+  }
+
+  return {
+    courseVersion: null,
+    chapterNumber: null,
+  };
+}
+
 export const usePutCompletedChapters = routeAction$(
   async (data, requestEvent) => {
     const { completedChapter, version } = data;
@@ -122,36 +164,9 @@ export const useGetChapterFeedback = routeLoader$(async (requestEvent) => {
     };
   }
 
-  const pathname = requestEvent.url.pathname;
-
-  let courseVersion: "Legacy" | "2026" | null = null;
-  let chapterNumber: number | null = null;
-
-  if (pathname.startsWith("/learn/dashboard-app-2026/")) {
-    courseVersion = "2026";
-
-    const basePath = "/learn/dashboard-app-2026/";
-
-    const currentChapter =
-      pathname === basePath
-        ? CHAPTERS2026.find((chapter) => chapter.uri === "")
-        : CHAPTERS2026.find(
-            (chapter) => `${basePath}${chapter.uri}/` === pathname,
-          );
-
-    chapterNumber = currentChapter?.id ?? null;
-  } else if (pathname.startsWith("/learn/dashboard-app/")) {
-    courseVersion = "Legacy";
-
-    const basePath = "/learn/dashboard-app/";
-
-    const currentChapter =
-      pathname === basePath
-        ? CHAPTERS.find((chapter) => chapter.uri === "")
-        : CHAPTERS.find((chapter) => `${basePath}${chapter.uri}/` === pathname);
-
-    chapterNumber = currentChapter?.id ?? null;
-  }
+  const { courseVersion, chapterNumber } = getChapterContextFromPathname(
+    requestEvent.url.pathname,
+  );
 
   if (!courseVersion || chapterNumber === null) {
     return {
@@ -193,38 +208,9 @@ export const useGetChapterFeedback = routeLoader$(async (requestEvent) => {
 
 export const useGetChapterFeedbackCounts = routeLoader$(
   async (requestEvent) => {
-    const pathname = requestEvent.url.pathname;
-
-    let courseVersion: "Legacy" | "2026" | null = null;
-    let chapterNumber: number | null = null;
-
-    if (pathname.startsWith("/learn/dashboard-app-2026/")) {
-      courseVersion = "2026";
-
-      const basePath = "/learn/dashboard-app-2026/";
-
-      const currentChapter =
-        pathname === basePath
-          ? CHAPTERS2026.find((chapter) => chapter.uri === "")
-          : CHAPTERS2026.find(
-              (chapter) => `${basePath}${chapter.uri}/` === pathname,
-            );
-
-      chapterNumber = currentChapter?.id ?? null;
-    } else if (pathname.startsWith("/learn/dashboard-app/")) {
-      courseVersion = "Legacy";
-
-      const basePath = "/learn/dashboard-app/";
-
-      const currentChapter =
-        pathname === basePath
-          ? CHAPTERS.find((chapter) => chapter.uri === "")
-          : CHAPTERS.find(
-              (chapter) => `${basePath}${chapter.uri}/` === pathname,
-            );
-
-      chapterNumber = currentChapter?.id ?? null;
-    }
+    const { courseVersion, chapterNumber } = getChapterContextFromPathname(
+      requestEvent.url.pathname,
+    );
 
     if (!courseVersion || chapterNumber === null) {
       return {
@@ -239,11 +225,10 @@ export const useGetChapterFeedbackCounts = routeLoader$(
 
     const supabase = createClient(requestEvent);
 
-    const { data, error } = await supabase
-      .from("chapter_feedback")
-      .select("reaction")
-      .eq("courseVersion", courseVersion)
-      .eq("chapterNumber", chapterNumber);
+    const { data, error } = await supabase.rpc("get_chapter_feedback_counts", {
+      p_course_version: courseVersion,
+      p_chapter_number: chapterNumber,
+    });
 
     if (error) {
       console.error("Failed to load chapter feedback counts:", error.message);
@@ -258,23 +243,16 @@ export const useGetChapterFeedbackCounts = routeLoader$(
       };
     }
 
-    const counts = {
-      love: 0,
-      happy: 0,
-      sad: 0,
-      cry: 0,
+    const row = Array.isArray(data) ? data[0] : data;
+
+    return {
+      love: Number(row?.love ?? 0),
+      happy: Number(row?.happy ?? 0),
+      sad: Number(row?.sad ?? 0),
+      cry: Number(row?.cry ?? 0),
       courseVersion,
       chapterNumber,
     };
-
-    for (const item of data ?? []) {
-      if (item.reaction === "love") counts.love++;
-      if (item.reaction === "happy") counts.happy++;
-      if (item.reaction === "sad") counts.sad++;
-      if (item.reaction === "cry") counts.cry++;
-    }
-
-    return counts;
   },
 );
 
