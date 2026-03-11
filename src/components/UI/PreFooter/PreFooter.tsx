@@ -5,7 +5,7 @@ import SocialShareButtons from "~/components/UI/SocialShareButtons/SocialShareBu
 
 export default component$(() => {
   return (
-    <div class="border-b bg-gray-50 py-2 text-center">
+    <div class="bg-gray-50 py-2 text-center">
       <SocialShareButtons />
     </div>
   );

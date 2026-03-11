@@ -4,90 +4,72 @@ import { QwikLogo } from "~/assets/svg/qwikLogo/qwikLogo";
 
 export const QwikDocumentationArticle = component$(() => {
   return (
-    <article class="flex w-full flex-col items-center justify-between space-y-6 px-4 pt-10 text-center md:flex-row md:space-y-0 md:px-0 md:text-left">
-      <div class="relative flex flex-col items-center  space-x-4 space-y-2 md:flex-row md:space-y-0">
-        <div class="relative flex">
-          <div class="absolute left-2 top-2">
-            <QwikLogo id="4" height={16} width={16} />
+    <article class="overflow-hidden rounded-[1.75rem] border border-gray-200 bg-gray-50 p-6 md:p-8">
+      <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <div class="flex items-start gap-4">
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-(--qwik-dark-purple)/12 bg-white shadow-sm">
+            <QwikLogo id="4" height={28} width={28} />
           </div>
 
-          <svg
-            fill="none"
-            height="66"
-            viewBox="0 0 54 66"
-            width="54"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g filter="url(#filter0_d_24_6161)">
-              <path
-                class="text-[#EAEAEA] dark:text-gray-400"
-                d="M11 46C11 44.8954 11.8954 44 13 44H33C34.1046 44 35 44.8954 35 46C35 47.1046 34.1046 48 33 48H13C11.8954 48 11 47.1046 11 46Z"
-                fill="currentColor"
-              ></path>
-              <path
-                class="text-[#EAEAEA] dark:text-gray-400"
-                d="M11 52C11 50.8954 11.8954 50 13 50H25C26.1046 50 27 50.8954 27 52C27 53.1046 26.1046 54 25 54H13C11.8954 54 11 53.1046 11 52Z"
-                fill="currentColor"
-              ></path>
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+              Official resource
+            </p>
 
-              <path
-                class="text-black/10 dark:text-gray-400"
-                d="M7 1.5C4.51472 1.5 2.5 3.51472 2.5 6V58C2.5 60.4853 4.51472 62.5 7 62.5H47C49.4853 62.5 51.5 60.4853 51.5 58V6C51.5 3.51472 49.4853 1.5 47 1.5H7Z"
-                stroke="currentColor"
-              ></path>
-            </g>
-          </svg>
+            <h3 class="mt-2 text-2xl font-semibold text-(--qwik-dirty-black)">
+              Qwik Documentation
+            </h3>
+
+            <p class="mt-3 max-w-2xl text-sm leading-6 text-gray-600 md:text-base">
+              The official reference for installing, running, building, and
+              deploying Qwik.
+            </p>
+          </div>
         </div>
-        <div>
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color:var(--ds-gray-1000);--text-size:1.5rem;--text-line-height:2rem;--text-letter-spacing:-0.029375rem;--text-weight:600"
+
+        <div class="w-full md:w-auto">
+          <Link
+            href="https://qwik.dev/"
+            target="_blank"
+            class="group inline-flex w-full items-center justify-center gap-3 rounded-[1.1rem] border border-(--qwik-dark-purple)/18 bg-white px-5 py-3 text-sm font-semibold text-(--qwik-dirty-black) transition-all duration-200 hover:-translate-y-0.5 hover:border-(--qwik-dark-purple)/32 hover:shadow-lg hover:shadow-black/5 md:w-auto"
           >
-            Qwik Documentation
-          </p>
-          <p
-            class="text_wrapper pt-1"
-            data-version="v1"
-            style="--text-color:var(--ds-gray-900);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:400"
-          >
-            The complete resource for installing, running, building with, and
-            deploying Qwik
-          </p>
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-(--qwik-light-purple)/12 text-(--qwik-dirty-black)!">
+              <svg
+                height="16"
+                width="16"
+                viewBox="0 0 16 16"
+                style="color: currentColor;"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M0 1H0.75H5C6.2267 1 7.31583 1.58901 8 2.49963C8.68417 1.58901 9.7733 1 11 1H15.25H16V1.75V13V13.75H15.25H10.7426C10.1459 13.75 9.57361 13.9871 9.15165 14.409L8.53033 15.0303H7.46967L6.84835 14.409C6.42639 13.9871 5.8541 13.75 5.25736 13.75H0.75H0V13V1.75V1ZM7.25 4.75C7.25 3.50736 6.24264 2.5 5 2.5H1.5V12.25H5.25736C5.96786 12.25 6.65758 12.4516 7.25 12.8232V4.75ZM8.75 12.8232V4.75C8.75 3.50736 9.75736 2.5 11 2.5H14.5V12.25H10.7426C10.0321 12.25 9.34242 12.4516 8.75 12.8232Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+
+            <span class="text-(--qwik-dirty-black)!">
+              View the documentation
+            </span>
+
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-(--qwik-dark-purple)/14 bg-(--qwik-light-purple)/10 text-(--qwik-dark-purple) transition-transform duration-200 group-hover:translate-x-0.5">
+              <svg
+                height="16"
+                width="16"
+                viewBox="0 0 16 16"
+                style="color: currentColor;"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </Link>
         </div>
-      </div>
-      <div class="w-[100%] md:w-auto">
-        <Link
-          role="link"
-          tabIndex={0}
-          href="https://qwik.dev/"
-          class="button_base button_button reset_reset button_secondary button_invert"
-          data-geist-button=""
-          data-prefix="true"
-          data-suffix="false"
-          data-version="v1"
-          style="min-width:100%;max-width:100%;--geist-icon-size:16px"
-          target="_blank"
-        >
-          <span class="button_prefix">
-            <svg
-              data-testid="geist-icon"
-              height="16"
-              stroke-linejoin="round"
-              style="color:currentColor"
-              viewBox="0 0 16 16"
-              width="16"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M0 1H0.75H5C6.2267 1 7.31583 1.58901 8 2.49963C8.68417 1.58901 9.7733 1 11 1H15.25H16V1.75V13V13.75H15.25H10.7426C10.1459 13.75 9.57361 13.9871 9.15165 14.409L8.53033 15.0303H7.46967L6.84835 14.409C6.42639 13.9871 5.8541 13.75 5.25736 13.75H0.75H0V13V1.75V1ZM7.25 4.75C7.25 3.50736 6.24264 2.5 5 2.5H1.5V12.25H5.25736C5.96786 12.25 6.65758 12.4516 7.25 12.8232V4.75ZM8.75 12.8232V4.75C8.75 3.50736 9.75736 2.5 11 2.5H14.5V12.25H10.7426C10.0321 12.25 9.34242 12.4516 8.75 12.8232Z"
-                fill="currentColor"
-              ></path>
-            </svg>
-          </span>
-          <span class="button_content">View the Documentation</span>
-        </Link>
       </div>
     </article>
   );

@@ -1,489 +1,104 @@
-import { $, component$, useSignal, useStylesScoped$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
+
+const GUIDES = [
+  {
+    title: "Qwik School",
+    description: "Learn directly from the Qwik ecosystem and its creators.",
+    meta: "Course platform",
+    href: "https://qwikschool.com/",
+    accent: "purple",
+  },
+  {
+    title: "Qwik Crash Course",
+    description: "A practical first look at Qwik by Net Ninja.",
+    meta: "YouTube • Net Ninja",
+    href: "https://www.youtube.com/playlist?list=PL4cUxeGkcC9gOUlY-uCHurFIpqogsdOnw",
+    accent: "gray",
+  },
+  {
+    title: "Full Stack Qwik SaaS App",
+    description: "A longer real-world build focused on application structure.",
+    meta: "YouTube • Code Raiders",
+    href: "https://www.youtube.com/playlist?list=PLkswEDcfBXYcl1gW7L5zyCVF9LpGhlOqu",
+    accent: "purple",
+  },
+  {
+    title: "Qwik for React Developers",
+    description: "A useful bridge if you come from the React world.",
+    meta: "YouTube • RumNCode",
+    href: "https://www.youtube.com/@RumNCode/featured",
+    accent: "blue",
+  },
+  {
+    title: "Need a custom Qwik guide?",
+    description: "Get a tailored guide or reach out for help.",
+    meta: "External resource",
+    href: "https://www.lareponsedev.fr/",
+    accent: "gray",
+  },
+];
 
 export const GuidesScrollWrapper = component$(() => {
-  useStylesScoped$(`
-.guides_guidesScrollWrapper__X_Ocn {
-    position: relative;
-    display: flex;
-    height: 348px;
-}
-
-.guides_guidesListScrollView__ih_Nc {
-    display: flex;
-    width: 100%;
-    max-width: 100vw;
-    height: 100%;
-    position: relative;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-    .guides_guidesListScrollView__ih_Nc {
-    padding: 4em 0;
-}
-
-.guides_bookSpacer__OLoiP {
-    width: calc((100vw - var(--geist-page-width)) / 2);
-}
-
-.guides_bookPerspective__1DMxp {
-    perspective: 900px;
-    margin-right: 1em;
-}
-
-.guides_bookRotateWrapper__Z22Ip {
-    cursor: pointer;
-    --book-depth: 56px;
-    --book-border-radius: 5.4px 1.8px 1.8px 5.4px;
-    --hover-rotate: -20deg;
-    --hover-scale: 1.066;
-    --hover-translate-x: -0.5em;
-    transform: rotate(0deg);
-    position: relative;
-    transform-style: preserve-3d;
-    width: var(--book-width);
-    height: var(--book-height);
-    transition: transform .6s ease;
-    box-shadow: none;
-}
-
-.guides_bookRotateWrapper__Z22Ip:hover {
-        transform: rotateY(var(--hover-rotate)) scale(var(--hover-scale)) translateX(var(--hover-translate-x));
-    }
-
-
-.guides_book__j9vP8 {
-    width: var(--book-width);
-    height: var(--book-height);
-    min-width: var(--book-width);
-    min-height: var(--book-height);
-    border-radius: var(--book-border-radius);
-    background: linear-gradient(180deg, hsla(0, 0%, 100%, .1) 0, hsla(0, 0%, 100%, 0) 50%, hsla(0, 0%, 100%, 0) 100%), var(--book-color);
-    box-shadow: 0 1.8px 3.6px rgba(0, 0, 0, .05), 0 10.8px 21.6px rgba(0, 0, 0, .08), inset 0 -.9px 0 rgba(0, 0, 0, .1), inset 0 1.8px 1.8px hsla(0, 0%, 100%, .1), inset 3.6px 0 3.6px rgba(0, 0, 0, .1);
-    display: flex;
-}
-
-.guides_bookRotateWrapper__Z22Ip>:first-child {
-    position: absolute;
-    width: var(--book-width);
-    height: var(--book-height);
-}
-
-.guides_bookRotateWrapper__Z22Ip .guides_side__D9UwQ {
-    background: linear-gradient(90deg, var(--accents-3) 0, transparent 30%), linear-gradient(var(--geist-background), var(--accents-1));
-    height: calc(var(--book-height) - 2* 3px);
-    width: calc(var(--book-depth) - 2px);
-    top: 3px;
-    position: absolute;
-    transform: translateX(calc(var(--book-width) - var(--book-depth) / 2 - 3px)) rotateY(90deg) translateX(calc(var(--book-depth) / 2));
-}
-
-.guides_book__j9vP8 .guides_bind__9COxI {
-    height: 100%;
-    min-width: 24px;
-    background: linear-gradient(90deg, hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0) 12%, hsla(0, 0%, 100%, .25) 29.25%, hsla(0, 0%, 100%, 0) 50.5%, hsla(0, 0%, 100%, 0) 75.25%, hsla(0, 0%, 100%, .25) 91%, hsla(0, 0%, 100%, 0)), linear-gradient(90deg, rgba(0, 0, 0, .03), rgba(0, 0, 0, .1) 12%, transparent 30%, rgba(0, 0, 0, .02) 50%, rgba(0, 0, 0, .2) 73.5%, rgba(0, 0, 0, .5) 75.25%, rgba(0, 0, 0, .15) 85.25%, transparent);
-    opacity: .2;
-
-}
-
-.guides_book__j9vP8 .guides_cover__skh_f {
-    padding: 1.5rem 1.25rem;
-}
-
-.guides_book__j9vP8 .guides_cover__skh_f p {
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: -.01em;
-    color: var(--subtitle-color);
-    text-shadow: var(--text-shadow);
-}
-
-.space-y-2>:not([hidden])~:not([hidden]) {
-    --tw-space-y-reverse: 0;
-    margin-top: calc(.5rem* calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(.5rem* var(--tw-space-y-reverse));
-}
-
-.guides_carouselControls__I_6T7 {
-    height: 0;
-    width: 0;
-    border: none;
-}
-
-@media (min-width: 976px) {
-  .guides_carouselControls__I_6T7 {
-    display: none;
-  }
-}
-
-fieldset, legend {
-    padding: 0;
-}
-fieldset {
-    margin: 0;
-}
-
-.guides_slideControl__ZgnAB {
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    bottom: 1.5em;
-    display: flex;
-    align-items: center;
-}
-
-.guides_right__lPNfI {
-    right: 1em;
-}
-
-.guides_left__l6yRf {
-    left: 1em;
-}
-
-.circle-button_button__q1__M {
-    width: 3rem;
-    height: 3rem;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: hsla(0, 0%, 67%, .1);
-    transition: background .2s;
-    cursor: pointer;
-}
-
-.circle-button_button__q1__M:hover {
-  background: hsla(0, 0%, 67%, .4);
-  }
-
-
-
-    `);
-
-  const containerRef = useSignal<HTMLDivElement>();
-  const sliderRef = useSignal<HTMLDivElement>();
-  const position = useSignal(0);
-
-  const scroll = $(function scroll(direction: "left" | "right") {
-    console.log("Scrolling ", direction);
-    const NUMBER_OF_BOOKS = 5;
-    const TOTAL_WIDTH = 1120;
-    const BOOK_WIDTH = TOTAL_WIDTH / NUMBER_OF_BOOKS;
-    const containerWidth = containerRef.value?.clientWidth || 0;
-
-    if (direction === "left") {
-      position.value = Math.max(position.value - BOOK_WIDTH, 0);
-    } else {
-      const maxScroll = TOTAL_WIDTH - containerWidth;
-      position.value = Math.min(position.value + BOOK_WIDTH, maxScroll);
-    }
-
-    if (sliderRef.value) {
-      sliderRef.value.style.transform = `translateX(-${position.value}px)`;
-    }
-  });
-
   return (
-    <div class="guides_guidesScrollWrapper__X_Ocn overflow-x-hidden">
-      <div
-        ref={containerRef}
-        class="stack_stack__iZkUS stack guides_guidesListScrollView__ih_Nc"
-        data-version="v1"
-        style="--stack-flex:initial;--stack-direction:row;--stack-align:stretch;--stack-justify:flex-start;--stack-padding:0px;--stack-gap:0px"
-      >
-        <div
-          ref={sliderRef}
-          class="absolute flex w-full items-center justify-between px-4 md:px-1"
-          style="transition: transform 0.6s ease"
-        >
-          <div class="guides_bookSpacer__OLoiP md:hidden"></div>
-          <a
-            class="guides_bookPerspective__1DMxp"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://qwikschool.com/"
-          >
-            <div
-              class="guides_bookRotateWrapper__Z22Ip"
-              style="--book-height: 220px; --book-width: 204px; --book-color: var(--ds-gray-400); --subtitle-color: var(--ds-gray-1000);"
-            >
-              <div
-                class="stack_stack__iZkUS stack guides_book__j9vP8"
-                data-version="v1"
-                style="--stack-flex:initial;--stack-direction:row;--stack-align:stretch;--stack-justify:flex-start;--stack-padding:0px;--stack-gap:0px"
-              >
-                <div class="guides_bind__9COxI"></div>
-                <div
-                  class="stack_stack__iZkUS stack guides_cover__skh_f flex"
-                  data-version="v1"
-                  style="--stack-flex:1;--stack-direction:column;--stack-align:stretch;--stack-justify:space-between;--stack-padding:0px;--stack-gap:0px"
-                >
-                  <div class="flex flex-col justify-between space-y-2">
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-1000);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:500"
-                    >
-                      Qwik school
-                    </p>
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-900);--text-size:0.8125rem;--text-line-height:1.125rem;--text-letter-spacing:initial;--text-weight:400;color:var(--ds-gray-900)"
-                    >
-                      By creator of Qwik 'Miško Hevery' 🦾
-                      <br />
-                      and 'Shai Reznik' 💪
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="guides_side__D9UwQ"></div>
-              <div class="guides_back__SaY73"></div>
-            </div>
-          </a>
+    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+      {GUIDES.map((guide) => {
+        const accentClass =
+          guide.accent === "purple"
+            ? "border-(--qwik-dark-purple)/14 bg-(--qwik-light-purple)/8 text-(--qwik-dark-purple)"
+            : guide.accent === "blue"
+              ? "border-(--qwik-dark-blue)/14 bg-(--qwik-light-blue)/8 text-(--qwik-dark-blue)"
+              : "border-gray-200 bg-gray-100 text-gray-700";
 
+        return (
           <a
-            class="guides_bookPerspective__1DMxp"
-            rel="noopener noreferrer"
+            key={guide.title}
+            href={guide.href}
             target="_blank"
-            href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9gOUlY-uCHurFIpqogsdOnw"
+            rel="noopener noreferrer"
+            class="group flex h-full min-h-56 flex-col rounded-3xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-(--qwik-dark-purple)/18 hover:shadow-lg hover:shadow-black/5"
           >
-            <div
-              class="guides_bookRotateWrapper__Z22Ip"
-              style="--book-height: 220px; --book-width: 204px; --book-color: var(--ds-gray-400); --subtitle-color: var(--ds-gray-1000);"
-            >
+            <div class="min-h-12">
               <div
-                class="stack_stack__iZkUS stack guides_book__j9vP8"
-                data-version="v1"
-                style="--stack-flex:initial;--stack-direction:row;--stack-align:stretch;--stack-justify:flex-start;--stack-padding:0px;--stack-gap:0px"
+                class={`inline-flex min-h-11 w-full items-center rounded-full border px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.14em] ${accentClass}`}
               >
-                <div class="guides_bind__9COxI"></div>
-                <div
-                  class="stack_stack__iZkUS stack guides_cover__skh_f flex"
-                  data-version="v1"
-                  style="--stack-flex:1;--stack-direction:column;--stack-align:stretch;--stack-justify:space-between;--stack-padding:0px;--stack-gap:0px"
-                >
-                  <div class="flex flex-col justify-between space-y-2">
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-1000);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:500"
-                    >
-                      Qwik Crash Course (first look)
-                    </p>
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-900);--text-size:0.8125rem;--text-line-height:1.125rem;--text-letter-spacing:initial;--text-weight:400;color:var(--ds-gray-900)"
-                    >
-                      YouTube channel
-                      <br />
-                      By 'Net Ninja'
-                    </p>
-                  </div>
-                </div>
+                {guide.meta}
               </div>
-              <div class="guides_side__D9UwQ"></div>
-              <div class="guides_back__SaY73"></div>
+            </div>
+
+            <div class="mt-5 min-h-[4.75rem]">
+              <h3 class="text-lg font-semibold leading-snug text-(--qwik-dirty-black)">
+                {guide.title}
+              </h3>
+            </div>
+
+            <div class="flex-1">
+              <p class="text-sm leading-6 text-gray-600">{guide.description}</p>
+            </div>
+
+            <div class="mt-6 flex items-center justify-between border-t border-gray-100 pt-4">
+              <span class="text-sm font-medium text-gray-500">
+                Open resource
+              </span>
+
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-(--qwik-dark-purple)/14 bg-(--qwik-light-purple)/10 text-(--qwik-dark-purple) transition-all duration-200 group-hover:translate-x-0.5">
+                <svg
+                  height="16"
+                  width="16"
+                  viewBox="0 0 16 16"
+                  style="color: currentColor;"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M9.53033 2.21968L9 1.68935L7.93934 2.75001L8.46967 3.28034L12.4393 7.25001H1.75H1V8.75001H1.75H12.4393L8.46967 12.7197L7.93934 13.25L9 14.3107L9.53033 13.7803L14.6036 8.70711C14.9941 8.31659 14.9941 7.68342 14.6036 7.2929L9.53033 2.21968Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
             </div>
           </a>
-          <a
-            class="guides_bookPerspective__1DMxp"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.youtube.com/playlist?list=PLkswEDcfBXYcl1gW7L5zyCVF9LpGhlOqu"
-          >
-            <div
-              class="guides_bookRotateWrapper__Z22Ip"
-              style="--book-height: 220px; --book-width: 204px; --book-color: var(--ds-gray-400); --subtitle-color: var(--ds-gray-1000);"
-            >
-              <div
-                class="stack_stack__iZkUS stack guides_book__j9vP8"
-                data-version="v1"
-                style="--stack-flex:initial;--stack-direction:row;--stack-align:stretch;--stack-justify:flex-start;--stack-padding:0px;--stack-gap:0px"
-              >
-                <div class="guides_bind__9COxI"></div>
-                <div
-                  class="stack_stack__iZkUS stack guides_cover__skh_f flex"
-                  data-version="v1"
-                  style="--stack-flex:1;--stack-direction:column;--stack-align:stretch;--stack-justify:space-between;--stack-padding:0px;--stack-gap:0px"
-                >
-                  <div class="flex flex-col justify-between space-y-2">
-                    <p
-                      class="text_wrapper column "
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-1000);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:500"
-                    >
-                      Qwik JS - How to Build a Full Stack SAAS Application
-                    </p>
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-900);--text-size:0.8125rem;--text-line-height:1.125rem;--text-letter-spacing:initial;--text-weight:400;color:var(--ds-gray-900)"
-                    >
-                      YouTube channel
-                      <br />
-                      By 'Code Raiders'
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="guides_side__D9UwQ"></div>
-              <div class="guides_back__SaY73"></div>
-            </div>
-          </a>
-          <a
-            class="guides_bookPerspective__1DMxp"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.youtube.com/@RumNCode/featured"
-          >
-            <div
-              class="guides_bookRotateWrapper__Z22Ip"
-              style="--book-height: 220px; --book-width: 204px; --book-color: var(--ds-gray-400); --subtitle-color: var(--ds-gray-1000);"
-            >
-              <div
-                class="stack_stack__iZkUS stack guides_book__j9vP8"
-                data-version="v1"
-                style="--stack-flex:initial;--stack-direction:row;--stack-align:stretch;--stack-justify:flex-start;--stack-padding:0px;--stack-gap:0px"
-              >
-                <div class="guides_bind__9COxI"></div>
-                <div
-                  class="stack_stack__iZkUS stack guides_cover__skh_f flex"
-                  data-version="v1"
-                  style="--stack-flex:1;--stack-direction:column;--stack-align:stretch;--stack-justify:space-between;--stack-padding:0px;--stack-gap:0px"
-                >
-                  <div class="flex flex-col justify-between space-y-2">
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-1000);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:500"
-                    >
-                      Qwik comparison for React developers
-                    </p>
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-900);--text-size:0.8125rem;--text-line-height:1.125rem;--text-letter-spacing:initial;--text-weight:400;color:var(--ds-gray-900)"
-                    >
-                      YouTube channel
-                      <br />
-                      By 'RumNCode 🥃'
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="guides_side__D9UwQ"></div>
-              <div class="guides_back__SaY73"></div>
-            </div>
-          </a>
-          <a
-            class="guides_bookPerspective__1DMxp"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://www.lareponsedev.fr/"
-          >
-            <div
-              class="guides_bookRotateWrapper__Z22Ip"
-              style="--book-height: 220px; --book-width: 204px; --book-color: var(--ds-gray-400); --subtitle-color: var(--ds-gray-1000);"
-            >
-              <div
-                class="stack_stack__iZkUS stack guides_book__j9vP8"
-                data-version="v1"
-                style="--stack-flex:initial;--stack-direction:row;--stack-align:stretch;--stack-justify:flex-start;--stack-padding:0px;--stack-gap:0px"
-              >
-                <div class="guides_bind__9COxI"></div>
-                <div
-                  class="stack_stack__iZkUS stack guides_cover__skh_f flex"
-                  data-version="v1"
-                  style="--stack-flex:1;--stack-direction:column;--stack-align:stretch;--stack-justify:space-between;--stack-padding:0px;--stack-gap:0px"
-                >
-                  <div class="flex flex-col justify-between space-y-2">
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-1000);--text-size:1rem;--text-line-height:1.5rem;--text-letter-spacing:initial;--text-weight:500"
-                    >
-                      Do you have a guide to Qwik?
-                    </p>
-                    <p
-                      class="text_wrapper"
-                      data-version="v1"
-                      style="--text-color:var(--ds-gray-900);--text-size:0.8125rem;--text-line-height:1.125rem;--text-letter-spacing:initial;--text-weight:400;color:var(--ds-gray-900)"
-                    >
-                      Get it here!
-                      <br /> Contact me
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="guides_side__D9UwQ"></div>
-              <div class="guides_back__SaY73"></div>
-            </div>
-          </a>
-          <div class="guides_bookSpacer__OLoiP md:hidden"></div>
-        </div>
-      </div>
-      <fieldset
-        aria-controls="carousel"
-        aria-label="carousel buttons"
-        class="guides_carouselControls__I_6T7"
-      >
-        <div class="guides_left__l6yRf guides_slideControl__ZgnAB">
-          <button
-            aria-label="Previous Slide"
-            class="circle-button_button__q1__M"
-            type="button"
-            onClick$={() => {
-              scroll("left");
-            }}
-          >
-            <svg
-              aria-hidden="true"
-              fill="none"
-              height="14"
-              shape-rendering="geometricPrecision"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              viewBox="0 0 8 14"
-              width="8"
-            >
-              <path d="M7 13L1 7L4 4L7 1"></path>
-            </svg>
-          </button>
-        </div>
-        <div class="guides_right__lPNfI guides_slideControl__ZgnAB">
-          <button
-            aria-label="Next slide"
-            class="circle-button_button__q1__M"
-            type="button"
-            onClick$={() => {
-              scroll("right");
-            }}
-          >
-            <svg
-              aria-hidden="true"
-              fill="none"
-              height="14"
-              shape-rendering="geometricPrecision"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              viewBox="0 0 8 14"
-              width="8"
-            >
-              <path d="M1 13L7 7L1 1"></path>
-            </svg>
-          </button>
-        </div>
-      </fieldset>
+        );
+      })}
     </div>
   );
 });
