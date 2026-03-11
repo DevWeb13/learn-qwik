@@ -28,14 +28,6 @@ export const onGet: RequestHandler = (ev) => {
       (route) => route === "privacy-policy/" || route === "terms-of-use/",
     );
 
-  const accountRoutes = routes
-    .map(([route]) => route as string)
-    .filter((route) => route.startsWith("account/"));
-
-  const authRoutes = routes
-    .map(([route]) => route as string)
-    .filter((route) => route.startsWith("auth/"));
-
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },
     ...learnRoutes.map((route) => ({
@@ -44,14 +36,6 @@ export const onGet: RequestHandler = (ev) => {
     })),
     ...blogRoutes.map((route) => ({
       loc: `/${route}`,
-      priority: 0.8,
-    })),
-    ...accountRoutes.map((route) => ({
-      loc: route,
-      priority: 0.8,
-    })),
-    ...authRoutes.map((route) => ({
-      loc: route,
       priority: 0.8,
     })),
     ...releasePages.map((page) => ({

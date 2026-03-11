@@ -8,8 +8,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title:
-    "(2025) | Qwik 2.0 Beta is here | New APIs, Faster Builds, Better Dev Experience",
+  title: "Qwik 2.0 Beta: New APIs and Faster Builds",
   description:
     "Discover what’s new in Qwik 2.0 Beta: faster builds, new async APIs, cleaner internals, and the main changes from Qwik v1.",
   imageUrl: "https://www.learn-qwik.com/metaQwik2Beta.png",

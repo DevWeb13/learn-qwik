@@ -13,7 +13,7 @@ import { ArrowRightEndOnRectangle } from "~/assets/svg/arrowRightEndOnRectangle"
 import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
 import { Message } from "~/components/UI/message/message";
 import { createClient } from "~/lib/supabase/server";
-import { createDocumentHead } from "~/utils/createDocumentHead";
+import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 export const useSignUpOrLoginWithMagicLinkAction = routeAction$(
   async (dataform, requestEvent) => {
@@ -82,7 +82,7 @@ export default component$(() => {
   const nav = useNavigate();
 
   return (
-    <main class="relative flex w-full flex-grow flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
+    <main class="relative flex w-full grow flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-6 lg:px-8">
       <div class="absolute inset-0 -z-10 overflow-hidden">
         <div class="absolute bottom-0 left-1/2 -translate-x-1/2 dark:hidden">
           <HomeBackground />
@@ -191,9 +191,12 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = createDocumentHead(
-  "Login to Learn Qwik",
-  "Login to Learn Qwik and unlock interactive tutorials, progress tracking, and premium content for Qwik developers.",
-  "https://www.learn-qwik.com/metaLanding.png",
-  "https://www.learn-qwik.com/auth/login/",
-);
+export const head: DocumentHead = createDocumentHead2026({
+  title: "Login to Learn Qwik",
+  description:
+    "Login to Learn Qwik and unlock interactive tutorials, progress tracking, and premium content for Qwik developers.",
+  imageUrl: "https://www.learn-qwik.com/metaLanding.png",
+  url: "https://www.learn-qwik.com/auth/login/",
+  type: "website",
+  robots: "noindex, nofollow",
+});

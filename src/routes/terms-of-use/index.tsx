@@ -1,12 +1,12 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
-import { createDocumentHead } from "~/utils/createDocumentHead";
+import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 export default component$(() => {
   return (
     <main>
-      <div class="relative mx-auto max-w-screen-lg px-4 py-4 md:py-10">
+      <div class="relative mx-auto max-w-5xl px-4 py-4 md:py-10">
         <article
           class="mt-8 w-full min-w-0 max-w-6xl px-1 md:px-6"
           style="min-height: calc(100vh - 103px);"
@@ -147,9 +147,11 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = createDocumentHead(
-  "Terms of Use",
-  "Terms of Use",
-  "https://www.learn-qwik.com/metaLanding.png",
-  "https://www.learn-qwik.com/terms-of-use/",
-);
+export const head: DocumentHead = createDocumentHead2026({
+  title: "Terms of Use",
+  description:
+    "Read the Learn Qwik Terms of Use, including access rules, account responsibilities, acceptable use, and service limitations.",
+  imageUrl: "https://www.learn-qwik.com/metaLanding.png",
+  url: "https://www.learn-qwik.com/terms-of-use/",
+  type: "website",
+});

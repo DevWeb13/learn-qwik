@@ -6,6 +6,7 @@ interface CreateDocumentHead2026Props {
   imageUrl: string;
   url: string;
   type?: "website" | "article";
+  robots?: string;
 }
 
 export const createDocumentHead2026 = ({
@@ -14,6 +15,7 @@ export const createDocumentHead2026 = ({
   imageUrl,
   url,
   type = "article",
+  robots = "index, follow",
 }: CreateDocumentHead2026Props): DocumentHead => {
   const fullTitle = `Learn Qwik | ${title}`;
 
@@ -30,7 +32,7 @@ export const createDocumentHead2026 = ({
       },
       {
         name: "robots",
-        content: "index, follow",
+        content: robots,
       },
       {
         property: "og:title",

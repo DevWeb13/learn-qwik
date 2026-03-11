@@ -10,7 +10,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Install Visual Studio Code on Ubuntu | From A to Z (2025) | Part 2",
+  title: "Install VS Code on Ubuntu (2025)",
   description:
     "Complete step-by-step guide to install Visual Studio Code on Ubuntu using the official repository. Safe and easy method for beginners.",
   imageUrl: "https://www.learn-qwik.com/metaInstallVSCodeUbuntu.png",

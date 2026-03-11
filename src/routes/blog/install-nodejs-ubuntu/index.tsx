@@ -10,7 +10,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Install Node.js and NPM on Ubuntu | From A to Z (2025) | Part 1",
+  title: "Install Node.js and NPM on Ubuntu (2025)",
   description:
     "Step-by-step instructions to install Node.js and npm on Ubuntu. Includes commands, explanations, and source links.",
   imageUrl: "https://www.learn-qwik.com/metaInstallNodeUbuntu.png",

@@ -10,7 +10,7 @@ import {
 import { AccountContent } from "~/components/account/accountContent";
 import { createClient } from "~/lib/supabase/server";
 import type { Database } from "~/types/database.types"; // Import des types générés Supabase
-import { createDocumentHead } from "~/utils/createDocumentHead";
+import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 
@@ -137,9 +137,11 @@ export default component$(() => {
   return <AccountContent />;
 });
 
-export const head: DocumentHead = createDocumentHead(
-  "Account Page",
-  "Manage your account settings.",
-  "https://www.learn-qwik.com/metaAccount.png",
-  "https://www.learn-qwik.com/account/",
-);
+export const head: DocumentHead = createDocumentHead2026({
+  title: "Account Page",
+  description: "Manage your account settings.",
+  imageUrl: "https://www.learn-qwik.com/metaAccount.png",
+  url: "https://www.learn-qwik.com/account/",
+  type: "website",
+  robots: "noindex, nofollow",
+});

@@ -5,10 +5,10 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import { routeAction$ } from "@builder.io/qwik-city";
 import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
 import { ModalDeleteProfile } from "~/lib/qwikUI/modalDeleteProfile/modalDeleteProfile";
-import { createDocumentHead } from "~/utils/createDocumentHead";
 
 import { createAdminClient, createClient } from "~/lib/supabase/server"; // 🔥 Import des 2 clients
 import { useProfile } from "~/routes/layout";
+import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 export const useDeleteProfileAction = routeAction$(
   async (data, requestEvent) => {
@@ -74,8 +74,8 @@ export default component$(() => {
     : null;
 
   return (
-    <main class="relative flex w-full flex-grow flex-col items-center overflow-hidden py-12">
-      <div class="absolute bottom-[100px] left-1/2 z-[-1] -translate-x-1/2 md:bottom-0">
+    <main class="relative flex w-full grow flex-col items-center overflow-hidden py-12">
+      <div class="absolute bottom-25 left-1/2 z-[-1] -translate-x-1/2 md:bottom-0">
         <div class="block dark:hidden">
           <HomeBackground />
         </div>
@@ -83,7 +83,7 @@ export default component$(() => {
           <HomeBackground />
         </div>
       </div>
-      <h1 class="mb-4 text-center text-4xl font-semibold md:mb-8 md:max-w-[100%] md:text-6xl">
+      <h1 class="mb-4 text-center text-4xl font-semibold md:mb-8 md:max-w-full md:text-6xl">
         Delete your <span class="text-red-500">Learn Qwik</span> Account
       </h1>
 
@@ -120,9 +120,11 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = createDocumentHead(
-  "Delete your Learn Qwik Account",
-  "Permanently delete your Learn Qwik account.",
-  "https://www.learn-qwik.com/metaLanding.png",
-  "https://www.learn-qwik.com/auth/deleteProfile/",
-);
+export const head: DocumentHead = createDocumentHead2026({
+  title: "Delete your Learn Qwik Account",
+  description: "Permanently delete your Learn Qwik account.",
+  imageUrl: "https://www.learn-qwik.com/metaLanding.png",
+  url: "https://www.learn-qwik.com/auth/deleteProfile/",
+  type: "website",
+  robots: "noindex, nofollow",
+});

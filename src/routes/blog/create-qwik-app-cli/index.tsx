@@ -8,7 +8,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Create a Qwik App with the CLI | From A to Z (2025) | Part 3",
+  title: "Create a Qwik App with the CLI (2025)",
   description:
     "Learn how to create your first Qwik app with the official CLI, install dependencies, and open the project in VS Code.",
   imageUrl: "https://www.learn-qwik.com/metaCreateQwikAppCli.png",

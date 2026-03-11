@@ -6,7 +6,7 @@ import { routeAction$ } from "@builder.io/qwik-city";
 import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
 import { ModalLogout } from "~/lib/qwikUI/modalLogout/modalLogout";
 import { createClient } from "~/lib/supabase/server";
-import { createDocumentHead } from "~/utils/createDocumentHead";
+import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 export const useSignoutAction = routeAction$(async (_, requestEvent) => {
   const supabase = createClient(requestEvent);
@@ -52,9 +52,11 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = createDocumentHead(
-  "Logout from Learn Qwik",
-  "Logout from Learn Qwik",
-  "https://www.learn-qwik.com/metaLanding.png",
-  "https://www.learn-qwik.com/auth/logout/",
-);
+export const head: DocumentHead = createDocumentHead2026({
+  title: "Logout from Learn Qwik",
+  description: "Logout from Learn Qwik.",
+  imageUrl: "https://www.learn-qwik.com/metaLanding.png",
+  url: "https://www.learn-qwik.com/auth/logout/",
+  type: "website",
+  robots: "noindex, nofollow",
+});

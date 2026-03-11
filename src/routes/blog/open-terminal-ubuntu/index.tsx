@@ -10,7 +10,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "How to Open the Terminal on Ubuntu | From A to Z (2025) | Part 0",
+  title: "Open the Terminal on Ubuntu (2025)",
   description:
     "Learn how to open and use the Terminal on Ubuntu. The essential first step to install Node.js and start building your Qwik project.",
   imageUrl: "https://www.learn-qwik.com/metaOpenTerminalUbuntu.png",
