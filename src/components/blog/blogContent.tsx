@@ -18,6 +18,7 @@ import { BlogCard } from "./blogCard";
 
 import MetaOpenAICodexApp from "~/assets/img/openai-codex-app/metaOpenAICodexApp.png?jsx";
 import MetaQwikCVE2026 from "~/assets/img/qwik-cve-2026/metaQwikCVE2026.png?jsx";
+import MetaQwikCVE202627971 from "~/assets/img/qwik-cve-2026/metaQwikCVE202627971.png?jsx";
 
 export const BlogContent = component$(() => {
   const profile = useProfile();
@@ -51,11 +52,25 @@ export const BlogContent = component$(() => {
           </h2>
           <div class="blog_posts">
             <BlogCard
+              title="Critical Qwik server$ RCE | CVE-2026-27971 explained"
+              description="A critical unauthenticated RCE vulnerability affecting Qwik up to 1.19.0 through server$. Learn what was impacted, who is concerned, and why updating to 1.19.1 is the right fix."
+              href="/blog/qwik-cve-2026-27971/"
+              date="March 2026"
+              readTime="3 min read"
+              badge="Security advisory"
+              badgeVariant="security"
+            >
+              <MetaQwikCVE202627971
+                class="h-full w-full object-contain object-center"
+                alt="Qwik security advisory CVE-2026-27971"
+              />
+            </BlogCard>
+            <BlogCard
               title="Qwik vs React in 2026 | Hydration vs Resumability"
               description="A technical comparison between React and Qwik in 2026. Hydration vs resumability, JavaScript payload, edge architecture, and long-term scalability."
               href="/blog/qwik-vs-react-2026/"
               date="March 2026"
-              readTime="7 min read"
+              readTime="4 min read"
               badge="Framework comparison"
               badgeVariant="comparison"
             >
@@ -70,7 +85,7 @@ export const BlogContent = component$(() => {
               description="A Cross-Site Scripting (XSS) vulnerability affecting Qwik SSR apps prior to 1.19.0. Learn what was impacted, who is concerned, and why updating is enough."
               href="/blog/qwik-cve-2026-25148/"
               date="January 2026"
-              readTime="5 min read"
+              readTime="3 min read"
               badge="Security advisory"
               badgeVariant="security"
             >
@@ -85,7 +100,7 @@ export const BlogContent = component$(() => {
               description="Qwik 1.19.0 focuses on precision rather than spectacle. Smarter reactivity control, cleaner SSR outputs, safer server events, and better performance in real-world apps."
               href="/blog/qwik-1-19/"
               date="January 2026"
-              readTime="6 min read"
+              readTime="4 min read"
             >
               <MetaQwik119
                 class="h-full w-full object-contain object-center"
@@ -104,7 +119,7 @@ export const BlogContent = component$(() => {
               description="An off-topic article exploring how AI agents like OpenAI Codex App are changing the way developers work, shifting from writing code to orchestrating AI-driven workflows."
               href="/blog/openai-codex-app-beginners/"
               date="January 2026"
-              readTime="5 min read"
+              readTime="4 min read"
             >
               <MetaOpenAICodexApp
                 class="h-full w-full object-contain object-center"
@@ -161,7 +176,7 @@ export const BlogContent = component$(() => {
               description="Learn how to open and use the Ubuntu Terminal – the essential tool for installing and building your first Qwik project."
               href="/blog/open-terminal-ubuntu/"
               date="April 2025"
-              readTime="2 min read"
+              readTime="4 min read"
             >
               <MetaOpenTerminalUbuntu
                 class="h-full w-full object-contain object-center"
@@ -192,7 +207,7 @@ export const BlogContent = component$(() => {
               description="Learn how to automatically clean up your production builds by removing console.log using Vite. Works with all Vite-based projects."
               href="/blog/remove-console-log-prod/"
               date="May 2025"
-              readTime="2 min read"
+              readTime="3 min read"
             >
               <MetaRemoveConsoleLog
                 class="h-full w-full object-contain object-center"
@@ -205,7 +220,7 @@ export const BlogContent = component$(() => {
               description="Qwik loads instantly, uses less JavaScript, and delivers better performance for users and the planet."
               href="/blog/qwik-2025/"
               date="April 2025"
-              readTime="5 min read"
+              readTime="4 min read"
             >
               <MetaQwik2025
                 class="h-full w-full object-contain object-center"
