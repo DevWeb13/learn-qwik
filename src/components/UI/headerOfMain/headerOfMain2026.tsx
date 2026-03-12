@@ -36,12 +36,12 @@ export default component$(() => {
   });
 
   return (
-    <div class="relative z-10 mb-4 flex h-(--header-of-main-height) w-full items-center justify-center lg:mb-8">
+    <div class="lg:pl-10 xl:pl-0 relative z-10  flex h-(--header-of-main-height) w-full items-center justify-center ">
       <aside
         class={
           scrollY.value > 80
-            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-4 top-4 z-10 flex h-(--header-of-main-height) max-w-268 items-center rounded-full px-3 py-3 shadow-sm lg:mx-auto"
-            : "bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-(--header-of-main-height) w-full max-w-268 items-center rounded-full px-3 py-3 lg:w-full"
+            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 border border-(--qwik-dark-purple)/25 right-4 top-4 z-10 flex h-(--header-of-main-height) max-w-268 items-center rounded-2xl px-3 py-3 shadow-sm lg:mx-auto"
+            : "bg-vercel-200 border border-(--qwik-dark-purple)/25 style_nonSticky__jA3GX z-10 flex h-(--header-of-main-height) w-full max-w-268 items-center rounded-2xl px-3 py-3 lg:w-full"
         }
         style="background-clip: padding-box;"
       >

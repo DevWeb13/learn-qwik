@@ -12,7 +12,7 @@ interface GoToNextChapterBlockProps {
 export const GoToNextChapterBlock = component$<GoToNextChapterBlockProps>(
   ({ goToChapter, title, text, disabledButton = false, version }) => {
     return (
-      <div class="border-gray-alpha-400 mt-8 flex w-full flex-col items-center justify-center gap-1 rounded-lg px-4 py-8 shadow-md md:mt-12">
+      <div class="border-gray-alpha-400 mt-8 flex w-full flex-col items-center justify-center gap-1 rounded-xl px-4 py-8 shadow-md md:mt-12">
         <p
           class="text_wrapper"
           style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"

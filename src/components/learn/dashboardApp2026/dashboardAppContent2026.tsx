@@ -42,7 +42,7 @@ export const DashboardAppContent2026 = component$(() => {
           title="What we'll be building"
         />
 
-        <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
+        <figure class="flex items-center justify-center rounded-xl border border-gray-200 bg-gray-100 p-3">
           <ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions
             alt="Screenshots of the dashboard project showing desktop and mobile versions."
             class="rounded-md"

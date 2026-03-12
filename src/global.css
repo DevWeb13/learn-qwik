@@ -41,6 +41,7 @@ iframe[name="googlefcPresent"] {
   --qwik-dirty-black: #1d2033;
   --qwik-dark-background: #151934;
   --qwik-dark-text: #ffffff;
+  --qwik-shadow-soft: 0 12px 30px rgb(113 63 194 / 0.06);
 
   --header-height: 64px;
   --header-of-main-height: 67px;

@@ -65,7 +65,7 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     const buttonLabel = generateText(text, completedChapters, goToChapter);
 
     const buttonClass = [
-      "group relative inline-flex w-full items-center rounded-[1.2rem] border p-1.5 transition-all duration-200",
+      "group relative inline-flex w-full items-center rounded-lg border p-1.5 transition-all duration-200",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
       goToChapter ? "md:w-auto" : "",
       disabled

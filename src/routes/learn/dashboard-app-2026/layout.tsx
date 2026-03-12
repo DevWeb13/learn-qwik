@@ -1,5 +1,8 @@
+// src/routes/learn/dashboard-app-2026/layout.tsx
+
 import { component$, Slot, useComputed$ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
+import { HomeBackgroundPurple } from "~/assets/svg/homeBackground/homeBackgroundPurple";
 import { DesktopStickyAdMulti } from "~/components/desktopStickyAdMulti/desktopStickyAdMulti";
 import { MobileStickyAdMulti } from "~/components/mobileStickyAdMulti/mobileStickyAdMulti";
 import Feedback from "~/components/UI/feedback/feedback";
@@ -34,18 +37,34 @@ export default component$(() => {
   const currentChapterId = chapterId.value;
 
   return (
-    <main class="relative mx-auto max-w-full bg-(--qwik-light-purple)/2 px-4 py-4 md:px-8 lg:px-4 lg:py-10">
+    <main class="relative w-full  px-4 py-4   lg:py-10">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute left-1/2 top-0 -translate-x-1/2 opacity-90">
+          <HomeBackgroundPurple />
+        </div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.10),transparent_45%)]" />
+      </div>
       <HeaderOfMain2026 />
+
       <div
-        class={`relative mx-auto flex w-full flex-col gap-8 py-6 lg:max-w-7xl lg:flex-row lg:py-10 ${!isSubscribed ? "lg:pl-12 xl:px-12" : "justify-center lg:px-12"}`}
+        class={`relative  flex w-full flex-col gap-8 py-6 lg:gap-4 lg:flex-row lg:justify-between lg:py-10 ${!isSubscribed ? "lg:pl-10 " : "justify-center lg:px-12"}`}
       >
         <section
-          class={`w-full overflow-hidden ${!isSubscribed ? "lg:max-w-[calc(100%-300px)]" : "w-full"}`}
+          class={`w-full mx-auto overflow-hidden ${!isSubscribed ? "lg:w-[calc(100%-300px)] max-w-5xl" : "w-full"}`}
         >
-          <Slot />
+          <div
+            class="overflow-hidden rounded-2xl border border-(--qwik-dark-purple)/25 bg-white"
+            style={{ boxShadow: "var(--qwik-shadow-soft)" }}
+          >
+            <div class="px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10 xl:px-12 pb-0!">
+              <Slot />
+            </div>
+          </div>
 
           {currentChapterId !== null ? (
-            <Feedback courseVersion="2026" chapterNumber={currentChapterId} />
+            <div class="mt-6 rounded-2xl border border-(--qwik-dark-purple)/25 bg-white px-5 py-6 shadow-sm sm:px-8">
+              <Feedback courseVersion="2026" chapterNumber={currentChapterId} />
+            </div>
           ) : null}
         </section>
 

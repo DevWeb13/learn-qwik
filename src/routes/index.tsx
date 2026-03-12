@@ -1,3 +1,5 @@
+// src/routes/index.tsx
+
 import { component$ } from "@builder.io/qwik";
 import { Link, type DocumentHead } from "@builder.io/qwik-city";
 import LearnQwikLogo from "~/assets/img/android-chrome-192x192.png?jsx";
@@ -82,7 +84,7 @@ export default component$(() => {
 
               <Link
                 href="#edition-2026"
-                class="inline-flex items-center justify-center rounded-[1.1rem] border border-gray-200 bg-gray-50 px-5 py-3 text-sm font-medium text-(--qwik-dirty-black)! transition-all duration-200 hover:border-gray-300 hover:bg-white hover:text-(--qwik-dark-background)!"
+                class="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-gray-50 px-5 py-3 text-sm font-medium text-(--qwik-dirty-black)! transition-all duration-200 hover:border-gray-300 hover:bg-white hover:text-(--qwik-dark-background)!"
               >
                 Explore the curriculum
               </Link>
@@ -142,7 +144,7 @@ export default component$(() => {
           <div class="relative">
             <div class="absolute inset-0 rounded-4xl bg-(--qwik-light-purple)/10 blur-3xl" />
 
-            <div class="relative overflow-hidden rounded-4xl border border-(--qwik-dark-purple)/10 bg-white/90 p-5 shadow-[0_20px_60px_rgba(17,24,39,0.08)] backdrop-blur-sm md:p-6">
+            <div class="relative overflow-hidden rounded-xl border border-(--qwik-dark-purple)/10 bg-white/90 p-5 shadow-[0_20px_60px_rgba(17,24,39,0.08)] backdrop-blur-sm md:p-6">
               <div class="relative">
                 <div class="flex items-start justify-between gap-4">
                   <div>
@@ -171,14 +173,14 @@ export default component$(() => {
                 </div>
 
                 <div class="mt-8 grid gap-3 sm:grid-cols-2">
-                  <div class="rounded-3xl border border-gray-200 bg-gray-50 p-4">
+                  <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <p class="text-sm font-medium text-gray-500">Progress</p>
                     <p class="mt-2 text-lg font-semibold text-(--qwik-dirty-black)">
                       {completed2026.length} / {total2026} chapters completed
                     </p>
                   </div>
 
-                  <div class="rounded-3xl border border-gray-200 bg-gray-50 p-4">
+                  <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <p class="text-sm font-medium text-gray-500">Next step</p>
                     <div class="mt-3">
                       <DisplayNextChapter

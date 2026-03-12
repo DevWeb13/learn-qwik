@@ -48,7 +48,6 @@ export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
       .feedback_inlineWrapper, .feedback_successWrapper {
         display: flex;
         justify-content: center;
-        margin-bottom: 24px;
       }
 
       .feedback_inlineTriggerWrapper {
@@ -347,7 +346,7 @@ export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
         "feedback_theme--legacy": courseVersion === "Legacy",
       }}
     >
-      <div class="feedback_inlineTriggerWrapper" style="border-radius: 30px;">
+      <div class="feedback_inlineTriggerWrapper rounded-xl">
         <div class="feedback_trigger">
           <p
             class="text_wrapper"
