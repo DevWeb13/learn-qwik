@@ -951,7 +951,7 @@ export const head: DocumentHead = createDocumentHead2026({
   title: "Starter Pack Early Access",
   description:
     "Join early access for the Learn Qwik Starter Pack, a paid production-minded Qwik SSR starter built with Supabase, Tailwind, and a cleaner deployment path.",
-  imageUrl: "https://www.learn-qwik.com/metaLanding.png",
+  imageUrl: "https://www.learn-qwik.com/meta-starter-pack.png",
   url: "https://www.learn-qwik.com/starter-pack/",
   type: "website",
 });
