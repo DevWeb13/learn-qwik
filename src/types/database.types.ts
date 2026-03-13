@@ -110,6 +110,41 @@ export type Database = {
         }
         Relationships: []
       }
+      starter_pack_waitlist: {
+        Row: {
+          created_at: string
+          email: string
+          email_normalized: string
+          id: string
+          profile_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          email_normalized: string
+          id?: string
+          profile_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          email_normalized?: string
+          id?: string
+          profile_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "starter_pack_waitlist_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never

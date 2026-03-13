@@ -33,8 +33,9 @@ export const OptimizingFontsContent2026 = component$(() => {
 
         <p>
           In this chapter, you&apos;ll see why font loading matters, how to
-          self-host a primary font with Fontsource, and how to manually add a
-          second font to your project.
+          self-host a primary font with Fontsource, how to manually add a second
+          font to your project, and why automated font optimization tools are
+          starting to matter in modern setups.
         </p>
 
         <TableOfTopicsCovered2026
@@ -63,6 +64,11 @@ export const OptimizingFontsContent2026 = component$(() => {
               title: "Practice: manually host Lusitana",
               emoji: "🛠️",
               anchor: "practice-add-a-second-font-manually",
+            },
+            {
+              title: "Advanced: automatic font optimization with Fontless",
+              emoji: "⚙️",
+              anchor: "advanced-fontless",
             },
           ]}
         />
@@ -668,6 +674,41 @@ export const head: DocumentHead = {
           realistic setup.
         </p>
 
+        <SubtitleWithAnchor
+          title="⚙️ Advanced: automatic font optimization with Fontless"
+          id="advanced-fontless"
+        />
+
+        <p>
+          The setup you used in this chapter is still a very good way to learn
+          how font loading works. You explicitly declared a font with{" "}
+          <code>@font-face</code>, applied it yourself, and saw how fallback
+          fonts help the browser render text before the custom font is ready.
+        </p>
+
+        <p>
+          If you want a more automated setup in a real project, Qwik also
+          introduced{" "}
+          <BlankLink href="https://qwik.dev/blog/fontless/" text="Fontless" />,
+          a Vite plugin that detects <code>font-family</code> usage in your CSS,
+          resolves fonts from supported providers, and generates optimized{" "}
+          <code>@font-face</code> rules with metric-based fallbacks to reduce
+          layout shifts.
+        </p>
+
+        <InfoBox2026 emoji="🧠" colorVar="--qwik-light-purple">
+          Fontless is interesting for production projects because it automates
+          part of the font optimization work. For learning purposes, though, the
+          manual approach used in this chapter is still better because it shows
+          the mechanics clearly instead of hiding them behind tooling.
+        </InfoBox2026>
+
+        <p>
+          In other words: learn the explicit setup first, then use automation
+          when it genuinely saves time. Fancy tooling is nice, but only after
+          you understand the plumbing.
+        </p>
+
         <Quiz
           question="Why is Fontsource a useful option in a Qwik project?"
           options={[
@@ -732,7 +773,7 @@ export const head: DocumentHead = {
         />
 
         <p>
-          Here are two solid references if you want to go a bit deeper without
+          Here are a few solid references if you want to go a bit deeper without
           drowning in unnecessary theory:
         </p>
 
@@ -741,6 +782,12 @@ export const head: DocumentHead = {
             <BlankLink
               href="https://qwik.dev/docs/cookbook/fonts/"
               text="Qwik Docs | Font optimization cookbook"
+            />
+          </li>
+          <li>
+            <BlankLink
+              href="https://qwik.dev/blog/fontless/"
+              text="Qwik Blog | Effortlessly optimize web fonts with Fontless"
             />
           </li>
           <li>

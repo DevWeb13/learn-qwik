@@ -56,7 +56,12 @@ export async function updateSession(requestEvent: RequestEvent) {
   // 3. Redirections basées sur l'authentification
   // -----------------------------
 
-  const publicRoutes = ["/auth/login", "/auth/callback", "/auth/confirm"];
+  const publicRoutes = [
+    "/auth/login",
+    "/auth/callback",
+    "/auth/confirm",
+    "/starter-pack",
+  ];
 
   const isPublic =
     currentPath === "/" ||

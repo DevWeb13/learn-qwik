@@ -35,6 +35,24 @@ export default component$(() => {
 
   const shellClass = "mx-auto max-w-7xl px-4 md:px-6 lg:px-14 2xl:px-0";
 
+  const starterPackHighlights = [
+    {
+      title: "Full-stack SSR",
+      description:
+        "A Qwik SSR-first architecture with Supabase already wired for a real modern app.",
+    },
+    {
+      title: "Auth flows included",
+      description:
+        "Google auth, Magic Link, protected routes, and a cleaner path to real user access.",
+    },
+    {
+      title: "Production-minded setup",
+      description:
+        "Tailwind, Vercel deployment, environment variables, and an easier starting point to extend.",
+    },
+  ];
+
   return (
     <main class="bg-white">
       <section class="relative overflow-hidden">
@@ -326,6 +344,99 @@ export default component$(() => {
       </section>
 
       <HowDoesTheCourseWorkSection />
+
+      <section class={`${shellClass}`}>
+        <div class="relative overflow-hidden rounded-4xl border border-(--qwik-dark-purple)/10 bg-white p-6 shadow-sm md:p-10">
+          <div class="absolute inset-0 bg-(--qwik-light-purple)/10 pointer-events-none" />
+          <div class="absolute right-0 top-0 opacity-70 pointer-events-none">
+            <HomeBackgroundPurple />
+          </div>
+
+          <div class="relative grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+            <div class="max-w-3xl">
+              <div class="inline-flex items-center rounded-full border border-(--qwik-dark-purple)/12 bg-white px-4 py-2 text-sm font-medium text-(--qwik-dark-purple)">
+                New product • Early access waitlist
+              </div>
+
+              <h2 class="mt-6 text-3xl font-semibold text-(--qwik-dirty-black) md:text-5xl">
+                Need a faster way to start a real Qwik full-stack SSR app?
+              </h2>
+
+              <p class="mt-4 max-w-2xl text-base leading-7 text-gray-700 md:text-lg">
+                The Learn Qwik Starter Pack is a production-minded starting
+                point built around Qwik, Supabase, Tailwind, authentication
+                flows, SSR, and Vercel deployment, so you can skip repetitive
+                setup and focus on building.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                  Qwik SSR
+                </div>
+                <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                  Supabase
+                </div>
+                <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                  Tailwind
+                </div>
+                <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                  Google + Magic Link
+                </div>
+                <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                  Vercel
+                </div>
+              </div>
+
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/starter-pack/"
+                  class="inline-flex items-center justify-center rounded-lg bg-(--qwik-dark-purple) px-5 py-3 text-sm font-medium text-white! transition-all duration-200 hover:bg-(--qwik-light-purple) hover:text-white!"
+                >
+                  Discover the Starter Pack
+                </Link>
+
+                <Link
+                  href="/starter-pack/#waitlist"
+                  class="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-gray-50 px-5 py-3 text-sm font-medium text-(--qwik-dirty-black)! transition-all duration-200 hover:border-gray-300 hover:bg-white hover:text-(--qwik-dark-background)!"
+                >
+                  Join the waitlist
+                </Link>
+              </div>
+
+              <p class="mt-4 text-sm text-gray-600">
+                No payment yet. Just a clean way to measure interest before the
+                first public release.
+              </p>
+            </div>
+
+            <div class="grid gap-4">
+              {starterPackHighlights.map((item) => (
+                <div
+                  key={item.title}
+                  class="rounded-[1.75rem] border border-gray-200 bg-white/90 p-5 shadow-sm backdrop-blur-sm"
+                >
+                  <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+                    {item.title}
+                  </p>
+                  <p class="mt-3 text-sm leading-6 text-gray-600">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+
+              <div class="rounded-[1.75rem] border border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/10 p-5">
+                <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+                  Positioning
+                </p>
+                <p class="mt-3 text-sm leading-6 text-gray-700">
+                  Not “just a template”. A practical shortcut to a cleaner,
+                  faster starting point for a real Qwik app.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section class={`${shellClass} py-12 md:py-20`}>
         <div class="relative overflow-hidden rounded-4xl border border-gray-200 bg-gray-50 p-6 md:p-10">

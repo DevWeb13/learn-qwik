@@ -126,7 +126,7 @@ const BENEFITS = [
 
 export const HowDoesTheCourseWorkSection = component$(() => {
   return (
-    <section class="mx-auto max-w-7xl px-4 py-12 md:px-6 md:py-20">
+    <section class="mx-auto max-w-7xl px-4 py-12 lg:px-14 md:py-20 2xl:px-0">
       <div class="relative overflow-hidden rounded-[2rem] border border-(--qwik-dark-purple)/10 bg-white p-6 shadow-sm md:p-10">
         <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.08),transparent_48%)]" />
         <div class="absolute -top-10 right-0 opacity-60">
