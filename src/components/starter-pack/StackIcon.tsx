@@ -42,18 +42,6 @@ export const StackIcon = component$(({ kind }: { kind: StackIconKind }) => {
         </div>
       );
 
-    case "resend":
-      return (
-        <div class={shellClass} aria-hidden="true">
-          <img
-            src="https://cdn.resend.com/brand/resend-icon-black.svg"
-            alt=""
-            width={35}
-            height={35}
-          />
-        </div>
-      );
-
     default:
       return null;
   }
