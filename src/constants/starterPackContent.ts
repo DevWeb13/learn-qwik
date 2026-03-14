@@ -8,7 +8,7 @@ export const HERO_CHIPS = [
   "Paid starter pack",
   "No commitment today",
   "Early access list",
-  "Selected test access",
+  "Selected free access",
   "Qwik SSR",
   "Supabase",
   "Tailwind",
@@ -31,9 +31,9 @@ export const OFFER_CARDS = [
       "Join the list for free and hear about the Starter Pack before public launch. No payment today and no obligation to buy.",
   },
   {
-    title: "Limited test preview",
+    title: "Selected free access",
     description:
-      "Some selected subscribers may be invited to test the Starter Pack before launch through a limited private preview.",
+      "A limited number of selected early access members may receive free access to the Starter Pack before public launch.",
   },
   {
     title: "Early launch advantage",
@@ -151,12 +151,12 @@ export const FAQ_ITEMS = [
   {
     question: "What do early access members get?",
     answer:
-      "They will be the first to hear when the Starter Pack launches. Early access members will also hear about the launch offer first, and some selected subscribers may be invited to test the Starter Pack in a limited private preview before launch.",
+      "They will be the first to hear when the Starter Pack launches. Early access members will also hear about the launch offer first, and a limited number of selected members may receive free access to the Starter Pack before public launch.",
   },
   {
-    question: "Will everyone get private preview access?",
+    question: "Will everyone get free access?",
     answer:
-      "No. Private preview access will only be offered to a limited number of selected subscribers who may be invited to test the Starter Pack before public launch.",
+      "No. Free access will only be offered to a limited number of selected early access members.",
   },
   {
     question: "Who is this for?",
@@ -173,6 +173,6 @@ export const FAQ_ITEMS = [
 export const WAITLIST_BENEFITS = [
   "Free to join and no obligation to buy",
   "Launch updates before the public release",
-  "Selected subscribers may be invited to test it before launch",
+  "A limited number of selected members may receive free access",
   "Early access members will hear about the launch offer first",
 ] as const;
