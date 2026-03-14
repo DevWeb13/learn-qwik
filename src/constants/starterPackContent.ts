@@ -1,16 +1,14 @@
+// src/constants/starterPackContent.ts
+
 export const SHELL_CLASS = "mx-auto max-w-7xl px-4 md:px-6 lg:px-14 2xl:px-0";
 
-export type StackIconKind =
-  | "qwik"
-  | "supabase"
-  | "tailwind"
-  | "vercel"
-  | "resend";
+export type StackIconKind = "qwik" | "supabase" | "tailwind" | "vercel";
 
 export const HERO_CHIPS = [
   "Paid starter pack",
   "No commitment today",
-  "Early access offer",
+  "Early access list",
+  "Selected test access",
   "Qwik SSR",
   "Supabase",
   "Tailwind",
@@ -23,24 +21,24 @@ export const PREVIEW_LIST = [
   "Tailwind base ready to extend",
   "A deployment path that already makes sense",
   "Starter code + README guidance",
-  "Best launch offer for early subscribers",
+  "A cleaner base for a real app",
 ] as const;
 
 export const OFFER_CARDS = [
   {
-    title: "Standalone product",
+    title: "Free early access",
     description:
-      "The Starter Pack is planned as a separate paid product, built to save time on real projects.",
+      "Join the list for free and hear about the Starter Pack before public launch. No payment today and no obligation to buy.",
   },
   {
-    title: "Early subscriber advantage",
+    title: "Limited test preview",
     description:
-      "People who join before launch will get the best launch offer when the Starter Pack goes live.",
+      "Some selected subscribers may be invited to test the Starter Pack before launch through a limited private preview.",
   },
   {
-    title: "Built to save time",
+    title: "Early launch advantage",
     description:
-      "The core setup is already in place, so you can focus on your app instead of wiring everything by hand.",
+      "Early access members will hear about the launch offer first when the Starter Pack goes live.",
   },
 ] as const;
 
@@ -123,12 +121,6 @@ export const STACK_CARDS = [
     description:
       "A deployment path that matches the goal: ship faster, break less, and keep the setup understandable.",
   },
-  {
-    kind: "resend" as const,
-    title: "Resend",
-    description:
-      "A production-minded email delivery path when you want more control over auth emails and transactional emails.",
-  },
 ] as const;
 
 export const STACK_LINKS: Record<StackIconKind, string> = {
@@ -136,7 +128,6 @@ export const STACK_LINKS: Record<StackIconKind, string> = {
   supabase: "https://supabase.com/docs",
   tailwind: "https://tailwindcss.com/docs",
   vercel: "https://vercel.com/docs",
-  resend: "https://resend.com/docs/introduction",
 };
 
 export const GOOD_FIT_ITEMS = [
@@ -158,9 +149,14 @@ export const FAQ_ITEMS = [
       "No. The Starter Pack is planned as a paid product. Joining early access is free and does not commit you to buy anything.",
   },
   {
-    question: "What do early subscribers get?",
+    question: "What do early access members get?",
     answer:
-      "They will be the first to hear when the Starter Pack launches, and they will get the best launch pricing reserved for early subscribers.",
+      "They will be the first to hear when the Starter Pack launches. Early access members will also hear about the launch offer first, and some selected subscribers may be invited to test the Starter Pack in a limited private preview before launch.",
+  },
+  {
+    question: "Will everyone get private preview access?",
+    answer:
+      "No. Private preview access will only be offered to a limited number of selected subscribers who may be invited to test the Starter Pack before public launch.",
   },
   {
     question: "Who is this for?",
@@ -175,7 +171,8 @@ export const FAQ_ITEMS = [
 ] as const;
 
 export const WAITLIST_BENEFITS = [
-  "Best launch offer reserved for early subscribers",
-  "Launch updates before the public release",
   "Free to join and no obligation to buy",
+  "Launch updates before the public release",
+  "Selected subscribers may be invited to test it before launch",
+  "Early access members will hear about the launch offer first",
 ] as const;

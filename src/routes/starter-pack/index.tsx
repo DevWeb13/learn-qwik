@@ -1,3 +1,5 @@
+// src/routes/starter-pack/index.tsx
+
 import { component$ } from "@builder.io/qwik";
 import {
   Form,
@@ -416,7 +418,7 @@ export default component$(() => {
         >
           <header class="relative max-w-3xl">
             <div class="inline-flex items-center rounded-full border border-(--qwik-dark-purple)/12 bg-(--qwik-light-purple)/10 px-4 py-2 text-sm font-medium text-(--qwik-dark-purple)">
-              Paid product • Early access
+              Paid product • Early access list
             </div>
 
             <h1 class="mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] text-(--qwik-dirty-black) md:text-6xl">
@@ -443,14 +445,15 @@ export default component$(() => {
                 href="#waitlist"
                 class="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-gray-50 px-5 py-3 text-sm font-medium text-(--qwik-dirty-black)! transition-all duration-200 hover:border-gray-300 hover:bg-white hover:text-(--qwik-dark-background)!"
               >
-                Get the early access offer
+                Join early access
               </Link>
             </div>
 
             <p class="mt-4 max-w-2xl text-sm leading-6 text-gray-600">
               Joining the early access list is free and does not commit you to
-              buy anything. If the Starter Pack is right for you at launch,
-              you’ll get the best launch offer.
+              buy anything. Selected subscribers may also be invited to a
+              limited private preview to test the Starter Pack before launch,
+              and early access members will hear about the launch offer first.
             </p>
 
             <div class="mt-8 flex flex-wrap gap-2">
@@ -480,14 +483,16 @@ export default component$(() => {
                 </div>
 
                 <div class="rounded-2xl border border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/10 px-3 py-2 text-xs font-medium uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
-                  Founding offer
+                  Limited preview
                 </div>
               </div>
 
               <p class="mt-4 text-sm leading-6 text-gray-600">
                 Not just a template. A cleaner, faster starting point for
                 developers who want the structure in place so they can focus on
-                building their app.
+                building their app. Some selected early access members may also
+                be invited to test it before public launch through a limited
+                private preview.
               </p>
 
               <div class="mt-6 grid gap-3 sm:grid-cols-2">
@@ -499,11 +504,9 @@ export default component$(() => {
                 </div>
 
                 <div class="rounded-3xl border border-gray-200 bg-gray-50 p-4">
-                  <p class="text-sm font-medium text-gray-500">
-                    Launch advantage
-                  </p>
+                  <p class="text-sm font-medium text-gray-500">Early access</p>
                   <p class="mt-2 text-lg font-semibold text-(--qwik-dirty-black)">
-                    Best price for early subscribers
+                    Launch updates + selected test preview
                   </p>
                 </div>
               </div>
@@ -520,7 +523,7 @@ export default component$(() => {
                     Repo + guidance
                   </div>
                   <div class="rounded-full border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-medium text-gray-700">
-                    Launch offer
+                    Selected test access
                   </div>
                 </div>
 
@@ -644,7 +647,7 @@ export default component$(() => {
               </p>
             </div>
 
-            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {STACK_CARDS.map((item) => (
                 <a
                   key={item.title}
@@ -695,7 +698,7 @@ export default component$(() => {
             <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-blue)">
               Not the target
             </p>
-            <h2 class="mt-3 text-3xl font-semibold text-(--qwik-dirty-black) lg:min-h-[7rem]">
+            <h2 class="mt-3 text-3xl font-semibold text-(--qwik-dirty-black) lg:min-h-28">
               Not built for every possible case on day one
             </h2>
             <ul class="mt-6 space-y-3 text-sm leading-6 text-gray-700">
@@ -751,13 +754,14 @@ export default component$(() => {
               </p>
 
               <h2 class="mt-3 text-3xl font-semibold text-(--qwik-dirty-black) md:text-5xl">
-                Join early access and get the best launch offer
+                Join early access and stay first in line for launch
               </h2>
 
               <p class="mt-4 text-base leading-7 text-gray-700 md:text-lg">
                 Joining the list is free and does not commit you to buy
-                anything. If the Starter Pack is a good fit for you at launch,
-                you’ll get the best price reserved for early subscribers.
+                anything. Selected subscribers may also be invited to test the
+                Starter Pack in a limited private preview before launch and help
+                improve the first release with useful feedback.
               </p>
 
               <div class="mt-6 rounded-[1.75rem] border border-gray-200 bg-white/90 p-5 shadow-sm backdrop-blur-sm">
@@ -818,8 +822,9 @@ export default component$(() => {
                       </h3>
                       <p class="mt-3 text-sm leading-6 text-emerald-900/85">
                         You’ll be among the first to hear when the Starter Pack
-                        launches. If you decide it is right for you, you’ll get
-                        access to the early subscriber launch offer.
+                        launches. Selected early access members may also be
+                        invited to test the Starter Pack in a limited private
+                        preview before public release.
                       </p>
 
                       {successEmail && (
@@ -911,12 +916,12 @@ export default component$(() => {
                   >
                     {waitlistAction.isRunning
                       ? "Joining..."
-                      : "Get early access"}
+                      : "Join early access"}
                   </button>
 
                   <p class="text-xs leading-5 text-gray-500">
                     Free to join. No commitment. We’ll only send Starter Pack
-                    launch and early access updates.
+                    launch, early access, and limited preview updates.
                   </p>
 
                   {emailErrorMessage && (
@@ -950,7 +955,7 @@ export default component$(() => {
 export const head: DocumentHead = createDocumentHead2026({
   title: "Starter Pack Early Access",
   description:
-    "Join early access for the Learn Qwik Starter Pack, a paid production-minded Qwik SSR starter built with Supabase, Tailwind, and a cleaner deployment path.",
+    "Join early access for the Learn Qwik Starter Pack, a paid production-minded Qwik SSR starter built with Supabase, Tailwind, and a cleaner deployment path. Selected subscribers may also be invited to test it in a limited private preview before launch.",
   imageUrl: "https://www.learn-qwik.com/meta-starter-pack.png",
   url: "https://www.learn-qwik.com/starter-pack/",
   type: "website",
