@@ -9,7 +9,7 @@ import {
 import { HiTrashOutline } from "@qwikest/icons/heroicons";
 
 import { useDeleteProfileAction } from "~/routes/auth/deleteProfile";
-import { Tables } from "~/types/database.types";
+import { Tables } from "~/types/learn-qwik.database.types";
 import { isSubscriptionActive } from "~/utils/subscription";
 
 export type ModalDeleteProfileProps = {

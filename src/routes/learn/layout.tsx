@@ -5,7 +5,7 @@ import { routeAction$, routeLoader$, z, zod$ } from "@builder.io/qwik-city";
 import { CHAPTERS } from "~/constants/chapters";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
 import { createClient } from "~/lib/supabase/server";
-import type { Database } from "~/types/database.types";
+import type { Database } from "~/types/learn-qwik.database.types";
 
 function getChapterContextFromPathname(pathname: string): {
   courseVersion: "Legacy" | "2026" | null;

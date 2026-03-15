@@ -9,7 +9,7 @@ import {
 } from "@builder.io/qwik-city";
 import { AccountContent } from "~/components/account/accountContent";
 import { createClient } from "~/lib/supabase/server";
-import type { Database } from "~/types/database.types"; // Import des types générés Supabase
+import type { Database } from "~/types/learn-qwik.database.types"; // Import des types générés Supabase
 import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];

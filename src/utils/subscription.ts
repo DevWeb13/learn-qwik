@@ -2,7 +2,7 @@
 
 import type { RequestEvent } from "@builder.io/qwik-city";
 import { createAdminClient } from "~/lib/supabase/server";
-import type { Database } from "~/types/database.types";
+import type { Database } from "~/types/learn-qwik.database.types";
 
 /**
  * Defines the `Profile` type based on `profiles.Row` from the database schema.
@@ -14,7 +14,7 @@ type Profile = Database["public"]["Tables"]["profiles"]["Row"];
  */
 export async function updateExpiredSubscriptions(requestEvent: RequestEvent) {
   const supabase = createAdminClient(requestEvent);
-  
+
   // Récupérer tous les utilisateurs avec un abonnement annulé
   const { data: profiles, error } = await supabase
     .from("profiles")
@@ -37,7 +37,10 @@ export async function updateExpiredSubscriptions(requestEvent: RequestEvent) {
         .eq("id", profile.id);
 
       if (updateError) {
-        console.error(`❌ Erreur lors de la mise à jour du profil ${profile.id}:`, updateError);
+        console.error(
+          `❌ Erreur lors de la mise à jour du profil ${profile.id}:`,
+          updateError,
+        );
       } else {
         console.log(`✅ Profil ${profile.id} mis à jour en "free"`);
       }

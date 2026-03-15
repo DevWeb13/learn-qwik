@@ -27,7 +27,7 @@ import PreFooter from "~/components/UI/PreFooter/PreFooter";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
 import { updateSession } from "~/lib/supabase/middleware";
 import { createClient } from "~/lib/supabase/server";
-import type { Database } from "~/types/database.types"; // Import des types générés Supabase
+import type { Database } from "~/types/learn-qwik.database.types"; // Import des types générés Supabase
 import { isSubscriptionActive } from "~/utils/subscription";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];

@@ -3,9 +3,11 @@
 import type { RequestEvent, RequestEventAction } from "@builder.io/qwik-city";
 import { createServerClient } from "@supabase/ssr";
 import { SupabaseClient } from "@supabase/supabase-js";
-import { Database } from "~/types/database.types";
+import { Database } from "~/types/learn-qwik.database.types";
 
-export function createClient(requestEvent: RequestEventAction | RequestEvent): SupabaseClient<Database> {
+export function createClient(
+  requestEvent: RequestEventAction | RequestEvent,
+): SupabaseClient<Database> {
   return createServerClient<Database>(
     requestEvent.env.get("PUBLIC_SUPABASE_URL")!,
     requestEvent.env.get("PUBLIC_SUPABASE_ANON_KEY")!,
@@ -15,7 +17,10 @@ export function createClient(requestEvent: RequestEventAction | RequestEvent): S
         getAll() {
           const allCookies = requestEvent.cookie.getAll();
           return Object.entries(allCookies)
-            .filter(([name, cookieObject]) => cookieObject && cookieObject.value != null)
+            .filter(
+              ([name, cookieObject]) =>
+                cookieObject && cookieObject.value != null,
+            )
             .map(([name, cookieObject]) => ({
               name,
               value: String(cookieObject.value),
@@ -38,7 +43,9 @@ export function createClient(requestEvent: RequestEventAction | RequestEvent): S
 }
 
 // ✅ Client administrateur avec SUPABASE_SERVICE_ROLE_KEY
-export function createAdminClient(requestEvent: RequestEvent | RequestEventAction): SupabaseClient<Database> {
+export function createAdminClient(
+  requestEvent: RequestEvent | RequestEventAction,
+): SupabaseClient<Database> {
   return createServerClient<Database>(
     requestEvent.env.get("PUBLIC_SUPABASE_URL")!,
     requestEvent.env.get("SUPABASE_SERVICE_ROLE_KEY")!, // 🔥 Clé admin pour bypass RLS
@@ -51,7 +58,6 @@ export function createAdminClient(requestEvent: RequestEvent | RequestEventActio
           return;
         },
       },
-    }
+    },
   );
 }
-

@@ -1,7 +1,7 @@
 // src/lib/supabase/supabaseUtils.ts
 
 import { SupabaseClient } from "@supabase/supabase-js";
-import { Database } from "~/types/database.types";
+import { Database } from "~/types/learn-qwik.database.types";
 
 // ✅ Fonction pour récupérer un utilisateur via son email
 export const getUserByEmail = async (

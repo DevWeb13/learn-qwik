@@ -1,7 +1,7 @@
 import type { Signal } from "@builder.io/qwik";
 import { $, component$, useStore } from "@builder.io/qwik";
 import { useNavigate } from "@builder.io/qwik-city";
-import type { Tables } from "~/types/database.types";
+import type { Tables } from "~/types/learn-qwik.database.types";
 import { fetchBillingPortal } from "~/utils/billing";
 import { isSubscriptionActive } from "~/utils/subscription";
 

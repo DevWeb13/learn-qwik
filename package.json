@@ -22,7 +22,7 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "gen:types": "npx supabase gen types typescript --project-id evcwdenaghdmspnvzjls > src/types/database.types.ts",
+    "gen:types": "npx supabase gen types typescript --project-id evcwdenaghdmspnvzjls > src/types/learn-qwik.database.types.ts",
     "qwik": "qwik"
   },
   "devDependencies": {

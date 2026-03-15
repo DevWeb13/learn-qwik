@@ -7,7 +7,7 @@ import {
   getUserByEmail,
   updateUser,
 } from "~/lib/supabase/supabaseUtils";
-import type { Database } from "~/types/database.types";
+import type { Database } from "~/types/learn-qwik.database.types";
 
 export const handleSubscriptionUpdated = async (
   supabase: SupabaseClient<Database>,
@@ -15,7 +15,7 @@ export const handleSubscriptionUpdated = async (
   stripeSecretKey: string,
 ): Promise<{ success?: boolean; error?: string }> => {
   const stripe = new Stripe(stripeSecretKey, {
-    apiVersion: '2025-02-24.acacia'
+    apiVersion: "2025-02-24.acacia",
   });
 
   const customerId = subscription.customer as string;
@@ -27,13 +27,13 @@ export const handleSubscriptionUpdated = async (
   if (!user) {
     // Si l'utilisateur n'est pas trouvé, on le recherche par email
     const customer = await stripe.customers.retrieve(customerId);
-    if ('email' in customer && customer.email) {
+    if ("email" in customer && customer.email) {
       user = await getUserByEmail(supabase, customer.email);
       if (!user) return { error: "Utilisateur non trouvé" };
-      
+
       // Mise à jour du stripe_customer_id si nécessaire
       await updateUser(supabase, user.id, {
-        stripe_customer_id: customerId
+        stripe_customer_id: customerId,
       });
     } else {
       return { error: "Email du client non trouvé" };

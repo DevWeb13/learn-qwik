@@ -5,7 +5,7 @@ import { SupabaseClient, User } from "@supabase/supabase-js";
 // import { CHAPTERS } from "~/constants/chapters";
 import { createClient } from "~/lib/supabase/server";
 import { getProfileById } from "~/lib/supabase/supabaseUtils";
-import { Database } from "~/types/database.types";
+import { Database } from "~/types/learn-qwik.database.types";
 import { isSubscriptionActive } from "~/utils/subscription";
 
 // const CHAPTERS_FREE_LIMIT = 6;

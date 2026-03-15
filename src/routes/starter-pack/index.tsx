@@ -28,7 +28,7 @@ import {
   WAITLIST_BENEFITS,
 } from "~/constants/starterPackContent";
 import { createAdminClient } from "~/lib/supabase/server";
-import type { Database } from "~/types/database.types";
+import type { Database } from "~/types/learn-qwik.database.types";
 import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 type ProfileRow = Database["public"]["Tables"]["profiles"]["Row"];
