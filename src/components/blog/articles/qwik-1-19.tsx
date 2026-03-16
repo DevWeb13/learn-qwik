@@ -8,11 +8,8 @@ import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
 import { BackButton } from "~/components/UI/backButton/backButton";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
-import { useProfile } from "~/routes/layout";
 
 export const Qwik119Article = component$(() => {
-  const profile = useProfile();
-
   return (
     <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 lg:px-12 lg:py-20">
       <header class="flex flex-col items-center gap-2 px-4 lg:gap-4">
