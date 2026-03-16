@@ -8,12 +8,8 @@ import { MobileStickyAdMulti } from "~/components/mobileStickyAdMulti/mobileStic
 import Feedback from "~/components/UI/feedback/feedback";
 import HeaderOfMain2026 from "~/components/UI/headerOfMain/headerOfMain2026";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
-import { useProfile } from "~/routes/layout";
-import { isSubscriptionActive } from "~/utils/subscription";
 
 export default component$(() => {
-  const profile = useProfile();
-  const isSubscribed = isSubscriptionActive(profile.value);
   const location = useLocation();
 
   const chapterId = useComputed$(() => {
@@ -47,10 +43,10 @@ export default component$(() => {
       <HeaderOfMain2026 />
 
       <div
-        class={`relative  flex w-full flex-col gap-8 py-6 lg:gap-4 lg:flex-row lg:justify-between lg:py-10 ${!isSubscribed ? "lg:pl-10 " : "justify-center lg:px-12"}`}
+        class={`relative  flex w-full flex-col gap-8 py-6 lg:gap-4 lg:flex-row lg:justify-between lg:py-10 lg:pl-10`}
       >
         <section
-          class={`w-full mx-auto overflow-hidden ${!isSubscribed ? "lg:w-[calc(100%-300px)] max-w-5xl" : "w-full"}`}
+          class={`w-full mx-auto overflow-hidden lg:w-[calc(100%-300px)] max-w-5xl`}
         >
           <div
             class="overflow-hidden rounded-2xl border border-(--qwik-dark-purple)/25 bg-white"
@@ -68,12 +64,10 @@ export default component$(() => {
           ) : null}
         </section>
 
-        {!isSubscribed && (
-          <DesktopStickyAdMulti topPosition="top-20 lg:top-24" />
-        )}
+        <DesktopStickyAdMulti topPosition="top-20 lg:top-24" />
       </div>
 
-      {!isSubscribed && <MobileStickyAdMulti />}
+      <MobileStickyAdMulti />
     </main>
   );
 });

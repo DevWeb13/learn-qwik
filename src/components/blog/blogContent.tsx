@@ -1,16 +1,11 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import { blogSections } from "~/constants/blogArticles";
-import { useProfile } from "~/routes/layout";
-import { isSubscriptionActive } from "~/utils/subscription";
 import { DesktopStickyAd } from "../desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "../mobileStickyAd/mobileStickyAd";
 import { BlogCard } from "./blogCard";
 
 export const BlogContent = component$(() => {
-  const profile = useProfile();
-  const isSubscribed = isSubscriptionActive(profile.value);
-
   useStylesScoped$(`
     .blog_posts {
       gap: 16px;
@@ -194,10 +189,10 @@ export const BlogContent = component$(() => {
           })}
         </section>
 
-        {!isSubscribed && <DesktopStickyAd />}
+        <DesktopStickyAd />
       </main>
 
-      {!isSubscribed && <MobileStickyAd />}
+      <MobileStickyAd />
     </div>
   );
 });

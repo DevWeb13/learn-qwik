@@ -49,47 +49,61 @@ function getChapterContextFromPathname(pathname: string): {
   };
 }
 
+export const useFeedbackAuthState = routeLoader$((requestEvent) => {
+  const profile = requestEvent.sharedMap.get("profile") as
+    | Database["public"]["Tables"]["profiles"]["Row"]
+    | null
+    | undefined;
+
+  const currentPath = requestEvent.url.pathname + requestEvent.url.search;
+
+  const loginHref = `/auth/login/?next=${encodeURIComponent(currentPath)}`;
+
+  return {
+    isAuthenticated: Boolean(profile),
+    loginHref,
+  };
+});
+
 export const usePutCompletedChapters = routeAction$(
   async (data, requestEvent) => {
-    const { completedChapter, version } = data;
+    const profile = requestEvent.sharedMap.get("profile") as
+      | Database["public"]["Tables"]["profiles"]["Row"]
+      | null
+      | undefined;
 
-    const profile = requestEvent.sharedMap.get("profile");
-    const userId = profile?.id;
-
-    if (!userId || !profile) {
-      return requestEvent.fail(400, { error: "Missing parameters" });
+    if (!profile?.id) {
+      return requestEvent.fail(401, {
+        error: "You must be signed in to save progress.",
+      });
     }
 
     const supabase = createClient(requestEvent);
 
-    // 🔥 On choisit dynamiquement la bonne clé
     const columnName =
-      version === "2026" ? "completedChapters2026" : "completedChapters";
+      data.version === "2026" ? "completedChapters2026" : "completedChapters";
 
-    const currentChapters = profile[columnName] || [];
+    const currentChapters = Array.isArray(profile[columnName])
+      ? profile[columnName]
+      : [];
 
-    // ✅ Évite requête inutile
-    if (currentChapters.includes(completedChapter)) {
-      console.log(
-        "✅ Chapitre déjà complété, aucune requête Supabase nécessaire.",
-      );
+    if (currentChapters.includes(data.completedChapter)) {
       return { success: true };
     }
 
     const updatedChapters = [
-      ...new Set([...currentChapters, completedChapter]),
-    ];
+      ...new Set([...currentChapters, data.completedChapter]),
+    ].sort((a, b) => a - b);
 
     const { error: updateError } = await supabase
       .from("profiles")
       .update({ [columnName]: updatedChapters })
-      .eq("id", userId);
+      .eq("id", profile.id);
 
     if (updateError) {
       return requestEvent.fail(500, { error: "Failed to update" });
     }
 
-    // ✅ Mise à jour en mémoire
     requestEvent.sharedMap.set("profile", {
       ...profile,
       [columnName]: updatedChapters,
@@ -107,11 +121,12 @@ export const useSaveChapterFeedback = routeAction$(
   async (data, requestEvent) => {
     const profile = requestEvent.sharedMap.get("profile") as
       | Database["public"]["Tables"]["profiles"]["Row"]
-      | null;
+      | null
+      | undefined;
 
     if (!profile) {
       return requestEvent.fail(401, {
-        error: "Unauthorized",
+        error: "You must be signed in to leave feedback.",
       });
     }
 
@@ -153,7 +168,8 @@ export const useSaveChapterFeedback = routeAction$(
 export const useGetChapterFeedback = routeLoader$(async (requestEvent) => {
   const profile = requestEvent.sharedMap.get("profile") as
     | Database["public"]["Tables"]["profiles"]["Row"]
-    | null;
+    | null
+    | undefined;
 
   if (!profile) {
     return {
@@ -246,10 +262,10 @@ export const useGetChapterFeedbackCounts = routeLoader$(
     const row = Array.isArray(data) ? data[0] : data;
 
     return {
-      love: Number(row?.love ?? 0),
-      happy: Number(row?.happy ?? 0),
-      sad: Number(row?.sad ?? 0),
-      cry: Number(row?.cry ?? 0),
+      love: Number(row.love),
+      happy: Number(row.happy),
+      sad: Number(row.sad),
+      cry: Number(row.cry),
       courseVersion,
       chapterNumber,
     };

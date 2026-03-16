@@ -15,11 +15,9 @@ import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/art
 import { BackButton } from "~/components/UI/backButton/backButton";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
 import { useProfile } from "~/routes/layout";
-import { isSubscriptionActive } from "~/utils/subscription";
 
 export const OpenTerminalUbuntuArticle = component$(() => {
   const profile = useProfile();
-  const isSubscribed = isSubscriptionActive(profile.value);
 
   return (
     <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 lg:px-12 lg:py-20">
@@ -276,10 +274,10 @@ export const OpenTerminalUbuntuArticle = component$(() => {
         <BackButton />
 
         {/* ✅ Right ad */}
-        {!isSubscribed && <DesktopStickyAd />}
+        <DesktopStickyAd />
       </div>
 
-      {!isSubscribed && <MobileStickyAd />}
+      <MobileStickyAd />
     </main>
   );
 });

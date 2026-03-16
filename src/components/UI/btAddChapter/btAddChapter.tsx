@@ -1,6 +1,12 @@
+// src/components/UI/btAddChapter/btAddChapter.tsx
+
 import { Slot, component$, useContext } from "@builder.io/qwik";
 import { Link, useNavigate } from "@builder.io/qwik-city";
-import { Chapters2026Context, ChaptersContext } from "~/routes/layout";
+import {
+  Chapters2026Context,
+  ChaptersContext,
+  useProfile,
+} from "~/routes/layout";
 import { usePutCompletedChapters } from "~/routes/learn/layout";
 import type { CompletedChaptersType } from "~/types/completedChapters";
 
@@ -25,44 +31,47 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     const chapters = useContext(
       version === "Legacy" ? ChaptersContext : Chapters2026Context,
     );
+
+    const profile = useProfile();
+    const isAuthenticated = Boolean(profile.value);
+
     const navigate = useNavigate();
     const putCompletedChapters = usePutCompletedChapters();
+
     const uriLink =
       version === "Legacy" ? "dashboard-app" : "dashboard-app-2026";
 
     const isLegacy = version === "Legacy";
     const hasProgress = completedChapters.length > 0;
 
-    let nextUri = goToChapter
-      ? version === "Legacy"
-        ? title.toLowerCase().replace(/\s+/g, "-")
-        : `${title.toLowerCase().replace(/\s+/g, "-")}-2026`
-      : "";
+    const completedSet = new Set(completedChapters);
 
-    if (title === "") {
-      if (completedChapters.length > 0) {
-        const nextIndex = Math.max(...completedChapters) + 1;
+    const firstIncompleteChapter =
+      chapters.value.find((chapter) => !completedSet.has(chapter.id)) ?? null;
 
-        nextUri =
-          nextIndex < chapters.value.length
-            ? chapters.value[nextIndex].uri
-            : "";
-      } else {
-        nextUri = chapters.value[0]?.uri || "";
+    const targetChapter =
+      title === ""
+        ? firstIncompleteChapter
+        : (chapters.value.find((chapter) => chapter.id === goToChapter) ??
+          null);
+
+    const nextUri = targetChapter?.uri ?? "";
+    const href = nextUri
+      ? `/learn/${uriLink}/${nextUri}/`
+      : `/learn/${uriLink}/`;
+
+    const shouldSaveBeforeNavigate =
+      title !== "" && isAuthenticated && goToChapter > 0;
+
+    function generateText() {
+      if (title === "") {
+        return text;
       }
+
+      return `${completedChapters.length > 0 ? "Resume Learning" : text} ${goToChapter}`;
     }
 
-    function generateText(
-      text: string,
-      completedChapters: number[],
-      goToChapter: number,
-    ) {
-      return `${completedChapters.length > 0 ? "Resume Learning" : text} ${
-        goToChapter ? goToChapter : ""
-      }`;
-    }
-
-    const buttonLabel = generateText(text, completedChapters, goToChapter);
+    const buttonLabel = generateText();
 
     const buttonClass = [
       "group relative inline-flex w-full items-center rounded-lg border p-1.5 transition-all duration-200",
@@ -104,10 +113,8 @@ export const BtAddChapter = component$<BtAddChapterProps>(
           : "border-(--qwik-dark-purple) bg-(--qwik-dark-purple) text-white group-hover:translate-x-0.5",
     ].join(" ");
 
-    const labelClass = [
-      "min-w-0 flex-1 text-center text-sm font-semibold leading-none",
-      isLegacy ? "text-(--qwik-dirty-black)" : "text-(--qwik-dirty-black)",
-    ].join(" ");
+    const labelClass =
+      "min-w-0 flex-1 text-center text-sm font-semibold leading-none text-(--qwik-dirty-black)";
 
     const indicator = hasProgress ? (
       <span class="inline-flex items-center justify-center leading-none">
@@ -170,11 +177,9 @@ export const BtAddChapter = component$<BtAddChapterProps>(
           >
             {content}
           </button>
-        ) : title === "" ? (
+        ) : !shouldSaveBeforeNavigate ? (
           <Link
-            href={
-              nextUri ? `/learn/${uriLink}/${nextUri}/` : `/learn/${uriLink}/`
-            }
+            href={href}
             aria-label={
               goToChapter ? `Start Chapter ${goToChapter}` : "Start Learning"
             }
@@ -192,9 +197,11 @@ export const BtAddChapter = component$<BtAddChapterProps>(
                 version,
               });
 
-              if (result.value.success) {
-                navigate(`/learn/${uriLink}/${nextUri}/`);
+              if (!result.value.success) {
+                return;
               }
+
+              await navigate(href);
             }}
             aria-label={
               goToChapter ? `Start Chapter ${goToChapter}` : "Start Learning"

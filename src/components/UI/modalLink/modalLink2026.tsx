@@ -1,6 +1,5 @@
 // src/components/UI/modalLink/modalLink2026.tsx
 
-import type { Signal } from "@builder.io/qwik";
 import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import type { CompletedChaptersType } from "../../../types/completedChapters";
@@ -10,30 +9,40 @@ interface ModalLink2026Props {
   title: string;
   uri: string;
   completedChapters: CompletedChaptersType;
+  showCompletedState: boolean;
   active: boolean;
-  showSig: Signal<boolean>;
 }
 
 export const ModalLink2026 = component$<ModalLink2026Props>(
-  ({ id, title, uri, completedChapters, active, showSig }) => {
+  ({ id, title, uri, completedChapters, showCompletedState, active }) => {
+    const [chapterLabelRaw, chapterTitleRaw] = title.split(":");
+    const chapterLabel = chapterLabelRaw.trim() || `Chapter ${id}`;
+    const chapterTitle = chapterTitleRaw.trim() || chapterLabel;
+
+    const isCompleted = showCompletedState && completedChapters.includes(id);
+
     return (
       <Link
-        class="group flex cursor-pointer items-center gap-3 rounded-md px-2 py-1.5 hover:bg-gray-100"
         href={
           uri
             ? `/learn/dashboard-app-2026/${uri}/`
             : `/learn/dashboard-app-2026/`
         }
         key={id}
-        onClick$={() => {
-          showSig.value = false;
-        }}
+        aria-current={active ? "page" : undefined}
+        class={`group flex items-center gap-3 rounded-2xl border px-3 py-3 transition-colors ${
+          active
+            ? "border-(--qwik-dark-purple)/18 bg-vercel-200"
+            : "border-transparent hover:border-(--qwik-dark-purple)/10 hover:bg-gray-100/80"
+        }`}
       >
         <div
           aria-hidden="true"
-          class={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${active ? "bg-blue-900 text-gray-50" : "bg-blue-300 text-blue-900 group-hover:bg-gray-300 group-hover:text-gray-900"}  text-sm font-medium text-blue-900  `}
+          class={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-semibold transition-colors ${
+            active ? "bg-blue-900 text-gray-50" : "bg-blue-100 text-blue-900"
+          }`}
         >
-          {completedChapters.includes(id) ? (
+          {isCompleted ? (
             <svg
               data-testid="geist-icon"
               height="16"
@@ -53,20 +62,11 @@ export const ModalLink2026 = component$<ModalLink2026Props>(
             <span>{id}</span>
           )}
         </div>
-        <div class="flex flex-col">
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-900); --text-size: 0.8125rem; --text-line-height: 1.125rem; --text-letter-spacing: initial; --text-weight: 400;"
-          >
-            {title.split(":")[0]}
-          </p>
-          <p
-            class="text_wrapper"
-            data-version="v1"
-            style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
-          >
-            {title.split(":")[1]}
+
+        <div class="min-w-0">
+          <p class="truncate text-xs text-(--ds-gray-900)">{chapterLabel}</p>
+          <p class="truncate text-sm font-medium text-(--ds-gray-1000)">
+            {chapterTitle}
           </p>
         </div>
       </Link>

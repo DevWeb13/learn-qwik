@@ -7,13 +7,8 @@ import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { ArticleDiscordCallout } from "~/components/UI/articleDiscordCallout/articleDiscordCallout";
 import { BackButton } from "~/components/UI/backButton/backButton";
-import { useProfile } from "~/routes/layout";
-import { isSubscriptionActive } from "~/utils/subscription";
 
 export const QwikVsReact2026Article = component$(() => {
-  const profile = useProfile();
-  const isSubscribed = isSubscriptionActive(profile.value);
-
   return (
     <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 lg:px-12 lg:py-20">
       <header class="flex flex-col items-center gap-2 px-4 lg:gap-4">
@@ -363,10 +358,10 @@ export const QwikVsReact2026Article = component$(() => {
         </div>
 
         <BackButton />
-        {!isSubscribed && <DesktopStickyAd />}
+        <DesktopStickyAd />
       </div>
 
-      {!isSubscribed && <MobileStickyAd />}
+      <MobileStickyAd />
     </main>
   );
 });

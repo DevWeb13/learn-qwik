@@ -45,6 +45,8 @@ iframe[name="googlefcPresent"] {
 
   --header-height: 64px;
   --header-of-main-height: 67px;
+  --footer-height: 68px;
+  --header-footer-height:  132px;
 }
 
 .dark-theme,

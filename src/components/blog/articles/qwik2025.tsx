@@ -3,15 +3,10 @@
 import { component$ } from "@builder.io/qwik";
 import JSComparisonChart from "~/assets/img/js-comparison.webp?jsx";
 import MetaQwik2025 from "~/assets/img/metaQwik2025.png?jsx";
-import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
 import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
 import { BackButton } from "~/components/UI/backButton/backButton";
-import { useProfile } from "~/routes/layout";
-import { isSubscriptionActive } from "~/utils/subscription";
 
 export const Qwik2025Article = component$(() => {
-  const profile = useProfile();
-  const isSubscribed = isSubscriptionActive(profile.value);
   return (
     <main class="relative flex min-h-screen w-full flex-col items-center gap-8  bg-white py-12 lg:px-12 lg:py-20">
       {/* ✅ Titre principal pleine largeur */}
@@ -234,12 +229,9 @@ export const Qwik2025Article = component$(() => {
           </div>
         </div>
         <BackButton />
-
-        {/* ✅ Pub à droite */}
-        {!isSubscribed && <DesktopStickyAd />}
       </div>
 
-      {!isSubscribed && <MobileStickyAd />}
+      <MobileStickyAd />
     </main>
   );
 });

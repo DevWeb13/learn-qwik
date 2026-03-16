@@ -1,6 +1,8 @@
+// src/components/UI/headerOfMain/headerOfMain.tsx
+
 import type { Signal } from "@builder.io/qwik";
 import { component$, useComputed$, useContext } from "@builder.io/qwik";
-import { useLocation } from "@builder.io/qwik-city";
+import { Link, useLocation } from "@builder.io/qwik-city";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import { useScrollYPosition } from "~/hooks/useScrollYPosition";
 import ModalBottomSheet from "~/lib/qwikUI/modalBottomSheet/modalBottomSheet";
@@ -20,10 +22,8 @@ export default component$(() => {
     const pathname = location.url.pathname;
     const basePath = "/learn/dashboard-app/";
 
-    // Racine = Introduction
     if (pathname === basePath) return 0;
 
-    // Extraire le slug proprement
     const slug = pathname.replace(basePath, "").split("/")[0];
 
     const index = chapters.value.findIndex((chapter) => chapter.uri === slug);
@@ -35,8 +35,17 @@ export default component$(() => {
     return chapters.value[currentChapterIndex.value].title;
   });
 
+  const loginHref = useComputed$(() => {
+    const nextPath = `${location.url.pathname}${location.url.search}`;
+    return `/auth/login/?next=${encodeURIComponent(nextPath)}`;
+  });
+
+  const hasProfile = useComputed$(() => {
+    return Boolean(profile.value?.id);
+  });
+
   return (
-    <div class="relative z-10 mb-4 flex h-(--header-of-main-height)  w-full items-center justify-center  lg:mb-8">
+    <div class="relative z-10 mb-4 flex h-(--header-of-main-height) w-full items-center justify-center lg:mb-8">
       <aside
         class={
           scrollY.value > 80
@@ -101,7 +110,22 @@ export default component$(() => {
           </div>
         </div>
 
-        <ProgressCircle completed={profile.value?.completedChapters || []} />
+        <div class="ml-auto shrink-0 flex items-center">
+          {hasProfile.value ? (
+            <ProgressCircle
+              completed={profile.value?.completedChapters || []}
+              version="2026 Edition"
+            />
+          ) : (
+            <Link
+              href={loginHref.value}
+              class="block text-right text-xs leading-tight font-medium text-gray-700! transition-colors hover:text-gray-900!"
+            >
+              <span class="sm:hidden">Sign in</span>
+              <span class="hidden sm:inline">Sign in to save progress</span>
+            </Link>
+          )}
+        </div>
 
         <div
           aria-hidden="true"

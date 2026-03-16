@@ -5,12 +5,8 @@ import { MobileStickyAdMulti } from "~/components/mobileStickyAdMulti/mobileStic
 import Feedback from "~/components/UI/feedback/feedback";
 import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
 import { CHAPTERS } from "~/constants/chapters";
-import { useProfile } from "~/routes/layout";
-import { isSubscriptionActive } from "~/utils/subscription";
 
 export default component$(() => {
-  const profile = useProfile();
-  const isSubscribed = isSubscriptionActive(profile.value);
   const location = useLocation();
 
   const chapterId = useComputed$(() => {
@@ -35,11 +31,9 @@ export default component$(() => {
     <main class="relative mx-auto max-w-full bg-(--qwik-light-blue)/2 px-4 py-4 md:px-8 lg:px-4 lg:py-10">
       <HeaderOfMain />
       <div
-        class={`relative mx-auto flex w-full flex-col gap-8 py-6 lg:max-w-7xl lg:flex-row lg:py-10 ${!isSubscribed ? "lg:pl-12 xl:px-12" : "justify-center lg:px-12"}`}
+        class={`relative mx-auto flex w-full flex-col gap-8 py-6 lg:max-w-7xl lg:flex-row lg:py-10 lg:pl-12 xl:px-12`}
       >
-        <section
-          class={`w-full overflow-hidden ${!isSubscribed ? "lg:max-w-[calc(100%-300px)]" : "w-full"}`}
-        >
+        <section class={`w-full overflow-hidden lg:max-w-[calc(100%-300px)]`}>
           <Slot />
 
           {currentChapterId !== null ? (
@@ -47,12 +41,10 @@ export default component$(() => {
           ) : null}
         </section>
 
-        {!isSubscribed && (
-          <DesktopStickyAdMulti topPosition="top-20 lg:top-24" />
-        )}
+        <DesktopStickyAdMulti topPosition="top-20 lg:top-24" />
       </div>
 
-      {!isSubscribed && <MobileStickyAdMulti />}
+      <MobileStickyAdMulti />
     </main>
   );
 });

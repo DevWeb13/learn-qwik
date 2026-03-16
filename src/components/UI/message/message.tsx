@@ -10,22 +10,22 @@ type Props = {
   classText?: string;
 };
 
-export const Message = component$(({ message, classText }: Props) => {
+export const Message = component$(({ message, classText = "" }: Props) => {
   return (
     <>
       {message.message && (
         <div
           class={
             classText +
-            " fade-in w-full border px-4 py-2 text-sm transition-all duration-500 " +
+            " fade-in w-full rounded-xl border px-4 py-3 text-sm leading-6 shadow-sm transition-all duration-500 " +
             (message.status === "error" &&
-              " border-red-600 bg-red-50 text-red-600 ") +
+              " border-red-200 bg-red-50 text-red-700 ") +
             (message.status === "warning" &&
-              " border-yellow-600 bg-yellow-50 text-yellow-600 ") +
+              " border-yellow-200 bg-yellow-50 text-yellow-700 ") +
             (message.status === "notice" &&
-              " border-sky-600 bg-sky-50 text-sky-600 ") +
+              " border-sky-200 bg-sky-50 text-sky-700 ") +
             (message.status === "success" &&
-              " border-green-600 bg-green-50 text-green-600 ")
+              " border-green-200 bg-green-50 text-green-700 ")
           }
         >
           {message.message}

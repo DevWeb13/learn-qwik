@@ -1,5 +1,7 @@
+// src/components/UI/headerOfMain/headerOfMain2026.tsx
+
 import { component$, useComputed$, useContext } from "@builder.io/qwik";
-import { useLocation } from "@builder.io/qwik-city";
+import { Link, useLocation } from "@builder.io/qwik-city";
 import { BookSvg } from "~/assets/svg/bookSvg/bookSvg";
 import { useScrollYPosition } from "~/hooks/useScrollYPosition";
 
@@ -35,12 +37,21 @@ export default component$(() => {
     return chapters2026.value[currentIndex.value].title;
   });
 
+  const loginHref = useComputed$(() => {
+    const nextPath = `${location.url.pathname}${location.url.search}`;
+    return `/auth/login/?next=${encodeURIComponent(nextPath)}`;
+  });
+
+  const hasProfile = useComputed$(() => {
+    return Boolean(profile.value?.id);
+  });
+
   return (
-    <div class="lg:pl-10 xl:pl-0 relative z-10  flex h-(--header-of-main-height) w-full items-center justify-center ">
+    <div class="relative z-10 flex h-(--header-of-main-height) w-full items-center justify-center lg:pl-10 xl:pl-0">
       <aside
         class={
           scrollY.value > 80
-            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 border border-(--qwik-dark-purple)/25 right-4 top-4 z-10 flex h-(--header-of-main-height) max-w-268 items-center rounded-2xl px-3 py-3 shadow-sm lg:mx-auto"
+            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-4 top-4 z-10 flex h-(--header-of-main-height) max-w-268 items-center rounded-2xl border border-(--qwik-dark-purple)/25 px-3 py-3 shadow-sm lg:mx-auto"
             : "bg-vercel-200 border border-(--qwik-dark-purple)/25 style_nonSticky__jA3GX z-10 flex h-(--header-of-main-height) w-full max-w-268 items-center rounded-2xl px-3 py-3 lg:w-full"
         }
         style="background-clip: padding-box;"
@@ -101,10 +112,22 @@ export default component$(() => {
           </div>
         </div>
 
-        <ProgressCircle
-          completed={profile.value?.completedChapters2026 || []}
-          version="2026 Edition"
-        />
+        <div class="ml-auto shrink-0 flex items-center">
+          {hasProfile.value ? (
+            <ProgressCircle
+              completed={profile.value?.completedChapters2026 || []}
+              version="2026 Edition"
+            />
+          ) : (
+            <Link
+              href={loginHref.value}
+              class="block text-right text-xs leading-tight font-medium text-gray-700! transition-colors hover:text-gray-900!"
+            >
+              <span class="sm:hidden">Sign in</span>
+              <span class="hidden sm:inline">Sign in to save progress</span>
+            </Link>
+          )}
+        </div>
 
         <div
           aria-hidden="true"

@@ -1,3 +1,5 @@
+// src/components/learn/DisplayNextChapter/displayNextChapter.tsx
+
 import { component$ } from "@builder.io/qwik";
 import { CHAPTERS } from "~/constants/chapters";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
@@ -11,12 +13,10 @@ interface DisplayNextChapterProps {
 export const DisplayNextChapter = component$<DisplayNextChapterProps>(
   ({ completed = [], version = "Legacy", compact = false }) => {
     const chapters = version === "2026" ? CHAPTERS2026 : CHAPTERS;
-
-    const nextChapterIndex =
-      completed.length > 0 ? Math.max(...completed) + 1 : 0;
+    const completedSet = new Set(completed);
 
     const nextChapter =
-      nextChapterIndex < chapters.length ? chapters[nextChapterIndex] : null;
+      chapters.find((chapter) => !completedSet.has(chapter.id)) ?? null;
 
     if (!nextChapter) {
       return (

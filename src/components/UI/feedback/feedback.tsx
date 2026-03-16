@@ -1,3 +1,5 @@
+// src/components/UI/feedback/feedback.tsx
+
 import {
   $,
   component$,
@@ -5,7 +7,9 @@ import {
   useStyles$,
   useTask$,
 } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import {
+  useFeedbackAuthState,
   useGetChapterFeedback,
   useGetChapterFeedbackCounts,
   useSaveChapterFeedback,
@@ -18,15 +22,19 @@ interface FeedbackProps {
   chapterNumber: number;
 }
 
+const UNAUTHORIZED_ERROR = "You must be signed in to leave feedback.";
+
 export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
   const saveChapterFeedback = useSaveChapterFeedback();
   const chapterFeedback = useGetChapterFeedback();
   const chapterFeedbackCounts = useGetChapterFeedbackCounts();
+  const feedbackAuthState = useFeedbackAuthState();
 
   const selectedReaction = useSignal<FeedbackReaction | null>(null);
   const message = useSignal("");
   const isFormOpen = useSignal(false);
   const showSuccessToast = useSignal(false);
+  const showLoginPrompt = useSignal(false);
 
   const counts =
     chapterFeedbackCounts.value.courseVersion === courseVersion &&
@@ -274,15 +282,60 @@ export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
         transform: translateY(0);
         pointer-events: auto;
       }
+
+      .feedback_authPrompt {
+        padding: 0 16px 16px 16px;
+        text-align: center;
+      }
+
+      .feedback_authPromptActions {
+        display: flex;
+        justify-content: center;
+        padding-top: 8px;
+      }
+
+      .feedback_authLink {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9999px;
+        padding: 10px 14px;
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 1;
+        box-shadow: inset 0 0 0 1px var(--ds-gray-alpha-400);
+        color: var(--ds-gray-1000);
+        transition: background .2s, box-shadow .2s;
+      }
+
+      .feedback_authLink:hover {
+        background: var(--ds-gray-alpha-100);
+      }
     `);
 
   const handleReactionClick = $((reaction: FeedbackReaction) => {
+    if (!feedbackAuthState.value.isAuthenticated) {
+      selectedReaction.value = null;
+      isFormOpen.value = false;
+      showSuccessToast.value = false;
+      showLoginPrompt.value = true;
+      return;
+    }
+
     selectedReaction.value = reaction;
     isFormOpen.value = true;
     showSuccessToast.value = false;
+    showLoginPrompt.value = false;
   });
 
   const handleSubmit = $(async () => {
+    if (!feedbackAuthState.value.isAuthenticated) {
+      selectedReaction.value = null;
+      isFormOpen.value = false;
+      showLoginPrompt.value = true;
+      return;
+    }
+
     if (!selectedReaction.value) return;
 
     await saveChapterFeedback.submit({
@@ -297,6 +350,9 @@ export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
     const feedback = track(() => chapterFeedback.value);
     const trackedCourseVersion = track(() => courseVersion);
     const trackedChapterNumber = track(() => chapterNumber);
+    const isAuthenticated = track(
+      () => feedbackAuthState.value.isAuthenticated,
+    );
 
     selectedReaction.value =
       feedback.courseVersion === trackedCourseVersion &&
@@ -312,18 +368,30 @@ export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
 
     isFormOpen.value = false;
     showSuccessToast.value = false;
+
+    if (isAuthenticated) {
+      showLoginPrompt.value = false;
+    }
   });
 
   useTask$(({ track, cleanup }) => {
-    track(() => saveChapterFeedback.value);
+    const result = track(() => saveChapterFeedback.value);
 
     let timeoutId: number | undefined;
 
-    if (saveChapterFeedback.value?.success) {
+    if (result?.failed && result.error === UNAUTHORIZED_ERROR) {
+      selectedReaction.value = null;
+      isFormOpen.value = false;
+      showSuccessToast.value = false;
+      showLoginPrompt.value = true;
+    }
+
+    if (result?.success) {
       const activeElement = document.activeElement as HTMLElement | null;
       activeElement?.blur();
 
       isFormOpen.value = false;
+      showLoginPrompt.value = false;
       showSuccessToast.value = true;
 
       timeoutId = window.setTimeout(() => {
@@ -546,13 +614,35 @@ export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
           </form>
         </div>
 
-        {saveChapterFeedback.value?.failed && (
-          <p class="feedback_successText text-red-600">
-            {saveChapterFeedback.value.fieldErrors?.message ||
-              saveChapterFeedback.value.error ||
-              "An error occurred."}
-          </p>
+        {showLoginPrompt.value && !feedbackAuthState.value.isAuthenticated && (
+          <div class="feedback_authPrompt">
+            <p
+              class="text_wrapper"
+              data-version="v1"
+              style="--text-color: var(--ds-gray-900); --text-size: 0.875rem; --text-line-height: 1.25rem; --text-letter-spacing: initial; --text-weight: 400;"
+            >
+              You must be signed in to leave feedback.
+            </p>
+
+            <div class="feedback_authPromptActions">
+              <Link
+                href={feedbackAuthState.value.loginHref}
+                class="feedback_authLink"
+              >
+                Sign in
+              </Link>
+            </div>
+          </div>
         )}
+
+        {saveChapterFeedback.value?.failed &&
+          saveChapterFeedback.value.error !== UNAUTHORIZED_ERROR && (
+            <p class="feedback_successText text-red-600">
+              {saveChapterFeedback.value.fieldErrors?.message ||
+                saveChapterFeedback.value.error ||
+                "An error occurred."}
+            </p>
+          )}
 
         {showSuccessToast.value && (
           <div
