@@ -13,15 +13,28 @@ export default extendConfig(baseConfig, () => {
       },
       outDir: ".vercel/output/functions/_qwik-city.func",
     },
-    plugins: [vercelEdgeAdapter({
-      ssg: {
-        origin: "https://www.learn-qwik.com",
-        include: [
-          "/blog/*",
-          // Add other paths you want to pre-render here
-        ],
-        sitemapOutFile: null,
-      }
-    })],
+    plugins: [vercelEdgeAdapter()],
   };
 });
+
+// export default extendConfig(baseConfig, () => {
+//   return {
+//     build: {
+//       ssr: true,
+//       rollupOptions: {
+//         input: ["src/entry.vercel-edge.tsx", "@qwik-city-plan"],
+//       },
+//       outDir: ".vercel/output/functions/_qwik-city.func",
+//     },
+//     plugins: [vercelEdgeAdapter({
+//       ssg: {
+//         origin: "https://www.learn-qwik.com",
+//         include: [
+//           "/blog/*",
+//           // Add other paths you want to pre-render here
+//         ],
+//         sitemapOutFile: null,
+//       }
+//     })],
+//   };
+// });
