@@ -13,6 +13,10 @@ export const onGet: RequestHandler = (ev) => {
         route.startsWith("learn/dashboard-app-2026/"),
     );
 
+  const starterPackRoutes = routes
+    .map(([route]) => route as string)
+    .filter((route) => route.startsWith("starter-pack/"));
+
   const blogRoutes = routes
     .map(([route]) => route as string)
     .filter((route) => route.startsWith("blog/"));
@@ -30,6 +34,10 @@ export const onGet: RequestHandler = (ev) => {
 
   const sitemap = createSitemap([
     { loc: "/", priority: 1 },
+    ...starterPackRoutes.map((route) => ({
+      loc: route,
+      priority: 1,
+    })),
     ...learnRoutes.map((route) => ({
       loc: route,
       priority: 0.9,
