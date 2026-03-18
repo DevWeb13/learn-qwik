@@ -1,3 +1,5 @@
+// src/utils/createDocumentHead2026.ts
+
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 interface CreateDocumentHead2026Props {
