@@ -222,7 +222,7 @@ export default component$(() => {
                         : "Continue with Magic Link"}
                   </button>
 
-                  <div class="min-h-[72px]">
+                  <div class="min-h-18">
                     {signUpOrLoginWithMagicLinkAction.isRunning ? (
                       <Message
                         message={{
