@@ -5,94 +5,88 @@ export const SHELL_CLASS = "mx-auto max-w-7xl px-4 md:px-6 lg:px-14 2xl:px-0";
 export type StackIconKind = "qwik" | "supabase" | "tailwind" | "vercel";
 
 export const HERO_CHIPS = [
-  "Paid starter pack",
-  "No commitment today",
-  "Early access list",
-  "Selected free access",
-  "Qwik SSR",
-  "Supabase",
-  "Tailwind",
-  "Vercel",
+  "Early access open",
+  "Live demo available",
+  "Qwik + Supabase",
+  "Tailwind + Vercel",
 ] as const;
 
 export const PREVIEW_LIST = [
-  "Core project structure already in place",
-  "Supabase auth and protected routes",
-  "Tailwind base ready to extend",
-  "A deployment path that already makes sense",
-  "Starter code + README guidance",
-  "A cleaner base for a real app",
+  "Google sign-in and Magic Link",
+  "Protected pages and guest redirects",
+  "Create, update, and delete private experiments",
+  "Account page, sign out, and delete-account flow",
 ] as const;
 
 export const OFFER_CARDS = [
   {
-    title: "Free early access",
+    title: "Join early access now",
     description:
-      "Join the list for free and hear about the Starter Pack before public launch. No payment today and no obligation to buy.",
+      "Get launch updates first and see whether you may be selected for free access before public launch.",
   },
   {
-    title: "Selected free access",
+    title: "Test the live demo",
     description:
-      "A limited number of selected early access members may receive free access to the Starter Pack before public launch.",
+      "Open the running app and see the real auth, account, and private CRUD flow before launch.",
   },
   {
-    title: "Early launch advantage",
+    title: "Start from a real foundation",
     description:
-      "Early access members will hear about the launch offer first when the Starter Pack goes live.",
+      "The Starter Pack is built to save setup time and give you a cleaner starting point for a real Qwik app.",
   },
 ] as const;
 
 export const PROMISE_CARDS = [
   {
-    eyebrow: "Time saved",
-    title: "Skip the slow setup phase",
+    eyebrow: "Auth already wired",
+    title: "Skip the first setup mess",
     description:
-      "The core project structure is already in place, so you can focus on building features instead of spending hours on setup.",
+      "Google sign-in, Magic Link, session handling, and the main auth plumbing are already part of the starting point.",
   },
   {
-    eyebrow: "More clarity",
-    title: "Start from something you can actually understand",
+    eyebrow: "Protected pages ready",
+    title: "Do not rebuild access control from zero",
     description:
-      "The point is not to dump files on you. The point is to give you a cleaner structure that is easier to read, extend, and ship.",
+      "The Starter Pack already includes a clear path for gated pages, redirects, and user-aware rendering.",
   },
   {
-    eyebrow: "More focus",
-    title: "Spend your time on your app",
+    eyebrow: "Private CRUD included",
+    title: "Start from a real app pattern",
     description:
-      "Auth, protected routes, environment setup, and deployment thinking are already part of the starting point.",
+      "Instead of a blank shell, you begin with a practical private CRUD example that is easier to extend into a real product.",
   },
 ] as const;
 
 export const INCLUDED_CARDS = [
   {
-    title: "Starter codebase",
+    title: "Qwik SSR starter base",
     description:
-      "A real Qwik SSR starting point designed for an actual app, not a toy demo that falls apart the moment the project becomes serious.",
+      "A serious starting point for a real app, with the main project structure already in place instead of a throwaway toy demo.",
   },
   {
-    title: "Supabase integration",
+    title: "Supabase auth integration",
     description:
-      "A practical base for database, auth, Magic Link, and backend wiring without turning week one into a ritual of confusion.",
+      "A working base for auth, sessions, Magic Link, and the backend wiring you usually waste days piecing together.",
   },
   {
     title: "Protected route patterns",
     description:
-      "A cleaner path for gated pages and user-aware behavior without improvising the structure from scratch.",
+      "A clearer way to handle private pages and guest redirects without improvising the structure from scratch.",
   },
   {
-    title: "Tailwind base",
+    title: "Private experiments CRUD example",
     description:
-      "A styling foundation ready to extend, so you do not waste energy rebuilding the same visual setup again.",
+      "A concrete authenticated CRUD flow you can read, reuse, adapt, and extend for your own product logic.",
   },
   {
-    title: "Vercel deployment path",
+    title: "Account area and delete flow",
     description:
-      "A deployment setup that already points in the right direction instead of leaving you to negotiate with entropy alone.",
+      "User-facing account pages are already part of the foundation, including a proper delete-account path.",
   },
   {
-    title: "README and setup guidance",
+    title: "Tailwind + Vercel setup path",
     description:
-      "Not just files. The package is meant to include enough guidance to help you understand what you are starting from.",
+      "Styling and deployment are already part of the plan, so the project feels ready to ship earlier.",
   },
 ] as const;
 
@@ -101,25 +95,25 @@ export const STACK_CARDS = [
     kind: "qwik" as const,
     title: "Qwik",
     description:
-      "The framework at the core of the Starter Pack, with SSR already part of the starting architecture.",
+      "The framework at the core of the Starter Pack, with SSR already included in the starting architecture.",
   },
   {
     kind: "supabase" as const,
     title: "Supabase",
     description:
-      "Database, auth, Magic Link, and backend wiring in a structure that is ready to use.",
+      "Database, auth, Magic Link, and server-side wiring in a setup that is already connected.",
   },
   {
     kind: "tailwind" as const,
     title: "Tailwind",
     description:
-      "A practical styling base that keeps the project moving without getting lost in CSS archaeology.",
+      "A practical styling base so you can move fast without rebuilding the same visual foundation again.",
   },
   {
     kind: "vercel" as const,
     title: "Vercel",
     description:
-      "A deployment path that matches the goal: ship faster, break less, and keep the setup understandable.",
+      "A deployment path that already matches the project goal: launch faster with less setup friction.",
   },
 ] as const;
 
@@ -131,48 +125,80 @@ export const STACK_LINKS: Record<StackIconKind, string> = {
 };
 
 export const GOOD_FIT_ITEMS = [
-  "You already know basic web development and want to launch with Qwik faster.",
-  "You do not want to build auth, protected routes, and deployment setup from zero.",
-  "You already know React or modern frontend patterns and want a Qwik starting point that feels familiar.",
+  "You already know basic web development and want a faster way to start with Qwik.",
+  "You want auth, protected pages, and a private app area without rebuilding the whole foundation yourself.",
+  "You already know React or modern frontend patterns and want a Qwik starter that feels more approachable.",
 ] as const;
 
 export const NOT_TARGET_ITEMS = [
-  "Not for complete beginners who still need core HTML, CSS, and JavaScript foundations first.",
-  "Not a giant all-in-one SaaS machine with every feature in the observable universe.",
-  "Not a magic spell. It is a faster, cleaner starting point, not instant project success in a shiny box.",
+  "Not for complete beginners who still need the core HTML, CSS, and JavaScript basics first.",
+  "Not an all-in-one SaaS monster with every billing, admin, team, and dashboard feature under the sun.",
+  "Not a promise that your product will build itself. It is a faster starting point, not a shortcut to product-market fit.",
 ] as const;
 
 export const FAQ_ITEMS = [
   {
-    question: "Is this free?",
+    question: "Can I test something today?",
     answer:
-      "No. The Starter Pack is planned as a paid product. Joining early access is free and does not commit you to buy anything.",
+      "Yes. The live demo is already available, so you can test the main flow before launch.",
   },
   {
-    question: "What do early access members get?",
+    question: "What does early access mean?",
     answer:
-      "They will be the first to hear when the Starter Pack launches. Early access members will also hear about the launch offer first, and a limited number of selected members may receive free access to the Starter Pack before public launch.",
+      "You can join the list for free, hear about launch first, and a limited number of selected users may receive free access before public launch.",
   },
   {
-    question: "Will everyone get free access?",
+    question: "Do I get the code right now?",
     answer:
-      "No. Free access will only be offered to a limited number of selected early access members.",
+      "No. Right now you can test the live demo and join early access. Code access comes later.",
   },
   {
     question: "Who is this for?",
     answer:
-      "Developers who already know basic web development and want a faster way to start a real Qwik full-stack app with the core setup already in place.",
+      "Developers who already know the basics and want a faster way to start a real Qwik full-stack app with the core setup already in place.",
   },
   {
-    question: "What if I already know React?",
+    question: "Will React experience help?",
     answer:
-      "That helps. Qwik JSX and component structure will feel much more familiar if you already know React, so getting started is usually easier.",
+      "Yes. If you already know React or modern component-based frontend work, the structure will usually feel easier to approach.",
   },
 ] as const;
 
 export const WAITLIST_BENEFITS = [
-  "Free to join and no obligation to buy",
+  "Free to join with no obligation",
   "Launch updates before the public release",
-  "A limited number of selected members may receive free access",
-  "Early access members will hear about the launch offer first",
+  "Selected users may receive free access before launch",
+  "Early access members hear about the launch first",
+] as const;
+
+export const VIDEO_WALKTHROUGH_STEPS = [
+  "Open the live demo",
+  "Sign in with Google",
+  "View the account page and session data",
+  "Sign out and sign in again with Magic Link",
+  "Create, edit, and delete a private experiment",
+  "Delete the account at the end",
+] as const;
+
+export const REUSE_CARDS = [
+  {
+    title: "Auth and account flows",
+    description:
+      "Start from sign-in, session handling, protected pages, account access, sign out, and delete-account flows that are already connected.",
+  },
+  {
+    title: "Qwik loader and action examples",
+    description:
+      "Reuse real examples of routeLoader$, routeAction$, form handling, and user-aware pages instead of figuring out those patterns from scratch.",
+  },
+  {
+    title: "Supabase examples you can adapt",
+    description:
+      "Use the included auth and private data flows as working examples, then replace the sample business logic with your own project needs.",
+  },
+  {
+    title: "Documentation and setup guide",
+    description:
+      "Get clear guidance for installation, Supabase setup, project structure, and the main places to customize the starter safely.",
+  },
 ] as const;

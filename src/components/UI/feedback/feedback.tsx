@@ -363,7 +363,7 @@ export default component$<FeedbackProps>(({ courseVersion, chapterNumber }) => {
     message.value =
       feedback.courseVersion === trackedCourseVersion &&
       feedback.chapterNumber === trackedChapterNumber
-        ? (feedback.message ?? "")
+        ? feedback.message
         : "";
 
     isFormOpen.value = false;
