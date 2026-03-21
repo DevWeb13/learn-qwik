@@ -5,16 +5,16 @@ export const SHELL_CLASS = "mx-auto max-w-7xl px-4 md:px-6 lg:px-14 2xl:px-0";
 export type StackIconKind = "qwik" | "supabase" | "tailwind" | "vercel";
 
 export const HERO_CHIPS = [
-  "Early access open",
   "Live demo available",
-  "Qwik + Supabase",
-  "Tailwind + Vercel",
+  "Private feedback CRUD",
+  "Documentation included",
+  "Qwik + Supabase + Tailwind + Vercel",
 ] as const;
 
 export const PREVIEW_LIST = [
   "Google sign-in and Magic Link",
   "Protected pages and guest redirects",
-  "Create, update, and delete private experiments",
+  "Create, update, and delete private feedback",
   "Account page, sign out, and delete-account flow",
 ] as const;
 
@@ -27,12 +27,12 @@ export const OFFER_CARDS = [
   {
     title: "Test the live demo",
     description:
-      "Open the running app and see the real auth, account, and private CRUD flow before launch.",
+      "Open the running app and see the real auth, account, and private feedback flow before launch.",
   },
   {
     title: "Start from a real foundation",
     description:
-      "The Starter Pack is built to save setup time and give you a cleaner starting point for a real Qwik app.",
+      "The Learn Qwik Starter Pack is built to save setup time and give you a cleaner starting point for a real Qwik app.",
   },
 ] as const;
 
@@ -50,10 +50,10 @@ export const PROMISE_CARDS = [
       "The Starter Pack already includes a clear path for gated pages, redirects, and user-aware rendering.",
   },
   {
-    eyebrow: "Private CRUD included",
+    eyebrow: "Private feedback included",
     title: "Start from a real app pattern",
     description:
-      "Instead of a blank shell, you begin with a practical private CRUD example that is easier to extend into a real product.",
+      "Instead of a blank shell, you begin with a practical private feedback CRUD example that is easier to extend into a real product.",
   },
 ] as const;
 
@@ -74,19 +74,19 @@ export const INCLUDED_CARDS = [
       "A clearer way to handle private pages and guest redirects without improvising the structure from scratch.",
   },
   {
-    title: "Private experiments CRUD example",
+    title: "Private feedback CRUD example",
     description:
       "A concrete authenticated CRUD flow you can read, reuse, adapt, and extend for your own product logic.",
   },
   {
-    title: "Account area and delete flow",
+    title: "Documentation and setup guide",
     description:
-      "User-facing account pages are already part of the foundation, including a proper delete-account path.",
+      "Guided documentation for installation, Supabase setup, project structure, and the main places to customize the starter safely.",
   },
   {
-    title: "Tailwind + Vercel setup path",
+    title: "Private Discord access",
     description:
-      "Styling and deployment are already part of the plan, so the project feels ready to ship earlier.",
+      "A direct place to ask questions and get support while you adapt the starter to your own product.",
   },
 ] as const;
 
@@ -126,7 +126,7 @@ export const STACK_LINKS: Record<StackIconKind, string> = {
 
 export const GOOD_FIT_ITEMS = [
   "You already know basic web development and want a faster way to start with Qwik.",
-  "You want auth, protected pages, and a private app area without rebuilding the whole foundation yourself.",
+  "You want auth, protected pages, account flows, and a private feature example without rebuilding the whole foundation yourself.",
   "You already know React or modern frontend patterns and want a Qwik starter that feels more approachable.",
 ] as const;
 
@@ -140,7 +140,7 @@ export const FAQ_ITEMS = [
   {
     question: "Can I test something today?",
     answer:
-      "Yes. The live demo is already available, so you can test the main flow before launch.",
+      "Yes. The live demo is already available, so you can test the main auth, account, and private feedback flow before launch.",
   },
   {
     question: "What does early access mean?",
@@ -153,22 +153,22 @@ export const FAQ_ITEMS = [
       "No. Right now you can test the live demo and join early access. Code access comes later.",
   },
   {
+    question: "What is included besides the code?",
+    answer:
+      "The Starter Pack also includes documentation, setup guidance, and private Discord access so you are not left alone with a raw repo.",
+  },
+  {
     question: "Who is this for?",
     answer:
       "Developers who already know the basics and want a faster way to start a real Qwik full-stack app with the core setup already in place.",
-  },
-  {
-    question: "Will React experience help?",
-    answer:
-      "Yes. If you already know React or modern component-based frontend work, the structure will usually feel easier to approach.",
   },
 ] as const;
 
 export const WAITLIST_BENEFITS = [
   "Free to join with no obligation",
-  "Launch updates before the public release",
+  "Test the live demo before launch",
+  "Documentation and reusable patterns are part of the product",
   "Selected users may receive free access before launch",
-  "Early access members hear about the launch first",
 ] as const;
 
 export const VIDEO_WALKTHROUGH_STEPS = [
@@ -176,7 +176,7 @@ export const VIDEO_WALKTHROUGH_STEPS = [
   "Sign in with Google",
   "View the account page and session data",
   "Sign out and sign in again with Magic Link",
-  "Create, edit, and delete a private experiment",
+  "Create, edit, and delete private feedback",
   "Delete the account at the end",
 ] as const;
 
@@ -192,9 +192,9 @@ export const REUSE_CARDS = [
       "Reuse real examples of routeLoader$, routeAction$, form handling, and user-aware pages instead of figuring out those patterns from scratch.",
   },
   {
-    title: "Supabase examples you can adapt",
+    title: "Private feedback pattern",
     description:
-      "Use the included auth and private data flows as working examples, then replace the sample business logic with your own project needs.",
+      "Use the included private feedback CRUD as a working example, then replace the sample business logic with your own project needs.",
   },
   {
     title: "Documentation and setup guide",

@@ -109,17 +109,18 @@ export default component$(() => {
         >
           <header class="relative max-w-2xl">
             <div class="inline-flex items-center rounded-full border border-(--qwik-dark-purple)/12 bg-(--qwik-light-purple)/10 px-4 py-2 text-sm font-medium text-(--qwik-dark-purple)">
-              Early access open • Live demo available
+              Learn Qwik Starter Pack • Live demo available
             </div>
 
             <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-[1.02] text-(--qwik-dirty-black) md:text-5xl xl:text-[4rem]">
-              Join early access for the Qwik Starter Pack.
+              Start from a real Qwik app, not a blank setup.
             </h1>
 
             <p class="mt-5 max-w-2xl text-base leading-7 text-gray-700 md:text-lg md:leading-8">
-              Selected users may receive free access before launch. You can also
-              test the live demo and see auth, protected pages, private CRUD,
-              and account flows already in place.
+              The Learn Qwik Starter Pack gives you auth, protected pages,
+              account flows, a working private feedback CRUD example,
+              documentation, and a deployment-ready stack already in place. You
+              can test the live demo now and join early access before launch.
             </p>
 
             <div class="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -301,7 +302,7 @@ export default component$(() => {
                   </h3>
                   <p class="mt-3 text-sm leading-6 text-gray-600">
                     Sign in, open the account page, switch auth method, manage
-                    private experiments, and delete the account at the end.
+                    private feedback, and delete the account at the end.
                   </p>
                 </div>
               </div>
@@ -355,6 +356,7 @@ export default component$(() => {
           ))}
         </div>
       </section>
+
       <section class={`${SHELL_CLASS} py-12 md:py-20`}>
         <div class="mb-8 max-w-3xl md:mb-10">
           <p class="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
@@ -365,8 +367,8 @@ export default component$(() => {
             behind it.
           </h2>
           <p class="mt-4 text-base leading-7 text-gray-700 md:text-lg">
-            You are not expected to keep the sample UI or the experiments
-            example as they are. The point is to reuse the auth flow, account
+            You are not expected to keep the sample UI or the feedback example
+            exactly as they are. The point is to reuse the auth flow, account
             flow, loader and action examples, Supabase wiring, and documentation
             as a base for your own product.
           </p>
@@ -516,13 +518,14 @@ export default component$(() => {
               </p>
 
               <h2 class="mt-3 text-3xl font-semibold text-(--qwik-dirty-black) md:text-5xl">
-                Get early access to the full Starter Pack.
+                Get early access to the full Learn Qwik Starter Pack.
               </h2>
 
               <p class="mt-4 text-base leading-7 text-gray-700 md:text-lg">
                 Joining the list is free and does not commit you to buy
-                anything. A limited number of selected users may receive free
-                access before public launch.
+                anything. You can test the live demo now, review what is
+                included, and hear first when the full starter becomes
+                available.
               </p>
 
               <div class="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -597,9 +600,9 @@ export default component$(() => {
                         You’re on the early access list.
                       </h3>
                       <p class="mt-3 text-sm leading-6 text-emerald-900/85">
-                        You’ll be among the first to hear when the Starter Pack
-                        launches. A limited number of selected users may also
-                        receive free access before public launch.
+                        You’ll be among the first to hear when the Learn Qwik
+                        Starter Pack launches. A limited number of selected
+                        users may also receive free access before public launch.
                       </p>
 
                       {successEmail && (
@@ -695,8 +698,8 @@ export default component$(() => {
                   </button>
 
                   <p class="text-xs leading-5 text-gray-500">
-                    Free to join. No commitment. We’ll only send Starter Pack
-                    launch and early access updates.
+                    Free to join. No commitment. We’ll only send Learn Qwik
+                    Starter Pack launch and early access updates.
                   </p>
 
                   {emailErrorMessage && (
@@ -728,9 +731,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Qwik Starter Pack Early Access",
+  title: "Learn Qwik Starter Pack Early Access",
   description:
-    "Join early access for the Learn Qwik Starter Pack. A limited number of selected users may receive free access before public launch. Live demo available.",
+    "Join early access for the Learn Qwik Starter Pack. Test the live demo, review what is included, and hear first when the full starter launches.",
   imageUrl: "https://www.learn-qwik.com/meta-starter-pack.webp",
   url: "https://www.learn-qwik.com/starter-pack/",
   type: "website",
