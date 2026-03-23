@@ -1,6 +1,6 @@
-// src/components/UI/headerOfMain/progressCircle/progressCircle.tsx
-
 import { component$ } from "@builder.io/qwik";
+import { CHAPTERS } from "~/constants/chapters";
+import { CHAPTERS2026 } from "~/constants/chapters2026";
 
 interface ProgressCircleProps {
   completed: number[];
@@ -8,27 +8,77 @@ interface ProgressCircleProps {
   colorCircle?: string;
   colorProgressCircle?: string;
   responsive?: "smallOnly" | "largeOnly" | "both";
-  version?: "2026 Edition";
+  version?: "2026 Edition" | "Legacy";
 }
 
 export default component$<ProgressCircleProps>(
   ({
     completed = [],
     onlyCircle = false,
-    colorCircle = "var(--ds-gray-alpha-400)",
+    colorCircle = "var(--ds-gray-200)",
     colorProgressCircle,
     responsive = "both",
     version,
   }) => {
-    const totalChapters = 16;
+    const totalChapters =
+      version === "2026 Edition" ? CHAPTERS2026.length : CHAPTERS.length;
+
     const completedChapters = completed.length;
-    const percentageCompleted = (completedChapters / totalChapters) * 100;
+    const percentageCompleted =
+      totalChapters > 0 ? (completedChapters / totalChapters) * 100 : 0;
 
     const progressColor =
       colorProgressCircle ??
       (version === "2026 Edition"
         ? "var(--qwik-dark-purple)"
         : "var(--qwik-dark-blue)");
+
+    const renderCircle = (
+      size: number,
+      radius: number,
+      strokeWidth: number,
+    ) => {
+      const circumference = 2 * Math.PI * radius;
+      const dashOffset = circumference * (1 - percentageCompleted / 100);
+
+      return (
+        <svg
+          fill="none"
+          height={size}
+          width={size}
+          viewBox="0 0 100 100"
+          style={{ transform: "rotate(-90deg)", transformOrigin: "center" }}
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r={radius}
+            stroke-width={strokeWidth}
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="gauge_arcSecondary"
+            stroke={colorCircle}
+            fill="none"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r={radius}
+            stroke-width={strokeWidth}
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="gauge_arc"
+            data-geist-progress-circle-fg=""
+            stroke={progressColor}
+            fill="none"
+            style={{
+              strokeDasharray: `${circumference}`,
+              strokeDashoffset: `${dashOffset}`,
+            }}
+          />
+        </svg>
+      );
+    };
 
     return (
       <>
@@ -61,44 +111,7 @@ export default component$<ProgressCircleProps>(
             data-geist-progress-circle=""
             data-version="v1"
           >
-            <svg
-              fill="none"
-              height="20"
-              stroke-width="2"
-              viewBox="0 0 100 100"
-              width="20"
-              style={{ transform: "rotate(-90deg)", transformOrigin: "center" }}
-            >
-              <circle
-                cx="50"
-                cy="50"
-                r="42.5"
-                stroke-width="15"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="gauge_arcSecondary"
-                stroke={colorCircle}
-                style="opacity: 1; --stroke-percent: 99;"
-              ></circle>
-              <circle
-                cx="50"
-                cy="50"
-                r="42.5"
-                stroke-width="15"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="gauge_arc"
-                data-geist-progress-circle-fg=""
-                stroke={progressColor}
-                style={{
-                  opacity: 1,
-                  strokeDasharray: `282.7433388230814`,
-                  strokeDashoffset: `${
-                    282.7433388230814 * (1 - percentageCompleted / 100)
-                  }`,
-                }}
-              ></circle>
-            </svg>
+            {renderCircle(28, 42, 14)}
           </div>
         </div>
 
@@ -109,48 +122,11 @@ export default component$<ProgressCircleProps>(
           `}
         >
           <div
-            class="gauge_circle gauge_animate ml-4"
+            class="gauge_circle gauge_animate"
             data-geist-progress-circle=""
             data-version="v1"
           >
-            <svg
-              fill="none"
-              height="32"
-              stroke-width="2"
-              viewBox="0 0 100 100"
-              width="32"
-              style={{ transform: "rotate(-90deg)", transformOrigin: "center" }}
-            >
-              <circle
-                cx="50"
-                cy="50"
-                r="45"
-                stroke-width="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="gauge_arcSecondary"
-                stroke={colorCircle}
-                style="opacity: 1; --stroke-percent: 99;"
-              ></circle>
-              <circle
-                cx="50"
-                cy="50"
-                r="45"
-                stroke-width="10"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="gauge_arc"
-                data-geist-progress-circle-fg=""
-                stroke={progressColor}
-                style={{
-                  opacity: 1,
-                  strokeDasharray: `282.7433388230814`,
-                  strokeDashoffset: `${
-                    282.7433388230814 * (1 - percentageCompleted / 100)
-                  }`,
-                }}
-              ></circle>
-            </svg>
+            {renderCircle(36, 42, 12)}
           </div>
         </div>
       </>

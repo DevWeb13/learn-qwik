@@ -1,7 +1,6 @@
-// src/components/UI/btAddChapter/btAddChapter.tsx
-
-import { Slot, component$, useContext } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
 import { Link, useNavigate } from "@builder.io/qwik-city";
+import ProgressCircle from "~/components/UI/headerOfMain/progressCircle/progressCircle";
 import {
   Chapters2026Context,
   ChaptersContext,
@@ -24,7 +23,7 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     goToChapter,
     title,
     text = "Start Chapter",
-    completedChapters = [],
+    completedChapters,
     disabled = false,
     version,
   }) => {
@@ -42,9 +41,19 @@ export const BtAddChapter = component$<BtAddChapterProps>(
       version === "Legacy" ? "dashboard-app" : "dashboard-app-2026";
 
     const isLegacy = version === "Legacy";
-    const hasProgress = completedChapters.length > 0;
 
-    const completedSet = new Set(completedChapters);
+    const profileCompletedChapters: CompletedChaptersType =
+      version === "Legacy"
+        ? (profile.value?.completedChapters ?? [])
+        : (profile.value?.completedChapters2026 ?? []);
+
+    const resolvedCompletedChapters =
+      completedChapters ?? profileCompletedChapters;
+
+    const completedCount = resolvedCompletedChapters.length;
+    const totalChapters = chapters.value.length;
+
+    const completedSet = new Set(resolvedCompletedChapters);
 
     const firstIncompleteChapter =
       chapters.value.find((chapter) => !completedSet.has(chapter.id)) ?? null;
@@ -63,94 +72,98 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     const shouldSaveBeforeNavigate =
       title !== "" && isAuthenticated && goToChapter > 0;
 
-    function generateText() {
-      if (title === "") {
-        return text;
-      }
+    const buttonLabel = title === "" ? text : `Start Chapter ${goToChapter}`;
 
-      return `${completedChapters.length > 0 ? "Resume Learning" : text} ${goToChapter}`;
-    }
+    const startChapterNumber = firstIncompleteChapter?.id ?? 0;
 
-    const buttonLabel = generateText();
+    const progressMeta =
+      title === ""
+        ? completedCount > 0
+          ? `${completedCount} / ${totalChapters} chapters completed`
+          : `Start from chapter ${startChapterNumber}`
+        : `${completedCount} / ${totalChapters} chapters completed`;
 
     const buttonClass = [
-      "group relative inline-flex w-full items-center rounded-lg border p-1.5 transition-all duration-200",
+      "group relative inline-flex w-full items-center overflow-hidden rounded-lg border transition-all duration-300",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
       goToChapter ? "md:w-auto" : "",
       disabled
-        ? "cursor-not-allowed opacity-60"
+        ? "cursor-not-allowed border-gray-200 opacity-60 shadow-none"
         : isLegacy
           ? [
-              "border-(--qwik-dark-blue)/14 bg-white text-(--qwik-dirty-black)",
-              "hover:-translate-y-0.5 hover:border-(--qwik-dark-blue)/28 hover:shadow-lg hover:shadow-black/5",
-              "focus-visible:ring-(--qwik-dark-blue)/20",
+              "border-(--qwik-dark-blue)/18",
+              "shadow-[0_18px_45px_rgba(0,108,233,0.16)]",
+              "hover:-translate-y-0.5 hover:shadow-[0_24px_58px_rgba(0,108,233,0.24)]",
+              "focus-visible:ring-(--qwik-dark-blue)/25",
             ].join(" ")
           : [
-              "border-(--qwik-dark-purple)/60 bg-white text-(--qwik-dirty-black)",
-              "hover:-translate-y-0.5 hover:border-(--qwik-dark-purple)/100 hover:shadow-lg hover:shadow-(--qwik-dark-purple)/8",
-              "focus-visible:ring-(--qwik-dark-purple)/20",
+              "border-(--qwik-dark-purple)/18",
+              "shadow-[0_18px_45px_rgba(113,63,194,0.18)]",
+              "hover:-translate-y-0.5 hover:shadow-[0_24px_58px_rgba(113,63,194,0.28)]",
+              "focus-visible:ring-(--qwik-dark-purple)/25",
             ].join(" "),
     ].join(" ");
 
-    const innerClass = [
-      "flex w-full items-center gap-3 rounded-[0.95rem] px-1 py-1",
-      goToChapter ? "md:min-w-64" : "",
+    const surfaceClass = [
+      "relative flex w-full items-center gap-3 overflow-hidden rounded-[0.8rem] px-4 py-3.5",
+      goToChapter ? "md:min-w-[320px]" : "",
+      disabled
+        ? "bg-gray-200"
+        : isLegacy
+          ? "bg-[linear-gradient(135deg,var(--qwik-dark-blue)_0%,var(--qwik-light-blue)_135%)]"
+          : "bg-[linear-gradient(135deg,var(--qwik-dark-purple)_0%,var(--qwik-light-purple)_135%)]",
     ].join(" ");
 
     const indicatorShellClass = [
-      "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border",
+      "relative z-[1] inline-flex h-[3.15rem] w-[3.15rem] shrink-0 items-center justify-center rounded-full border bg-white/96",
+      "shadow-[inset_0_1px_0_rgba(255,255,255,0.92),0_8px_20px_rgba(17,24,39,0.10)]",
       isLegacy
-        ? "border-(--qwik-dark-blue)/10 bg-(--qwik-light-blue)/12 text-(--qwik-dark-blue)"
-        : "border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/12 text-(--qwik-dark-purple)",
+        ? "border-white/70 text-(--qwik-dark-blue)"
+        : "border-white/70 text-(--qwik-dark-purple)",
     ].join(" ");
 
     const arrowShellClass = [
-      "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-200",
+      "relative z-[1] inline-flex h-[3.15rem] w-[3.15rem] shrink-0 items-center justify-center rounded-full bg-white",
+      "shadow-[0_8px_22px_rgba(17,24,39,0.12)] transition-all duration-300",
       disabled
-        ? "border-gray-200 bg-gray-100 text-gray-400"
+        ? "text-gray-400"
         : isLegacy
-          ? "border-(--qwik-dark-blue) bg-(--qwik-dark-blue) text-white group-hover:translate-x-0.5"
-          : "border-(--qwik-dark-purple) bg-(--qwik-dark-purple) text-white group-hover:translate-x-0.5",
+          ? "text-(--qwik-dark-blue) group-hover:translate-x-1 group-hover:scale-[1.04]"
+          : "text-(--qwik-dark-purple) group-hover:translate-x-1 group-hover:scale-[1.04]",
     ].join(" ");
 
+    const labelWrapClass = "relative z-[1] min-w-0 flex-1 text-left";
     const labelClass =
-      "min-w-0 flex-1 text-center text-sm font-semibold leading-none text-(--qwik-dirty-black)";
+      "block text-[15px] font-semibold leading-5 tracking-[0.01em] text-white md:text-base";
+    const metaClass = "mt-1 block text-xs font-medium leading-5 text-white/82";
 
-    const indicator = hasProgress ? (
-      <span class="inline-flex items-center justify-center leading-none">
-        <Slot />
-      </span>
-    ) : (
-      <svg
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        style="color: currentColor;"
-      >
-        <circle
-          cx="12"
-          cy="12"
-          r="8"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          opacity="0.35"
-        />
-        <circle cx="12" cy="12" r="2.5" fill="currentColor" />
-      </svg>
-    );
+    const progressVersion = version === "2026" ? "2026 Edition" : "Legacy";
 
     const content = (
-      <div class={innerClass}>
-        <span class={indicatorShellClass}>{indicator}</span>
+      <div class={surfaceClass}>
+        <span class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.16),transparent_36%)]" />
+        <span class="pointer-events-none absolute inset-x-8 top-0 h-px bg-white/35" />
 
-        <span class={labelClass}>{buttonLabel}</span>
+        <span class={indicatorShellClass}>
+          <ProgressCircle
+            completed={resolvedCompletedChapters}
+            onlyCircle
+            colorCircle="var(--ds-gray-200)"
+            responsive="both"
+            version={progressVersion}
+          />
+        </span>
+
+        <span class={labelWrapClass}>
+          <span class={labelClass}>{buttonLabel}</span>
+          <span class={metaClass}>{progressMeta}</span>
+        </span>
 
         <span class={arrowShellClass}>
           <svg
             data-testid="geist-icon"
-            height="16"
-            width="16"
+            height="18"
+            width="18"
             viewBox="0 0 16 16"
             style="color: currentColor;"
           >

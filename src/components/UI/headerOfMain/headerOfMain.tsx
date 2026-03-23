@@ -114,7 +114,7 @@ export default component$(() => {
           {hasProfile.value ? (
             <ProgressCircle
               completed={profile.value?.completedChapters || []}
-              version="2026 Edition"
+              version="Legacy"
             />
           ) : (
             <Link

@@ -113,7 +113,8 @@ export default component$(() => {
             </div>
 
             <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-[1.02] text-(--qwik-dirty-black) md:text-5xl xl:text-[4rem]">
-              Start from a real Qwik app, not a blank setup.
+              Start from a real Qwik SSR full-stack app that’s already
+              configured and ready to deploy.
             </h1>
 
             <p class="mt-5 max-w-2xl text-base leading-7 text-gray-700 md:text-lg md:leading-8">
@@ -323,12 +324,12 @@ export default component$(() => {
               What’s included
             </p>
             <h2 class="text-3xl font-semibold text-(--qwik-dirty-black) md:text-5xl">
-              A faster starting point for a real Qwik app.
+              Everything included in the real Qwik SSR full-stack app.
             </h2>
             <p class="mt-4 text-base leading-7 text-gray-700 md:text-lg">
-              The goal is simple: give you a base that already makes sense, so
-              you spend less time rebuilding setup work and more time building
-              your product.
+              The goal is simple: give you a real app structure that already
+              works, so you spend less time rebuilding setup work and more time
+              building your product.
             </p>
           </div>
 
@@ -363,14 +364,14 @@ export default component$(() => {
             What you actually reuse
           </p>
           <h2 class="text-3xl font-semibold text-(--qwik-dirty-black) md:text-4xl">
-            The demo shows the flow. The real value is the reusable foundation
-            behind it.
+            The demo shows the flow. The real value is the reusable full-stack
+            foundation behind it.
           </h2>
           <p class="mt-4 text-base leading-7 text-gray-700 md:text-lg">
             You are not expected to keep the sample UI or the feedback example
             exactly as they are. The point is to reuse the auth flow, account
             flow, loader and action examples, Supabase wiring, and documentation
-            as a base for your own product.
+            as the foundation for your own product.
           </p>
         </div>
 
@@ -403,7 +404,7 @@ export default component$(() => {
                 Stack
               </p>
               <h2 class="text-3xl font-semibold text-(--qwik-dirty-black) md:text-4xl">
-                Familiar tools, cleaner starting point.
+                Familiar tools, ready-to-deploy setup.
               </h2>
               <p class="mt-4 text-base leading-7 text-gray-700">
                 Qwik for the app, Supabase for auth and backend wiring, Tailwind
@@ -444,7 +445,7 @@ export default component$(() => {
               Good fit
             </p>
             <h2 class="mt-3 text-3xl font-semibold text-(--qwik-dirty-black) lg:min-h-28">
-              For developers who want a faster starting point
+              For developers who want to start from a real app
             </h2>
             <ul class="mt-6 space-y-3 text-sm leading-6 text-gray-700">
               {GOOD_FIT_ITEMS.map((item) => (
@@ -524,8 +525,8 @@ export default component$(() => {
               <p class="mt-4 text-base leading-7 text-gray-700 md:text-lg">
                 Joining the list is free and does not commit you to buy
                 anything. You can test the live demo now, review what is
-                included, and hear first when the full starter becomes
-                available.
+                included, and hear first when the full Learn Qwik Starter Pack
+                becomes available.
               </p>
 
               <div class="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -731,9 +732,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Learn Qwik Starter Pack Early Access",
+  title: "Learn Qwik Starter Pack | Real Qwik SSR Full-Stack App",
   description:
-    "Join early access for the Learn Qwik Starter Pack. Test the live demo, review what is included, and hear first when the full starter launches.",
+    "Start from a real Qwik SSR full-stack app already configured and ready to deploy. Explore the live demo, see what’s included, and join early access for the Learn Qwik Starter Pack.",
   imageUrl: "https://www.learn-qwik.com/meta-starter-pack.webp",
   url: "https://www.learn-qwik.com/starter-pack/",
   type: "website",

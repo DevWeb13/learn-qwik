@@ -30,48 +30,48 @@ export const OFFER_CARDS = [
       "Open the running app and see the real auth, account, and private feedback flow before launch.",
   },
   {
-    title: "Start from a real foundation",
+    title: "Start from a real full-stack foundation",
     description:
-      "The Learn Qwik Starter Pack is built to save setup time and give you a cleaner starting point for a real Qwik app.",
+      "The Learn Qwik Starter Pack gives you a real Qwik SSR full-stack app that is already structured, already wired, and easier to turn into your own product.",
   },
 ] as const;
 
 export const PROMISE_CARDS = [
   {
     eyebrow: "Auth already wired",
-    title: "Skip the first setup mess",
+    title: "Skip the fragile first setup",
     description:
-      "Google sign-in, Magic Link, session handling, and the main auth plumbing are already part of the starting point.",
-  },
-  {
-    eyebrow: "Protected pages ready",
-    title: "Do not rebuild access control from zero",
-    description:
-      "The Starter Pack already includes a clear path for gated pages, redirects, and user-aware rendering.",
+      "Google sign-in, Magic Link, sessions, and the core auth plumbing are already connected, so you do not waste time rebuilding them from scratch.",
   },
   {
     eyebrow: "Private feedback included",
-    title: "Start from a real app pattern",
+    title: "A concrete SSR CRUD example",
     description:
-      "Instead of a blank shell, you begin with a practical private feedback CRUD example that is easier to extend into a real product.",
+      "Use the private feedback flow as a concrete example of authenticated CRUD with Qwik SSR, routeLoader$, routeAction$, forms, and Supabase wiring already working together.",
+  },
+  {
+    eyebrow: "Private feedback included",
+    title: "Start from something real, not empty",
+    description:
+      "You begin with a practical authenticated CRUD example that already feels like product code, not a blank repo with promises.",
   },
 ] as const;
 
 export const INCLUDED_CARDS = [
   {
-    title: "Qwik SSR starter base",
+    title: "Real Qwik SSR full-stack app",
     description:
-      "A serious starting point for a real app, with the main project structure already in place instead of a throwaway toy demo.",
+      "A serious app structure with the main project architecture already in place instead of a throwaway toy demo.",
   },
   {
     title: "Supabase auth integration",
     description:
-      "A working base for auth, sessions, Magic Link, and the backend wiring you usually waste days piecing together.",
+      "Working auth, sessions, Magic Link, and backend wiring that are already connected and ready to reuse.",
   },
   {
     title: "Protected route patterns",
     description:
-      "A clearer way to handle private pages and guest redirects without improvising the structure from scratch.",
+      "A clear way to handle private pages and guest redirects without improvising the structure from scratch.",
   },
   {
     title: "Private feedback CRUD example",
@@ -81,12 +81,12 @@ export const INCLUDED_CARDS = [
   {
     title: "Documentation and setup guide",
     description:
-      "Guided documentation for installation, Supabase setup, project structure, and the main places to customize the starter safely.",
+      "Guided documentation for installation, Supabase setup, project structure, and the main places to customize the app safely.",
   },
   {
     title: "Private Discord access",
     description:
-      "A direct place to ask questions and get support while you adapt the starter to your own product.",
+      "A direct place to ask questions and get support while you adapt the product to your own needs.",
   },
 ] as const;
 
@@ -95,7 +95,7 @@ export const STACK_CARDS = [
     kind: "qwik" as const,
     title: "Qwik",
     description:
-      "The framework at the core of the Starter Pack, with SSR already included in the starting architecture.",
+      "The framework at the core of the app, with SSR already included in the project architecture.",
   },
   {
     kind: "supabase" as const,
@@ -107,7 +107,7 @@ export const STACK_CARDS = [
     kind: "tailwind" as const,
     title: "Tailwind",
     description:
-      "A practical styling base so you can move fast without rebuilding the same visual foundation again.",
+      "A practical UI foundation so you can move fast without rebuilding the same styling structure again.",
   },
   {
     kind: "vercel" as const,
@@ -125,15 +125,15 @@ export const STACK_LINKS: Record<StackIconKind, string> = {
 };
 
 export const GOOD_FIT_ITEMS = [
-  "You already know basic web development and want a faster way to start with Qwik.",
-  "You want auth, protected pages, account flows, and a private feature example without rebuilding the whole foundation yourself.",
-  "You already know React or modern frontend patterns and want a Qwik starter that feels more approachable.",
+  "You already know the web basics and want to move into Qwik without losing time on setup work that should already be done.",
+  "You want auth, protected pages, account flows, and a private feature example without spending days wiring the same foundation again.",
+  "You want a Qwik project that already feels like a real app, not an empty repo that still leaves the hardest decisions to you.",
 ] as const;
 
 export const NOT_TARGET_ITEMS = [
   "Not for complete beginners who still need the core HTML, CSS, and JavaScript basics first.",
-  "Not an all-in-one SaaS monster with every billing, admin, team, and dashboard feature under the sun.",
-  "Not a promise that your product will build itself. It is a faster starting point, not a shortcut to product-market fit.",
+  "Not an all-in-one SaaS monster with billing, admin, teams, dashboards, and every edge case already built.",
+  "Not a magic shortcut to product-market fit. It gives you a serious foundation, not a finished business.",
 ] as const;
 
 export const FAQ_ITEMS = [
@@ -145,22 +145,22 @@ export const FAQ_ITEMS = [
   {
     question: "What does early access mean?",
     answer:
-      "You can join the list for free, hear about launch first, and a limited number of selected users may receive free access before public launch.",
+      "You can join for free, hear about launch first, and some selected users may receive free access before the public release.",
   },
   {
     question: "Do I get the code right now?",
     answer:
-      "No. Right now you can test the live demo and join early access. Code access comes later.",
+      "No. Right now you can test the live demo and join early access. The code is released later.",
   },
   {
     question: "What is included besides the code?",
     answer:
-      "The Starter Pack also includes documentation, setup guidance, and private Discord access so you are not left alone with a raw repo.",
+      "Documentation, setup guidance, and private Discord access are included too, so you are not left alone with a raw repo and no direction.",
   },
   {
     question: "Who is this for?",
     answer:
-      "Developers who already know the basics and want a faster way to start a real Qwik full-stack app with the core setup already in place.",
+      "Developers who already know the basics and want to start from a real Qwik SSR full-stack app instead of rebuilding the same setup work again.",
   },
 ] as const;
 
@@ -199,6 +199,6 @@ export const REUSE_CARDS = [
   {
     title: "Documentation and setup guide",
     description:
-      "Get clear guidance for installation, Supabase setup, project structure, and the main places to customize the starter safely.",
+      "Get clear guidance for installation, Supabase setup, project structure, and the main places to customize the app safely.",
   },
 ] as const;
