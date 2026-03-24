@@ -84,7 +84,7 @@ export const BtAddChapter = component$<BtAddChapterProps>(
         : `${completedCount} / ${totalChapters} chapters completed`;
 
     const buttonClass = [
-      "group relative inline-flex w-full items-center overflow-hidden rounded-lg border transition-all duration-300",
+      "group relative inline-flex w-full items-center overflow-hidden rounded-md border transition-all duration-300",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
       goToChapter ? "md:w-auto" : "",
       disabled
@@ -105,7 +105,7 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     ].join(" ");
 
     const surfaceClass = [
-      "relative flex w-full items-center gap-3 overflow-hidden rounded-[0.8rem] px-4 py-3.5",
+      "relative flex w-full items-center gap-3 overflow-hidden rounded-md px-4 py-3.5",
       goToChapter ? "md:min-w-[320px]" : "",
       disabled
         ? "bg-gray-200"
@@ -115,7 +115,7 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     ].join(" ");
 
     const indicatorShellClass = [
-      "relative z-[1] inline-flex h-[3.15rem] w-[3.15rem] shrink-0 items-center justify-center rounded-full border bg-white/96",
+      "relative z-[1] inline-flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full border bg-white/96",
       "shadow-[inset_0_1px_0_rgba(255,255,255,0.92),0_8px_20px_rgba(17,24,39,0.10)]",
       isLegacy
         ? "border-white/70 text-(--qwik-dark-blue)"
@@ -123,7 +123,7 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     ].join(" ");
 
     const arrowShellClass = [
-      "relative z-[1] inline-flex h-[3.15rem] w-[3.15rem] shrink-0 items-center justify-center rounded-full bg-white",
+      "relative z-[1] inline-flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-white",
       "shadow-[0_8px_22px_rgba(17,24,39,0.12)] transition-all duration-300",
       disabled
         ? "text-gray-400"

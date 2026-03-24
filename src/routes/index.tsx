@@ -64,7 +64,7 @@ export default component$(() => {
         </div>
 
         <div
-          class={`${shellClass} relative grid min-h-[calc(100dvh-var(--header-height))] gap-10 py-12 md:py-20 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-14`}
+          class={`${shellClass} relative grid min-h-[calc(100dvh-var(--header-height))] gap-10 py-12 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14`}
         >
           <div class="relative">
             <div class="inline-flex items-center rounded-full border border-(--qwik-dark-purple)/12 bg-(--qwik-light-purple)/10 px-4 py-2 text-sm font-medium text-(--qwik-dark-purple)">
@@ -72,13 +72,12 @@ export default component$(() => {
             </div>
 
             <h1 class="mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] text-(--qwik-dirty-black) md:text-6xl">
-              Learn Qwik by building a real modern app.
+              Learn Qwik by building a real modern full-stack app
             </h1>
 
             <p class="mt-6 max-w-2xl text-base leading-7 text-gray-700 md:text-xl md:leading-8">
-              A practical Qwik course focused on modern architecture, clear
-              progression, and a real-world project built with Qwik, Tailwind,
-              Supabase, and Vercel.
+              A free Qwik tutorial built to teach you step by step through a
+              real modern full-stack app.
             </p>
 
             <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -101,62 +100,27 @@ export default component$(() => {
               </div>
 
               <Link
-                href="#edition-2026"
-                class="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-gray-50 px-5 py-3 text-sm font-medium text-(--qwik-dirty-black)! transition-all duration-200 hover:border-gray-300 hover:bg-white hover:text-(--qwik-dark-background)!"
+                href="/starter-pack/"
+                class="font-bold inline-flex items-center justify-center rounded-lg  px-5 py-3 text-sm  text-(--qwik-dark-purple)! transition-all duration-200 hover:bg-white hover:text-(--qwik-deep-purple)! border border-gray-300 bg-gray-50"
               >
-                Explore the curriculum
+                Discover the Starter Pack
               </Link>
             </div>
 
-            <div class="mt-8 grid gap-3 sm:grid-cols-3">
-              <div class="rounded-3xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
-                <p class="text-2xl font-semibold text-(--qwik-dirty-black)">
-                  {total2026}
-                </p>
-                <p class="mt-1 text-sm text-gray-600">Structured chapters</p>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                Free course
               </div>
-
-              <div class="rounded-3xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
-                <p class="text-2xl font-semibold text-(--qwik-dirty-black)">
-                  Real app
-                </p>
-                <p class="mt-1 text-sm text-gray-600">Learn through practice</p>
+              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                Qwik tutorial
               </div>
-
-              <div class="rounded-3xl border border-gray-200 bg-white/80 p-4 shadow-sm backdrop-blur-sm">
-                <p class="text-2xl font-semibold text-(--qwik-dirty-black)">
-                  Modern stack
-                </p>
-                <p class="mt-1 text-sm text-gray-600">Qwik, Supabase, Vercel</p>
+              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                Real full-stack app
+              </div>
+              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
+                2026 edition
               </div>
             </div>
-
-            <div class="mt-8 flex flex-wrap gap-2">
-              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
-                Qwik 1.19
-              </div>
-              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
-                Tailwind v4
-              </div>
-              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
-                Supabase Auth
-              </div>
-              <div class="rounded-full border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700">
-                Deployment on Vercel
-              </div>
-            </div>
-
-            <p class="mt-6 text-sm text-gray-600">
-              Prefer the official docs first?{" "}
-              <Link
-                href="https://qwik.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="font-medium text-(--qwik-dark-purple) underline-offset-4 hover:underline"
-              >
-                Visit Qwik.dev
-              </Link>
-            </p>
           </div>
 
           <div class="relative">
@@ -178,9 +142,10 @@ export default component$(() => {
                     <LearnQwikLogo class="size-12" />
                   </div>
                 </div>
-                <p class="mt-3  text-sm leading-6 text-gray-600">
+
+                <p class="mt-3 text-sm leading-6 text-gray-600">
                   The actively maintained version of the course, designed to
-                  teach Qwik progressively without unnecessary complexity.
+                  teach Qwik progressively.
                 </p>
 
                 <div class="mt-8 flex justify-center">
@@ -210,22 +175,24 @@ export default component$(() => {
                   </div>
                 </div>
 
-                <div class="mt-6">
-                  <BtAddChapter
-                    goToChapter={0}
-                    title=""
-                    text={primaryCtaText}
-                    completedChapters={completed2026}
-                    version="2026"
-                  >
-                    <ProgressCircle
-                      completed={completed2026}
-                      onlyCircle
-                      colorCircle="var(--ds-gray-200)"
-                      responsive="smallOnly"
-                      version="2026 Edition"
-                    />
-                  </BtAddChapter>
+                <div class="mt-6 flex justify-center md:mt-10">
+                  <div class="w-auto">
+                    <BtAddChapter
+                      goToChapter={0}
+                      title=""
+                      text={primaryCtaText}
+                      completedChapters={completed2026}
+                      version="2026"
+                    >
+                      <ProgressCircle
+                        completed={completed2026}
+                        onlyCircle
+                        colorCircle="var(--ds-gray-200)"
+                        responsive="smallOnly"
+                        version="2026 Edition"
+                      />
+                    </BtAddChapter>
+                  </div>
                 </div>
               </div>
             </div>
@@ -283,20 +250,19 @@ export default component$(() => {
               Main course
             </p>
             <h2 class="text-3xl font-semibold text-(--qwik-dirty-black) md:text-5xl">
-              The 2026 Edition is the version to follow.
+              Start with the 2026 Edition.
             </h2>
             <p class="mt-4 text-base leading-7 text-gray-700 md:text-lg">
-              Actively maintained, modern, and designed as the main learning
-              path. The Legacy version stays available, but this is the one that
-              deserves the spotlight.
+              It gives you the clearest way to learn Qwik today, through a real
+              project built step by step.
             </p>
           </div>
 
           <div class="rounded-3xl border border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/10 px-5 py-4 text-sm text-gray-700">
             <span class="font-semibold text-(--qwik-dirty-black)">
-              Recommended path:
+              Progress:
             </span>{" "}
-            start here unless you specifically need the old version.
+            {completed2026.length} / {total2026} chapters completed
           </div>
         </div>
 
@@ -323,7 +289,7 @@ export default component$(() => {
         </div>
 
         <div class="mt-8 flex justify-center md:mt-10">
-          <div class="w-full md:w-auto">
+          <div class="w-auto">
             <BtAddChapter
               goToChapter={0}
               title=""
@@ -490,7 +456,7 @@ export default component$(() => {
             </div>
 
             <div class="mt-8 flex justify-center">
-              <div class="w-full md:w-auto">
+              <div class="w-auto">
                 <BtAddChapter
                   goToChapter={0}
                   title=""
@@ -538,9 +504,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Learn Qwik with a Modern 2026 Course",
+  title: "Free Qwik Tutorial 2026: Build a Real Full-Stack App",
   description:
-    "Learn Qwik through a practical 2026 course and build a real application with Qwik, Tailwind, Supabase, authentication, and deployment.",
+    "Learn Qwik for free with a practical tutorial built around a real modern full-stack app. Follow a clear path, build step by step, and progress with the 2026 edition.",
   imageUrl: "https://www.learn-qwik.com/metaLanding.png",
   url: "https://www.learn-qwik.com/",
   type: "website",
