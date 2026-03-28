@@ -49,7 +49,7 @@ export default component$(() => {
       <aside
         class={
           scrollY.value > 80
-            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-3.5 top-4 z-10 flex h-13 max-w-268 items-center rounded-full px-3 py-3 shadow-sm lg:left-1/2 lg:right-[unset] lg:h-auto lg:w-full lg:-translate-x-1/2"
+            ? "bg-vercel-200 style_shadow__EXUWc fixed left-4 right-4 top-4 z-10 flex h-(--header-of-main-height) max-w-268 items-center rounded-2xl border border-(--qwik-dark-blue)/25 px-3 py-3 shadow-sm lg:mx-auto"
             : "bg-vercel-200 style_nonSticky__jA3GX z-10 flex h-13 w-full max-w-268 items-center rounded-full px-3 py-3 lg:h-auto lg:w-full"
         }
         style="background-clip: padding-box;"
