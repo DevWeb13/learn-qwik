@@ -1,6 +1,6 @@
 {
   "name": "learn-qwik",
-  "description": "Demo App with Routing built-in (recommended)",
+  "description": "Learn Qwik Core | Free Qwik learning platform",
   "engines": {
     "node": "20.x"
   },

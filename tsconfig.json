@@ -27,7 +27,6 @@
     "./*.d.ts",
     "./*.config.ts",
     "public/sw.js",
-    "public/downloads",
     "src/types/**/*.ts",
     "scripts"
   ]
