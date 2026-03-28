@@ -731,6 +731,8 @@ export default component$(() => {
   );
 });
 
+import { createBreadcrumbSchema } from "~/utils/structuredData";
+
 export const head: DocumentHead = createDocumentHead2026({
   title: "Starter Pack | Real Qwik SSR Full-Stack App",
   description:
@@ -738,4 +740,13 @@ export const head: DocumentHead = createDocumentHead2026({
   imageUrl: "https://www.learn-qwik.com/meta-starter-pack.webp",
   url: "https://www.learn-qwik.com/starter-pack/",
   type: "website",
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: "Home", item: "https://www.learn-qwik.com/" },
+      {
+        name: "Starter Pack",
+        item: "https://www.learn-qwik.com/starter-pack/",
+      },
+    ]),
+  ],
 });

@@ -508,7 +508,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Free Qwik Tutorial 2026: Build a Real Full-Stack App",
+  title: "Learn Qwik | Free Qwik Tutorial 2026: Build a Real Full-Stack App",
   description:
     "Learn Qwik for free with a practical tutorial built around a real modern full-stack app. Follow a clear step-by-step path and progress with the 2026 edition.",
   imageUrl: "https://www.learn-qwik.com/metaLanding.png",

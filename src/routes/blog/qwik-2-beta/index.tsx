@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import { Qwik2BetaArticle } from "~/components/blog/articles/qwik-2-beta";
 import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
+import { createBreadcrumbSchema } from "~/utils/structuredData";
 
 export default component$(() => {
   return <Qwik2BetaArticle />;
@@ -14,4 +15,14 @@ export const head: DocumentHead = createDocumentHead2026({
   imageUrl: "https://www.learn-qwik.com/metaQwik2Beta.png",
   url: "https://www.learn-qwik.com/blog/qwik-2-beta/",
   type: "article",
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: "Home", item: "https://www.learn-qwik.com/" },
+      { name: "Blog", item: "https://www.learn-qwik.com/blog/" },
+      {
+        name: "Qwik 2.0 Beta: New APIs and Faster Builds",
+        item: "https://www.learn-qwik.com/blog/qwik-2-beta/",
+      },
+    ]),
+  ],
 });

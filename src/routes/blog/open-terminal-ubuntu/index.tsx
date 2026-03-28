@@ -4,6 +4,7 @@ import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import { OpenTerminalUbuntuArticle } from "~/components/blog/articles/open-terminal-ubuntu";
 import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
+import { createBreadcrumbSchema } from "~/utils/structuredData";
 
 export default component$(() => {
   return <OpenTerminalUbuntuArticle />;
@@ -16,4 +17,14 @@ export const head: DocumentHead = createDocumentHead2026({
   imageUrl: "https://www.learn-qwik.com/metaOpenTerminalUbuntu.png",
   url: "https://www.learn-qwik.com/blog/open-terminal-ubuntu/",
   type: "article",
+  structuredData: [
+    createBreadcrumbSchema([
+      { name: "Home", item: "https://www.learn-qwik.com/" },
+      { name: "Blog", item: "https://www.learn-qwik.com/blog/" },
+      {
+        name: "Open the Terminal on Ubuntu (2025)",
+        item: "https://www.learn-qwik.com/blog/open-terminal-ubuntu/",
+      },
+    ]),
+  ],
 });

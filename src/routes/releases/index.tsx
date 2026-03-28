@@ -3,37 +3,43 @@
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
 import { ReleasesContent } from "~/components/releases/releasesContent";
-import { createDocumentHead } from "~/utils/createDocumentHead";
+import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
+import { createBreadcrumbSchema } from "~/utils/structuredData";
 
 export default component$(() => {
   return <ReleasesContent />;
 });
 
 export const head = ({ url }: { url: URL }): DocumentHead => {
-  const pageParam = url.searchParams.get("page");
-  const page = pageParam ? parseInt(pageParam) : 1;
+  const rawPage = Number.parseInt(url.searchParams.get("page") || "1", 10);
+  const page = Number.isFinite(rawPage) && rawPage > 1 ? rawPage : 1;
 
-  const title = page > 1 ? `Releases – Page ${page}` : "Releases";
+  const canonicalUrl =
+    page === 1
+      ? "https://www.learn-qwik.com/releases/"
+      : `https://www.learn-qwik.com/releases/?page=${page}`;
+
+  const title = page === 1 ? "Qwik Releases" : `Qwik Releases – Page ${page}`;
+
   const description =
-    page > 1
-      ? `Browse page ${page} of the latest Qwik framework releases. Stay informed with updates, fixes, and improvements.`
-      : "Browse the latest Qwik framework releases directly from GitHub. Stay informed with all updates, fixes, and performance improvements.";
+    page === 1
+      ? "Browse the latest Qwik framework releases directly from GitHub. Stay informed with updates, fixes, and performance improvements."
+      : `Browse page ${page} of the latest Qwik framework releases. Stay informed with updates, fixes, and performance improvements.`;
 
-  const basePath = "https://www.learn-qwik.com/releases/";
-
-  const links = [];
-
-  // Canonical
-  links.push({
-    tag: "link",
-    rel: "canonical",
-    href: page === 1 ? basePath : `${basePath}?page=${page}`,
-  });
-
-  return createDocumentHead(
+  return createDocumentHead2026({
     title,
     description,
-    "https://www.learn-qwik.com/metaReleases.png",
-    url.href,
-  );
+    imageUrl: "https://www.learn-qwik.com/metaReleases.png",
+    url: canonicalUrl,
+    type: "website",
+    structuredData: [
+      createBreadcrumbSchema([
+        { name: "Home", item: "https://www.learn-qwik.com/" },
+        {
+          name: page === 1 ? "Releases" : `Releases – Page ${page}`,
+          item: canonicalUrl,
+        },
+      ]),
+    ],
+  });
 };
