@@ -53,4 +53,11 @@ export const CHAPTERS2026 = [
       "Optimize image loading in your Qwik application with automatic image processing, responsive sources, and mobile-friendly rendering.",
     uri: "optimizing-images-2026",
   },
+  {
+    id: 8,
+    title: "Chapter 8: Fetching Data",
+    description:
+      "Learn how to load dashboard data in Qwik with routeLoader$ and a clean server-side structure.",
+    uri: "fetching-data-2026",
+  },
 ];

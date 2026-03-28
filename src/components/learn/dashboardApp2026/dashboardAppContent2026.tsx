@@ -1,7 +1,7 @@
 // src/components/learn/dashboardApp2026/dashboardApp2026Content.tsx
 
-import { component$ } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
+import { component$, useComputed$ } from "@builder.io/qwik";
+import { Link, useLocation } from "@builder.io/qwik-city";
 
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
@@ -9,8 +9,16 @@ import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithA
 import ScreenshotsOfTheDashboardProjectShowingDesktopAndMobileVersions from "~/assets/img/dashboard.png?jsx";
 import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
+import { useProfile } from "~/routes/layout";
 
 export const DashboardAppContent2026 = component$(() => {
+  const profile = useProfile();
+  const location = useLocation();
+
+  const loginHref = useComputed$(() => {
+    const nextPath = `${location.url.pathname}${location.url.search}`;
+    return `/auth/login/?next=${encodeURIComponent(nextPath)}`;
+  });
   return (
     <>
       <article class="prose prose-vercel max-w-none">
@@ -222,7 +230,16 @@ export const DashboardAppContent2026 = component$(() => {
             let us begin creating the application. <br />
             <strong>The first step only takes a few minutes</strong> and you can
             follow the course at your own pace. <br />
-            <strong>Your progress will be saved automatically.</strong>
+            {profile.value ? (
+              <strong>Your progress will be saved automatically.</strong>
+            ) : (
+              <strong>
+                <Link href={loginHref.value} class="">
+                  Sign in
+                </Link>{" "}
+                for save progress.
+              </strong>
+            )}
           </p>
         </div>
 
@@ -233,8 +250,6 @@ export const DashboardAppContent2026 = component$(() => {
           text="Create your Qwik application and run the development server."
         />
       </div>
-
-      <div class="mb-24"></div>
     </>
   );
 });

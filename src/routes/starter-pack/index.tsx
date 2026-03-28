@@ -732,7 +732,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Learn Qwik Starter Pack | Real Qwik SSR Full-Stack App",
+  title: "Starter Pack | Real Qwik SSR Full-Stack App",
   description:
     "Start from a real Qwik SSR full-stack app already configured and ready to deploy. Explore the live demo, see what’s included, and join early access for the Learn Qwik Starter Pack.",
   imageUrl: "https://www.learn-qwik.com/meta-starter-pack.webp",

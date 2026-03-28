@@ -14,6 +14,8 @@ export default component$(() => {
 
   const profile = useProfile();
 
+  const isLoggedIn = !!profile.value;
+
   return (
     <header
       class={
@@ -134,28 +136,26 @@ export default component$(() => {
           </Link>
           <Link
             tabIndex={0}
-            href={profile.value ? `/account/` : "/auth/login/"}
-            class={`flex items-center justify-center gap-1 rounded-md border border-transparent 
-    px-4 py-1 text-sm font-medium shadow-sm transition-all duration-300 
-    focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:bg-gray-500 disabled:hover:bg-gray-500
-    ${
-      !profile.value
-        ? "bg-gray-500 text-white! hover:bg-gray-600 focus:ring-gray-500" // 🏴 Gris pour non connectés
-        : profile.value.access_status === "subscribed" ||
-            (profile.value.access_status === "canceled" &&
-              profile.value.grace_period_end &&
-              new Date(profile.value.grace_period_end) > new Date())
-          ? "bg-yellow-500 text-black! hover:bg-yellow-600 focus:ring-yellow-500" // 🟡 OR pour abonnés actifs / période de grâce
-          : "bg-(--qwik-dark-purple) text-white! hover:bg-(--qwik-light-purple) focus:ring-(--qwik-light-purple)" // 🔵 Bleu normal pour non abonnés
-    }`}
+            href={isLoggedIn ? "/account/" : "/auth/login/"}
+            class={`shrink-0 flex items-center justify-center gap-1 whitespace-nowrap rounded-md border border-transparent px-4 py-1 text-sm font-medium shadow-sm transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+              isLoggedIn
+                ? "bg-(--qwik-dark-purple) text-white! hover:bg-(--qwik-light-purple) focus:ring-(--qwik-light-purple)"
+                : "bg-gray-500 text-white! hover:bg-gray-600 focus:ring-gray-500"
+            }`}
           >
-            {profile.value ? (
+            {isLoggedIn ? (
               <>
-                Account <HiUserCircleOutline class="h-6 w-6" />
+                <span class="whitespace-nowrap">Account</span>
+                <span class="shrink-0">
+                  <HiUserCircleOutline class="h-6 w-6" />
+                </span>
               </>
             ) : (
               <>
-                Connect <ArrowRightEndOnRectangle />
+                <span class="whitespace-nowrap">Sign in</span>
+                <span class="shrink-0">
+                  <ArrowRightEndOnRectangle />
+                </span>
               </>
             )}
           </Link>

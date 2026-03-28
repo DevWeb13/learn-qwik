@@ -5,26 +5,27 @@ export const FetchDataCardsSoluce = component$(() => {
   return (
     <>
       <CodeBlock
-        code={`// /src/routes/dashboard/layout.tsx
-
+        code={`// src/routes/dashboard/layout.tsx
+      
 import { component$, Slot } from "@builder.io/qwik";
-import { SideNav } from "~/components/ui/dashboard/sidenav";
 import { routeLoader$ } from "@builder.io/qwik-city";
-import { fetchRevenue, fetchLatestInvoices, fetchCardData } from "~/lib/data";
+import { SideNav } from "~/components/ui/dashboard/sidenav";
+import {
+  fetchCardData,
+  fetchLatestInvoices,
+  fetchRevenue,
+} from "~/lib/loaders";
 
 export const useFetchRevenue = routeLoader$(async () => {
-  const revenue = await fetchRevenue();
-  return revenue;
+  return fetchRevenue();
 });
 
 export const useFetchLatestInvoices = routeLoader$(async () => {
-  const latestInvoices = await fetchLatestInvoices();
-  return latestInvoices;
+  return fetchLatestInvoices();
 });
 
 export const useFetchCardData = routeLoader$(async () => {
-  const cardData = await fetchCardData();
-  return cardData;
+  return fetchCardData();
 });
 
 export default component$(() => {
@@ -33,24 +34,24 @@ export default component$(() => {
       <div class="w-full flex-none md:w-64">
         <SideNav />
       </div>
-      <div class="flex-grow p-6 md:overflow-y-auto md:p-12">
+      <div class="grow p-6 md:overflow-y-auto md:p-12">
         <Slot />
       </div>
     </div>
   );
 });`}
-        text="src/routes/dashboard/layout.tsx"
         language="tsx"
         icon="typescript"
+        text="src/routes/dashboard/layout.tsx"
         decorations={[
           {
             start: { line: 5, character: 0 },
-            end: { line: 5, character: 78 },
+            end: { line: 9, character: 23 },
             properties: { class: "newLine" },
           },
           {
-            start: { line: 17, character: 0 },
-            end: { line: 20, character: 3 },
+            start: { line: 19, character: 0 },
+            end: { line: 21, character: 3 },
             properties: { class: "newLine" },
           },
         ]}
@@ -58,30 +59,33 @@ export default component$(() => {
 
       <CodeBlock
         code={`// src/routes/dashboard/index.tsx
-
+      
 import { component$ } from "@builder.io/qwik";
-import {
-  useFetchRevenue,
-  useFetchLatestInvoices,
-  useFetchCardData,
-} from "./layout";
+import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
 import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
 import { Card } from "~/components/ui/dashboard/cards";
-import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
+import {
+  useFetchCardData,
+  useFetchLatestInvoices,
+  useFetchRevenue,
+} from "./layout";
 
 export default component$(() => {
-  const revenue = useFetchRevenue().value;
-  const latestInvoices = useFetchLatestInvoices().value;
+  const revenue = useFetchRevenue();
+  const latestInvoices = useFetchLatestInvoices();
+  const cardData = useFetchCardData();
+
   const {
+    numberOfCustomers,
+    numberOfInvoices,
     totalPaidInvoices,
     totalPendingInvoices,
-    numberOfInvoices,
-    numberOfCustomers,
-  } = useFetchCardData().value;
+  } = cardData.value;
 
   return (
     <main>
       <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
+
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Card title="Collected" value={totalPaidInvoices} type="collected" />
         <Card title="Pending" value={totalPendingInvoices} type="pending" />
@@ -92,30 +96,36 @@ export default component$(() => {
           type="customers"
         />
       </div>
+
       <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        <RevenueChart revenue={revenue} />
-        <LatestInvoices latestInvoices={latestInvoices} />
+        <RevenueChart revenue={revenue.value} />
+        <LatestInvoices latestInvoices={latestInvoices.value} />
       </div>
     </main>
   );
 });`}
-        text="src/routes/dashboard/index.tsx"
         language="tsx"
         icon="typescript"
+        text="src/routes/dashboard/index.tsx"
         decorations={[
           {
-            start: { line: 6, character: 0 },
-            end: { line: 6, character: 19 },
+            start: { line: 5, character: 0 },
+            end: { line: 10, character: 18 },
             properties: { class: "newLine" },
           },
           {
             start: { line: 15, character: 0 },
-            end: { line: 20, character: 31 },
+            end: { line: 15, character: 38 },
             properties: { class: "newLine" },
           },
           {
-            start: { line: 26, character: 0 },
-            end: { line: 33, character: 10 },
+            start: { line: 17, character: 0 },
+            end: { line: 22, character: 21 },
+            properties: { class: "newLine" },
+          },
+          {
+            start: { line: 28, character: 0 },
+            end: { line: 37, character: 12 },
             properties: { class: "newLine" },
           },
         ]}

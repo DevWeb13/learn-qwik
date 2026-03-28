@@ -64,7 +64,7 @@ export default component$(() => {
         </div>
 
         <div
-          class={`${shellClass} relative grid min-h-[calc(100dvh-var(--header-height))] gap-10 py-12 md:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14`}
+          class={`${shellClass} relative grid min-h-[calc(100dvh-var(--header-height))] gap-10 py-12  lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14`}
         >
           <div class="relative">
             <div class="inline-flex items-center rounded-full border border-(--qwik-dark-purple)/12 bg-(--qwik-light-purple)/10 px-4 py-2 text-sm font-medium text-(--qwik-dark-purple)">
@@ -175,7 +175,7 @@ export default component$(() => {
                   </div>
                 </div>
 
-                <div class="mt-6 flex justify-center md:mt-10">
+                <div class="mt-6 flex justify-center">
                   <div class="w-auto">
                     <BtAddChapter
                       goToChapter={0}

@@ -27,8 +27,10 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     disabled = false,
     version,
   }) => {
+    const isLegacy = version === "Legacy";
+
     const chapters = useContext(
-      version === "Legacy" ? ChaptersContext : Chapters2026Context,
+      isLegacy ? ChaptersContext : Chapters2026Context,
     );
 
     const profile = useProfile();
@@ -37,15 +39,11 @@ export const BtAddChapter = component$<BtAddChapterProps>(
     const navigate = useNavigate();
     const putCompletedChapters = usePutCompletedChapters();
 
-    const uriLink =
-      version === "Legacy" ? "dashboard-app" : "dashboard-app-2026";
+    const uriLink = isLegacy ? "dashboard-app" : "dashboard-app-2026";
 
-    const isLegacy = version === "Legacy";
-
-    const profileCompletedChapters: CompletedChaptersType =
-      version === "Legacy"
-        ? (profile.value?.completedChapters ?? [])
-        : (profile.value?.completedChapters2026 ?? []);
+    const profileCompletedChapters: CompletedChaptersType = isLegacy
+      ? (profile.value?.completedChapters ?? [])
+      : (profile.value?.completedChapters2026 ?? []);
 
     const resolvedCompletedChapters =
       completedChapters ?? profileCompletedChapters;
@@ -73,15 +71,47 @@ export const BtAddChapter = component$<BtAddChapterProps>(
       title !== "" && isAuthenticated && goToChapter > 0;
 
     const buttonLabel = title === "" ? text : `Start Chapter ${goToChapter}`;
-
     const startChapterNumber = firstIncompleteChapter?.id ?? 0;
 
-    const progressMeta =
-      title === ""
-        ? completedCount > 0
+    let progressMeta = "";
+    if (!isAuthenticated) {
+      progressMeta = "Sign in for save";
+    } else if (title === "") {
+      progressMeta =
+        completedCount > 0
           ? `${completedCount} / ${totalChapters} chapters completed`
-          : `Start from chapter ${startChapterNumber}`
-        : `${completedCount} / ${totalChapters} chapters completed`;
+          : `Start from chapter ${startChapterNumber}`;
+    } else {
+      progressMeta = `${completedCount} / ${totalChapters} chapters completed`;
+    }
+
+    const theme = isLegacy
+      ? {
+          borderClass: "border-(--qwik-dark-blue)/18",
+          shadowClass: "shadow-[0_18px_45px_rgba(0,108,233,0.16)]",
+          hoverShadowClass:
+            "hover:-translate-y-0.5 hover:shadow-[0_24px_58px_rgba(0,108,233,0.24)]",
+          ringClass: "focus-visible:ring-(--qwik-dark-blue)/25",
+          bgClass:
+            "bg-[linear-gradient(135deg,var(--qwik-dark-blue)_0%,var(--qwik-light-blue)_135%)]",
+          indicatorTextClass: "border-white/70 text-(--qwik-dark-blue)",
+          arrowTextClass:
+            "text-(--qwik-dark-blue) group-hover:translate-x-1 group-hover:scale-[1.04]",
+          progressVersion: "Legacy",
+        }
+      : {
+          borderClass: "border-(--qwik-dark-purple)/18",
+          shadowClass: "shadow-[0_18px_45px_rgba(113,63,194,0.18)]",
+          hoverShadowClass:
+            "hover:-translate-y-0.5 hover:shadow-[0_24px_58px_rgba(113,63,194,0.28)]",
+          ringClass: "focus-visible:ring-(--qwik-dark-purple)/25",
+          bgClass:
+            "bg-[linear-gradient(135deg,var(--qwik-dark-purple)_0%,var(--qwik-light-purple)_135%)]",
+          indicatorTextClass: "border-white/70 text-(--qwik-dark-purple)",
+          arrowTextClass:
+            "text-(--qwik-dark-purple) group-hover:translate-x-1 group-hover:scale-[1.04]",
+          progressVersion: "2026 Edition",
+        };
 
     const buttonClass = [
       "group relative inline-flex w-full items-center overflow-hidden rounded-md border transition-all duration-300",
@@ -89,55 +119,36 @@ export const BtAddChapter = component$<BtAddChapterProps>(
       goToChapter ? "md:w-auto" : "",
       disabled
         ? "cursor-not-allowed border-gray-200 opacity-60 shadow-none"
-        : isLegacy
-          ? [
-              "border-(--qwik-dark-blue)/18",
-              "shadow-[0_18px_45px_rgba(0,108,233,0.16)]",
-              "hover:-translate-y-0.5 hover:shadow-[0_24px_58px_rgba(0,108,233,0.24)]",
-              "focus-visible:ring-(--qwik-dark-blue)/25",
-            ].join(" ")
-          : [
-              "border-(--qwik-dark-purple)/18",
-              "shadow-[0_18px_45px_rgba(113,63,194,0.18)]",
-              "hover:-translate-y-0.5 hover:shadow-[0_24px_58px_rgba(113,63,194,0.28)]",
-              "focus-visible:ring-(--qwik-dark-purple)/25",
-            ].join(" "),
+        : [
+            theme.borderClass,
+            theme.shadowClass,
+            theme.hoverShadowClass,
+            theme.ringClass,
+          ].join(" "),
     ].join(" ");
 
     const surfaceClass = [
       "relative flex w-full items-center gap-3 overflow-hidden rounded-md px-4 py-3.5",
       goToChapter ? "md:min-w-[320px]" : "",
-      disabled
-        ? "bg-gray-200"
-        : isLegacy
-          ? "bg-[linear-gradient(135deg,var(--qwik-dark-blue)_0%,var(--qwik-light-blue)_135%)]"
-          : "bg-[linear-gradient(135deg,var(--qwik-dark-purple)_0%,var(--qwik-light-purple)_135%)]",
+      disabled ? "bg-gray-200" : theme.bgClass,
     ].join(" ");
 
     const indicatorShellClass = [
       "relative z-[1] inline-flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full border bg-white/96",
       "shadow-[inset_0_1px_0_rgba(255,255,255,0.92),0_8px_20px_rgba(17,24,39,0.10)]",
-      isLegacy
-        ? "border-white/70 text-(--qwik-dark-blue)"
-        : "border-white/70 text-(--qwik-dark-purple)",
+      theme.indicatorTextClass,
     ].join(" ");
 
     const arrowShellClass = [
       "relative z-[1] inline-flex h-[2.5rem] w-[2.5rem] shrink-0 items-center justify-center rounded-full bg-white",
       "shadow-[0_8px_22px_rgba(17,24,39,0.12)] transition-all duration-300",
-      disabled
-        ? "text-gray-400"
-        : isLegacy
-          ? "text-(--qwik-dark-blue) group-hover:translate-x-1 group-hover:scale-[1.04]"
-          : "text-(--qwik-dark-purple) group-hover:translate-x-1 group-hover:scale-[1.04]",
+      disabled ? "text-gray-400" : theme.arrowTextClass,
     ].join(" ");
 
     const labelWrapClass = "relative z-[1] min-w-0 flex-1 text-left";
     const labelClass =
       "block text-[15px] font-semibold leading-5 tracking-[0.01em] text-white md:text-base";
     const metaClass = "mt-1 block text-xs font-medium leading-5 text-white/82";
-
-    const progressVersion = version === "2026" ? "2026 Edition" : "Legacy";
 
     const content = (
       <div class={surfaceClass}>
@@ -150,7 +161,7 @@ export const BtAddChapter = component$<BtAddChapterProps>(
             onlyCircle
             colorCircle="var(--ds-gray-200)"
             responsive="both"
-            version={progressVersion}
+            version={theme.progressVersion as "Legacy" | "2026 Edition"}
           />
         </span>
 
@@ -178,52 +189,52 @@ export const BtAddChapter = component$<BtAddChapterProps>(
       </div>
     );
 
-    return (
-      <div class={`w-full ${goToChapter ? "md:w-fit" : ""}`}>
-        {disabled ? (
-          <button
-            disabled
-            aria-label={
-              goToChapter ? `Start Chapter ${goToChapter}` : "Start Learning"
-            }
-            class={buttonClass}
-          >
+    const ariaLabel = goToChapter
+      ? `Start Chapter ${goToChapter}`
+      : "Start Learning";
+
+    if (disabled) {
+      return (
+        <div class={`w-full ${goToChapter ? "md:w-fit" : ""}`}>
+          <button disabled aria-label={ariaLabel} class={buttonClass}>
             {content}
           </button>
-        ) : !shouldSaveBeforeNavigate ? (
-          <Link
-            href={href}
-            aria-label={
-              goToChapter ? `Start Chapter ${goToChapter}` : "Start Learning"
-            }
-            class={buttonClass}
-          >
+        </div>
+      );
+    }
+
+    if (!shouldSaveBeforeNavigate) {
+      return (
+        <div class={`w-full ${goToChapter ? "md:w-fit" : ""}`}>
+          <Link href={href} aria-label={ariaLabel} class={buttonClass}>
             {content}
           </Link>
-        ) : (
-          <button
-            onClick$={async () => {
-              const completedChapter = goToChapter - 1;
+        </div>
+      );
+    }
 
-              const result = await putCompletedChapters.submit({
-                completedChapter,
-                version,
-              });
+    return (
+      <div class={`w-full ${goToChapter ? "md:w-fit" : ""}`}>
+        <button
+          onClick$={async () => {
+            const completedChapter = goToChapter - 1;
 
-              if (!result.value.success) {
-                return;
-              }
+            const result = await putCompletedChapters.submit({
+              completedChapter,
+              version,
+            });
 
-              await navigate(href);
-            }}
-            aria-label={
-              goToChapter ? `Start Chapter ${goToChapter}` : "Start Learning"
+            if (!result.value.success) {
+              return;
             }
-            class={buttonClass}
-          >
-            {content}
-          </button>
-        )}
+
+            await navigate(href);
+          }}
+          aria-label={ariaLabel}
+          class={buttonClass}
+        >
+          {content}
+        </button>
       </div>
     );
   },

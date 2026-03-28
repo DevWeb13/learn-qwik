@@ -1,7 +1,9 @@
-// This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
-// https://www.learn-qwik.com/learn/dashboard-app-2026/fetching-data-2026
-
-import type { Customer, Invoice, Revenue, User } from "./definitions-2026";
+import type {
+  Customer,
+  Invoice,
+  Revenue,
+  User,
+} from "~/types/placeholder-data-types";
 
 const users: User[] = [
   {

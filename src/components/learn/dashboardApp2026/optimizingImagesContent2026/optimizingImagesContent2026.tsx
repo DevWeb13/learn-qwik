@@ -695,9 +695,8 @@ export const head: DocumentHead = {
         <GoToNextChapterBlock
           version="2026"
           goToChapter={8}
-          title="Next chapter"
-          text="The next chapter will continue the 2026 dashboard project."
-          disabledButton
+          title="Fetching Data"
+          text="Learn how to load dashboard data with routeLoader$() using mocked local data in a clean, reusable architecture."
         />
       </div>
     </>
