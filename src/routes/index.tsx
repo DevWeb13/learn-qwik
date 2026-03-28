@@ -17,6 +17,10 @@ import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
 import { CHAPTERS } from "~/constants/chapters";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
 import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
+import {
+  createOrganizationSchema,
+  createWebsiteSchema,
+} from "~/utils/structuredData";
 import { useProfile } from "./layout";
 
 export default component$(() => {
@@ -506,8 +510,19 @@ export default component$(() => {
 export const head: DocumentHead = createDocumentHead2026({
   title: "Free Qwik Tutorial 2026: Build a Real Full-Stack App",
   description:
-    "Learn Qwik for free with a practical tutorial built around a real modern full-stack app. Follow a clear path, build step by step, and progress with the 2026 edition.",
+    "Learn Qwik for free with a practical tutorial built around a real modern full-stack app. Follow a clear step-by-step path and progress with the 2026 edition.",
   imageUrl: "https://www.learn-qwik.com/metaLanding.png",
   url: "https://www.learn-qwik.com/",
   type: "website",
+  structuredData: [
+    createWebsiteSchema({
+      baseUrl: "https://www.learn-qwik.com",
+      siteName: "Learn Qwik",
+    }),
+    createOrganizationSchema({
+      baseUrl: "https://www.learn-qwik.com",
+      logoUrl: "https://www.learn-qwik.com/android-chrome-512x512.png",
+      sameAs: ["https://github.com/DevWeb13/learn-qwik"],
+    }),
+  ],
 });

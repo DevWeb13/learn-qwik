@@ -5,13 +5,9 @@ import { routes } from "@qwik-city-plan";
 import { createSitemap } from "./create-sitemap";
 
 export const onGet: RequestHandler = (ev) => {
-  const learnRoutes = routes
+  const learnRoutes2026 = routes
     .map(([route]) => route as string)
-    .filter(
-      (route) =>
-        route.startsWith("learn/dashboard-app/") ||
-        route.startsWith("learn/dashboard-app-2026/"),
-    );
+    .filter((route) => route.startsWith("learn/dashboard-app-2026/"));
 
   const starterPackRoutes = routes
     .map(([route]) => route as string)
@@ -20,6 +16,10 @@ export const onGet: RequestHandler = (ev) => {
   const blogRoutes = routes
     .map(([route]) => route as string)
     .filter((route) => route.startsWith("blog/"));
+
+  const learnRoutes = routes
+    .map(([route]) => route as string)
+    .filter((route) => route.startsWith("learn/dashboard-app/"));
 
   const totalReleasesPages = 30;
   const releasePages = Array.from({ length: totalReleasesPages }, (_, i) =>
@@ -38,12 +38,16 @@ export const onGet: RequestHandler = (ev) => {
       loc: route,
       priority: 1,
     })),
-    ...learnRoutes.map((route) => ({
+    ...learnRoutes2026.map((route) => ({
       loc: route,
-      priority: 0.9,
+      priority: 1,
     })),
     ...blogRoutes.map((route) => ({
       loc: `/${route}`,
+      priority: 0.9,
+    })),
+    ...learnRoutes.map((route) => ({
+      loc: route,
       priority: 0.8,
     })),
     ...releasePages.map((page) => ({

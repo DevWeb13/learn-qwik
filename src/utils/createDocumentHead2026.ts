@@ -1,6 +1,11 @@
 // src/utils/createDocumentHead2026.ts
-
 import type { DocumentHead } from "@builder.io/qwik-city";
+
+interface JsonLdScript {
+  "@context": "https://schema.org";
+  "@type": string;
+  [key: string]: unknown;
+}
 
 interface CreateDocumentHead2026Props {
   title: string;
@@ -9,6 +14,8 @@ interface CreateDocumentHead2026Props {
   url: string;
   type?: "website" | "article";
   robots?: string;
+  structuredData?: JsonLdScript[];
+  siteName?: string;
 }
 
 export const createDocumentHead2026 = ({
@@ -17,9 +24,16 @@ export const createDocumentHead2026 = ({
   imageUrl,
   url,
   type = "article",
-  robots = "index, follow",
+  robots = "max-image-preview:large",
+  structuredData = [],
+  siteName = "Learn Qwik",
 }: CreateDocumentHead2026Props): DocumentHead => {
-  const fullTitle = `Learn Qwik | ${title}`;
+  const normalizedUrl = url.endsWith("/") ? url : `${url}/`;
+  const isHome =
+    normalizedUrl === "https://www.learn-qwik.com/" ||
+    normalizedUrl === "https://learn-qwik.com/";
+
+  const fullTitle = isHome ? title : `${title} | ${siteName}`;
 
   return {
     title: fullTitle,
@@ -27,10 +41,6 @@ export const createDocumentHead2026 = ({
       {
         name: "description",
         content: description,
-      },
-      {
-        name: "author",
-        content: "LaReponseDev",
       },
       {
         name: "robots",
@@ -54,11 +64,11 @@ export const createDocumentHead2026 = ({
       },
       {
         property: "og:url",
-        content: url,
+        content: normalizedUrl,
       },
       {
         property: "og:site_name",
-        content: "Learn Qwik",
+        content: siteName,
       },
       {
         property: "og:locale",
@@ -81,5 +91,11 @@ export const createDocumentHead2026 = ({
         content: imageUrl,
       },
     ],
+    scripts: structuredData.map((item) => ({
+      props: {
+        type: "application/ld+json",
+      },
+      script: JSON.stringify(item),
+    })),
   };
 };
