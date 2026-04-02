@@ -1782,8 +1782,6 @@ export const deleteInvoice = server$(async function (id: string) {
           disabledButton
         />
       </div>
-
-      <div class="mb-[40px] md:mb-[120px]"></div>
     </>
   );
 });
