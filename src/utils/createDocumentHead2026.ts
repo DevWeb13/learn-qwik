@@ -28,7 +28,16 @@ export const createDocumentHead2026 = ({
   structuredData = [],
   siteName = "Learn Qwik",
 }: CreateDocumentHead2026Props): DocumentHead => {
-  const normalizedUrl = url.endsWith("/") ? url : `${url}/`;
+  const urlObject = new URL(url);
+
+  const hasFileExtension = /\.[a-z0-9]+$/i.test(urlObject.pathname);
+
+  if (!hasFileExtension && !urlObject.pathname.endsWith("/")) {
+    urlObject.pathname = `${urlObject.pathname}/`;
+  }
+
+  const normalizedUrl = urlObject.toString();
+
   const isHome =
     normalizedUrl === "https://www.learn-qwik.com/" ||
     normalizedUrl === "https://learn-qwik.com/";

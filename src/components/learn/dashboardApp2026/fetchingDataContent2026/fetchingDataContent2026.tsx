@@ -1083,7 +1083,6 @@ const parallelDashboardLoader = async () => {
           goToChapter={9}
           title="Optimizing Data Fetching"
           text="Learn how to move loaders to the right route boundary and trigger requests only when needed."
-          disabledButton
         />
       </div>
     </>

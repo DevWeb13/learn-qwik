@@ -15,130 +15,124 @@ export default component$(() => {
             <PageTitle number={0} title="Terms of Use" />
 
             <p>
-              Welcome to our Terms of Use page! At Learn Qwik, we are committed
-              to protecting your privacy and ensuring that your personal data is
-              handled safely and responsibly. This policy outlines our practices
-              regarding the collection, use, and protection of your information.
+              Welcome to our Terms of Use page. These terms govern your access
+              to and use of Learn Qwik and its related services.
             </p>
             <p>
-              By using our website, you agree to be bound by these terms. If you
-              do not agree with any part of these terms, please do not use our
-              website.
+              By accessing or using this website, you agree to be bound by these
+              terms. If you do not agree with any part of them, you must not use
+              Learn Qwik.
             </p>
             <p>
               These terms apply to all visitors, users, and other individuals
-              who access or use our website, including but not limited to our
-              mobile applications, social media accounts, and any other online
-              platforms or services.
+              who access or use Learn Qwik, including its website and related
+              online services.
             </p>
             <p>
-              Our website is owned and operated by LaReponseDev, a company based
-              in France. We may update these terms from time to time, and we
-              encourage you to review this page regularly for any changes. Your
-              continued use of our website after any changes constitutes your
-              acceptance of those changes.
+              Learn Qwik is operated by LaReponseDev, based in France. We may
+              update these terms from time to time, and your continued use of
+              the website after any changes are published means you accept the
+              revised terms.
             </p>
-            <h2>1. Terms</h2>
+
+            <h2>1. Use of the Website</h2>
             <p>
-              By accessing or using our website, you are agreeing to be bound by
-              these terms. If you do not agree with any part of these terms,
-              please do not use our website.
-            </p>
-            <p>
-              Our website is provided for your personal, non-commercial use
-              only. It is not intended for resale, and it may not be
-              redistributed in any form. You may not use our website for any
-              illegal or unauthorized purpose.
+              By accessing or using Learn Qwik, you agree to use the website
+              only in compliance with applicable laws and these terms.
             </p>
             <p>
-              You may not use our website to engage in any activity that is
-              illegal, fraudulent, harmful, or violates any applicable laws or
-              regulations. Additionally, you may not use our website to engage
-              in any activity that could harm minors or individuals with
-              disabilities.
+              You must not use the website for any unlawful, fraudulent, harmful
+              or abusive purpose. In particular, you must not attempt to disrupt
+              the website, gain unauthorized access to any account or system, or
+              interfere with the normal operation of the service.
             </p>
             <p>
-              You may not use our website to engage in any activity that is
-              discriminatory, racist, or otherwise violates any applicable laws
-              or regulations.
+              You must not post, transmit, or distribute any content that is
+              illegal, defamatory, threatening, discriminatory, hateful,
+              obscene, or otherwise harmful.
+            </p>
+
+            <h2>2. Accounts and Access</h2>
+            <p>
+              Some parts of Learn Qwik may require an account. You are
+              responsible for maintaining the confidentiality of your login
+              credentials and for any activity carried out through your account.
             </p>
             <p>
-              You may not use our website to engage in any activity that is
-              defamatory, threatening, or otherwise violates any applicable laws
-              or regulations.
+              We reserve the right to suspend or terminate access to the website
+              or to specific services at any time if these terms are violated or
+              if such action is necessary to protect the platform, its users, or
+              its operators.
             </p>
-            <p>
-              We reserve the right to terminate your account or remove content
-              from our website at any time for any reason, including but not
-              limited to violating these terms or laws.
-            </p>
-            <p>
-              We reserve the right to modify or update these terms at any time.
-              Your continued use of our website after any changes constitutes
-              your acceptance of those changes.
-            </p>
-            <h2>2. Privacy Policy</h2>
+
+            <h2>3. Privacy</h2>
             <p>
               Please review our{" "}
               <Link href="/privacy-policy/">Privacy Policy</Link> to understand
-              how we collect, use, and protect your information.
+              how we collect, use, and protect personal data.
             </p>
-            <h2>3. Copyright Policy</h2>
+
+            <h2>4. Intellectual Property</h2>
             <p>
-              We respect the intellectual property rights of others and reserve
-              all rights, title, and interest in and to our website, its
-              content, and any software, applications, or other materials
-              provided through our website.
-            </p>
-            <p>
-              We do not claim ownership of any intellectual property rights in
-              our website, including but not limited to logos, trademarks,
-              service marks, domain names, and content (text, images, videos,
-              audio, software, applications, or other materials).
+              Unless otherwise stated, Learn Qwik and all content made available
+              on the website, including text, design elements, graphics, logos,
+              and other materials, are protected by applicable intellectual
+              property laws.
             </p>
             <p>
-              You may not use our website to infringe on the intellectual
-              property rights of others without our prior written consent.
+              You may not reproduce, copy, distribute, modify, publish, or
+              exploit any part of the website or its content without prior
+              written authorization, except where such use is permitted by law.
+            </p>
+
+            <h2>5. Third-Party Links and Services</h2>
+            <p>
+              Learn Qwik may contain links to third-party websites or services.
+              These links are provided for convenience only. We do not control
+              and are not responsible for the content, policies, or practices of
+              third-party services.
+            </p>
+
+            <h2>6. Disclaimer</h2>
+            <p>
+              Learn Qwik is provided on an &quot;as is&quot; and &quot;as
+              available&quot; basis. We do not guarantee that the website will
+              always be available, secure, error-free, or free from bugs or
+              interruptions.
             </p>
             <p>
-              We reserve the right to terminate your account or remove content
-              from our website at any time for any reason, including but not
-              limited to violating these terms or laws.
+              We make reasonable efforts to provide accurate and up-to-date
+              information, but we do not guarantee the completeness, accuracy,
+              or reliability of any content made available on the website.
+            </p>
+
+            <h2>7. Limitation of Liability</h2>
+            <p>
+              To the fullest extent permitted by applicable law, Learn Qwik and
+              its operator shall not be liable for any indirect, incidental,
+              special, consequential, or punitive damages arising out of or
+              related to the use of, or inability to use, the website or its
+              services.
             </p>
             <p>
-              We reserve the right to modify or update these terms at any time.
-              Your continued use of our website after any changes constitutes
-              your acceptance of those changes.
+              Nothing in these terms excludes liability where such exclusion is
+              not permitted under applicable law.
             </p>
-            <h2>4. Disclaimer</h2>
+
+            <h2>8. Changes to These Terms</h2>
             <p>
-              We do not guarantee the accuracy, completeness, or reliability of
-              our website or any information, content, or materials provided
-              through our website. We disclaim all liability for any errors or
-              omissions in our website or any information, content, or materials
-              provided through our website. We reserve the right to update,
-              change, or discontinue our website at any time without prior
-              notice.
+              We may update these Terms of Use at any time. The updated version
+              will be published on this page. Continued use of Learn Qwik after
+              the publication of changes constitutes acceptance of the revised
+              terms.
             </p>
+
+            <h2>9. Governing Law</h2>
             <p>
-              We do not guarantee the security of our website or any
-              information, content, or materials provided through our website.
-              You should use your own discretion and discretion in evaluating
-              any information, content, or materials provided through our
-              website.
-            </p>
-            <p>
-              We do not guarantee that our website will be available at all
-              times. We may experience technical difficulties or other issues
-              that could affect the accessibility, functionality, or performance
-              of our website. We reserve the right to discontinue our website at
-              any time without prior notice.
-            </p>
-            <p>
-              We do not guarantee that our website will be free of bugs, errors,
-              or other issues. You should use your own discretion and discretion
-              in evaluating any information, content, or materials provided
-              through our website.
+              These Terms of Use are governed by French law. Any dispute related
+              to the use of Learn Qwik shall be subject to the jurisdiction of
+              the competent courts of Marseille, except where mandatory legal
+              provisions provide otherwise.
             </p>
           </div>
         </article>
@@ -154,4 +148,5 @@ export const head: DocumentHead = createDocumentHead2026({
   imageUrl: "https://www.learn-qwik.com/metaLanding.png",
   url: "https://www.learn-qwik.com/terms-of-use/",
   type: "website",
+  robots: "noindex, nofollow",
 });

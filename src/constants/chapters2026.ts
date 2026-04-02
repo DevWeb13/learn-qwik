@@ -60,4 +60,11 @@ export const CHAPTERS2026 = [
       "Learn how to load dashboard data in Qwik with routeLoader$ and a clean server-side structure.",
     uri: "fetching-data-2026",
   },
+  {
+    id: 9,
+    title: "Chapter 9: Optimizing Data Fetching",
+    description:
+      "Learn how to optimize data fetching in Qwik by placing routeLoader$ at the right route boundary and triggering requests only when needed.",
+    uri: "optimizing-data-fetching-2026",
+  },
 ];

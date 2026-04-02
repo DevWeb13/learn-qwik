@@ -71,11 +71,7 @@ export const DashboardAppContent2026 = component$(() => {
 
         <p>
           The application will also include a real database, which you will
-          configure in{" "}
-          <Link href="/learn/dashboard-app-2026/setting-up-your-database-2026/">
-            a dedicated chapter
-          </Link>
-          .
+          configure in <Link href="#">a dedicated chapter</Link>.
         </p>
 
         <p>

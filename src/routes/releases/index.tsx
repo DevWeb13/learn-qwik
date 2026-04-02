@@ -19,7 +19,7 @@ export const head = ({ url }: { url: URL }): DocumentHead => {
       ? "https://www.learn-qwik.com/releases/"
       : `https://www.learn-qwik.com/releases/?page=${page}`;
 
-  const title = page === 1 ? "Qwik Releases" : `Qwik Releases – Page ${page}`;
+  const title = page === 1 ? "Qwik Releases" : `Qwik Releases | Page ${page}`;
 
   const description =
     page === 1
@@ -32,14 +32,18 @@ export const head = ({ url }: { url: URL }): DocumentHead => {
     imageUrl: "https://www.learn-qwik.com/metaReleases.png",
     url: canonicalUrl,
     type: "website",
-    structuredData: [
-      createBreadcrumbSchema([
-        { name: "Home", item: "https://www.learn-qwik.com/" },
-        {
-          name: page === 1 ? "Releases" : `Releases – Page ${page}`,
-          item: canonicalUrl,
-        },
-      ]),
-    ],
+    robots: page === 1 ? "max-image-preview:large" : "noindex, follow",
+    structuredData:
+      page === 1
+        ? [
+            createBreadcrumbSchema([
+              { name: "Home", item: "https://www.learn-qwik.com/" },
+              {
+                name: "Releases",
+                item: "https://www.learn-qwik.com/releases/",
+              },
+            ]),
+          ]
+        : [],
   });
 };
