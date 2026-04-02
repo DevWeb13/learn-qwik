@@ -11,7 +11,6 @@ export const MobileStickyAdMulti = component$(() => {
           style="display:inline-block;height:100px;width:100%"
           data-ad-client="ca-pub-2091224773462896"
           data-ad-slot="3249947732"
-          data-ad-format="autorelaxed"
         ></ins>
       </div>
     </aside>
