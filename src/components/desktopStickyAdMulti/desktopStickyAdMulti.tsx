@@ -13,11 +13,11 @@ export const DesktopStickyAdMulti = component$<DesktopStickyAdMultiProps>(
     return (
       <aside class="relative  hidden w-75  lg:block ">
         <div
-          class={`sticky w-75 ${topPosition} rounded-2xl bg-white p-0 shadow-sm border border-(--qwik-dark-purple)/25 overflow-hidden h-200 mx-auto`}
+          class={`sticky w-75 ${topPosition} rounded-2xl bg-white p-0 shadow-sm border border-(--qwik-dark-purple)/25 overflow-hidden h-150 mx-auto`}
         >
           <ins
             class="adsbygoogle"
-            style="display:inline-block;width:300px;height:800px"
+            style="display:inline-block;width:300px;height:600px"
             data-ad-client="ca-pub-2091224773462896"
             data-ad-slot="5487905329"
           ></ins>
