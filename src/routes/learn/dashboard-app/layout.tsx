@@ -1,8 +1,8 @@
 import { component$, Slot, useComputed$ } from "@builder.io/qwik";
 import { useLocation } from "@builder.io/qwik-city";
 import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
-import { DesktopStickyAd } from "~/components/desktopStickyAd/desktopStickyAd";
-import { MobileStickyAd } from "~/components/mobileStickyAd/mobileStickyAd";
+import { DesktopStickyAdMulti } from "~/components/desktopStickyAdMulti/desktopStickyAdMulti";
+import { MobileStickyAdMulti } from "~/components/mobileStickyAdMulti/mobileStickyAdMulti";
 import Feedback from "~/components/UI/feedback/feedback";
 import HeaderOfMain from "~/components/UI/headerOfMain/headerOfMain";
 import { CHAPTERS } from "~/constants/chapters";
@@ -63,10 +63,10 @@ export default component$(() => {
           ) : null}
         </section>
 
-        <DesktopStickyAd topPosition="top-20 lg:top-24" />
+        <DesktopStickyAdMulti topPosition="top-20 lg:top-24" />
       </div>
 
-      <MobileStickyAd />
+      <MobileStickyAdMulti />
     </main>
   );
 });
