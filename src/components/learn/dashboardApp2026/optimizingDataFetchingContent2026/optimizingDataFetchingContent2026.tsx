@@ -313,7 +313,7 @@ export default component$(() => {
             height="510"
             loop
             muted
-            poster="/img/dashboard-2026/fetch-data-in-layout-2026.png"
+            poster="/img/2026/fetch-data-in-layout-2026.png"
             width="658"
           >
             <source
@@ -477,7 +477,7 @@ export default component$(() => {
             height="510"
             loop
             muted
-            poster="/img/dashboard-2026/fetch-data-in-index-2026.png"
+            poster="/img/2026/fetch-data-in-index-2026.png"
             width="658"
           >
             <source
@@ -613,7 +613,7 @@ Revenue data fetched after 3 seconds.`}
             height="510"
             loop
             muted
-            poster="/img/dashboard-2026/slow-data-fetch-2026.png"
+            poster="/img/2026/slow-data-fetch-2026.png"
             width="658"
           >
             <source
