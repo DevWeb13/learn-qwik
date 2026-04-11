@@ -702,6 +702,7 @@ Revenue data fetched after 3 seconds.`}
           goToChapter={10}
           title="Streaming"
           text="Learn how to keep the UI responsive while slower data is still loading."
+          disabledButton
         />
       </div>
     </>
