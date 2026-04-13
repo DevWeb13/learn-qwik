@@ -19,6 +19,7 @@ export type Database = {
           chapterNumber: number
           courseVersion: string
           created_at: string
+          display_consent: boolean
           id: string
           message: string | null
           reaction: string
@@ -29,6 +30,7 @@ export type Database = {
           chapterNumber: number
           courseVersion: string
           created_at?: string
+          display_consent?: boolean
           id?: string
           message?: string | null
           reaction: string
@@ -39,6 +41,7 @@ export type Database = {
           chapterNumber?: number
           courseVersion?: string
           created_at?: string
+          display_consent?: boolean
           id?: string
           message?: string | null
           reaction?: string
@@ -157,6 +160,20 @@ export type Database = {
           happy: number
           love: number
           sad: number
+        }[]
+      }
+      get_public_chapter_feedback: {
+        Args: {
+          p_chapter_number: number
+          p_course_version: string
+          p_limit?: number
+        }
+        Returns: {
+          created_at: string
+          display_name: string
+          id: string
+          message: string
+          reaction: string
         }[]
       }
       increment_total_share: { Args: never; Returns: undefined }

@@ -139,6 +139,7 @@ export const useSaveChapterFeedback = routeAction$(
         chapterNumber: data.chapterNumber,
         reaction: data.reaction,
         message: data.message,
+        display_consent: data.displayConsent,
       },
       {
         onConflict: "user_id,courseVersion,chapterNumber",
@@ -161,6 +162,7 @@ export const useSaveChapterFeedback = routeAction$(
       chapterNumber: z.number().int().min(0),
       reaction: z.enum(["love", "happy", "sad", "cry"]),
       message: z.string(),
+      displayConsent: z.boolean(),
     }),
   ),
 );
@@ -175,6 +177,7 @@ export const useGetChapterFeedback = routeLoader$(async (requestEvent) => {
     return {
       reaction: null,
       message: "",
+      displayConsent: true,
       courseVersion: null,
       chapterNumber: null,
     };
@@ -188,6 +191,7 @@ export const useGetChapterFeedback = routeLoader$(async (requestEvent) => {
     return {
       reaction: null,
       message: "",
+      displayConsent: true,
       courseVersion: null,
       chapterNumber: null,
     };
@@ -197,7 +201,7 @@ export const useGetChapterFeedback = routeLoader$(async (requestEvent) => {
 
   const { data, error } = await supabase
     .from("chapter_feedback")
-    .select("reaction, message")
+    .select("reaction, message, display_consent")
     .eq("user_id", profile.id)
     .eq("courseVersion", courseVersion)
     .eq("chapterNumber", chapterNumber)
@@ -209,6 +213,7 @@ export const useGetChapterFeedback = routeLoader$(async (requestEvent) => {
     return {
       reaction: null,
       message: "",
+      displayConsent: true,
       courseVersion,
       chapterNumber,
     };
@@ -217,6 +222,7 @@ export const useGetChapterFeedback = routeLoader$(async (requestEvent) => {
   return {
     reaction: data?.reaction ?? null,
     message: data?.message ?? "",
+    displayConsent: data?.display_consent ?? true,
     courseVersion,
     chapterNumber,
   };
@@ -269,6 +275,33 @@ export const useGetChapterFeedbackCounts = routeLoader$(
       courseVersion,
       chapterNumber,
     };
+  },
+);
+
+export const useGetPublicChapterFeedback = routeLoader$(
+  async (requestEvent) => {
+    const { courseVersion, chapterNumber } = getChapterContextFromPathname(
+      requestEvent.url.pathname,
+    );
+
+    if (!courseVersion || chapterNumber === null) {
+      return [];
+    }
+
+    const supabase = createClient(requestEvent);
+
+    const { data, error } = await supabase.rpc("get_public_chapter_feedback", {
+      p_course_version: courseVersion,
+      p_chapter_number: chapterNumber,
+      p_limit: 3,
+    });
+
+    if (error) {
+      console.error("Failed to load public chapter feedback:", error.message);
+      return [];
+    }
+
+    return data;
   },
 );
 
