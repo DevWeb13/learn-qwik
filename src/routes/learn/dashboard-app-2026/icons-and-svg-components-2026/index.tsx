@@ -1,4 +1,4 @@
-// src/routes/learn/dashboard-app-2026/working-with-icons-2026/index.tsx
+// src/routes/learn/dashboard-app-2026/icons-and-svg-components-2026/index.tsx
 
 import { component$ } from "@builder.io/qwik";
 import { type DocumentHead } from "@builder.io/qwik-city";
@@ -11,11 +11,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 3: Icons and SVG Components 2026",
+  title: "Qwik Icons and SVG Components | 2026 Tutorial",
   description:
-    "Learn how to add, customize, and manage icons in your Qwik application using packages and raw SVG components.",
+    "Add icons to a Qwik app with icon packages and custom SVG components. Learn when to use libraries, inline SVG, and reusable components.",
   imageUrl: "https://www.learn-qwik.com/meta-chapter-3-2026.png",
-  url: "https://www.learn-qwik.com/learn/dashboard-app-2026/working-with-icons-2026/",
+  url: "https://www.learn-qwik.com/learn/dashboard-app-2026/icons-and-svg-components-2026/",
   type: "website",
   structuredData: [
     createBreadcrumbSchema([
@@ -26,7 +26,7 @@ export const head: DocumentHead = createDocumentHead2026({
       },
       {
         name: "Chapter 3: Icons and SVG Components 2026",
-        item: "https://www.learn-qwik.com/learn/dashboard-app-2026/working-with-icons-2026/",
+        item: "https://www.learn-qwik.com/learn/dashboard-app-2026/icons-and-svg-components-2026/",
       },
     ]),
   ],

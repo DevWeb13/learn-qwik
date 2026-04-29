@@ -109,10 +109,9 @@ export const blogSections: BlogSection[] = [
       "Adjacent developer topics that are useful, but clearly separate from the main Qwik editorial line.",
     posts: [
       {
-        title:
-          "Codex App explained for beginners | From AI assistant to AI worker",
+        title: "What Is OpenAI Codex App? Beginner Guide 2026",
         description:
-          "An off-topic article exploring how AI agents like OpenAI Codex App are changing the way developers work, shifting from writing code to orchestrating AI-driven workflows.",
+          "A beginner-friendly explanation of OpenAI Codex App, AI coding agents, parallel software work, and how the developer role changes.",
         href: "/blog/openai-codex-app-beginners/",
         date: "January 2026",
         readTime: "4 min read",
@@ -134,10 +133,9 @@ export const blogSections: BlogSection[] = [
       "Beginner-friendly material covering the terminal, Node.js, VS Code, and the first steps of a Qwik project.",
     posts: [
       {
-        title:
-          "Learn Qwik From A to Z (2025) | Create a Qwik App with the CLI (3/∞)",
+        title: "How to Install Qwik with the CLI | Create a Qwik App",
         description:
-          "Beginner-friendly guide to create a new Qwik app using the official CLI. Step-by-step instructions using only the terminal.",
+          "Install Qwik step by step with the official CLI. Create a new Qwik app, install dependencies, and open the project in VS Code.",
         href: "/blog/create-qwik-app-cli/",
         date: "May 2025",
         readTime: "3 min read",
@@ -145,10 +143,9 @@ export const blogSections: BlogSection[] = [
         imageAlt: "Create a Qwik App with the CLI",
       },
       {
-        title:
-          "Learn Qwik From A to Z (2025) | Install Visual Studio Code on Ubuntu (2/∞)",
+        title: "Install VS Code on Ubuntu with APT | Step-by-Step",
         description:
-          "Complete step-by-step guide to install Visual Studio Code on Ubuntu using the official repository. Safe and easy method for beginners.",
+          "Install Visual Studio Code on Ubuntu using the official Microsoft APT repository and terminal commands.",
         href: "/blog/install-vscode-ubuntu/",
         date: "May 2025",
         readTime: "3 min read",
@@ -156,10 +153,9 @@ export const blogSections: BlogSection[] = [
         imageAlt: "Install Visual Studio Code on Ubuntu",
       },
       {
-        title:
-          "Learn Qwik From A to Z (2025) | Install Node.js and NPM on Ubuntu (1/∞)",
+        title: "Install Node.js and npm on Ubuntu | Step-by-Step",
         description:
-          "Step-by-step instructions to install Node.js and npm on Ubuntu. Includes commands, explanations, and source links.",
+          "Install Node.js and npm on Ubuntu from the terminal, check your versions, and prepare your machine for a Qwik project.",
         href: "/blog/install-nodejs-ubuntu/",
         date: "April 2025",
         readTime: "3 min read",
@@ -201,10 +197,9 @@ export const blogSections: BlogSection[] = [
         imageAlt: "Qwik 2.0 Beta article banner",
       },
       {
-        title:
-          "Learn Qwik (2025) | Remove console.log in production (Qwik + Vite)",
+        title: "Vite Remove console.log in Production | Qwik, React, Vue",
         description:
-          "Learn how to automatically clean up your production builds by removing console.log using Vite. Works with all Vite-based projects.",
+          "Remove console.log from production builds with Vite. Works for Qwik, React, Vue, SvelteKit, Astro, and other Vite-based projects.",
         href: "/blog/remove-console-log-prod/",
         date: "May 2025",
         readTime: "3 min read",
@@ -212,9 +207,9 @@ export const blogSections: BlogSection[] = [
         imageAlt: "Remove console.log in production",
       },
       {
-        title: "Qwik in 2025: Why It’s the Future of Web Development",
+        title: "What Is Qwik? Resumability and Performance Explained",
         description:
-          "Qwik loads instantly, uses less JavaScript, and delivers better performance for users and the planet.",
+          "Learn what Qwik is, how resumability works, and why Qwik can ship less JavaScript for faster web apps.",
         href: "/blog/qwik-2025/",
         date: "April 2025",
         readTime: "4 min read",

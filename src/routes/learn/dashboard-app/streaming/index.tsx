@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 9: Streaming",
+  title: "Qwik Streaming Tutorial | Progressive Data Loading",
   description:
-    "Learn how streaming works in Qwik, when to use it, and how it helps load pages faster by rendering data progressively.",
+    "Learn how Qwik streaming works, when to use progressive data loading, and how it can render dashboard UI faster.",
   imageUrl: "https://www.learn-qwik.com/metaChapter9.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app/streaming/",
   type: "website",

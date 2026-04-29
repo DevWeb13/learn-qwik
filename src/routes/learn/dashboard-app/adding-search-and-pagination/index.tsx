@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 10: Adding Search and Pagination",
+  title: "Qwik Search Params Tutorial | Search and Pagination",
   description:
-    "Learn how to add search and pagination to your Qwik application. Implement search and pagination using useLocation() and searchParams.",
+    "Build search and pagination in Qwik with URL search params, useLocation(), debounced input, and dashboard table filtering.",
   imageUrl: "https://www.learn-qwik.com/metaChapter10.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app/adding-search-and-pagination/",
   type: "website",

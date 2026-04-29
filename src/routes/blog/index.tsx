@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Qwik Blog: Tutorials, Security News and Practical Guides",
+  title: "Qwik Tutorials, News and Practical Guides",
   description:
-    "Explore the Learn Qwik blog: Qwik tutorials, security advisories, release coverage, framework comparisons, and practical guides for modern web development.",
+    "Read Qwik tutorials, security advisories, release notes, framework comparisons, and practical web development guides from Learn Qwik.",
   imageUrl: "https://www.learn-qwik.com/metaBlog.png",
   url: "https://www.learn-qwik.com/blog/",
   type: "website",

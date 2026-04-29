@@ -12,7 +12,7 @@ export const Qwik2025Article = component$(() => {
       {/* ✅ Titre principal pleine largeur */}
       <header class="flex flex-col items-center gap-4 px-4 lg:gap-8">
         <h1 class="max-w-[80%] text-center text-4xl font-semibold lg:max-w-[100%] lg:text-6xl">
-          Qwik in 2025: Why It's the Future of Web Development
+          What is Qwik? Resumability and performance explained
         </h1>
         <p class="max-w-xl text-center text-gray-900">
           Discover why Qwik is reshaping the future of web development. Faster,

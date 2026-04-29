@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 6: Setting Up Your Database",
+  title: "Qwik Database Setup | PostgreSQL Dashboard Tutorial",
   description:
-    "Learn how to set up a database in Qwik. Understand the basics of connecting to a database, creating tables, and querying data in your Qwik application.",
+    "Set up a PostgreSQL database for a Qwik dashboard app. Create tables, seed data, connect your app, and prepare server-side queries.",
   imageUrl: "https://www.learn-qwik.com/metaChapter6.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app/setting-up-your-database/",
   type: "website",

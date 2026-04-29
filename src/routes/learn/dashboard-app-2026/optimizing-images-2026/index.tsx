@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 7: Optimizing Images 2026",
+  title: "Qwik Image Optimization | Responsive Images Tutorial",
   description:
-    "Optimize image loading in your Qwik app with automatic image processing, responsive sources, and mobile-friendly rendering.",
+    "Optimize images in a Qwik app with responsive sources, image sizing, mobile-friendly rendering, and performance-minded loading.",
   imageUrl: "https://www.learn-qwik.com/meta-chapter-7-2026.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app-2026/optimizing-images-2026/",
   type: "website",

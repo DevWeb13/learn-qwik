@@ -10,12 +10,13 @@ import { component$ } from "@builder.io/qwik";
 export const RouterHead = component$(() => {
   const head = useDocumentHead();
   const loc = useLocation();
+  const hasCanonical = head.links.some((link) => link.rel === "canonical");
 
   return (
     <>
       <title>{head.title}</title>
 
-      <link rel="canonical" href={loc.url.href} />
+      {!hasCanonical && <link rel="canonical" href={loc.url.href} />}
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       {head.meta.map((m) => (

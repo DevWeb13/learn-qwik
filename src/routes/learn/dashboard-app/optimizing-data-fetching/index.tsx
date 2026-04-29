@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 8: Optimizing Data Fetch",
+  title: "Qwik Data Fetching Optimization | Parallel Requests",
   description:
-    "Learn how to optimize data fetching in Qwik. Understand the basics of optimizing data fetching in your Qwik application.",
+    "Optimize data fetching in Qwik with parallel requests, route boundaries, and patterns that avoid slow request waterfalls.",
   imageUrl: "https://www.learn-qwik.com/metaChapter8.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app/optimizing-data-fetching/",
   type: "website",

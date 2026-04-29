@@ -27,14 +27,14 @@ export const CreateQwikAppCliArticle = component$(() => {
     <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 lg:px-12 lg:py-20">
       <header class="flex flex-col items-center gap-3 px-4 lg:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold lg:max-w-full lg:text-5xl">
-          Create a Qwik App with the CLI
+          How to install Qwik with the CLI
         </h1>
         <h2 class="text-center text-sm font-medium text-gray-600 lg:text-base">
           Part 3 of the Learn Qwik From A to Z (2025) series
         </h2>
         <p class="mt-2 max-w-2xl text-center text-gray-700">
-          Learn how to create a brand new Qwik app using only the terminal,
-          step-by-step, even if you're just getting started.
+          Create a brand new Qwik app from the terminal, install dependencies,
+          and open the project in VS Code step by step.
         </p>
       </header>
 

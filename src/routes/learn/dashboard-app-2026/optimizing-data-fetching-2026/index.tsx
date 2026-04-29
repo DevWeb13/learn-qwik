@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 9: Optimizing Data Fetching 2026",
+  title: "Qwik Data Fetching Optimization | routeLoader$ Patterns",
   description:
-    "Learn how to optimize data fetching in Qwik by placing routeLoader$() at the right route boundary, triggering requests only when needed, and understanding the impact of slow data fetches.",
+    "Optimize Qwik data fetching with routeLoader$ placement, route boundaries, parallel loading, and request patterns that avoid unnecessary slow work.",
   imageUrl: "https://www.learn-qwik.com/meta-chapter-9-2026.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app-2026/optimizing-data-fetching-2026/",
   type: "website",

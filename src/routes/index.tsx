@@ -76,7 +76,7 @@ export default component$(() => {
             </div>
 
             <h1 class="mt-6 max-w-4xl text-4xl font-semibold leading-[1.02] text-(--qwik-dirty-black) md:text-6xl">
-              Learn Qwik by building a real modern full-stack app
+              Learn Qwik for free by building a real full-stack app
             </h1>
 
             <p class="mt-6 max-w-2xl text-base leading-7 text-gray-700 md:text-xl md:leading-8">
@@ -508,9 +508,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Learn Qwik | Free Qwik Tutorial 2026: Build a Real Full-Stack App",
+  title: "Learn Qwik Free Tutorial 2026 | Build a Full-Stack App",
   description:
-    "Learn Qwik for free with a practical tutorial built around a real modern full-stack app. Follow a clear step-by-step path and progress with the 2026 edition.",
+    "Learn Qwik for free with a practical 2026 tutorial. Build a real full-stack dashboard app step by step with Qwik, Qwik City, Supabase, and deployment.",
   imageUrl: "https://www.learn-qwik.com/metaLanding.png",
   url: "https://www.learn-qwik.com/",
   type: "website",

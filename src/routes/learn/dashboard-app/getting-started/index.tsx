@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 1: Getting Started",
+  title: "Qwik Getting Started | Install and Create an App",
   description:
-    "Get started with Qwik by creating an app using the Qwik CLI. This chapter guides you through setting up your Qwik or Qwik City project from scratch.",
+    "Get started with Qwik by creating an app with the Qwik CLI. Set up a Qwik City project from scratch and understand the project structure.",
   imageUrl: "https://www.learn-qwik.com/metaChapter1.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app/getting-started/",
   type: "website",

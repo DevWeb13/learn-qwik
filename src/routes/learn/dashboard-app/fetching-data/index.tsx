@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 7: Fetching Data",
+  title: "Qwik Fetching Data Tutorial | Database Queries",
   description:
-    "Learn how to fetch data in Qwik. Understand the basics of fetching data from a database, displaying it in your Qwik application.",
+    "Learn how to fetch database data in Qwik, run server-side queries, and display dashboard cards, charts, and invoice data.",
   imageUrl: "https://www.learn-qwik.com/metaChapter7.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app/fetching-data/",
   type: "website",

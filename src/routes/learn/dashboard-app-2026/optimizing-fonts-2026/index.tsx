@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 6: Optimizing Fonts 2026",
+  title: "Qwik Font Optimization | Self-Host Fonts and Avoid CLS",
   description:
-    "Optimize font loading in your Qwik app with Fontsource, self-hosting, and font-display to improve performance and reduce layout shifts.",
+    "Optimize fonts in a Qwik app with self-hosting, Fontsource, preload strategy, and font-display to improve performance and reduce layout shift.",
   imageUrl: "https://www.learn-qwik.com/meta-chapter-6-2026.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app-2026/optimizing-fonts-2026/",
   type: "website",

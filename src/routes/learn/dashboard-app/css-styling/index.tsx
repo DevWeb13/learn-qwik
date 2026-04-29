@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 2: CSS Styling",
+  title: "Qwik CSS Styling | Tailwind and CSS Modules",
   description:
-    "Dive into customizing the style of your Qwik application. This chapter covers various methods to enhance your app’s design with CSS and Tailwind CSS.",
+    "Style a Qwik app with Tailwind CSS, global CSS, and CSS Modules while building a practical dashboard interface.",
   imageUrl: "https://www.learn-qwik.com/metaChapter2.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app/css-styling/",
   type: "website",

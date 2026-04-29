@@ -684,7 +684,7 @@ Revenue data fetched after 3 seconds.`}
         <p>
           You can find the source code for chapter 9 2026 Edition on{" "}
           <BlankLink
-            href="https://github.com/DevWeb13/qwik-dashboard-2026/tree/Chapter-9-Optimizing-Data-Fetching"
+            href="https://github.com/DevWeb13/qwik-dashboard-2026/tree/Chapter-9---Optimizing-Data-Fetching"
             text="GitHub"
           />
           .

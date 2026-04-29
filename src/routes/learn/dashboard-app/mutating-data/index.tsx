@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 11: Mutating Data",
+  title: "Qwik routeAction$ Tutorial | Forms and Mutations",
   description:
-    "Learn how to mutate data in your PostgreSQL database using Qwik. Implement mutations using routeActions$() with Form or programmatically.",
+    "Learn Qwik routeAction$ with forms and programmatic mutations. Create, update, and delete PostgreSQL data in a dashboard app.",
   imageUrl: "https://www.learn-qwik.com/metaChapter11.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app/mutating-data/",
   type: "website",

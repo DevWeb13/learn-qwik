@@ -35,17 +35,6 @@ export const AddingSearchAndPaginationContent = component$(() => {
           ]}
         />
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <SubtitleWithAnchor title="Starting code" id="starting-code" />
         <p>
           First, you must <span class="font-bold">download</span>{" "}
@@ -135,17 +124,6 @@ export default component$(() => {
           re-render on the server with the new data.
         </p>
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <SubtitleWithAnchor
           title="Why use URL search params?"
           id="why-use-url-search-params?"
@@ -178,17 +156,6 @@ export default component$(() => {
             user behavior without requiring additional client-side logic.
           </li>
         </ul>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
 
         <SubtitleWithAnchor
           title="Adding the search functionality"
@@ -226,17 +193,6 @@ export default component$(() => {
           <li>Keep the URL in sync with the input field.</li>
           <li>Update the table to reflect the search query.</li>
         </ol>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
 
         <SubtitleWithAnchor
           title="1. Capturing the user's input"
@@ -310,17 +266,6 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           Great! You're capturing the user's search input. Now, you need to
           update the URL with the search term.
         </p>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
 
         <SubtitleWithAnchor
           title="2. Updating the URL with the search params"
@@ -566,17 +511,6 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           </li>
         </ul>
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <SubtitleWithAnchor
           title="3. Keeping the URL and input in sync"
           id="3.-keeping-the-url-and-input-in-sync"
@@ -630,17 +564,6 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
             is necessary to keep the input in sync with the URL parameters.
           </p>
         </blockquote>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
 
         <SubtitleWithAnchor
           title="4. Updating the table to reflect the search query"
@@ -891,17 +814,6 @@ export const fetchFilteredInvoices = server$(async function (
           that match your query will be returned.
         </p>
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <SubtitleWithAnchor
           title="Best practice: Debouncing"
           id="best-practice:-debouncing"
@@ -1130,17 +1042,6 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           database, thus saving resources.
         </p>
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <Quiz
           question="What problem does debouncing solve in the search feature?"
           options={[
@@ -1168,17 +1069,6 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           hint="Check the section above!"
           responseText="That's right! Debouncing prevents a new database query on every keystroke, thus saving resources."
         />
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
 
         <SubtitleWithAnchor
           title="Adding pagination"
@@ -1526,17 +1416,6 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           ]}
         />
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <SubtitleWithAnchor title="Summary" id="" />
 
         <p>
@@ -1579,17 +1458,6 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
 
         <p>Well done !</p>
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
         <p>
           You can find the source code for chapter 10 on{" "}
@@ -1599,17 +1467,6 @@ export const Search = component$(({ placeholder }: { placeholder: string }) => {
           />
           .
         </p>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
       </div>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">

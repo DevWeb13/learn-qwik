@@ -46,6 +46,12 @@ export const createDocumentHead2026 = ({
 
   return {
     title: fullTitle,
+    links: [
+      {
+        rel: "canonical",
+        href: normalizedUrl,
+      },
+    ],
     meta: [
       {
         name: "description",

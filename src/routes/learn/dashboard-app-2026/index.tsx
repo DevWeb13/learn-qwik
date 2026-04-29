@@ -14,9 +14,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "2026 Edition: Build a Modern Full-Stack Dashboard App",
+  title: "Qwik Tutorial 2026 | Build a Full-Stack Dashboard App",
   description:
-    "Learn Qwik 2026 edition. Build a modern full-stack dashboard application using Qwik, Qwik City, and Supabase with production-ready architecture.",
+    "Follow the 2026 Qwik tutorial and build a modern full-stack dashboard app with Qwik, Qwik City, Supabase, Tailwind, auth, and deployment.",
   imageUrl: "https://www.learn-qwik.com/metaDashboard2026.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app-2026/",
   type: "website",

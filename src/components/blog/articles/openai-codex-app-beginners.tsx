@@ -14,7 +14,7 @@ export const OpenAICodexAppBeginnersArticle = component$(() => {
     <main class="relative flex min-h-screen w-full flex-col items-center gap-8 bg-white py-12 lg:px-12 lg:py-20">
       <header class="flex flex-col items-center gap-2 px-4 lg:gap-4">
         <h1 class="max-w-[90%] text-center text-3xl font-bold lg:max-w-full lg:text-5xl">
-          Codex App explained for beginners
+          What is OpenAI Codex App?
         </h1>
         <h2 class="max-w-[80%] text-center text-2xl font-semibold text-gray-800 lg:max-w-full lg:text-4xl">
           From AI assistant to AI worker

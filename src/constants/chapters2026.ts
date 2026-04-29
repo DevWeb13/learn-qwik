@@ -67,4 +67,11 @@ export const CHAPTERS2026 = [
       "Learn how to optimize data fetching in Qwik by placing routeLoader$ at the right route boundary and triggering requests only when needed.",
     uri: "optimizing-data-fetching-2026",
   },
+  {
+    id: 10,
+    title: "Chapter 10: Streaming",
+    description:
+      "Learn how to keep the UI responsive while slower data is still loading with useResource$(), <Resource />, and skeleton states.",
+    uri: "streaming-2026",
+  },
 ];

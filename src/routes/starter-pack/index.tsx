@@ -734,9 +734,9 @@ export default component$(() => {
 import { createBreadcrumbSchema } from "~/utils/structuredData";
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Starter Pack | Real Qwik SSR Full-Stack App",
+  title: "Qwik Starter Pack | SSR, Supabase, Auth and Vercel",
   description:
-    "Start from a real Qwik SSR full-stack app already configured and ready to deploy. Explore the live demo, see what’s included, and join early access for the Learn Qwik Starter Pack.",
+    "Start faster with a Qwik SSR full-stack starter pack: Supabase, auth flows, Tailwind, protected routes, and Vercel deployment already wired.",
   imageUrl: "https://www.learn-qwik.com/meta-starter-pack.png",
   url: "https://www.learn-qwik.com/starter-pack/",
   type: "website",

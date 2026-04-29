@@ -10,6 +10,12 @@ export const createDocumentHead = (
 ): DocumentHead => {
   return {
     title: "Learn Qwik | " + title,
+    links: [
+      {
+        rel: "canonical",
+        href: url,
+      },
+    ],
     meta: [
       {
         name: "description",
@@ -51,6 +57,6 @@ export const createDocumentHead = (
         name: "twitter:image",
         content: imageUrl,
       },
-    ],   
+    ],
   };
 };

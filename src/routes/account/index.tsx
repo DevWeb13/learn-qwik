@@ -13,6 +13,7 @@ import type { Database } from "~/types/learn-qwik.database.types"; // Import des
 import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
+type ProfileUpdate = Database["public"]["Tables"]["profiles"]["Update"];
 
 // 🔄 Mettre à jour les infos du profil avec l'ID de useProfile()
 export const useUpdateProfile = routeAction$(
@@ -108,9 +109,14 @@ export const useResetCompletedChapters = routeAction$(
     const versionLabel =
       data.version === "2026" ? "2026 version" : "legacy version";
 
+    const updatePayload: ProfileUpdate =
+      data.version === "2026"
+        ? { completedChapters2026: [] }
+        : { completedChapters: [] };
+
     const { error } = await supabase
       .from("profiles")
-      .update({ [column]: [] })
+      .update(updatePayload)
       .eq("id", profile.id);
 
     if (error) {

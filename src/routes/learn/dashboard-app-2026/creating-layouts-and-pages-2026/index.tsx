@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 4: Creating Layouts and Pages 2026",
+  title: "Qwik City Routing | Layouts, Pages and Nested Routes",
   description:
-    "Understand file-based routing in Qwik, create nested routes, and share UI using layout.tsx in a structured dashboard application.",
+    "Learn Qwik City file-based routing. Create pages, nested routes, and shared layout.tsx UI for a structured dashboard application.",
   imageUrl: "https://www.learn-qwik.com/meta-chapter-4-2026.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app-2026/creating-layouts-and-pages-2026/",
   type: "website",

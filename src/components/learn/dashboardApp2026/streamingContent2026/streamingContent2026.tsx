@@ -1,21 +1,20 @@
-// src/components/learn/dashboardApp/streamingContent/streaming.tsx
+// src/components/learn/dashboardApp2026/streamingContent2026/streamingContent2026.tsx
 
 import { component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
+import WhatIsStreamingImg from "~/assets/img/whatIsStreaming.png?jsx";
+import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
+import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
 import BlankLink from "~/components/UI/blankLink/blankLink";
 import CodeBlock from "~/components/UI/codeBlock/codeBlock";
+import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
+import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
+import { InfoBox2026 } from "~/components/UI/infoBox/infoBox2026";
 import { PageTitle } from "~/components/UI/pageTitle/pageTitle";
 import { Quiz } from "~/components/UI/quiz/quiz";
 import SubtitleWithAnchor from "~/components/UI/subtitleWithAnchor/subtitleWithAnchor";
-import TableOfTopicsCovered from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered";
+import TableOfTopicsCovered2026 from "~/components/UI/tableOfTopicsCovered/tableOfTopicsCovered2026";
 import { LatestInvoicesSoluce } from "./latestInvoicesSoluce2026";
-
-import { EyeBarredSvg } from "~/assets/svg/eyeBarred/eyeBarred";
-import { EyeSvg } from "~/assets/svg/eyeSvg/eyeSvg";
-
-import WhatIsStreamingImg from "~/assets/img/whatIsStreaming.png?jsx";
-import CompletedChapter from "~/components/UI/completedChapter/completedChapter";
-import { GoToNextChapterBlock } from "~/components/UI/goToNextChapterBlock/goToNextChapterBlock";
 
 export const StreamingContent2026 = component$(() => {
   const latestInvoicesSoluce = useSignal(false);
@@ -23,155 +22,137 @@ export const StreamingContent2026 = component$(() => {
   return (
     <>
       <div class="prose prose-vercel max-w-none">
-        <PageTitle />
+        <PageTitle version="2026 Edition" />
 
         <p>
-          In the previous chapter, we discussed how the slow data fetches can
-          impact the performance of your application. Let's look at how you can
-          improve the user experience when there are slow data requests.
+          In the previous chapter, you moved loaders to the right route
+          boundary. But even when loaders are placed correctly, one slow request
+          can still delay the whole page.
         </p>
 
-        <TableOfTopicsCovered
+        <p>
+          In this chapter, you&apos;ll learn how streaming helps keep the UI
+          visible while slower data is still loading, and how to use{" "}
+          <code>routeLoader$()</code>, <code>useResource$()</code>, and{" "}
+          <code>&lt;Resource /&gt;</code> to improve perceived performance.
+        </p>
+
+        <TableOfTopicsCovered2026
           topics={[
             {
-              title: "What streaming is and when you might use it.",
-              icon: "server",
+              title: "What streaming is",
+              emoji: "🌊",
+              anchor: "what-is-streaming",
             },
             {
-              title:
-                "How to implement streaming with routeLoader$() et <Resource />.",
-              icon: "relationPoint",
+              title: "Streaming with routeLoader$() and <Resource />",
+              emoji: "🛣️",
+              anchor: "streaming-with-routeloader-and-resource",
             },
             {
-              title:
-                "How to implement streaming with useResource$() et <Resource />.",
-              icon: "twoConnectedPoints",
+              title: "Streaming with useResource$() and <Resource />",
+              emoji: "📦",
+              anchor: "streaming-with-useresource-and-resource",
             },
             {
-              title: "What loading skeletons are.",
-              icon: "skeleton",
+              title: "Loading skeletons",
+              emoji: "🦴",
+              anchor: "adding-loading-skeletons",
             },
             {
-              title:
-                "Where to place <Resource /> boundaries in your application.",
-              icon: "clock",
+              title: "Choosing your <Resource /> boundaries",
+              emoji: "🎯",
+              anchor: "deciding-where-to-place-your-resource-boundaries",
             },
           ]}
         />
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
-        <SubtitleWithAnchor title="What is streaming?" id="what-is-streaming" />
+        <SubtitleWithAnchor
+          title="🌊 What is streaming?"
+          id="what-is-streaming"
+        />
 
         <p>
-          Streaming is a data transfer technique that allows you to gradually
-          distribute data from the server to the client as soon as they are
-          ready.
+          Streaming is a rendering technique that lets part of the UI appear
+          before all the data is ready.
+        </p>
+
+        <p>
+          Instead of blocking the whole page until every request finishes, you
+          can render the parts that are already ready and defer the slower
+          content.
         </p>
 
         <figure class="flex items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3">
           <WhatIsStreamingImg
-            alt="Diagram showing time with sequential data fetching and parallel data fetching"
-            class="block rounded-md border border-gray-200 bg-gray-100 "
+            alt="Diagram showing content appearing progressively with streaming"
+            class="block rounded-md border border-gray-200 bg-gray-100"
           />
         </figure>
 
         <p>
-          By streaming, you can prevent slow data requests from blocking your
-          whole page. This allows the user to see and interact with parts of the
-          page without waiting for all the data to load before any UI can be
-          shown to the user.
+          This improves perceived performance because the user can see the page
+          structure earlier instead of staring at a blank screen.
         </p>
 
-        <p>
-          Streaming works well with Qwik's component model, where each component
-          can be considered a chunk.
-        </p>
-
-        <p>There are two ways you implement streaming in Qwik:</p>
+        <p>In Qwik, there are two useful ways to approach this:</p>
 
         <ul>
           <li>
-            <Link href="#how-to-implement-streaming-with-routeLoader-and-resource">
-              Using routeLoader$() and &lt;Resource /&gt;
+            <Link href="#streaming-with-routeloader-and-resource">
+              Using <code>routeLoader$()</code> with{" "}
+              <code>&lt;Resource /&gt;</code>
             </Link>
           </li>
           <li>
-            <Link href="#how-to-implement-streaming-with-useResource-and-resource">
-              Using useResource$() and &lt;Resource /&gt;
+            <Link href="#streaming-with-useresource-and-resource">
+              Using <code>useResource$()</code> with{" "}
+              <code>&lt;Resource /&gt;</code>
             </Link>
           </li>
         </ul>
-
-        <p>Let's see how this works.</p>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
 
         <Quiz
           question="What is streaming?"
           options={[
             {
-              text: "A data transfer technique that allows you to gradually distribute data from the server to the client as soon as they are ready.",
+              text: "A rendering technique that lets part of the UI appear while slower data is still loading.",
               isCorrect: true,
               letter: "A",
             },
             {
-              text: "A data transfer technique that allows you to distribute all the data from the server to the client at once.",
+              text: "A rendering technique that forces the whole page to wait until all data is ready.",
               isCorrect: false,
               letter: "B",
             },
             {
-              text: "A data transfer technique that allows you to distribute all the data from the server to the client as soon as they are ready.",
+              text: "A data fetching method that always runs only in the browser.",
               isCorrect: false,
               letter: "C",
             },
             {
-              text: "A data transfer technique that allows you to gradually distribute data from the server to the client at once.",
+              text: "A way to send all data at once before any UI can be shown.",
               isCorrect: false,
               letter: "D",
             },
           ]}
-          hint="It allows you to prevent slow data requests from blocking your whole page."
-          responseText="Streaming is a data transfer technique that allows you to gradually distribute data from the server to the client as soon as they are ready. By streaming, you can prevent slow data requests from blocking your whole page."
+          hint="Think about what happens when one request is slower than the others."
+          responseText="Streaming lets part of the UI appear while slower data is still loading. Instead of blocking the whole page, it helps users see the layout earlier and improves perceived performance."
         />
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <SubtitleWithAnchor
-          title="How to implement streaming with routeLoader$() and <Resource />"
-          id="how-to-implement-streaming-with-routeLoader-and-resource"
+          title="🛣️ Streaming with routeLoader$() and <Resource />"
+          id="streaming-with-routeloader-and-resource"
         />
 
         <p>
-          For the moment, with only <code>routeLoader$()</code>, we have to wait
-          for the data to be ready before we can display the page.
+          In the previous chapter, you added a 3-second delay to{" "}
+          <code>fetchRevenue()</code> to simulate a slow request.
+        </p>
+
+        <p>
+          With a standard <code>routeLoader$()</code>, Qwik waits for the loader
+          to finish before rendering the route.
         </p>
 
         <figure class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3 pt-8">
@@ -181,173 +162,183 @@ export const StreamingContent2026 = component$(() => {
             height="510"
             loop
             muted
-            poster="/img/fetchDataInLayout.png"
+            poster="/img/2026/slow-data-fetch-2026.png"
             width="658"
           >
-            <source src="/videos/waitForDisplayPage.mp4" type="video/mp4" />
+            <source
+              src="/videos/2026/slow-data-fetch-2026.mp4"
+              type="video/mp4"
+            />
           </video>
-          <p class=" text-sm">
-            Waiting for the data to be ready before we can display the page.
+          <p class="text-sm">
+            With a standard <code>routeLoader$()</code>, the route waits for the
+            slow request before rendering.
           </p>
         </figure>
 
         <p>
-          However, there is a way to render the DOM up to the point where{" "}
-          <code>routeLoader$()</code> is used and wait for it to complete. By
-          returning an asynchronous function from our{" "}
-          <code>routeLoader$()</code> we can stream/defer the rendering to
-          provide immediate visual feedback.
+          Qwik also supports a deferred version of <code>routeLoader$()</code>.
         </p>
 
         <p>
-          To do this, we can use the <code>&lt;Resource /&gt;</code> component.{" "}
-          <br />
-          This{" "}
+          You can read more about this pattern in the official Qwik guide on{" "}
           <BlankLink
             href="https://qwik.dev/docs/cookbook/streaming-deferred-loaders/"
-            text="example from the official Qwik documentation"
-          />{" "}
-          illustrates how to use <code>&lt;Resource /&gt;</code> with
-          <code>routeLoader$()</code>.
+            text="streaming/deferred loaders"
+          />
+          .
         </p>
-
-        <p>Let's apply this concept to our application.</p>
 
         <p>
-          In our <code>src/routes/dashboard/index.tsx</code> file, we will
-          replace the current <code>routeLoader$</code> with a{" "}
-          <code>routeLoader$</code> that works with{" "}
-          <code>&lt;Resource /&gt;</code>.
+          By returning an asynchronous function from the loader, you can render
+          the DOM up to a <code>&lt;Resource /&gt;</code> boundary first, then
+          wait for the deferred value to resolve.
         </p>
 
-        <p>Replace your current file with the following code: 👇</p>
+        <p>
+          This helps illustrate an important idea: where you place a{" "}
+          <code>&lt;Resource /&gt;</code> boundary affects what can appear
+          first.
+        </p>
+
+        <p>Let&apos;s apply that pattern to the revenue chart.</p>
+
+        <p>
+          In <code>src/routes/dashboard/index.tsx</code>, keep{" "}
+          <code>useFetchLatestInvoices</code> and <code>useFetchCardData</code>{" "}
+          as they are, and turn only <code>useFetchRevenue</code> into a
+          deferred loader.
+        </p>
+
+        <p>
+          Then render <code>&lt;RevenueChart /&gt;</code> through a{" "}
+          <code>&lt;Resource /&gt;</code> boundary:
+        </p>
 
         <CodeBlock
           code={`// src/routes/dashboard/index.tsx
 
 import { Resource, component$ } from "@builder.io/qwik";
-import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
+import { routeLoader$ } from "@builder.io/qwik-city";
 import { Card } from "~/components/ui/dashboard/cards";
 import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
-import { routeLoader$ } from "@builder.io/qwik-city";
-import { fetchCardData, fetchLatestInvoices, fetchRevenue } from "~/lib/data";
+import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
+import {
+  fetchCardData,
+  fetchLatestInvoices,
+  fetchRevenue,
+} from "~/lib/loaders";
 
-export const useFetchData = routeLoader$(() => {
+export const useFetchRevenue = routeLoader$(async () => {
   return async () => {
-    const [revenue, latestInvoices, cardData] = await Promise.all([
-      fetchRevenue(),
-      fetchLatestInvoices(),
-      fetchCardData(),
-    ]);
-    return { revenue, latestInvoices, cardData };
+    console.log("Fetching revenue from the dashboard home page...");
+    return fetchRevenue();
   };
 });
 
+export const useFetchLatestInvoices = routeLoader$(async () => {
+  return fetchLatestInvoices();
+});
+
+export const useFetchCardData = routeLoader$(async () => {
+  return fetchCardData();
+});
+
 export default component$(() => {
-  const data = useFetchData();
+  const revenue = useFetchRevenue();
+  const latestInvoices = useFetchLatestInvoices();
+  const cardData = useFetchCardData();
+
+  const {
+    numberOfCustomers,
+    numberOfInvoices,
+    totalPaidInvoices,
+    totalPendingInvoices,
+  } = cardData.value;
+
   return (
     <main>
       <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
-      <Resource
-        value={data}
-        onResolved={({ revenue, latestInvoices, cardData }) => {
-          const {
-            totalPaidInvoices,
-            totalPendingInvoices,
-            numberOfInvoices,
-            numberOfCustomers,
-          } = cardData;
-          return (
-            <>
-              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                <Card
-                  title="Collected"
-                  value={totalPaidInvoices}
-                  type="collected"
-                />
-                <Card
-                  title="Pending"
-                  value={totalPendingInvoices}
-                  type="pending"
-                />
-                <Card
-                  title="Total Invoices"
-                  value={numberOfInvoices}
-                  type="invoices"
-                />
-                <Card
-                  title="Total Customers"
-                  value={numberOfCustomers}
-                  type="customers"
-                />
-              </div>
-              <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-                <RevenueChart revenue={revenue} />
-                <LatestInvoices latestInvoices={latestInvoices} />
-              </div>
-            </>
-          );
-        }}
-        onRejected={(error) => {
-          return <div>Error: {error.message}</div>;
-        }}
-        onPending={() => {
-          return <div>Loading...</div>;
-        }}
-      />
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <Card title="Collected" value={totalPaidInvoices} type="collected" />
+        <Card title="Pending" value={totalPendingInvoices} type="pending" />
+        <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
+        <Card
+          title="Total Customers"
+          value={numberOfCustomers}
+          type="customers"
+        />
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+        <Resource
+          value={revenue}
+          onResolved={(resolvedRevenue) => {
+            return <RevenueChart revenue={resolvedRevenue} />;
+          }}
+          onRejected={(error) => {
+            return <div>Error: {error.message}</div>;
+          }}
+        />
+        <LatestInvoices latestInvoices={latestInvoices.value} />
+      </div>
     </main>
   );
 });`}
           icon="typescript"
           language="tsx"
           text="src/routes/dashboard/index.tsx"
+          decorations={[
+            {
+              start: { line: 14, character: 0 },
+              end: { line: 15, character: 68 },
+              properties: { class: "newLine" },
+            },
+            {
+              start: { line: 17, character: 0 },
+              end: { line: 17, character: 4 },
+              properties: { class: "newLine" },
+            },
+            {
+              start: { line: 56, character: 0 },
+              end: { line: 64, character: 10 },
+              properties: { class: "newLine" },
+            },
+          ]}
         />
 
-        <p>Here are some key points about this code:</p>
+        <p>In this version, only the revenue request is deferred.</p>
 
         <ul>
           <li>
             <p>
-              We use <code>useFetchData</code> to fetch the data. This function
-              returns an asynchronous function that fetches the data.
+              <code>useFetchRevenue</code> still uses{" "}
+              <code>routeLoader$()</code>, but now it returns an asynchronous
+              function.
             </p>
           </li>
           <li>
             <p>
-              We use <code>&lt;Resource /&gt;</code> to render the data. The{" "}
-              <code>value</code> prop is set to <code>data</code>, which is the
-              result of calling <code>useFetchData()</code>.
+              That deferred value is passed to <code>&lt;Resource /&gt;</code>.
             </p>
           </li>
           <li>
-            <p>
-              The <code>onResolved</code> callback is called when the data is
-              successfully fetched. We destructure the data and render the
-              components.
-            </p>
+            <p>Everything before that boundary can render first.</p>
           </li>
           <li>
             <p>
-              The <code>onRejected</code> callback is called if there is an
-              error fetching the data. We render an error message.
-            </p>
-          </li>
-          <li>
-            <p>
-              The <code>onPending</code> callback is called while the data is
-              being fetched. We render a loading message.
+              In this example, that means the heading and the cards can appear
+              before the revenue chart resolves.
             </p>
           </li>
         </ul>
 
-        <p>
-          Now that we have implemented streaming with{" "}
-          <code>&lt;Resource /&gt;</code>, we can see the components that
-          precede the <code>&lt;Resource /&gt;</code> component display before
-          the data is ready. In our case, unlike before, the{" "}
-          <code>{"<SideNav />"}</code> and the <code>{"<h1>"}</code> are
-          displayed immediately before the data is even loaded.
-        </p>
+        <InfoBox2026 emoji="💡" colorVar="--qwik-light-purple">
+          With this deferred <code>routeLoader$()</code> pattern, the effect is
+          visible on a full page reload, but not during SPA navigation in our
+          setup.
+        </InfoBox2026>
 
         <figure class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3 pt-8">
           <video
@@ -356,233 +347,270 @@ export default component$(() => {
             height="510"
             loop
             muted
-            poster="/img/displayBeforeData.png"
+            poster="/img/2026/render-before-deferred-dashboard-data-2026.png"
             width="658"
           >
-            <source src="/videos/displayBeforeData.mp4" type="video/mp4" />
+            <source
+              src="/videos/2026/render-before-deferred-dashboard-data-2026.mp4"
+              type="video/mp4"
+            />
           </video>
-          <p class=" text-sm">
-            Immediately display {"<SideNav />"} and {"<h1>Dashboard</h1>"}
-            before the data is ready.
+          <p class="text-sm">
+            The UI before the <code>&lt;Resource /&gt;</code> boundary can
+            render before the revenue data is ready.
           </p>
         </figure>
 
         <p>
-          This is a great improvement in user experience as the user can see the
-          page layout before the data is ready.
+          This first approach is useful for understanding deferred loaders and
+          resource boundaries.
         </p>
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
+        <p>
+          In the next section, you&apos;ll switch to <code>useResource$()</code>{" "}
+          to build clearer loading states.
+        </p>
 
         <Quiz
-          question="Which Qwik component is used to handle streaming and manage loading states?"
+          question="What does the deferred routeLoader$() change in this dashboard example?"
           options={[
             {
-              text: "<Resource />",
-              isCorrect: true,
+              text: "It makes the revenue chart render before the cards",
+              isCorrect: false,
               letter: "A",
             },
             {
-              text: "<Suspense />",
-              isCorrect: false,
+              text: "It allows the UI before the <Resource /> boundary to render first, especially on a full page reload",
+              isCorrect: true,
               letter: "B",
             },
             {
-              text: "<Loader />",
+              text: "It makes onPending render during SSR",
               isCorrect: false,
               letter: "C",
             },
             {
-              text: "<Streaming />",
+              text: "It turns routeLoader$() into a browser-only API",
               isCorrect: false,
               letter: "D",
             },
           ]}
-          hint="It's a special Qwik component designed to manage data loading."
-          responseText="The correct answer is '<Resource />'. This component is used to handle streaming and manage loading states in Qwik."
+          hint="Think about what appears before the deferred revenue data is resolved."
+          responseText="Exactly. In this example, the deferred loader lets Qwik render the UI up to the <Resource /> boundary first, which is most noticeable on a full page reload."
         />
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
-        <p>
-          The most observant will have noticed that the <code>onPending</code>,
-          which should display a loading message, does not work. This is because
-          the <code>onPending</code> callback is not yet supported with{" "}
-          <code>&lt;Resource /&gt;</code> and <code>routeLoader$</code>.
-        </p>
-
-        <blockquote class="p-3 pt-5 text-sm">
-          <p>
-            <strong>Note:</strong> By browsing the{" "}
-            <BlankLink
-              href="https://discord.gg/fFPsFqmz/"
-              text="official Qwik Discord"
-            />{" "}
-            and various forums, if I understand correctly, the use of{" "}
-            <code>onPending</code> and <code>onError</code> with{" "}
-            <code>&lt;Resource /&gt;</code> and <code>routeLoader$</code> is not
-            yet supported. It should be implemented in a future version of Qwik
-            (V2.0).
-          </p>
-        </blockquote>
-
-        <p>
-          Fortunately, there is another way to implement streaming in Qwik using{" "}
-          <code>useResource$()</code>. <br />
-          With <code>useResource$()</code>, we can handle loading, error, and
-          content display more flexibly. <br />
-          This is what we will see in the next section.👇
-        </p>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
 
         <SubtitleWithAnchor
-          title="How to implement streaming with useResource$() and <Resource />"
-          id="how-to-implement-streaming-with-useResource-and-resource"
+          title="📦 Streaming with useResource$() and <Resource />"
+          id="streaming-with-useresource-and-resource"
         />
 
         <p>
-          In this section, we will see how to implement streaming with{" "}
+          In this section, you&apos;ll switch to{" "}
           <BlankLink
-            href="https://qwik.dev/docs/components/state/#useresource"
+            href="https://qwik.dev/docs/core/state/"
             text="useResource$()"
           />{" "}
           and <code>&lt;Resource /&gt;</code>.
         </p>
 
         <p>
-          We will use the same example as before, but this time we will use{" "}
-          <code>useResource$()</code> instead of <code>routeLoader$()</code>.
-        </p>
-
-        <p>
           Unlike <code>routeLoader$()</code>, <code>useResource$()</code> must
-          be declared in a component.
+          be declared inside a component.
         </p>
 
         <p>
-          In our <code>src/routes/dashboard/index.tsx</code> file, replace your
-          current file with the following code: 👇
+          The Qwik docs describe <code>useResource$()</code> as a lower-level
+          API. It can return a value, and it does not block rendering while the
+          resource is being resolved.
+        </p>
+
+        <p>
+          Let&apos;s use the same dashboard example again, but keep the same
+          mental model from the previous chapter: one request for revenue, one
+          request for latest invoices, and one request for the card data.
+        </p>
+
+        <p>
+          Replace the three <code>routeLoader$()</code> functions with three{" "}
+          <code>useResource$()</code> resources in{" "}
+          <code>src/routes/dashboard/index.tsx</code>:
         </p>
 
         <CodeBlock
           code={`// src/routes/dashboard/index.tsx
 
 import { Resource, component$, useResource$ } from "@builder.io/qwik";
-import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
 import { Card } from "~/components/ui/dashboard/cards";
 import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
-import { fetchCardData, fetchLatestInvoices, fetchRevenue } from "~/lib/data";
+import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
+import {
+  fetchCardData,
+  fetchLatestInvoices,
+  fetchRevenue,
+} from "~/lib/loaders";
 
 export default component$(() => {
-
-  const dataResource = useResource$(async ({ cleanup }) => {
-    // A good practice is to use \`AbortController\` to abort the fetching of data if
-    // new request comes in. We create a new \`AbortController\` and register a \`cleanup\`
+  const cardDataResource = useResource$(async ({ cleanup }) => {
+    // A good practice is to use 'AbortController' to abort the fetching of data if
+    // new request comes in. We create a new 'AbortController' and register a 'cleanup'
     // function which is called when this function re-runs.
     const controller = new AbortController();
     cleanup(() => controller.abort());
 
-    const [revenue, latestInvoices, cardData] = await Promise.all([
-      fetchRevenue(),
-      fetchLatestInvoices(),
-      fetchCardData(),
-    ]);
-    return { revenue, latestInvoices, cardData };
+    return fetchCardData();
+  });
+
+  const revenueResource = useResource$(async ({ cleanup }) => {
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    return fetchRevenue();
+  });
+
+  const latestInvoicesResource = useResource$(async ({ cleanup }) => {
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    return fetchLatestInvoices();
   });
 
   return (
     <main>
       <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
+
       <Resource
-        value={dataResource}
-        onResolved={({ revenue, latestInvoices, cardData }) => {
-          const {
-            totalPaidInvoices,
-            totalPendingInvoices,
-            numberOfInvoices,
-            numberOfCustomers,
-          } = cardData;
-          return (
-            <>
-              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                <Card
-                  title="Collected"
-                  value={totalPaidInvoices}
-                  type="collected"
-                />
-                <Card
-                  title="Pending"
-                  value={totalPendingInvoices}
-                  type="pending"
-                />
-                <Card
-                  title="Total Invoices"
-                  value={numberOfInvoices}
-                  type="invoices"
-                />
-                <Card
-                  title="Total Customers"
-                  value={numberOfCustomers}
-                  type="customers"
-                />
-              </div>
-              <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-                <RevenueChart revenue={revenue} />
-                <LatestInvoices latestInvoices={latestInvoices} />
-              </div>
-            </>
-          );
+        value={cardDataResource}
+        onPending={() => {
+          return <div>Loading cards...</div>;
         }}
         onRejected={(error) => {
           return <div>Error: {error.message}</div>;
         }}
-        onPending={() => {
-          return <div>Loading...</div>;
+        onResolved={(cardData) => {
+          const {
+            numberOfCustomers,
+            numberOfInvoices,
+            totalPaidInvoices,
+            totalPendingInvoices,
+          } = cardData;
+
+          return (
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <Card
+                title="Collected"
+                value={totalPaidInvoices}
+                type="collected"
+              />
+              <Card
+                title="Pending"
+                value={totalPendingInvoices}
+                type="pending"
+              />
+              <Card
+                title="Total Invoices"
+                value={numberOfInvoices}
+                type="invoices"
+              />
+              <Card
+                title="Total Customers"
+                value={numberOfCustomers}
+                type="customers"
+              />
+            </div>
+          );
         }}
       />
+
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+        <Resource
+          value={revenueResource}
+          onPending={() => {
+            return <div>Loading Revenue</div>;
+          }}
+          onRejected={(error) => {
+            return <div>Error: {error.message}</div>;
+          }}
+          onResolved={(revenue) => {
+            return <RevenueChart revenue={revenue} />;
+          }}
+        />
+
+        <Resource
+          value={latestInvoicesResource}
+          onPending={() => {
+            return <div>Loading invoices...</div>;
+          }}
+          onRejected={(error) => {
+            return <div>Error: {error.message}</div>;
+          }}
+          onResolved={(latestInvoices) => {
+            return <LatestInvoices latestInvoices={latestInvoices} />;
+          }}
+        />
+      </div>
     </main>
   );
-});`}
+});
+`}
           icon="typescript"
           language="tsx"
           text="src/routes/dashboard/index.tsx"
         />
 
         <p>
-          Unlike <code>routeLoader$()</code>, <code>onPending</code> and{" "}
-          <code>onRejected</code> are supported with <code>useResource$()</code>{" "}
-          and <code>&lt;Resource /&gt;</code>.<br />
-          <strong>Note: </strong>Works only in SPA navigation (with the{" "}
-          <code>{`<Link />`}</code> component).👇
+          This time, the dashboard has three separate resources and three
+          separate <code>&lt;Resource /&gt;</code> boundaries:
         </p>
+
+        <ul>
+          <li>
+            <p>
+              <code>cardDataResource</code> renders the four summary cards.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>revenueResource</code> renders the revenue chart.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>latestInvoicesResource</code> renders the latest invoices
+              panel.
+            </p>
+          </li>
+        </ul>
+
+        <p>
+          Each <code>&lt;Resource /&gt;</code> can render three UI states:
+        </p>
+
+        <ul>
+          <li>
+            <p>
+              <code>onPending</code> while the data is loading.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>onRejected</code> if something fails.
+            </p>
+          </li>
+          <li>
+            <p>
+              <code>onResolved</code> when the data is ready.
+            </p>
+          </li>
+        </ul>
+
+        <InfoBox2026 emoji="💡" colorVar="--qwik-light-purple">
+          The behavior is different depending on how the user reaches the page.
+          During SPA navigation, the cards and latest invoices appear
+          immediately, while the revenue chart shows{" "}
+          <code>Loading Revenue</code> during the 3-second delay. On a full page
+          reload, Qwik renders the cards first, then the revenue chart and
+          latest invoices appear after the delayed revenue request resolves.
+        </InfoBox2026>
 
         <figure class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3 pt-8">
           <video
@@ -591,130 +619,98 @@ export default component$(() => {
             height="510"
             loop
             muted
-            poster="/img/displayOnPendingWithUseResourcePoster.png"
+            poster="/img/2026/displayOnPendingWithUseResource2026Poster.png"
             width="658"
           >
             <source
-              src="/videos/displayOnPendingWithUseResource.mp4"
+              src="/videos/2026/displayOnPendingWithUseResource2026.mp4"
               type="video/mp4"
             />
           </video>
-          <p class=" text-sm">
-            Display the onPending callback (Loading...) in SPA navigation mode
-            when the data is being fetched.
+          <p class="text-sm">
+            During SPA navigation, the cards and latest invoices appear
+            instantly. The revenue chart shows <code>Loading Revenue</code> for
+            3 seconds, then renders when the revenue data is ready.
           </p>
         </figure>
 
-        <blockquote class="p-3 pt-5 text-sm">
-          <p>
-            <strong>Note:</strong> As specified in the{" "}
-            <BlankLink
-              href="https://qwik.dev/docs/components/state/#useresource/"
-              text="documentation officielle de Qwik"
-            />{" "}
-            : "Fetching data as part of Server-Side Rendering (SSR) is a common
-            and preferred method of data loading, typically handled by the{" "}
-            <BlankLink
-              href="https://qwik.dev/docs/route-loader/"
-              text="routeLoader$()"
-            />
-            API. <code>useResource$</code> is more of a low-level API that is
-            useful when you want to fetch data in the browser."
-          </p>
-        </blockquote>
-
         <p>
-          Again, all this will depend on your needs and your context of use.🤔
+          If you reload the page directly, the behavior is a little different.
+          The cards render first, then after the 3-second revenue delay, the
+          revenue chart and latest invoices render together.
         </p>
 
         <p>
-          Congratulations! You've just implemented streaming. But we can do more
-          to improve the user experience. Let's show a loading skeleton instead
-          of the <code>Loading…</code> text.
+          That looks closer to the deferred <code>routeLoader$()</code> example:
+          the page can render up to a resource boundary first, then continue
+          when the delayed resource has resolved.
         </p>
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
+        <p>
+          Now that the loading states are visible, let&apos;s improve the
+          experience by replacing the plain loading text with skeletons.
+        </p>
 
         <Quiz
           question="What is the purpose of the onPending callback?"
           options={[
             {
-              text: "To display a loading message while the data is being fetched.",
+              text: "To display a loading state while the data is being fetched.",
               isCorrect: true,
               letter: "A",
             },
             {
-              text: "To display an error message if there is an error fetching the data.",
+              text: "To display an error message when the fetch fails.",
               isCorrect: false,
               letter: "B",
             },
             {
-              text: "To render the components when the data is successfully fetched.",
+              text: "To render the final UI after the data is ready.",
               isCorrect: false,
               letter: "C",
             },
             {
-              text: "To render the components before the data is ready.",
+              text: "To define where the routeLoader$() runs.",
               isCorrect: false,
               letter: "D",
             },
           ]}
-          hint="It is called while the data is being fetched."
-          responseText="The onPending callback is called while the data is being fetched."
+          hint="It runs before the resource resolves."
+          responseText="Exactly. The onPending callback is used to render a loading state while the resource is still being fetched."
         />
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <SubtitleWithAnchor
-          title="Adding loading skeletons 💀"
+          title="🦴 Adding loading skeletons"
           id="adding-loading-skeletons"
         />
 
         <p>
-          A loading skeleton is a simplified version of the UI. Many websites
-          use them as a placeholder (or fallback) to indicate to users that the
-          content is loading.
+          The plain <code>Loading...</code> text works, but it does not give the
+          user a clear sense of what is coming next. A skeleton is a lightweight
+          placeholder shaped like the final UI.
         </p>
 
         <p>
-          ⚠️ <strong>Download</strong> <code>{`skeletons.tsx`}</code> file and
-          place it in the <code>`src/components/ui/`</code> folder:
+          Download the skeleton components and place the file in{" "}
+          <code>src/components/ui/skeletons.tsx</code>:
         </p>
 
         <ul>
           <li>
             <a href="/downloads/skeletons.tsx" download="skeletons.tsx">
-              <code>skeletons.tsx 💾</code>
+              <code>skeletons.tsx</code>
             </a>
           </li>
         </ul>
 
         <p>
-          In our <code>src/global.css</code> file, add the animation for the
-          loading skeleton:
+          The skeleton file uses a shimmer animation. Add the animation to{" "}
+          <code>src/global.css</code>:
         </p>
 
         <CodeBlock
           code={`/* src/global.css */
-// ...
+
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
@@ -742,189 +738,112 @@ export default component$(() => {
         />
 
         <p>
-          In our <code>src/routes/dashboard/index.tsx</code> file, we will
-          replace the <code>Loading…</code> text with a loading skeleton.
+          Now replace the loading text with the matching skeleton for each
+          resource:
         </p>
 
         <CodeBlock
           code={`// src/routes/dashboard/index.tsx
 
 import { Resource, component$, useResource$ } from "@builder.io/qwik";
-import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
 import { Card } from "~/components/ui/dashboard/cards";
 import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
-import { fetchCardData, fetchLatestInvoices, fetchRevenue } from "~/lib/data";
-import { DashboardSkeleton } from "~/components/ui/skeletons";
+import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
+import {
+  CardsSkeleton,
+  LatestInvoicesSkeleton,
+  RevenueChartSkeleton,
+} from "~/components/ui/skeletons";
+import {
+  fetchCardData,
+  fetchLatestInvoices,
+  fetchRevenue,
+} from "~/lib/loaders";
 
 export default component$(() => {
-  const dataResource = useResource$(async ({ cleanup }) => {
-    // ...
+  const cardDataResource = useResource$(async ({ cleanup }) => {
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    return fetchCardData();
+  });
+
+  const revenueResource = useResource$(async ({ cleanup }) => {
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    return fetchRevenue();
+  });
+
+  const latestInvoicesResource = useResource$(async ({ cleanup }) => {
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    return fetchLatestInvoices();
   });
 
   return (
     <main>
       <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
+
       <Resource
-        // ...
+        value={cardDataResource}
         onPending={() => {
-          return <DashboardSkeleton />;
-        }}
-      />
-    </main>
-  );
-});`}
-          icon="typescript"
-          language="tsx"
-          text="src/routes/dashboard/index.tsx"
-          decorations={[
-            {
-              start: { line: 7, character: 0 },
-              end: { line: 7, character: 62 },
-              properties: { class: "newLine" },
-            },
-            {
-              start: { line: 20, character: 0 },
-              end: { line: 20, character: 39 },
-              properties: { class: "newLine" },
-            },
-          ]}
-        />
-
-        <p>
-          Now, when the data is being fetched, the loading skeleton ☠️ will be
-          displayed instead of the <code>Loading…</code> text.👇
-        </p>
-
-        <figure class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3 pt-8">
-          <video
-            autoplay
-            controls
-            height="510"
-            loop
-            muted
-            poster="/img/displayDashboardSkeletonLoadingPoster.png"
-            width="658"
-          >
-            <source
-              src="/videos/displayDashboardSkeletonLoading.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <p class=" text-sm">
-            Display the loading skeleton when the data is being fetched.
-          </p>
-        </figure>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
-        <SubtitleWithAnchor
-          title="Streaming a component"
-          id="streaming-a-component"
-          level="h3"
-        />
-
-        <p>
-          So far, you're streaming a whole page. But you can also be more
-          granular and stream specific components using{" "}
-          <code>{"<Resources />"}</code>.
-        </p>
-
-        <p>
-          If you remember the slow data request, <code>fetchRevenue()</code>,
-          this is the request that is slowing down the whole page. Instead of
-          blocking your whole page, you can use <code>{"<Resources />"}</code>{" "}
-          to stream only this component and immediately show the rest of the
-          page's UI.
-        </p>
-
-        <p>
-          To do so, you'll need to move the data fetch to the component, let's
-          update the code to see what that'll look like:
-        </p>
-
-        <p>
-          Delete all instances of <code>fetchRevenue()</code> and its data from{" "}
-          <code>src/routes/dashboard/index.tsx</code>: 👇
-        </p>
-
-        <CodeBlock
-          code={`// src/routes/dashboard/index.tsx
-
-import { Resource, component$, useResource$ } from "@builder.io/qwik";
-import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
-import { Card } from "~/components/ui/dashboard/cards";
-import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
-import { fetchCardData, fetchLatestInvoices } from "~/lib/data";
-import { DashboardSkeleton } from "~/components/ui/skeletons";
-
-export default component$(() => {
-  const dataResource = useResource$(async ({ cleanup }) => {
-    const [latestInvoices, cardData] = await Promise.all([
-      fetchLatestInvoices(),
-      fetchCardData(),
-    ]);
-    return { latestInvoices, cardData };
-  });
-
-  return (
-    <main>
-      <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
-      <Resource
-        value={dataResource}
-        onResolved={({ latestInvoices, cardData }) => {
-          const {
-            totalPaidInvoices,
-            totalPendingInvoices,
-            numberOfInvoices,
-            numberOfCustomers,
-          } = cardData;
           return (
-            <>
-              <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                <Card
-                  title="Collected"
-                  value={totalPaidInvoices}
-                  type="collected"
-                />
-                <Card
-                  title="Pending"
-                  value={totalPendingInvoices}
-                  type="pending"
-                />
-                <Card
-                  title="Total Invoices"
-                  value={numberOfInvoices}
-                  type="invoices"
-                />
-                <Card
-                  title="Total Customers"
-                  value={numberOfCustomers}
-                  type="customers"
-                />
-              </div>
-              <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-                <RevenueChart />
-                <LatestInvoices latestInvoices={latestInvoices} />
-              </div>
-            </>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <CardsSkeleton />
+            </div>
           );
         }}
         onRejected={(error) => {
           return <div>Error: {error.message}</div>;
         }}
-        onPending={() => {
-          return <DashboardSkeleton />;
+        onResolved={(cardData) => {
+          const {
+            numberOfCustomers,
+            numberOfInvoices,
+            totalPaidInvoices,
+            totalPendingInvoices,
+          } = cardData;
+
+          return (
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <Card title="Collected" value={totalPaidInvoices} type="collected" />
+              <Card title="Pending" value={totalPendingInvoices} type="pending" />
+              <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
+              <Card title="Total Customers" value={numberOfCustomers} type="customers" />
+            </div>
+          );
         }}
       />
+
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+        <Resource
+          value={revenueResource}
+          onPending={() => {
+            return <RevenueChartSkeleton />;
+          }}
+          onRejected={(error) => {
+            return <div>Error: {error.message}</div>;
+          }}
+          onResolved={(revenue) => {
+            return <RevenueChart revenue={revenue} />;
+          }}
+        />
+
+        <Resource
+          value={latestInvoicesResource}
+          onPending={() => {
+            return <LatestInvoicesSkeleton />;
+          }}
+          onRejected={(error) => {
+            return <div>Error: {error.message}</div>;
+          }}
+          onResolved={(latestInvoices) => {
+            return <LatestInvoices latestInvoices={latestInvoices} />;
+          }}
+        />
+      </div>
     </main>
   );
 });`}
@@ -934,212 +853,174 @@ export default component$(() => {
         />
 
         <p>
-          Now, we will reuse <code>{"useResource$()"}</code> and{" "}
-          <code>{"<Resource />"}</code> inside our{" "}
-          <code>{"<RevenueChart />"}</code> component.
+          This is better because each loading state now reserves space for the
+          part of the dashboard it belongs to. The page feels less jumpy while
+          the data is loading, and one slow request does not force every section
+          to use the same placeholder.
+        </p>
+
+        <InfoBox2026 emoji="🧠" colorVar="--qwik-light-blue">
+          Skeletons should look like the final layout, not like a separate
+          loading screen. The closer the placeholder is to the real UI, the less
+          visual surprise users feel when the data arrives.
+        </InfoBox2026>
+
+        <SubtitleWithAnchor
+          title="🎯 Deciding where to place your <Resource /> boundaries"
+          id="deciding-where-to-place-your-resource-boundaries"
+        />
+
+        <p>
+          You now have one <code>&lt;Resource /&gt;</code> boundary per request.
+          That matches the three separate data needs from the previous chapter,
+          and it gives each part of the page its own loading, error, and
+          resolved UI.
         </p>
 
         <p>
-          We use <code>{"<RevenueChartSkeleton />"}</code> to display a loading
-          revenue chart skeleton while the data is being fetched.
+          Here is the complete dashboard route with the three resources and the
+          three skeleton boundaries:
         </p>
 
         <CodeBlock
-          code={`// src/components/ui/dashboard/revenue-chart.tsx
+          code={`// src/routes/dashboard/index.tsx
 
-import { generateYAxis } from "~/lib/utils";
-import { HiCalendarOutline } from "@qwikest/icons/heroicons";
 import { Resource, component$, useResource$ } from "@builder.io/qwik";
-import { fetchRevenue } from "~/lib/data";
-import { RevenueChartSkeleton } from "~/components/ui/skeletons";
+import { Card } from "~/components/ui/dashboard/cards";
+import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
+import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
+import {
+  CardsSkeleton,
+  LatestInvoicesSkeleton,
+  RevenueChartSkeleton,
+} from "~/components/ui/skeletons";
+import {
+  fetchCardData,
+  fetchLatestInvoices,
+  fetchRevenue,
+} from "~/lib/loaders";
 
-export const RevenueChart = component$(() => {
+export default component$(() => {
+  const cardDataResource = useResource$(async ({ cleanup }) => {
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    return fetchCardData();
+  });
+
   const revenueResource = useResource$(async ({ cleanup }) => {
     const controller = new AbortController();
     cleanup(() => controller.abort());
 
-    const revenue = await fetchRevenue();
-    return { revenue };
+    return fetchRevenue();
+  });
+
+  const latestInvoicesResource = useResource$(async ({ cleanup }) => {
+    const controller = new AbortController();
+    cleanup(() => controller.abort());
+
+    return fetchLatestInvoices();
   });
 
   return (
-    <Resource
-      value={revenueResource}
-      onResolved={({ revenue }) => {
-        const chartHeight = 350;
-        const { yAxisLabels, topLabel } = generateYAxis(revenue);
+    <main>
+      <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
 
-        if (revenue.length === 0) {
-          return <p class="mt-4 text-gray-400">No data available.</p>;
-        }
-        return (
-          <div class="w-full md:col-span-4">
-            <h2 class="lusitana mb-4 text-xl md:text-2xl">Recent Revenue</h2>
-
-            <div class="rounded-xl bg-gray-50 p-4">
-              <div class=" mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 sm:grid-cols-13 md:gap-4">
-                <div
-                  class="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
-                  style={{ height: \`\${chartHeight}px\` }}
-                >
-                  {yAxisLabels.map((label) => (
-                    <p key={label}>{label}</p>
-                  ))}
-                </div>
-
-                {revenue.map((month) => (
-                  <div
-                    key={month.month}
-                    class="flex flex-col items-center gap-2"
-                  >
-                    <div
-                      class="w-full rounded-md bg-blue-300"
-                      style={{
-                        height: \`\${(chartHeight / topLabel) * month.revenue}px\`,
-                      }}
-                    ></div>
-                    <p class="-rotate-90 text-sm text-gray-400 sm:rotate-0">
-                      {month.month}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <div class="flex items-center pb-2 pt-6">
-                <HiCalendarOutline class="h-5 w-5 text-gray-500" />
-                <h3 class="ml-2 text-sm text-gray-500 ">Last 12 months</h3>
-              </div>
+      <Resource
+        value={cardDataResource}
+        onPending={() => {
+          return (
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <CardsSkeleton />
             </div>
-          </div>
-        );
-      }}
-      onRejected={(error) => {
-        return <div>Error: {error.message}</div>;
-      }}
-      onPending={() => {
-        return <RevenueChartSkeleton />;
-      }}
-    />
+          );
+        }}
+        onRejected={(error) => {
+          return <div>Error: {error.message}</div>;
+        }}
+        onResolved={(cardData) => {
+          const {
+            numberOfCustomers,
+            numberOfInvoices,
+            totalPaidInvoices,
+            totalPendingInvoices,
+          } = cardData;
+
+          return (
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <Card title="Collected" value={totalPaidInvoices} type="collected" />
+              <Card title="Pending" value={totalPendingInvoices} type="pending" />
+              <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
+              <Card title="Total Customers" value={numberOfCustomers} type="customers" />
+            </div>
+          );
+        }}
+      />
+
+      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
+        <Resource
+          value={revenueResource}
+          onPending={() => {
+            return <RevenueChartSkeleton />;
+          }}
+          onRejected={(error) => {
+            return <div>Error: {error.message}</div>;
+          }}
+          onResolved={(revenue) => {
+            return <RevenueChart revenue={revenue} />;
+          }}
+        />
+
+        <Resource
+          value={latestInvoicesResource}
+          onPending={() => {
+            return <LatestInvoicesSkeleton />;
+          }}
+          onRejected={(error) => {
+            return <div>Error: {error.message}</div>;
+          }}
+          onResolved={(latestInvoices) => {
+            return <LatestInvoices latestInvoices={latestInvoices} />;
+          }}
+        />
+      </div>
+    </main>
   );
 });`}
           icon="typescript"
           language="tsx"
-          text="src/components/ui/dashboard/revenue-chart.tsx"
+          text="src/routes/dashboard/index.tsx"
         />
 
         <p>
-          Now, the <code>{"<RevenueChart />"}</code> component fetches its own
-          data and display it dynamically according to the loading state
-          independently. 🚀
+          The important detail is that the slow <code>fetchRevenue()</code>{" "}
+          request is no longer coupled to <code>fetchCardData()</code> or{" "}
+          <code>fetchLatestInvoices()</code>. Each request has its own boundary,
+          so each section can show the right placeholder and resolve on its own
+          schedule.
         </p>
-
-        <p>Show result in the browser and see the difference: 👇</p>
-
-        <figure class="flex flex-col items-center justify-center rounded-md border border-gray-200 bg-gray-100 p-3 pt-8">
-          <video
-            autoplay
-            controls
-            height="510"
-            loop
-            muted
-            poster="/img/displayRevenueChartIndependently.png"
-            width="658"
-          >
-            <source
-              src="/videos/displayRevenueChartIndependently.mp4"
-              type="video/mp4"
-            />
-          </video>
-          <p class=" text-sm">
-            The <code>{"<RevenueChart />"}</code> component fetches its own data
-            independently and displays it dynamically according to the loading
-            state.
-          </p>
-        </figure>
-
-        <p>
-          Now, you can remove the intentionnal delay in the{" "}
-          <code>fetchRevenue()</code> function in the{" "}
-          <code>src/lib/data.ts</code> file.👇
-        </p>
-
-        <CodeBlock
-          code={`// src/lib/data.ts
-
-// ... other code
-
-export const fetchRevenue = server$(async function () {
-  const pool = await getPool();
-  try {
-    // We artificially delay a response for demo purposes.
-    // Don't do this in production :)
-    console.log('Fetching revenue data...');
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    
-    const { rows } = await pool.query<Revenue>('SELECT * FROM revenue');
-
-    console.log('Data fetch completed after 3 seconds.');
-
-    return rows;
-  } catch (error) {
-    console.error('Database Error:', error);
-    throw new Error('Failed to fetch revenue data: ' + (error as Error).message);
-  } finally {
-    await pool.end(); // Ensure the connection is always closed
-  }
-});
-
-// ... other code`}
-          icon="typescript"
-          language="tsx"
-          text="src/lib/data.ts"
-          hideLineNumbers
-          decorations={[
-            {
-              start: { line: 7, character: 0 },
-              end: { line: 10, character: 62 },
-              properties: { class: "deleteLine" },
-            },
-            {
-              start: { line: 14, character: 0 },
-              end: { line: 14, character: 57 },
-              properties: { class: "deleteLine" },
-            },
-          ]}
-        />
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
 
         <SubtitleWithAnchor
-          title="Practice: Streaming <LatestInvoices>"
-          id="practice-streaming-latest-invoices"
+          title="Practice: Review the three boundaries"
+          id="practice-review-the-three-boundaries"
           level="h3"
         />
 
         <p>
-          Now it's your turn! Practice what you've just learned by streaming the{" "}
-          <code>&lt;LatestInvoices&gt;</code> component.
+          Your turn: compare the final dashboard route with the three{" "}
+          <code>routeLoader$()</code> functions from the previous chapter.
         </p>
 
         <p>
-          Move the data fetching and display logic from the{" "}
-          <code>src/routes/dashboard/index.tsx</code> file to the{" "}
-          <code>src/components/ui/dashboard/latest-invoices.tsx</code> file.
+          The structure should feel familiar: three independent data requests,
+          but now each request is handled with <code>useResource$()</code>,{" "}
+          <code>&lt;Resource /&gt;</code>, and a skeleton that matches the UI it
+          renders.
         </p>
 
-        <p>Once you're ready, expand the toggle to see the solution code:</p>
-
-        <div class="bg-vercel-200 -mx-5 mb-8 p-[21px] md:-mx-[62px] md:rounded-[16px] md:p-4 md:px-[62px] md:py-12">
+        <div class="bg-vercel-200 mb-8 p-[21px] md:rounded-[16px] md:px-[62px] md:py-12">
           <button
-            class="button_base reset_reset button_button  geist-new-themed geist-new-button geist-new-button-fill button_invert"
+            class="button_base reset_reset button_button geist-new-themed geist-new-button geist-new-button-fill button_invert"
             data-geist-button=""
             data-prefix="true"
             data-suffix="false"
@@ -1161,376 +1042,85 @@ export const fetchRevenue = server$(async function () {
           {latestInvoicesSoluce.value && <LatestInvoicesSoluce />}
         </div>
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
+        <SubtitleWithAnchor title="Summary" id="summary" />
 
-        <SubtitleWithAnchor
-          title="Grouping components"
-          id="grouping-components"
-        />
-
-        <p>
-          Great job! You're almost there, it's time to group the{" "}
-          <code>{"<Card />"}</code> components. You can fetch data for each
-          individual card, but this could lead to a popping effect as the cards
-          load in, this can be visually jarring for the user.
-        </p>
-
-        <p>So, how would you tackle this problem?</p>
-
-        <p>
-          To create more of a <em>staggered</em> effect, you can group the cards
-          using a wrapper component. This means the static{" "}
-          <code>&lt;SideNav/&gt;</code> will be shown first, followed by the
-          cards, etc.
-        </p>
-
-        <p>
-          In your <code>src/routes/dashboard/index.tsx</code> file:
-        </p>
-
-        <ol class="list-decimal">
-          <li>
-            Delete <code>{"useResource$()"}</code> function.
-          </li>
-          <li>
-            Delete <code>{"<Resource />"}</code> component.
-          </li>
-          <li>
-            Import a new <strong>wrapper</strong> component called{" "}
-            <code>&lt;CardWrapper /&gt;</code>.
-          </li>
-          <li>
-            Replace the <code>&lt;Card /&gt;</code> components with{" "}
-            <code>&lt;CardWrapper /&gt;</code>.
-          </li>
-        </ol>
-
-        <p>
-          Your <code>src/routes/dashboard/index.tsx</code> file should look like
-          this: 👇
-        </p>
-
-        <CodeBlock
-          code={`// src/routes/dashboard/index.tsx
-
-import { component$ } from "@builder.io/qwik";
-import { RevenueChart } from "~/components/ui/dashboard/revenue-chart";
-import { LatestInvoices } from "~/components/ui/dashboard/latest-invoices";
-import { CardsWrapper } from "~/components/ui/dashboard/cards";
-
-export default component$(() => {
-  return (
-    <main>
-      <h1 class="lusitana mb-4 text-xl md:text-2xl">Dashboard</h1>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <CardsWrapper />
-      </div>
-      <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-        <RevenueChart />
-        <LatestInvoices />
-      </div>
-    </main>
-  );
-});`}
-          icon="typescript"
-          language="tsx"
-          text="src/routes/dashboard/index.tsx"
-        />
-
-        <p>
-          In your <code>src/components/ui/dashboard/cards.tsx</code> file:
-        </p>
-
-        <ol class="list-decimal">
-          <li>
-            Import <code>{"<Resource />"}</code>,{" "}
-            <code>{"useResource$()"}</code> and <code>{"fetchCardData()"}</code>
-            .
-          </li>
-          <li>
-            Import <code>{"CardsSkeleton"}</code> component.
-          </li>
-
-          <li>
-            Create a <code>{"CardsWrapper"}</code> component.
-          </li>
-
-          <li>
-            In the <code>{"CardsWrapper"}</code> component, fetch the card data
-            using <code>{"useResource$()"}</code>.
-          </li>
-          <li>
-            Use <code>{"<Resource />"}</code> to display the card data.
-          </li>
-        </ol>
-
-        <p>
-          Your <code>src/components/ui/dashboard/cards.tsx</code> file should
-          look like this: 👇
-        </p>
-
-        <CodeBlock
-          code={`import { Resource, component$, useResource$ } from "@builder.io/qwik";
-import {
-  HiBanknotesOutline,
-  HiClockOutline,
-  HiUserGroupOutline,
-  HiInboxOutline,
-} from "@qwikest/icons/heroicons";
-import { fetchCardData } from "~/lib/data";
-import { CardsSkeleton } from "~/components/ui/skeletons";
-
-const iconMap = {
-  collected: HiBanknotesOutline,
-  customers: HiUserGroupOutline,
-  pending: HiClockOutline,
-  invoices: HiInboxOutline,
-};
-
-export const Card = component$(
-  ({
-    title,
-    value,
-    type,
-  }: {
-    title: string;
-    value: number | string;
-    type: "invoices" | "customers" | "pending" | "collected";
-  }) => {
-    const Icon = iconMap[type];
-
-    return (
-      <div class="rounded-xl bg-gray-50 p-2 shadow-sm">
-        <div class="flex p-4">
-          <Icon class="h-5 w-5 text-gray-700" />
-          <h3 class="ml-2 text-sm font-medium">{title}</h3>
-        </div>
-        <p
-          class="lusitana
-          truncate rounded-xl bg-white px-4 py-8 text-center text-2xl"
-        >
-          {value}
-        </p>
-      </div>
-    );
-  },
-);
-
-export const CardsWrapper = component$(() => {
-  const cardDataResource = useResource$(async ({ cleanup }) => {
-    const controller = new AbortController();
-    cleanup(() => controller.abort());
-
-    const cardData = await fetchCardData();
-    return { cardData };
-  });
-  return (
-    <Resource
-      value={cardDataResource}
-      onResolved={({ cardData }) => {
-        const {
-          totalPaidInvoices,
-          totalPendingInvoices,
-          numberOfInvoices,
-          numberOfCustomers,
-        } = cardData;
-        return (
-          <>
-            <Card
-              title="Collected"
-              value={totalPaidInvoices}
-              type="collected"
-            />
-            <Card title="Pending" value={totalPendingInvoices} type="pending" />
-            <Card
-              title="Total Invoices"
-              value={numberOfInvoices}
-              type="invoices"
-            />
-            <Card
-              title="Total Customers"
-              value={numberOfCustomers}
-              type="customers"
-            />
-          </>
-        );
-      }}
-      onRejected={(error) => {
-        return <div>Error: {error.message}</div>;
-      }}
-      onPending={() => {
-        return <CardsSkeleton />;
-      }}
-    />
-  );
-});`}
-          icon="typescript"
-          language="tsx"
-          text="src/components/ui/dashboard/cards.tsx"
-        />
-
-        <p>
-          You should see all the cards load in at the same time. You can use
-          this pattern when you want multiple components to load in at the same
-          time.
-        </p>
-
-        <p>
-          Great! We now have 3 components that load their data and display it
-          according to their loading state completely independently. 🚀
-        </p>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
-        <SubtitleWithAnchor
-          title="Deciding where to place your <Resource /> boundaries"
-          id="deciding-where-to-place-your-resource-boundaries"
-        />
-
-        <p>
-          Where your place your <code>{"<Resource />"}</code> boundaries will
-          depend on a few things:
-        </p>
-
-        <ol class="list-decimal">
-          <li>How you want the user experience the page as it streams.</li>
-          <li>What content you want prioritize.</li>
-          <li>If the components rely on data fetching.</li>
-        </ol>
-
-        <p>
-          Take a look at your dashboard page, is there anything you would've
-          done differently?
-        </p>
-
-        <p>Don't worry. There isn't a right answer.</p>
+        <p>You now have three useful patterns for this dashboard:</p>
 
         <ul>
           <li>
-            You could have chosen to stream the whole page, like we did at the
-            beginning.
+            <p>
+              Use a deferred <code>routeLoader$()</code> when you want the page
+              to render up to a <code>&lt;Resource /&gt;</code> boundary on a
+              full reload.
+            </p>
           </li>
           <li>
-            You could also create a staggered effect by streaming page sections.
-            But you'll need to create wrapper components.
+            <p>
+              Use <code>useResource$()</code> when a component needs its own
+              pending, resolved, and rejected UI states.
+            </p>
           </li>
-          <li>You could stream every component individually...</li>
+          <li>
+            <p>
+              Place <code>&lt;Resource /&gt;</code> boundaries around UI that
+              can load independently, and use skeletons shaped like the final
+              layout.
+            </p>
+          </li>
         </ul>
 
-        <p>
-          Where you place your <code>{"<Resource />"}</code> boundaries will
-          vary depending on your application. In general, it's good practice to
-          move your data fetching logic to the component level. This way, you
-          can have more control over the loading state of your components. But
-          there is nothing wrong with streaming the sections or the whole page
-          if that's what your application needs.
-        </p>
-
-        <p>
-          Don't be afraid to experiment and see what works best for your users.
-        </p>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <Quiz
-          question="In general, what is considered good practice when working with useResource$(), <Resource /> and data fetching?"
+          question="Where should you usually place a Resource boundary?"
           options={[
             {
-              text: "Move data fetches up to the parent component",
-              isCorrect: false,
+              text: "Around the part of the UI that can load independently.",
+              isCorrect: true,
               letter: "A",
             },
             {
-              text: "Avoid using useResource$() for data fetching",
+              text: "Always around the whole application root.",
               isCorrect: false,
               letter: "B",
             },
             {
-              text: "Move data fetches down to the components that need it",
-              isCorrect: true,
+              text: "Only around static text.",
+              isCorrect: false,
               letter: "C",
             },
             {
-              text: "Use <Resource /> only for error boundaries",
+              text: "Only around components that do not fetch data.",
               isCorrect: false,
               letter: "D",
             },
           ]}
-          hint="See the previous section"
-          responseText="By moving data fetching down to the components that need it, you can create more granular loading states.
-          This allows you to stream specific components and prevent the UI from blocking."
+          hint="Think about what can appear without waiting for the slowest request."
+          responseText="Exactly. A Resource boundary works best around UI that can load independently, so the rest of the page can keep moving."
         />
 
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
-
         <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
+
         <p>
-          You can find the source code for chapter 9 on{" "}
+          You can find the source code for chapter 10 2026 Edition on{" "}
           <BlankLink
-            href="https://github.com/DevWeb13/qwik-dashboard/tree/18-chapter-9-streaming"
+            href="https://github.com/DevWeb13/qwik-dashboard-2026/tree/Chapter-10---Streaming"
             text="GitHub"
           />
           .
         </p>
-
-        <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div>
       </div>
 
-      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">
+      <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-160 flex-col items-center md:my-20 md:mt-12">
         <CompletedChapter
-          chapterNumber={9}
-          text="You've learned how to stream components with <Resource /> and loading skeletons."
+          chapterNumber={10}
+          text="Nice! You've learned how to stream dashboard UI with Resource boundaries, useResource$(), and loading skeletons."
+          version="2026 Edition"
         />
         <GoToNextChapterBlock
           version="2026"
-          goToChapter={10}
-          title="Adding Search and Pagination 2026"
-          text="Learn how to implement search and pagination in your application."
+          goToChapter={11}
+          title="Mutating Data"
+          text="The next 2026 chapter will continue the dashboard app with data mutations."
+          disabledButton
         />
       </div>
 

@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 4: Creating Layouts and Pages",
+  title: "Qwik City Routing | Layouts and Pages Tutorial",
   description:
-    "Learn how to create layouts and pages in your Qwik application. This chapter covers the basics of layout design, page creation, and routing in Qwik.",
+    "Learn Qwik City routing by creating pages, layouts, and shared dashboard UI with file-based routes and layout.tsx.",
   imageUrl: "https://www.learn-qwik.com/metaChapter4.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app/creating-layouts-and-pages/",
   type: "website",

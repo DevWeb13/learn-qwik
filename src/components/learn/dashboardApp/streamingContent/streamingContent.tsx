@@ -59,17 +59,6 @@ export const StreamingContent = component$(() => {
           ]}
         />
 
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor title="What is streaming?" id="what-is-streaming" />
 
         <p>
@@ -114,17 +103,6 @@ export const StreamingContent = component$(() => {
 
         <p>Let's see how this works.</p>
 
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <Quiz
           question="What is streaming?"
           options={[
@@ -152,17 +130,6 @@ export const StreamingContent = component$(() => {
           hint="It allows you to prevent slow data requests from blocking your whole page."
           responseText="Streaming is a data transfer technique that allows you to gradually distribute data from the server to the client as soon as they are ready. By streaming, you can prevent slow data requests from blocking your whole page."
         />
-
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="How to implement streaming with routeLoader$() and <Resource />"
@@ -372,17 +339,6 @@ export default component$(() => {
           page layout before the data is ready.
         </p>
 
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <Quiz
           question="Which Qwik component is used to handle streaming and manage loading states?"
           options={[
@@ -410,17 +366,6 @@ export default component$(() => {
           hint="It's a special Qwik component designed to manage data loading."
           responseText="The correct answer is '<Resource />'. This component is used to handle streaming and manage loading states in Qwik."
         />
-
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <p>
           The most observant will have noticed that the <code>onPending</code>,
@@ -451,17 +396,6 @@ export default component$(() => {
           content display more flexibly. <br />
           This is what we will see in the next section.👇
         </p>
-
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="How to implement streaming with useResource$() and <Resource />"
@@ -633,17 +567,6 @@ export default component$(() => {
           of the <code>Loading…</code> text.
         </p>
 
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <Quiz
           question="What is the purpose of the onPending callback?"
           options={[
@@ -671,17 +594,6 @@ export default component$(() => {
           hint="It is called while the data is being fetched."
           responseText="The onPending callback is called while the data is being fetched."
         />
-
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="Adding loading skeletons 💀"
@@ -814,17 +726,6 @@ export default component$(() => {
             Display the loading skeleton when the data is being fetched.
           </p>
         </figure>
-
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="Streaming a component"
@@ -1107,17 +1008,6 @@ export const fetchRevenue = server$(async function () {
           ]}
         />
 
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Practice: Streaming <LatestInvoices>"
           id="practice-streaming-latest-invoices"
@@ -1160,17 +1050,6 @@ export const fetchRevenue = server$(async function () {
           </button>
           {latestInvoicesSoluce.value && <LatestInvoicesSoluce />}
         </div>
-
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
 
         <SubtitleWithAnchor
           title="Grouping components"
@@ -1389,17 +1268,6 @@ export const CardsWrapper = component$(() => {
           according to their loading state completely independently. 🚀
         </p>
 
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor
           title="Deciding where to place your <Resource /> boundaries"
           id="deciding-where-to-place-your-resource-boundaries"
@@ -1448,17 +1316,6 @@ export const CardsWrapper = component$(() => {
           Don't be afraid to experiment and see what works best for your users.
         </p>
 
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <Quiz
           question="In general, what is considered good practice when working with useResource$(), <Resource /> and data fetching?"
           options={[
@@ -1488,17 +1345,6 @@ export const CardsWrapper = component$(() => {
           This allows you to stream specific components and prevent the UI from blocking."
         />
 
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
-
         <SubtitleWithAnchor title="Source code" level="h3" id="source-code" />
         <p>
           You can find the source code for chapter 9 on{" "}
@@ -1508,17 +1354,6 @@ export const CardsWrapper = component$(() => {
           />
           .
         </p>
-
-        {/* <div class="px-4 md:px-8">
-          <ins
-            class="adsbygoogle"
-            style="display:flex; justify-content:center;"
-            data-ad-layout="in-article"
-            data-ad-format="fluid"
-            data-ad-client="ca-pub-2091224773462896"
-            data-ad-slot="2773109472"
-          ></ins>
-        </div> */}
       </article>
 
       <div class="relative mx-auto mb-8 mt-4 flex w-full max-w-[640px] flex-col items-center md:my-20 md:mt-12">

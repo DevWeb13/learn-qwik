@@ -21,24 +21,6 @@ export const getUserByEmail = async (
   return user;
 };
 
-// ✅ Fonction pour obtenir un utilisateur via stripe_customer_id
-export const getUserByCustomerId = async (
-  supabase: SupabaseClient<Database>,
-  customerId: string,
-) => {
-  const { data: user, error } = await supabase
-    .from("profiles")
-    .select("*")
-    .eq("stripe_customer_id", customerId)
-    .single();
-
-  if (error) {
-    console.error("❌ Utilisateur non trouvé via stripe_customer_id :", error);
-    return null;
-  }
-  return user;
-};
-
 // ✅ Fonction pour mettre à jour un utilisateur
 export const updateUser = async (
   supabase: SupabaseClient<Database>, // ✅ On passe maintenant `supabase`

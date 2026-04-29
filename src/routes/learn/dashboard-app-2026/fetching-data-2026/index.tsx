@@ -11,9 +11,9 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = createDocumentHead2026({
-  title: "Chapter 8: Fetching Data 2026",
+  title: "Qwik routeLoader$ Tutorial | Fetch and Display Data",
   description:
-    "Learn how to fetch dashboard data in Qwik with routeLoader$(). Load, shape, and display local dashboard data with a clean, reusable server-side architecture.",
+    "Learn Qwik routeLoader$ by fetching dashboard data, shaping server-side results, and displaying reusable data in a Qwik City app.",
   imageUrl: "https://www.learn-qwik.com/meta-chapter-8-2026.png",
   url: "https://www.learn-qwik.com/learn/dashboard-app-2026/fetching-data-2026/",
   type: "website",

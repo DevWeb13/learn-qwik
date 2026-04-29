@@ -11,7 +11,7 @@ export const DesktopStickyAd = component$<DesktopStickyAdProps>(
     topPosition = "top-4", // Valeur par défaut si aucune n'est fournie
   }) => {
     return (
-      <aside class="relative  hidden w-[300px] flex-1 lg:block">
+      <aside class="relative  hidden w-75  lg:block ">
         <div class={`sticky ${topPosition} rounded-lg bg-white p-0 shadow-sm`}>
           <div class="rounded-lg">
             <ins

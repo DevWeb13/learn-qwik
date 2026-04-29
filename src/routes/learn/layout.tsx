@@ -7,6 +7,8 @@ import { CHAPTERS2026 } from "~/constants/chapters2026";
 import { createClient } from "~/lib/supabase/server";
 import type { Database } from "~/types/learn-qwik.database.types";
 
+type ProfileUpdate = Database["public"]["Tables"]["profiles"]["Update"];
+
 function getChapterContextFromPathname(pathname: string): {
   courseVersion: "Legacy" | "2026" | null;
   chapterNumber: number | null;
@@ -95,9 +97,14 @@ export const usePutCompletedChapters = routeAction$(
       ...new Set([...currentChapters, data.completedChapter]),
     ].sort((a, b) => a - b);
 
+    const updatePayload: ProfileUpdate =
+      data.version === "2026"
+        ? { completedChapters2026: updatedChapters }
+        : { completedChapters: updatedChapters };
+
     const { error: updateError } = await supabase
       .from("profiles")
-      .update({ [columnName]: updatedChapters })
+      .update(updatePayload)
       .eq("id", profile.id);
 
     if (updateError) {
