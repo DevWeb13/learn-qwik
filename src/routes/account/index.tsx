@@ -103,9 +103,6 @@ export const useResetCompletedChapters = routeAction$(
 
     const supabase = createClient(requestEvent);
 
-    const column =
-      data.version === "2026" ? "completedChapters2026" : "completedChapters";
-
     const versionLabel =
       data.version === "2026" ? "2026 version" : "legacy version";
 
