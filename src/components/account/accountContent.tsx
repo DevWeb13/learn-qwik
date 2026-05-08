@@ -1,7 +1,12 @@
 // src/components/account/accountContent.tsx
 
 import { $, component$, useStore } from "@builder.io/qwik";
-import { useResetCompletedChapters, useUpdateProfile } from "~/routes/account";
+import {
+  useDailyChallengeAccountStats,
+  useResetCompletedChapters,
+  useUpdateDailyEmailPreference,
+  useUpdateProfile,
+} from "~/routes/account";
 
 import { Form, Link } from "@builder.io/qwik-city";
 import { HomeBackground } from "~/assets/svg/homeBackground/homeBackground";
@@ -16,23 +21,84 @@ import {
   HiArrowDownTrayOutline,
   HiArrowPathOutline,
   HiArrowUturnLeftOutline,
+  HiBellAlertOutline,
+  HiBoltOutline,
+  HiChartBarOutline,
   HiCheckCircleMini,
   HiEnvelopeOutline,
   HiExclamationTriangleOutline,
+  HiFireOutline,
   HiGlobeAltOutline,
   HiPhoneOutline,
   HiPhotoOutline,
   HiTrashOutline,
+  HiTrophyOutline,
   HiUserCircleOutline,
   HiUserOutline,
 } from "@qwikest/icons/heroicons";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
+import {
+  getDailyChallenge,
+  getDailyChallengeAccuracy,
+  getDailyChallengeRankProgress,
+} from "~/constants/dailyChallenges";
+
+type AccountDailyStatCardProps = {
+  icon: "bolt" | "check" | "fire" | "trophy";
+  label: string;
+  value: string | number;
+};
+
+const AccountDailyStatCard = component$<AccountDailyStatCardProps>(
+  ({ icon, label, value }) => {
+    const iconClass =
+      icon === "fire"
+        ? "bg-amber-50 text-amber-700 ring-1 ring-amber-100"
+        : icon === "check"
+          ? "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100"
+          : icon === "bolt"
+            ? "bg-violet-50 text-violet-700 ring-1 ring-violet-100"
+            : "bg-fuchsia-50 text-fuchsia-700 ring-1 ring-fuchsia-100";
+
+    return (
+      <div class="rounded-md border border-white/70 bg-white p-4 shadow-sm transition hover:border-(--qwik-dark-purple)/15 hover:shadow-md">
+        <div class="flex min-h-[96px] flex-col items-center justify-center gap-3 text-center">
+          <span
+            class={`flex size-11 shrink-0 items-center justify-center rounded-xl ${iconClass}`}
+          >
+            {icon === "fire" && <HiFireOutline class="size-5" />}
+            {icon === "check" && <HiCheckCircleMini class="size-5" />}
+            {icon === "bolt" && <HiBoltOutline class="size-5" />}
+            {icon === "trophy" && <HiTrophyOutline class="size-5" />}
+          </span>
+
+          <div class="min-w-0">
+            <p class="text-sm leading-5 text-gray-500">{label}</p>
+            <p class="mt-1 break-words text-xl font-semibold leading-tight text-gray-900">
+              {value}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  },
+);
 
 export const AccountContent = component$(() => {
   const profile = useProfile();
 
   const updateProfile = useUpdateProfile();
+  const updateDailyEmailPreference = useUpdateDailyEmailPreference();
   const resetCompletedChapters = useResetCompletedChapters();
+  const dailyChallengeStats = useDailyChallengeAccountStats();
+  const dailyChallenge = getDailyChallenge();
+  const dailyStats = dailyChallengeStats.value.stats;
+  const dailyAccuracy = getDailyChallengeAccuracy(dailyStats);
+  const dailyRankProgress = getDailyChallengeRankProgress(dailyStats.totalXp);
+  const dailyEmailOptIn =
+    updateDailyEmailPreference.value?.success === true
+      ? updateDailyEmailPreference.value.emailOptIn
+      : dailyChallengeStats.value.emailOptIn;
 
   // Store pour gérer l'état des inputs
   const formState = useStore({
@@ -106,6 +172,150 @@ export const AccountContent = component$(() => {
                 </p>
               </div>
               <div class="space-y-8 p-6">
+                <div class="rounded-lg border border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/10 p-6">
+                  <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                    <div>
+                      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-(--qwik-dark-purple)">
+                        Daily Qwik Lab
+                      </p>
+                      <h2 class="mt-2 text-xl font-semibold text-gray-800">
+                        {dailyStats.completedToday
+                          ? "Today's challenge is complete"
+                          : "Today's challenge is waiting"}
+                      </h2>
+                      <p class="mt-2 max-w-2xl text-sm leading-6 text-gray-700">
+                        {dailyChallenge.title}
+                      </p>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                      <Link
+                        href="/daily/"
+                        class="inline-flex items-center justify-center rounded-md bg-(--qwik-dark-purple) px-4 py-2 text-sm font-medium text-white! transition hover:bg-(--qwik-light-purple)"
+                      >
+                        {dailyStats.completedToday
+                          ? "View correction"
+                          : "Play today"}
+                      </Link>
+                      <Link
+                        href="/daily/history/"
+                        class="inline-flex items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-(--qwik-dirty-black)! transition hover:border-(--qwik-dark-purple)/30"
+                      >
+                        History
+                      </Link>
+                      <Link
+                        href="/daily/leaderboard/"
+                        class="inline-flex items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-(--qwik-dirty-black)! transition hover:border-(--qwik-dark-purple)/30"
+                      >
+                        Leaderboard
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div class="mt-5 grid gap-3 sm:grid-cols-4">
+                    <AccountDailyStatCard
+                      icon="fire"
+                      label="Current streak"
+                      value={dailyStats.currentStreak}
+                    />
+                    <AccountDailyStatCard
+                      icon="check"
+                      label="Best streak"
+                      value={dailyStats.bestStreak}
+                    />
+                    <AccountDailyStatCard
+                      icon="bolt"
+                      label="Total XP"
+                      value={dailyStats.totalXp}
+                    />
+                    <AccountDailyStatCard
+                      icon="trophy"
+                      label="Rank"
+                      value={dailyRankProgress.currentRank.name}
+                    />
+                  </div>
+
+                  <div class="mt-4 rounded-md border border-white/70 bg-white p-4">
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                      <div>
+                        <p class="flex items-center gap-2 text-sm font-medium text-gray-700">
+                          <HiChartBarOutline class="size-5 text-(--qwik-dark-purple)" />
+                          {dailyRankProgress.nextRank
+                            ? `Next rank: ${dailyRankProgress.nextRank.name}`
+                            : "Max rank reached"}
+                        </p>
+                        <p class="mt-1 text-sm text-gray-500">
+                          Rank is based on total Daily Lab XP.
+                        </p>
+                      </div>
+                      <p class="text-sm text-gray-500">
+                        Accuracy: {dailyAccuracy}% - Completed:{" "}
+                        {dailyStats.totalCompleted}
+                      </p>
+                    </div>
+
+                    <div class="mt-3 h-2 overflow-hidden rounded-full bg-gray-100">
+                      <div
+                        class="h-full rounded-full bg-(--qwik-dark-purple)"
+                        style={`width:${dailyRankProgress.progressPercent}%;`}
+                      />
+                    </div>
+                  </div>
+
+                  {dailyChallengeStats.value.loadError && (
+                    <p class="mt-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+                      {dailyChallengeStats.value.loadError}
+                    </p>
+                  )}
+
+                  <Form
+                    action={updateDailyEmailPreference}
+                    class="mt-4 rounded-md border border-white/70 bg-white p-4"
+                  >
+                    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                      <label class="flex items-start gap-3 text-sm leading-6 text-gray-700">
+                        <input
+                          type="checkbox"
+                          name="email_opt_in"
+                          value="true"
+                          checked={dailyEmailOptIn}
+                          class="mt-1 size-4 rounded border-gray-300 text-(--qwik-dark-purple)"
+                          disabled={updateDailyEmailPreference.isRunning}
+                        />
+                        <span>
+                          <span class="flex items-center gap-2 font-medium">
+                            <HiBellAlertOutline class="size-5 text-(--qwik-dark-purple)" />
+                            Send me the Daily Qwik Lab by email when a new
+                            challenge unlocks.
+                          </span>
+                        </span>
+                      </label>
+
+                      <button
+                        type="submit"
+                        disabled={updateDailyEmailPreference.isRunning}
+                        class="inline-flex shrink-0 items-center justify-center rounded-md bg-(--qwik-dark-purple) px-4 py-2 text-sm font-medium text-white transition hover:bg-(--qwik-light-purple) disabled:bg-gray-400"
+                      >
+                        {updateDailyEmailPreference.isRunning
+                          ? "Saving..."
+                          : "Save email setting"}
+                      </button>
+                    </div>
+
+                    {updateDailyEmailPreference.value?.message && (
+                      <p
+                        class={`mt-3 text-sm ${
+                          updateDailyEmailPreference.value.success
+                            ? "text-emerald-700"
+                            : "text-red-700"
+                        }`}
+                      >
+                        {updateDailyEmailPreference.value.message}
+                      </p>
+                    )}
+                  </Form>
+                </div>
+
                 <div class="rounded-lg bg-gray-50 p-6">
                   <h2 class="mb-4 text-xl font-semibold text-gray-800">
                     Profile Information

@@ -50,6 +50,132 @@ export type Database = {
         }
         Relationships: []
       }
+      daily_challenge_completions: {
+        Row: {
+          challenge_date: string
+          challenge_id: string
+          completed_at: string
+          completed_date: string
+          id: string
+          is_correct: boolean
+          selected_option_id: string
+          updated_at: string
+          user_id: string
+          xp_awarded: number
+        }
+        Insert: {
+          challenge_date: string
+          challenge_id: string
+          completed_at?: string
+          completed_date?: string
+          id?: string
+          is_correct?: boolean
+          selected_option_id: string
+          updated_at?: string
+          user_id: string
+          xp_awarded?: number
+        }
+        Update: {
+          challenge_date?: string
+          challenge_id?: string
+          completed_at?: string
+          completed_date?: string
+          id?: string
+          is_correct?: boolean
+          selected_option_id?: string
+          updated_at?: string
+          user_id?: string
+          xp_awarded?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "daily_challenge_completions_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      daily_challenge_email_sends: {
+        Row: {
+          challenge_date: string
+          created_at: string
+          error_message: string | null
+          id: string
+          resend_email_id: string | null
+          sent_at: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          challenge_date: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          resend_email_id?: string | null
+          sent_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          challenge_date?: string
+          created_at?: string
+          error_message?: string | null
+          id?: string
+          resend_email_id?: string | null
+          sent_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "daily_challenge_email_sends_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      daily_challenge_preferences: {
+        Row: {
+          created_at: string
+          email_opt_in: boolean
+          id: string
+          unsubscribe_token: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email_opt_in?: boolean
+          id?: string
+          unsubscribe_token?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email_opt_in?: boolean
+          id?: string
+          unsubscribe_token?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "daily_challenge_preferences_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           access_status: string | null

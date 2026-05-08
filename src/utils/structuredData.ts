@@ -22,6 +22,21 @@ export interface CourseSchemaProps {
   providerName: string;
 }
 
+export interface WebApplicationSchemaProps {
+  name: string;
+  description: string;
+  url: string;
+  imageUrl: string;
+  applicationCategory?: string;
+}
+
+export interface CollectionPageSchemaProps {
+  name: string;
+  description: string;
+  url: string;
+  imageUrl: string;
+}
+
 const normalizeUrl = (url: string) => (url.endsWith("/") ? url : `${url}/`);
 
 export const createWebsiteSchema = ({
@@ -115,5 +130,54 @@ export const createCourseSchema = ({
     provider: {
       "@type": "Organization",
       name: providerName,
+    },
+  }) as const;
+
+export const createWebApplicationSchema = ({
+  name,
+  description,
+  url,
+  imageUrl,
+  applicationCategory = "EducationalApplication",
+}: WebApplicationSchemaProps) =>
+  ({
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name,
+    description,
+    url: normalizeUrl(url),
+    image: imageUrl,
+    applicationCategory,
+    operatingSystem: "Web",
+    isAccessibleForFree: true,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "EUR",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Learn Qwik",
+      url: "https://www.learn-qwik.com/",
+    },
+  }) as const;
+
+export const createCollectionPageSchema = ({
+  name,
+  description,
+  url,
+  imageUrl,
+}: CollectionPageSchemaProps) =>
+  ({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    description,
+    url: normalizeUrl(url),
+    image: imageUrl,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Learn Qwik",
+      url: "https://www.learn-qwik.com/",
     },
   }) as const;

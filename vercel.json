@@ -1,4 +1,10 @@
 {
+  "crons": [
+    {
+      "path": "/api/daily-email/",
+      "schedule": "0 6,7 * * *"
+    }
+  ],
   "headers": [
     {
       "source": "/build/(.*)",

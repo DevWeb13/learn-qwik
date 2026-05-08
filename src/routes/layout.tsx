@@ -26,7 +26,7 @@ import MobileMenu from "~/components/mobile-menu/mobile-menu";
 import PreFooter from "~/components/UI/PreFooter/PreFooter";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
 import { updateSession } from "~/lib/supabase/middleware";
-import { createClient } from "~/lib/supabase/server";
+import { createAdminClient, createClient } from "~/lib/supabase/server";
 import type { Database } from "~/types/learn-qwik.database.types"; // Import des types générés Supabase
 
 type Profile = Database["public"]["Tables"]["profiles"]["Row"];
@@ -123,7 +123,7 @@ export const useGetTotalShare = routeLoader$(async (request) => {
 });
 
 export const useIncrementTotalShare = routeAction$(async (data, request) => {
-  const supabase = createClient(request);
+  const supabase = createAdminClient(request);
 
   // Use Supabase's RPC to increment the total share
   const { error } = await supabase.rpc("increment_total_share");

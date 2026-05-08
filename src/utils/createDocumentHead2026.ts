@@ -11,6 +11,9 @@ interface CreateDocumentHead2026Props {
   title: string;
   description: string;
   imageUrl: string;
+  imageAlt?: string;
+  imageHeight?: number;
+  imageWidth?: number;
   url: string;
   type?: "website" | "article";
   robots?: string;
@@ -22,6 +25,9 @@ export const createDocumentHead2026 = ({
   title,
   description,
   imageUrl,
+  imageAlt,
+  imageHeight,
+  imageWidth,
   url,
   type = "article",
   robots = "max-image-preview:large",
@@ -43,6 +49,7 @@ export const createDocumentHead2026 = ({
     normalizedUrl === "https://learn-qwik.com/";
 
   const fullTitle = isHome ? title : `${title} | ${siteName}`;
+  const resolvedImageAlt = imageAlt ?? fullTitle;
 
   return {
     title: fullTitle,
@@ -72,6 +79,26 @@ export const createDocumentHead2026 = ({
       {
         property: "og:image",
         content: imageUrl,
+      },
+      ...(imageWidth
+        ? [
+            {
+              property: "og:image:width",
+              content: imageWidth.toString(),
+            },
+          ]
+        : []),
+      ...(imageHeight
+        ? [
+            {
+              property: "og:image:height",
+              content: imageHeight.toString(),
+            },
+          ]
+        : []),
+      {
+        property: "og:image:alt",
+        content: resolvedImageAlt,
       },
       {
         property: "og:type",
@@ -104,6 +131,10 @@ export const createDocumentHead2026 = ({
       {
         name: "twitter:image",
         content: imageUrl,
+      },
+      {
+        name: "twitter:image:alt",
+        content: resolvedImageAlt,
       },
     ],
     scripts: structuredData.map((item) => ({
