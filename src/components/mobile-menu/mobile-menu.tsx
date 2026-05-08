@@ -126,6 +126,20 @@ export default component$(() => {
                 <NavLink
                   class={styles.navLink}
                   activeClass={`${styles.navLink} ${styles.activeLink}`}
+                  href="/daily/"
+                  onClick$={closeMenu}
+                >
+                  <span>Daily Lab</span>
+                  <span class="ml-2 rounded-full border border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-(--qwik-dark-purple)">
+                    New
+                  </span>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  class={styles.navLink}
+                  activeClass={`${styles.navLink} ${styles.activeLink}`}
                   href="/blog/"
                   onClick$={closeMenu}
                 >

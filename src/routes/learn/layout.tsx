@@ -4,7 +4,7 @@ import { component$, Slot } from "@builder.io/qwik";
 import { routeAction$, routeLoader$, z, zod$ } from "@builder.io/qwik-city";
 import { CHAPTERS } from "~/constants/chapters";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
-import { createClient } from "~/lib/supabase/server";
+import { createAdminClient, createClient } from "~/lib/supabase/server";
 import type { Database } from "~/types/learn-qwik.database.types";
 
 type ProfileUpdate = Database["public"]["Tables"]["profiles"]["Update"];
@@ -80,7 +80,7 @@ export const usePutCompletedChapters = routeAction$(
       });
     }
 
-    const supabase = createClient(requestEvent);
+    const supabase = createAdminClient(requestEvent);
 
     const columnName =
       data.version === "2026" ? "completedChapters2026" : "completedChapters";
@@ -137,7 +137,7 @@ export const useSaveChapterFeedback = routeAction$(
       });
     }
 
-    const supabase = createClient(requestEvent);
+    const supabase = createAdminClient(requestEvent);
 
     const { error } = await supabase.from("chapter_feedback").upsert(
       {

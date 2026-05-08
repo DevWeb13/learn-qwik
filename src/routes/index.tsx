@@ -16,6 +16,10 @@ import { DisplayNextChapter } from "~/components/learn/DisplayNextChapter/displa
 import { BookSvgText } from "~/components/learn/bookSvgText/bookSvgText";
 import { CHAPTERS } from "~/constants/chapters";
 import { CHAPTERS2026 } from "~/constants/chapters2026";
+import {
+  getDailyChallenge,
+  getTodayDateKey,
+} from "~/constants/dailyChallenges";
 import { createDocumentHead2026 } from "~/utils/createDocumentHead2026";
 import {
   createOrganizationSchema,
@@ -31,6 +35,8 @@ export default component$(() => {
 
   const total2026 = CHAPTERS2026.length;
   const totalLegacy = CHAPTERS.length;
+  const dailyChallenge = getDailyChallenge();
+  const dailyDateKey = getTodayDateKey();
 
   const hasStarted2026 = completed2026.length > 0;
   const primaryCtaText = hasStarted2026
@@ -198,6 +204,70 @@ export default component$(() => {
                     </BtAddChapter>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class={`${shellClass} py-10 md:py-14`}>
+        <div class="relative overflow-hidden rounded-xl border border-(--qwik-dark-purple)/10 bg-(--qwik-dirty-black) p-6 text-white shadow-sm md:p-8">
+          <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(139,92,246,0.35),transparent_42%)]" />
+
+          <div class="relative grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <div class="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-medium text-white">
+                Daily Qwik Lab - {dailyDateKey}
+              </div>
+
+              <h2 class="mt-5 max-w-3xl text-3xl font-semibold leading-tight md:text-4xl">
+                Keep your Qwik muscle warm with today's 5-minute challenge.
+              </h2>
+
+              <p class="mt-4 max-w-2xl text-sm leading-6 text-white/76 md:text-base md:leading-7">
+                One practical question every day, instant correction, XP for
+                signed-in learners, and a direct path back to the right chapter.
+              </p>
+
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/daily/"
+                  class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-semibold text-(--qwik-dark-purple)! transition-all duration-200 hover:bg-(--qwik-light-purple) hover:text-white!"
+                >
+                  Play today's challenge
+                </Link>
+
+                {!profile.value && (
+                  <Link
+                    href="/auth/login/?next=%2Fdaily%2F"
+                    class="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium text-white! transition-all duration-200 hover:bg-white/15"
+                  >
+                    Sign in to save streak
+                  </Link>
+                )}
+              </div>
+            </div>
+
+            <div class="rounded-lg border border-white/12 bg-white/8 p-5">
+              <p class="text-sm font-semibold uppercase tracking-[0.14em] text-white/70">
+                Today's topic
+              </p>
+              <h3 class="mt-3 text-2xl font-semibold">
+                {dailyChallenge.title}
+              </h3>
+              <p class="mt-3 text-sm leading-6 text-white/70">
+                {dailyChallenge.deckTitle} - {dailyChallenge.difficulty} -{" "}
+                {dailyChallenge.estimatedTime}
+              </p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                {dailyChallenge.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    class="rounded-full border border-white/12 bg-white/10 px-3 py-2 text-xs font-medium text-white/82"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </div>

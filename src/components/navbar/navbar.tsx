@@ -57,6 +57,19 @@ export default component$(() => {
         activeClass={
           styles.link + " " + "text-black! relative inline-flex items-center"
         }
+        href="/daily/"
+      >
+        Daily Lab
+        <span class="ml-2 rounded-full border border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-(--qwik-dark-purple)">
+          New
+        </span>
+      </NavLink>
+
+      <NavLink
+        class={`${styles.link} relative inline-flex items-center`}
+        activeClass={
+          styles.link + " " + "text-black! relative inline-flex items-center"
+        }
         href="/blog/"
       >
         Blog

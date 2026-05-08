@@ -15,6 +15,10 @@ export const onGet: RequestHandler = (ev) => {
     route.startsWith("starter-pack/"),
   );
 
+  const dailyRoutes = allRoutes.filter(
+    (route) => route === "daily/" || route === "daily/leaderboard/",
+  );
+
   const blogRoutes = allRoutes.filter((route) => route.startsWith("blog/"));
 
   const learnRoutes = allRoutes.filter((route) =>
@@ -25,6 +29,11 @@ export const onGet: RequestHandler = (ev) => {
     { loc: "/", priority: 1 },
 
     ...starterPackRoutes.map((route) => ({
+      loc: route,
+      priority: 1,
+    })),
+
+    ...dailyRoutes.map((route) => ({
       loc: route,
       priority: 1,
     })),
