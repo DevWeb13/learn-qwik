@@ -1,5 +1,6 @@
 import type { RequestHandler } from "@builder.io/qwik-city";
 import {
+  getDailyEmailOrigin,
   isParisDailyEmailHour,
   sendDailyChallengeEmails,
 } from "~/lib/dailyChallenge/email";
@@ -43,7 +44,7 @@ export const onGet: RequestHandler = async (requestEvent) => {
   try {
     const result = await sendDailyChallengeEmails(requestEvent, {
       dryRun,
-      origin: requestEvent.url.origin,
+      origin: getDailyEmailOrigin(requestEvent),
     });
 
     requestEvent.send(

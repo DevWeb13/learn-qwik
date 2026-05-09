@@ -20,9 +20,12 @@ type SendDailyEmailsResult = {
   dryRun: boolean;
   eligible: number;
   failed: number;
+  origin: string;
   sent: number;
   skipped: number;
 };
+
+const DEFAULT_EMAIL_ORIGIN = "https://www.learn-qwik.com";
 
 const escapeHtml = (value: string) =>
   value
@@ -44,6 +47,20 @@ const getEnv = (requestEvent: RequestEvent, key: string) => {
 
 const getDisplayName = (profile: ProfileRow) =>
   profile.username?.trim() || profile.full_name?.trim() || "Qwik learner";
+
+export const getDailyEmailOrigin = (requestEvent: RequestEvent) => {
+  const configuredOrigin =
+    requestEvent.env.get("DAILY_EMAIL_ORIGIN") ??
+    requestEvent.env.get("PUBLIC_SITE_URL") ??
+    requestEvent.env.get("SITE_URL") ??
+    DEFAULT_EMAIL_ORIGIN;
+
+  try {
+    return new URL(configuredOrigin).origin;
+  } catch {
+    return DEFAULT_EMAIL_ORIGIN;
+  }
+};
 
 const buildEmail = ({
   dateKey,
@@ -161,6 +178,7 @@ export const sendDailyChallengeEmails = async (
       dryRun: options.dryRun,
       eligible: 0,
       failed: 0,
+      origin: options.origin,
       sent: 0,
       skipped: 0,
     };
@@ -190,6 +208,7 @@ export const sendDailyChallengeEmails = async (
       dryRun: options.dryRun,
       eligible: 0,
       failed: 0,
+      origin: options.origin,
       sent: 0,
       skipped: preferences.length,
     };
@@ -317,6 +336,7 @@ export const sendDailyChallengeEmails = async (
     dryRun: options.dryRun,
     eligible: eligiblePreferences.length,
     failed,
+    origin: options.origin,
     sent,
     skipped,
   };

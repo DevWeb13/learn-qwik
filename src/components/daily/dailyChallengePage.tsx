@@ -44,7 +44,7 @@ const getOptionClass = ({
   isSelected: boolean;
 }) => {
   const baseClass =
-    "flex w-full items-start gap-3 rounded-lg border p-4 text-left transition-all duration-200";
+    "flex w-full items-center gap-3 rounded-lg border p-4 text-left transition-all duration-200";
 
   if (!hasAnswered) {
     return isSelected
