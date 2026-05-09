@@ -18,25 +18,25 @@ export const BookSvgText = component$<BookSvgTextProps>(
     const [titlePart = "", subtitlePart = ""] = nextChapter.title.split(":");
 
     return (
-      <div class="absolute left-8.5 flex h-full max-w-25 flex-col justify-around overflow-hidden py-3">
+      <div class="absolute left-8.5 flex h-full max-w-25 flex-col justify-around overflow-hidden py-3 text-slate-900">
         <p
           class="text_wrapper"
           style="--text-color:var(--ds-gray-1000);--text-size:1.125rem;--text-line-height:1.25rem;--text-weight:600;color:#000;max-width:80px"
         >
-          Learn <span class="text-(--qwik-dark-purple)">Qwik</span>
+          Learn <span class="text-[#713fc2]">Qwik</span>
         </p>
 
         <div class="animate-fadeIn">
           <p class="text-sm font-bold">{titlePart + ":"}</p>
           <p
             class="text_wrapper"
-            style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; font-size: 11px; color: rgb(102, 102, 102); line-height: 1.2;"
+            style="--text-color: var(--ds-gray-1000); --text-size: 0.875rem; font-size: 11px; color: #475569; line-height: 1.2;"
           >
             {subtitlePart.trim()}
           </p>
         </div>
 
-        <p class="text-lg font-black text-(--qwik-dark-purple)">2026</p>
+        <p class="text-lg font-black text-[#713fc2]">2026</p>
       </div>
     );
   },

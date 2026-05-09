@@ -16,9 +16,9 @@ interface TableOfTopicsCoveredProps {
 
 export default component$<TableOfTopicsCoveredProps>(({ topics }) => {
   return (
-    <div class="not-prose  mb-4 w-full rounded-xl  md:my-12 md:bg-[#fafafa] md:p-4  md:py-12">
+    <div class="not-prose mb-4 w-full rounded-xl bg-gray-50 p-4 py-8 md:my-12 md:py-12">
       <TableOfTopicsCoveredHeader />
-      <div class="bg-vercel-100 mx-auto mt-4 flex w-full max-w-240 flex-col rounded-md px-4 py-2 shadow-md md:mt-8">
+      <div class="mx-auto mt-4 flex w-full max-w-240 flex-col rounded-md border border-gray-200 bg-white px-4 py-2 shadow-md md:mt-8">
         {topics.map((topic, index, array) => (
           <>
             <Link

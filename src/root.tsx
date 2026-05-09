@@ -12,11 +12,43 @@ import { RouterHead } from "./components/router-head/router-head";
 import "./button.css";
 import "./global.css";
 
+const themeInitializerScript = `
+(() => {
+  const storageKey = "learn-qwik-theme";
+  let theme = "light";
+
+  try {
+    const savedTheme = localStorage.getItem(storageKey);
+
+    if (savedTheme === "light" || savedTheme === "dark") {
+      theme = savedTheme;
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      theme = "dark";
+    }
+  } catch {
+    theme = "light";
+  }
+
+  const root = document.documentElement;
+  root.classList.toggle("dark-theme", theme === "dark");
+  root.dataset.theme = theme;
+  root.style.colorScheme = theme;
+
+  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeColorMeta) {
+    themeColorMeta.setAttribute("content", theme === "dark" ? "#080b18" : "#ffffff");
+  }
+})();
+`;
+
 export default component$(() => {
   return (
     <QwikCityProvider>
       <head>
         <meta charset="utf-8" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#ffffff" />
+        <script dangerouslySetInnerHTML={themeInitializerScript} />
 
         <QwikPartytown forward={["gtag", "dataLayer.push"]} />
 
@@ -97,8 +129,6 @@ export default component$(() => {
         <meta name="application-name" content="Learn Qwik" />
         <meta name="msapplication-TileColor" content="#2d89ef" />
         <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
-        <meta name="theme-color" content="#ffffff" />
-
         <RouterHead />
         <ServiceWorkerRegister />
       </head>

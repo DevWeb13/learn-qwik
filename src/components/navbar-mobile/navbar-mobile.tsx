@@ -5,6 +5,7 @@ import { VercelSvg } from "~/assets/svg/vercelSvg";
 import { MobileMenuVisibleContext } from "~/routes/layout";
 import Popover from "../../lib/qwikUI/popover/popover";
 import styles from "./navbar-mobile.module.css";
+import { ThemeToggle } from "../themeToggle/themeToggle";
 
 export default component$(() => {
   const mobileMenuVisible = useContext(MobileMenuVisibleContext);
@@ -86,6 +87,7 @@ export default component$(() => {
             </svg>
           </div>
         </Popover>
+        <ThemeToggle />
 
         <button
           aria-label="open menu"

@@ -55,7 +55,9 @@ export default component$(() => {
       <NavLink
         class={`${styles.link} relative inline-flex items-center`}
         activeClass={
-          styles.link + " " + "text-black! relative inline-flex items-center"
+          styles.link +
+          " " +
+          "text-(--qwik-dirty-black)! relative inline-flex items-center"
         }
         href="/daily/"
       >
@@ -68,7 +70,9 @@ export default component$(() => {
       <NavLink
         class={`${styles.link} relative inline-flex items-center`}
         activeClass={
-          styles.link + " " + "text-black! relative inline-flex items-center"
+          styles.link +
+          " " +
+          "text-(--qwik-dirty-black)! relative inline-flex items-center"
         }
         href="/blog/"
       >
@@ -80,7 +84,7 @@ export default component$(() => {
 
       <NavLink
         class={styles.link}
-        activeClass={styles.link + " " + "text-black!"}
+        activeClass={styles.link + " " + "text-(--qwik-dirty-black)!"}
         href="/starter-pack/"
       >
         Starter Pack
@@ -88,7 +92,7 @@ export default component$(() => {
 
       <NavLink
         class={styles.link}
-        activeClass={styles.link + " " + "text-black!"}
+        activeClass={styles.link + " " + "text-(--qwik-dirty-black)!"}
         href="/releases/"
       >
         Releases
