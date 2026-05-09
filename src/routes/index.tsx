@@ -211,7 +211,7 @@ export default component$(() => {
       </section>
 
       <section class={`${shellClass} py-10 md:py-14`}>
-        <div class="relative overflow-hidden rounded-xl border border-(--qwik-dark-purple)/10 bg-(--qwik-dirty-black) p-6 text-white shadow-sm md:p-8">
+        <div class="relative overflow-hidden rounded-xl border border-(--qwik-dark-purple)/10 bg-[#111827] p-6 text-white shadow-sm dark:bg-[#080b18] md:p-8">
           <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,rgba(139,92,246,0.35),transparent_42%)]" />
 
           <div class="relative grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">

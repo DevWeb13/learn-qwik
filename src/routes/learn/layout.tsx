@@ -252,7 +252,7 @@ export const useGetChapterFeedbackCounts = routeLoader$(
       };
     }
 
-    const supabase = createClient(requestEvent);
+    const supabase = createAdminClient(requestEvent);
 
     const { data, error } = await supabase.rpc("get_chapter_feedback_counts", {
       p_course_version: courseVersion,
@@ -295,7 +295,7 @@ export const useGetPublicChapterFeedback = routeLoader$(
       return [];
     }
 
-    const supabase = createClient(requestEvent);
+    const supabase = createAdminClient(requestEvent);
 
     const { data, error } = await supabase.rpc("get_public_chapter_feedback", {
       p_course_version: courseVersion,

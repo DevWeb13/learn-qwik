@@ -16,7 +16,7 @@
   transform: translateZ(0);
   -webkit-backdrop-filter: saturate(180%) blur(5px);
   backdrop-filter: saturate(180%) blur(5px);
-  background: hsla(0, 0%, 100%, 0.8);
+  background: var(--header-background);
 }
 
 .skip_nav_link_skipLink {
