@@ -62,7 +62,8 @@ export const FontSoluce = component$(() => {
         hideLineNumbers
       />
       <p>
-        Create <code>.lusitana</code> class in your <code>src/global.css</code>{" "}
+        Create <code>.lusitana</code> class in your{" "}
+        <code>src/global.css</code>{" "}
       </p>
       <CodeBlock
         code={`.lusitana {

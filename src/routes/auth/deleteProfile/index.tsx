@@ -42,7 +42,7 @@ export default component$(() => {
   const profile = useProfile();
 
   return (
-    <main class="relative  overflow-hidden bg-white">
+    <main class="relative overflow-hidden bg-white dark:bg-[#080b18]">
       <div class="absolute inset-0 pointer-events-none">
         <div class="absolute left-1/2 top-0 -translate-x-1/2 opacity-90">
           <HomeBackgroundPurple />
@@ -57,8 +57,8 @@ export default component$(() => {
         <div class="relative w-full max-w-2xl">
           <div class="absolute inset-0 rounded-4xl bg-red-500/6 blur-3xl" />
 
-          <div class="relative overflow-hidden rounded-4xl border border-red-500/10 bg-white/92 p-6 shadow-[0_20px_60px_rgba(17,24,39,0.08)] backdrop-blur-sm md:p-8">
-            <div class="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(239,68,68,0.05),rgba(255,255,255,0))]" />
+          <div class="relative overflow-hidden rounded-4xl border border-red-500/10 bg-white/92 p-6 shadow-[0_20px_60px_rgba(17,24,39,0.08)] backdrop-blur-sm dark:border-red-400/20 dark:bg-[#0f1324]/94 dark:shadow-[0_24px_80px_rgba(0,0,0,0.34)] md:p-8">
+            <div class="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(239,68,68,0.05),rgba(255,255,255,0))] dark:bg-[linear-gradient(180deg,rgba(248,113,113,0.10),rgba(15,19,36,0))]" />
 
             <div class="relative">
               <div class="flex items-start justify-between gap-4">
@@ -76,46 +76,46 @@ export default component$(() => {
                 </div>
               </div>
 
-              <p class="mt-3 text-sm leading-6 text-gray-600">
+              <p class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
                 This action affects your Learn Qwik account and associated data.
                 Please review the information below before continuing.
               </p>
 
-              <div class="mt-8 rounded-2xl border border-red-200 bg-red-50 p-5">
-                <p class="text-sm font-semibold text-red-700">
+              <div class="mt-8 rounded-2xl border border-red-200 bg-red-50 p-5 dark:border-red-400/30 dark:bg-red-950/35">
+                <p class="text-sm font-semibold text-red-700 dark:text-red-200">
                   Permanent action
                 </p>
-                <p class="mt-2 text-sm leading-6 text-red-800">
+                <p class="mt-2 text-sm leading-6 text-red-800 dark:text-red-100">
                   If you continue, your account and associated data will be
                   permanently deleted. This action cannot be undone.
                 </p>
               </div>
 
               <div class="mt-8 grid gap-3 sm:grid-cols-2">
-                <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                <div class="rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-white/10 dark:bg-[#080b18]">
                   <p class="text-sm font-medium text-(--qwik-dirty-black)">
                     Access
                   </p>
-                  <p class="mt-2 text-sm leading-6 text-gray-700">
+                  <p class="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-300">
                     Your access will end immediately once the deletion is
                     confirmed.
                   </p>
                 </div>
 
-                <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                <div class="rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-white/10 dark:bg-[#080b18]">
                   <p class="text-sm font-medium text-(--qwik-dirty-black)">
                     Data
                   </p>
-                  <p class="mt-2 text-sm leading-6 text-gray-700">
+                  <p class="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-300">
                     Your profile and authentication account will be permanently
                     removed.
                   </p>
                 </div>
               </div>
 
-              <div class="mt-8 rounded-3xl border border-gray-200 bg-white p-5 shadow-sm">
+              <div class="mt-8 rounded-3xl border border-gray-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#080b18]">
                 <div class="mb-5 flex items-center justify-center">
-                  <span class="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-gray-500">
+                  <span class="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-gray-500 dark:border-white/10 dark:bg-[#0f1324] dark:text-gray-300">
                     Delete account
                   </span>
                 </div>

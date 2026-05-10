@@ -35,9 +35,8 @@ let shikiHighlighter: any = null;
 
 async function getShikiInstance() {
   if (!shikiHighlighter) {
-    const { getSingletonHighlighterCore, loadWasm } = await import(
-      "shiki/core-unwasm.mjs"
-    );
+    const { getSingletonHighlighterCore, loadWasm } =
+      await import("shiki/core-unwasm.mjs");
 
     const wasm = await import("shiki/wasm");
 

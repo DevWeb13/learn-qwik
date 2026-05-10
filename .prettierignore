@@ -35,3 +35,6 @@ pnpm-lock.yaml
 package-lock.json
 yarn.lock
 server
+public/downloads
+src/types/learn-qwik.database.types.ts
+supabase/.temp

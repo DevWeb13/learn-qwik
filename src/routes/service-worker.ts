@@ -11,14 +11,17 @@
 import { setupServiceWorker } from "@builder.io/qwik-city/service-worker";
 
 // Détecte les bots via le User-Agent
-const isBot = /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|ia_archiver/i.test(navigator.userAgent);
+const isBot =
+  /Googlebot|Bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|Sogou|Exabot|facebot|ia_archiver/i.test(
+    navigator.userAgent,
+  );
 
 // Si ce n'est pas un bot, configure le Service Worker
 if (!isBot) {
-    setupServiceWorker();
+  setupServiceWorker();
 
-    addEventListener("install", () => self.skipWaiting());
-    addEventListener("activate", () => self.clients.claim());
+  addEventListener("install", () => self.skipWaiting());
+  addEventListener("activate", () => self.clients.claim());
 }
 
 declare const self: ServiceWorkerGlobalScope;
@@ -32,7 +35,6 @@ declare const self: ServiceWorkerGlobalScope;
 // addEventListener("activate", () => self.clients.claim());
 
 // declare const self: ServiceWorkerGlobalScope;
-
 
 // ------------------------------------------------------------
 
