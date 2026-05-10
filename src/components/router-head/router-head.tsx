@@ -34,9 +34,7 @@ export const RouterHead = component$(() => {
       {head.scripts.map((s) => (
         <script
           key={s.key}
-          type={
-            typeof s.props?.type === "string" ? s.props.type : undefined
-          }
+          type={typeof s.props?.type === "string" ? s.props.type : undefined}
           dangerouslySetInnerHTML={s.script}
         />
       ))}

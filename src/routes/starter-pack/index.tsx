@@ -570,14 +570,14 @@ export default component$(() => {
               </div>
             </div>
 
-            <div class="rounded-[1.75rem] border border-gray-200 bg-white/90 p-5 shadow-sm backdrop-blur-sm">
+            <div class="rounded-[1.75rem] border border-gray-200 bg-white/90 p-5 shadow-sm backdrop-blur-sm dark:border-white/10 dark:bg-[#0f1324]/92 dark:shadow-[0_20px_60px_rgba(0,0,0,0.28)]">
               {hasSuccess ? (
                 <div
-                  class="rounded-3xl border border-emerald-200 bg-emerald-50/90 p-5"
+                  class="rounded-3xl border border-emerald-200 bg-emerald-50/90 p-5 dark:border-emerald-400/25 dark:bg-emerald-950/30"
                   aria-live="polite"
                 >
                   <div class="flex items-start gap-3">
-                    <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
+                    <div class="flex size-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-200">
                       <svg
                         width="20"
                         height="20"
@@ -594,20 +594,20 @@ export default component$(() => {
                     </div>
 
                     <div class="min-w-0">
-                      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-emerald-800">
+                      <p class="text-sm font-semibold uppercase tracking-[0.14em] text-emerald-800 dark:text-emerald-300">
                         Success
                       </p>
-                      <h3 class="mt-2 text-xl font-semibold text-emerald-950">
+                      <h3 class="mt-2 text-xl font-semibold text-emerald-950 dark:text-emerald-50">
                         You’re on the early access list.
                       </h3>
-                      <p class="mt-3 text-sm leading-6 text-emerald-900/85">
+                      <p class="mt-3 text-sm leading-6 text-emerald-900/85 dark:text-emerald-100/85">
                         You’ll be among the first to hear when the Learn Qwik
                         Starter Pack launches. A limited number of selected
                         users may also receive free access before public launch.
                       </p>
 
                       {successEmail && (
-                        <div class="mt-4 rounded-xl border border-emerald-200 bg-white/80 px-4 py-3 text-sm font-medium text-emerald-950">
+                        <div class="mt-4 rounded-xl border border-emerald-200 bg-white/80 px-4 py-3 text-sm font-medium text-emerald-950 dark:border-emerald-400/20 dark:bg-[#080b18] dark:text-emerald-100">
                           {successEmail}
                         </div>
                       )}

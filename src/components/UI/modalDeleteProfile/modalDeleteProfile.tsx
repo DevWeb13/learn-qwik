@@ -57,7 +57,7 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
 
           <Link
             href="/"
-            class="inline-flex w-full items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-(--qwik-dirty-black)! shadow-sm transition-all duration-200 hover:border-gray-300 hover:bg-gray-50"
+            class="inline-flex w-full items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-(--qwik-dirty-black)! shadow-sm transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 dark:border-white/10 dark:bg-[#0f1324] dark:text-gray-100! dark:hover:border-white/20 dark:hover:bg-[#171b2d]"
           >
             Cancel
           </Link>
@@ -73,11 +73,11 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
               class="absolute inset-0 bg-black/45 backdrop-blur-[2px]"
             />
 
-            <div class="relative z-10 w-full max-w-lg overflow-hidden rounded-4xl border border-red-500/10 bg-white shadow-[0_20px_60px_rgba(17,24,39,0.16)]">
-              <div class="bg-[linear-gradient(180deg,rgba(239,68,68,0.08),rgba(255,255,255,0))] p-6 md:p-7">
+            <div class="relative z-10 w-full max-w-lg overflow-hidden rounded-4xl border border-red-500/10 bg-white shadow-[0_20px_60px_rgba(17,24,39,0.16)] dark:border-red-400/20 dark:bg-[#0f1324] dark:shadow-[0_24px_80px_rgba(0,0,0,0.42)]">
+              <div class="bg-[linear-gradient(180deg,rgba(239,68,68,0.08),rgba(255,255,255,0))] p-6 dark:bg-[linear-gradient(180deg,rgba(248,113,113,0.10),rgba(15,19,36,0))] md:p-7">
                 <div class="flex items-start justify-between gap-4">
                   <div class="flex items-start gap-4">
-                    <div class="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-red-50 text-red-600">
+                    <div class="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-red-50 text-red-600 dark:bg-red-950/45 dark:text-red-200">
                       <HiExclamationTriangleOutline class="h-6 w-6 stroke-2" />
                     </div>
 
@@ -85,7 +85,7 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
                       <h2 class="text-2xl font-semibold text-(--qwik-dirty-black)">
                         Confirm account deletion
                       </h2>
-                      <p class="mt-2 text-sm leading-6 text-gray-600">
+                      <p class="mt-2 text-sm leading-6 text-gray-600 dark:text-gray-300">
                         You are about to permanently delete your Learn Qwik
                         account.
                       </p>
@@ -97,28 +97,28 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
                     aria-label="Close modal"
                     disabled={deleteProfileAction.isRunning}
                     onClick$={closeModal}
-                    class="inline-flex size-10 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-500 transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 disabled:cursor-not-allowed disabled:bg-gray-100"
+                    class="inline-flex size-10 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-white text-gray-500 transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 disabled:cursor-not-allowed disabled:bg-gray-100 dark:border-white/10 dark:bg-[#080b18] dark:text-gray-300 dark:hover:border-white/20 dark:hover:bg-[#171b2d] dark:hover:text-white dark:disabled:bg-[#171b2d]"
                   >
                     <HiXMarkOutline class="h-5 w-5 stroke-2" />
                   </button>
                 </div>
 
                 <div class="mt-6 space-y-4">
-                  <div class="rounded-2xl border border-red-200 bg-red-50 p-4">
-                    <p class="text-sm font-semibold text-red-700">
+                  <div class="rounded-2xl border border-red-200 bg-red-50 p-4 dark:border-red-400/30 dark:bg-red-950/35">
+                    <p class="text-sm font-semibold text-red-700 dark:text-red-200">
                       This action cannot be undone
                     </p>
-                    <p class="mt-2 text-sm leading-6 text-red-800">
+                    <p class="mt-2 text-sm leading-6 text-red-800 dark:text-red-100">
                       Your account, profile, and associated authentication data
                       will be permanently removed.
                     </p>
                   </div>
 
-                  <div class="rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                  <div class="rounded-2xl border border-gray-200 bg-gray-50 p-4 dark:border-white/10 dark:bg-[#080b18]">
                     <p class="text-sm font-medium text-(--qwik-dirty-black)">
                       Final confirmation
                     </p>
-                    <p class="mt-2 text-sm leading-6 text-gray-700">
+                    <p class="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-300">
                       Only continue if you are absolutely sure you want to
                       delete this account.
                     </p>
@@ -133,7 +133,7 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
                         }}
                       />
                     ) : (
-                      <p class="text-xs leading-5 text-gray-500">
+                      <p class="text-xs leading-5 text-gray-500 dark:text-gray-400">
                         Closing this window will cancel the deletion request.
                       </p>
                     )}
@@ -161,7 +161,7 @@ export const ModalDeleteProfile = component$<ModalDeleteProfileProps>(
                     type="button"
                     disabled={deleteProfileAction.isRunning}
                     onClick$={closeModal}
-                    class="inline-flex w-full items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-(--qwik-dirty-black) shadow-sm transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:bg-gray-100"
+                    class="inline-flex w-full items-center justify-center rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-(--qwik-dirty-black) shadow-sm transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:bg-gray-100 dark:border-white/10 dark:bg-[#080b18] dark:text-gray-100 dark:hover:border-white/20 dark:hover:bg-[#171b2d] dark:disabled:bg-[#171b2d]"
                   >
                     Keep my account
                   </button>

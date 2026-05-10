@@ -28,8 +28,7 @@ type LeaderboardEntry = {
   userId: string;
 };
 
-const DAILY_LEADERBOARD_URL =
-  "https://www.learn-qwik.com/daily/leaderboard/";
+const DAILY_LEADERBOARD_URL = "https://www.learn-qwik.com/daily/leaderboard/";
 const DAILY_QWIK_LAB_IMAGE_URL =
   "https://www.learn-qwik.com/metaDailyQwikLab.png";
 const DAILY_LEADERBOARD_DESCRIPTION =

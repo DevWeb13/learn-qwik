@@ -93,7 +93,7 @@ export default component$(() => {
     signUpOrLoginWithMagicLinkAction.isRunning || isMagicLinkSuccess;
 
   return (
-    <main class="relative min-h-[calc(100dvh - var(--header-height))] overflow-hidden bg-white">
+    <main class="relative min-h-[calc(100dvh-var(--header-height))] overflow-hidden bg-white dark:bg-[#080b18]">
       <div class="absolute inset-0 pointer-events-none">
         <div class="absolute left-1/2 top-0 -translate-x-1/2 opacity-90">
           <HomeBackgroundPurple />
@@ -108,8 +108,8 @@ export default component$(() => {
         <div class="relative w-full max-w-lg">
           <div class="absolute inset-0 rounded-4xl bg-(--qwik-light-purple)/15 blur-3xl" />
 
-          <div class="relative overflow-hidden rounded-4xl border border-(--qwik-dark-purple)/10 bg-white/92 p-6 shadow-[0_20px_60px_rgba(17,24,39,0.08)] backdrop-blur-sm md:p-8">
-            <div class="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(172,127,244,0.07),rgba(255,255,255,0))]" />
+          <div class="relative overflow-hidden rounded-4xl border border-(--qwik-dark-purple)/10 bg-white/92 p-6 shadow-[0_20px_60px_rgba(17,24,39,0.08)] backdrop-blur-sm dark:border-white/10 dark:bg-[#0f1324]/94 dark:shadow-[0_24px_80px_rgba(0,0,0,0.34)] md:p-8">
+            <div class="absolute inset-0 pointer-events-none bg-[linear-gradient(180deg,rgba(172,127,244,0.07),rgba(255,255,255,0))] dark:bg-[linear-gradient(180deg,rgba(196,181,253,0.10),rgba(15,19,36,0))]" />
 
             <div class="relative">
               <div class="flex items-start justify-between gap-4">
@@ -127,7 +127,7 @@ export default component$(() => {
                 </div>
               </div>
 
-              <p class="mt-3 text-sm leading-6 text-gray-600">
+              <p class="mt-3 text-sm leading-6 text-gray-600 dark:text-gray-300">
                 Continue with Google or use a Magic Link sent by email.
               </p>
 
@@ -176,10 +176,10 @@ export default component$(() => {
 
                 <div class="relative py-1">
                   <div class="absolute inset-0 flex items-center">
-                    <div class="w-full border-t border-gray-200" />
+                    <div class="w-full border-t border-gray-200 dark:border-white/10" />
                   </div>
                   <div class="relative flex justify-center">
-                    <span class="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-gray-500">
+                    <span class="rounded-full border border-gray-200 bg-white px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-gray-500 dark:border-white/10 dark:bg-[#080b18] dark:text-gray-300">
                       Or
                     </span>
                   </div>
@@ -205,14 +205,14 @@ export default component$(() => {
                       placeholder="you@example.com"
                       required
                       disabled={shouldDisableMagicLinkButton}
-                      class="block w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-(--qwik-dirty-black) shadow-sm outline-none transition-all duration-200 placeholder:text-gray-400 focus:border-(--qwik-dark-purple)/40 focus:ring-4 focus:ring-(--qwik-light-purple)/15 disabled:cursor-not-allowed disabled:bg-gray-100"
+                      class="block w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm text-(--qwik-dirty-black) shadow-sm outline-none transition-all duration-200 placeholder:text-gray-400 focus:border-(--qwik-dark-purple)/40 focus:ring-4 focus:ring-(--qwik-light-purple)/15 disabled:cursor-not-allowed disabled:bg-gray-100 dark:border-white/10 dark:bg-[#080b18] dark:text-gray-100 dark:placeholder:text-gray-500 dark:disabled:bg-[#171b2d]"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={shouldDisableMagicLinkButton}
-                    class="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-(--qwik-dirty-black) shadow-sm transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:bg-gray-100"
+                    class="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-(--qwik-dirty-black) shadow-sm transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:bg-gray-100 dark:border-white/10 dark:bg-[#080b18] dark:text-gray-100 dark:hover:border-white/20 dark:hover:bg-[#171b2d] dark:disabled:bg-[#171b2d]"
                   >
                     <ArrowRightEndOnRectangle />
                     {signUpOrLoginWithMagicLinkAction.isRunning
@@ -240,7 +240,7 @@ export default component$(() => {
                         }}
                       />
                     ) : (
-                      <p class="text-xs leading-5 text-gray-500">
+                      <p class="text-xs leading-5 text-gray-500 dark:text-gray-400">
                         You will receive an email with a link to sign in and
                         return to the app.
                       </p>
@@ -250,20 +250,20 @@ export default component$(() => {
               </div>
 
               <div class="mt-8 grid gap-3 sm:grid-cols-2">
-                <div class="rounded-xl border border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/10 p-4">
+                <div class="rounded-xl border border-(--qwik-dark-purple)/10 bg-(--qwik-light-purple)/10 p-4 dark:border-(--qwik-dark-purple)/20 dark:bg-(--qwik-dark-purple)/10">
                   <p class="text-sm font-medium text-(--qwik-dirty-black)">
                     Google
                   </p>
-                  <p class="mt-2 text-sm leading-6 text-gray-700">
+                  <p class="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-300">
                     Fastest option to sign in and continue immediately.
                   </p>
                 </div>
 
-                <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                <div class="rounded-xl border border-gray-200 bg-gray-50 p-4 dark:border-white/10 dark:bg-[#080b18]">
                   <p class="text-sm font-medium text-(--qwik-dirty-black)">
                     Magic Link
                   </p>
-                  <p class="mt-2 text-sm leading-6 text-gray-700">
+                  <p class="mt-2 text-sm leading-6 text-gray-700 dark:text-gray-300">
                     Receive an email, click the link inside, and come back
                     already connected.
                   </p>
